@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saving vs. Investing Comparison Guide - Chapter 5.1</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #F3F4F6;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .comparison-table th {
+            background-color: #6366F1;
+            color: white;
+        }
+        
+        .saving-column {
+            background-color: #DBEAFE !important;
+        }
+        
+        .investing-column {
+            background-color: #EDE9FE !important;
+        }
+        
+        .vehicle-card {
+            border: 1px solid #E5E7EB;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #F9FAFB;
+        }
+        
+        .vehicle-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .vehicle-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4F46E5;
+            margin: 0;
+        }
+        
+        .vehicle-type {
+            background-color: #EEF2FF;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            color: #4F46E5;
+        }
+        
+        .investing-tag {
+            background-color: #EDE9FE;
+            color: #7C3AED;
+        }
+        
+        .saving-tag {
+            background-color: #DBEAFE;
+            color: #2563EB;
+        }
+        
+        .vehicle-description {
+            margin-bottom: 10px;
+        }
+        
+        .vehicle-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .feature {
+            background-color: #F3F4F6;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+        }
+        
+        .decision-tree {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 5px;
+        }
+        
+        .scenario-analysis {
+            margin: 30px 0;
+        }
+        
+        .scenario {
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .scenario-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .recommendation {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .saving-rec {
+            color: #2563EB;
+        }
+        
+        .investing-rec {
+            color: #7C3AED;
+        }
+        
+        .mixed-rec {
+            color: #4F46E5;
+        }
+        
+        .timeframe-chart {
+            display: flex;
+            margin: 30px 0;
+            border: 1px solid #E5E7EB;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .timeframe {
+            padding: 15px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .short-term {
+            background-color: #DBEAFE;
+        }
+        
+        .medium-term {
+            background-color: #EDE9FE;
+        }
+        
+        .long-term {
+            background-color: #F0FDF4;
+        }
+        
+        .timeframe-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .timeframe-description {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .timeframe-strategy {
+            font-weight: bold;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend landscape orientation for tables)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Saving vs. Investing Comparison Guide</h1>
+        <p class="subtitle">Chapter 5.1: Saving and Investing</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>This guide provides a comprehensive comparison of saving and investing strategies to help you make informed financial decisions. Understanding when to save and when to invest is a fundamental skill for effective financial planning. Both approaches serve important but different purposes in your financial life.</p>
+
+    <div class="important-note">
+        <strong>Key Principle:</strong> The choice between saving and investing isn't simply about which is "better"—it's about using the right strategy for the right purpose. Your financial goals, time horizon, need for liquidity, and risk tolerance all influence whether saving, investing, or a combination approach is most appropriate for a particular goal.
+    </div>
+
+    <h2>Side-by-Side Comparison</h2>
+    <table class="comparison-table">
+        <tr>
+            <th>Feature</th>
+            <th class="saving-column">Saving</th>
+            <th class="investing-column">Investing</th>
+        </tr>
+        <tr>
+            <td><strong>Primary Purpose</strong></td>
+            <td class="saving-column">Safety and liquidity; preserving capital for near-term use</td>
+            <td class="investing-column">Growth of capital over extended periods</td>
+        </tr>
+        <tr>
+            <td><strong>Typical Timeframe</strong></td>
+            <td class="saving-column">Short-term (0-3 years)</td>
+            <td class="investing-column">Long-term (5+ years)</td>
+        </tr>
+        <tr>
+            <td><strong>Risk Level</strong></td>
+            <td class="saving-column">Low (minimal risk to principal)</td>
+            <td class="investing-column">Varies (low to high, depending on investment choices)</td>
+        </tr>
+        <tr>
+            <td><strong>Typical Returns</strong></td>
+            <td class="saving-column">Low (0.5-2% in standard accounts)</td>
+            <td class="investing-column">Moderate to high (historically 7-10% for diversified stock portfolios over long periods)</td>
+        </tr>
+        <tr>
+            <td><strong>Liquidity</strong></td>
+            <td class="saving-column">High (quick access to funds)</td>
+            <td class="investing-column">Varies (typically lower than savings accounts)</td>
+        </tr>
+        <tr>
+            <td><strong>Protection Against Inflation</strong></td>
+            <td class="saving-column">Limited (returns often below inflation rate)</td>
+            <td class="investing-column">Better potential to outpace inflation over time</td>
+        </tr>
+        <tr>
+            <td><strong>Common Vehicles</strong></td>
+            <td class="saving-column">Savings accounts, money market accounts, certificates of deposit, Treasury bills</td>
+            <td class="investing-column">Stocks, bonds, mutual funds, ETFs, real estate, retirement accounts</td>
+        </tr>
+        <tr>
+            <td><strong>Best Used For</strong></td>
+            <td class="saving-column">Emergency funds, short-term goals, upcoming expenses</td>
+            <td class="investing-column">Retirement, college funds, long-term wealth building</td>
+        </tr>
+        <tr>
+            <td><strong>Tax Considerations</strong></td>
+            <td class="saving-column">Interest is typically taxable as ordinary income</td>
+            <td class="investing-column">Various tax treatments depending on account type, holding period, and investment type</td>
+        </tr>
+    </table>
+
+    <h2>Key Financial Concepts</h2>
+    
+    <h3>Liquidity</h3>
+    <p>Liquidity refers to how quickly an asset can be converted to cash without significant loss of value. High liquidity means easy access to your money, while low liquidity means it may take time or cost money to access funds.</p>
+    <p><strong>Why it matters:</strong> For emergency funds and short-term needs, high liquidity is essential. For long-term goals, you can often accept lower liquidity in exchange for higher potential returns.</p>
+    
+    <h3>Compounding</h3>
+    <p>Compounding is the process where the returns you earn on your money also generate their own returns over time. This creates an accelerating growth curve, especially over long periods.</p>
+    <p><strong>Why it matters:</strong> Compounding is most powerful over long time horizons, making investing particularly effective for long-term goals. This is why starting early with investing—even with small amounts—can yield significant benefits.</p>
+    
+    <h3>Opportunity Cost</h3>
+    <p>Opportunity cost represents what you give up when choosing one financial option over another. For example, keeping too much money in low-yield savings accounts may mean missing out on potential growth from investments.</p>
+    <p><strong>Why it matters:</strong> Understanding opportunity cost helps you balance immediate needs (saving) with long-term growth potential (investing) to optimize your overall financial strategy.</p>
+    
+    <h3>Risk Tolerance</h3>
+    <p>Risk tolerance is your personal comfort level with the potential for losing money in exchange for the possibility of higher returns. It's influenced by your financial situation, time horizon, and psychological factors.</p>
+    <p><strong>Why it matters:</strong> Your risk tolerance should influence how you allocate funds between saving and investing, as well as what types of investments you choose.</p>
+    
+    <h3>Diversification</h3>
+    <p>Diversification involves spreading your money across different types of assets to reduce overall risk. It's based on the principle that not all asset types perform the same way at the same time.</p>
+    <p><strong>Why it matters:</strong> Proper diversification can help manage risk in your investment portfolio without necessarily reducing potential returns.</p>
+
+    <h2>Timeframe Considerations</h2>
+    
+    <div class="timeframe-chart">
+        <div class="timeframe short-term">
+            <div class="timeframe-title">Short-Term<br>(0-2 years)</div>
+            <div class="timeframe-description">Goals in the near future that require certainty of funds being available</div>
+            <div class="timeframe-strategy">Primary Strategy:<br>SAVING</div>
+        </div>
+        
+        <div class="timeframe medium-term">
+            <div class="timeframe-title">Medium-Term<br>(2-5 years)</div>
+            <div class="timeframe-description">Goals that allow some time for growth but still need moderate stability</div>
+            <div class="timeframe-strategy">Primary Strategy:<br>COMBINATION</div>
+        </div>
+        
+        <div class="timeframe long-term">
+            <div class="timeframe-title">Long-Term<br>(5+ years)</div>
+            <div class="timeframe-description">Goals far in the future that can withstand market fluctuations</div>
+            <div class="timeframe-strategy">Primary Strategy:<br>INVESTING</div>
+        </div>
+    </div>
+    
+    <p><strong>Short-Term Timeframes (0-2 years)</strong> typically call for saving strategies because:</p>
+    <ul>
+        <li>You need certainty that funds will be available when needed</li>
+        <li>Protection of principal is more important than growth</li>
+        <li>There's not enough time to recover from market downturns</li>
+        <li>Liquidity needs are usually high</li>
+    </ul>
+    
+    <p><strong>Medium-Term Timeframes (2-5 years)</strong> often benefit from a combined approach:</p>
+    <ul>
+        <li>Some portion in safe, liquid savings for stability</li>
+        <li>Some portion in conservative investments for modest growth potential</li>
+        <li>Balance shifts more toward saving as the goal approaches</li>
+        <li>Consider conservative investment options like short-term bonds or balanced funds</li>
+    </ul>
+    
+    <p><strong>Long-Term Timeframes (5+ years)</strong> are generally better suited for investing because:</p>
+    <ul>
+        <li>Longer time horizon allows riding out market volatility</li>
+        <li>Compounding has more time to work its magic</li>
+        <li>Greater opportunity to outpace inflation</li>
+        <li>Historical data shows investments typically outperform savings over long periods</li>
+    </ul>
+
+    <h2>Common Financial Vehicles</h2>
+    
+    <h3>Saving Vehicles</h3>
+    
+    <div class="vehicle-card">
+        <div class="vehicle-header">
+            <h4 class="vehicle-title">Regular Savings Account</h4>
+            <span class="vehicle-type saving-tag">Saving</span>
+        </div>
+        <div class="vehicle-description">
+            <p>A basic bank account that pays interest on deposits while allowing easy access to funds.</p>
+        </div>
+        <p><strong>Typical Return:</strong> 0.01-0.1%</p>
+        <p><strong>Best For:</strong> Daily expenses, immediate accessibility</p>
+        <div class="vehicle-features">
+            <span class="feature">High Liquidity</span>
+            <span class="feature">FDIC Insured</span>
+            <span class="feature">Low Return</span>
+            <span class="feature">No Penalties</span>
+        </div>
+    </div>
+    
+    <div class="vehicle-card">
+        <div class="vehicle-header">
+            <h4 class="vehicle-title">High-Yield Savings Account</h4>
+            <span class="vehicle-type saving-tag">Saving</span>
+        </div>
+        <div class="vehicle-description">
+            <p>Similar to regular savings accounts but offers higher interest rates, often through online banks with lower overhead costs.</p>
+        </div>
+        <p><strong>Typical Return:</strong> 0.5-4% (varies with market conditions)</p>
+        <p><strong>Best For:</strong> Emergency funds, short-term goals, ongoing savings</p>
+        <div class="vehicle-features">
+            <span class="feature">High Liquidity</span>
+            <span class="feature">FDIC Insured</span>
+            <span class="feature">Better Returns</span>
+            <span class="feature">May Have Minimum Balance</span>
+        </div>
+    </div>
+    
+    <div class="vehicle-card">
+        <div class="vehicle-header">
+            <h4 class="vehicle-title">Certificate of Deposit (CD)</h4>
+            <span class="vehicle-type saving-tag">Saving</span>
+        </div>
+        <div class="vehicle-description">
+            <p>A time deposit that restricts access to funds for a fixed period in exchange for a guaranteed interest rate, typically higher than savings accounts.</p>
+        </div>
+        <p><strong>Typical Return:</strong> 0.5-5% (depends on term length and market conditions)</p>
+        <p><strong>Best For:</strong> Funds not needed until a specific future date</p>
+        <div class="vehicle-features">
+            <span class="feature">Low Liquidity</span>
+            <span class="feature">FDIC Insured</span>
+            <span class="feature">Fixed Rate</span>
+            <span class="feature">Early Withdrawal Penalties</span>
+        </div>
+    </div>
+    
+    <div class="vehicle-card">
+        <div class="vehicle-header">
+            <h4 class="vehicle-title">Money Market Account</h4>
+            <span class="vehicle-type saving-tag">Saving</span>
+        </div>
+        <div class="vehicle-description">
+            <p>A hybrid between checking and savings accounts, offering higher interest rates than regular savings while maintaining check-writing privileges.</p>
+        </div>
+        <p><strong>Typical Return:</strong> 0.1-2% (varies with market conditions)</p>
+        <p><strong>Best For:</strong> Emergency funds, liquid savings with some return</p>
+        <div class="vehicle-features">
+            <span class="feature">High Liquidity</span>
+            <span class="feature">FDIC Insured</span>
+            <span class="feature">Check Writing</span>
+            <span class="feature">Higher Minimum Balance</span>
+        </div>
+    </div>
+    
+    <h3>Investing Vehicles</h3>
+    
+    <div class="vehicle-card">
+        <div class="vehicle-header">
+            <h4 class="vehicle-title">Individual Stocks</h4>
+            <span class="vehicle-type investing-tag">Investing</span>
+        </div>
+        <div class="vehicle-description">
+            <p>Shares of ownership in individual companies, allowing you to participate in the company's growth and sometimes receive dividend payments.</p>
+        </div>
+        <p><strong>Typical Return:</strong> Highly variable (potentially -50% to +50% or more in a single year)</p>
+        <p><strong>Best For:</strong> Long-term growth as part of a diversified portfolio</p>
+        <div class="vehicle-features">
+            <span class="feature">Medium Liquidity</span>
+            <span class="feature">No Insurance</span>
+            <span class="feature">High Risk (Individual)</span>
+            <span class="feature">Growth Potential</span>
+        </div>
+    </div>
+    
+    <div class="vehicle-card">
+        <div class="vehicle-header">
+            <h4 class="vehicle-title">Bonds</h4>
+            <span class="vehicle-type investing-tag">Investing</span>
+        </div>
+        <div class="vehicle-description">
+            <p>Debt securities where you lend money to an entity (government, municipality, corporation) in exchange for regular interest payments and return of principal at maturity.</p>
+        </div>
+        <p><strong>Typical Return:</strong> 2-5% for government bonds, 3-7% for corporate bonds (varies)</p>
+        <p><strong>Best For:</strong> Income generation, portfolio stability, medium-term goals</p>
+        <div class="vehicle-features">
+            <span class="feature">Medium Liquidity</span>
+            <span class="feature">Lower Risk than Stocks</span>
+            <span class="feature">Fixed Income</span>
+            <span class="feature">Interest Rate Sensitivity</span>
+        </div>
+    </div>
+    
+    <div class="vehicle-card">
+        <div class="vehicle-header">
+            <h4 class="vehicle-title">Mutual Funds</h4>
+            <span class="vehicle-type investing-tag">Investing</span>
+        </div>
+        <div class="vehicle-description">
+            <p>Pooled investments managed by professionals that allow you to own a diversified portfolio of stocks, bonds, or other securities with a single purchase.</p>
+        </div>
+        <p><strong>Typical Return:</strong> Varies by fund type (Stock funds: 7-10% long-term average; Bond funds: 3-5%; Balanced funds: 5-7%)</p>
+        <p><strong>Best For:</strong> Diversified investing with professional management</p>
+        <div class="vehicle-features">
+            <span class="feature">Good Liquidity</span>
+            <span class="feature">Professional Management</span>
+            <span class="feature">Automatic Diversification</span>
+            <span class="feature">Management Fees</span>
+        </div>
+    </div>
+    
+    <div class="vehicle-card">
+        <div class="vehicle-header">
+            <h4 class="vehicle-title">Index Funds & ETFs</h4>
+            <span class="vehicle-type investing-tag">Investing</span>
+        </div>
+        <div class="vehicle-description">
+            <p>Passively managed funds that track specific market indexes (like the S&P 500), offering broad market exposure with typically lower fees than actively managed funds.</p>
+        </div>
+        <p><strong>Typical Return:</strong> Matches the underlying index (S&P 500 historical average: ~10% before inflation)</p>
+        <p><strong>Best For:</strong> Long-term, low-cost, diversified market exposure</p>
+        <div class="vehicle-features">
+            <span class="feature">Good Liquidity (especially ETFs)</span>
+            <span class="feature">Low Fees</span>
+            <span class="feature">Broad Diversification</span>
+            <span class="feature">Passive Strategy</span>
+        </div>
+    </div>
+    
+    <div class="vehicle-card">
+        <div class="vehicle-header">
+            <h4 class="vehicle-title">Retirement Accounts (401(k), IRA)</h4>
+            <span class="vehicle-type investing-tag">Investing</span>
+        </div>
+        <div class="vehicle-description">
+            <p>Tax-advantaged accounts specifically designed for retirement savings. These are not investments themselves but containers that hold various investments with special tax benefits.</p>
+        </div>
+        <p><strong>Typical Return:</strong> Depends on the investments chosen within the account</p>
+        <p><strong>Best For:</strong> Long-term retirement savings</p>
+        <div class="vehicle-features">
+            <span class="feature">Limited Liquidity</span>
+            <span class="feature">Tax Advantages</span>
+            <span class="feature">Potential Employer Match (401k)</span>
+            <span class="feature">Early Withdrawal Penalties</span>
+        </div>
+    </div>
+
+    <h2>Scenario-Based Decision Making</h2>
+    <p>The following scenarios demonstrate how to apply saving and investing principles to specific financial situations.</p>
+    
+    <div class="scenario-analysis">
+        <div class="scenario">
+            <div class="scenario-title">Scenario 1: Emergency Fund</div>
+            <p><strong>Goal:</strong> Create a financial safety net for unexpected expenses</p>
+            <p><strong>Timeframe:</strong> Immediate access needed at any time</p>
+            <p><strong>Key Considerations:</strong> Need for high liquidity, stability of principal, quick accessibility</p>
+            <div class="recommendation saving-rec">Recommendation: SAVING (High-yield savings account)</div>
+            <p><strong>Rationale:</strong> Emergency funds require immediate accessibility and protection of principal. The primary goal is not growth but having funds available when needed. High-yield savings accounts offer better returns than regular savings while maintaining full liquidity and FDIC insurance.</p>
+        </div>
+        
+        <div class="scenario">
+            <div class="scenario-title">Scenario 2: Saving for a Car in 18 Months</div>
+            <p><strong>Goal:</strong> Save $10,000 for a used car purchase</p>
+            <p><strong>Timeframe:</strong> 18 months (short-term)</p>
+            <p><strong>Key Considerations:</strong> Specific timeline, need for certainty, relatively short timeframe</p>
+            <div class="recommendation saving-rec">Recommendation: SAVING (High-yield savings account or short-term CD)</div>
+            <p><strong>Rationale:</strong> With a specific purchase planned in the near future, the priority is ensuring the full amount is available when needed. Market volatility in investments could compromise this goal. A high-yield savings account offers accessibility, while a CD maturing just before the purchase date might provide slightly higher returns if the timeline is firm.</p>
+        </div>
+        
+        <div class="scenario">
+            <div class="scenario-title">Scenario 3: Saving for a Home Down Payment in 4 Years</div>
+            <p><strong>Goal:</strong> Save $30,000 for a home down payment</p>
+            <p><strong>Timeframe:</strong> 4 years (medium-term)</p>
+            <p><strong>Key Considerations:</strong> Moderate time horizon, specific goal amount, balance between growth and security</p>
+            <div class="recommendation mixed-rec">Recommendation: COMBINATION APPROACH</div>
+            <p><strong>Rationale:</strong> With a four-year timeframe, a combined approach might be appropriate. A portion (perhaps 50-70%) could remain in high-yield savings for security, while the remainder could be invested in conservative, low-volatility options like short-term bond funds or balanced funds. As the purchase date approaches, gradually shift more funds to savings for certainty.</p>
+        </div>
+        
+        <div class="scenario">
+            <div class="scenario-title">Scenario 4: College Fund for a Newborn</div>
+            <p><strong>Goal:</strong> Build a college fund for a child who just turned one year old</p>
+            <p><strong>Timeframe:</strong> 17 years (long-term)</p>
+            <p><strong>Key Considerations:</strong> Long time horizon, education-specific goal, tax implications</p>
+            <div class="recommendation investing-rec">Recommendation: INVESTING (529 College Savings Plan or other education-focused investment account)</div>
+            <p><strong>Rationale:</strong> With 17 years until funds are needed, investing offers significant growth potential through compounding. A 529 plan provides tax advantages specifically for education expenses and can be invested in age-based portfolios that automatically become more conservative as college approaches. The long timeframe allows for riding out market fluctuations while benefiting from potential higher returns.</p>
+        </div>
+        
+        <div class="scenario">
+            <div class="scenario-title">Scenario 5: Retirement Planning for a 25-Year-Old</div>
+            <p><strong>Goal:</strong> Build retirement savings</p>
+            <p><strong>Timeframe:</strong> 40+ years (very long-term)</p>
+            <p><strong>Key Considerations:</strong> Very long time horizon, tax advantages, power of compounding</p>
+            <div class="recommendation investing-rec">Recommendation: INVESTING (401(k), IRA, or other retirement accounts)</div>
+            <p><strong>Rationale:</strong> With a 40+ year timeline, investing is clearly the appropriate strategy. The very long timeframe maximizes the power of compounding and provides ample time to weather market volatility. Tax-advantaged retirement accounts offer additional benefits. At this age and timeframe, a higher allocation to stocks is typically recommended to maximize growth potential, gradually shifting to more conservative allocations as retirement approaches.</p>
+        </div>
+    </div>
+
+    <h2>Decision Framework</h2>
+    <p>When deciding between saving and investing, ask yourself these key questions:</p>
+    
+    <div class="decision-tree">
+        <ol>
+            <li><strong>When will I need the money?</strong>
+                <ul>
+                    <li>Less than 2 years → Likely saving</li>
+                    <li>2-5 years → Possibly combination approach</li>
+                    <li>More than 5 years → Likely investing</li>
+                </ul>
+            </li>
+            <li><strong>What is the purpose of these funds?</strong>
+                <ul>
+                    <li>Emergency fund → Saving</li>
+                    <li>Specific near-term purchase → Saving</li>
+                    <li>Long-term growth (retirement, education, wealth building) → Investing</li>
+                </ul>
+            </li>
+            <li><strong>How important is liquidity for this goal?</strong>
+                <ul>
+                    <li>Need immediate access → Saving</li>
+                    <li>Can tolerate some access delays → May consider investing</li>
+                </ul>
+            </li>
+            <li><strong>What is my personal risk tolerance?</strong>
+                <ul>
+                    <li>Very low risk tolerance → More emphasis on saving, even for longer-term goals</li>
+                    <li>Moderate to high risk tolerance → More comfortable with appropriate investing</li>
+                </ul>
+            </li>
+            <li><strong>What is the opportunity cost of my choice?</strong>
+                <ul>
+                    <li>Consider what growth potential you might be giving up by saving instead of investing (for long-term goals)</li>
+                    <li>Consider what security you might be sacrificing by investing instead of saving (for short-term needs)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Building a Balanced Financial Strategy</h2>
+    <p>A comprehensive financial plan typically includes both saving and investing components, working together to meet different needs and goals.</p>
+    
+    <h3>Sample Financial Structure</h3>
+    <ol>
+        <li><strong>Emergency Fund (Saving)</strong>: 3-6 months of essential expenses in a high-yield savings account</li>
+        <li><strong>Short-Term Goals (Saving)</strong>: Funds for planned expenses within 1-2 years in appropriate savings vehicles</li>
+        <li><strong>Medium-Term Goals (Combination)</strong>: Goals 2-5 years away with a balanced approach of saving and conservative investing</li>
+        <li><strong>Long-Term Goals (Investing)</strong>: Retirement, college funds, and other distant goals in appropriate investment vehicles</li>
+    </ol>
+    
+    <div class="important-note">
+        <strong>A Balanced Approach:</strong> Remember that saving and investing complement each other in a well-rounded financial plan. Saving provides stability and liquidity for near-term needs, while investing offers growth potential for long-term goals. Most people benefit from incorporating both strategies in appropriate proportions based on their specific circumstances and goals.
+    </div>
+
+    <footer>
+        <p>PFL Academy - Chapter 5.1: Saving and Investing</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not financial advice.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Bank Statement</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        .bank-header {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .bank-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .statement-info {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        .account-summary {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border: 1px solid #d1e7f0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .transaction-table th {
+            background-color: #e8f4f8;
+        }
+        .fee {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .credit {
+            color: #27ae60;
+        }
+        .debit {
+            color: #e74c3c;
+        }
+        .balance {
+            font-weight: bold;
+        }
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border: 1px solid #cce5ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        @media print {
+            .print-instructions {
+                display: none;
+            }
+            body {
+                font-size: 12pt;
+            }
+            table {
+                font-size: 10pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <strong>Printing Instructions:</strong>
+        <p>To save this document as a PDF or print it:</p>
+        <ol>
+            <li>Press Ctrl+P (Windows) or Cmd+P (Mac)</li>
+            <li>Select "Save as PDF" or your printer</li>
+            <li>Click "Save" or "Print"</li>
+        </ol>
+    </div>
+
+    <div class="bank-header">
+        <div class="bank-logo">FIRST NATIONAL BANK</div>
+        <div>Member FDIC</div>
+    </div>
+
+    <div class="statement-info">
+        <h2>Account Statement</h2>
+        <p><strong>Account Holder:</strong> Jordan Smith</p>
+        <p><strong>Account Number:</strong> XXXX-XXXX-1234</p>
+        <p><strong>Statement Period:</strong> May 1, 2025 - May 31, 2025</p>
+        <p><strong>Customer Service:</strong> 1-800-555-1234</p>
+    </div>
+
+    <div class="account-summary">
+        <h3>Account Summary</h3>
+        <table>
+            <tr>
+                <td><strong>Beginning Balance:</strong></td>
+                <td class="balance">$1,250.00</td>
+            </tr>
+            <tr>
+                <td><strong>Total Deposits and Credits:</strong></td>
+                <td class="credit">+$1,950.00</td>
+            </tr>
+            <tr>
+                <td><strong>Total Withdrawals and Debits:</strong></td>
+                <td class="debit">-$1,735.45</td>
+            </tr>
+            <tr>
+                <td><strong>Total Fees:</strong></td>
+                <td class="fee">-$39.00</td>
+            </tr>
+            <tr>
+                <td><strong>Ending Balance:</strong></td>
+                <td class="balance">$1,425.55</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>Transaction History</h3>
+    <table class="transaction-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Check No.</th>
+                <th>Amount</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Starting balance -->
+            <tr>
+                <td>05/01/2025</td>
+                <td><strong>Beginning Balance</strong></td>
+                <td></td>
+                <td></td>
+                <td class="balance">$1,250.00</td>
+            </tr>
+            
+            <!-- Regular transactions -->
+            <tr>
+                <td>05/01/2025</td>
+                <td>Check - Rent Payment</td>
+                <td>101</td>
+                <td class="debit">-$750.00</td>
+                <td>$500.00</td>
+            </tr>
+            <tr>
+                <td>05/02/2025</td>
+                <td>DIRECT DEPOSIT - CENTRAL CITY COFFEE</td>
+                <td></td>
+                <td class="credit">+$850.00</td>
+                <td>$1,350.00</td>
+            </tr>
+            <tr>
+                <td>05/03/2025</td>
+                <td>POS PURCHASE - GROCERY MART</td>
+                <td></td>
+                <td class="debit">-$87.35</td>
+                <td>$1,262.65</td>
+            </tr>
+            <tr>
+                <td>05/05/2025</td>
+                <td>ATM WITHDRAWAL - FIRST NATIONAL ATM</td>
+                <td></td>
+                <td class="debit">-$60.00</td>
+                <td>$1,202.65</td>
+            </tr>
+            <tr>
+                <td>05/07/2025</td>
+                <td>POS PURCHASE - GASOLINE EXPRESS</td>
+                <td></td>
+                <td class="debit">-$45.75</td>
+                <td>$1,156.90</td>
+            </tr>
+            <tr>
+                <td>05/09/2025</td>
+                <td>ONLINE PAYMENT - CELL PHONE BILL</td>
+                <td></td>
+                <td class="debit">-$85.99</td>
+                <td>$1,070.91</td>
+            </tr>
+            <tr>
+                <td>05/10/2025</td>
+                <td>CHECK - INSURANCE PAYMENT</td>
+                <td>102</td>
+                <td class="debit">-$125.50</td>
+                <td>$945.41</td>
+            </tr>
+            <tr>
+                <td>05/12/2025</td>
+                <td>ATM WITHDRAWAL - CORNER MART ATM</td>
+                <td></td>
+                <td class="debit">-$40.00</td>
+                <td>$905.41</td>
+            </tr>
+            <tr class="fee">
+                <td>05/12/2025</td>
+                <td>ATM FEE - OUT OF NETWORK</td>
+                <td></td>
+                <td class="fee">-$3.50</td>
+                <td>$901.91</td>
+            </tr>
+            <tr>
+                <td>05/15/2025</td>
+                <td>POS PURCHASE - BOOKSTORE</td>
+                <td></td>
+                <td class="debit">-$24.99</td>
+                <td>$876.92</td>
+            </tr>
+            <tr>
+                <td>05/16/2025</td>
+                <td>DIRECT DEPOSIT - CENTRAL CITY COFFEE</td>
+                <td></td>
+                <td class="credit">+$850.00</td>
+                <td>$1,726.92</td>
+            </tr>
+            <tr>
+                <td>05/18/2025</td>
+                <td>POS PURCHASE - RESTAURANT</td>
+                <td></td>
+                <td class="debit">-$35.45</td>
+                <td>$1,691.47</td>
+            </tr>
+            <tr>
+                <td>05/20/2025</td>
+                <td>CHECK - UTILITY BILL</td>
+                <td>103</td>
+                <td class="debit">-$78.90</td>
+                <td>$1,612.57</td>
+            </tr>
+            <tr>
+                <td>05/21/2025</td>
+                <td>MOBILE DEPOSIT</td>
+                <td></td>
+                <td class="credit">+$250.00</td>
+                <td>$1,862.57</td>
+            </tr>
+            <tr>
+                <td>05/22/2025</td>
+                <td>POS PURCHASE - CLOTHING STORE</td>
+                <td></td>
+                <td class="debit">-$129.65</td>
+                <td>$1,732.92</td>
+            </tr>
+            <tr>
+                <td>05/24/2025</td>
+                <td>POS PURCHASE - GROCERY MART</td>
+                <td></td>
+                <td class="debit">-$92.87</td>
+                <td>$1,640.05</td>
+            </tr>
+            <tr>
+                <td>05/25/2025</td>
+                <td>ONLINE TRANSFER TO SAVINGS</td>
+                <td></td>
+                <td class="debit">-$100.00</td>
+                <td>$1,540.05</td>
+            </tr>
+            <tr>
+                <td>05/27/2025</td>
+                <td>POS PURCHASE - ELECTRONICS STORE</td>
+                <td></td>
+                <td class="debit">-$79.00</td>
+                <td>$1,461.05</td>
+            </tr>
+            <tr class="fee">
+                <td>05/29/2025</td>
+                <td>MONTHLY MAINTENANCE FEE</td>
+                <td></td>
+                <td class="fee">-$12.00</td>
+                <td>$1,449.05</td>
+            </tr>
+            <tr>
+                <td>05/30/2025</td>
+                <td>OVERDRAFT TRANSFER FROM SAVINGS</td>
+                <td></td>
+                <td class="credit">+$0.00</td>
+                <td>$1,449.05</td>
+            </tr>
+            <tr class="fee">
+                <td>05/30/2025</td>
+                <td>OVERDRAFT TRANSFER FEE</td>
+                <td></td>
+                <td class="fee">-$12.50</td>
+                <td>$1,436.55</td>
+            </tr>
+            <tr class="fee">
+                <td>05/31/2025</td>
+                <td>PAPER STATEMENT FEE</td>
+                <td></td>
+                <td class="fee">-$11.00</td>
+                <td>$1,425.55</td>
+            </tr>
+            
+            <!-- Ending balance -->
+            <tr>
+                <td>05/31/2025</td>
+                <td><strong>Ending Balance</strong></td>
+                <td></td>
+                <td></td>
+                <td class="balance">$1,425.55</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note">
+        <h3>Important Information</h3>
+        <p><strong>Fee Summary:</strong></p>
+        <ul>
+            <li>ATM Fee (Out of Network): $3.50</li>
+            <li>Monthly Maintenance Fee: $12.00</li>
+            <li>Overdraft Transfer Fee: $12.50</li>
+            <li>Paper Statement Fee: $11.00</li>
+            <li><strong>Total Fees: $39.00</strong></li>
+        </ul>
+        
+        <p><strong>Ways to Avoid Fees:</strong></p>
+        <ul>
+            <li>Maintain a minimum daily balance of $1,500 to waive the Monthly Maintenance Fee</li>
+            <li>Use First National Bank ATMs to avoid out-of-network ATM fees</li>
+            <li>Sign up for Overdraft Protection with no transfer fees</li>
+            <li>Enroll in paperless statements to avoid the Paper Statement Fee</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <h3>Educational Notes</h3>
+        <p>This is a sample bank statement created for educational purposes. In this statement:</p>
+        <ul>
+            <li>Fees are highlighted in red to make them easier to identify</li>
+            <li>Multiple transaction types are shown (checks, ATM withdrawals, POS purchases, etc.)</li>
+            <li>The statement includes a beginning and ending balance</li>
+            <li>Information about fee avoidance is included</li>
+        </ul>
+        <p>When reconciling your own bank statement, look for:</p>
+        <ul>
+            <li>Transactions you don't recognize (potential fraud)</li>
+            <li>Unexpected fees</li>
+            <li>Errors in the reported amounts</li>
+            <li>Checks or deposits that haven't yet cleared</li>
+        </ul>
+    </div>
+</body>
+</html>

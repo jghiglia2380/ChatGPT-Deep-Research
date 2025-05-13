@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Forms Reference Guide - Chapter 2.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #F3F4F6;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .form-image {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend landscape orientation for some tables)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Tax Forms Reference Guide</h1>
+        <p class="subtitle">Chapter 2.3: Understanding Tax Filing Requirements</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>This reference guide provides an overview of common tax forms you may encounter when filing taxes. Understanding these forms and their purposes is essential for determining tax filing requirements and completing your tax return accurately.</p>
+
+    <div class="important-note">
+        <strong>Important:</strong> Tax forms and requirements may change from year to year. Always verify current forms and requirements on the official IRS website at <a href="https://www.irs.gov">www.irs.gov</a>.
+    </div>
+
+    <h2>Information Returns (Forms You Receive)</h2>
+    <p>These forms are prepared by employers, financial institutions, and other entities to report income, deductions, and credits. You'll receive these forms and use the information to prepare your tax return.</p>
+
+    <table>
+        <tr>
+            <th>Form</th>
+            <th>Purpose</th>
+            <th>Who Issues It</th>
+            <th>Key Information</th>
+            <th>When To Expect It</th>
+        </tr>
+        <tr>
+            <td>W-2</td>
+            <td>Reports wages, salary, and tax withholding</td>
+            <td>Employers</td>
+            <td>
+                <ul>
+                    <li>Box 1: Wages, tips, other compensation</li>
+                    <li>Box 2: Federal income tax withheld</li>
+                    <li>Boxes 3-4: Social Security wages and tax</li>
+                    <li>Boxes 5-6: Medicare wages and tax</li>
+                </ul>
+            </td>
+            <td>By January 31</td>
+        </tr>
+        <tr>
+            <td>1099-NEC</td>
+            <td>Reports nonemployee compensation (self-employment income)</td>
+            <td>Businesses that paid you as an independent contractor</td>
+            <td>
+                <ul>
+                    <li>Box 1: Nonemployee compensation</li>
+                    <li>Box 4: Federal income tax withheld (if any)</li>
+                </ul>
+            </td>
+            <td>By January 31</td>
+        </tr>
+        <tr>
+            <td>1099-MISC</td>
+            <td>Reports miscellaneous income (rents, royalties, prizes, etc.)</td>
+            <td>Businesses that paid you for certain services</td>
+            <td>
+                <ul>
+                    <li>Various boxes for different types of income</li>
+                    <li>Box 4: Federal income tax withheld (if any)</li>
+                </ul>
+            </td>
+            <td>By January 31</td>
+        </tr>
+        <tr>
+            <td>1099-INT</td>
+            <td>Reports interest income</td>
+            <td>Banks and financial institutions</td>
+            <td>
+                <ul>
+                    <li>Box 1: Interest income</li>
+                    <li>Box 3: Interest on U.S. Savings Bonds and Treasury obligations</li>
+                    <li>Box 4: Federal income tax withheld (if any)</li>
+                </ul>
+            </td>
+            <td>By January 31</td>
+        </tr>
+        <tr>
+            <td>1099-DIV</td>
+            <td>Reports dividend income and distributions</td>
+            <td>Investment companies, banks</td>
+            <td>
+                <ul>
+                    <li>Box 1a: Total ordinary dividends</li>
+                    <li>Box 1b: Qualified dividends</li>
+                    <li>Box 2a: Total capital gain distributions</li>
+                </ul>
+            </td>
+            <td>By January 31</td>
+        </tr>
+        <tr>
+            <td>1098-T</td>
+            <td>Reports tuition payments and scholarships</td>
+            <td>Educational institutions</td>
+            <td>
+                <ul>
+                    <li>Box 1: Payments received for qualified tuition and related expenses</li>
+                    <li>Box 5: Scholarships or grants</li>
+                </ul>
+            </td>
+            <td>By January 31</td>
+        </tr>
+    </table>
+
+    <h2>Tax Return Forms (Forms You Submit)</h2>
+    <p>These are the forms you fill out and submit to the IRS to report your income, calculate your tax liability, and claim deductions and credits.</p>
+
+    <table>
+        <tr>
+            <th>Form</th>
+            <th>Purpose</th>
+            <th>Who Uses It</th>
+            <th>Key Sections</th>
+        </tr>
+        <tr>
+            <td>Form 1040</td>
+            <td>The main individual tax return form</td>
+            <td>All individual taxpayers</td>
+            <td>
+                <ul>
+                    <li>Filing status</li>
+                    <li>Dependents</li>
+                    <li>Income</li>
+                    <li>Standard or itemized deductions</li>
+                    <li>Tax calculation</li>
+                    <li>Credits</li>
+                    <li>Refund or amount owed</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Schedule 1</td>
+            <td>Additional Income and Adjustments to Income</td>
+            <td>Taxpayers with business income, unemployment, alimony, etc.</td>
+            <td>
+                <ul>
+                    <li>Business income</li>
+                    <li>Unemployment compensation</li>
+                    <li>Student loan interest deduction</li>
+                    <li>Health Savings Account deduction</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Schedule C</td>
+            <td>Profit or Loss From Business</td>
+            <td>Self-employed individuals and independent contractors</td>
+            <td>
+                <ul>
+                    <li>Business income</li>
+                    <li>Business expenses</li>
+                    <li>Net profit or loss</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Schedule EIC</td>
+            <td>Earned Income Credit</td>
+            <td>Low to moderate-income workers</td>
+            <td>
+                <ul>
+                    <li>Information about qualifying children</li>
+                    <li>Earned Income Credit calculations</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Form 8863</td>
+            <td>Education Credits</td>
+            <td>Students or parents paying for education</td>
+            <td>
+                <ul>
+                    <li>American Opportunity Credit</li>
+                    <li>Lifetime Learning Credit</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Understanding Form W-2 in Detail</h2>
+    <p>Form W-2 is one of the most common tax forms for students and young adults. Understanding its key boxes is essential.</p>
+
+    <h3>Key Boxes on Form W-2</h3>
+    <ul>
+        <li><strong>Box 1: Wages, Tips, Other Compensation</strong> - Your total taxable wages for the year. This is the starting point for your income on your tax return.</li>
+        <li><strong>Box 2: Federal Income Tax Withheld</strong> - The amount your employer withheld for federal income taxes throughout the year.</li>
+        <li><strong>Box 3: Social Security Wages</strong> - Amount of wages subject to Social Security tax (may differ from Box 1).</li>
+        <li><strong>Box 4: Social Security Tax Withheld</strong> - Amount withheld for Social Security tax (typically 6.2% of Box 3 wages).</li>
+        <li><strong>Box 5: Medicare Wages and Tips</strong> - Amount of wages subject to Medicare tax.</li>
+        <li><strong>Box 6: Medicare Tax Withheld</strong> - Amount withheld for Medicare tax (typically 1.45% of Box 5 wages).</li>
+        <li><strong>Box 12: Various Codes</strong> - Reports additional tax information with specific codes (examples include retirement plan contributions, health insurance premiums, etc.).</li>
+        <li><strong>Box 13: Retirement Plan, Third-Party Sick Pay, Statutory Employee</strong> - Checkboxes for special tax situations.</li>
+        <li><strong>Box 15-20: State and Local Tax Information</strong> - Information about state and local taxes withheld and wages subject to state/local taxes.</li>
+    </ul>
+
+    <h2>Understanding Form 1040 in Detail</h2>
+    <p>Form 1040 is the main tax return form that consolidates all your tax information.</p>
+
+    <h3>Key Sections of Form 1040</h3>
+    <ul>
+        <li><strong>Filing Status</strong> - Your tax filing status (Single, Married Filing Jointly, Married Filing Separately, Head of Household, or Qualifying Widow(er)).</li>
+        <li><strong>Dependents</strong> - Information about dependents you're claiming.</li>
+        <li><strong>Income</strong> - All sources of income, including wages, interest, dividends, retirement distributions, Social Security benefits, etc.</li>
+        <li><strong>Adjusted Gross Income (AGI)</strong> - Your total income minus certain adjustments (student loan interest, health savings account contributions, etc.).</li>
+        <li><strong>Tax and Credits</strong> - Calculation of your tax liability and application of tax credits.</li>
+        <li><strong>Payments</strong> - Tax you've already paid through withholding or estimated payments.</li>
+        <li><strong>Refund or Amount You Owe</strong> - The final calculation showing whether you'll receive a refund or need to pay additional tax.</li>
+    </ul>
+
+    <h2>Form Relationships and Flow</h2>
+    <p>Understanding how forms relate to each other helps make sense of the tax filing process:</p>
+
+    <ol>
+        <li><strong>Information Gathering</strong>: You receive information returns (W-2s, 1099s, etc.) from various sources reporting your income and deductions.</li>
+        <li><strong>Form Selection</strong>: Based on your situation, you determine which tax return forms you need (Form 1040 and any necessary schedules).</li>
+        <li><strong>Information Transfer</strong>: You transfer information from your information returns to your tax return forms.</li>
+        <li><strong>Calculations</strong>: You perform calculations or use tax software to determine your tax liability.</li>
+        <li><strong>Submission</strong>: You submit your completed tax return forms to the IRS.</li>
+    </ol>
+
+    <h2>When Each Form Is Used</h2>
+    <p>Here's a quick reference for determining which schedules and forms you might need based on your situation:</p>
+
+    <table>
+        <tr>
+            <th>If You Have...</th>
+            <th>You'll Need...</th>
+        </tr>
+        <tr>
+            <td>Only W-2 income with simple tax situation</td>
+            <td>Form 1040</td>
+        </tr>
+        <tr>
+            <td>Self-employment/freelance income</td>
+            <td>Form 1040, Schedule 1, Schedule C, Schedule SE</td>
+        </tr>
+        <tr>
+            <td>Investment income (interest, dividends, capital gains)</td>
+            <td>Form 1040, possibly Schedule B (if over $1,500) and Schedule D</td>
+        </tr>
+        <tr>
+            <td>Rental income</td>
+            <td>Form 1040, Schedule E</td>
+        </tr>
+        <tr>
+            <td>Education expenses for college</td>
+            <td>Form 1040, Form 8863 (for education credits)</td>
+        </tr>
+        <tr>
+            <td>Paid student loan interest</td>
+            <td>Form 1040, Schedule 1</td>
+        </tr>
+        <tr>
+            <td>Qualifying for Earned Income Credit</td>
+            <td>Form 1040, Schedule EIC</td>
+        </tr>
+    </table>
+
+    <h2>Common Errors to Avoid</h2>
+    <ul>
+        <li><strong>Missing Forms</strong>: Failing to include all information returns when preparing your tax return</li>
+        <li><strong>Incorrect Filing Status</strong>: Choosing the wrong filing status for your situation</li>
+        <li><strong>Math Errors</strong>: Making calculation mistakes (using tax software helps avoid this)</li>
+        <li><strong>Missing Signatures</strong>: Forgetting to sign your tax return</li>
+        <li><strong>Transposed Numbers</strong>: Incorrectly copying numbers from information returns to your tax return</li>
+        <li><strong>Missing Deadlines</strong>: Filing after the deadline without requesting an extension</li>
+    </ul>
+
+    <h2>Resources for Additional Help</h2>
+    <ul>
+        <li><strong>IRS Website</strong>: <a href="https://www.irs.gov">www.irs.gov</a> for forms, instructions, and interactive tools</li>
+        <li><strong>VITA/TCE Programs</strong>: Free tax preparation assistance for qualifying individuals</li>
+        <li><strong>IRS Taxpayer Assistance Centers</strong>: In-person help for complex issues</li>
+        <li><strong>Tax Software</strong>: Programs like TurboTax, H&R Block, or TaxAct provide guidance through the filing process</li>
+    </ul>
+
+    <footer>
+        <p>PFL Academy - Chapter 2.3: Understanding Tax Filing Requirements</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not tax advice.</p>
+    </footer>
+</body>
+</html>

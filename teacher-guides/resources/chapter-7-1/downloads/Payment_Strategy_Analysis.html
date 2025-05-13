@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Strategy Analysis Tool - Chapter 7.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .tool-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .input-field {
+            background-color: #fff;
+            height: 18px;
+            border-bottom: 1px solid #999;
+        }
+        .note {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .strategy-box {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .strategy-box h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        .impact-high {
+            background-color: #e1f7e1;
+            border-left: 4px solid #2ecc71;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .impact-medium {
+            background-color: #fef9e7;
+            border-left: 4px solid #f1c40f;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .impact-low {
+            background-color: #fae5d3;
+            border-left: 4px solid #e67e22;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .comparison-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .tool-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tool-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Print / Save as PDF</button>
+        </div>
+        
+        <h1>Payment Strategy Analysis Tool</h1>
+        
+        <div class="note">
+            <p><strong>Instructions:</strong> This tool will help you analyze different payment strategies for loans and their impact on total cost and repayment time. Fill in the loan information, then analyze each strategy to determine which approach best fits your financial goals.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Loan Information</h2>
+            <table>
+                <tr>
+                    <td><strong>Loan Type:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Principal Amount:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Interest Rate (APR):</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Original Loan Term:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Standard Monthly Payment:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Total Interest (standard payment):</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Payment Strategy 1: Bi-weekly Payments</h2>
+            <div class="strategy-box">
+                <h3>Strategy Description</h3>
+                <p>Instead of making one payment per month (12 payments per year), make half the monthly payment every two weeks (26 payments per year). This results in one extra full payment per year and can significantly reduce both the loan term and total interest paid.</p>
+                
+                <h3>Analysis</h3>
+                <table>
+                    <tr>
+                        <td><strong>Bi-weekly Payment Amount:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Payoff Time:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Interest Paid:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interest Saved:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Time Saved:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+                
+                <div class="impact-medium">
+                    <p><strong>Budget Impact:</strong> Requires adjusting to bi-weekly payments instead of monthly, which may align better with bi-weekly paychecks.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Payment Strategy 2: Extra Monthly Payment</h2>
+            <div class="strategy-box">
+                <h3>Strategy Description</h3>
+                <p>Add an extra fixed amount to your regular monthly payment. This additional amount goes directly to reducing the principal, which decreases both the loan term and the total interest paid.</p>
+                
+                <h3>Analysis</h3>
+                <table>
+                    <tr>
+                        <td><strong>Extra Payment Amount:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Total Monthly Payment:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Payoff Time:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Interest Paid:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interest Saved:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Time Saved:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+                
+                <div class="impact-high">
+                    <p><strong>Budget Impact:</strong> Requires committing to a higher monthly payment, but provides flexibility to revert to minimum payments if financial circumstances change.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Payment Strategy 3: Annual Lump Sum Payment</h2>
+            <div class="strategy-box">
+                <h3>Strategy Description</h3>
+                <p>Make regular monthly payments plus one additional lump sum payment each year (perhaps from a tax refund, bonus, or other windfall). This annual extra payment reduces principal and shortens the loan term.</p>
+                
+                <h3>Analysis</h3>
+                <table>
+                    <tr>
+                        <td><strong>Annual Lump Sum Amount:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Payoff Time:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Interest Paid:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interest Saved:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Time Saved:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+                
+                <div class="impact-low">
+                    <p><strong>Budget Impact:</strong> Minimal impact on monthly budget, but requires planning for the annual payment. Good option if you reliably receive annual bonuses or tax refunds.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Payment Strategy 4: Refinancing</h2>
+            <div class="strategy-box">
+                <h3>Strategy Description</h3>
+                <p>Replace your current loan with a new loan that has a lower interest rate. This strategy can lower your monthly payment, total interest, or both, but may extend the loan term or have associated costs.</p>
+                
+                <h3>Analysis</h3>
+                <table>
+                    <tr>
+                        <td><strong>New Interest Rate:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Loan Term:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Monthly Payment:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Interest Paid:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interest Saved:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Refinancing Costs:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Net Savings:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+                
+                <div class="impact-medium">
+                    <p><strong>Budget Impact:</strong> May lower monthly payments, but consider closing costs and fees. Most beneficial when interest rates have dropped significantly since your original loan.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Strategy Comparison</h2>
+            <p>Compare all strategies to determine which best meets your financial goals:</p>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Strategy</th>
+                    <th>Total Interest Paid</th>
+                    <th>Interest Saved</th>
+                    <th>Time Saved</th>
+                    <th>Budget Impact</th>
+                </tr>
+                <tr>
+                    <td>Standard Payment</td>
+                    <td class="input-field"></td>
+                    <td>$0</td>
+                    <td>0 months</td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>Bi-weekly Payments</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>Extra Monthly Payment</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Annual Lump Sum</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>Refinancing</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td>Medium</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Decision Analysis</h2>
+            <p><strong>Your primary financial goal for this loan:</strong></p>
+            <div class="input-field" style="height: 40px;"></div>
+            
+            <p><strong>The strategy that best aligns with your goal is:</strong></p>
+            <div class="input-field" style="height: 40px;"></div>
+            
+            <p><strong>Your reasoning:</strong></p>
+            <div class="input-field" style="height: 60px;"></div>
+            
+            <p><strong>Implementation plan:</strong></p>
+            <div class="input-field" style="height: 60px;"></div>
+        </div>
+        
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Remember:</strong> The best payment strategy depends on your individual financial situation and goals. Consider factors like cash flow, other financial priorities, interest rates, and your overall debt management plan when choosing a strategy.</p>
+        </div>
+    </div>
+</body>
+</html>

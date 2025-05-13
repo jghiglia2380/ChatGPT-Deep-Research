@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 4.1: Understanding and Using Banking Tools - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Banking tools specific styles */
+        .bank-card {
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .bank-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(79, 70, 229, 0.3);
+        }
+        
+        .fee-card {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            transition: all 0.3s ease;
+        }
+        
+        .fee-card:hover {
+            background-color: #fecaca;
+        }
+        
+        .transaction-row:nth-child(odd) {
+            background-color: #f9fafb;
+        }
+        
+        .transaction-row:hover {
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 4: Banking Tools</h2>
+                        <p class="text-gray-600 text-sm mt-1">Managing bank accounts and financial transactions</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 4.1: Understanding and Using Banking Tools
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-4-1-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Banking Tools Challenge
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Fee Detective
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Banking System Plan
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Future chapters -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 4.2: Money Management
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-4-1-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 4.1: Understanding and Using Banking Tools</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Banking Tools in Action</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Select appropriate banking tools for different financial situations</li>
+                            <li>Create and maintain a personal transaction tracking system</li>
+                            <li>Analyze a bank statement to identify potential issues and fees</li>
+                            <li>Develop strategies to avoid common banking fees</li>
+                            <li>Design a personalized banking management plan</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            In today's Learning Lab, you'll apply what you learned about banking tools through interactive activities that simulate real banking scenarios. You'll practice making financial decisions, tracking transactions, and avoiding common banking pitfalls.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                The scenarios in this Learning Lab are simulations designed for educational purposes. In real-life banking situations, always consult with financial professionals and carefully read all terms and conditions for your specific accounts.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, we learned about various banking tools such as checks, debit cards, ATMs, and online banking services, as well as how to track transactions and reconcile accounts. Today, we'll put that knowledge to practical use by applying these concepts in realistic scenarios.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Understanding Banking Tools</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/4.1 - Understanding and Using Banking Tools.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Banking tools overview, account reconciliation, avoiding fees, transaction tracking
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Stations -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Banking Tools Challenge</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">For each financial scenario below, select the most appropriate banking tool and explain your choice. Consider efficiency, security, cost, and convenience in your decision.</p>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                            <h3 class="font-medium text-indigo-900 mb-3">Banking Tools Overview</h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <div class="flex items-center mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                        <h4 class="font-medium text-gray-900">Checks</h4>
+                                    </div>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• Written payment order</li>
+                                        <li>• Paper record of transaction</li>
+                                        <li>• May take days to process</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <div class="flex items-center mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                        </svg>
+                                        <h4 class="font-medium text-gray-900">Debit Cards</h4>
+                                    </div>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• Immediate transactions</li>
+                                        <li>• Widely accepted</li>
+                                        <li>• PIN or signature required</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <div class="flex items-center mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                        <h4 class="font-medium text-gray-900">ATMs</h4>
+                                    </div>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• Cash withdrawals/deposits</li>
+                                        <li>• Check balances</li>
+                                        <li>• Potential fees for non-bank ATMs</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <div class="flex items-center mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                        </svg>
+                                        <h4 class="font-medium text-gray-900">Online Banking</h4>
+                                    </div>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• 24/7 account access</li>
+                                        <li>• Electronic transfers</li>
+                                        <li>• Bill payments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6 mb-6">
+                            <!-- Scenario 1 -->
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition">
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-medium px-2 py-1 rounded text-sm mr-3">Scenario 1</span>
+                                    <p class="text-gray-700">You need to pay your monthly rent of $950 to your landlord who lives in another city. You want proof that you paid.</p>
+                                </div>
+                                <div class="mt-3 space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario1" id="s1-check" class="mr-2">
+                                        <label for="s1-check" class="text-gray-700">Check</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario1" id="s1-debit" class="mr-2">
+                                        <label for="s1-debit" class="text-gray-700">Debit Card</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario1" id="s1-atm" class="mr-2">
+                                        <label for="s1-atm" class="text-gray-700">ATM</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario1" id="s1-online" class="mr-2">
+                                        <label for="s1-online" class="text-gray-700">Online Banking/Electronic Transfer</label>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Explain your choice:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="scenario1-explanation"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Scenario 2 -->
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition">
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-medium px-2 py-1 rounded text-sm mr-3">Scenario 2</span>
+                                    <p class="text-gray-700">You're on vacation and need cash quickly for a small local shop that doesn't accept cards.</p>
+                                </div>
+                                <div class="mt-3 space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario2" id="s2-check" class="mr-2">
+                                        <label for="s2-check" class="text-gray-700">Check</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario2" id="s2-debit" class="mr-2">
+                                        <label for="s2-debit" class="text-gray-700">Debit Card</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario2" id="s2-atm" class="mr-2">
+                                        <label for="s2-atm" class="text-gray-700">ATM</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario2" id="s2-online" class="mr-2">
+                                        <label for="s2-online" class="text-gray-700">Online Banking/Electronic Transfer</label>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Explain your choice:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="scenario2-explanation"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Scenario 3 -->
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition">
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-medium px-2 py-1 rounded text-sm mr-3">Scenario 3</span>
+                                    <p class="text-gray-700">You need to pay multiple bills (electricity, internet, phone) that are due on different dates throughout the month.</p>
+                                </div>
+                                <div class="mt-3 space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario3" id="s3-check" class="mr-2">
+                                        <label for="s3-check" class="text-gray-700">Check</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario3" id="s3-debit" class="mr-2">
+                                        <label for="s3-debit" class="text-gray-700">Debit Card</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario3" id="s3-atm" class="mr-2">
+                                        <label for="s3-atm" class="text-gray-700">ATM</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario3" id="s3-online" class="mr-2">
+                                        <label for="s3-online" class="text-gray-700">Online Banking/Electronic Transfer</label>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Explain your choice:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="scenario3-explanation"></textarea>
+                                </div>
+                            </div>
+                            
+                            <!-- Scenario 4 -->
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition">
+                                <div class="flex items-start">
+                                    <span class="bg-indigo-100 text-indigo-800 font-medium px-2 py-1 rounded text-sm mr-3">Scenario 4</span>
+                                    <p class="text-gray-700">You're making an online purchase from a website you've never used before. The total is $75.</p>
+                                </div>
+                                <div class="mt-3 space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario4" id="s4-check" class="mr-2">
+                                        <label for="s4-check" class="text-gray-700">Check</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario4" id="s4-debit" class="mr-2">
+                                        <label for="s4-debit" class="text-gray-700">Debit Card</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario4" id="s4-atm" class="mr-2">
+                                        <label for="s4-atm" class="text-gray-700">ATM</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="scenario4" id="s4-online" class="mr-2">
+                                        <label for="s4-online" class="text-gray-700">Online Banking/Electronic Transfer</label>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Explain your choice:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="scenario4-explanation"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Fee Detective</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">Review the sample bank statement below. Identify all fees and determine which ones could have been avoided. Then develop strategies to minimize banking fees in the future.</p>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-5 mb-6">
+                            <div class="border-b border-gray-200 pb-4 mb-4">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="text-lg font-bold text-gray-900">First National Bank</h3>
+                                    <div class="text-right">
+                                        <p class="text-sm text-gray-600">Statement Period</p>
+                                        <p class="text-sm font-medium text-gray-900">03/01/2025 - 03/31/2025</p>
+                                    </div>
+                                </div>
+                                <div class="mt-3 flex justify-between">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Account Holder:</p>
+                                        <p class="text-sm font-medium">Jamie Rodriguez</p>
+                                        <p class="text-sm text-gray-600">Account Number:</p>
+                                        <p class="text-sm font-medium">XXXX-XXXX-1234</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm text-gray-600">Beginning Balance:</p>
+                                        <p class="text-sm font-medium">$1,245.67</p>
+                                        <p class="text-sm text-gray-600">Ending Balance:</p>
+                                        <p class="text-sm font-medium">$987.52</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="font-medium text-gray-900 mb-2">Transaction History</h4>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full">
+                                    <thead>
+                                        <tr class="bg-gray-50">
+                                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                            <th class="px-4 py-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                            <th class="px-4 py-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Balance</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/01/2025</td>
+                                            <td class="px-4 py-2 text-sm">Beginning Balance</td>
+                                            <td class="px-4 py-2 text-sm text-right">-</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,245.67</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/03/2025</td>
+                                            <td class="px-4 py-2 text-sm">Direct Deposit - Payroll</td>
+                                            <td class="px-4 py-2 text-sm text-green-600 text-right">+$1,250.00</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$2,495.67</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/05/2025</td>
+                                            <td class="px-4 py-2 text-sm">Check #1089 - Rent</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$950.00</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,545.67</td>
+                                        </tr>
+                                        <tr class="transaction-row fee-card">
+                                            <td class="px-4 py-2 text-sm">03/07/2025</td>
+                                            <td class="px-4 py-2 text-sm font-medium">Monthly Maintenance Fee</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$12.00</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,533.67</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/10/2025</td>
+                                            <td class="px-4 py-2 text-sm">Debit Card - Grocery Store</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$87.35</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,446.32</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/12/2025</td>
+                                            <td class="px-4 py-2 text-sm">Online Transfer to Savings</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$200.00</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,246.32</td>
+                                        </tr>
+                                        <tr class="transaction-row fee-card">
+                                            <td class="px-4 py-2 text-sm">03/15/2025</td>
+                                            <td class="px-4 py-2 text-sm font-medium">ATM Withdrawal Fee (Non-Network)</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$3.50</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,242.82</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/15/2025</td>
+                                            <td class="px-4 py-2 text-sm">ATM Withdrawal</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$60.00</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,182.82</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/18/2025</td>
+                                            <td class="px-4 py-2 text-sm">Electric Bill Payment</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$85.43</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,097.39</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/20/2025</td>
+                                            <td class="px-4 py-2 text-sm">Debit Card - Restaurant</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$45.67</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,051.72</td>
+                                        </tr>
+                                        <tr class="transaction-row fee-card">
+                                            <td class="px-4 py-2 text-sm">03/23/2025</td>
+                                            <td class="px-4 py-2 text-sm font-medium">Overdraft Fee</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$35.00</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$1,016.72</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/23/2025</td>
+                                            <td class="px-4 py-2 text-sm">Debit Card - Online Purchase</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$75.99</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$940.73</td>
+                                        </tr>
+                                        <tr class="transaction-row fee-card">
+                                            <td class="px-4 py-2 text-sm">03/25/2025</td>
+                                            <td class="px-4 py-2 text-sm font-medium">Paper Statement Fee</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$3.00</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$937.73</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/28/2025</td>
+                                            <td class="px-4 py-2 text-sm">Check #1090 - Car Insurance</td>
+                                            <td class="px-4 py-2 text-sm text-red-600 text-right">-$102.45</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$835.28</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/30/2025</td>
+                                            <td class="px-4 py-2 text-sm">Mobile Deposit</td>
+                                            <td class="px-4 py-2 text-sm text-green-600 text-right">+$150.00</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$985.28</td>
+                                        </tr>
+                                        <tr class="transaction-row">
+                                            <td class="px-4 py-2 text-sm">03/31/2025</td>
+                                            <td class="px-4 py-2 text-sm">Account Interest</td>
+                                            <td class="px-4 py-2 text-sm text-green-600 text-right">+$2.24</td>
+                                            <td class="px-4 py-2 text-sm font-medium text-right">$987.52</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h3 class="font-medium text-gray-900 mb-3">Fee Detection & Analysis</h3>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-2">1. List all the fees you identified in the statement:</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="fees-identified" placeholder="List each fee and its amount..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-2">2. Which fees could have been avoided? How?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="avoidable-fees" placeholder="Explain which fees were avoidable and how..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-2">3. Calculate the total amount spent on fees this month:</label>
+                                <div class="flex items-center">
+                                    <span class="text-lg font-medium mr-2">$</span>
+                                    <input type="number" id="total-fees" class="w-32 border border-gray-300 rounded-md px-3 py-2" step="0.01">
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-indigo-50 rounded-lg">
+                                <h4 class="font-medium text-indigo-900 mb-3">Fee Avoidance Strategies</h4>
+                                <p class="text-sm text-gray-700 mb-3">Select all strategies that could help Jamie avoid fees in the future:</p>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="strategy1" class="mt-1 mr-2">
+                                        <label for="strategy1" class="text-sm text-gray-700">Maintain minimum account balance requirements</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="strategy2" class="mt-1 mr-2">
+                                        <label for="strategy2" class="text-sm text-gray-700">Set up direct deposit to waive monthly maintenance fees</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="strategy3" class="mt-1 mr-2">
+                                        <label for="strategy3" class="text-sm text-gray-700">Only use ATMs in your bank's network</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="strategy4" class="mt-1 mr-2">
+                                        <label for="strategy4" class="text-sm text-gray-700">Opt for electronic statements instead of paper</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="strategy5" class="mt-1 mr-2">
+                                        <label for="strategy5" class="text-sm text-gray-700">Set up low balance alerts to avoid overdrafts</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="strategy6" class="mt-1 mr-2">
+                                        <label for="strategy6" class="text-sm text-gray-700">Link a savings account for overdraft protection</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="strategy7" class="mt-1 mr-2">
+                                        <label for="strategy7" class="text-sm text-gray-700">Track all transactions in a check register or app</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Banking System Plan</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">Create a personalized plan for managing your banking tools and transactions. This plan will serve as your blueprint for effective financial management.</p>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-5 mb-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">My Banking System Plan</h3>
+                            
+                            <div class="mb-5">
+                                <h4 class="font-medium text-gray-900 mb-3">Preferred Banking Tools</h4>
+                                <p class="text-sm text-gray-600 mb-3">Select which banking tools you plan to use regularly and explain why:</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-indigo-300 transition">
+                                        <div class="flex items-center mb-2">
+                                            <input type="checkbox" id="use-checks" class="mr-2">
+                                            <label for="use-checks" class="font-medium text-gray-900">Checks</label>
+                                        </div>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md text-sm" rows="2" id="checks-reason" placeholder="Why would you use checks?"></textarea>
+                                    </div>
+                                    
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-indigo-300 transition">
+                                        <div class="flex items-center mb-2">
+                                            <input type="checkbox" id="use-debit" class="mr-2">
+                                            <label for="use-debit" class="font-medium text-gray-900">Debit Card</label>
+                                        </div>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md text-sm" rows="2" id="debit-reason" placeholder="Why would you use a debit card?"></textarea>
+                                    </div>
+                                    
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-indigo-300 transition">
+                                        <div class="flex items-center mb-2">
+                                            <input type="checkbox" id="use-atm" class="mr-2">
+                                            <label for="use-atm" class="font-medium text-gray-900">ATMs</label>
+                                        </div>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md text-sm" rows="2" id="atm-reason" placeholder="Why would you use ATMs?"></textarea>
+                                    </div>
+                                    
+                                    <div class="border border-gray-200 rounded-lg p-3 hover:border-indigo-300 transition">
+                                        <div class="flex items-center mb-2">
+                                            <input type="checkbox" id="use-online" class="mr-2">
+                                            <label for="use-online" class="font-medium text-gray-900">Online/Mobile Banking</label>
+                                        </div>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md text-sm" rows="2" id="online-reason" placeholder="Why would you use online/mobile banking?"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-5">
+                                <h4 class="font-medium text-gray-900 mb-3">Transaction Tracking Method</h4>
+                                <p class="text-sm text-gray-600 mb-3">How will you track your transactions?</p>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="tracking-method" id="track-paper" class="mr-2">
+                                        <label for="track-paper" class="text-gray-700">Paper check register</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="tracking-method" id="track-spreadsheet" class="mr-2">
+                                        <label for="track-spreadsheet" class="text-gray-700">Digital spreadsheet</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="tracking-method" id="track-app" class="mr-2">
+                                        <label for="track-app" class="text-gray-700">Budgeting/banking app</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="tracking-method" id="track-bank-only" class="mr-2">
+                                        <label for="track-bank-only" class="text-gray-700">Only use bank's online records</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="tracking-method" id="track-other" class="mr-2">
+                                        <label for="track-other" class="text-gray-700">Other method:</label>
+                                    </div>
+                                    <div class="pl-6">
+                                        <input type="text" id="track-other-text" class="w-full border border-gray-300 rounded-md px-3 py-2" placeholder="Describe your method...">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-5">
+                                <h4 class="font-medium text-gray-900 mb-3">Account Reconciliation Schedule</h4>
+                                <p class="text-sm text-gray-600 mb-3">How often will you reconcile your accounts?</p>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="reconcile-schedule" id="reconcile-daily" class="mr-2">
+                                        <label for="reconcile-daily" class="text-gray-700">Daily</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="reconcile-schedule" id="reconcile-weekly" class="mr-2">
+                                        <label for="reconcile-weekly" class="text-gray-700">Weekly</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="reconcile-schedule" id="reconcile-biweekly" class="mr-2">
+                                        <label for="reconcile-biweekly" class="text-gray-700">Every two weeks</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="reconcile-schedule" id="reconcile-monthly" class="mr-2">
+                                        <label for="reconcile-monthly" class="text-gray-700">Monthly (when statement arrives)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-5">
+                                <h4 class="font-medium text-gray-900 mb-3">Fee Avoidance Plan</h4>
+                                <p class="text-sm text-gray-600 mb-3">What specific steps will you take to avoid banking fees?</p>
+                                
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="fee-avoidance-plan" placeholder="List your strategies to avoid fees..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">
+                            Combine your work from the previous stations to create a comprehensive banking management strategy for your financial portfolio.
+                        </p>
+                        
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h3 class="font-medium text-gray-900 mb-3">Banking Tools Strategy Summary</h3>
+                            <p class="text-sm text-gray-600 mb-2">Summarize your approach to using different banking tools for various situations:</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="tools-summary" placeholder="Describe which banking tools you'll use in different scenarios..."></textarea>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h3 class="font-medium text-gray-900 mb-3">Fee Awareness & Avoidance Summary</h3>
+                            <p class="text-sm text-gray-600 mb-2">Summarize the key banking fees to watch for and your strategy to avoid them:</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="fees-summary" placeholder="Describe how you'll avoid common banking fees..."></textarea>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h3 class="font-medium text-gray-900 mb-3">My Banking Management System</h3>
+                            <p class="text-sm text-gray-600 mb-2">Describe your complete banking management system, including tools, tracking, and reconciliation:</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" id="system-summary" placeholder="Describe your complete banking management system..."></textarea>
+                        </div>
+                        
+                        <button class="pfl-button mt-2" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            How has your understanding of banking tools changed after completing this Learning Lab? What specific changes will you make to how you manage your banking and track your finances?
+                        </p>
+                        
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Share your reflections here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 3) {
+                // If this was the last station, scroll to portfolio
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionText = document.querySelector('textarea[data-ai-check="true"]').value;
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            if (reflectionText.length < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider explaining specific changes you'll make to your banking habits and how your understanding of banking tools has evolved.";
+            } else if (reflectionText.length < 100) {
+                aiFeedback.textContent = "Good start! Try to provide more specific examples of how you'll apply your banking management system and what specific tools you'll use differently going forward.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection! You've clearly articulated how your understanding has changed and provided specific, actionable changes you'll make to your banking management approach.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('#learning-objectives, #introduction, #station1, #station2, #station3, #portfolio, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

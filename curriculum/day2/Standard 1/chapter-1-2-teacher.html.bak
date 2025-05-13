@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Teacher Guide: Paying for Post-Secondary Education</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5849da; /* Royal purple */
+            --secondary-color: #374151; /* Dark gray */
+            --sidebar-bg: #f5f5f7; /* Light gray */
+            --text-color: #1F2937;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--text-color);
+            background-color: #f9fafb;
+        }
+        
+        /* Header styling */
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+        }
+        
+        /* Sidebar styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            padding: 1.5rem;
+            height: calc(100vh - 64px);
+            position: sticky;
+            top: 64px;
+            overflow-y: auto;
+        }
+        
+        /* Main content styling */
+        .main-content {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section headers */
+        .section-header {
+            color: var(--text-color);
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        /* Teacher tip boxes */
+        .teacher-tip {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 0.25rem 0.25rem 0;
+        }
+        
+        /* Button styling */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Navigation links */
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .nav-link svg {
+            margin-right: 0.5rem;
+        }
+        
+        /* Table styling */
+        .teacher-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .teacher-table th {
+            background-color: #f9fafb;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .teacher-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .teacher-table tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        /* Print button */
+        .print-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Tabs */
+        .tab-group {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 1rem;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Tab content */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header flex items-center justify-between">
+        <div class="flex items-center">
+            <h1 class="text-xl font-bold">PFL Academy | Teacher Guide</h1>
+            <nav class="ml-8 hidden md:block">
+                <a href="#" class="text-white mr-4">Standards</a>
+                <a href="#" class="text-white mr-4">Resources</a>
+                <a href="#" class="text-white">Help</a>
+            </nav>
+        </div>
+        <div class="flex items-center">
+            <button class="text-white bg-white bg-opacity-20 rounded p-2 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside class="sidebar w-full md:w-1/4">
+            <div>
+                <h2 class="text-lg font-bold mb-2">Standard 1: Income and Money Management</h2>
+                <p class="text-sm text-gray-600 mb-4">Understanding income management strategies for financial stability.</p>
+                
+                <div class="mb-6">
+                    <h3 class="text-md font-medium mb-2">Teacher Guides</h3>
+                    
+                    <a href="chapter-1-1-teacher.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.1 Jobs vs. Careers
+                    </a>
+                    
+                    <a href="chapter-1-2-teacher.html" class="nav-link active">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.2 Paying for Post-Secondary Education
+                    </a>
+                    
+                    <a href="chapter-1-3-teacher.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.3 Income and Taxes
+                    </a>
+                    
+                    <a href="chapter-1-4-teacher.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.4 Financial Goal Setting
+                    </a>
+                    
+                    <a href="chapter-1-5-teacher.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.5 Managing Your Income Effectively
+                    </a>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-md font-medium mb-2">Resources</h3>
+                    <a href="chapter-1-2-day1.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                        </svg>
+                        View Student Content
+                    </a>
+                    <a href="#" class="nav-link" id="downloadBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" />
+                            <path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z" />
+                        </svg>
+                        Download Materials
+                    </a>
+                    <a href="#" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd" />
+                        </svg>
+                        Additional Resources
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-full md:w-3/4 p-6">
+            <div class="main-content">
+                <!-- Chapter Header -->
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h1 class="text-2xl font-bold">Teacher Guide: 1.2 Paying for Post-Secondary Education</h1>
+                        <div class="flex items-center mt-2 text-sm text-gray-600">
+                            <div class="flex items-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                </svg>
+                                Duration: 55 minutes
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-group">
+                        <div class="tab active" onclick="switchTab('content-guide')">Content Guide</div>
+                        <div class="tab" onclick="switchTab('learning-lab')">Learning Lab</div>
+                    </div>
+                </div>
+                
+                <!-- Content Guide Tab -->
+                <div id="content-guide" class="tab-content active">
+                    <!-- Lesson Overview -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Lesson Overview</h2>
+                        <p><strong>Standard:</strong> Standard 1: Income and Money Management</p>
+                        <p><strong>Chapter:</strong> 1.2: Paying for Post-Secondary Education</p>
+                        <p><strong>Duration:</strong> 55 minutes</p>
+                        <p><strong>Focus:</strong> Understanding various post-secondary education financing options and practical application of financial aid concepts</p>
+                    </div>
+                    
+                    <!-- Materials Needed -->
+                    <h2 class="section-header text-xl">Materials Needed</h2>
+                    <div class="mb-6">
+                        <ul class="list-disc pl-6">
+                            <li>Digital presentation on education financing options</li>
+                            <li>Mock FAFSA worksheets (digital or printable)</li>
+                            <li>Student devices with internet access</li>
+                            <li>Financial aid comparison chart template</li>
+                            <li>Funding priority pyramid visual</li>
+                            <li>Case study scenarios handouts</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Pre-Class Setup -->
+                    <h2 class="section-header text-xl">Pre-Class Setup</h2>
+                    <div class="mb-6">
+                        <ol class="list-decimal pl-6">
+                            <li>Prepare digital presentation on financing options</li>
+                            <li>Print or prepare digital access to FAFSA worksheets</li>
+                            <li>Organize case study materials for group work</li>
+                            <li>Bookmark reliable financial aid websites for student research</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Lesson Timeline -->
+                    <h2 class="section-header text-xl">Lesson Timeline</h2>
+                    <div class="mb-6">
+                        <table class="teacher-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Activity</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>5 min</td>
+                                    <td>Introduction</td>
+                                    <td>Engage with education cost realities and financing importance</td>
+                                </tr>
+                                <tr>
+                                    <td>15 min</td>
+                                    <td>Key Concept Review</td>
+                                    <td>Explore different financing options with visual aid pyramid</td>
+                                </tr>
+                                <tr>
+                                    <td>10 min</td>
+                                    <td>The FAFSA Deep Dive</td>
+                                    <td>Explain form importance and completion process</td>
+                                </tr>
+                                <tr>
+                                    <td>10 min</td>
+                                    <td>Real-World Case Studies</td>
+                                    <td>Apply concepts to realistic student scenarios</td>
+                                </tr>
+                                <tr>
+                                    <td>10 min</td>
+                                    <td>FAFSA Worksheet Activity</td>
+                                    <td>Practice analyzing and completing key sections</td>
+                                </tr>
+                                <tr>
+                                    <td>5 min</td>
+                                    <td>Reflection & Wrap-up</td>
+                                    <td>Connect to personal plans and preview Day 2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Detailed Instruction Notes -->
+                    <h2 class="section-header text-xl">Detailed Instruction Notes</h2>
+                    
+                    <!-- Introduction -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Introduction (5 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Begin with a hook statistic on average college costs and student loan debt</li>
+                            <li>Ask: "How many of you have thought about how you'll pay for education after high school?"</li>
+                            <li>Briefly discuss why this topic is critical for all students, regardless of their post-high school plans</li>
+                            <li>Set expectations for the day's learning outcomes</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Key Concepts -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Key Concepts (15 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Present the funding priority pyramid (scholarships/grants → work-study → federal loans → private loans)</li>
+                            <li>For each funding source, explain:
+                              <ul class="list-disc pl-6">
+                                <li>Basic eligibility requirements</li>
+                                <li>Application process</li>
+                                <li>Typical award amounts</li>
+                                <li>Repayment obligations (if applicable)</li>
+                              </ul>
+                            </li>
+                            <li>Use visual comparisons to highlight differences between each option</li>
+                            <li>Address common misconceptions, especially about loan obligations and scholarship availability</li>
+                            <li>Explain how financial aid packages typically combine multiple funding sources</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- FAFSA Deep Dive -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">The FAFSA Deep Dive (10 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Explain why the FAFSA is the gateway to most financial aid</li>
+                            <li>Walk through key sections using a simplified version</li>
+                            <li>Highlight important terminology (EFC, SAR, verification)</li>
+                            <li>Discuss deadlines and the importance of early submission</li>
+                            <li>Explain dependent vs. independent student status</li>
+                            <li>Address privacy concerns students might have about financial information</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Real-World Examples -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Real-World Examples (10 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Divide class into small groups</li>
+                            <li>Assign each group a case study scenario with different student backgrounds</li>
+                            <li>Have groups identify the most appropriate funding sources for their scenario</li>
+                            <li>Guide groups to consider both immediate costs and long-term implications</li>
+                            <li>Facilitate brief presentations of funding recommendations</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Skill Builder Activity -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Skill Builder Activity (10 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Distribute the mock FAFSA worksheet</li>
+                            <li>Guide students through analyzing and completing key sections</li>
+                            <li>Focus on interpreting complex questions and required documentation</li>
+                            <li>Demonstrate how to use online resources for assistance</li>
+                            <li>Provide individual support to students with questions</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Reflection & Wrap-up -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Reflection & Wrap-up (5 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Have students identify which financing options might be most relevant to their personal plans</li>
+                            <li>Discuss common challenges in the financial aid process and strategies to overcome them</li>
+                            <li>Preview the Day 2 Learning Lab activities</li>
+                            <li>Assign any pre-work needed for Day 2</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Discussion Prompts -->
+                    <h2 class="section-header text-xl">Discussion Prompts</h2>
+                    <div class="mb-6">
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold mb-2">For Introduction:</h3>
+                            <p>"How might financing decisions for education impact your financial situation 5-10 years from now?"</p>
+                            <p class="mt-2"><strong>Expected responses:</strong> student loan payments affecting housing options, debt-to-income ratio, career choices based on salary potential</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold mb-2">For Key Concepts:</h3>
+                            <p>"Why might the funding pyramid prioritize scholarships and grants first?"</p>
+                            <p class="mt-2"><strong>Expected responses:</strong> free money, no repayment, reduces overall cost, less financial burden after graduation</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold mb-2">For FAFSA Discussion:</h3>
+                            <p>"What circumstances might change a student's financial aid eligibility from year to year?"</p>
+                            <p class="mt-2"><strong>Expected responses:</strong> parent income changes, number of family members in college, academic performance</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Differentiation Strategies -->
+                    <h2 class="section-header text-xl">Differentiation Strategies</h2>
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">For advanced students:</h3>
+                        <p>Assign more complex case studies with multiple interacting factors; encourage research on specialized scholarships in their field of interest</p>
+                        
+                        <h3 class="text-lg font-semibold mb-2 mt-4">For struggling students:</h3>
+                        <p>Provide a simplified funding options chart; work directly with them on FAFSA terminology; use real examples with clear outcomes</p>
+                        
+                        <h3 class="text-lg font-semibold mb-2 mt-4">For ELL students:</h3>
+                        <p>Provide visual flowcharts of the financial aid process; offer translated glossaries of financial aid terms; pair with supportive peers</p>
+                    </div>
+                    
+                    <!-- Assessment Opportunities -->
+                    <h2 class="section-header text-xl">Assessment Opportunities</h2>
+                    <div class="mb-6">
+                        <ul class="list-disc pl-6">
+                            <li>Monitor small group discussions during case study work</li>
+                            <li>Review completed sections of the FAFSA worksheet</li>
+                            <li>Use exit ticket questions on key terminology and concepts</li>
+                            <li>Observe student participation in funding option discussions</li>
+                            <li>Note misconceptions to address in Day 2</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Instructor Support -->
+                    <h2 class="section-header text-xl">Instructor Support</h2>
+                    <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                        <p class="mb-4">Need help explaining financial aid concepts or facilitating the FAFSA worksheet activity? Your AI Teaching Assistant provides specialized support for this chapter.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-2">How to Access</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Scan the QR code on your printed guide</li>
+                            <li>Visit: PFLAcademy.org/teacher-support</li>
+                            <li>Access Code: CH1.2-DAY1</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">Sample Questions for This Lesson</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>"How can I explain the difference between subsidized and unsubsidized loans in terms students will understand?"</li>
+                            <li>"What are current FAFSA deadlines and priority filing dates I should be aware of?"</li>
+                            <li>"Can you provide simplified explanations for EFC calculations that won't overwhelm students?"</li>
+                            <li>"How should I address questions from undocumented students or those with undocumented parents about financial aid?"</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">Additional Support Features</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Request up-to-date information on financial aid programs and requirements</li>
+                            <li>Get guidance on addressing sensitive questions about family finances</li>
+                            <li>Receive alternative case study scenarios tailored to your local student demographics</li>
+                            <li>Access supplementary resources for students interested in specific funding options (military, trade schools, etc.)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Learning Lab Tab -->
+                <div id="learning-lab" class="tab-content">
+                    <!-- Learning Lab Overview -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Learning Lab Overview</h2>
+                        <p><strong>Standard:</strong> Standard 1: Income and Money Management</p>
+                        <p><strong>Chapter:</strong> 1.2: Paying for Post-Secondary Education</p>
+                        <p><strong>Duration:</strong> 55 minutes</p>
+                        <p><strong>Focus:</strong> Developing personalized education financing strategies using interactive tools and planning templates</p>
+                        <p><strong>Learning Format:</strong> Multi-Activity</p>
+                    </div>
+                    
+                    <!-- Learning Objectives -->
+                    <h2 class="section-header text-xl">Learning Objectives</h2>
+                    <div class="mb-6">
+                        <ul class="list-disc pl-6">
+                            <li>Students will use interactive tools to calculate education funding needs and analyze options</li>
+                            <li>Students will develop personalized scholarship search strategies</li>
+                            <li>Students will create a comprehensive education financing plan that aligns with their career goals</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Materials Needed -->
+                    <h2 class="section-header text-xl">Materials Needed</h2>
+                    <div class="mb-6">
+                        <ul class="list-disc pl-6">
+                            <li>Student devices with internet access</li>
+                            <li>Funding calculator tool (digital)</li>
+                            <li>Loan repayment simulator tool (digital)</li>
+                            <li>Scholarship search strategy template</li>
+                            <li>Financial aid timeline template</li>
+                            <li>Education financing plan template</li>
+                            <li>Audio equipment for podcast review</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Pre-Class Setup -->
+                    <h2 class="section-header text-xl">Pre-Class Setup</h2>
+                    <div class="mb-6">
+                        <ol class="list-decimal pl-6">
+                            <li>Ensure all digital tools are working properly on student devices</li>
+                            <li>Prepare student loan calculator with sample scenarios</li>
+                            <li>Set up scholarship search resources bookmark list</li>
+                            <li>Prepare podcast audio for review session</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Learning Lab Timeline -->
+                    <h2 class="section-header text-xl">Learning Lab Structure</h2>
+                    <div class="mb-6">
+                        <p class="mb-2">Selected Format: Multi-Activity</p>
+                        
+                        <table class="teacher-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Activity</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10 min</td>
+                                    <td>Review & Introduction</td>
+                                    <td>Day 1 review podcast and Lab overview</td>
+                                </tr>
+                                <tr>
+                                    <td>12 min</td>
+                                    <td>Activity 1: Education Funding Calculator</td>
+                                    <td>Interactive tool to analyze financing needs</td>
+                                </tr>
+                                <tr>
+                                    <td>10 min</td>
+                                    <td>Activity 2: Loan Repayment Simulator</td>
+                                    <td>Calculate future loan payment impacts</td>
+                                </tr>
+                                <tr>
+                                    <td>10 min</td>
+                                    <td>Activity 3: Scholarship Search Strategy</td>
+                                    <td>Develop personalized scholarship approach</td>
+                                </tr>
+                                <tr>
+                                    <td>8 min</td>
+                                    <td>Activity 4: Financing Plan Creation</td>
+                                    <td>Compile findings into comprehensive plan</td>
+                                </tr>
+                                <tr>
+                                    <td>5 min</td>
+                                    <td>Reflection & Wrap-up</td>
+                                    <td>Plan evaluation and next steps</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Detailed Facilitation Notes -->
+                    <h2 class="section-header text-xl">Detailed Facilitation Notes</h2>
+                    
+                    <!-- Review & Introduction -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Review & Introduction (10 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Key Day 1 Concepts to Review:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Funding priority pyramid structure</li>
+                            <li>Different types of financial aid</li>
+                            <li>FAFSA fundamentals</li>
+                            <li>Financial aid packaging</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Podcast Discussion Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>The importance of early planning for financing education</li>
+                            <li>Understanding the difference between sticker price and net price</li>
+                            <li>The role of education financing in overall financial planning</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Learning Lab Introduction:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Frame today's activities as building on Day 1 conceptual foundation</li>
+                            <li>Emphasize the connections between calculator results and actual decision-making</li>
+                            <li>Explain that the end product will be a usable education financing plan</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Activity 1 -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Activity 1: Education Funding Calculator (12 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Setup Instructions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Students should access the digital funding calculator</li>
+                            <li>Provide sample education costs for different institution types</li>
+                            <li>Share estimates for typical financial aid packages</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Facilitation Steps:</h4>
+                        <ol class="list-decimal pl-6 mb-2">
+                            <li>Demonstrate the calculator with a sample scenario (3 minutes)</li>
+                            <li>Guide students to enter their personalized information (2 minutes)</li>
+                            <li>Allow students to experiment with different scenarios (5 minutes)</li>
+                            <li>Facilitate brief sharing of insights and surprises (2 minutes)</li>
+                        </ol>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Key Teaching Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Focus on the gap between total cost and expected financial aid</li>
+                            <li>Emphasize the importance of estimating all costs, not just tuition</li>
+                            <li>Discuss strategies for reducing the funding gap</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Monitoring Guidance:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Check that students are using realistic cost estimates</li>
+                            <li>Help students interpret their calculator results</li>
+                            <li>Look for students who may need guidance on institutional options</li>
+                            <li>Encourage consideration of multiple scenarios</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Activity 2 -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Activity 2: Loan Repayment Simulator (10 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Setup Instructions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Students should access the loan repayment simulation tool</li>
+                            <li>Provide information on current loan interest rates</li>
+                            <li>Display a chart of average starting salaries by career field</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Facilitation Steps:</h4>
+                        <ol class="list-decimal pl-6 mb-2">
+                            <li>Explain how student loan payments impact post-graduation budgets (2 minutes)</li>
+                            <li>Demonstrate how to use the simulator with a sample loan amount (2 minutes)</li>
+                            <li>Guide students to calculate payments based on their funding gap (4 minutes)</li>
+                            <li>Facilitate analysis of payment-to-income ratios (2 minutes)</li>
+                        </ol>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Key Teaching Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>The concept of debt-to-income ratio and its importance</li>
+                            <li>How loan terms and interest rates affect total repayment</li>
+                            <li>Strategic borrowing aligned with expected future income</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Monitoring Guidance:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Ensure students understand the long-term implications of different loan amounts</li>
+                            <li>Help students connect loan payments to their career path salary expectations</li>
+                            <li>Look for unrealistic borrowing projections to address</li>
+                            <li>Encourage consideration of various repayment strategies</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Activity 3 -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Activity 3: Scholarship Search Strategy (10 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Setup Instructions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Provide scholarship search strategy template</li>
+                            <li>Share list of scholarship search engines and resources</li>
+                            <li>Display examples of scholarship categories</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Facilitation Steps:</h4>
+                        <ol class="list-decimal pl-6 mb-2">
+                            <li>Review different types of scholarships and their requirements (2 minutes)</li>
+                            <li>Guide students in identifying personal strengths and affiliations (3 minutes)</li>
+                            <li>Support students in developing tailored search approaches (4 minutes)</li>
+                            <li>Demonstrate effective application tracking systems (1 minute)</li>
+                        </ol>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Key Teaching Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>The importance of volume and persistence in scholarship applications</li>
+                            <li>How to match personal attributes to scholarship opportunities</li>
+                            <li>Strategies for standing out in scholarship applications</li>
+                            <li>Creating a sustainable application schedule</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Monitoring Guidance:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Ensure students are considering diverse scholarship sources</li>
+                            <li>Help students develop realistic scholarship application timelines</li>
+                            <li>Encourage specific rather than generic strategy development</li>
+                            <li>Look for opportunities to suggest specialized scholarships based on interests</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Activity 4 -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Activity 4: Financing Plan Creation (8 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Setup Instructions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Provide comprehensive education financing plan template</li>
+                            <li>Display model example of a completed plan</li>
+                            <li>Arrange for individual work with teacher circulation</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Facilitation Steps:</h4>
+                        <ol class="list-decimal pl-6 mb-2">
+                            <li>Explain the components of a complete financing plan (2 minutes)</li>
+                            <li>Guide students in integrating findings from previous activities (1 minute)</li>
+                            <li>Support students in creating action steps and timelines (4 minutes)</li>
+                            <li>Check for plan completeness and feasibility (1 minute)</li>
+                        </ol>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Key Teaching Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Creating a financing strategy is an iterative process</li>
+                            <li>The importance of backup options and contingency planning</li>
+                            <li>How to create specific, actionable next steps</li>
+                            <li>Aligning financing plans with career and educational goals</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Monitoring Guidance:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Check for alignment between educational aspirations and financial reality</li>
+                            <li>Help students identify specific action steps with deadlines</li>
+                            <li>Look for gaps in planning that need to be addressed</li>
+                            <li>Encourage thinking about both short-term and long-term steps</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Reflection & Wrap-up -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Reflection & Wrap-up (5 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Reflection Questions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>"What was the most surprising thing you learned about financing your education?"</li>
+                            <li>"How might your financing plan affect your educational and career choices?"</li>
+                            <li>"What specific action will you take in the next month regarding education financing?"</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Connection to Overall Objectives:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Reinforce how strategic financial planning enables educational opportunities</li>
+                            <li>Connect education financing to career planning from Chapter 1.1</li>
+                            <li>Highlight the importance of early planning and research</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Preview:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Brief introduction to Chapter 1.3 on Income and Taxes</li>
+                            <li>Connection between education financing decisions and future income management</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Differentiation Strategies -->
+                    <h2 class="section-header text-xl">Differentiation Strategies</h2>
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">For Advanced Students</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Challenge them to research specialized loan forgiveness programs in their field</li>
+                            <li>Encourage creation of multiple financing scenarios with pros/cons analysis</li>
+                            <li>Suggest developing more sophisticated multi-year funding projections</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">For Struggling Students</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Provide simplified calculator templates with fewer variables</li>
+                            <li>Offer additional guidance during plan development</li>
+                            <li>Focus on one or two high-impact financing strategies rather than comprehensive planning</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">For ELL Students</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Provide visual guides for using the calculators</li>
+                            <li>Offer simplified templates with clear prompts</li>
+                            <li>Allow use of financial planning terminology in home language</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Assessment Strategies -->
+                    <h2 class="section-header text-xl">Assessment Strategies</h2>
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Formative Assessment Opportunities</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Monitor calculator usage for understanding of financing concepts</li>
+                            <li>Check loan payment calculations for mathematical accuracy</li>
+                            <li>Review scholarship strategies for relevance and specificity</li>
+                            <li>Observe financing plan development for completeness and realism</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">Summative Assessment</h3>
+                        <div class="mb-2">
+                            <p><strong>Deliverable:</strong> Education Financing Plan</p>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <p><strong>Assessment Criteria:</strong></p>
+                            <ul class="list-disc pl-6 mb-2">
+                                <li>Thoroughness of cost and funding analysis</li>
+                                <li>Realism of financing strategy</li>
+                                <li>Strategic approach to scholarship applications</li>
+                                <li>Alignment with educational and career goals</li>
+                                <li>Specificity of action steps and timeline</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <p><strong>Success Indicators:</strong></p>
+                            <ul class="list-disc pl-6">
+                                <li>Excellent work: Comprehensive analysis of multiple scenarios, strategic scholarship approach, detailed action plan with contingencies</li>
+                                <li>Proficient work: Realistic funding analysis, solid scholarship strategy, clear action steps</li>
+                                <li>Needs improvement: Incomplete analysis, vague scholarship approach, limited action steps</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Resources -->
+                    <h2 class="section-header text-xl">Additional Resources and References</h2>
+                    <div class="mb-6">
+                        <ul class="list-disc pl-6">
+                            <li>Federal Student Aid website (studentaid.gov)</li>
+                            <li>College Board's BigFuture college cost calculator</li>
+                            <li>Fastweb and Scholarships.com search engines</li>
+                            <li>Institutional net price calculators</li>
+                            <li>Public university tuition and aid comparison charts</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Instructor Support -->
+                    <h2 class="section-header text-xl">Instructor Support</h2>
+                    <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                        <p class="mb-4">Need help facilitating the education financing activities or troubleshooting the digital tools? Your AI Teaching Assistant provides specialized support for this learning lab.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-2">How to Access</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Scan the QR code on your printed guide</li>
+                            <li>Visit: PFLAcademy.org/teacher-support</li>
+                            <li>Access Code: CH1.2-DAY2</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">Sample Questions for This Learning Lab</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>"How can I help students get more realistic about college costs when they're entering data in the funding calculator?"</li>
+                            <li>"What are some effective ways to help students understand the long-term impact of different loan amounts?"</li>
+                            <li>"Can you suggest additional scholarship categories for students with specific interests like arts, athletics, or community service?"</li>
+                            <li>"What are the most common pitfalls students encounter when creating education financing plans?"</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">Activity-Specific Support</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Get troubleshooting assistance for the digital calculator and simulator tools</li>
+                            <li>Request additional scholarship search resources for specific student populations</li>
+                            <li>Receive guidance on helping students build realistic timelines for financing actions</li>
+                            <li>Access examples of high-quality financing plans to share as models</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Print Button -->
+            <button class="print-btn" id="printBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd" />
+                </svg>
+                Print / Save as PDF
+            </button>
+        </main>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update tab styling
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Find the clicked tab and activate it
+            const tabs = document.querySelectorAll('.tab');
+            for (let i = 0; i < tabs.length; i++) {
+                if (tabs[i].textContent === (tabId === 'content-guide' ? 'Content Guide' : 'Learning Lab')) {
+                    tabs[i].classList.add('active');
+                }
+            }
+        }
+        
+        // Print functionality
+        document.getElementById('printBtn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Download functionality
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            alert('Materials would be downloaded here. In a production environment, this would provide lesson resources as a ZIP file.');
+        });
+    </script>
+</body>
+</html>

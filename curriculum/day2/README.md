@@ -1,0 +1,1 @@
+# Day 2 Learning Labs\n\nThis repository contains all the Day 2 Learning Lab HTML files for PFL Academy curriculum.\n\nEach standard folder contains interactive learning activities for financial literacy education.

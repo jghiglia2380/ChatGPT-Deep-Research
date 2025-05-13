@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Loan Financial Impact Analysis - PFL Academy</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #4f46e5;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            color: #333;
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4f46e5;
+            margin-top: 20px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background-color: #f3f4f6;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+        
+        td {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+        
+        .input-cell {
+            background-color: #f9fafb;
+            min-height: 1.5em;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9fafb;
+        }
+        
+        .notes {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tips {
+            background-color: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .impact-section {
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .impact-title {
+            color: #4f46e5;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar-container {
+            width: 100%;
+            height: 24px;
+            background-color: #e5e7eb;
+            border-radius: 12px;
+            margin: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            border-radius: 12px;
+            transition: width 0.3s ease;
+        }
+        
+        .print-instructions {
+            text-align: center;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            background-color: #e0f2fe;
+            border-radius: 6px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .print-instructions {
+                display: none;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+            
+            h2 {
+                page-break-after: avoid;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PFL Academy</div>
+            <h1>Student Loan Financial Impact Analysis</h1>
+            <div class="subtitle">Chapter 7.5: Understanding Student Loans</div>
+        </div>
+        
+        <div class="print-instructions">
+            <strong>Teacher Instructions:</strong> To save as PDF, use your browser's print function (Ctrl+P or ⌘+P) and select "Save as PDF" as the destination.
+        </div>
+        
+        <h2>Introduction</h2>
+        <p>
+            This worksheet will help you analyze how student loan payments will affect your post-graduation finances. Understanding the broader impact of student loan debt on your future financial goals and lifestyle choices is essential for making informed borrowing decisions today.
+        </p>
+        
+        <div class="notes">
+            <strong>Note:</strong> The analysis in this worksheet uses estimates and projections based on current information. Actual outcomes may vary based on changes in interest rates, income, and other financial factors.
+        </div>
+        
+        <div class="section">
+            <h2>Part 1: Student Loan Summary</h2>
+            <p>
+                Summarize your projected student loan situation based on your education plans and repayment strategy.
+            </p>
+            
+            <table>
+                <tr>
+                    <td width="60%">Total Education Cost:</td>
+                    <td class="input-cell" width="40%">$</td>
+                </tr>
+                <tr>
+                    <td>Amount Covered by Non-Loan Sources:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Total Student Loan Debt at Graduation:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Average Interest Rate (weighted):</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td>Selected Repayment Plan:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Repayment Term (years):</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Estimated Monthly Payment:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Total Amount Repaid (including interest):</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Total Interest Paid:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Part 2: Post-Graduation Budget Analysis</h2>
+            <p>
+                Analyze how your student loan payments will fit into your post-graduation monthly budget.
+            </p>
+            
+            <h3>Income and Essential Expenses</h3>
+            <table>
+                <tr>
+                    <td width="60%">Expected Monthly Gross Income:</td>
+                    <td class="input-cell" width="40%">$</td>
+                </tr>
+                <tr>
+                    <td>Estimated Monthly Take-Home Pay:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+            
+            <h3>Monthly Expenses</h3>
+            <table>
+                <tr>
+                    <th width="60%">Expense Category</th>
+                    <th width="40%">Amount</th>
+                </tr>
+                <tr>
+                    <td>Student Loan Payment</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Housing (rent/mortgage)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Utilities (electric, water, internet, etc.)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Food (groceries and dining out)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Transportation (car payment, gas, insurance, public transit)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Health Insurance and Medical Expenses</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Cell Phone</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Other Essential Expenses</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Savings (emergency fund, retirement, etc.)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Entertainment and Discretionary Spending</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Monthly Expenses</strong></td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Remaining Amount</strong> (Take-Home Pay - Total Expenses)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+            
+            <h3>Budget Analysis</h3>
+            
+            <div class="impact-section">
+                <div class="impact-title">Student Loan-to-Income Ratio</div>
+                <p>
+                    Your monthly student loan payment ($<span class="input-cell" style="display: inline-block; min-width: 50px;">&nbsp;</span>) is <span class="input-cell" style="display: inline-block; min-width: 50px;">&nbsp;</span>% of your monthly take-home pay.
+                </p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 0%; background-color: #10b981;">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <span style="font-size: 12px;">0%</span>
+                    <span style="font-size: 12px;">5%</span>
+                    <span style="font-size: 12px;">10%</span>
+                    <span style="font-size: 12px;">15%</span>
+                    <span style="font-size: 12px;">20%</span>
+                    <span style="font-size: 12px;">25%</span>
+                    <span style="font-size: 12px;">30%</span>
+                </div>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- Rating will go here (e.g., "Good: Below 10% is considered manageable") -->
+                </p>
+            </div>
+            
+            <div class="impact-section">
+                <div class="impact-title">Total Debt-to-Income Ratio</div>
+                <p>
+                    Your total monthly debt payments (student loans + car payment + etc.) of $<span class="input-cell" style="display: inline-block; min-width: 50px;">&nbsp;</span> are <span class="input-cell" style="display: inline-block; min-width: 50px;">&nbsp;</span>% of your monthly take-home pay.
+                </p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 0%; background-color: #f59e0b;">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <span style="font-size: 12px;">0%</span>
+                    <span style="font-size: 12px;">10%</span>
+                    <span style="font-size: 12px;">20%</span>
+                    <span style="font-size: 12px;">30%</span>
+                    <span style="font-size: 12px;">40%</span>
+                    <span style="font-size: 12px;">50%</span>
+                </div>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- Rating will go here (e.g., "Caution: Approaching the 36% threshold for total debt") -->
+                </p>
+            </div>
+            
+            <div class="notes">
+                <strong>Guidelines:</strong> Financial experts typically recommend:
+                <ul>
+                    <li>Student loan payments should be less than 10-15% of your monthly income</li>
+                    <li>Total debt payments (including student loans, car loans, etc.) should be less than 36% of income</li>
+                    <li>Housing costs should be less than 30% of income</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Part 3: Long-Term Financial Impact Analysis</h2>
+            <p>
+                Analyze how your student loan payments will affect your ability to meet other financial goals after graduation.
+            </p>
+            
+            <div class="impact-section">
+                <div class="impact-title">Emergency Fund Development</div>
+                <p>
+                    A standard emergency fund should cover 3-6 months of essential expenses. Based on your budget:
+                </p>
+                <table>
+                    <tr>
+                        <td width="60%">Monthly Essential Expenses:</td>
+                        <td class="input-cell" width="40%">$</td>
+                    </tr>
+                    <tr>
+                        <td>Target Emergency Fund (3 months of expenses):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Amount Available for Emergency Fund Savings:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Time to Build 3-Month Emergency Fund:</td>
+                        <td class="input-cell">months</td>
+                    </tr>
+                </table>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- Analysis of emergency fund impact will go here -->
+                </p>
+            </div>
+            
+            <div class="impact-section">
+                <div class="impact-title">Retirement Savings Impact</div>
+                <p>
+                    Analyze how your student loan payments affect your ability to save for retirement.
+                </p>
+                <table>
+                    <tr>
+                        <td width="60%">Monthly Amount Available for Retirement Savings:</td>
+                        <td class="input-cell" width="40%">$</td>
+                    </tr>
+                    <tr>
+                        <td>Recommended Retirement Savings (15% of gross income):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Retirement Savings Shortfall Due to Student Loans:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                </table>
+                <p>
+                    If you invested your monthly student loan payment amount in retirement instead for the same term as your loan:
+                </p>
+                <table>
+                    <tr>
+                        <td width="60%">Monthly Student Loan Payment:</td>
+                        <td class="input-cell" width="40%">$</td>
+                    </tr>
+                    <tr>
+                        <td>Loan Repayment Term:</td>
+                        <td class="input-cell">years</td>
+                    </tr>
+                    <tr>
+                        <td>Potential Retirement Balance After Same Period (7% annual return):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                </table>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- Analysis of retirement impact will go here -->
+                </p>
+            </div>
+            
+            <div class="impact-section">
+                <div class="impact-title">Home Purchase Impact</div>
+                <p>
+                    Analyze how your student loan debt affects your ability to qualify for a mortgage.
+                </p>
+                <table>
+                    <tr>
+                        <td width="60%">Monthly Income:</td>
+                        <td class="input-cell" width="40%">$</td>
+                    </tr>
+                    <tr>
+                        <td>Student Loan Payment:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Other Monthly Debt Payments:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Housing Payment (28% of monthly income):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Total Debt Payment (36% of monthly income):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Amount Available for Mortgage Payment:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Approximate Mortgage Amount (30-year fixed, 6.5% interest):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                </table>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- Analysis of home purchasing impact will go here -->
+                </p>
+            </div>
+            
+            <div class="impact-section">
+                <div class="impact-title">Other Financial Goals</div>
+                <p>
+                    Consider how your student loan payments might impact other financial goals:
+                </p>
+                <table>
+                    <tr>
+                        <td>Goal: Car Purchase</td>
+                        <td class="input-cell">
+                            Impact: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Goal: Travel</td>
+                        <td class="input-cell">
+                            Impact: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Goal: Further Education</td>
+                        <td class="input-cell">
+                            Impact: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Goal: Starting a Family</td>
+                        <td class="input-cell">
+                            Impact: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Goal: Starting a Business</td>
+                        <td class="input-cell">
+                            Impact: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Goal: Other _________________</td>
+                        <td class="input-cell">
+                            Impact: <br>&nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="tips">
+                <strong>Balancing Student Loans with Other Financial Goals:</strong> While student loans are an investment in your future earning potential, it's important to balance them with other financial goals. When borrowing for education, consider how the payments will affect your ability to save for retirement, purchase a home, and achieve other important milestones.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Part 4: Strategies to Mitigate Financial Impact</h2>
+            <p>
+                Based on your analysis, identify strategies to reduce the financial impact of your student loans on your other goals.
+            </p>
+            
+            <h3>Budget Adjustments</h3>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <h3>Income Enhancement Strategies</h3>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <h3>Loan Repayment Optimization</h3>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <h3>Potential Timeline Adjustments for Other Goals</h3>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+        </div>
+        
+        <h2>Financial Impact Summary</h2>
+        <p>
+            Summarize the key insights from your financial impact analysis and how it might influence your education financing decisions.
+        </p>
+        
+        <div class="input-cell" style="min-height: 150px;">&nbsp;</div>
+        
+        <div class="footer">
+            <p>PFL Academy | Chapter 7.5: Understanding Student Loans | © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

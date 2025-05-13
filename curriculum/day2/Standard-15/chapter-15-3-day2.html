@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 15.3: Job Application Process - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Case study styles for this chapter */
+        .case-study {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .feedback-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .error-item {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 0.25rem;
+        }
+        
+        .success-item {
+            background-color: #dcfce7;
+            border-left: 4px solid #22c55e;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 0.25rem;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-top: 0.25rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 15: Career Readiness</h2>
+                        <p class="text-gray-600 text-sm mt-1">Developing skills for successful career planning, job search, and workplace readiness.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Previous chapters with checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 15.1: Career Exploration & Goal Setting
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 15.2: Resume Building & Personal Branding
+                                </a>
+                            </li>
+                            
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 15.3: Job Application Process
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="15.3/student/day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 1: Application Error Identification
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 2: Cover Letter Development
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 3: Application Simulator
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 4: Peer Application Review
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station5" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 5: Follow-Up Communication
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Future chapters without checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 15.4: Interview Skills & Workplace Readiness
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 15.5: Entrepreneurship & Side Hustles
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station5-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="15.3/student/day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 15.3: Job Application Process</h1>
+                    <p class="text-lg text-gray-600 mb-6">Application Materials Workshop: Applying concepts through interactive activities</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Analyze job descriptions to identify key requirements and qualifications</li>
+                            <li>Create customized application materials for specific positions</li>
+                            <li>Identify and correct common application errors</li>
+                            <li>Navigate online application systems effectively</li>
+                            <li>Evaluate application materials through peer review</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Application Materials Workshop! Today's Learning Lab gives you the opportunity to apply the job application strategies we learned in our previous session through hands-on activities. You'll analyze job descriptions, create tailored application materials, review sample applications, and practice with application tracking systems. These practical experiences will help you develop the skills needed to navigate the job application process successfully.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                The skills you develop today will be useful throughout your career, as you'll likely apply for multiple positions over time. Pay special attention to the customization aspects of each activity, as tailoring your materials for specific positions is one of the most important factors in successful applications.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, we explored job search strategies, learned how to read job descriptions, and discussed best practices for creating application materials. Today, we'll put that knowledge into practice through hands-on activities that give you real experience with the application process. The techniques you learned for customizing resumes, writing cover letters, and optimizing for ATS will be directly applied in today's learning stations.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Strategic Job Application Process</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/15.3 - Strategiv Job Application Process.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Effective job search strategies, analyzing job descriptions, customizing application materials, navigating applicant tracking systems, and networking during the application process.
+                            </p>
+                        </div>
+
+                        <!-- Warm-Up Activity -->
+                        <div class="bg-gray-50 rounded-lg p-5 mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-3">Warm-Up: Job Description Analysis</h3>
+                            <p class="text-gray-700 mb-3">
+                                Before we begin our learning stations, take a few minutes to analyze the sample job description below:
+                            </p>
+                            
+                            <div class="border border-gray-300 rounded-lg p-4 bg-white mb-4">
+                                <h4 class="font-bold text-lg mb-2">Financial Services Associate</h4>
+                                <p class="text-sm text-gray-500 mb-2">XYZ Financial Group - Full Time</p>
+                                
+                                <h5 class="font-semibold mt-3 mb-1">Job Description:</h5>
+                                <p class="text-gray-700 mb-3">
+                                    XYZ Financial Group is seeking a motivated Financial Services Associate to join our growing team. This position will assist clients with financial product selection, process applications, and provide exceptional customer service. The ideal candidate will have strong communication skills, attention to detail, and the ability to explain complex financial concepts clearly.
+                                </p>
+                                
+                                <h5 class="font-semibold mb-1">Required Qualifications:</h5>
+                                <ul class="list-disc list-inside text-gray-700 mb-3">
+                                    <li>High school diploma or equivalent (Bachelor's degree preferred)</li>
+                                    <li>Excellent verbal and written communication skills</li>
+                                    <li>Proficiency with Microsoft Office Suite (Excel, Word, Outlook)</li>
+                                    <li>Strong attention to detail and organizational skills</li>
+                                    <li>Customer service experience (1+ years preferred)</li>
+                                </ul>
+                                
+                                <h5 class="font-semibold mb-1">Preferred Qualifications:</h5>
+                                <ul class="list-disc list-inside text-gray-700 mb-3">
+                                    <li>Associate's or Bachelor's degree in business, finance, or related field</li>
+                                    <li>Previous experience in banking, financial services, or customer service</li>
+                                    <li>Knowledge of financial products and services</li>
+                                    <li>Experience with financial software systems</li>
+                                    <li>Sales or relationship-building experience</li>
+                                </ul>
+                                
+                                <h5 class="font-semibold mb-1">Responsibilities:</h5>
+                                <ul class="list-disc list-inside text-gray-700">
+                                    <li>Assist clients with account applications and financial product selection</li>
+                                    <li>Process applications accurately and efficiently</li>
+                                    <li>Communicate with clients regarding application status and requirements</li>
+                                    <li>Maintain detailed records of all client interactions</li>
+                                    <li>Collaborate with other team members to ensure client satisfaction</li>
+                                    <li>Identify opportunities for additional services based on client needs</li>
+                                    <li>Participate in continuing education and training as required</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="text-gray-700 mb-3 font-medium">For this job description:</p>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-gray-700 mb-1">1. List 5-7 important keywords from this job description:</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2 text-gray-700" rows="2" placeholder="Enter keywords here..."></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">2. What are the most important qualifications for this position?</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2 text-gray-700" rows="2" placeholder="List important qualifications..."></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">3. How would you prioritize information in your application materials for this position?</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2 text-gray-700" rows="2" placeholder="Describe your approach..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Station 1 -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 1: Application Error Identification</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            Identifying common mistakes in job applications helps you avoid these errors in your own materials and increases your chances of success. In this station, you'll review sample application materials and identify potential issues.
+                        </p>
+                        
+                        <div class="case-study mb-5">
+                            <h3 class="font-semibold text-lg mb-2">Sample Resume with Errors</h3>
+                            <div class="border border-gray-300 p-4 bg-white rounded-lg">
+                                <div class="text-center mb-3">
+                                    <h4 class="text-xl font-bold">John Doe</h4>
+                                    <p>johnnydude123@hotmail.com | 555-123-4567</p>
+                                    <p>123 Main Street, Anytown, USA</p>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h5 class="font-bold text-sm uppercase border-b border-gray-300 pb-1 mb-2">WORK EXPERIENCE</h5>
+                                    <div class="mb-3">
+                                        <p class="font-semibold">Sales Associate, Generic Retail Store</p>
+                                        <p class="text-gray-600 text-sm">June 2022 - Present</p>
+                                        <ul class="list-disc list-inside text-sm">
+                                            <li>Help customers find what there looking for</li>
+                                            <li>Responsible for operating cash register</li>
+                                            <li>Work with team members</li>
+                                            <li>Keep store clean and organized</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <p class="font-semibold">food Server, Local Restaurant</p>
+                                        <p class="text-gray-600 text-sm">Jan. 2021 - May 2022</p>
+                                        <ul class="list-disc list-inside text-sm">
+                                            <li>Served food to customers</li>
+                                            <li>Took orders</li>
+                                            <li>Cleaned tables</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h5 class="font-bold text-sm uppercase border-b border-gray-300 pb-1 mb-2">EDUCATION</h5>
+                                    <p class="font-semibold">High School Diploma</p>
+                                    <p class="text-sm">Anytown High School, Anytown, USA</p>
+                                    <p class="text-sm text-gray-600">2020</p>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="font-bold text-sm uppercase border-b border-gray-300 pb-1 mb-2">SKILLS</h5>
+                                    <p class="text-sm">Microsoft Word, good with people, fast learner, reliable, hardworking, Typing, Social media, Teamwork skills</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4 class="font-semibold mb-3">Error Identification Checklist</h4>
+                        <p class="text-gray-700 mb-3">Review the sample resume above and identify at least 5 errors. For each error, explain why it's problematic and how to correct it.</p>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="bg-white p-4 rounded-lg border border-gray-300">
+                                <h5 class="font-medium text-gray-900 mb-2">Error #1:</h5>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">What is the error?</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Describe the error...">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Why is it problematic?</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Explain why...">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">How to correct it?</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Suggest correction...">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Add more error identification boxes -->
+                            <div class="bg-white p-4 rounded-lg border border-gray-300">
+                                <h5 class="font-medium text-gray-900 mb-2">Error #2:</h5>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">What is the error?</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Describe the error...">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Why is it problematic?</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Explain why...">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">How to correct it?</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Suggest correction...">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg border border-gray-300">
+                                <h5 class="font-medium text-gray-900 mb-2">Error #3:</h5>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">What is the error?</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Describe the error...">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Why is it problematic?</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Explain why...">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">How to correct it?</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Suggest correction...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
+                            <h4 class="font-semibold text-blue-800 mb-2">Common Application Errors to Watch For</h4>
+                            <ul class="list-disc list-inside text-blue-700 text-sm space-y-1">
+                                <li>Generic materials not tailored to the specific position</li>
+                                <li>Grammatical errors and typos</li>
+                                <li>Missing or incomplete information</li>
+                                <li>Inconsistent formatting or poor organization</li>
+                                <li>Lack of specific, quantifiable achievements</li>
+                                <li>Failure to address application requirements</li>
+                                <li>Inappropriate email addresses or contact information</li>
+                                <li>Unprofessional social media references</li>
+                                <li>Unexplained employment gaps</li>
+                                <li>Exaggerated or false information</li>
+                            </ul>
+                        </div>
+                                                
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue to Station 2
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 2 -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Cover Letter Development</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            A well-crafted cover letter introduces you to potential employers and explains why you're an excellent fit for the position. In this station, you'll develop a targeted cover letter for the Financial Services Associate position from the warm-up activity.
+                        </p>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg mb-5">
+                            <h3 class="font-semibold mb-3">Cover Letter Development Worksheet</h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Hiring Manager's Name (if known) or Alternative:</label>
+                                    <input type="text" class="w-full border border-gray-300 rounded p-2" placeholder="e.g., 'Ms. Johnson' or 'Hiring Manager'">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Key Qualification #1 that makes you a strong candidate:</label>
+                                    <input type="text" class="w-full border border-gray-300 rounded p-2" placeholder="e.g., 'Customer service experience'">
+                                    <label class="block text-gray-700 text-sm mt-2 mb-1">Specific example demonstrating this qualification:</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="2" placeholder="Describe a specific example from your experience..."></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Key Qualification #2 that makes you a strong candidate:</label>
+                                    <input type="text" class="w-full border border-gray-300 rounded p-2" placeholder="e.g., 'Communication skills'">
+                                    <label class="block text-gray-700 text-sm mt-2 mb-1">Specific example demonstrating this qualification:</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="2" placeholder="Describe a specific example from your experience..."></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Why are you interested in this particular role and company?</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="2" placeholder="Explain your interest..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="font-semibold mb-3">Draft Your Cover Letter</h3>
+                        <p class="text-gray-700 mb-4">Using the information from your worksheet, draft your cover letter following the structure below:</p>
+                        
+                        <div class="border border-gray-300 rounded-lg p-4 bg-white mb-6">
+                            <textarea class="w-full border-0 focus:ring-0 resize-none h-96 p-0" placeholder="[Your Name]
+[Your Address]
+[City, State ZIP]
+[Your Email]
+[Your Phone]
+
+[Date]
+
+[Hiring Manager's Name]
+XYZ Financial Group
+[Company Address]
+[City, State ZIP]
+
+Dear [Hiring Manager's Name],
+
+[Opening Paragraph: Introduction, position of interest, and how you learned about it]
+
+[Body Paragraph 1: Key qualification #1 with supporting example]
+
+[Body Paragraph 2: Key qualification #2 with supporting example]
+
+[Closing Paragraph: Express enthusiasm, request interview, and thank the reader]
+
+Sincerely,
+
+[Your Name]"></textarea>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
+                            <h4 class="font-semibold text-blue-800 mb-2">Cover Letter Tips</h4>
+                            <ul class="list-disc list-inside text-blue-700 text-sm space-y-1">
+                                <li>Keep your cover letter to one page (3-4 paragraphs)</li>
+                                <li>Use specific examples rather than general statements</li>
+                                <li>Address the letter to a specific person whenever possible</li>
+                                <li>Explain why you're interested in this particular company</li>
+                                <li>Customize each cover letter for the specific position</li>
+                                <li>Proofread carefully for errors and clarity</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue to Station 3
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 3 -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: Application Simulator Practice</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            The Application Simulator provides hands-on experience with online application systems and helps you optimize your materials for Applicant Tracking Systems (ATS). In this station, you'll test your application materials against an ATS simulator.
+                        </p>
+                        
+                        <div class="bg-white border border-gray-300 rounded-lg p-5 mb-5">
+                            <h3 class="font-semibold mb-3">Application Simulator</h3>
+                            <p class="text-gray-700 mb-4">Complete the application process below to test how your materials perform with an Applicant Tracking System (ATS):</p>
+                            
+                            <div class="border-b border-gray-200 pb-4 mb-4">
+                                <h4 class="font-medium text-gray-900 mb-3">Step 1: Select a Position</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                    <div class="border border-gray-200 p-3 rounded-lg hover:bg-indigo-50 hover:border-indigo-300 cursor-pointer transition">
+                                        <input type="radio" name="position" id="position1" class="mr-2">
+                                        <label for="position1" class="font-medium text-gray-800">Financial Services Associate</label>
+                                        <p class="text-sm text-gray-600 mt-1">Entry-level position in financial services</p>
+                                    </div>
+                                    <div class="border border-gray-200 p-3 rounded-lg hover:bg-indigo-50 hover:border-indigo-300 cursor-pointer transition">
+                                        <input type="radio" name="position" id="position2" class="mr-2">
+                                        <label for="position2" class="font-medium text-gray-800">Administrative Assistant</label>
+                                        <p class="text-sm text-gray-600 mt-1">Office support role with diverse responsibilities</p>
+                                    </div>
+                                    <div class="border border-gray-200 p-3 rounded-lg hover:bg-indigo-50 hover:border-indigo-300 cursor-pointer transition">
+                                        <input type="radio" name="position" id="position3" class="mr-2">
+                                        <label for="position3" class="font-medium text-gray-800">Customer Service Representative</label>
+                                        <p class="text-sm text-gray-600 mt-1">Customer-focused role in retail or service industry</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border-b border-gray-200 pb-4 mb-4">
+                                <h4 class="font-medium text-gray-900 mb-3">Step 2: Upload Resume</h4>
+                                <div class="bg-gray-50 border border-dashed border-gray-300 rounded-lg p-4 text-center mb-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>
+                                    <p class="text-sm text-gray-600 mb-2">Drag and drop your resume here, or</p>
+                                    <button class="bg-indigo-600 text-white px-4 py-2 rounded text-sm hover:bg-indigo-700 transition">
+                                        Browse files
+                                    </button>
+                                    <p class="text-xs text-gray-500 mt-2">Accepted formats: .pdf, .docx</p>
+                                </div>
+                                <div class="text-sm text-gray-600">
+                                    <p class="mb-1">Or select a sample resume:</p>
+                                    <div class="space-y-1">
+                                        <div>
+                                            <input type="radio" name="sample_resume" id="sample1" class="mr-1">
+                                            <label for="sample1">Entry-Level Resume Template</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="sample_resume" id="sample2" class="mr-1">
+                                            <label for="sample2">College Graduate Resume Template</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="sample_resume" id="sample3" class="mr-1">
+                                            <label for="sample3">Work Experience Resume Template</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border-b border-gray-200 pb-4 mb-4">
+                                <h4 class="font-medium text-gray-900 mb-3">Step 3: Complete Application Form</h4>
+                                <div class="space-y-3 mb-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                                            <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Your first name">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                                            <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Your last name">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                                        <input type="email" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="your.email@example.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                                        <input type="tel" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="(555) 123-4567">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile URL</label>
+                                        <input type="url" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="https://linkedin.com/in/yourprofile">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Years of Relevant Experience *</label>
+                                        <select class="w-full border border-gray-300 rounded p-2 text-sm">
+                                            <option value="">Select experience level</option>
+                                            <option value="0-1">0-1 years</option>
+                                            <option value="1-3">1-3 years</option>
+                                            <option value="3-5">3-5 years</option>
+                                            <option value="5+">5+ years</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Highest Education Level *</label>
+                                        <select class="w-full border border-gray-300 rounded p-2 text-sm">
+                                            <option value="">Select education level</option>
+                                            <option value="high-school">High School Diploma/GED</option>
+                                            <option value="associate">Associate's Degree</option>
+                                            <option value="bachelor">Bachelor's Degree</option>
+                                            <option value="master">Master's Degree or higher</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <h5 class="font-medium text-gray-800 mb-2">Supplemental Questions</h5>
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Why are you interested in this position? *</label>
+                                        <textarea class="w-full border border-gray-300 rounded p-2 text-sm" rows="2" placeholder="Briefly explain your interest..."></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Describe your relevant skills and experience for this role: *</label>
+                                        <textarea class="w-full border border-gray-300 rounded p-2 text-sm" rows="2" placeholder="Highlight your qualifications..."></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Are you authorized to work in the United States? *</label>
+                                        <div class="flex space-x-4 mt-1">
+                                            <div>
+                                                <input type="radio" name="work_auth" id="auth_yes" class="mr-1">
+                                                <label for="auth_yes" class="text-sm">Yes</label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="work_auth" id="auth_no" class="mr-1">
+                                                <label for="auth_no" class="text-sm">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">How did you hear about this position? *</label>
+                                        <select class="w-full border border-gray-300 rounded p-2 text-sm">
+                                            <option value="">Select an option</option>
+                                            <option value="job-board">Job Board</option>
+                                            <option value="company-website">Company Website</option>
+                                            <option value="referral">Employee Referral</option>
+                                            <option value="social">Social Media</option>
+                                            <option value="school">School/University</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition" onclick="simulateApplication()">
+                                    Submit Application
+                                </button>
+                            </div>
+                            
+                            <script>
+                                function simulateApplication() {
+                                    // Show the ATS results section
+                                    document.getElementById('ats-results').classList.remove('hidden');
+                                    
+                                    // Scroll to the results
+                                    setTimeout(() => {
+                                        document.getElementById('ats-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }, 500);
+                                }
+                                
+                                function resetApplication() {
+                                    // Hide the results section
+                                    document.getElementById('ats-results').classList.add('hidden');
+                                    
+                                    // Scroll back to the top of the simulator
+                                    setTimeout(() => {
+                                        document.getElementById('station3').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }, 100);
+                                }
+                            </script>
+                            
+                            <!-- ATS Results (hidden until submission) -->
+                            <div id="ats-results" class="hidden mt-6 pt-4 border-t border-gray-200">
+                                <h4 class="font-semibold text-lg mb-3">ATS Analysis Results</h4>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="font-medium">Overall Compatibility Score:</span>
+                                        <span class="text-lg font-bold text-indigo-700" id="compatibility-score">72%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
+                                        <div class="bg-indigo-600 h-full rounded-full" id="score-bar" style="width: 72%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <h5 class="font-medium mb-2">Keyword Match Analysis</h5>
+                                        <div class="space-y-2">
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-sm">Required Keywords</span>
+                                                <span class="text-sm font-medium">3/5 matched</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                                                <div class="bg-green-500 h-full rounded-full" style="width: 60%"></div>
+                                            </div>
+                                            <div class="flex flex-wrap gap-2 mt-2">
+                                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">customer service</span>
+                                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">communication</span>
+                                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Microsoft Office</span>
+                                                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">attention to detail</span>
+                                                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">organizational skills</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                        <h5 class="font-medium mb-2">Format & Structure Assessment</h5>
+                                        <div class="space-y-2">
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-sm">ATS Readability</span>
+                                                <span class="text-sm font-medium">Good</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                                                <div class="bg-blue-500 h-full rounded-full" style="width: 80%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="space-y-1 mt-3">
+                                            <div class="flex items-start">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600 mr-1 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                                </svg>
+                                                <span class="text-xs text-gray-700">Standard section headings</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600 mr-1 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                                </svg>
+                                                <span class="text-xs text-gray-700">Simple formatting</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600 mr-1 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                </svg>
+                                                <span class="text-xs text-gray-700">Missing section: Skills Summary</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                                    <h5 class="font-medium mb-3">Improvement Recommendations</h5>
+                                    <ul class="space-y-2 text-sm">
+                                        <li class="flex items-start">
+                                            <span class="text-red-500 mr-2">•</span>
+                                            <span>Add the missing keywords "attention to detail" and "organizational skills" to your resume</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-red-500 mr-2">•</span>
+                                            <span>Include a dedicated Skills section at the top of your resume to highlight key qualifications</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-red-500 mr-2">•</span>
+                                            <span>Quantify your achievements with specific numbers or percentages (e.g., "Increased customer satisfaction by 15%")</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-amber-500 mr-2">•</span>
+                                            <span>Consider adding more detail to your work experience descriptions</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-amber-500 mr-2">•</span>
+                                            <span>Ensure consistent formatting of dates throughout your resume</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition" onclick="resetApplication()">
+                                        Try Again with Improvements
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-300 rounded-lg p-5 mb-5">
+                            <h3 class="font-semibold mb-3">ATS Feedback Summary</h3>
+                            <p class="text-gray-700 mb-4">After completing the Application Simulator, summarize the feedback you received:</p>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Overall ATS Compatibility Score:</label>
+                                    <select class="w-full border border-gray-300 rounded p-2">
+                                        <option value="">Select a score...</option>
+                                        <option value="excellent">Excellent (90-100%)</option>
+                                        <option value="good">Good (75-89%)</option>
+                                        <option value="fair">Fair (60-74%)</option>
+                                        <option value="poor">Poor (Below 60%)</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Areas of Strength:</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="2" placeholder="List aspects that scored well..."></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Areas for Improvement:</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="2" placeholder="List aspects that need improvement..."></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Three Specific Improvements I Will Make:</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="3" placeholder="1.
+2.
+3."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
+                            <h4 class="font-semibold text-blue-800 mb-2">ATS Optimization Strategies</h4>
+                            <ul class="list-disc list-inside text-blue-700 text-sm space-y-1">
+                                <li>Include relevant keywords from the job description</li>
+                                <li>Use standard section headings (e.g., "Experience," "Education")</li>
+                                <li>Ensure consistent formatting and simple design</li>
+                                <li>Spell out acronyms at least once</li>
+                                <li>Save files in .docx or .pdf format as required</li>
+                                <li>Follow all application instructions exactly</li>
+                                <li>Complete all fields, even optional ones when possible</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="simulateApplication(); saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue to Station 4
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 4 -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 4: Peer Application Review</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            Receiving and providing feedback on application materials helps you identify strengths and areas for improvement that you might miss on your own. In this station, you'll engage in peer review of application materials.
+                        </p>
+                        
+                        <div class="bg-white border border-gray-300 rounded-lg p-5 mb-5">
+                            <h3 class="font-semibold mb-3">Peer Review Worksheet</h3>
+                            <p class="text-gray-700 mb-4">Use this worksheet to provide and receive feedback on application materials:</p>
+                            
+                            <div class="space-y-5">
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Strengths Assessment</h4>
+                                    <label class="block text-gray-700 text-sm mb-1">What aspects of the application materials are particularly effective?</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="3" placeholder="List specific strengths you noticed..."></textarea>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Alignment with Job Requirements</h4>
+                                    <label class="block text-gray-700 text-sm mb-1">How well do the materials address the job requirements?</label>
+                                    <select class="w-full border border-gray-300 rounded p-2 mb-2">
+                                        <option value="">Select rating...</option>
+                                        <option value="excellent">Excellent - Addresses all key requirements</option>
+                                        <option value="good">Good - Addresses most requirements</option>
+                                        <option value="fair">Fair - Addresses some requirements</option>
+                                        <option value="poor">Poor - Minimal alignment with requirements</option>
+                                    </select>
+                                    <label class="block text-gray-700 text-sm mb-1">Specific suggestions for improving alignment:</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="2" placeholder="Offer suggestions..."></textarea>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Format & Presentation</h4>
+                                    <div class="space-y-2">
+                                        <div class="checklist-item">
+                                            <input type="checkbox" id="format1">
+                                            <label for="format1" class="text-sm text-gray-700">Professional, consistent formatting</label>
+                                        </div>
+                                        <div class="checklist-item">
+                                            <input type="checkbox" id="format2">
+                                            <label for="format2" class="text-sm text-gray-700">Clear, readable font and organization</label>
+                                        </div>
+                                        <div class="checklist-item">
+                                            <input type="checkbox" id="format3">
+                                            <label for="format3" class="text-sm text-gray-700">Appropriate length and content balance</label>
+                                        </div>
+                                        <div class="checklist-item">
+                                            <input type="checkbox" id="format4">
+                                            <label for="format4" class="text-sm text-gray-700">ATS-friendly structure and design</label>
+                                        </div>
+                                    </div>
+                                    <label class="block text-gray-700 text-sm mt-2 mb-1">Format improvement suggestions:</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="2" placeholder="Suggest formatting improvements..."></textarea>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Overall Impact & Suggestions</h4>
+                                    <label class="block text-gray-700 text-sm mb-1">What impression would these materials make on an employer?</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2 mb-3" rows="2" placeholder="Describe overall impression..."></textarea>
+                                    
+                                    <label class="block text-gray-700 text-sm mb-1">Top three recommendations for improvement:</label>
+                                    <textarea class="w-full border border-gray-300 rounded p-2" rows="3" placeholder="1.
+2.
+3."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
+                            <h4 class="font-semibold text-blue-800 mb-2">Peer Review Guidelines</h4>
+                            <ul class="list-disc list-inside text-blue-700 text-sm space-y-1">
+                                <li>Be specific and constructive in your feedback</li>
+                                <li>Balance positive observations with suggestions for improvement</li>
+                                <li>Focus on content, relevance, and professionalism</li>
+                                <li>Consider both human readers and ATS requirements</li>
+                                <li>Provide actionable recommendations</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue to Station 5
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 5 -->
+                    <div class="learning-station" id="station5">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">5</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 5: Follow-Up Communication</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            Professional follow-up after submitting an application demonstrates continued interest and proactive communication. In this station, you'll practice drafting effective follow-up messages for various scenarios.
+                        </p>
+                        
+                        <div class="case-study mb-5">
+                            <h3 class="font-semibold mb-2">Follow-Up Scenario</h3>
+                            <p class="mb-3">
+                                You applied for the Financial Services Associate position at XYZ Financial Group two weeks ago. The job posting mentioned that the review process would take 2-3 weeks. You haven't received any response yet, and you want to follow up on your application status.
+                            </p>
+                            
+                            <h4 class="font-medium mb-2">Draft your follow-up email:</h4>
+                            <div class="bg-white border border-gray-300 rounded-lg p-4">
+                                <div class="border-b border-gray-200 pb-2 mb-3">
+                                    <div class="mb-2">
+                                        <label class="block text-gray-700 text-sm mb-1">To:</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="hiring@xyzfinancial.com">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="block text-gray-700 text-sm mb-1">Subject:</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Financial Services Associate Application - [Your Name]">
+                                    </div>
+                                </div>
+                                
+                                <textarea class="w-full border-0 focus:ring-0 resize-none h-48" placeholder="Dear Hiring Manager,
+
+[Write your follow-up email here. Remember to:
+- Reference the specific position
+- Mention when you applied
+- Express continued interest
+- Offer to provide additional information
+- Thank them for their time and consideration
+- Include your contact information]
+
+Sincerely,
+[Your Name]
+[Your Phone Number]
+[Your Email]"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-300 rounded-lg p-5 mb-5">
+                            <h3 class="font-semibold mb-3">Additional Follow-Up Scenarios</h3>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medium text-gray-800 mb-2">Scenario 2: Application Confirmation</h4>
+                                <p class="text-gray-700 text-sm mb-2">
+                                    You submitted an online application but didn't receive an automatic confirmation. Draft a brief email to confirm your application was received.
+                                </p>
+                                <textarea class="w-full border border-gray-300 rounded p-2" rows="3" placeholder="Draft your email here..."></textarea>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-2">Scenario 3: Post-Interview Follow-Up</h4>
+                                <p class="text-gray-700 text-sm mb-2">
+                                    You completed an interview for the position yesterday. Draft a thank-you email to follow up after the interview.
+                                </p>
+                                <textarea class="w-full border border-gray-300 rounded p-2" rows="3" placeholder="Draft your email here..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
+                            <h4 class="font-semibold text-blue-800 mb-2">Follow-Up Best Practices</h4>
+                            <ul class="list-disc list-inside text-blue-700 text-sm space-y-1">
+                                <li>Wait 1-2 weeks after the application deadline before following up</li>
+                                <li>Be concise and respectful of the recipient's time</li>
+                                <li>Restate your interest in the position</li>
+                                <li>Reference specific qualifications that make you a strong candidate</li>
+                                <li>Offer to provide additional information</li>
+                                <li>Check for perfect grammar and spelling</li>
+                                <li>Include your contact information</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(5)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue to Portfolio Integration
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration: Job Application Package</h2>
+                        <p class="text-gray-700 mb-4">
+                            Create a complete job application package for your financial literacy portfolio that demonstrates your ability to navigate the application process effectively. This package will showcase your understanding of effective job application strategies and provide templates you can adapt for future opportunities.
+                        </p>
+                        
+                        <div class="bg-white rounded-lg border border-indigo-200 p-5 mb-5">
+                            <h3 class="font-semibold mb-3">Job Application Package Components</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="portfolio1">
+                                    <label for="portfolio1" class="text-gray-700">
+                                        <span class="font-medium">Job Description Analysis:</span> A marked-up job description showing your analysis of requirements, qualifications, and keywords
+                                    </label>
+                                </div>
+                                
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="portfolio2">
+                                    <label for="portfolio2" class="text-gray-700">
+                                        <span class="font-medium">Customized Resume:</span> A resume tailored to the specific position, incorporating relevant keywords and highlighting applicable experiences
+                                    </label>
+                                </div>
+                                
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="portfolio3">
+                                    <label for="portfolio3" class="text-gray-700">
+                                        <span class="font-medium">Targeted Cover Letter:</span> A professional cover letter explaining your interest and qualifications for the position
+                                    </label>
+                                </div>
+                                
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="portfolio4">
+                                    <label for="portfolio4" class="text-gray-700">
+                                        <span class="font-medium">Application Tracking Documentation:</span> A sample tracking spreadsheet or system for managing multiple applications
+                                    </label>
+                                </div>
+                                
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="portfolio5">
+                                    <label for="portfolio5" class="text-gray-700">
+                                        <span class="font-medium">Follow-Up Communication:</span> A professional follow-up email demonstrating appropriate timing and content
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Portfolio Summary</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Summarize what you've learned about the job application process and how you'll use these skills in your future career..."></textarea>
+                            
+                            <button class="pfl-button mt-4" onclick="savePortfolio()">
+                                Add to Portfolio
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Take a few minutes to reflect on your job application process experience:
+                        </p>
+                        
+                        <div class="space-y-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">1. What aspects of the job application process do you find most challenging? What strategies can you use to address these challenges?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Share your reflections here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">2. How has your understanding of effective application materials changed or developed through today's activities?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Share your reflections here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">3. How will you organize and manage your job applications when you begin your actual job search?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Share your reflections here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Chapter 15.4
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            station5: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 5) {
+                // If this is the last station, scroll to portfolio
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionTexts = document.querySelectorAll('textarea[data-ai-check="true"]');
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            // Check if at least one reflection has substantial content
+            let hasSubstantialReflection = false;
+            let totalLength = 0;
+            
+            reflectionTexts.forEach(textarea => {
+                totalLength += textarea.value.length;
+                if (textarea.value.length >= 75) {
+                    hasSubstantialReflection = true;
+                }
+            });
+            
+            if (!hasSubstantialReflection) {
+                aiFeedback.textContent = "Your reflections are quite brief. Consider providing more specific details about your experience with the job application process and how you'll apply what you've learned.";
+            } else if (totalLength < 300) {
+                aiFeedback.textContent = "Good start! Your reflections show some thoughtful consideration of the job application process. To improve, try adding more specific examples from today's activities and concrete strategies you'll use in your future applications.";
+            } else {
+                aiFeedback.textContent = "Excellent reflections! You've demonstrated a thorough understanding of the job application process and provided thoughtful insights about your own strengths and areas for improvement. Your specific strategies for future applications show strong preparation for your career journey.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href');
+                    if (href && href.substring(1) === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

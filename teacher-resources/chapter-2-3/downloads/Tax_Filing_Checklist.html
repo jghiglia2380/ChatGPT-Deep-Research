@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Filing Checklist - Chapter 2.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+            .checklist-item {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        .checklist-section {
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .checklist-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #E5E7EB;
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .checklist-text {
+            flex-grow: 1;
+        }
+        
+        .checklist-description {
+            color: #6B7280;
+            font-size: 0.9em;
+            margin-top: 3px;
+        }
+        
+        .section-description {
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            margin: 30px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 10px;
+            width: 2px;
+            background: #4F46E5;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4F46E5;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content {
+            background: #F3F4F6;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend portrait orientation)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Tax Filing Checklist</h1>
+        <p class="subtitle">Chapter 2.3: Understanding Tax Filing Requirements</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>This comprehensive checklist will help you prepare for and complete your tax filing. Use it to ensure you have all necessary documents, understand your filing requirements, and complete each step of the filing process in a timely manner.</p>
+
+    <div class="important-note">
+        <strong>Important:</strong> This checklist is based on general tax filing requirements and should be used for educational purposes only. Tax laws and filing requirements change annually. Always verify current requirements on the official IRS website at <a href="https://www.irs.gov">www.irs.gov</a>.
+    </div>
+
+    <h2>Tax Filing Timeline</h2>
+    <p>Here's a suggested timeline to help you stay on track with your tax filing preparation:</p>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-date">January</div>
+            <div class="timeline-content">
+                <ul>
+                    <li>Create a tax document folder or digital storage system</li>
+                    <li>Start receiving tax forms (W-2s, 1099s, etc.)</li>
+                    <li>Review last year's tax return for reference</li>
+                    <li>Research potential new deductions or credits you might qualify for</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">February</div>
+            <div class="timeline-content">
+                <ul>
+                    <li>Receive and organize all tax forms</li>
+                    <li>Gather documentation for potential deductions and credits</li>
+                    <li>Decide on filing method (software, tax professional, etc.)</li>
+                    <li>Check for missing documents and follow up if needed</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">March</div>
+            <div class="timeline-content">
+                <ul>
+                    <li>Begin preparing your tax return</li>
+                    <li>Schedule appointment with tax professional if using one</li>
+                    <li>Make final contributions to retirement accounts for previous tax year</li>
+                    <li>Review prepared return for accuracy</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">April</div>
+            <div class="timeline-content">
+                <ul>
+                    <li>File your tax return by April 15</li>
+                    <li>Pay any taxes owed by April 15</li>
+                    <li>Request an extension if needed (still pay estimated taxes owed)</li>
+                    <li>Make first quarter estimated tax payment for current year if applicable</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h2>Document Collection Checklist</h2>
+    <div class="checklist-section">
+        <div class="section-description">Start by gathering all necessary tax documents. Check off each item as you receive and organize it.</div>
+        
+        <h3>Personal Information</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Social Security numbers for you, your spouse, and dependents</div>
+                <div class="checklist-description">Required for identification on your tax return</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Dates of birth for you, your spouse, and dependents</div>
+                <div class="checklist-description">Needed for certain credits and deductions</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Copy of last year's tax return</div>
+                <div class="checklist-description">Helpful for reference and comparison</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Bank account and routing numbers</div>
+                <div class="checklist-description">Required for direct deposit of refund or electronic payment</div>
+            </div>
+        </div>
+        
+        <h3>Income Documents</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>W-2 forms from all employers</div>
+                <div class="checklist-description">Shows wages earned and taxes withheld</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>1099-NEC forms for self-employment or independent contractor work</div>
+                <div class="checklist-description">Reports nonemployee compensation</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>1099-G forms for unemployment income or state/local tax refunds</div>
+                <div class="checklist-description">Reports government payments received</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>1099-INT, 1099-DIV forms for interest and dividend income</div>
+                <div class="checklist-description">Reports investment income</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>1099-R forms for distributions from retirement accounts</div>
+                <div class="checklist-description">Reports withdrawals from retirement plans</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>SSA-1099 form for Social Security benefits</div>
+                <div class="checklist-description">Reports Social Security income</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Schedule K-1 forms for income from partnerships, S corporations, estates, or trusts</div>
+                <div class="checklist-description">Reports your share of income from these entities</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Income records for other types of income (rental, alimony, etc.)</div>
+                <div class="checklist-description">May not come on standard forms</div>
+            </div>
+        </div>
+        
+        <h3>Deduction and Credit Documents</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>1098-E form for student loan interest</div>
+                <div class="checklist-description">Reports student loan interest paid</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>1098-T form for tuition payments</div>
+                <div class="checklist-description">Reports qualified education expenses</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>1098 form for mortgage interest</div>
+                <div class="checklist-description">Reports mortgage interest paid</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Records of charitable donations</div>
+                <div class="checklist-description">Receipts for cash and non-cash contributions</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Records of medical expenses</div>
+                <div class="checklist-description">Bills, receipts, and insurance statements</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Records of childcare expenses</div>
+                <div class="checklist-description">Receipts and provider's tax ID number</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Records of retirement contributions</div>
+                <div class="checklist-description">Statements from IRA, 401(k), or other retirement accounts</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Records of business expenses (if self-employed)</div>
+                <div class="checklist-description">Receipts, mileage logs, home office information</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Health insurance documentation</div>
+                <div class="checklist-description">Form 1095-A, B, or C showing coverage</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Filing Requirement Checklist</h2>
+    <div class="checklist-section">
+        <div class="section-description">Use this checklist to determine your filing requirements.</div>
+        
+        <h3>Filing Status</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Determine your correct filing status</div>
+                <div class="checklist-description">Single, Married Filing Jointly, Married Filing Separately, Head of Household, or Qualifying Widow(er)</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Verify eligibility for your chosen filing status</div>
+                <div class="checklist-description">Confirm you meet all requirements, especially for Head of Household</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>If married, decide whether to file jointly or separately</div>
+                <div class="checklist-description">Compare options to determine which results in lower overall tax</div>
+            </div>
+        </div>
+        
+        <h3>Dependency Status</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Determine if you can be claimed as a dependent</div>
+                <div class="checklist-description">Affects your filing requirements and standard deduction</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Identify any dependents you can claim</div>
+                <div class="checklist-description">Children, relatives, or others who meet dependency tests</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Gather Social Security numbers for all dependents</div>
+                <div class="checklist-description">Required for claiming dependents on your return</div>
+            </div>
+        </div>
+        
+        <h3>Income Thresholds</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Calculate your gross income</div>
+                <div class="checklist-description">Add up all taxable income from various sources</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Compare your income to filing thresholds for your filing status and age</div>
+                <div class="checklist-description">Different thresholds apply based on these factors</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Check if you have self-employment income of $400 or more</div>
+                <div class="checklist-description">Requires filing regardless of other income</div>
+            </div>
+        </div>
+        
+        <h3>Special Situations</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Determine if you owe special taxes</div>
+                <div class="checklist-description">Alternative minimum tax, household employment taxes, etc.</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Check if you received advance payments of premium tax credit</div>
+                <div class="checklist-description">Requires filing to reconcile the credit</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Check if you need to report a qualified health savings account distribution</div>
+                <div class="checklist-description">May require filing Form 8889</div>
+            </div>
+        </div>
+        
+        <h3>Reasons to File Even If Not Required</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Check if federal income tax was withheld from your pay</div>
+                <div class="checklist-description">Filing may get you a refund</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Determine if you qualify for refundable credits</div>
+                <div class="checklist-description">Earned Income Credit, Additional Child Tax Credit, American Opportunity Credit</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Decide if you want to start the statute of limitations for an audit</div>
+                <div class="checklist-description">Generally gives IRS three years to audit your return</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Filing Process Checklist</h2>
+    <div class="checklist-section">
+        <div class="section-description">Follow these steps to complete your tax filing process.</div>
+        
+        <h3>Preparation</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Choose your filing method</div>
+                <div class="checklist-description">Tax software, tax professional, paper forms, etc.</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Check if you qualify for free filing options</div>
+                <div class="checklist-description">IRS Free File, VITA/TCE programs, etc.</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Organize all gathered documents by category</div>
+                <div class="checklist-description">Income, deductions, credits, etc.</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Review last year's return for recurring items</div>
+                <div class="checklist-description">Ensures you don't miss deductions or credits you claimed previously</div>
+            </div>
+        </div>
+        
+        <h3>Completing Your Return</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Enter personal information accurately</div>
+                <div class="checklist-description">Names, SSNs, addresses, etc.</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Report all income from all sources</div>
+                <div class="checklist-description">Using information from W-2s, 1099s, etc.</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Claim all eligible deductions</div>
+                <div class="checklist-description">Standard or itemized, plus above-the-line deductions</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Claim all eligible credits</div>
+                <div class="checklist-description">Child tax credit, education credits, etc.</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Calculate your tax liability</div>
+                <div class="checklist-description">Use tax tables or software calculations</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Compare your tax withholding to your tax liability</div>
+                <div class="checklist-description">Determines if you'll get a refund or owe more</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Double-check all calculations</div>
+                <div class="checklist-description">Ensure mathematical accuracy</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Review your entire return for errors or omissions</div>
+                <div class="checklist-description">Common areas include SSNs, filing status, missing forms</div>
+            </div>
+        </div>
+        
+        <h3>Filing Your Return</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Sign and date your return</div>
+                <div class="checklist-description">Required for valid filing</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>If filing jointly, ensure your spouse also signs</div>
+                <div class="checklist-description">Both signatures required for joint returns</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Choose your filing method (electronic or paper)</div>
+                <div class="checklist-description">Electronic is faster, more secure, and provides confirmation</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>If you owe taxes, select a payment method</div>
+                <div class="checklist-description">Electronic funds transfer, credit/debit card, check, etc.</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Submit your return by the deadline (April 15)</div>
+                <div class="checklist-description">Or request an extension if needed</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>If requesting an extension, file Form 4868</div>
+                <div class="checklist-description">Gives you until October 15 to file (but not to pay)</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Pay any taxes owed by April 15</div>
+                <div class="checklist-description">Even if you file an extension, payment is still due April 15</div>
+            </div>
+        </div>
+        
+        <h3>After Filing</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Save a copy of your completed tax return</div>
+                <div class="checklist-description">Keep for at least 3 years, preferably 7 years</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Save supporting documentation</div>
+                <div class="checklist-description">W-2s, 1099s, receipts, etc.</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Keep track of your refund status (if applicable)</div>
+                <div class="checklist-description">Use IRS "Where's My Refund?" tool</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Address any follow-up notices from the IRS promptly</div>
+                <div class="checklist-description">May indicate errors or request additional information</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Consider adjusting your withholding if you had a large refund or owed a lot</div>
+                <div class="checklist-description">Submit a new W-4 to your employer if needed</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Schedule quarterly estimated tax payments if needed for next year</div>
+                <div class="checklist-description">For self-employment or other income without withholding</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Resources for Help</h2>
+    <div class="checklist-section">
+        <div class="section-description">These resources can provide assistance if you have questions or need help with your tax filing.</div>
+        
+        <h3>Free Resources</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>IRS Website: <a href="https://www.irs.gov">www.irs.gov</a></div>
+                <div class="checklist-description">Forms, instructions, publications, and interactive tools</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>IRS Free File: <a href="https://www.irs.gov/filing/free-file-do-your-federal-taxes-for-free">www.irs.gov/filing/free-file-do-your-federal-taxes-for-free</a></div>
+                <div class="checklist-description">Free tax preparation and filing options for qualifying taxpayers</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>VITA/TCE Free Tax Preparation: <a href="https://www.irs.gov/individuals/free-tax-return-preparation-for-qualifying-taxpayers">www.irs.gov/individuals/free-tax-return-preparation-for-qualifying-taxpayers</a></div>
+                <div class="checklist-description">Free tax help for qualifying individuals</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>IRS Interactive Tax Assistant: <a href="https://www.irs.gov/help/ita">www.irs.gov/help/ita</a></div>
+                <div class="checklist-description">Tool that provides answers to tax law questions</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>IRS Tax Forms & Publications: <a href="https://www.irs.gov/forms-instructions">www.irs.gov/forms-instructions</a></div>
+                <div class="checklist-description">All current and prior year forms and instructions</div>
+            </div>
+        </div>
+        
+        <h3>Additional Assistance</h3>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>IRS Taxpayer Assistance Centers</div>
+                <div class="checklist-description">In-person help (by appointment)</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>IRS Tax Help Line: 1-800-829-1040</div>
+                <div class="checklist-description">Phone assistance (can have long wait times)</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Tax software support</div>
+                <div class="checklist-description">Most tax software providers offer customer support</div>
+            </div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="checklist-text">
+                <div>Professional tax preparers</div>
+                <div class="checklist-description">CPAs, Enrolled Agents, tax preparation services</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Chapter 2.3: Understanding Tax Filing Requirements</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not tax advice.</p>
+    </footer>
+</body>
+</html>

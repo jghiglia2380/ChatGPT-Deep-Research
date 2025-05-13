@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Interview Feedback Form</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #4f46e5;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        .introduction {
+            background-color: #f0f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .rating-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .rating-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+        }
+        .rating-circle {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #4f46e5;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        .rating-label {
+            font-size: 0.8em;
+            text-align: center;
+        }
+        .text-input {
+            width: 100%;
+            min-height: 80px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .short-input {
+            min-height: 40px;
+        }
+        .criteria-section {
+            margin-bottom: 25px;
+        }
+        .criteria-title {
+            font-weight: bold;
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .guidance {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        .tips {
+            background-color: #ede9fe;
+            border-left: 4px solid #8b5cf6;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .notes {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .no-print {
+                display: none;
+            }
+            .introduction {
+                background-color: #f8f8f8 !important;
+            }
+            .tips {
+                background-color: #f8f8f8 !important;
+                border-left: 2px solid #666 !important;
+            }
+            .criteria-title {
+                background-color: #f0f0f0 !important;
+            }
+            h1, h2, h3, h4 {
+                color: #000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <!-- <img src="your-logo.png" alt="PFL Academy Logo" class="logo"> -->
+        <h1>Mock Interview Feedback Form</h1>
+        <p>Chapter 15.4: Interview Skills and Workplace Readiness</p>
+    </div>
+
+    <div class="introduction">
+        <h2>About This Feedback Form</h2>
+        <p>This form is designed to provide structured, constructive feedback following a mock interview. Thoughtful feedback helps the interviewee identify both strengths and areas for improvement. When completing this form, be specific, balanced, and focused on behaviors that can be changed.</p>
+        
+        <div class="tips">
+            <h3>Tips for Giving Effective Feedback:</h3>
+            <ul>
+                <li><strong>Be specific</strong> - "Your answer about leadership included a strong STAR example with measurable results" is more helpful than "Good answer about leadership."</li>
+                <li><strong>Balance positive and constructive</strong> - Identify both strengths and areas for improvement</li>
+                <li><strong>Focus on behaviors</strong> - Comment on what the person did, not who they are</li>
+                <li><strong>Be actionable</strong> - Provide suggestions that can be implemented in future interviews</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Interview Information</h2>
+        
+        <table>
+            <tr>
+                <td width="50%"><strong>Interviewee Name:</strong></td>
+                <td width="50%"><div class="text-input short-input"></div></td>
+            </tr>
+            <tr>
+                <td><strong>Interviewer Name:</strong></td>
+                <td><div class="text-input short-input"></div></td>
+            </tr>
+            <tr>
+                <td><strong>Position/Role Discussed:</strong></td>
+                <td><div class="text-input short-input"></div></td>
+            </tr>
+            <tr>
+                <td><strong>Date:</strong></td>
+                <td><div class="text-input short-input"></div></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Evaluation Criteria</h2>
+        
+        <!-- Content Criteria -->
+        <div class="criteria-section">
+            <div class="criteria-title">Content of Responses</div>
+            
+            <div class="guidance">Evaluate how well the interviewee addressed the questions with relevant, well-structured responses.</div>
+            
+            <table>
+                <tr>
+                    <th width="40%">Criteria</th>
+                    <th width="40%">Rating (1=Needs Improvement, 5=Excellent)</th>
+                    <th width="20%">Comments</th>
+                </tr>
+                <tr>
+                    <td>Relevance of examples to questions</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Use of STAR method structure</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Specificity of examples</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Inclusion of measurable results</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Conciseness and clarity</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Delivery Criteria -->
+        <div class="criteria-section">
+            <div class="criteria-title">Delivery and Presentation</div>
+            
+            <div class="guidance">Evaluate how the interviewee presented themselves and communicated their responses.</div>
+            
+            <table>
+                <tr>
+                    <th width="40%">Criteria</th>
+                    <th width="40%">Rating (1=Needs Improvement, 5=Excellent)</th>
+                    <th width="20%">Comments</th>
+                </tr>
+                <tr>
+                    <td>Eye contact</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Voice clarity and pace</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Body language and posture</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Confidence level</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Professional language use</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Overall Impression -->
+        <div class="criteria-section">
+            <div class="criteria-title">Overall Impression</div>
+            
+            <div class="guidance">Evaluate the interviewee's overall effectiveness and readiness for real interviews.</div>
+            
+            <table>
+                <tr>
+                    <th width="40%">Criteria</th>
+                    <th width="40%">Rating (1=Needs Improvement, 5=Excellent)</th>
+                    <th width="20%">Comments</th>
+                </tr>
+                <tr>
+                    <td>Preparation level</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Ability to showcase strengths</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Questions asked by interviewee</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+                <tr>
+                    <td>Overall interview effectiveness</td>
+                    <td>
+                        <div class="rating-container">
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">1</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">2</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">3</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">4</div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-circle"></div>
+                                <div class="rating-label">5</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="text-input short-input"></div></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Detailed Feedback</h2>
+        
+        <h3>Strengths</h3>
+        <p class="guidance">Identify at least three specific strengths demonstrated during the interview.</p>
+        <div class="text-input"></div>
+        
+        <h3>Areas for Development</h3>
+        <p class="guidance">Identify 2-3 specific areas for improvement and provide actionable suggestions.</p>
+        <div class="text-input"></div>
+        
+        <h3>Most Memorable Response</h3>
+        <p class="guidance">Describe the most effective response given and why it stood out.</p>
+        <div class="text-input"></div>
+        
+        <h3>Specific Recommendations</h3>
+        <p class="guidance">Provide 2-3 concrete actions the interviewee can take to improve their interview skills.</p>
+        <div class="text-input"></div>
+        
+        <div class="notes">
+            <h3>Additional Notes</h3>
+            <div class="text-input"></div>
+        </div>
+    </div>
+
+    <div class="section no-print">
+        <h2>Saving This Form</h2>
+        <p>To save your completed feedback form:</p>
+        <ol>
+            <li>Fill in your ratings and comments in each section</li>
+            <li>Press <strong>Ctrl+P</strong> (Windows) or <strong>⌘+P</strong> (Mac) to open the print dialog</li>
+            <li>Select "Save as PDF" or "Microsoft Print to PDF" as the printer</li>
+            <li>Save the file to your preferred location</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Chapter 15.4: Interview Skills and Workplace Readiness | Mock Interview Feedback Form</p>
+    </div>
+</body>
+</html>

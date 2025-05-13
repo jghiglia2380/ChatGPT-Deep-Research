@@ -1,0 +1,1659 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 2.5: Tax Planning and Compliance - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+
+        /* Tax strategy simulator styles */
+        .persona-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .persona-card:hover, .persona-card.selected {
+            border-color: #6366f1;
+            background-color: #eef2ff;
+            transform: translateY(-2px);
+        }
+        
+        .persona-card.selected {
+            box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1);
+        }
+        
+        .strategy-option {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .strategy-option:hover, .strategy-option.selected {
+            border-color: #6366f1;
+            background-color: #eef2ff;
+        }
+        
+        .strategy-option.selected {
+            box-shadow: 0 2px 4px -1px rgba(99, 102, 241, 0.1);
+        }
+        
+        /* Tax planning portfolio styles */
+        .portfolio-item {
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+            border-left: 3px solid #6366f1;
+        }
+        
+        .priority-high {
+            border-left-color: #ef4444;
+        }
+        
+        .priority-medium {
+            border-left-color: #f59e0b;
+        }
+        
+        .priority-low {
+            border-left-color: #10b981;
+        }
+        
+        /* Tax compliance challenge styles */
+        .scenario-card {
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .compliance-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        
+        .compliance-button {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .compliance-button.compliant {
+            background-color: #ecfdf5;
+            color: #059669;
+            border: 1px solid #d1fae5;
+        }
+        
+        .compliance-button.non-compliant {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fee2e2;
+        }
+        
+        .compliance-button:hover {
+            transform: translateY(-1px);
+        }
+        
+        .compliance-button.compliant:hover {
+            background-color: #d1fae5;
+        }
+        
+        .compliance-button.non-compliant:hover {
+            background-color: #fee2e2;
+        }
+        
+        .compliance-button.selected.compliant {
+            background-color: #059669;
+            color: white;
+        }
+        
+        .compliance-button.selected.non-compliant {
+            background-color: #dc2626;
+            color: white;
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <\!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <\!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 2: Taxes</h2>
+                <p class="text-gray-600 mb-4">Tax systems, rates, requirements, credits, and compliance</p>
+            </div>
+            
+            <\!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-2-5-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <\!-- Previous Chapters -->
+                <li>
+                    <a href="chapter-2-1-day2.html" class="flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        2.1: Understanding Federal and State Taxes
+                    </a>
+                </li>
+                <li>
+                    <a href="chapter-2-2-day2.html" class="flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        2.2: Understanding Tax Brackets and Rates
+                    </a>
+                </li>
+                <li>
+                    <a href="chapter-2-3-day2.html" class="flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        2.3: Understanding Tax Filing Requirements
+                    </a>
+                </li>
+                <li>
+                    <a href="chapter-2-4-day2.html" class="flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        2.4: Understanding Tax Deductions and Credits
+                    </a>
+                </li>
+                
+                <\!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">2.5: Tax Planning and Compliance</span>
+                    </div>
+                    <\!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Tax Strategy Simulation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Tax Planning Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Tax Compliance Challenge
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio-integration" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <\!-- Progress Tracker -->
+            <div class="mt-6">
+                <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                <div class="flex justify-between items-center">
+                    <div class="space-x-1 flex">
+                        <div class="h-2 w-2 rounded-full bg-indigo-600" id="station1-indicator"></div>
+                        <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                        <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                        <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                    </div>
+                    <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <a href="chapter-2-5-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                Return to Day 1 Content
+            </a>
+        </div>
+        <\!-- Main Content Area -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 2.5: Tax Planning and Compliance</h1>
+            <p class="text-lg text-gray-600 mb-6">Learning Lab: Applying tax planning strategies and ensuring compliance</p>
+            
+            <\!-- Learning Objectives -->
+            <div class="learning-objectives" id="learning-objectives">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Differentiate between legal tax planning and illegal tax evasion</li>
+                    <li>Identify core tax planning strategies for different life stages</li>
+                    <li>Recognize common tax mistakes that lead to penalties</li>
+                    <li>Apply basic tax planning principles to personal financial decisions</li>
+                    <li>Create a simple tax planning and compliance checklist</li>
+                </ul>
+            </div>
+            
+            <\!-- Introduction Section -->
+            <div class="mb-8" id="intro">
+                <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                <p class="text-gray-700 mb-4">
+                    Today's Learning Lab will help you apply what you've learned about tax planning and compliance. You'll explore different tax strategies through simulations, build a personalized tax planning portfolio, and test your knowledge of tax compliance requirements. By the end of this session, you'll have practical tools to make informed tax decisions throughout your life.
+                </p>
+                
+                <\!-- Important Note -->
+                <div class="important-note mb-6">
+                    <h3 class="font-semibold text-amber-800">Important Note</h3>
+                    <p class="text-amber-700 text-sm">
+                        While this Learning Lab provides an educational overview of tax planning strategies and compliance requirements, it is not tax advice. Tax laws change frequently, and individual situations vary widely. Always consult with a tax professional for advice specific to your situation.
+                    </p>
+                </div>
+                
+                <\!-- Connection to Day 1 -->
+                <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                    <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                    <p class="text-indigo-800 text-sm">
+                        On Day 1, we explored the differences between tax planning and tax evasion, legitimate tax planning strategies, and the importance of compliance. Today, you'll have the opportunity to apply these concepts by making decisions in various scenarios, creating your own planning portfolio, and recognizing compliance issues.
+                    </p>
+                </div>
+                
+                <\!-- Podcast Review -->
+                <div class="mb-6">
+                    <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Tax Planning and Compliance</h3>
+                    <p class="text-gray-700 text-sm mb-3">
+                        Listen to this brief overview to refresh key concepts from this chapter:
+                    </p>
+                    <div class="audio-player">
+                        <audio controls class="w-full">
+                            <source src="/finished LM recordings/2.5 - Tax Planning and Compliance.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <p class="text-sm text-gray-600 italic">
+                        Topics covered: Tax planning strategies, difference between tax planning and tax evasion, life stage planning, compliance requirements, and common penalties
+                    </p>
+                </div>
+            </div>
+            
+            <\!-- Learning Station 1: Tax Strategy Simulation -->
+            <div class="learning-station" id="station1">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Tax Strategy Simulation</h2>
+                </div>
+                
+                <\!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    In this simulation, you'll make tax planning decisions for four different personas at various life stages. For each persona, you'll make decisions across three simulated years to see how your choices impact their tax situation.
+                </p>
+                
+                <\!-- Persona Selection -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">Select a Persona</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="persona-card" id="persona-college" onclick="selectPersona('college')">
+                            <h4 class="font-medium text-indigo-700">College Student</h4>
+                            <p class="text-sm text-gray-600">Part-time income, education expenses, no dependents</p>
+                        </div>
+                        <div class="persona-card" id="persona-graduate" onclick="selectPersona('graduate')">
+                            <h4 class="font-medium text-indigo-700">Recent Graduate</h4>
+                            <p class="text-sm text-gray-600">First full-time job, student loan debt, renting apartment</p>
+                        </div>
+                        <div class="persona-card" id="persona-professional" onclick="selectPersona('professional')">
+                            <h4 class="font-medium text-indigo-700">Young Professional</h4>
+                            <p class="text-sm text-gray-600">Higher income, homeowner, starting retirement savings</p>
+                        </div>
+                        <div class="persona-card" id="persona-parent" onclick="selectPersona('parent')">
+                            <h4 class="font-medium text-indigo-700">New Parent</h4>
+                            <p class="text-sm text-gray-600">Dual income, first child, savings goals for family</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <\!-- Simulation Year 1 -->
+                <div id="simulation-year1" class="hidden">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">Year 1: Starting Situation</h3>
+                    <div id="year1-situation" class="p-4 bg-gray-50 rounded-lg mb-4">
+                        <\!-- Will be populated by JavaScript -->
+                    </div>
+                    
+                    <h4 class="font-medium text-gray-800 mb-2">Select a tax strategy:</h4>
+                    <div class="space-y-2" id="year1-options">
+                        <\!-- Will be populated by JavaScript -->
+                    </div>
+                    
+                    <button class="pfl-button mt-4" onclick="simulateYear2()">Continue to Year 2</button>
+                </div>
+                
+                <\!-- Simulation Year 2 -->
+                <div id="simulation-year2" class="hidden">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">Year 2: Life Changes</h3>
+                    <div id="year2-situation" class="p-4 bg-gray-50 rounded-lg mb-4">
+                        <\!-- Will be populated by JavaScript -->
+                    </div>
+                    
+                    <h4 class="font-medium text-gray-800 mb-2">Select a tax strategy:</h4>
+                    <div class="space-y-2" id="year2-options">
+                        <\!-- Will be populated by JavaScript -->
+                    </div>
+                    
+                    <button class="pfl-button mt-4" onclick="simulateYear3()">Continue to Year 3</button>
+                </div>
+                
+                <\!-- Simulation Year 3 -->
+                <div id="simulation-year3" class="hidden">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">Year 3: Financial Goals</h3>
+                    <div id="year3-situation" class="p-4 bg-gray-50 rounded-lg mb-4">
+                        <\!-- Will be populated by JavaScript -->
+                    </div>
+                    
+                    <h4 class="font-medium text-gray-800 mb-2">Select a tax strategy:</h4>
+                    <div class="space-y-2" id="year3-options">
+                        <\!-- Will be populated by JavaScript -->
+                    </div>
+                    
+                    <button class="pfl-button mt-4" onclick="showSimulationResults()">View Results</button>
+                </div>
+                
+                <\!-- Simulation Results -->
+                <div id="simulation-results" class="hidden">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">Simulation Results</h3>
+                    <div class="p-4 bg-gray-50 rounded-lg mb-4">
+                        <h4 class="font-medium text-gray-800 mb-2">3-Year Tax Impact</h4>
+                        <div id="tax-impact-chart-container" class="h-64 mb-4">
+                            <canvas id="tax-impact-chart"></canvas>
+                        </div>
+                        <div id="simulation-summary" class="text-gray-700 text-sm">
+                            <\!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <button class="pfl-button mt-4" onclick="saveStation(1)">Save and Continue to Next Station</button>
+                </div>
+            </div>
+            
+            <\!-- Learning Station 2: Tax Planning Portfolio Builder -->
+            <div class="learning-station" id="station2">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Tax Planning Portfolio Builder</h2>
+                </div>
+                
+                <\!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    Now that you've explored different tax strategies, it's time to create your own personalized tax planning portfolio. This will help you organize your approach to taxes based on your current life stage and future goals.
+                </p>
+                
+                <\!-- Portfolio Builder Sections -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">1. Current Life Stage</h3>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Select your current life stage:</label>
+                        <select id="life-stage" class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select a life stage</option>
+                            <option value="high-school">High School Student</option>
+                            <option value="college">College Student</option>
+                            <option value="graduate">Recent Graduate</option>
+                            <option value="professional">Young Professional</option>
+                            <option value="parent">New Parent</option>
+                            <option value="established">Established Career</option>
+                            <option value="pre-retirement">Pre-Retirement</option>
+                            <option value="retirement">Retirement</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">2. Documentation Strategy</h3>
+                    <p class="text-sm text-gray-700 mb-3">Select the documents that are most important for your current tax situation:</p>
+                    
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="doc-w2" class="mr-2">
+                            <label for="doc-w2" class="text-sm text-gray-700">W-2 Forms</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="doc-1099" class="mr-2">
+                            <label for="doc-1099" class="text-sm text-gray-700">1099 Forms</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="doc-receipts" class="mr-2">
+                            <label for="doc-receipts" class="text-sm text-gray-700">Expense Receipts</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="doc-student" class="mr-2">
+                            <label for="doc-student" class="text-sm text-gray-700">Education Records</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="doc-donation" class="mr-2">
+                            <label for="doc-donation" class="text-sm text-gray-700">Donation Receipts</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="doc-property" class="mr-2">
+                            <label for="doc-property" class="text-sm text-gray-700">Property Tax Records</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="doc-medical" class="mr-2">
+                            <label for="doc-medical" class="text-sm text-gray-700">Medical Expense Records</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="doc-investment" class="mr-2">
+                            <label for="doc-investment" class="text-sm text-gray-700">Investment Statements</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Other important documents:</label>
+                        <input type="text" id="other-docs" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter other documents">
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">3. Tax-Advantaged Accounts</h3>
+                    <p class="text-sm text-gray-700 mb-3">Select accounts that might benefit your tax situation:</p>
+                    
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="account-traditional-ira" class="mr-2">
+                            <label for="account-traditional-ira" class="text-sm text-gray-700">Traditional IRA</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="account-roth-ira" class="mr-2">
+                            <label for="account-roth-ira" class="text-sm text-gray-700">Roth IRA</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="account-401k" class="mr-2">
+                            <label for="account-401k" class="text-sm text-gray-700">401(k) Plan</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="account-hsa" class="mr-2">
+                            <label for="account-hsa" class="text-sm text-gray-700">Health Savings Account (HSA)</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="account-529" class="mr-2">
+                            <label for="account-529" class="text-sm text-gray-700">529 College Savings Plan</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="account-fsa" class="mr-2">
+                            <label for="account-fsa" class="text-sm text-gray-700">Flexible Spending Account (FSA)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Other accounts to consider:</label>
+                        <input type="text" id="other-accounts" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter other accounts">
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">4. Potential Deductions and Credits</h3>
+                    <p class="text-sm text-gray-700 mb-3">Prioritize potential deductions and credits by dragging them into order:</p>
+                    
+                    <div id="deductions-list" class="space-y-2 mb-4">
+                        <div class="portfolio-item flex justify-between items-center" draggable="true">
+                            <span>Education Credits (American Opportunity, Lifetime Learning)</span>
+                            <select class="priority-select border border-gray-300 rounded p-1 text-sm">
+                                <option value="high">High Priority</option>
+                                <option value="medium" selected>Medium Priority</option>
+                                <option value="low">Low Priority</option>
+                            </select>
+                        </div>
+                        <div class="portfolio-item flex justify-between items-center" draggable="true">
+                            <span>Student Loan Interest Deduction</span>
+                            <select class="priority-select border border-gray-300 rounded p-1 text-sm">
+                                <option value="high">High Priority</option>
+                                <option value="medium" selected>Medium Priority</option>
+                                <option value="low">Low Priority</option>
+                            </select>
+                        </div>
+                        <div class="portfolio-item flex justify-between items-center" draggable="true">
+                            <span>Retirement Savings Contributions Credit</span>
+                            <select class="priority-select border border-gray-300 rounded p-1 text-sm">
+                                <option value="high">High Priority</option>
+                                <option value="medium" selected>Medium Priority</option>
+                                <option value="low">Low Priority</option>
+                            </select>
+                        </div>
+                        <div class="portfolio-item flex justify-between items-center" draggable="true">
+                            <span>Child Tax Credit</span>
+                            <select class="priority-select border border-gray-300 rounded p-1 text-sm">
+                                <option value="high">High Priority</option>
+                                <option value="medium" selected>Medium Priority</option>
+                                <option value="low">Low Priority</option>
+                            </select>
+                        </div>
+                        <div class="portfolio-item flex justify-between items-center" draggable="true">
+                            <span>Earned Income Tax Credit</span>
+                            <select class="priority-select border border-gray-300 rounded p-1 text-sm">
+                                <option value="high">High Priority</option>
+                                <option value="medium" selected>Medium Priority</option>
+                                <option value="low">Low Priority</option>
+                            </select>
+                        </div>
+                        <div class="portfolio-item flex justify-between items-center" draggable="true">
+                            <span>Mortgage Interest Deduction</span>
+                            <select class="priority-select border border-gray-300 rounded p-1 text-sm">
+                                <option value="high">High Priority</option>
+                                <option value="medium" selected>Medium Priority</option>
+                                <option value="low">Low Priority</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Other potential deductions/credits:</label>
+                        <input type="text" id="other-deductions" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter other deductions or credits">
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">5. Tax Planning Timeline</h3>
+                    <p class="text-sm text-gray-700 mb-3">Create a simple timeline for your tax planning activities:</p>
+                    
+                    <div class="grid grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <h4 class="font-medium text-gray-700 mb-2">January-April</h4>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 text-sm" id="timeline-q1" placeholder="Tax activities for Q1"></textarea>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-700 mb-2">May-August</h4>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 text-sm" id="timeline-q2" placeholder="Tax activities for Q2"></textarea>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-700 mb-2">September-December</h4>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 text-sm" id="timeline-q3" placeholder="Tax activities for Q3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button mt-4" onclick="saveStation(2)">Save and Continue to Next Station</button>
+            </div>
+            
+            <\!-- Learning Station 3: Tax Compliance Challenge -->
+            <div class="learning-station" id="station3">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Tax Compliance Challenge</h2>
+                </div>
+                
+                <\!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    Test your knowledge of tax compliance requirements by identifying compliant versus non-compliant scenarios, calculating potential penalties, and recommending corrective actions.
+                </p>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">Part 1: Compliance Check</h3>
+                    <p class="text-sm text-gray-700 mb-3">For each scenario, indicate whether it's compliant or non-compliant with tax laws:</p>
+                    
+                    <div class="space-y-4" id="compliance-scenarios">
+                        <\!-- Scenario 1 -->
+                        <div class="scenario-card">
+                            <p class="text-gray-700 mb-2"><strong>Scenario 1:</strong> Mia works remotely for a company in another state. She doesn't report this income on her state tax return because the company isn't based in her state of residence.</p>
+                            <div class="compliance-buttons">
+                                <div class="compliance-button compliant" onclick="checkCompliance(1, 'compliant')">Compliant</div>
+                                <div class="compliance-button non-compliant" onclick="checkCompliance(1, 'non-compliant')">Non-Compliant</div>
+                            </div>
+                            <div id="compliance-feedback-1" class="mt-2 hidden"></div>
+                        </div>
+                        
+                        <\!-- Scenario 2 -->
+                        <div class="scenario-card">
+                            <p class="text-gray-700 mb-2"><strong>Scenario 2:</strong> James contributes to a traditional IRA to reduce his taxable income. He makes sure his contributions stay within the annual limits set by the IRS.</p>
+                            <div class="compliance-buttons">
+                                <div class="compliance-button compliant" onclick="checkCompliance(2, 'compliant')">Compliant</div>
+                                <div class="compliance-button non-compliant" onclick="checkCompliance(2, 'non-compliant')">Non-Compliant</div>
+                            </div>
+                            <div id="compliance-feedback-2" class="mt-2 hidden"></div>
+                        </div>
+                        
+                        <\!-- Scenario 3 -->
+                        <div class="scenario-card">
+                            <p class="text-gray-700 mb-2"><strong>Scenario 3:</strong> David owns a small business. He pays his children for work they never actually performed and deducts these "wages" as business expenses.</p>
+                            <div class="compliance-buttons">
+                                <div class="compliance-button compliant" onclick="checkCompliance(3, 'compliant')">Compliant</div>
+                                <div class="compliance-button non-compliant" onclick="checkCompliance(3, 'non-compliant')">Non-Compliant</div>
+                            </div>
+                            <div id="compliance-feedback-3" class="mt-2 hidden"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">Part 2: Penalty Calculator</h3>
+                    <p class="text-sm text-gray-700 mb-3">Calculate potential penalties for common tax compliance issues:</p>
+                    
+                    <div class="mb-4 p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Late Filing Penalty</h4>
+                        <div class="grid grid-cols-2 gap-4 mb-2">
+                            <div>
+                                <label class="block text-sm text-gray-700 mb-1">Tax amount owed ($):</label>
+                                <input type="number" id="late-filing-amount" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter amount">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-700 mb-1">Months late:</label>
+                                <input type="number" id="late-filing-months" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter months">
+                            </div>
+                        </div>
+                        <button class="pfl-button text-sm py-1 px-3" onclick="calculateLateFilingPenalty()">Calculate</button>
+                        <div id="late-filing-result" class="mt-2 text-indigo-700 hidden"></div>
+                    </div>
+                    
+                    <div class="mb-4 p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Accuracy-Related Penalty</h4>
+                        <div class="mb-2">
+                            <label class="block text-sm text-gray-700 mb-1">Understated tax amount ($):</label>
+                            <input type="number" id="accuracy-amount" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter amount">
+                        </div>
+                        <button class="pfl-button text-sm py-1 px-3" onclick="calculateAccuracyPenalty()">Calculate</button>
+                        <div id="accuracy-result" class="mt-2 text-indigo-700 hidden"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">Part 3: Compliance Checklist</h3>
+                    <p class="text-sm text-gray-700 mb-3">Create a personal tax compliance checklist to avoid common issues:</p>
+                    
+                    <div class="mb-4">
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md h-32" id="compliance-checklist" placeholder="List at least 5 steps you can take to ensure tax compliance..."></textarea>
+                    </div>
+                </div>
+                
+                <button class="pfl-button mt-4" onclick="saveStation(3)">Save and Continue</button>
+            </div>
+            
+            <\!-- Portfolio Integration -->
+            <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">
+                    Now that you've completed all three learning stations, it's time to integrate what you've learned into your financial literacy portfolio. Your tax planning and compliance strategies are important components of your overall financial plan.
+                </p>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3">Your Tax Planning & Compliance Portfolio</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <h4 class="font-medium text-indigo-700 mb-2">Tax Strategy Insights</h4>
+                            <p class="text-sm text-gray-600 mb-2">From the simulation, which strategies seemed most effective?</p>
+                            <textarea id="portfolio-strategies" class="w-full p-2 border border-gray-300 rounded-md h-24 text-sm" placeholder="Describe effective strategies..."></textarea>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <h4 class="font-medium text-indigo-700 mb-2">Tax Planning Timeline</h4>
+                            <p class="text-sm text-gray-600 mb-2">What tax planning activities will you prioritize in your timeline?</p>
+                            <textarea id="portfolio-timeline" class="w-full p-2 border border-gray-300 rounded-md h-24 text-sm" placeholder="List key planning activities..."></textarea>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <h4 class="font-medium text-indigo-700 mb-2">Documentation System</h4>
+                            <p class="text-sm text-gray-600 mb-2">How will you organize and maintain tax records?</p>
+                            <textarea id="portfolio-documentation" class="w-full p-2 border border-gray-300 rounded-md h-24 text-sm" placeholder="Describe your documentation system..."></textarea>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <h4 class="font-medium text-indigo-700 mb-2">Compliance Safeguards</h4>
+                            <p class="text-sm text-gray-600 mb-2">What steps will you take to ensure tax compliance?</p>
+                            <textarea id="portfolio-compliance" class="w-full p-2 border border-gray-300 rounded-md h-24 text-sm" placeholder="List compliance safeguards..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <h4 class="font-medium text-indigo-700 mb-2">Portfolio Summary</h4>
+                        <textarea id="portfolio-summary" class="w-full p-3 border border-gray-300 rounded-md h-24" placeholder="Summarize your approach to tax planning and compliance..."></textarea>
+                    </div>
+                </div>
+                
+                <button class="pfl-button mt-4" onclick="savePortfolio()">Add to Portfolio</button>
+            </div>
+            
+            <\!-- Final Reflection -->
+            <div class="discussion-prompt" id="reflection">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                <p class="text-gray-700 mb-4">
+                    Take some time to reflect on what you've learned about tax planning and compliance. Consider the following questions:
+                </p>
+                
+                <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+                    <li>What tax planning strategies seem most relevant to your current situation?</li>
+                    <li>How might your approach to taxes change based on what you've learned?</li>
+                    <li>What additional tax planning information would you like to learn more about?</li>
+                    <li>How confident do you feel about maintaining tax compliance in the future?</li>
+                </ol>
+                
+                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="6" placeholder="Share your reflections here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                
+                <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                    <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                    <p class="text-gray-700" id="ai-feedback"></p>
+                </div>
+                
+                <div class="flex justify-between mt-4">
+                    <button class="pfl-button" onclick="checkReflection()">
+                        Get Feedback
+                    </button>
+                    
+                    <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md flex items-center">
+                        <span>Continue to Standard 3</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <\!-- Toast Notification -->
+    <div class="toast-notification" id="toast-notification">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully\!</span>
+        </div>
+    </div>
+    
+    <script>
+        // Simulation data for Tax Strategy Simulation
+        const simulationData = {
+            college: {
+                title: "College Student",
+                year1: {
+                    situation: "You're a part-time student with a part-time job making $15,000 annually. You have education expenses and are wondering about tax credits.",
+                    options: [
+                        { id: "a1", text: "Claim American Opportunity Tax Credit" },
+                        { id: "a2", text: "Claim Lifetime Learning Credit" },
+                        { id: "a3", text: "Take standard deduction only" }
+                    ]
+                },
+                year2: {
+                    situation: "You've started doing freelance graphic design on the side, earning an additional $5,000 this year. You're not sure how to handle this income.",
+                    options: [
+                        { id: "b1", text: "Report income and track business expenses" },
+                        { id: "b2", text: "Report income but don't track expenses" },
+                        { id: "b3", text: "Don't report the additional income" }
+                    ]
+                },
+                year3: {
+                    situation: "You're graduating soon and have student loans. You're considering your options for managing education debt and minimizing taxes.",
+                    options: [
+                        { id: "c1", text: "Plan to deduct student loan interest" },
+                        { id: "c2", text: "Look into loan forgiveness programs" },
+                        { id: "c3", text: "Make no specific tax plans for loans" }
+                    ]
+                },
+                results: {
+                    bestPath: ["a1", "b1", "c1"],
+                    worstPath: ["a3", "b3", "c3"]
+                }
+            },
+            graduate: {
+                title: "Recent Graduate",
+                year1: {
+                    situation: "You've started your first full-time job with a salary of $45,000. You're also paying student loans and renting an apartment.",
+                    options: [
+                        { id: "a1", text: "Take standard deduction and deduct student loan interest" },
+                        { id: "a2", text: "Itemize deductions" },
+                        { id: "a3", text: "Take standard deduction only" }
+                    ]
+                },
+                year2: {
+                    situation: "Your employer offers a 401(k) with matching. You're trying to balance retirement savings with current expenses and tax implications.",
+                    options: [
+                        { id: "b1", text: "Contribute enough to get full employer match" },
+                        { id: "b2", text: "Contribute maximum allowed to 401(k)" },
+                        { id: "b3", text: "Skip 401(k) contributions this year" }
+                    ]
+                },
+                year3: {
+                    situation: "You've received a raise to $52,000 and are considering buying a home in the next few years. You want to optimize your tax situation.",
+                    options: [
+                        { id: "c1", text: "Open a Roth IRA in addition to 401(k)" },
+                        { id: "c2", text: "Increase 401(k) contributions" },
+                        { id: "c3", text: "Save in regular taxable accounts" }
+                    ]
+                },
+                results: {
+                    bestPath: ["a1", "b1", "c1"],
+                    worstPath: ["a3", "b3", "c3"]
+                }
+            },
+            professional: {
+                title: "Young Professional",
+                year1: {
+                    situation: "You earn $75,000 annually and just purchased your first home. You're trying to understand the tax implications of homeownership.",
+                    options: [
+                        { id: "a1", text: "Itemize deductions including mortgage interest" },
+                        { id: "a2", text: "Take standard deduction" },
+                        { id: "a3", text: "Hire a professional tax preparer" }
+                    ]
+                },
+                year2: {
+                    situation: "You're maxing out your 401(k) and looking for additional tax-advantaged investment options.",
+                    options: [
+                        { id: "b1", text: "Open a Health Savings Account (HSA)" },
+                        { id: "b2", text: "Open a traditional IRA" },
+                        { id: "b3", text: "Open a Roth IRA" }
+                    ]
+                },
+                year3: {
+                    situation: "You've received a significant bonus of $15,000 and want to minimize the tax impact.",
+                    options: [
+                        { id: "c1", text: "Increase 401(k) contributions with bonus money" },
+                        { id: "c2", text: "Invest in tax-exempt municipal bonds" },
+                        { id: "c3", text: "Take the tax hit and keep cash accessible" }
+                    ]
+                },
+                results: {
+                    bestPath: ["a1", "b1", "c1"],
+                    worstPath: ["a2", "b3", "c3"]
+                }
+            },
+            parent: {
+                title: "New Parent",
+                year1: {
+                    situation: "You and your spouse have combined income of $110,000 and just had your first child. You're exploring tax benefits for families.",
+                    options: [
+                        { id: "a1", text: "Claim Child Tax Credit and Child Care Credit" },
+                        { id: "a2", text: "Adjust W-4 withholding for the new dependent" },
+                        { id: "a3", text: "Open a 529 college savings plan" }
+                    ]
+                },
+                year2: {
+                    situation: "One spouse is considering reducing work hours to care for the child. You're evaluating the tax implications of this change.",
+                    options: [
+                        { id: "b1", text: "Analyze tax brackets for reduced household income" },
+                        { id: "b2", text: "Look into dependent care FSA through employer" },
+                        { id: "b3", text: "Make no tax adjustments" }
+                    ]
+                },
+                year3: {
+                    situation: "You're planning for future education costs and trying to balance retirement savings with college savings.",
+                    options: [
+                        { id: "c1", text: "Contribute to both retirement accounts and 529 plan" },
+                        { id: "c2", text: "Prioritize retirement accounts over 529 plan" },
+                        { id: "c3", text: "Prioritize 529 plan over retirement accounts" }
+                    ]
+                },
+                results: {
+                    bestPath: ["a1", "b1", "c1"],
+                    worstPath: ["a3", "b3", "c3"]
+                }
+            }
+        };
+        
+        // Correct answers for compliance scenarios
+        const complianceAnswers = {
+            1: "non-compliant",
+            2: "compliant",
+            3: "non-compliant"
+        };
+        
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false
+        };
+        
+        // Simulation variables
+        let currentPersona = "";
+        let selectedOptions = {
+            year1: "",
+            year2: "",
+            year3: ""
+        };
+        
+        // Select persona for simulation
+        function selectPersona(persona) {
+            currentPersona = persona;
+            
+            // Reset all persona cards
+            document.querySelectorAll('.persona-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Highlight selected persona
+            document.getElementById('persona-' + persona).classList.add('selected');
+            
+            // Show year 1 situation
+            document.getElementById('simulation-year1').classList.remove('hidden');
+            document.getElementById('year1-situation').textContent = simulationData[persona].year1.situation;
+            
+            // Clear and populate year 1 options
+            const optionsContainer = document.getElementById('year1-options');
+            optionsContainer.innerHTML = '';
+            
+            simulationData[persona].year1.options.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'strategy-option';
+                optionDiv.id = 'option-' + option.id;
+                optionDiv.textContent = option.text;
+                optionDiv.onclick = function() { selectOption('year1', option.id); };
+                optionsContainer.appendChild(optionDiv);
+            });
+        }
+        
+        // Select option for a simulation year
+        function selectOption(year, optionId) {
+            selectedOptions[year] = optionId;
+            
+            // Reset all options
+            document.querySelectorAll('#' + year + '-options .strategy-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Highlight selected option
+            document.getElementById('option-' + optionId).classList.add('selected');
+        }
+        
+        // Proceed to year 2 of simulation
+        function simulateYear2() {
+            if (\!selectedOptions.year1) {
+                alert('Please select a strategy for Year 1 before continuing.');
+                return;
+            }
+            
+            document.getElementById('simulation-year2').classList.remove('hidden');
+            document.getElementById('year2-situation').textContent = simulationData[currentPersona].year2.situation;
+            
+            // Clear and populate year 2 options
+            const optionsContainer = document.getElementById('year2-options');
+            optionsContainer.innerHTML = '';
+            
+            simulationData[currentPersona].year2.options.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'strategy-option';
+                optionDiv.id = 'option-' + option.id;
+                optionDiv.textContent = option.text;
+                optionDiv.onclick = function() { selectOption('year2', option.id); };
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Scroll to year 2
+            document.getElementById('simulation-year2').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Proceed to year 3 of simulation
+        function simulateYear3() {
+            if (\!selectedOptions.year2) {
+                alert('Please select a strategy for Year 2 before continuing.');
+                return;
+            }
+            
+            document.getElementById('simulation-year3').classList.remove('hidden');
+            document.getElementById('year3-situation').textContent = simulationData[currentPersona].year3.situation;
+            
+            // Clear and populate year 3 options
+            const optionsContainer = document.getElementById('year3-options');
+            optionsContainer.innerHTML = '';
+            
+            simulationData[currentPersona].year3.options.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'strategy-option';
+                optionDiv.id = 'option-' + option.id;
+                optionDiv.textContent = option.text;
+                optionDiv.onclick = function() { selectOption('year3', option.id); };
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Scroll to year 3
+            document.getElementById('simulation-year3').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Show simulation results
+        function showSimulationResults() {
+            if (\!selectedOptions.year3) {
+                alert('Please select a strategy for Year 3 before viewing results.');
+                return;
+            }
+            
+            document.getElementById('simulation-results').classList.remove('hidden');
+            
+            // Calculate simulation effectiveness
+            const bestPath = simulationData[currentPersona].results.bestPath;
+            const worstPath = simulationData[currentPersona].results.worstPath;
+            
+            let effectivenessScore = 0;
+            if (selectedOptions.year1 === bestPath[0]) effectivenessScore += 1;
+            if (selectedOptions.year2 === bestPath[1]) effectivenessScore += 1;
+            if (selectedOptions.year3 === bestPath[2]) effectivenessScore += 1;
+            
+            // Generate summary based on effectiveness
+            let summary = "";
+            let taxSavings = 0;
+            
+            if (effectivenessScore === 3) {
+                summary = "Excellent tax planning\! You selected the optimal strategies across all three years.";
+                taxSavings = 5000;
+            } else if (effectivenessScore === 2) {
+                summary = "Good tax planning. Most of your selections were effective, with some room for improvement.";
+                taxSavings = 3000;
+            } else if (effectivenessScore === 1) {
+                summary = "Basic tax planning with some missed opportunities. Review your strategies to improve tax outcomes.";
+                taxSavings = 1000;
+            } else {
+                summary = "Ineffective tax planning. Your selections missed key opportunities to reduce tax liability.";
+                taxSavings = 0;
+            }
+            
+            // Update simulation summary
+            document.getElementById('simulation-summary').innerHTML = `
+                <p class="mb-2"><strong>Effectiveness:</strong> ${effectivenessScore} out of 3</p>
+                <p class="mb-2"><strong>Estimated Tax Savings:</strong> $${taxSavings}</p>
+                <p class="mb-2"><strong>Summary:</strong> ${summary}</p>
+                <div class="mt-4 p-3 bg-indigo-50 rounded">
+                    <h4 class="font-medium text-indigo-700 mb-1">Key Takeaways:</h4>
+                    <ul class="list-disc list-inside text-indigo-800">
+                        <li>Tax planning should evolve with your life changes</li>
+                        <li>Early planning can lead to significant long-term savings</li>
+                        <li>Consider both immediate tax benefits and long-term implications</li>
+                    </ul>
+                </div>
+            `;
+            
+            // Create chart
+            const ctx = document.getElementById('tax-impact-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Your Strategy', 'Optimal Strategy', 'No Planning'],
+                    datasets: [{
+                        label: 'Estimated 3-Year Tax Savings ($)',
+                        data: [taxSavings, 5000, 0],
+                        backgroundColor: [
+                            'rgba(99, 102, 241, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(239, 68, 68, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgb(79, 70, 229)',
+                            'rgb(5, 150, 105)',
+                            'rgb(220, 38, 38)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+            // Scroll to results
+            document.getElementById('simulation-results').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Drag and drop for portfolio items
+        document.addEventListener('DOMContentLoaded', function() {
+            const deductionsList = document.getElementById('deductions-list');
+            let draggedItem = null;
+            
+            // Add event listeners for drag and drop
+            deductionsList.addEventListener('dragstart', function(e) {
+                draggedItem = e.target;
+                setTimeout(() => {
+                    e.target.style.opacity = '0.5';
+                }, 0);
+            });
+            
+            deductionsList.addEventListener('dragend', function(e) {
+                e.target.style.opacity = '1';
+            });
+            
+            deductionsList.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                const afterElement = getDragAfterElement(deductionsList, e.clientY);
+                if (afterElement == null) {
+                    deductionsList.appendChild(draggedItem);
+                } else {
+                    deductionsList.insertBefore(draggedItem, afterElement);
+                }
+            });
+            
+            // Update priority classes when priority changes
+            document.querySelectorAll('.priority-select').forEach(select => {
+                select.addEventListener('change', function() {
+                    const portfolioItem = this.closest('.portfolio-item');
+                    portfolioItem.classList.remove('priority-high', 'priority-medium', 'priority-low');
+                    portfolioItem.classList.add('priority-' + this.value);
+                });
+            });
+            
+            // Initialize priority classes
+            document.querySelectorAll('.priority-select').forEach(select => {
+                const portfolioItem = select.closest('.portfolio-item');
+                portfolioItem.classList.add('priority-' + select.value);
+            });
+        });
+        
+        // Helper function for drag and drop
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.portfolio-item:not(.dragging)')];
+            
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+        
+        // Check compliance answer
+        function checkCompliance(scenarioNumber, answer) {
+            const correctAnswer = complianceAnswers[scenarioNumber];
+            const feedbackElement = document.getElementById('compliance-feedback-' + scenarioNumber);
+            
+            // Reset buttons
+            document.querySelectorAll(`#compliance-scenarios .scenario-card:nth-child(${scenarioNumber}) .compliance-button`).forEach(button => {
+                button.classList.remove('selected');
+            });
+            
+            // Select clicked button
+            const clickedButton = event.target;
+            clickedButton.classList.add('selected');
+            
+            // Show feedback
+            feedbackElement.classList.remove('hidden');
+            
+            if (answer === correctAnswer) {
+                feedbackElement.innerHTML = `
+                    <div class="text-green-700 bg-green-50 p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Correct\! ${getComplianceExplanation(scenarioNumber)}
+                    </div>
+                `;
+            } else {
+                feedbackElement.innerHTML = `
+                    <div class="text-red-700 bg-red-50 p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        Incorrect. ${getComplianceExplanation(scenarioNumber)}
+                    </div>
+                `;
+            }
+        }
+        
+        // Get compliance explanations
+        function getComplianceExplanation(scenarioNumber) {
+            switch(scenarioNumber) {
+                case 1:
+                    return "Income is generally taxable in the state where you reside, regardless of where your employer is located.";
+                case 2:
+                    return "Contributing to an IRA within annual limits is a legal tax planning strategy.";
+                case 3:
+                    return "Claiming business deductions for services that were never rendered is fraudulent and considered tax evasion.";
+                default:
+                    return "";
+            }
+        }
+        
+        // Calculate late filing penalty
+        function calculateLateFilingPenalty() {
+            const taxAmount = parseFloat(document.getElementById('late-filing-amount').value) || 0;
+            const monthsLate = parseInt(document.getElementById('late-filing-months').value) || 0;
+            
+            // Late filing penalty: 5% per month up to 25%
+            const maxMonths = 5; // Maximum months for penalty calculation
+            const penaltyRate = 0.05; // 5% per month
+            const applicableMonths = Math.min(monthsLate, maxMonths);
+            const penalty = taxAmount * penaltyRate * applicableMonths;
+            
+            const resultElement = document.getElementById('late-filing-result');
+            resultElement.classList.remove('hidden');
+            resultElement.innerHTML = `
+                <div>
+                    <strong>Penalty Amount:</strong> $${penalty.toFixed(2)}
+                </div>
+                <div class="text-sm text-gray-600 mt-1">
+                    ${monthsLate > maxMonths ? 
+                      `Note: Penalty is capped at 25% (${maxMonths} months) of tax owed, but additional interest may apply.` : 
+                      `Calculation: $${taxAmount} × ${penaltyRate * 100}% × ${applicableMonths} months`}
+                </div>
+            `;
+        }
+        
+        // Calculate accuracy-related penalty
+        function calculateAccuracyPenalty() {
+            const understatementAmount = parseFloat(document.getElementById('accuracy-amount').value) || 0;
+            
+            // Accuracy-related penalty: 20% of the understated amount
+            const penaltyRate = 0.20; // 20%
+            const penalty = understatementAmount * penaltyRate;
+            
+            const resultElement = document.getElementById('accuracy-result');
+            resultElement.classList.remove('hidden');
+            resultElement.innerHTML = `
+                <div>
+                    <strong>Penalty Amount:</strong> $${penalty.toFixed(2)}
+                </div>
+                <div class="text-sm text-gray-600 mt-1">
+                    Calculation: $${understatementAmount} × ${penaltyRate * 100}% (standard accuracy-related penalty rate)
+                </div>
+            `;
+        }
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast(`Station ${stationNumber} completed\!`);
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station or portfolio section
+            let nextElement;
+            
+            if (stationNumber < 3) {
+                nextElement = document.getElementById('station' + (stationNumber + 1));
+            } else {
+                nextElement = document.getElementById('portfolio-integration');
+            }
+            
+            if (nextElement) {
+                setTimeout(() => {
+                    nextElement.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio\!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionText = document.querySelector('textarea[data-ai-check="true"]').value;
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            feedbackContainer.classList.remove('hidden');
+            
+            if (reflectionText.length < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider addressing all four questions and connecting your answers to the tax planning and compliance concepts you've learned in this chapter.";
+            } else if (reflectionText.length < 150) {
+                aiFeedback.textContent = "Good start\! Your reflection touches on some important points. Try to be more specific about how these tax planning strategies apply to your personal situation, and what specific steps you'll take to ensure compliance.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection\! You've demonstrated a strong understanding of tax planning and compliance concepts and have thoughtfully considered how they apply to your current and future financial situations. Your approach to maintaining tax compliance shows careful consideration of the potential risks and benefits.";
+            }
+        }
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('#learning-objectives, #intro, #station1, #station2, #station3, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('#section-navigation a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

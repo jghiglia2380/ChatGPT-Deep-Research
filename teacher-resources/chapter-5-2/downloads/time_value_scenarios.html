@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Value of Money Challenge Scenarios</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+                padding: 0;
+                margin: 0;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+            .scenario-card {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #6366F1;
+        }
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 8px;
+        }
+        h2 {
+            color: #4F46E5;
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6366F1;
+            margin-top: 20px;
+        }
+        .intro {
+            background-color: #f0f4ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .scenario-card {
+            border: 2px solid #6366F1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #f9f9ff;
+        }
+        .scenario-title {
+            background-color: #6366F1;
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 15px -20px;
+            border-radius: 8px 8px 0 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .answer-space {
+            min-height: 80px;
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .short-answer-space {
+            min-height: 40px;
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .calculation-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .helpful-note {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-left: 4px solid #3B82F6;
+            margin: 15px 0;
+        }
+        .choice-options {
+            display: flex;
+            margin: 20px 0;
+            gap: 20px;
+        }
+        .choice-option {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        .choice-option h4 {
+            margin-top: 0;
+            color: #4F46E5;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .no-print {
+            background-color: #FFB62C;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <h3>How to Save/Print This Worksheet</h3>
+        <p>To save this worksheet as a PDF or print a paper copy:</p>
+        <ol>
+            <li>Click the Print button below or press Ctrl+P (Cmd+P on Mac)</li>
+            <li>In the print dialog, choose "Save as PDF" from the destination/printer options</li>
+            <li>Click Save or Print</li>
+        </ol>
+        <button onclick="window.print()">Print Worksheet</button>
+    </div>
+
+    <div class="header">
+        <h1>Time Value of Money Challenge Scenarios</h1>
+        <p>Chapter 5.2: Understanding the Power of Compound Interest and the Rule of 72</p>
+    </div>
+
+    <div class="intro">
+        <p>This worksheet presents several scenarios that illustrate the time value of money and opportunity cost concepts. For each scenario, you'll need to calculate the future value of money not spent today, evaluate the trade-offs, and make a decision based on both financial and personal considerations.</p>
+        
+        <p>Remember: The goal of these scenarios is not just to identify the mathematically "correct" answer, but to thoughtfully evaluate trade-offs and recognize that financial decisions involve both objective calculations and subjective values.</p>
+        
+        <p><strong>Name: _______________________________</strong>&nbsp;&nbsp;&nbsp;<strong>Date: _______________</strong></p>
+    </div>
+
+    <div class="helpful-note">
+        <h3>How to Approach These Scenarios:</h3>
+        <ol>
+            <li>Calculate the future value of the money using compound interest</li>
+            <li>Determine what you would gain or lose financially with each choice</li>
+            <li>Consider non-financial factors that might influence your decision</li>
+            <li>Make a decision and explain your reasoning</li>
+        </ol>
+        <p>Use this formula to calculate future value:<br>
+        <strong>Future Value = Present Value × (1 + r)<sup>t</sup></strong><br>
+        Where r is the annual interest rate (as a decimal) and t is the time in years.</p>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Scenario 1: Concert Tickets vs. Investment</div>
+        
+        <p>You have $200 that you could use to buy tickets to see your favorite artist in concert next month. Alternatively, you could invest this money for 10 years at 7% annual compound interest.</p>
+        
+        <div class="calculation-box">
+            <p><strong>Calculate the future value of $200 invested for 10 years at 7%:</strong></p>
+            <p>Future Value = $200 × (1 + 0.07)<sup>10</sup></p>
+            <p>Future Value = $200 × __________ = $ ___________</p>
+        </div>
+        
+        <div class="choice-options">
+            <div class="choice-option">
+                <h4>Option A: Buy Concert Tickets</h4>
+                <p><strong>Gain:</strong> Immediate experience and memories</p>
+                <p><strong>Loss:</strong> Future value of the investment</p>
+            </div>
+            
+            <div class="choice-option">
+                <h4>Option B: Invest the Money</h4>
+                <p><strong>Gain:</strong> Future value after 10 years</p>
+                <p><strong>Loss:</strong> Concert experience now</p>
+            </div>
+        </div>
+        
+        <p><strong>Your decision:</strong></p>
+        <div class="short-answer-space"></div>
+        
+        <p><strong>Explain your reasoning (consider both financial and non-financial factors):</strong></p>
+        <div class="answer-space"></div>
+        
+        <p><strong>What would make you change your decision?</strong> (e.g., different interest rate, time period, or concert price)</p>
+        <div class="answer-space"></div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Scenario 2: Student Loan Repayment vs. Investment</div>
+        
+        <p>You have $5,000 in extra money. You could use it to make an additional payment on your student loan, which has a 4.5% interest rate. Alternatively, you could invest it in a retirement account that historically returns 8% annually. Assume you have 20 years remaining on your student loan and won't need the retirement money for 30 years.</p>
+        
+        <div class="calculation-box">
+            <p><strong>Calculate interest saved by paying off $5,000 of student loan over 20 years:</strong></p>
+            <p>Interest saved = $5,000 × 4.5% × 20 years = $ ___________</p>
+            
+            <p><strong>Calculate future value of $5,000 invested for 30 years at 8%:</strong></p>
+            <p>Future Value = $5,000 × (1 + 0.08)<sup>30</sup></p>
+            <p>Future Value = $5,000 × __________ = $ ___________</p>
+        </div>
+        
+        <div class="choice-options">
+            <div class="choice-option">
+                <h4>Option A: Pay Extra on Student Loan</h4>
+                <p><strong>Gain:</strong> Reduced debt, interest savings, earlier loan payoff</p>
+                <p><strong>Loss:</strong> Future investment returns</p>
+            </div>
+            
+            <div class="choice-option">
+                <h4>Option B: Invest in Retirement</h4>
+                <p><strong>Gain:</strong> Potentially larger future value</p>
+                <p><strong>Loss:</strong> Longer time with student loan, more total interest paid</p>
+            </div>
+        </div>
+        
+        <p><strong>Your decision:</strong></p>
+        <div class="short-answer-space"></div>
+        
+        <p><strong>Explain your reasoning (consider both financial and non-financial factors):</strong></p>
+        <div class="answer-space"></div>
+        
+        <p><strong>What would make you change your decision?</strong> (e.g., different interest rates, time period, or loan amount)</p>
+        <div class="answer-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Scenario 3: Car Upgrade Now vs. Later</div>
+        
+        <p>You currently have a functional but basic car. You could spend $7,000 now to upgrade to a better used car. Alternatively, you could keep your current car for 5 more years, invest the $7,000 at 6% compound interest, and then use that money (plus potentially more savings) for a bigger car upgrade later.</p>
+        
+        <div class="calculation-box">
+            <p><strong>Calculate the future value of $7,000 invested for 5 years at 6%:</strong></p>
+            <p>Future Value = $7,000 × (1 + 0.06)<sup>5</sup></p>
+            <p>Future Value = $7,000 × __________ = $ ___________</p>
+        </div>
+        
+        <div class="choice-options">
+            <div class="choice-option">
+                <h4>Option A: Upgrade Car Now</h4>
+                <p><strong>Gain:</strong> Immediate car improvement, 5 years of driving a better car</p>
+                <p><strong>Loss:</strong> Future value of the investment</p>
+            </div>
+            
+            <div class="choice-option">
+                <h4>Option B: Invest and Upgrade Later</h4>
+                <p><strong>Gain:</strong> Larger car budget in 5 years</p>
+                <p><strong>Loss:</strong> Driving current car for 5 more years</p>
+            </div>
+        </div>
+        
+        <p><strong>Your decision:</strong></p>
+        <div class="short-answer-space"></div>
+        
+        <p><strong>Explain your reasoning (consider both financial and non-financial factors):</strong></p>
+        <div class="answer-space"></div>
+        
+        <p><strong>What other factors would you consider?</strong> (e.g., car maintenance costs, reliability, safety)</p>
+        <div class="answer-space"></div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Scenario 4: New Phone vs. Investment</div>
+        
+        <p>Your current phone works perfectly fine but is two years old. A new model has just been released for $1,000. You could buy the new phone now, or keep your current phone and invest the $1,000 at 5% annual compound interest for 2 years (when the next new model will likely be released).</p>
+        
+        <div class="calculation-box">
+            <p><strong>Calculate the future value of $1,000 invested for 2 years at 5%:</strong></p>
+            <p>Future Value = $1,000 × (1 + 0.05)<sup>2</sup></p>
+            <p>Future Value = $1,000 × __________ = $ ___________</p>
+        </div>
+        
+        <div class="choice-options">
+            <div class="choice-option">
+                <h4>Option A: Buy New Phone Now</h4>
+                <p><strong>Gain:</strong> Latest features and technology for 2 years</p>
+                <p><strong>Loss:</strong> Future value of the investment</p>
+            </div>
+            
+            <div class="choice-option">
+                <h4>Option B: Keep Current Phone and Invest</h4>
+                <p><strong>Gain:</strong> More money for future phone or other purposes</p>
+                <p><strong>Loss:</strong> Using older technology for 2 more years</p>
+            </div>
+        </div>
+        
+        <p><strong>Your decision:</strong></p>
+        <div class="short-answer-space"></div>
+        
+        <p><strong>Explain your reasoning (consider both financial and non-financial factors):</strong></p>
+        <div class="answer-space"></div>
+        
+        <p><strong>How many phone cycles would you need to skip to make a significant difference in your finances?</strong></p>
+        <div class="answer-space"></div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Scenario 5: Daily Coffee vs. Long-term Investment</div>
+        
+        <p>You currently spend $4 every day on a coffee from a café (approximately $120 per month). You're considering making coffee at home instead, which would cost about $20 per month for supplies. You could invest the $100 monthly difference at 7% annual compound interest.</p>
+        
+        <div class="calculation-box">
+            <p><strong>Calculate the future value of $100 invested monthly for different time periods at 7%:</strong></p>
+            <p>After 1 year: $ ___________</p>
+            <p>After 5 years: $ ___________</p>
+            <p>After 10 years: $ ___________</p>
+            <p>After 20 years: $ ___________</p>
+            <p>(You can use an online calculator for these calculations)</p>
+        </div>
+        
+        <div class="choice-options">
+            <div class="choice-option">
+                <h4>Option A: Continue Buying Coffee</h4>
+                <p><strong>Gain:</strong> Convenience, quality, social experience</p>
+                <p><strong>Loss:</strong> Future value of the investment</p>
+            </div>
+            
+            <div class="choice-option">
+                <h4>Option B: Make Coffee at Home & Invest</h4>
+                <p><strong>Gain:</strong> Long-term wealth building</p>
+                <p><strong>Loss:</strong> Daily convenience and experience</p>
+            </div>
+        </div>
+        
+        <p><strong>Your decision:</strong></p>
+        <div class="short-answer-space"></div>
+        
+        <p><strong>Explain your reasoning (consider both financial and non-financial factors):</strong></p>
+        <div class="answer-space"></div>
+        
+        <p><strong>What other small daily expenses might add up significantly over time?</strong></p>
+        <div class="answer-space"></div>
+    </div>
+
+    <div class="helpful-note">
+        <h3>Reflection on Time Value of Money Decisions:</h3>
+        <p>After working through these scenarios, what have you learned about balancing present enjoyment with future financial security? Are there any recurring patterns in how you make these types of decisions?</p>
+        <div class="answer-space"></div>
+    </div>
+
+    <footer>
+        <p>PFL Academy | Chapter 5.2: Understanding the Power of Compound Interest and the Rule of 72</p>
+    </footer>
+</body>
+</html>

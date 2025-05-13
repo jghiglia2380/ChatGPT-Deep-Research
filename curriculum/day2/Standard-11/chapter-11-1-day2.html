@@ -1,0 +1,1229 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 11.1: Understanding and Managing Risk - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core styling */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+
+        .case-study {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Risk level indicators */
+        .risk-high {
+            color: #ef4444;
+            border-left: 3px solid #ef4444;
+            padding-left: 0.5rem;
+        }
+        
+        .risk-medium {
+            color: #f59e0b;
+            border-left: 3px solid #f59e0b;
+            padding-left: 0.5rem;
+        }
+        
+        .risk-low {
+            color: #10b981;
+            border-left: 3px solid #10b981;
+            padding-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <\!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <\!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <\!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 11: Risk Management and Insurance</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding risk types, risk management strategies, and insurance principles.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <\!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 11.1: Understanding and Managing Risk
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-11-1-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <\!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 1: Risk Management Case Studies
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 2: Insurance Coverage Analyzer
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 3: Risk Tolerance Assessment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 4: Personal Risk Management Plan
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <\!-- Future chapters without checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 11.2: Insurance as a Risk Management Tool
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 11.3: Insurance Costs
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <\!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-indigo-600" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-11-1-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <\!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 11.1: Understanding and Managing Risk</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Applying risk management concepts through practical exercises</p>
+                    
+                    <\!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Evaluate various risk scenarios and select appropriate management strategies</li>
+                            <li>Compare insurance options and determine appropriate coverage levels</li>
+                            <li>Assess personal risk tolerance and develop a corresponding management approach</li>
+                            <li>Design a comprehensive personal risk management plan</li>
+                            <li>Apply cost-benefit analysis to risk management decisions</li>
+                        </ul>
+                    </div>
+                    
+                    <\!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Risk is an inevitable part of life, but how we manage that risk significantly impacts our financial well-being. In today's Learning Lab, we'll apply the risk management concepts from Day 1 to realistic scenarios that you might encounter. You'll analyze different risk situations, determine appropriate insurance coverage, assess your own risk tolerance, and develop a personal risk management plan.
+                        </p>
+                        
+                        <\!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                The exercises in this Learning Lab are designed to help you develop practical risk management skills. Each station builds on the concepts from Day 1 and contributes to your final risk management plan. Be sure to save your work after each station to track your progress and build your portfolio.
+                            </p>
+                        </div>
+                        
+                        <\!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, we explored the fundamental concepts of risk management, including:
+                            </p>
+                            <ul class="list-disc list-inside text-indigo-800 text-sm mt-2">
+                                <li>Types of risks (pure vs. speculative, insurable vs. uninsurable)</li>
+                                <li>The four main risk management strategies (avoid, reduce, transfer, accept)</li>
+                                <li>Factors affecting risk tolerance</li>
+                                <li>The relationship between risk and insurance</li>
+                                <li>Cost-benefit analysis in risk management decisions</li>
+                            </ul>
+                            <p class="text-indigo-800 text-sm mt-2">
+                                Today's Learning Lab will allow you to apply these concepts to practical scenarios and develop your own risk management approach.
+                            </p>
+                        </div>
+                        
+                        <\!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Understanding and Managing Risk</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/11.1 - Understanding and Managing Risk.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Risk types, risk management strategies, risk tolerance factors, and insurance principles
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <\!-- Learning Station 1: Risk Management Case Studies -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Risk Management Case Studies</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this station, you'll analyze different risk scenarios and determine the most appropriate risk management strategies. For each case study, identify the types of risks present and recommend the best approach.</p>
+                            
+                            <div class="case-study mt-4">
+                                <h3 class="font-medium">Case Study 1: The New Driver</h3>
+                                <p class="mb-3">Alex just got his driver's license and is saving up to buy his first car. He has $5,000 saved and plans to purchase a used vehicle for around $8,000, borrowing the rest from his parents. He will need to drive to school and a part-time job, about 100 miles per week.</p>
+                                
+                                <div class="mt-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Identify the potential risks:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="List at least 3 risks..."></textarea>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 font-medium mb-2">For each risk, recommend a management strategy (avoid, reduce, transfer, or accept):</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Example: Accident risk - Transfer through insurance; Vehicle breakdown risk - Reduce by purchasing a reliable vehicle..."></textarea>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 font-medium mb-2">Would you recommend full coverage insurance or liability-only? Explain your reasoning:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Your recommendation and rationale..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="case-study mt-4">
+                                <h3 class="font-medium">Case Study 2: The Small Business Owner</h3>
+                                <p class="mb-3">Morgan is starting a small bakery business. She's renting a commercial kitchen space, purchasing $15,000 in equipment, and hiring one part-time employee. She expects to serve approximately 50 customers per day in-store and also plan to deliver special orders.</p>
+                                
+                                <div class="mt-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Identify the potential risks:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="List at least 4 risks..."></textarea>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 font-medium mb-2">For each risk, recommend a management strategy (avoid, reduce, transfer, or accept):</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Example: Property damage risk - Transfer through property insurance; Employee injury risk - Reduce through safety training..."></textarea>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 font-medium mb-2">What types of insurance would you recommend for this business? Explain your reasoning:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Your insurance recommendations and rationale..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <\!-- Learning Station 2: Insurance Coverage Analyzer -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Insurance Coverage Analyzer</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this station, you'll analyze different insurance options and determine appropriate coverage levels based on specific scenarios.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                <h3 class="font-medium text-gray-900 mb-3">Auto Insurance Analysis</h3>
+                                
+                                <div class="bg-white p-4 rounded-lg shadow-sm mb-4 border-l-4 border-indigo-500">
+                                    <h4 class="font-medium text-indigo-700 mb-2">Driver Profile: Jordan</h4>
+                                    <p class="text-sm mb-2">Jordan is a 19-year-old college student with a clean driving record. He drives a 5-year-old sedan worth $12,000 and uses it daily for:</p>
+                                    <ul class="list-disc list-inside text-sm mb-2 ml-2">
+                                        <li>Commuting to college (15 miles each way)</li>
+                                        <li>Traveling to a part-time job several times per week</li>
+                                        <li>Occasional weekend trips to visit family</li>
+                                    </ul>
+                                    <p class="text-sm mb-2">Financial situation:</p>
+                                    <ul class="list-disc list-inside text-sm ml-2">
+                                        <li>$2,000 in emergency savings</li>
+                                        <li>Part-time job income of approximately $1,000/month</li>
+                                        <li>Parents can assist financially if needed, but Jordan is responsible for all car costs</li>
+                                    </ul>
+                                    <p class="text-sm mt-2"><strong>Recent concern:</strong> He recently had a minor fender bender (not his fault) and is worried about protecting his vehicle and finances in case of an accident.</p>
+                                </div>
+                                
+                                <h4 class="font-medium text-gray-800 mb-3">Available Insurance Options:</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h4 class="font-medium text-indigo-700 mb-2">Option A: Basic Coverage</h4>
+                                        <ul class="list-disc list-inside text-sm mb-3">
+                                            <li>Liability: $25,000 per person/$50,000 per accident</li>
+                                            <li>Property damage: $25,000</li>
+                                            <li>No collision coverage</li>
+                                            <li>No comprehensive coverage</li>
+                                            <li>Monthly premium: $75</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h4 class="font-medium text-indigo-700 mb-2">Option B: Standard Coverage</h4>
+                                        <ul class="list-disc list-inside text-sm mb-3">
+                                            <li>Liability: $100,000 per person/$300,000 per accident</li>
+                                            <li>Property damage: $50,000</li>
+                                            <li>Collision coverage with $1,000 deductible</li>
+                                            <li>Comprehensive coverage with $1,000 deductible</li>
+                                            <li>Monthly premium: $125</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h4 class="font-medium text-indigo-700 mb-2">Option C: Premium Coverage</h4>
+                                        <ul class="list-disc list-inside text-sm mb-3">
+                                            <li>Liability: $250,000 per person/$500,000 per accident</li>
+                                            <li>Property damage: $100,000</li>
+                                            <li>Collision coverage with $500 deductible</li>
+                                            <li>Comprehensive coverage with $500 deductible</li>
+                                            <li>Roadside assistance included</li>
+                                            <li>Rental car reimbursement</li>
+                                            <li>Monthly premium: $175</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Which insurance option would you recommend for Jordan? Why?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Your recommendation and reasoning..."></textarea>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 font-medium mb-2">What risks would Jordan face with inadequate coverage?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="List potential risks..."></textarea>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 font-medium mb-2">How might your recommendation change if Jordan's financial situation changed?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain how changes in income, savings, or expenses might affect your recommendation..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-medium text-gray-900 mb-3">Renter's Insurance Analysis</h3>
+                                
+                                <div class="bg-white p-4 rounded-lg shadow-sm mb-4 border-l-4 border-indigo-500">
+                                    <h4 class="font-medium text-indigo-700 mb-2">Renter Profile: Taylor</h4>
+                                    <p class="text-sm mb-2">Taylor is a 25-year-old remote graphic designer sharing a two-bedroom apartment in a suburban area. Her possessions include:</p>
+                                    <ul class="list-disc list-inside text-sm mb-2 ml-2">
+                                        <li>Furniture worth approximately $4,000</li>
+                                        <li>Electronics worth $3,500 (including a work laptop worth $2,000)</li>
+                                        <li>Clothing worth $2,500</li>
+                                        <li>Bicycle worth $800</li>
+                                    </ul>
+                                    <p class="text-sm mb-2">Financial situation:</p>
+                                    <ul class="list-disc list-inside text-sm mb-2 ml-2">
+                                        <li>Annual income of $48,000 from remote graphic design work</li>
+                                        <li>$5,000 in emergency savings</li>
+                                        <li>Planning to purchase expensive camera equipment soon for a growing side business</li>
+                                    </ul>
+                                    <p class="text-sm mt-2"><strong>Situation:</strong> Lives in an area with occasional property crime, and her apartment building had a small kitchen fire last year in another unit. She's concerned about protecting her work equipment since her income depends on it.</p>
+                                </div>
+                                
+                                <h4 class="font-medium text-gray-800 mb-3">Available Insurance Options:</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h4 class="font-medium text-indigo-700 mb-2">Option A: Basic Coverage</h4>
+                                        <ul class="list-disc list-inside text-sm mb-3">
+                                            <li>Personal property: $10,000</li>
+                                            <li>Liability: $100,000</li>
+                                            <li>No additional living expenses coverage</li>
+                                            <li>$500 deductible</li>
+                                            <li>Monthly premium: $15</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h4 class="font-medium text-indigo-700 mb-2">Option B: Standard Coverage</h4>
+                                        <ul class="list-disc list-inside text-sm mb-3">
+                                            <li>Personal property: $30,000</li>
+                                            <li>Liability: $300,000</li>
+                                            <li>Additional living expenses: $3,000</li>
+                                            <li>$250 deductible</li>
+                                            <li>Monthly premium: $25</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h4 class="font-medium text-indigo-700 mb-2">Option C: Premium Coverage</h4>
+                                        <ul class="list-disc list-inside text-sm mb-3">
+                                            <li>Personal property: $50,000</li>
+                                            <li>Liability: $500,000</li>
+                                            <li>Additional living expenses: $10,000</li>
+                                            <li>Scheduled personal property for valuables</li>
+                                            <li>Identity theft protection</li>
+                                            <li>$250 deductible</li>
+                                            <li>Monthly premium: $35</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Which renter's insurance option would you recommend for Taylor? Why?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Your recommendation and reasoning..."></textarea>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 font-medium mb-2">What specific risks does Taylor face as a remote worker with valuable electronics?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain technology-specific risks and coverage needs..."></textarea>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="block text-gray-700 font-medium mb-2">If Taylor acquired an expensive item (e.g., jewelry worth $3,000), how might this affect their insurance needs?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain how valuable items impact insurance coverage decisions..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center mt-4" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <\!-- Learning Station 3: Risk Tolerance Assessment -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Risk Tolerance Assessment</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                        </div>
+                        
+                        
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this station, you'll assess your personal risk tolerance to better understand your approach to risk management. Your risk tolerance affects how you should approach insurance, emergency savings, and other financial decisions.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                <h3 class="font-medium text-gray-900 mb-3">Risk Tolerance Questionnaire</h3>
+                                <p class="text-sm text-gray-700 mb-4">For each scenario, select the option that best reflects how you would respond.</p>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-gray-800 mb-2">1. You're offered a job with two payment options:</h4>
+                                    <div class="space-y-2 ml-4">
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q1" id="q1-a" class="mt-1 mr-2">
+                                            <label for="q1-a" class="text-sm">Option A: A stable salary of $50,000 per year with standard benefits.</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q1" id="q1-b" class="mt-1 mr-2">
+                                            <label for="q1-b" class="text-sm">Option B: A base salary of $35,000 plus commission, with potential earnings of $30,000-$70,000 depending on performance.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-gray-800 mb-2">2. Your car is getting older and needs more frequent repairs. What would you do?</h4>
+                                    <div class="space-y-2 ml-4">
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q2" id="q2-a" class="mt-1 mr-2">
+                                            <label for="q2-a" class="text-sm">Purchase comprehensive car insurance with roadside assistance and a low deductible to cover potential issues.</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q2" id="q2-b" class="mt-1 mr-2">
+                                            <label for="q2-b" class="text-sm">Maintain basic insurance coverage and build an emergency fund for repairs, managing costs as they arise.</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q2" id="q2-c" class="mt-1 mr-2">
+                                            <label for="q2-c" class="text-sm">Keep minimal insurance coverage and deal with repairs as needed, taking the chance that major issues won't arise.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-gray-800 mb-2">3. You have $5,000 to invest. Which option would you choose?</h4>
+                                    <div class="space-y-2 ml-4">
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q3" id="q3-a" class="mt-1 mr-2">
+                                            <label for="q3-a" class="text-sm">A certificate of deposit (CD) with a guaranteed 2% return over 12 months.</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q3" id="q3-b" class="mt-1 mr-2">
+                                            <label for="q3-b" class="text-sm">A diversified mutual fund with an average historical return of 7%, but potential fluctuations from -5% to +15% in any given year.</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q3" id="q3-c" class="mt-1 mr-2">
+                                            <label for="q3-c" class="text-sm">Individual stocks in emerging technology companies with potential returns of 20%+ but also possible losses of 30% or more.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-gray-800 mb-2">4. You're considering renting an apartment in a flood-prone area that is $200 cheaper per month than similar apartments in safer locations. What would you do?</h4>
+                                    <div class="space-y-2 ml-4">
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q4" id="q4-a" class="mt-1 mr-2">
+                                            <label for="q4-a" class="text-sm">Pay more for an apartment in a safer location to avoid potential flood risks entirely.</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q4" id="q4-b" class="mt-1 mr-2">
+                                            <label for="q4-b" class="text-sm">Rent the cheaper apartment but purchase comprehensive renter's insurance with flood coverage and develop an emergency plan.</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q4" id="q4-c" class="mt-1 mr-2">
+                                            <label for="q4-c" class="text-sm">Rent the cheaper apartment with basic insurance and take your chances, as major floods are relatively rare.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-gray-800 mb-2">5. Your emergency fund currently covers:</h4>
+                                    <div class="space-y-2 ml-4">
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q5" id="q5-a" class="mt-1 mr-2">
+                                            <label for="q5-a" class="text-sm">Less than 1 month of expenses, as you prefer to use your money for other priorities.</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q5" id="q5-b" class="mt-1 mr-2">
+                                            <label for="q5-b" class="text-sm">3-4 months of expenses, providing a balance between security and other financial goals.</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="radio" name="q5" id="q5-c" class="mt-1 mr-2">
+                                            <label for="q5-c" class="text-sm">6+ months of expenses, providing substantial security against unexpected events.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h3 class="font-medium text-gray-900 mb-3">Self-Assessment</h3>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-gray-700 font-medium mb-2">Based on your answers, how would you describe your risk tolerance?</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                                            <option value="">Select your risk tolerance level...</option>
+                                            <option value="low">Low (Risk-Averse) - Prefer security and stability over potential gains</option>
+                                            <option value="moderate">Moderate - Balance between security and opportunity</option>
+                                            <option value="high">High (Risk-Tolerant) - Comfortable with uncertainty for potential gains</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-gray-700 font-medium mb-2">How does your risk tolerance affect your approach to insurance and emergency savings?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain how your risk tolerance influences your financial decisions..."></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-gray-700 font-medium mb-2">Factors affecting your risk tolerance (check all that apply):</label>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" id="factor-1" class="mr-2">
+                                                <label for="factor-1" class="text-sm">Current financial situation</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" id="factor-2" class="mr-2">
+                                                <label for="factor-2" class="text-sm">Family financial support</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" id="factor-3" class="mr-2">
+                                                <label for="factor-3" class="text-sm">Job stability</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" id="factor-4" class="mr-2">
+                                                <label for="factor-4" class="text-sm">Future financial goals</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" id="factor-5" class="mr-2">
+                                                <label for="factor-5" class="text-sm">Personal comfort with uncertainty</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" id="factor-6" class="mr-2">
+                                                <label for="factor-6" class="text-sm">Past experiences with financial loss</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <\!-- Learning Station 4: Personal Risk Management Plan -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Personal Risk Management Plan</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this final station, you'll develop a comprehensive personal risk management plan based on your current or anticipated situation. This plan will help you identify, prioritize, and manage the risks you face.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                <h3 class="font-medium text-gray-900 mb-3">Personal Risk Management Plan Development</h3>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Step 1: Identify Your Current/Anticipated Assets</label>
+                                    <p class="text-sm text-gray-600 mb-2">List the major assets you currently have or anticipate having in the next 1-2 years (e.g., vehicle, electronics, savings, investments).</p>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List your current and anticipated assets..."></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Step 2: Identify Potential Risks</label>
+                                    <p class="text-sm text-gray-600 mb-2">List the major risks that could affect your financial well-being. For each risk, classify it as high, medium, or low priority.</p>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm mb-3">
+                                        <div class="grid grid-cols-3 gap-2 mb-2 font-medium text-gray-700">
+                                            <div>Risk</div>
+                                            <div>Priority Level</div>
+                                            <div>Why This Risk Matters</div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-2 mb-2">
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Risk 1">
+                                            </div>
+                                            <div>
+                                                <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                                    <option value="">Select priority...</option>
+                                                    <option value="high" class="text-red-600">High</option>
+                                                    <option value="medium" class="text-yellow-600">Medium</option>
+                                                    <option value="low" class="text-green-600">Low</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Explain why...">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-2 mb-2">
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Risk 2">
+                                            </div>
+                                            <div>
+                                                <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                                    <option value="">Select priority...</option>
+                                                    <option value="high" class="text-red-600">High</option>
+                                                    <option value="medium" class="text-yellow-600">Medium</option>
+                                                    <option value="low" class="text-green-600">Low</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Explain why...">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-2 mb-2">
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Risk 3">
+                                            </div>
+                                            <div>
+                                                <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                                    <option value="">Select priority...</option>
+                                                    <option value="high" class="text-red-600">High</option>
+                                                    <option value="medium" class="text-yellow-600">Medium</option>
+                                                    <option value="low" class="text-green-600">Low</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Explain why...">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-2">
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Risk 4">
+                                            </div>
+                                            <div>
+                                                <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                                    <option value="">Select priority...</option>
+                                                    <option value="high" class="text-red-600">High</option>
+                                                    <option value="medium" class="text-yellow-600">Medium</option>
+                                                    <option value="low" class="text-green-600">Low</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Explain why...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Step 3: Develop Management Strategies</label>
+                                    <p class="text-sm text-gray-600 mb-2">For each high-priority risk identified above, determine the most appropriate management strategy.</p>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <div class="grid grid-cols-3 gap-2 mb-2 font-medium text-gray-700">
+                                            <div>High-Priority Risk</div>
+                                            <div>Management Strategy</div>
+                                            <div>Specific Actions</div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-2 mb-2">
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Risk 1">
+                                            </div>
+                                            <div>
+                                                <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                                    <option value="">Select strategy...</option>
+                                                    <option value="avoid">Avoid</option>
+                                                    <option value="reduce">Reduce</option>
+                                                    <option value="transfer">Transfer</option>
+                                                    <option value="accept">Accept</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Specific actions...">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-2">
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Risk 2">
+                                            </div>
+                                            <div>
+                                                <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                                    <option value="">Select strategy...</option>
+                                                    <option value="avoid">Avoid</option>
+                                                    <option value="reduce">Reduce</option>
+                                                    <option value="transfer">Transfer</option>
+                                                    <option value="accept">Accept</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md text-sm" placeholder="Specific actions...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Step 4: Insurance Planning</label>
+                                    <p class="text-sm text-gray-600 mb-2">Identify the types of insurance you need now or in the near future based on your risk assessment.</p>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800 mb-2">Auto Insurance</h4>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-center">
+                                                        <input type="checkbox" id="insurance-auto" class="mr-2">
+                                                        <label for="insurance-auto" class="text-sm">Need this insurance</label>
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-sm text-gray-600 mb-1">Coverage Level:</label>
+                                                        <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                                            <option value="">Select coverage level...</option>
+                                                            <option value="minimal">Minimal (Liability Only)</option>
+                                                            <option value="standard">Standard (Liability + Collision)</option>
+                                                            <option value="comprehensive">Comprehensive (Full Coverage)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <h4 class="font-medium text-gray-800 mb-2">Renter's/Homeowner's Insurance</h4>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-center">
+                                                        <input type="checkbox" id="insurance-property" class="mr-2">
+                                                        <label for="insurance-property" class="text-sm">Need this insurance</label>
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-sm text-gray-600 mb-1">Coverage Level:</label>
+                                                        <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                                            <option value="">Select coverage level...</option>
+                                                            <option value="basic">Basic Coverage</option>
+                                                            <option value="standard">Standard Coverage</option>
+                                                            <option value="premium">Premium Coverage</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <h4 class="font-medium text-gray-800 mb-2">Health Insurance</h4>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-center">
+                                                        <input type="checkbox" id="insurance-health" class="mr-2">
+                                                        <label for="insurance-health" class="text-sm">Need this insurance</label>
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-sm text-gray-600 mb-1">Coverage Level:</label>
+                                                        <select class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                                            <option value="">Select coverage level...</option>
+                                                            <option value="high-deductible">High Deductible Plan</option>
+                                                            <option value="standard">Standard Coverage</option>
+                                                            <option value="comprehensive">Comprehensive Coverage</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <h4 class="font-medium text-gray-800 mb-2">Other Insurance Needs</h4>
+                                                <div class="space-y-2">
+                                                    <div>
+                                                        <label class="block text-sm text-gray-600 mb-1">Specify other insurance needs:</label>
+                                                        <textarea class="w-full p-2 border border-gray-300 rounded-md text-sm" rows="2" placeholder="E.g., life insurance, disability insurance, specialty insurance..."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Step 5: Emergency Fund Planning</label>
+                                    <p class="text-sm text-gray-600 mb-2">Based on your risk assessment, determine your emergency fund target.</p>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <div class="mb-3">
+                                            <label class="block text-sm text-gray-600 mb-1">Target emergency fund (in months of expenses):</label>
+                                            <select class="w-full p-2 border border-gray-300 rounded-md">
+                                                <option value="">Select target amount...</option>
+                                                <option value="1">1 month of expenses</option>
+                                                <option value="3">3 months of expenses</option>
+                                                <option value="6">6 months of expenses</option>
+                                                <option value="9">9+ months of expenses</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Explain your reasoning for this emergency fund target:</label>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Consider your risk tolerance, job stability, family support, and other factors..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <\!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">
+                            Now that you've completed all stations, it's time to integrate your work into a comprehensive portfolio entry. This will help you document your understanding of risk management and create a plan you can revisit and update as your circumstances change.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Risk Management Philosophy</label>
+                            <p class="text-gray-600 text-sm mb-2">Summarize your approach to risk management based on your risk tolerance assessment and case study analyses.</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Describe your general approach to managing risk in your life..."></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Key Risk Management Strategies</label>
+                            <p class="text-gray-600 text-sm mb-2">List the 3-5 most important risk management strategies you plan to implement.</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List your key strategies in order of priority..."></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Insurance Coverage Summary</label>
+                            <p class="text-gray-600 text-sm mb-2">Summarize the insurance coverage you currently have or plan to obtain.</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Describe your current and planned insurance coverage..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Risk Management Timeline</label>
+                            <p class="text-gray-600 text-sm mb-2">Develop a timeline for implementing your risk management plan over the next 12 months.</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Month 1: [Action] | Month 3: [Action] | Month 6: [Action] | etc..."></textarea>
+                        </div>
+                        
+                        <button class="pfl-button px-6 py-2 rounded-lg mt-5 transition hover:-translate-y-1 hover:shadow-md" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <\!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Think about what you've learned in this chapter about risk management and how it applies to your life. Consider how your understanding of risk has evolved and how you plan to implement these concepts in your financial decisions.
+                        </p>
+                        
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Share your reflections on how this chapter has changed your understanding of risk management..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <a href="chapter-11-2-day1.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <\!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully\!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed\!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio\!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionText = document.querySelector('textarea[data-ai-check="true"]').value;
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            if (reflectionText.length < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider expanding on your understanding of risk management and how it applies to your specific situation.";
+            } else if (reflectionText.length < 100) {
+                aiFeedback.textContent = "Good start\! Try to provide more specific examples of how you'll apply risk management strategies in your daily financial decisions.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection\! You've demonstrated a strong understanding of risk management concepts and how they apply to your personal financial situation.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Source Comparison Worksheet</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+        
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+        
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .scenario {
+            background-color: #f0f9ff;
+            padding: 15px;
+            border-left: 5px solid #0ea5e9;
+            margin-bottom: 20px;
+        }
+        
+        .notes-section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 30px;
+        }
+        
+        .reflection {
+            background-color: #f0fdf4;
+            padding: 15px;
+            border-left: 5px solid #10b981;
+            margin-top: 30px;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Credit Source Comparison Worksheet</h1>
+        <p>Chapter 7.2: Choosing the Right Source of Credit</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This worksheet will help you analyze different credit sources and apply your knowledge to real-world borrowing scenarios. Review the credit source chart, then determine the most appropriate lender for each scenario provided.</p>
+        <p class="no-print">To save this worksheet as a PDF: Click File → Print → Change destination to "Save as PDF" → Save</p>
+    </div>
+    
+    <h2>Part 1: Credit Source Comparison Chart</h2>
+    
+    <table>
+        <tr>
+            <th>Credit Source</th>
+            <th>Typical Interest Rates</th>
+            <th>Common Fees</th>
+            <th>Qualification Requirements</th>
+            <th>Best Uses</th>
+            <th>Advantages</th>
+            <th>Disadvantages</th>
+        </tr>
+        <tr>
+            <td>Commercial Banks</td>
+            <td>4-36% (varies by product)</td>
+            <td>Application fees, origination fees, late payment fees, annual fees (for credit cards)</td>
+            <td>Good-excellent credit score (typically 680+), stable income, low debt-to-income ratio</td>
+            <td>Mortgages, auto loans, personal loans, credit cards, home equity loans</td>
+            <td>
+                <ul>
+                    <li>Wide range of products</li>
+                    <li>Competitive rates for qualified borrowers</li>
+                    <li>Established reputation</li>
+                    <li>Often have physical branches</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Stricter qualification requirements</li>
+                    <li>May have higher fees</li>
+                    <li>Less flexible for those with credit challenges</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Credit Unions</td>
+            <td>3-18% (generally lower than banks)</td>
+            <td>Minimal fees, lower late payment penalties</td>
+            <td>Membership in the credit union, moderate-to-good credit (often more flexible than banks)</td>
+            <td>Auto loans, personal loans, mortgages, credit cards, small personal loans</td>
+            <td>
+                <ul>
+                    <li>Lower interest rates than banks</li>
+                    <li>Fewer and lower fees</li>
+                    <li>More flexible lending criteria</li>
+                    <li>Not-for-profit status benefits members</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Membership requirements</li>
+                    <li>May have fewer branch locations</li>
+                    <li>May offer fewer specialized products</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Consumer Finance Companies</td>
+            <td>10-36%</td>
+            <td>Origination fees, application fees, prepayment penalties</td>
+            <td>Fair-to-good credit (more flexible than banks), proof of income</td>
+            <td>Personal loans, debt consolidation, financing large purchases</td>
+            <td>
+                <ul>
+                    <li>More flexible approval criteria</li>
+                    <li>Quick application process</li>
+                    <li>Options for those with less-than-perfect credit</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Higher interest rates than banks/credit unions</li>
+                    <li>May have more fees</li>
+                    <li>Terms may be less favorable</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Online Lenders</td>
+            <td>6-36% (varies widely)</td>
+            <td>Origination fees (0-8%), late fees, sometimes no fees</td>
+            <td>Varies widely; some focus on excellent credit, others on fair credit</td>
+            <td>Personal loans, debt consolidation, specialized financing</td>
+            <td>
+                <ul>
+                    <li>Convenient application process</li>
+                    <li>Fast funding (often 1-3 business days)</li>
+                    <li>May consider alternative data beyond credit scores</li>
+                    <li>Transparent comparison shopping</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>No in-person customer service</li>
+                    <li>Variable reputation (research required)</li>
+                    <li>May have origination fees</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Peer-to-Peer Lending</td>
+            <td>6-36%</td>
+            <td>Origination fees (1-8%), late fees</td>
+            <td>Minimum credit score typically 600+, income verification</td>
+            <td>Debt consolidation, personal projects, small business funding</td>
+            <td>
+                <ul>
+                    <li>May approve borrowers traditional lenders reject</li>
+                    <li>Fixed rates and terms</li>
+                    <li>No prepayment penalties</li>
+                    <li>Simple online process</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Higher rates for lower credit scores</li>
+                    <li>Origination fees reduce loan proceeds</li>
+                    <li>Longer funding time than some alternatives</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Payday Lenders</td>
+            <td>400-700% APR equivalent</td>
+            <td>Loan fees ($15-30 per $100 borrowed)</td>
+            <td>Proof of income, active checking account, ID (minimal credit check)</td>
+            <td>Short-term emergency expenses when no other options exist</td>
+            <td>
+                <ul>
+                    <li>Easy qualification</li>
+                    <li>Fast funding (same day)</li>
+                    <li>No traditional credit check</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Extremely high costs</li>
+                    <li>Risk of debt cycles</li>
+                    <li>Short repayment terms (typically 2 weeks)</li>
+                    <li>Predatory practices</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Retailer Credit</td>
+            <td>0% promotional to 30%</td>
+            <td>Late fees, sometimes deferred interest penalties</td>
+            <td>Varies by retailer, often more flexible than traditional cards</td>
+            <td>Purchasing specific products from the retailer</td>
+            <td>
+                <ul>
+                    <li>Special financing offers (e.g., 0% for 12 months)</li>
+                    <li>Store discounts and rewards</li>
+                    <li>Often easier to qualify for than bank cards</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>High standard interest rates after promotions end</li>
+                    <li>Deferred interest can lead to unexpected costs</li>
+                    <li>Limited use (only at specific retailers)</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    
+    <div class="page-break"></div>
+    
+    <h2>Part 2: Scenario Analysis</h2>
+    
+    <p>For each scenario below, identify the most appropriate credit source(s) and explain your reasoning.</p>
+    
+    <div class="scenario">
+        <h3>Scenario 1: Emergency Car Repair</h3>
+        <p><strong>Situation:</strong> Maya needs $800 to repair her car immediately to get to work. She has a fair credit score (640) and a stable job, but limited savings.</p>
+        <p><strong>Most appropriate credit source(s):</strong> _______________________________________________________</p>
+        <p><strong>Explanation:</strong> _______________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p><strong>Alternative options:</strong> _______________________________________________________________________</p>
+    </div>
+    
+    <div class="scenario">
+        <h3>Scenario 2: Home Renovation</h3>
+        <p><strong>Situation:</strong> The Rodriguez family wants to remodel their kitchen for $25,000. They have excellent credit (780), own their home with 40% equity, and can comfortably afford monthly payments.</p>
+        <p><strong>Most appropriate credit source(s):</strong> _______________________________________________________</p>
+        <p><strong>Explanation:</strong> _______________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p><strong>Alternative options:</strong> _______________________________________________________________________</p>
+    </div>
+    
+    <div class="scenario">
+        <h3>Scenario 3: Debt Consolidation</h3>
+        <p><strong>Situation:</strong> James has $12,000 in high-interest credit card debt spread across three cards (18-24% APR). He has a good credit score (700) and wants to consolidate this debt into a single, lower-interest loan.</p>
+        <p><strong>Most appropriate credit source(s):</strong> _______________________________________________________</p>
+        <p><strong>Explanation:</strong> _______________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p><strong>Alternative options:</strong> _______________________________________________________________________</p>
+    </div>
+    
+    <div class="scenario">
+        <h3>Scenario 4: First-Time Appliance Purchase</h3>
+        <p><strong>Situation:</strong> Aisha just moved into her first apartment and needs to purchase a refrigerator for $1,200. She has limited credit history but steady income from her new job.</p>
+        <p><strong>Most appropriate credit source(s):</strong> _______________________________________________________</p>
+        <p><strong>Explanation:</strong> _______________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p><strong>Alternative options:</strong> _______________________________________________________________________</p>
+    </div>
+    
+    <div class="scenario">
+        <h3>Scenario 5: Medical Emergency</h3>
+        <p><strong>Situation:</strong> Trevor has $3,000 in unexpected medical bills not covered by insurance. He has poor credit (580) due to past financial difficulties but is now employed steadily.</p>
+        <p><strong>Most appropriate credit source(s):</strong> _______________________________________________________</p>
+        <p><strong>Explanation:</strong> _______________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p><strong>Alternative options:</strong> _______________________________________________________________________</p>
+    </div>
+    
+    <div class="reflection">
+        <h3>Reflection Questions</h3>
+        <p>1. Based on what you've learned, why do you think payday lenders continue to be legal despite their high costs?</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>2. What alternatives could someone use if they're in a financial emergency and don't have access to other borrowing options?</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+    </div>
+    
+    <div class="notes-section">
+        <h3>Additional Notes</h3>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+        <p>________________________________________________________________</p>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 7.2: Choosing the Right Source of Credit</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 6.1: Planning for Retirement - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        /* Custom styles for retirement calculator */
+        .calculator-container {
+            background-color: #f9fafb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .slider-container {
+            margin-bottom: 1rem;
+        }
+        
+        .slider-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .slider-container input[type="range"] {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+        
+        .slider-value {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* Account comparison table styles */
+        .account-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .account-table th {
+            background-color: #f3f4f6;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .account-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .account-table tr:hover {
+            background-color: #f9fafb;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 6: Saving for Retirement</h2>
+                <p class="text-gray-600 mb-4">Explore strategies for long-term financial security and retirement planning.</p>
+            </div>
+            
+            <!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-6-1-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">6.1: Planning for Retirement</span>
+                    </div>
+                    <!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Retirement Calculator
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Account Comparison
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Retirement Strategy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station4" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Peer Feedback
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Other Chapters -->
+                <li>
+                    <a href="#" class="text-gray-700 hover:bg-gray-50 p-2 rounded-lg flex items-center">
+                        <span class="pl-2">6.2: Longevity and Retirement Planning</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/4 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-6-1-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 6.1: Planning for Retirement - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Apply retirement planning strategies to create your personalized financial future</p>
+            
+            <!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Apply knowledge of risk and return to retirement planning</li>
+                    <li>Calculate necessary savings rates for retirement goals</li>
+                    <li>Compare different retirement accounts and their features</li>
+                    <li>Create a personalized retirement strategy</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">Today's Learning Lab will build on our understanding of saving and investing by focusing specifically on retirement planning. You'll explore various retirement vehicles, calculate how much you need to save, and develop a personalized strategy that aligns with your future goals.</p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700">Remember that retirement planning is highly personal. The strategies you develop today should reflect your own goals, risk tolerance, and timeline. While it might seem far away now, the decisions you make early in life have the most impact on your financial future due to the power of compound interest.</p>
+                </div>
+                
+                <!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">This Learning Lab builds directly on the concepts we explored in Day 1, including:</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>The relationship between risk and return</li>
+                        <li>Different investment vehicles and their characteristics</li>
+                        <li>How time horizon affects investment strategy</li>
+                        <li>The power of compounding in long-term investments</li>
+                        <li>Different types of retirement accounts and their benefits</li>
+                    </ul>
+                </div>
+                
+                <!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Planning for Retirement</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="/finished LM recordings/6.1 -  Planning for Retirement.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Risk and return, long-term investing principles, retirement account options, power of early investing, and balancing current needs with future goals.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">Today, you'll work through a series of stations to build your understanding of retirement planning and develop a personalized retirement strategy. Let's get started!</p>
+            </section>
+            
+            <!-- Learning Station 1: Retirement Calculator -->
+            <div id="station1" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h3 class="text-xl font-semibold">Retirement Calculator Exploration</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Use this interactive retirement calculator to understand how different variables affect your retirement savings outcome. Adjust the sliders to see how changes in current age, retirement age, monthly contributions, and expected return rates impact your retirement savings.</p>
+                
+                <div class="calculator-container">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="slider-container">
+                            <label for="current-age">Current Age</label>
+                            <input type="range" id="current-age" min="15" max="60" value="18" class="w-full">
+                            <div class="slider-value">
+                                <span class="text-sm">15</span>
+                                <span id="current-age-value" class="font-medium">18</span>
+                                <span class="text-sm">60</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="retirement-age">Retirement Age</label>
+                            <input type="range" id="retirement-age" min="55" max="75" value="65" class="w-full">
+                            <div class="slider-value">
+                                <span class="text-sm">55</span>
+                                <span id="retirement-age-value" class="font-medium">65</span>
+                                <span class="text-sm">75</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="life-expectancy">Life Expectancy</label>
+                            <input type="range" id="life-expectancy" min="75" max="95" value="85" class="w-full">
+                            <div class="slider-value">
+                                <span class="text-sm">75</span>
+                                <span id="life-expectancy-value" class="font-medium">85</span>
+                                <span class="text-sm">95</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="monthly-contribution">Monthly Contribution ($)</label>
+                            <input type="range" id="monthly-contribution" min="50" max="1000" value="200" step="50" class="w-full">
+                            <div class="slider-value">
+                                <span class="text-sm">$50</span>
+                                <span id="monthly-contribution-value" class="font-medium">$200</span>
+                                <span class="text-sm">$1,000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="expected-return">Expected Annual Return (%)</label>
+                            <input type="range" id="expected-return" min="3" max="10" value="7" step="0.5" class="w-full">
+                            <div class="slider-value">
+                                <span class="text-sm">3%</span>
+                                <span id="expected-return-value" class="font-medium">7%</span>
+                                <span class="text-sm">10%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="inflation-rate">Expected Inflation Rate (%)</label>
+                            <input type="range" id="inflation-rate" min="1" max="5" value="2.5" step="0.5" class="w-full">
+                            <div class="slider-value">
+                                <span class="text-sm">1%</span>
+                                <span id="inflation-rate-value" class="font-medium">2.5%</span>
+                                <span class="text-sm">5%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <h4 class="font-semibold text-gray-900 mb-3">Your Retirement Projection</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <div class="text-indigo-700 font-medium text-sm mb-1">Total Savings at Retirement</div>
+                                <div id="total-savings" class="text-3xl font-bold text-indigo-900">$1,423,000</div>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <div class="text-indigo-700 font-medium text-sm mb-1">Monthly Retirement Income</div>
+                                <div id="monthly-income" class="text-3xl font-bold text-indigo-900">$4,743</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <canvas id="retirement-chart" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h4 class="font-semibold text-gray-900 mb-2">Reflection Questions</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-gray-700 mb-1">1. How does changing your monthly contribution affect your retirement outcome?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-1">2. What's the impact of starting to save 10 years earlier?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-1">3. What savings rate would you need to reach your desired retirement lifestyle?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button mt-4" onclick="saveStation(1)">
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Learning Station 2: Account Comparison Analysis -->
+            <div id="station2" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h3 class="text-xl font-semibold">Account Comparison Analysis</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">12 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Different retirement accounts have various advantages and limitations. In this station, you'll compare different account types to understand which might be best for different situations.</p>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="account-table">
+                        <thead>
+                            <tr>
+                                <th>Account Type</th>
+                                <th>Tax Benefits</th>
+                                <th>Contribution Limits (2025)</th>
+                                <th>Withdrawal Rules</th>
+                                <th>Ideal For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-medium">401(k) / 403(b)</td>
+                                <td>Tax-deferred contributions; grows tax-free</td>
+                                <td>$22,500 ($30,000 if over 50)</td>
+                                <td>Penalty-free after age 59½; required distributions at age 73</td>
+                                <td>Employees with matching contributions</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Traditional IRA</td>
+                                <td>Tax-deductible contributions; grows tax-free</td>
+                                <td>$6,500 ($7,500 if over 50)</td>
+                                <td>Penalty-free after age 59½; required distributions at age 73</td>
+                                <td>Those who expect lower tax brackets in retirement</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Roth IRA</td>
+                                <td>Post-tax contributions; tax-free withdrawals</td>
+                                <td>$6,500 ($7,500 if over 50)</td>
+                                <td>Tax and penalty-free withdrawals after age 59½ (if held 5+ years); no required distributions</td>
+                                <td>Young earners and those expecting higher tax brackets in retirement</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">HSA</td>
+                                <td>Triple tax advantage: deductible contributions, tax-free growth, tax-free withdrawals for medical expenses</td>
+                                <td>$4,150 individual / $8,300 family</td>
+                                <td>Tax-free for qualified medical expenses; penalty-free for any purpose after age 65</td>
+                                <td>Those with high-deductible health plans</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Taxable Account</td>
+                                <td>No specific tax advantages; capital gains taxes apply</td>
+                                <td>No limit</td>
+                                <td>No restrictions on withdrawals</td>
+                                <td>Those who've maxed out tax-advantaged accounts or need liquidity</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Account Preference Analysis</h4>
+                    <p class="text-gray-700 mb-3">Based on the information above, rank these account types for YOUR personal situation (1 = most preferred, 5 = least preferred) and explain your reasoning.</p>
+                    
+                    <div class="space-y-4 mt-4">
+                        <div class="flex items-center">
+                            <select class="mr-4 p-2 border border-gray-300 rounded-md">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <span class="font-medium w-24">401(k)/403(b)</span>
+                            <input type="text" placeholder="Reasoning" class="ml-4 flex-1 p-2 border border-gray-300 rounded-md">
+                        </div>
+                        <div class="flex items-center">
+                            <select class="mr-4 p-2 border border-gray-300 rounded-md">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <span class="font-medium w-24">Traditional IRA</span>
+                            <input type="text" placeholder="Reasoning" class="ml-4 flex-1 p-2 border border-gray-300 rounded-md">
+                        </div>
+                        <div class="flex items-center">
+                            <select class="mr-4 p-2 border border-gray-300 rounded-md">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <span class="font-medium w-24">Roth IRA</span>
+                            <input type="text" placeholder="Reasoning" class="ml-4 flex-1 p-2 border border-gray-300 rounded-md">
+                        </div>
+                        <div class="flex items-center">
+                            <select class="mr-4 p-2 border border-gray-300 rounded-md">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <span class="font-medium w-24">HSA</span>
+                            <input type="text" placeholder="Reasoning" class="ml-4 flex-1 p-2 border border-gray-300 rounded-md">
+                        </div>
+                        <div class="flex items-center">
+                            <select class="mr-4 p-2 border border-gray-300 rounded-md">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <span class="font-medium w-24">Taxable Account</span>
+                            <input type="text" placeholder="Reasoning" class="ml-4 flex-1 p-2 border border-gray-300 rounded-md">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">Reflection</h4>
+                    <label class="block text-gray-700 mb-1">Based on your current goals and circumstances, which accounts would be most appropriate for you and why?</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                </div>
+                
+                <button class="pfl-button" onclick="saveStation(2)">
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Learning Station 3: Personalized Retirement Strategy Builder -->
+            <div id="station3" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h3 class="text-xl font-semibold">Personalized Retirement Strategy Builder</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Now it's time to create your own personalized retirement strategy. Use what you've learned from the previous stations to develop a plan that aligns with your goals and timeline.</p>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">1. Retirement Lifestyle Goals</h4>
+                        <p class="text-gray-700 mb-2">Describe the lifestyle you envision for your retirement (housing, travel, activities, etc.).</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">2. Retirement Timeline</h4>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-gray-700 mb-1">Target Retirement Age</label>
+                                <input type="number" min="50" max="75" value="65" class="w-full p-2 border border-gray-300 rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Years Until Retirement</label>
+                                <input type="number" placeholder="Calculate based on your age" class="w-full p-2 border border-gray-300 rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Estimated Retirement Duration</label>
+                                <input type="number" min="10" max="40" value="20" class="w-full p-2 border border-gray-300 rounded-md">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">3. Income Replacement Strategy</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 mb-1">Estimated Annual Income Needed ($)</label>
+                                <input type="number" min="20000" placeholder="Annual income in retirement" class="w-full p-2 border border-gray-300 rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Income Replacement Percentage (%)</label>
+                                <input type="number" min="50" max="100" value="80" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">Most experts recommend aiming to replace 70-80% of your pre-retirement income</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">4. Account Allocation Strategy</h4>
+                        <p class="text-gray-700 mb-2">How would you allocate your retirement savings across different account types?</p>
+                        <div class="grid md:grid-cols-5 gap-4">
+                            <div>
+                                <label class="block text-gray-700 mb-1">401(k) / 403(b)</label>
+                                <input type="number" min="0" max="100" value="40" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">% of total savings</p>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Traditional IRA</label>
+                                <input type="number" min="0" max="100" value="15" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">% of total savings</p>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Roth IRA</label>
+                                <input type="number" min="0" max="100" value="25" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">% of total savings</p>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">HSA</label>
+                                <input type="number" min="0" max="100" value="10" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">% of total savings</p>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Taxable Investments</label>
+                                <input type="number" min="0" max="100" value="10" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">% of total savings</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">5. Investment Allocation Strategy</h4>
+                        <p class="text-gray-700 mb-2">How would you allocate your investments across different asset classes?</p>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-gray-700 mb-1">Stocks/Equities</label>
+                                <input type="number" min="0" max="100" value="70" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">% of total portfolio</p>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Bonds/Fixed Income</label>
+                                <input type="number" min="0" max="100" value="25" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">% of total portfolio</p>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Cash/Money Market</label>
+                                <input type="number" min="0" max="100" value="5" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">% of total portfolio</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">6. Risk Tolerance Assessment</h4>
+                        <p class="text-gray-700 mb-2">How would you characterize your risk tolerance for retirement investments?</p>
+                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                            <option>Conservative - I prioritize preserving capital over growth</option>
+                            <option>Moderately Conservative - I prefer stability with some growth</option>
+                            <option selected>Moderate - I seek balance between growth and stability</option>
+                            <option>Moderately Aggressive - I prioritize growth but want some stability</option>
+                            <option>Aggressive - I prioritize maximum growth and can tolerate volatility</option>
+                        </select>
+                        <p class="text-gray-700 mt-3 mb-2">Explain your reasoning for your risk tolerance selection:</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">7. Retirement Savings Plan</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 mb-1">Monthly Savings Goal ($)</label>
+                                <input type="number" placeholder="Your target monthly savings" class="w-full p-2 border border-gray-300 rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Annual Increase Goal (%)</label>
+                                <input type="number" min="0" max="10" value="3" class="w-full p-2 border border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">Increase savings by this percentage each year</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button mt-6" onclick="saveStation(3)">
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Learning Station 4: Peer Feedback Session -->
+            <div id="station4" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">4</span>
+                    <h3 class="text-xl font-semibold">Peer Feedback Session</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Partner with a classmate to review each other's retirement strategies. Provide constructive feedback using the prompts below.</p>
+                
+                <div class="p-4 bg-gray-50 rounded-lg mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Partner's Retirement Strategy Review</h4>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 mb-1">1. Is the savings rate realistic given the income projection?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-1">2. Does the investment allocation match the time horizon and risk tolerance?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-1">3. Are there any important considerations that were overlooked?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-1">4. What suggestions would you make to improve this plan?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-4 bg-indigo-50 rounded-lg">
+                    <h4 class="font-semibold text-indigo-900 mb-3">Strategy Refinement Based on Feedback</h4>
+                    <p class="text-gray-700 mb-3">After receiving feedback from your partner, what adjustments would you make to your retirement strategy?</p>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4"></textarea>
+                </div>
+                
+                <button class="pfl-button mt-4" onclick="saveStation(4)">
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Portfolio Integration Section -->
+            <section id="portfolio" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive portfolio.</p>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-900 mb-4">Your Comprehensive Retirement Plan</h3>
+                    <p class="text-gray-700 mb-4">Your portfolio combines all elements from today's Learning Lab into a cohesive plan:</p>
+                    
+                    <ul class="list-disc list-inside mb-4 text-gray-700">
+                        <li>Calculator projections showing savings growth over time</li>
+                        <li>Account type analysis and selection</li>
+                        <li>Detailed retirement strategy with timeline and allocations</li>
+                        <li>Feedback integration and refinements</li>
+                    </ul>
+                    
+                    <p class="text-gray-700 mb-4">Review each section to ensure alignment across your entire plan.</p>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Portfolio Summary (What have you learned from this Learning Lab?)</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize key insights and how this plan will guide your decisions..."></textarea>
+                        <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                    </div>
+                    
+                    <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1">Complete Portfolio</button>
+                </div>
+            </section>
+            
+            <!-- Reflection Section -->
+            <section id="reflection" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                    <p class="text-gray-700 mb-3">How has this Learning Lab changed your perspective on retirement planning? What actions will you take in the next year to begin implementing your retirement strategy?</p>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <a href="chapter-6-2-day1.html" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                        Continue to Chapter 6.2: Longevity and Retirement Planning
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved!</span>
+        </div>
+    </div>
+    
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Station navigation
+        let currentStation = 0;
+        const stations = document.querySelectorAll('.learning-station');
+        const stationIndicators = document.querySelectorAll('.station-indicator');
+        
+        // Initialize interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up retirement calculator chart
+            const ctx = document.getElementById('retirement-chart').getContext('2d');
+            const retirementChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: generateAgeLabels(18, 85),
+                    datasets: [{
+                        label: 'Retirement Savings ($)',
+                        data: calculateRetirementGrowth(18, 65, 85, 200, 7, 2.5),
+                        backgroundColor: 'rgba(79, 70, 229, 0.2)',
+                        borderColor: 'rgba(79, 70, 229, 1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Savings ($)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Age'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += '$' + context.parsed.y.toLocaleString();
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        annotation: {
+                            annotations: {
+                                line1: {
+                                    type: 'line',
+                                    yMin: 0,
+                                    yMax: 0,
+                                    xMin: 65,
+                                    xMax: 65,
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    borderWidth: 2,
+                                    label: {
+                                        content: 'Retirement Age',
+                                        enabled: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Handle retirement calculator sliders
+            document.querySelectorAll('input[type="range"]').forEach(slider => {
+                slider.addEventListener('input', function() {
+                    // Update the displayed value
+                    const valueDisplay = document.getElementById(this.id + '-value');
+                    if (valueDisplay) {
+                        if (this.id === 'monthly-contribution') {
+                            valueDisplay.textContent = '$' + this.value;
+                        } else if (this.id === 'expected-return' || this.id === 'inflation-rate') {
+                            valueDisplay.textContent = this.value + '%';
+                        } else {
+                            valueDisplay.textContent = this.value;
+                        }
+                    }
+                    
+                    // Recalculate retirement projections
+                    updateRetirementProjections();
+                });
+            });
+            
+            // Add smooth transitions between stations
+            stations.forEach((station, index) => {
+                station.style.opacity = '0';
+                station.style.transform = 'translateY(20px)';
+                
+                // Use setTimeout to create a staggered animation effect
+                setTimeout(() => {
+                    station.style.opacity = '1';
+                    station.style.transform = 'translateY(0)';
+                    station.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                }, 100 * (index + 1));
+            });
+            
+            updateStationIndicators();
+        });
+        
+        // Generate age labels for the chart
+        function generateAgeLabels(currentAge, maxAge) {
+            const labels = [];
+            for (let age = currentAge; age <= maxAge; age++) {
+                labels.push(age);
+            }
+            return labels;
+        }
+        
+        // Calculate retirement growth for the chart
+        function calculateRetirementGrowth(currentAge, retirementAge, maxAge, monthlyContribution, returnRate, inflationRate) {
+            const data = [];
+            let balance = 0;
+            const realReturnRate = (1 + returnRate / 100) / (1 + inflationRate / 100) - 1;
+            const monthlyReal = realReturnRate / 12;
+            
+            for (let age = currentAge; age <= maxAge; age++) {
+                // Add contributions until retirement
+                if (age < retirementAge) {
+                    for (let month = 0; month < 12; month++) {
+                        balance *= (1 + monthlyReal);
+                        balance += monthlyContribution;
+                    }
+                } else {
+                    // Just growth after retirement
+                    balance *= (1 + realReturnRate);
+                }
+                
+                data.push(Math.round(balance));
+            }
+            
+            return data;
+        }
+        
+        // Update retirement projections based on slider values
+        function updateRetirementProjections() {
+            const currentAge = parseInt(document.getElementById('current-age').value);
+            const retirementAge = parseInt(document.getElementById('retirement-age').value);
+            const lifeExpectancy = parseInt(document.getElementById('life-expectancy').value);
+            const monthlyContribution = parseInt(document.getElementById('monthly-contribution').value);
+            const expectedReturn = parseFloat(document.getElementById('expected-return').value);
+            const inflationRate = parseFloat(document.getElementById('inflation-rate').value);
+            
+            // Calculate new projections
+            const growthData = calculateRetirementGrowth(currentAge, retirementAge, lifeExpectancy, monthlyContribution, expectedReturn, inflationRate);
+            
+            // Update the chart with new data
+            const chart = Chart.getChart('retirement-chart');
+            chart.data.labels = generateAgeLabels(currentAge, lifeExpectancy);
+            chart.data.datasets[0].data = growthData;
+            chart.update();
+            
+            // Update total savings and monthly income displays
+            const finalBalance = growthData[growthData.length - 1];
+            document.getElementById('total-savings').textContent = '$' + finalBalance.toLocaleString();
+            
+            // Estimate monthly retirement income (basic 4% rule calculation)
+            const monthlyIncome = Math.round(finalBalance * 0.04 / 12);
+            document.getElementById('monthly-income').textContent = '$' + monthlyIncome.toLocaleString();
+        }
+        
+        // Save button functionality with toast notifications
+        function saveStation(stationNumber) {
+            // Update station indicator
+            if (stationNumber <= stationIndicators.length) {
+                stationIndicators[stationNumber - 1].classList.add('active');
+            }
+            
+            // Update progress
+            updateProgress();
+            
+            // Show toast notification
+            showToast(`Station ${stationNumber} completed!`);
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById(`station${stationNumber + 1}`);
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === stations.length) {
+                // If this was the last station, scroll to portfolio section
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // AI feedback system 
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+                element.addEventListener('blur', function() {
+                    if (this.value.length > 10) {
+                        const feedback = this.nextElementSibling;
+                        if (feedback && feedback.classList.contains('feedback-container')) {
+                            feedback.textContent = "Thank you for your thoughtful response! Your answer shows good understanding of retirement planning concepts.";
+                            feedback.classList.remove('hidden');
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            // Set message
+            toastMessage.textContent = message;
+            
+            // Set type-specific styling
+            if (type === 'warning') {
+                toast.style.backgroundColor = '#f59e0b';
+            } else {
+                toast.style.backgroundColor = '#4f46e5';
+            }
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide toast after delay
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Track progress for the sidebar
+        function updateProgress() {
+            const stations = document.querySelectorAll('.learning-station');
+            let completed = 0;
+            
+            stationIndicators.forEach(indicator => {
+                if (indicator.classList.contains('active')) {
+                    completed++;
+                }
+            });
+            
+            // Update progress bar
+            const progressBar = document.querySelector('.from-indigo-600.to-purple-600.h-2\\.5');
+            const progressText = document.querySelector('.font-medium');
+            
+            const percentage = Math.round((completed / stations.length) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${completed}/${stations.length} stations`;
+        }
+        
+        // Update station indicators
+        function updateStationIndicators() {
+            // Determine current station based on scroll position
+            updateCurrentStationByScroll();
+            
+            // Add click handlers for station indicators
+            stationIndicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    const targetStation = document.getElementById(`station${index + 1}`);
+                    if (targetStation) {
+                        targetStation.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+        
+        // Update current station based on scroll position
+        function updateCurrentStationByScroll() {
+            const scrollPosition = window.scrollY;
+            const stations = document.querySelectorAll('.learning-station');
+            
+            stations.forEach((station, index) => {
+                const stationTop = station.offsetTop - 150;
+                const stationBottom = stationTop + station.offsetHeight;
+                
+                if (scrollPosition >= stationTop && scrollPosition < stationBottom) {
+                    // This is the current visible station
+                    currentStation = index;
+                    
+                    // Update navigation links to highlight current section
+                    const sectionLinks = document.querySelectorAll('#section-navigation a');
+                    sectionLinks.forEach(link => {
+                        link.classList.remove('text-indigo-700', 'font-medium');
+                        link.classList.add('text-gray-700');
+                    });
+                    
+                    const currentLink = document.querySelector(`#section-navigation a[href="#station${index + 1}"]`);
+                    if (currentLink) {
+                        currentLink.classList.remove('text-gray-700');
+                        currentLink.classList.add('text-indigo-700', 'font-medium');
+                    }
+                }
+            });
+        }
+        
+        // Highlight active section in navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            updateCurrentStationByScroll();
+        });
+    </script>
+</body>
+</html>

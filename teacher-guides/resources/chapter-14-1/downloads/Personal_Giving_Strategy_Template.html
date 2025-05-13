@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Giving Strategy Template</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .field {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        textarea {
+            min-height: 100px;
+        }
+        .guidance {
+            font-style: italic;
+            color: #666;
+            margin-top: 5px;
+        }
+        .tips {
+            background-color: #f8f9d7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 3px solid #3498db;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .chart-placeholder {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            border: 1px dashed #999;
+            margin: 15px 0;
+        }
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+            .print-button {
+                display: none;
+            }
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+    
+    <h1>Personal Giving Strategy</h1>
+    
+    <div class="section">
+        <h2>Section 1: Values and Interests Assessment</h2>
+        
+        <div class="field">
+            <label for="personal-values">My Core Values:</label>
+            <textarea id="personal-values" name="personal-values"></textarea>
+            <div class="guidance">What principles and beliefs are most important to you? How do these values influence your approach to charitable giving?</div>
+        </div>
+        
+        <div class="field">
+            <label for="cause-interests">Causes I Care About:</label>
+            <textarea id="cause-interests" name="cause-interests"></textarea>
+            <div class="guidance">What social issues, needs, or causes do you feel most passionate about? Why are these causes meaningful to you?</div>
+        </div>
+        
+        <div class="field">
+            <label for="motivation">My Motivation for Giving:</label>
+            <textarea id="motivation" name="motivation"></textarea>
+            <div class="guidance">What inspires you to give? Consider both personal experiences and broader motivations.</div>
+        </div>
+        
+        <div class="field">
+            <label for="giving-priorities">Giving Priorities:</label>
+            <textarea id="giving-priorities" name="giving-priorities"></textarea>
+            <div class="guidance">Rank your top 3-5 giving priorities based on your values and interests.</div>
+        </div>
+        
+        <div class="field">
+            <label for="resources-inventory">Resources Inventory:</label>
+            <textarea id="resources-inventory" name="resources-inventory"></textarea>
+            <div class="guidance">List all resources you could potentially contribute: time, money, skills, talents, connections, physical items, etc.</div>
+        </div>
+        
+        <div class="example">
+            <strong>Example:</strong> My core values include education, equity, and environmental stewardship. I particularly care about educational access for underserved communities, environmental conservation, and animal welfare. My passion for education stems from my own experience with supportive teachers who changed my trajectory, while my interest in environmental causes comes from growing up near a nature preserve. I'm motivated by a desire to create opportunity for others and protect our natural world for future generations. My top giving priorities are: 1) Educational programs for underserved youth, 2) Local environmental conservation, and 3) Animal rescue. Resources I can contribute include: 5-10 hours monthly of volunteer time, $30-50 monthly in financial contributions, graphic design skills, social media knowledge, and connections to local schools through family members.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Section 2: Giving Plan</h2>
+        
+        <h3>2A: Financial Giving Plan</h3>
+        
+        <div class="field">
+            <label for="giving-budget">Total Giving Budget:</label>
+            <input type="text" id="giving-budget" name="giving-budget">
+            <div class="guidance">What dollar amount or percentage of income have you allocated for charitable giving?</div>
+        </div>
+        
+        <div class="field">
+            <label for="giving-allocation">Giving Allocation:</label>
+            <textarea id="giving-allocation" name="giving-allocation"></textarea>
+            <div class="guidance">How will you distribute your charitable donations across causes or organizations? (Example: 50% to education, 30% to environment, 20% to emergency response)</div>
+        </div>
+        
+        <div class="field">
+            <label for="frequency">Giving Frequency:</label>
+            <select id="frequency" name="frequency">
+                <option value="">Select frequency</option>
+                <option value="one-time">One-time donations</option>
+                <option value="monthly">Monthly recurring donations</option>
+                <option value="quarterly">Quarterly donations</option>
+                <option value="annual">Annual donations</option>
+                <option value="mixed">Mixed approach</option>
+            </select>
+            <div class="guidance">How often do you plan to make charitable contributions?</div>
+        </div>
+        
+        <div class="field">
+            <label for="selected-organizations">Selected Organizations:</label>
+            <textarea id="selected-organizations" name="selected-organizations" placeholder="Organization Name - Cause Area - Amount/Percentage - Frequency - Rationale"></textarea>
+            <div class="guidance">List specific organizations you plan to support, including donation amounts and why you've selected them.</div>
+        </div>
+        
+        <div class="chart-placeholder">
+            [Insert pie chart or other visual representation of your giving allocation here]
+        </div>
+        
+        <h3>2B: Time Commitment Plan</h3>
+        
+        <div class="field">
+            <label for="volunteer-hours">Volunteer Time Commitment:</label>
+            <input type="text" id="volunteer-hours" name="volunteer-hours">
+            <div class="guidance">How many hours per week/month do you plan to volunteer?</div>
+        </div>
+        
+        <div class="field">
+            <label for="volunteer-activities">Volunteer Activities:</label>
+            <textarea id="volunteer-activities" name="volunteer-activities" placeholder="Organization - Role - Hours/Month - Skills Used"></textarea>
+            <div class="guidance">Describe the specific volunteer roles you plan to undertake, including organizations, positions, and time commitments.</div>
+        </div>
+        
+        <h3>2C: Skills Contribution Plan</h3>
+        
+        <div class="field">
+            <label for="skills-talents">Key Skills & Talents to Share:</label>
+            <textarea id="skills-talents" name="skills-talents"></textarea>
+            <div class="guidance">What specific skills or talents could you contribute to causes you care about?</div>
+        </div>
+        
+        <div class="field">
+            <label for="skills-application">Skills Application Plan:</label>
+            <textarea id="skills-application" name="skills-application" placeholder="Skill - Organization/Cause - Application - Time Commitment"></textarea>
+            <div class="guidance">Describe how and where you plan to apply your skills to benefit charitable causes.</div>
+        </div>
+        
+        <h3>2D: In-Kind Donation Plan</h3>
+        
+        <div class="field">
+            <label for="in-kind-donations">Planned In-Kind Donations:</label>
+            <textarea id="in-kind-donations" name="in-kind-donations" placeholder="Item/Resource - Organization - Timing - Estimated Value"></textarea>
+            <div class="guidance">List any goods, materials, or resources you plan to donate, and where they will go.</div>
+        </div>
+        
+        <div class="tips">
+            <strong>Tip:</strong> Balance your giving plan across different forms of contribution based on your current resources and circumstances. As your situation changes, you can adjust the balance between financial giving, volunteering, skills contribution, and in-kind donations.
+        </div>
+        
+        <div class="example">
+            <strong>Example Financial Giving Plan:</strong> I'm allocating 5% of my monthly income (approximately $150) to charitable giving, distributed as: 50% to education ($75), 30% to environmental causes ($45), and 20% to animal welfare ($30). I'll use a monthly recurring donation approach for consistent support. My selected organizations are:
+            <ul>
+                <li>Local Education Foundation - $75/month - Provides after-school programming in my community</li>
+                <li>River Conservation Trust - $45/month - Protects the watershed where I grew up</li>
+                <li>County Animal Shelter - $30/month - Supports animal rescue and adoption services</li>
+            </ul>
+            
+            <strong>Example Volunteer Plan:</strong> I'll commit 8 hours monthly to volunteering, primarily at the County Animal Shelter (6 hours/month helping with dog walking and socialization) and occasional special events for the River Conservation Trust (approximately 2 hours/month for cleanup days and fundraisers).
+            
+            <strong>Example Skills Contribution:</strong> I'll use my graphic design skills to create marketing materials for the Local Education Foundation's annual fundraiser (estimated 10 hours spread over 1 month) and my social media knowledge to help the County Animal Shelter improve their adoption promotion (2 hours/month of consulting).
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Section 3: Impact Evaluation</h2>
+        
+        <div class="field">
+            <label for="contribution-tracking">How I'll Track My Contributions:</label>
+            <textarea id="contribution-tracking" name="contribution-tracking"></textarea>
+            <div class="guidance">Describe how you'll record and monitor your financial, time, and in-kind contributions.</div>
+        </div>
+        
+        <div class="field">
+            <label for="impact-assessment">How I'll Assess Impact:</label>
+            <textarea id="impact-assessment" name="impact-assessment"></textarea>
+            <div class="guidance">How will you evaluate whether your contributions are creating the impact you intend? What information will you gather from organizations?</div>
+        </div>
+        
+        <div class="field">
+            <label for="staying-informed">Staying Informed:</label>
+            <textarea id="staying-informed" name="staying-informed"></textarea>
+            <div class="guidance">How will you stay informed about your chosen causes and the organizations you support?</div>
+        </div>
+        
+        <div class="field">
+            <label for="review-plan">Review & Adjustment Plan:</label>
+            <textarea id="review-plan" name="review-plan"></textarea>
+            <div class="guidance">How often will you review and potentially adjust your giving strategy? What factors might trigger changes?</div>
+        </div>
+        
+        <div class="example">
+            <strong>Example:</strong> I'll track my contributions using a dedicated spreadsheet that records all donations, volunteer hours, and in-kind gifts. I'll request impact reports from the organizations I support and follow their social media and newsletters for updates. To assess impact, I'll look for specific metrics like number of students served by educational programs, miles of riverway protected, and animal adoption rates. I'll comprehensively review my giving strategy annually in January, but will make adjustments if I notice an organization isn't using funds effectively, if my financial situation changes significantly, or if I discover a new cause that strongly aligns with my values.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Section 4: Giving Timeline</h2>
+        
+        <h3>Short-Term Giving Plan (Next 12 Months)</h3>
+        <table>
+            <tr>
+                <th>Timeframe</th>
+                <th>Action/Contribution</th>
+                <th>Organization/Cause</th>
+                <th>Resource Commitment</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="timeframe-1"></td>
+                <td><input type="text" name="action-1"></td>
+                <td><input type="text" name="organization-1"></td>
+                <td><input type="text" name="commitment-1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="timeframe-2"></td>
+                <td><input type="text" name="action-2"></td>
+                <td><input type="text" name="organization-2"></td>
+                <td><input type="text" name="commitment-2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="timeframe-3"></td>
+                <td><input type="text" name="action-3"></td>
+                <td><input type="text" name="organization-3"></td>
+                <td><input type="text" name="commitment-3"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="timeframe-4"></td>
+                <td><input type="text" name="action-4"></td>
+                <td><input type="text" name="organization-4"></td>
+                <td><input type="text" name="commitment-4"></td>
+            </tr>
+        </table>
+        
+        <h3>Long-Term Giving Vision (2-5 Years)</h3>
+        <div class="field">
+            <label for="long-term-vision">My Long-Term Giving Goals:</label>
+            <textarea id="long-term-vision" name="long-term-vision"></textarea>
+            <div class="guidance">Describe how you envision your giving evolving over the next 2-5 years as your resources and circumstances change.</div>
+        </div>
+        
+        <div class="field">
+            <label for="evolution-factors">Factors That May Change My Giving:</label>
+            <textarea id="evolution-factors" name="evolution-factors"></textarea>
+            <div class="guidance">What life changes, resource shifts, or other factors might influence your giving strategy over time?</div>
+        </div>
+        
+        <div class="chart-placeholder">
+            [Insert timeline visualization of your giving plan here]
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Section 5: Reflection</h2>
+        
+        <div class="field">
+            <label for="values-alignment">Values Alignment Reflection:</label>
+            <textarea id="values-alignment" name="values-alignment"></textarea>
+            <div class="guidance">How does your giving strategy align with your personal values? How does it reflect what matters most to you?</div>
+        </div>
+        
+        <div class="field">
+            <label for="financial-priorities">Balance with Other Financial Priorities:</label>
+            <textarea id="financial-priorities" name="financial-priorities"></textarea>
+            <div class="guidance">How have you balanced charitable giving with other financial goals and responsibilities?</div>
+        </div>
+        
+        <div class="field">
+            <label for="intended-impact">Intended Impact:</label>
+            <textarea id="intended-impact" name="intended-impact"></textarea>
+            <div class="guidance">What specific difference do you hope your contributions will make in the world?</div>
+        </div>
+        
+        <div class="field">
+            <label for="adaptation">Strategy Adaptation:</label>
+            <textarea id="adaptation" name="adaptation"></textarea>
+            <div class="guidance">How might your giving strategy evolve as your circumstances and the world change?</div>
+        </div>
+        
+        <div class="field">
+            <label for="personal-benefits">Personal Benefits:</label>
+            <textarea id="personal-benefits" name="personal-benefits"></textarea>
+            <div class="guidance">How do you anticipate your giving will benefit you personally while also benefiting others?</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Section 6: Action Plan</h2>
+        
+        <div class="field">
+            <label for="immediate-steps">Immediate Next Steps:</label>
+            <textarea id="immediate-steps" name="immediate-steps"></textarea>
+            <div class="guidance">List 3-5 specific actions you will take in the next 30 days to begin implementing your giving strategy.</div>
+        </div>
+        
+        <div class="field">
+            <label for="resources-needed">Resources Needed:</label>
+            <textarea id="resources-needed" name="resources-needed"></textarea>
+            <div class="guidance">What information, tools, or resources do you need to fully implement your giving plan?</div>
+        </div>
+        
+        <div class="field">
+            <label for="accountability">Accountability Plan:</label>
+            <textarea id="accountability" name="accountability"></textarea>
+            <div class="guidance">How will you hold yourself accountable to your giving goals? Will you involve others in reviewing your progress?</div>
+        </div>
+        
+        <div class="field">
+            <label for="commitment">Personal Commitment Statement:</label>
+            <textarea id="commitment" name="commitment"></textarea>
+            <div class="guidance">Write a brief statement affirming your commitment to this giving strategy and the values it represents.</div>
+        </div>
+        
+        <div class="example">
+            <strong>Example Immediate Next Steps:</strong>
+            <ol>
+                <li>Set up recurring monthly donations to my three selected organizations (by May 15)</li>
+                <li>Contact the County Animal Shelter to schedule volunteer orientation (by May 10)</li>
+                <li>Create a spreadsheet to track all contributions (by May 8)</li>
+                <li>Research impact metrics for each organization I support (by May 31)</li>
+                <li>Sign up for newsletters from each organization (by May 8)</li>
+            </ol>
+            <strong>Example Commitment Statement:</strong> I commit to implementing this giving strategy as an expression of my values and a way to create positive change in areas I care deeply about. I recognize that meaningful giving requires both generosity and thoughtfulness, and I pledge to approach my charitable contributions with intention, consistency, and a genuine desire to make a difference.
+        </div>
+    </div>
+    
+    <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+
+</body>
+</html>

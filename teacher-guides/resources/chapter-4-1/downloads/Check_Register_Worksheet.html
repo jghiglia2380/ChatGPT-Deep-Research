@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Register Worksheet</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 28px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 25px;
+            font-size: 22px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .check-register {
+            width: 100%;
+        }
+        .check-register th {
+            background-color: #e8f4f8;
+        }
+        .check-register td {
+            height: 30px;
+        }
+        .amount-column {
+            width: 15%;
+        }
+        .date-column {
+            width: 12%;
+        }
+        .check-no-column {
+            width: 10%;
+        }
+        .description-column {
+            width: 35%;
+        }
+        .balance-column {
+            width: 15%;
+        }
+        .example-row {
+            background-color: #f9f9f9;
+        }
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .instructions {
+            background-color: #e8f4f8;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border: 1px solid #cce5ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        @media print {
+            .print-instructions {
+                display: none;
+            }
+            body {
+                font-size: 12pt;
+            }
+            h1 {
+                font-size: 18pt;
+            }
+            h2 {
+                font-size: 16pt;
+            }
+            h3 {
+                font-size: 14pt;
+            }
+            table {
+                font-size: 10pt;
+            }
+            .check-register td {
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <strong>Printing Instructions:</strong>
+        <p>To save this document as a PDF or print it:</p>
+        <ol>
+            <li>Press Ctrl+P (Windows) or Cmd+P (Mac)</li>
+            <li>Select "Save as PDF" or your printer</li>
+            <li>Click "Save" or "Print"</li>
+        </ol>
+    </div>
+
+    <h1>Check Register Worksheet</h1>
+    
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Use this check register to record all transactions from your bank statement.</li>
+            <li>For each transaction, record the date, check number (if applicable), description, and amount.</li>
+            <li>For payments or withdrawals, enter the amount in the "Payment/Withdrawal (-)" column.</li>
+            <li>For deposits or credits, enter the amount in the "Deposit/Credit (+)" column.</li>
+            <li>Calculate your new balance after each transaction by:
+                <ul>
+                    <li>Subtracting payments/withdrawals from your previous balance</li>
+                    <li>Adding deposits/credits to your previous balance</li>
+                </ul>
+            </li>
+            <li>After recording all transactions, compare your final balance with the ending balance on your bank statement.</li>
+            <li>If there's a discrepancy, look for:
+                <ul>
+                    <li>Transactions you might have missed</li>
+                    <li>Calculation errors</li>
+                    <li>Outstanding items (like checks that haven't cleared yet)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Starting Balance: $1,250.00</h2>
+
+    <table class="check-register">
+        <thead>
+            <tr>
+                <th class="date-column">Date</th>
+                <th class="check-no-column">Check No.</th>
+                <th class="description-column">Transaction Description</th>
+                <th class="amount-column">Payment/Withdrawal (-)</th>
+                <th class="amount-column">Deposit/Credit (+)</th>
+                <th class="balance-column">Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Pre-filled example transaction -->
+            <tr class="example-row">
+                <td>05/01/2025</td>
+                <td>101</td>
+                <td>Rent Payment</td>
+                <td>$750.00</td>
+                <td></td>
+                <td>$500.00</td>
+            </tr>
+            <tr class="example-row">
+                <td>05/02/2025</td>
+                <td></td>
+                <td>Paycheck Direct Deposit</td>
+                <td></td>
+                <td>$850.00</td>
+                <td>$1,350.00</td>
+            </tr>
+            <!-- Empty rows for student completion -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Reconciliation Section</h2>
+
+    <div class="instructions">
+        <p>After recording all transactions, use this section to reconcile your check register with your bank statement.</p>
+    </div>
+
+    <table>
+        <tr>
+            <td style="width: 50%; padding: 15px; vertical-align: top;">
+                <h3>Register Reconciliation</h3>
+                
+                <p><strong>Check Register Ending Balance:</strong> $_____________</p>
+                
+                <p><strong>Outstanding Deposits</strong> (deposits you've recorded that don't appear on your statement):</p>
+                <p>+ $_____________</p>
+                <p>+ $_____________</p>
+                <p>+ $_____________</p>
+                
+                <p><strong>Outstanding Checks/Payments</strong> (payments you've recorded that don't appear on your statement):</p>
+                <p>- $_____________</p>
+                <p>- $_____________</p>
+                <p>- $_____________</p>
+                
+                <p><strong>Adjusted Balance:</strong> $_____________</p>
+            </td>
+            <td style="width: 50%; padding: 15px; vertical-align: top;">
+                <h3>Bank Statement Reconciliation</h3>
+                
+                <p><strong>Bank Statement Ending Balance:</strong> $_____________</p>
+                
+                <p><strong>Bank Fees Not Recorded in Register:</strong></p>
+                <p>- $_____________</p>
+                <p>- $_____________</p>
+                
+                <p><strong>Interest Earned Not Recorded in Register:</strong></p>
+                <p>+ $_____________</p>
+                
+                <p><strong>Other Adjustments:</strong></p>
+                <p>+/- $_____________</p>
+                
+                <p><strong>Adjusted Balance:</strong> $_____________</p>
+            </td>
+        </tr>
+    </table>
+
+    <div class="note">
+        <p><strong>Note:</strong> Your adjusted balances from both sides should match. If they don't, look for:</p>
+        <ul>
+            <li>Transactions you missed recording</li>
+            <li>Calculation errors in your register</li>
+            <li>Errors in identifying outstanding items</li>
+            <li>Transposed numbers (e.g., writing $53 instead of $35)</li>
+            <li>Potential bank errors (rare, but possible)</li>
+        </ul>
+    </div>
+
+    <h2>Common Transaction Codes & Descriptions</h2>
+
+    <table>
+        <tr>
+            <th>Code/Abbreviation</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>ATM</td>
+            <td>ATM Withdrawal</td>
+        </tr>
+        <tr>
+            <td>POS</td>
+            <td>Point of Sale (debit card purchase)</td>
+        </tr>
+        <tr>
+            <td>ACH</td>
+            <td>Automated Clearing House (electronic transfer)</td>
+        </tr>
+        <tr>
+            <td>DD</td>
+            <td>Direct Deposit</td>
+        </tr>
+        <tr>
+            <td>INT</td>
+            <td>Interest Earned</td>
+        </tr>
+        <tr>
+            <td>SC or SVC CHG</td>
+            <td>Service Charge/Fee</td>
+        </tr>
+        <tr>
+            <td>OD</td>
+            <td>Overdraft</td>
+        </tr>
+        <tr>
+            <td>XFER</td>
+            <td>Transfer between accounts</td>
+        </tr>
+        <tr>
+            <td>PMT</td>
+            <td>Payment</td>
+        </tr>
+        <tr>
+            <td>DEP</td>
+            <td>Deposit</td>
+        </tr>
+    </table>
+
+    <h2>Tips for Effective Account Management</h2>
+
+    <ol>
+        <li><strong>Record transactions immediately</strong> to avoid forgetting them.</li>
+        <li><strong>Always calculate your running balance</strong> to prevent overdrafts.</li>
+        <li><strong>Reconcile your account at least monthly</strong> when you receive your statement.</li>
+        <li><strong>Keep all receipts</strong> until you've verified them against your bank statement.</li>
+        <li><strong>Note the purpose of each transaction</strong> in the description field for better tracking.</li>
+        <li><strong>Watch for recurring fees</strong> that might be unnecessarily draining your account.</li>
+        <li><strong>Set up low balance alerts</strong> through your bank's online services if available.</li>
+        <li><strong>Consider using financial apps</strong> that can automate some of this tracking for you.</li>
+    </ol>
+
+</body>
+</html>

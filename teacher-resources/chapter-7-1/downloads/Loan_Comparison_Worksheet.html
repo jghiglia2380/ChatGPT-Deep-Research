@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Comparison Worksheet - Chapter 7.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .worksheet-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .input-field {
+            background-color: #fff;
+            height: 18px;
+            border-bottom: 1px solid #999;
+        }
+        .note {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .conclusion {
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .worksheet-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="worksheet-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Print / Save as PDF</button>
+        </div>
+        
+        <h1>Loan Comparison Worksheet</h1>
+        
+        <div class="note">
+            <p><strong>Instructions:</strong> Use this worksheet to compare different loan options. Fill in the details for each loan you're considering, then calculate and compare the total costs to make an informed decision.</p>
+        </div>
+        
+        <h2>Loan Comparison Table</h2>
+        
+        <table>
+            <tr>
+                <th>Loan Details</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+            </tr>
+            <tr>
+                <td>Loan Type</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Loan Amount (Principal)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Interest Rate (APR)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Loan Term (months/years)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Monthly Payment</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Total Interest Paid</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Total Cost (Principal + Interest)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Additional Fees</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>True Total Cost (Principal + Interest + Fees)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Is it Secured or Unsecured?</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Collateral Required (if any)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Prepayment Penalty?</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h2>Additional Factors to Consider</h2>
+        
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+            </tr>
+            <tr>
+                <td>Credit Score Requirement</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Impact on Monthly Budget</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Flexibility of Repayment Terms</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Customer Service Quality</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Reviews/Reputation of Lender</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h2>Opportunity Cost Analysis</h2>
+        <p>Consider what else you could do with the money spent on interest and fees:</p>
+        
+        <table>
+            <tr>
+                <th>Option</th>
+                <th>Total Interest + Fees</th>
+                <th>What this money could be used for instead</th>
+            </tr>
+            <tr>
+                <td>Option 1</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Option 2</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Option 3</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <div class="conclusion">
+            <h2>Decision Analysis</h2>
+            <p><strong>Based on my analysis, the best option appears to be:</strong></p>
+            <p class="input-field" style="height: 40px;"></p>
+            
+            <p><strong>My reasoning:</strong></p>
+            <p class="input-field" style="height: 80px;"></p>
+        </div>
+    </div>
+</body>
+</html>

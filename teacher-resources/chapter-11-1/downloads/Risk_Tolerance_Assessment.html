@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Tolerance Assessment Worksheet</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3 {
+            color: #333;
+        }
+        
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #4F46E5;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            text-align: center;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        .instructions {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .scenario {
+            background-color: #f3e8ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .scenario h3 {
+            margin-top: 0;
+            color: #6d28d9;
+        }
+        
+        .options {
+            margin-left: 20px;
+        }
+        
+        .option {
+            margin-bottom: 10px;
+        }
+        
+        .results {
+            background-color: #f9fafb;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .results h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .tolerance-description {
+            border-left: 4px solid #6d28d9;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f3e8ff;
+        }
+        
+        .writing-area {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            min-height: 80px;
+        }
+        
+        .chart {
+            width: 100%;
+            height: 300px;
+            background-color: #f9fafb;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            h1 {
+                font-size: 18pt;
+            }
+            
+            h2 {
+                font-size: 16pt;
+            }
+            
+            h3 {
+                font-size: 14pt;
+            }
+            
+            .instructions, .scenario {
+                border-left: 2px solid;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Risk Tolerance Assessment Worksheet</h1>
+            <p>Chapter 11.1: Understanding and Managing Risk</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>Instructions for Using This Worksheet</h3>
+            <p>This worksheet will help you assess your personal risk tolerance through a series of financial scenarios. Follow these steps:</p>
+            <ol>
+                <li>Read each scenario carefully and consider how you would genuinely respond</li>
+                <li>Select the option that best reflects your preferences and comfort level</li>
+                <li>Score your responses using the point system provided</li>
+                <li>Add up your points to determine your overall risk tolerance profile</li>
+                <li>Complete the reflection questions to gain deeper insights</li>
+            </ol>
+            <p>Remember, there are no "right" or "wrong" answers—this assessment is about self-awareness, not judgment.</p>
+            <p><strong>To save as PDF:</strong> Use File → Print, then select "Save as PDF" as the destination.</p>
+        </div>
+        
+        <h2>Part 1: Risk Tolerance Scenarios</h2>
+        
+        <div class="scenario">
+            <h3>Scenario 1: Unexpected Money</h3>
+            <p>You receive $1,000 unexpectedly. What would you do with this money?</p>
+            
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario1" id="s1-a" value="1">
+                    <label for="s1-a">Put it all in a safe savings account (1 point)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario1" id="s1-b" value="2">
+                    <label for="s1-b">Put half in savings and invest half in a moderate-risk mutual fund (2 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario1" id="s1-c" value="3">
+                    <label for="s1-c">Invest it all in a diversified stock portfolio (3 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario1" id="s1-d" value="4">
+                    <label for="s1-d">Invest it all in a high-risk, high-potential-return opportunity (4 points)</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scenario">
+            <h3>Scenario 2: Career Choice</h3>
+            <p>You're choosing between job offers. Which would you prefer?</p>
+            
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario2" id="s2-a" value="1">
+                    <label for="s2-a">Stable company, predictable salary, minimal advancement opportunities (1 point)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario2" id="s2-b" value="2">
+                    <label for="s2-b">Established company, modest growth potential, good benefits (2 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario2" id="s2-c" value="3">
+                    <label for="s2-c">Growing company, performance-based bonuses, good advancement potential (3 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario2" id="s2-d" value="4">
+                    <label for="s2-d">Startup with low base salary but significant equity if successful (4 points)</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scenario">
+            <h3>Scenario 3: Emergency Fund</h3>
+            <p>How much would you ideally keep in an emergency fund?</p>
+            
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario3" id="s3-a" value="1">
+                    <label for="s3-a">12+ months of expenses (1 point)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario3" id="s3-b" value="2">
+                    <label for="s3-b">6 months of expenses (2 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario3" id="s3-c" value="3">
+                    <label for="s3-c">3 months of expenses (3 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario3" id="s3-d" value="4">
+                    <label for="s3-d">1 month of expenses or less (4 points)</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scenario">
+            <h3>Scenario 4: Investment Loss</h3>
+            <p>If your investments lost 20% of their value in a market downturn, what would you do?</p>
+            
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario4" id="s4-a" value="1">
+                    <label for="s4-a">Sell everything to prevent further losses (1 point)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario4" id="s4-b" value="2">
+                    <label for="s4-b">Sell some investments and move to safer options (2 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario4" id="s4-c" value="3">
+                    <label for="s4-c">Hold steady and make no changes (3 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario4" id="s4-d" value="4">
+                    <label for="s4-d">Buy more while prices are low (4 points)</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scenario">
+            <h3>Scenario 5: Retirement Planning</h3>
+            <p>Which retirement investment approach appeals to you most?</p>
+            
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario5" id="s5-a" value="1">
+                    <label for="s5-a">Mostly fixed income, prioritizing protection of principal (1 point)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario5" id="s5-b" value="2">
+                    <label for="s5-b">Balanced portfolio with moderate growth and moderate security (2 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario5" id="s5-c" value="3">
+                    <label for="s5-c">Growth-oriented portfolio with some volatility (3 points)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario5" id="s5-d" value="4">
+                    <label for="s5-d">Aggressive growth approach accepting significant fluctuations (4 points)</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <div class="results">
+            <h2>Part 2: Calculate Your Risk Tolerance Score</h2>
+            
+            <p>Add up the points from all five scenarios:</p>
+            
+            <table>
+                <tr>
+                    <td>Scenario 1: Unexpected Money</td>
+                    <td>_____ points</td>
+                </tr>
+                <tr>
+                    <td>Scenario 2: Career Choice</td>
+                    <td>_____ points</td>
+                </tr>
+                <tr>
+                    <td>Scenario 3: Emergency Fund</td>
+                    <td>_____ points</td>
+                </tr>
+                <tr>
+                    <td>Scenario 4: Investment Loss</td>
+                    <td>_____ points</td>
+                </tr>
+                <tr>
+                    <td>Scenario 5: Retirement Planning</td>
+                    <td>_____ points</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Score</strong></td>
+                    <td>_____ points</td>
+                </tr>
+            </table>
+            
+            <h3>Interpreting Your Score:</h3>
+            
+            <div class="tolerance-description">
+                <p><strong>5-8 points: Conservative Risk Tolerance</strong></p>
+                <p>You prefer safety and stability over higher potential returns. You're uncomfortable with significant uncertainty and prioritize protecting your assets. You're likely to focus on preserving capital and maintaining a substantial emergency fund. For investments, you prefer fixed-income securities and guaranteed returns over stocks or other volatile assets.</p>
+            </div>
+            
+            <div class="tolerance-description">
+                <p><strong>9-13 points: Moderate Risk Tolerance</strong></p>
+                <p>You seek a balance between safety and growth. You're willing to accept some fluctuations in exchange for better long-term results, but you still want to limit significant losses. You're likely comfortable with a diversified portfolio that includes both growth-oriented and stability-focused investments. You understand the importance of both risk and protection.</p>
+            </div>
+            
+            <div class="tolerance-description">
+                <p><strong>14-17 points: Above-Average Risk Tolerance</strong></p>
+                <p>You're comfortable taking calculated risks to achieve better returns. Short-term market fluctuations don't overly concern you, as you focus on long-term growth. You're likely willing to maintain a growth-oriented investment approach even during market downturns. You prioritize opportunity over security in many cases.</p>
+            </div>
+            
+            <div class="tolerance-description">
+                <p><strong>18-20 points: High Risk Tolerance</strong></p>
+                <p>You're very comfortable with risk and volatility in pursuit of higher returns. You view market downturns as potential opportunities rather than threats. You prioritize maximum growth potential over stability or security. You're likely willing to invest heavily in stocks, startups, or other high-risk/high-reward opportunities.</p>
+            </div>
+        </div>
+        
+        <div class="chart">
+            [This space would contain a visual representation of the risk tolerance spectrum]
+        </div>
+        
+        <h2>Part 3: Risk Tolerance Reflection</h2>
+        
+        <p>Complete these reflection questions to gain deeper insights into your risk tolerance and its implications for your financial decisions.</p>
+        
+        <h3>1. How accurately does this assessment reflect your risk tolerance? Explain why.</h3>
+        <div class="writing-area"></div>
+        
+        <h3>2. In what areas of your life are you more risk-averse, and where are you more risk-tolerant?</h3>
+        <div class="writing-area"></div>
+        
+        <h3>3. What factors have shaped your current risk tolerance level?</h3>
+        <div class="writing-area"></div>
+        
+        <h3>4. How might your risk tolerance influence your financial decisions in the areas below?</h3>
+        
+        <p><strong>Insurance choices:</strong></p>
+        <div class="writing-area"></div>
+        
+        <p><strong>Saving and investing:</strong></p>
+        <div class="writing-area"></div>
+        
+        <p><strong>Career and education:</strong></p>
+        <div class="writing-area"></div>
+        
+        <p><strong>Major purchases (housing, vehicles, etc.):</strong></p>
+        <div class="writing-area"></div>
+        
+        <h3>5. How might your risk tolerance change as your life circumstances evolve?</h3>
+        <div class="writing-area"></div>
+        
+        <div class="footer">
+            <p>PFL Academy | Chapter 11.1: Understanding and Managing Risk</p>
+            <p>© 2025 PFL Academy. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambling Probability Worksheet - Chapter 12.1</title>
+    <style>
+        @media print {
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+                line-height: 1.3;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        
+        .instructions {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+        }
+        
+        .answer-space {
+            height: 80px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        
+        .formula-box {
+            background-color: #f0f7ff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .no-print {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">PFL Academy</div>
+        <div>Chapter 12.1: Understanding the Risks of Gambling</div>
+    </div>
+    
+    <h1>Gambling Probability Worksheet</h1>
+    
+    <div class="instructions">
+        <p><strong>Instructions:</strong> This worksheet provides practice with calculating probabilities and expected values in gambling scenarios. Show all work and explanations in the provided spaces. Keep this worksheet for reference during Day 2 activities.</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>Key Formulas:</strong></p>
+        <p>Probability = Number of favorable outcomes / Total number of possible outcomes</p>
+        <p>Expected Value (EV) = Σ(Outcome × Probability of that outcome)</p>
+        <p>House Edge = |Expected Value| / Wager Amount × 100%</p>
+    </div>
+    
+    <h2>Part 1: Basic Probability Calculations</h2>
+    
+    <div class="question">
+        <p><strong>1. Dice Probability:</strong> In a game of craps, what is the probability of rolling a 7 with two fair dice? Show your calculation and express the answer as a fraction, decimal, and percentage.</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>2. Card Probability:</strong> If you draw one card from a standard 52-card deck, what is the probability of drawing:</p>
+        <p>a) An ace</p>
+        <p>b) A face card (Jack, Queen, or King)</p>
+        <p>c) A red card (hearts or diamonds)</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>3. Roulette Probability:</strong> On an American roulette wheel (numbers 1-36, plus 0 and 00):</p>
+        <p>a) What is the probability of the ball landing on a red number?</p>
+        <p>b) What is the probability of the ball landing on an even number?</p>
+        <p>c) Why are these probabilities different from 1/2, even though there are 18 red numbers and 18 even numbers?</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <h2>Part 2: Independent vs. Dependent Events</h2>
+    
+    <div class="question">
+        <p><strong>4. Independent Events:</strong> If a roulette wheel has landed on black for the last 10 spins in a row, what is the probability it will land on red on the next spin? Explain your answer with reference to the concept of independent events.</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>5. Dependent Events:</strong> In a game of blackjack, if an ace has already been dealt from a single deck, what is the probability that the next card dealt will be an ace? How is this different from independent events like roulette spins?</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>Part 3: Expected Value Calculations</h2>
+    
+    <div class="question">
+        <p><strong>6. Simple Expected Value:</strong> In a carnival game, you pay $5 to roll a die. If you roll a 6, you win $25. If you roll any other number, you win nothing. Calculate the expected value of this game and determine if it's fair, favorable to the player, or favorable to the carnival.</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>7. Lottery Expected Value:</strong> A lottery ticket costs $2. The jackpot is $10,000,000 with a 1 in 20,000,000 chance of winning. There are also smaller prizes: $100 (1 in 1,000 chance) and $5 (1 in 50 chance). Calculate the expected value of buying one ticket.</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>8. Roulette Expected Value:</strong> In American roulette, a "straight up" bet on a single number pays 35 to 1 if you win. Calculate the expected value of a $10 bet on a single number. What is the house edge for this bet?</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <h2>Part 4: Application Questions</h2>
+    
+    <div class="question">
+        <p><strong>9. The Gambler's Fallacy:</strong> Emily has been playing roulette and has seen red come up 7 times in a row. She decides to bet all her money on black because "it's due to come up." Explain why Emily's reasoning demonstrates the gambler's fallacy. Use probability concepts in your explanation.</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>10. Entertainment Cost Analysis:</strong> James enjoys playing slot machines. He typically bets $1 per spin and plays about 300 spins per hour. If the slot machine has a house edge of 8%, calculate James's expected loss per hour. Compare this cost to other forms of entertainment (movies, concerts, etc.) and discuss whether the entertainment value might justify this cost.</p>
+        <div class="answer-space"></div>
+    </div>
+    
+    <div class="no-print">
+        <button class="print-button" onclick="window.print()">Print Worksheet</button>
+        <p>Note: Use your browser's print function to save as PDF if you don't have a printer.</p>
+    </div>
+</body>
+</html>

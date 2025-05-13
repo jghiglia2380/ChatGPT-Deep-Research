@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 15.2: Resume Building and Personal Branding - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 15: Career Readiness</h2>
+                <p class="text-gray-600 mb-4">Developing essential skills for career planning, job seeking, and professional development.</p>
+            </div>
+            
+            <!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-15.2-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">Chapter 15.2: Resume Building and Personal Branding</span>
+                    </div>
+                    <!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Resume Peer Review
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Resume Revision
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Digital Presence Audit
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station4" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Personal Brand Development
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station5" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Digital Portfolio Planning
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Other Chapters -->
+                <li>
+                    <a href="chapter-15.1-day2.html" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        Chapter 15.1: Career Exploration & Goal Setting
+                    </a>
+                </li>
+                <li>
+                    <a href="chapter-15.3-day2.html" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                        Chapter 15.3: Job Application Process
+                    </a>
+                </li>
+                <li>
+                    <a href="chapter-15.4-day2.html" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                        Chapter 15.4: Interview Skills & Workplace Readiness
+                    </a>
+                </li>
+                <li>
+                    <a href="chapter-15.5-day2.html" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                        Chapter 15.5: Entrepreneurship & Side Hustles
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/5 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator" id="station1-indicator"></div>
+                    <div class="station-indicator" id="station2-indicator"></div>
+                    <div class="station-indicator" id="station3-indicator"></div>
+                    <div class="station-indicator" id="station4-indicator"></div>
+                    <div class="station-indicator" id="station5-indicator"></div>
+                    <div class="station-indicator" id="portfolio-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-15.2-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 15.2: Resume Building and Personal Branding - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Digital Presence and Portfolio Workshop</p>
+            
+            <!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Identify and correct common resume mistakes</li>
+                    <li>Provide and implement constructive feedback on resumes</li>
+                    <li>Evaluate and enhance your online professional presence</li>
+                    <li>Develop strategies for maintaining a consistent personal brand across platforms</li>
+                    <li>Create a plan for ongoing personal brand development</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">Welcome to the Learning Lab for Chapter 15.2! Building on the resume fundamentals and personal branding concepts from Day 1, today we'll focus on strengthening your resume through peer review, avoiding common resume mistakes, and developing your digital professional presence. These hands-on activities will help you create a cohesive personal brand that enhances your career opportunities.</p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700">Peer feedback is a crucial part of today's activities. Remember to be specific and constructive when providing feedback to others. Focus on both strengths and areas for improvement, and offer suggestions rather than just criticisms. Your thoughtful feedback will help your peers create stronger, more effective resumes.</p>
+                </div>
+                
+                <!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">Today's activities directly build upon the concepts and skills you learned in Day 1. You'll apply what you learned about resume components and personal branding to enhance your professional presentation.</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>Your resume draft from Day 1 will be revised using peer feedback and best practices</li>
+                        <li>The personal brand elements you identified will be developed into a cohesive strategy</li>
+                        <li>You'll extend your personal brand to your digital presence across platforms</li>
+                        <li>The Resume Builder skill builder will help you implement improvements to your resume</li>
+                    </ul>
+                </div>
+                
+                <!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Resume Building and Personal Branding</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="/finished LM recordings/15.2 - Resume Building and Personal Branding.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Essential resume components, action verbs and achievements, personal branding principles, tailoring resumes for different opportunities, consistency in professional presentation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">Before we dive into the learning stations, take a moment to review your resume draft from Day 1. Consider any areas you feel could be strengthened based on what you've learned. Throughout today's activities, you'll have multiple opportunities to enhance both your resume and your broader professional presentation across digital platforms.</p>
+            </section>
+            
+            <!-- Learning Stations -->
+            <!-- Station 1: Resume Peer Review -->
+            <div class="learning-station" id="station1">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Resume Peer Review</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <!-- Station Content -->
+                <div class="prose max-w-none text-gray-700 mb-4">
+                    <p class="mb-3">Receiving feedback from peers helps identify blind spots in your resume and provides fresh perspectives on how to strengthen your presentation.</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-2">Common Resume Mistakes to Avoid</h3>
+                    <p class="mb-2">Before beginning the peer review, familiarize yourself with these common resume pitfalls:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 my-4">
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800">Typos and Grammatical Errors</h4>
+                            <ul class="list-disc list-inside text-sm">
+                                <li>Even small errors suggest carelessness</li>
+                                <li>Always proofread carefully</li>
+                                <li>Use spelling/grammar tools as backup</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800">Inconsistent Formatting</h4>
+                            <ul class="list-disc list-inside text-sm">
+                                <li>Inconsistent fonts or spacing</li>
+                                <li>Irregular alignment/indentation</li>
+                                <li>Inconsistent styling (bold, italics)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800">Vague Language</h4>
+                            <ul class="list-disc list-inside text-sm">
+                                <li>Generic descriptions without specifics</li>
+                                <li>Overused phrases without evidence</li>
+                                <li>Lack of action verbs/achievements</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800">One-Size-Fits-All Approach</h4>
+                            <ul class="list-disc list-inside text-sm">
+                                <li>Same resume for every application</li>
+                                <li>Not highlighting relevant experiences</li>
+                                <li>Missing job description keywords</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-2">Peer Review Process</h3>
+                    <p>Form small groups of 3-4 students and take turns reviewing each other's resumes using the following criteria:</p>
+                    
+                    <table class="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden my-4">
+                        <thead class="bg-indigo-50">
+                            <tr>
+                                <th class="border border-gray-300 px-4 py-2 text-left">Criteria</th>
+                                <th class="border border-gray-300 px-4 py-2 text-left">Elements to Evaluate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-medium">Content</td>
+                                <td class="border border-gray-300 px-4 py-2">Are all key components present? Is information relevant and impactful?</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-medium">Clarity</td>
+                                <td class="border border-gray-300 px-4 py-2">Is the resume easy to understand? Are responsibilities and achievements clearly communicated?</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-medium">Formatting</td>
+                                <td class="border border-gray-300 px-4 py-2">Is the design consistent and professional? Is the resume easy to scan quickly?</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-medium">Language</td>
+                                <td class="border border-gray-300 px-4 py-2">Are strong action verbs used? Is the language specific and compelling?</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2 font-medium">Overall Impact</td>
+                                <td class="border border-gray-300 px-4 py-2">What impression does this resume give in the first 30 seconds?</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-indigo-800 mb-2">Feedback Guidelines</h4>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Be specific and constructive in your feedback</li>
+                            <li>Focus on both strengths and areas for improvement</li>
+                            <li>Offer suggestions, not just criticisms</li>
+                            <li>Consider how the resume would appear to potential employers</li>
+                        </ul>
+                    </div>
+                    
+                    <h4 class="font-semibold text-gray-800 mt-4 mb-2">Record Feedback</h4>
+                    <p class="mb-3">Use the form below to record feedback from your peers. This will help you implement improvements in the next station.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Strengths Identified (2-3)</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="What are the strongest aspects of your resume according to peers?"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Areas for Improvement (2-3)</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="What suggestions did your peers provide for improvement?"></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Questions or Clarifications Needed</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="What questions or areas of confusion did your peers identify?"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center mt-4" onclick="saveStation(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 2: Resume Revision Workshop -->
+            <div class="learning-station" id="station2">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Resume Revision Workshop</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <!-- Station Content -->
+                <div class="prose max-w-none text-gray-700 mb-4">
+                    <p class="mb-3">Now it's time to implement the feedback you received and strengthen your resume. Implementing feedback immediately helps improve your resume while the suggestions are fresh in your mind.</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-3">Prioritize Improvements</h3>
+                    <p class="mb-3">Based on the peer feedback you received, identify 3-5 specific improvements to make to your resume:</p>
+                    
+                    <div class="bg-white border border-gray-200 rounded-lg p-4 mb-5">
+                        <div class="mb-3">
+                            <label class="block text-gray-700 font-medium mb-2">Priority 1:</label>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Most important improvement to make">
+                        </div>
+                        <div class="mb-3">
+                            <label class="block text-gray-700 font-medium mb-2">Priority 2:</label>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Second most important improvement">
+                        </div>
+                        <div class="mb-3">
+                            <label class="block text-gray-700 font-medium mb-2">Priority 3:</label>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Third most important improvement">
+                        </div>
+                        <div class="mb-3">
+                            <label class="block text-gray-700 font-medium mb-2">Priority 4 (optional):</label>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Fourth improvement to consider">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Priority 5 (optional):</label>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Fifth improvement to consider">
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Resume Revision Tools</h3>
+                    <p class="mb-2">Use these resources to strengthen specific aspects of your resume:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 my-4">
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800 mb-2">Action Verb Library</h4>
+                            <p class="text-sm mb-2">Replace weak verbs with powerful action verbs that convey impact.</p>
+                            <div class="text-xs bg-white p-2 rounded">
+                                <p class="font-semibold">Leadership:</p>
+                                <p>Directed, Orchestrated, Spearheaded, Championed, Guided</p>
+                                <p class="font-semibold mt-1">Communication:</p>
+                                <p>Articulated, Persuaded, Negotiated, Presented, Authored</p>
+                                <p class="font-semibold mt-1">Analysis:</p>
+                                <p>Assessed, Evaluated, Researched, Examined, Investigated</p>
+                            </div>
+                        </div>
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800 mb-2">Achievement Quantifier</h4>
+                            <p class="text-sm mb-2">Transform basic responsibilities into quantified achievements.</p>
+                            <div class="text-xs bg-white p-2 rounded">
+                                <p class="font-semibold">Before:</p>
+                                <p>Helped customers with problems</p>
+                                <p class="font-semibold mt-1">After:</p>
+                                <p>Resolved an average of 45 customer inquiries per day with 95% satisfaction rate</p>
+                                <p class="font-semibold mt-1">Metrics to consider:</p>
+                                <p>Percentages, quantities, frequencies, dollar amounts, time saved</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Implement Improvements</h3>
+                    <p class="mb-3">Using the Resume Builder skill builder, implement the changes you've prioritized. Focus on:</p>
+                    <ul class="list-disc list-inside space-y-1 mb-4">
+                        <li>Strengthening bullet points with better action verbs</li>
+                        <li>Adding quantifiable achievements</li>
+                        <li>Improving formatting for consistency</li>
+                        <li>Tailoring content to your target position or industry</li>
+                        <li>Addressing any gaps or weak areas identified</li>
+                    </ul>
+                    
+                    <div class="bg-purple-50 p-4 rounded-lg mb-5">
+                        <h4 class="font-semibold text-purple-800 mb-2">Resume Builder Skill Builder</h4>
+                        <p class="mb-3">Visit the <a href="../Standard-15/skill-builders/resume-builder.html" target="_blank" class="text-purple-700 underline">Resume Builder Skill Builder</a> to implement your improvements in a structured environment with templates and guidance.</p>
+                        <p class="text-sm">Note: After making revisions in the Resume Builder, you'll be able to save your updated resume for your portfolio and future use.</p>
+                    </div>
+                    
+                    <h4 class="font-semibold text-gray-800 mt-4 mb-2">Before & After Comparison</h4>
+                    <p class="mb-3">After making revisions, note how your resume has improved:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Before: Key Weaknesses</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="What were the main issues with your original resume?"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">After: Key Improvements</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="How has your resume improved after revisions?"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 3: Digital Presence Audit -->
+            <div class="learning-station" id="station3">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Digital Presence Audit</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <!-- Station Content -->
+                <div class="prose max-w-none text-gray-700 mb-4">
+                    <p class="mb-3">Your online presence is an extension of your personal brand and often the first impression employers have of you. A digital presence audit helps ensure you're presenting a professional image online.</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-3">Digital Presence Inventory</h3>
+                    <p class="mb-3">First, list all your public online profiles and accounts that could be viewed by potential employers:</p>
+                    
+                    <div class="overflow-x-auto mb-5">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead class="bg-indigo-50">
+                                <tr>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Platform</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Profile URL/Username</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Last Updated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">LinkedIn</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="LinkedIn profile URL">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="When last updated">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">GitHub</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="GitHub profile URL">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="When last updated">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Portfolio Website</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="Website URL">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="When last updated">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Twitter/X</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="Twitter/X profile URL">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="When last updated">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Other</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="Other platform URL">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="When last updated">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Platform Evaluation</h3>
+                    <p class="mb-3">For each platform, evaluate the following aspects of your digital presence:</p>
+                    
+                    <div class="bg-white border border-gray-200 rounded-lg p-4 mb-5">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Select platform to evaluate:</label>
+                            <select class="w-full p-2 border border-gray-300 rounded-md">
+                                <option>LinkedIn</option>
+                                <option>GitHub</option>
+                                <option>Portfolio Website</option>
+                                <option>Twitter/X</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="space-y-4 mt-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Professionalism (1-5):</label>
+                                <div class="flex items-center">
+                                    <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none">
+                                    <span class="ml-2 text-gray-700">3</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">How professional is your profile's appearance, content, and tone?</p>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Consistency (1-5):</label>
+                                <div class="flex items-center">
+                                    <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none">
+                                    <span class="ml-2 text-gray-700">3</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">How consistent is this platform with your overall personal brand?</p>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Completeness (1-5):</label>
+                                <div class="flex items-center">
+                                    <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none">
+                                    <span class="ml-2 text-gray-700">3</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">How thoroughly have you populated this profile with relevant information?</p>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Activity (1-5):</label>
+                                <div class="flex items-center">
+                                    <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none">
+                                    <span class="ml-2 text-gray-700">3</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">How recent and relevant is your activity on this platform?</p>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Discoverability (1-5):</label>
+                                <div class="flex items-center">
+                                    <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none">
+                                    <span class="ml-2 text-gray-700">3</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">How easily can potential employers find you on this platform?</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <label class="block text-gray-700 font-medium mb-2">Notes about this platform:</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Additional observations about this profile..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Digital Presence Improvement Plan</h3>
+                    <p class="mb-3">Based on your evaluation, identify 3-5 specific improvements you can make to enhance your digital presence:</p>
+                    
+                    <div class="overflow-x-auto mb-5">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead class="bg-indigo-50">
+                                <tr>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Platform</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Improvement Needed</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Timeline</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <select class="w-full p-1 border border-gray-300 rounded-md">
+                                            <option>LinkedIn</option>
+                                            <option>GitHub</option>
+                                            <option>Portfolio</option>
+                                            <option>Twitter/X</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="What needs to be improved?">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="By when?">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <select class="w-full p-1 border border-gray-300 rounded-md">
+                                            <option>LinkedIn</option>
+                                            <option>GitHub</option>
+                                            <option>Portfolio</option>
+                                            <option>Twitter/X</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="What needs to be improved?">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="By when?">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <select class="w-full p-1 border border-gray-300 rounded-md">
+                                            <option>LinkedIn</option>
+                                            <option>GitHub</option>
+                                            <option>Portfolio</option>
+                                            <option>Twitter/X</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="What needs to be improved?">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="By when?">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 4: Personal Brand Development -->
+            <div class="learning-station" id="station4">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">4</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Personal Brand Development</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <!-- Station Content -->
+                <div class="prose max-w-none text-gray-700 mb-4">
+                    <p class="mb-3">Developing a cohesive personal brand helps you stand out in the job market and ensures consistent presentation across all professional contexts.</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-3">Define Your Professional Identity</h3>
+                    <p class="mb-4">Answer the following questions to clarify your professional identity:</p>
+                    
+                    <div class="space-y-4 mb-5">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">What are your top 3-5 professional strengths?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="List your key professional strengths..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">What makes you unique in your field or desired industry?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="What differentiates you from others with similar qualifications?"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">What core values guide your professional decisions?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="What principles are most important to you professionally?"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">What problems are you passionate about solving?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="What challenges or issues motivate you most?"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">What key skills or experiences do you want to be known for?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="What would you like to be recognized for professionally?"></textarea>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Craft Your Personal Brand Statement</h3>
+                    <p class="mb-3">Based on your responses above, draft a personal brand statement (3-5 sentences) that captures your professional identity, target audience, and unique value:</p>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <p class="mb-2 text-sm italic">Example Personal Brand Statement:</p>
+                        <p class="text-sm">"I'm a data analytics professional who combines technical expertise with creative problem-solving to help organizations make data-driven decisions. With a background in both business and computer science, I bridge the gap between technical and non-technical stakeholders. I'm known for creating clear, actionable visualizations that transform complex data into strategic insights, particularly in the healthcare sector."</p>
+                    </div>
+                    
+                    <div class="mb-5">
+                        <label class="block text-gray-700 font-medium mb-2">Your Personal Brand Statement:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Write your personal brand statement here..."></textarea>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Express Your Personal Brand</h3>
+                    <p class="mb-3">Identify specific ways to express your personal brand through various elements:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-5">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Visual Elements (colors, style, design choices)</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="What visual elements will represent your brand?"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Communication Style and Tone</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="How would you describe your communication style?"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Content Creation or Sharing</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="What types of content will you create or share?"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Professional Activities and Involvement</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="What professional activities align with your brand?"></textarea>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Brand Consistency Check</h3>
+                    <p class="mb-3">Review your personal brand elements for consistency across these components:</p>
+                    
+                    <div class="overflow-x-auto mb-5">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead class="bg-indigo-50">
+                                <tr>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Component</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Alignment with Brand (1-5)</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2 font-medium">Resume</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="Needed adjustments...">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2 font-medium">LinkedIn</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="Needed adjustments...">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2 font-medium">Portfolio</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="Needed adjustments...">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2 font-medium">Social Media</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none">
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <input type="text" class="w-full p-1 border border-gray-300 rounded-md" placeholder="Needed adjustments...">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 5: Digital Portfolio Planning -->
+            <div class="learning-station" id="station5">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">5</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Digital Portfolio Planning</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <!-- Station Content -->
+                <div class="prose max-w-none text-gray-700 mb-4">
+                    <p class="mb-3">A digital portfolio showcases your work and skills in a way that resumes alone cannot, providing tangible evidence of your capabilities to potential employers.</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-3">Portfolio Platform Comparison</h3>
+                    <p class="mb-3">First, review these common portfolio options to determine which might be best for your needs:</p>
+                    
+                    <div class="overflow-x-auto mb-5">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead class="bg-indigo-50">
+                                <tr>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Platform</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Best For</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Pros</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Cons</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2 font-medium">LinkedIn Featured Section</td>
+                                    <td class="border border-gray-300 px-4 py-2">Simple portfolios, basic profiles</td>
+                                    <td class="border border-gray-300 px-4 py-2">Easy to set up, already on platform many recruiters use</td>
+                                    <td class="border border-gray-300 px-4 py-2">Limited customization, not dedicated portfolio site</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2 font-medium">Personal Website <br>(Squarespace, Wix, WordPress)</td>
+                                    <td class="border border-gray-300 px-4 py-2">Full portfolio sites, multiple project types</td>
+                                    <td class="border border-gray-300 px-4 py-2">High customization, professional appearance</td>
+                                    <td class="border border-gray-300 px-4 py-2">Monthly cost, setup time, potential learning curve</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2 font-medium">GitHub</td>
+                                    <td class="border border-gray-300 px-4 py-2">Coding and development portfolios</td>
+                                    <td class="border border-gray-300 px-4 py-2">Industry standard for code, shows actual work</td>
+                                    <td class="border border-gray-300 px-4 py-2">Limited for non-code projects, technical focus</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2 font-medium">Behance/Dribbble</td>
+                                    <td class="border border-gray-300 px-4 py-2">Design and creative portfolios</td>
+                                    <td class="border border-gray-300 px-4 py-2">Design-focused community, discovery potential</td>
+                                    <td class="border border-gray-300 px-4 py-2">Limited for non-design work, field-specific</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2 font-medium">PDF Portfolio</td>
+                                    <td class="border border-gray-300 px-4 py-2">Controlled sharing, attachments</td>
+                                    <td class="border border-gray-300 px-4 py-2">Complete control, easy to email</td>
+                                    <td class="border border-gray-300 px-4 py-2">No online presence, limited interactivity</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mb-5">
+                        <label class="block text-gray-700 font-medium mb-2">Based on the comparison, which platform(s) would be most appropriate for your portfolio?</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="List your preferred platform(s) and explain why..."></textarea>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Portfolio Content Planning</h3>
+                    <p class="mb-3">List 5-7 projects, assignments, or experiences that demonstrate your key skills and knowledge:</p>
+                    
+                    <div class="bg-white border border-gray-200 rounded-lg p-4 mb-5">
+                        <div class="mb-4 pb-4 border-b border-gray-200">
+                            <div class="flex justify-between mb-2">
+                                <label class="block text-gray-700 font-medium">Portfolio Item 1</label>
+                                <span class="text-xs text-gray-500">Project, assignment, work experience, etc.</span>
+                            </div>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md mb-2" placeholder="Item title">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Key skills demonstrated:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Skills showcased">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Problem solved/purpose:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="What problem did this solve?">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Your role/contributions:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="What did you specifically do?">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Visual elements to include:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Screenshots, designs, etc.">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 pb-4 border-b border-gray-200">
+                            <div class="flex justify-between mb-2">
+                                <label class="block text-gray-700 font-medium">Portfolio Item 2</label>
+                                <span class="text-xs text-gray-500">Project, assignment, work experience, etc.</span>
+                            </div>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md mb-2" placeholder="Item title">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Key skills demonstrated:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Skills showcased">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Problem solved/purpose:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="What problem did this solve?">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Your role/contributions:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="What did you specifically do?">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Visual elements to include:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Screenshots, designs, etc.">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="block text-gray-700 font-medium">Portfolio Item 3</label>
+                                <span class="text-xs text-gray-500">Project, assignment, work experience, etc.</span>
+                            </div>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md mb-2" placeholder="Item title">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Key skills demonstrated:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Skills showcased">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Problem solved/purpose:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="What problem did this solve?">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Your role/contributions:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="What did you specifically do?">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Visual elements to include:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Screenshots, designs, etc.">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="text-sm text-indigo-600 hover:text-indigo-800">+ Add more portfolio items</button>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Portfolio Structure</h3>
+                    <p class="mb-3">Outline a basic structure for your portfolio:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-5">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Introduction/About Section</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="How will you introduce yourself and your work?"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Projects/Work Samples Section</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="How will you organize and present your work?"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Skills Section</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="How will you highlight your key skills?"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Contact Information</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="How will you present your contact details?"></textarea>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-3">Implementation Timeline</h3>
+                    <p class="mb-3">Create a realistic timeline for developing your portfolio:</p>
+                    
+                    <div class="mb-5">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead class="bg-indigo-50">
+                                <tr>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Timeframe</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Tasks to Complete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Within 1 week</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <textarea class="w-full p-1 border border-gray-300 rounded-md" rows="2" placeholder="What will you accomplish in the first week?"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Within 1 month</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <textarea class="w-full p-1 border border-gray-300 rounded-md" rows="2" placeholder="What will you accomplish in the first month?"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Within 3 months</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <textarea class="w-full p-1 border border-gray-300 rounded-md" rows="2" placeholder="What will you accomplish in three months?"></textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(5)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Portfolio Integration Section -->
+            <section id="portfolio" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive portfolio.</p>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-900 mb-4">Resume and Personal Brand Package</h3>
+                    <p class="text-gray-700 mb-4">Your portfolio combines all elements from today's Learning Lab into a cohesive plan:</p>
+                    
+                    <ul class="list-disc list-inside mb-4 text-gray-700">
+                        <li><strong>Revised Resume:</strong> Your updated resume incorporating peer feedback</li>
+                        <li><strong>Personal Brand Statement:</strong> A refined version of your personal brand statement</li>
+                        <li><strong>Digital Presence Plan:</strong> Your strategy for building or improving your online professional presence</li>
+                        <li><strong>Portfolio Outline:</strong> A plan for developing your professional portfolio</li>
+                        <li><strong>Ongoing Development Strategy:</strong> A brief outline of how you will continue to refine your resume and personal brand</li>
+                    </ul>
+                    
+                    <p class="text-gray-700 mb-4">Review each section to ensure alignment across your entire plan.</p>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Portfolio Summary (What have you learned from this Learning Lab?)</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize key insights and how this plan will guide your decisions..."></textarea>
+                        <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                    </div>
+                    
+                    <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1">Complete Portfolio</button>
+                </div>
+            </section>
+            
+            <!-- Reflection Section -->
+            <section id="reflection" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                    <p class="text-gray-700 mb-3">Take a few minutes to reflect on your resume and personal branding journey:</p>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+                        <li>How has your understanding of resumes and personal branding changed or deepened through these activities?</li>
+                        <li>What aspect of your resume or personal brand do you feel is strongest? What area still needs the most improvement?</li>
+                        <li>How might your resume and personal brand evolve as you progress through your education and early career?</li>
+                        <li>What specific steps will you take in the next month to further develop your professional presence?</li>
+                    </ol>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <a href="chapter-15.3-day2.html" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                        Continue to Job Application Process
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved!</span>
+        </div>
+    </div>
+    
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Station navigation
+        let currentStation = 0;
+        const stations = document.querySelectorAll('.learning-station');
+        const stationIndicators = document.querySelectorAll('.station-indicator');
+        
+        // Initialize interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up chart if there's a chart in this chapter
+            {{CHART_INITIALIZATION}}
+            
+            // Add smooth transitions between stations
+            stations.forEach((station, index) => {
+                station.style.opacity = '0';
+                station.style.transform = 'translateY(20px)';
+                
+                // Use setTimeout to create a staggered animation effect
+                setTimeout(() => {
+                    station.style.opacity = '1';
+                    station.style.transform = 'translateY(0)';
+                    station.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                }, 100 * (index + 1));
+            });
+            
+            updateStationIndicators();
+        });
+        
+        // Save button functionality with toast notifications
+        document.querySelectorAll('.pfl-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Get the parent station if this is a station save button
+                const parentStation = this.closest('.learning-station');
+                
+                if (parentStation) {
+                    // Check if any inputs in this station have content
+                    const inputs = parentStation.querySelectorAll('input, textarea');
+                    let hasContent = false;
+                    
+                    inputs.forEach(input => {
+                        if (input.value.trim().length > 0) {
+                            hasContent = true;
+                        }
+                    });
+                    
+                    if (hasContent) {
+                        // Find station number
+                        const stationIndex = Array.from(stations).indexOf(parentStation);
+                        showToast(`Station ${stationIndex + 1} saved successfully!`);
+                        updateProgress();
+                    } else {
+                        showToast('Please complete the station before saving.', 'warning');
+                    }
+                } else {
+                    // Handle non-station buttons (e.g., portfolio complete button)
+                    showToast('Your portfolio has been saved!');
+                    updateProgress();
+                }
+            });
+        });
+        
+        // AI feedback system 
+        document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+            element.addEventListener('blur', function() {
+                if (this.value.length > 10) {
+                    const feedback = this.nextElementSibling;
+                    if (feedback && feedback.classList.contains('feedback-container')) {
+                        feedback.textContent = "Thank you for your thoughtful response! Your answer shows good understanding of the concepts.";
+                        feedback.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            // Set message
+            toastMessage.textContent = message;
+            
+            // Set type-specific styling
+            if (type === 'warning') {
+                toast.style.backgroundColor = '#f59e0b';
+            } else {
+                toast.style.backgroundColor = '#4f46e5';
+            }
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide toast after delay
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Track progress for the sidebar
+        function updateProgress() {
+            const stations = document.querySelectorAll('.learning-station');
+            let completed = 0;
+            
+            stations.forEach(station => {
+                // Check if any inputs or textareas in this station have content
+                const inputs = station.querySelectorAll('input, textarea');
+                let hasContent = false;
+                
+                inputs.forEach(input => {
+                    if (input.value.trim().length > 0) {
+                        hasContent = true;
+                    }
+                });
+                
+                if (hasContent) {
+                    completed++;
+                }
+            });
+            
+            // Update progress bar
+            const progressBar = document.querySelector('.from-indigo-600.to-purple-600.h-2\\.5');
+            const progressText = document.querySelector('.font-medium');
+            
+            const percentage = Math.round((completed / stations.length) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${completed}/${stations.length} stations`;
+            
+            updateStationIndicators();
+        }
+        
+        // Update station indicators
+        function updateStationIndicators() {
+            const stations = document.querySelectorAll('.learning-station');
+            const stationIndicators = document.querySelectorAll('.station-indicator');
+            
+            stations.forEach((station, index) => {
+                // Check if this station has content
+                const inputs = station.querySelectorAll('input, textarea');
+                let hasContent = false;
+                
+                inputs.forEach(input => {
+                    if (input.value.trim().length > 0) {
+                        hasContent = true;
+                    }
+                });
+                
+                // Update the corresponding indicator
+                if (hasContent && stationIndicators[index]) {
+                    stationIndicators[index].classList.add('active');
+                }
+            });
+            
+            // Determine current station based on scroll position
+            updateCurrentStationByScroll();
+        }
+        
+        // Update current station based on scroll position
+        function updateCurrentStationByScroll() {
+            const scrollPosition = window.scrollY;
+            const stations = document.querySelectorAll('.learning-station');
+            const stationIndicators = document.querySelectorAll('.station-indicator');
+            
+            let foundCurrent = false;
+            
+            stations.forEach((station, index) => {
+                const stationTop = station.offsetTop - 150;
+                const stationBottom = stationTop + station.offsetHeight;
+                
+                if (scrollPosition >= stationTop && scrollPosition < stationBottom && !foundCurrent) {
+                    // This is the current visible station
+                    currentStation = index;
+                    foundCurrent = true;
+                    
+                    // Update the indicators to show which one is current
+                    stationIndicators.forEach((indicator, i) => {
+                        if (i === index) {
+                            indicator.classList.add('active');
+                            indicator.style.transform = 'scale(1.3)';
+                        } else if (indicator.classList.contains('active')) {
+                            indicator.style.transform = 'scale(1.0)';
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Highlight active section in navigation based on scroll position
+        window.addEventListener('DOMContentLoaded', () => {
+            const objectives = document.querySelector('#learning-objectives');
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#section-navigation a');
+            
+            function updateActiveSection() {
+                const scrollPosition = window.scrollY;
+                
+                // First reset all links
+                navLinks.forEach(link => {
+                    link.classList.remove('text-indigo-700', 'font-medium');
+                    link.classList.add('text-gray-700');
+                });
+                
+                // Check Learning Objectives first
+                if (objectives) {
+                    const objectivesTop = objectives.offsetTop - 100;
+                    const objectivesBottom = objectivesTop + objectives.offsetHeight;
+                    
+                    if (scrollPosition >= objectivesTop && scrollPosition < objectivesBottom) {
+                        const objectivesLink = document.querySelector('#section-navigation a[href="#learning-objectives"]');
+                        if (objectivesLink) {
+                            objectivesLink.classList.remove('text-gray-700');
+                            objectivesLink.classList.add('text-indigo-700', 'font-medium');
+                        }
+                        return;
+                    }
+                }
+                
+                // Then check all other sections
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        // Add active class to corresponding link
+                        const correspondingLink = document.querySelector(`#section-navigation a[href="#${section.id}"]`);
+                        if (correspondingLink) {
+                            correspondingLink.classList.remove('text-gray-700');
+                            correspondingLink.classList.add('text-indigo-700', 'font-medium');
+                        }
+                    }
+                });
+                
+                // Also update station indicators based on scroll
+                updateCurrentStationByScroll();
+            }
+            
+            // Update active section when scrolling
+            window.addEventListener('scroll', updateActiveSection);
+            
+            // Update active section on page load
+            updateActiveSection();
+        });
+        
+        // Custom scripts for Resume Building and Personal Branding chapter
+        // Add event listeners for range inputs to update displayed values
+        document.addEventListener('DOMContentLoaded', function() {
+            const ranges = document.querySelectorAll('input[type="range"]');
+            ranges.forEach(range => {
+                // Set initial value display
+                const valueDisplay = range.nextElementSibling;
+                if (valueDisplay) {
+                    valueDisplay.textContent = range.value;
+                }
+                
+                // Update value display on input
+                range.addEventListener('input', function() {
+                    const valueDisplay = this.nextElementSibling;
+                    if (valueDisplay) {
+                        valueDisplay.textContent = this.value;
+                    }
+                });
+            });
+            
+            // Connect to Resume Builder skill builder if available
+            const resumeBuilderLink = document.querySelector('a[href="../Standard-15/skill-builders/resume-builder.html"]');
+            if (resumeBuilderLink) {
+                resumeBuilderLink.addEventListener('click', function(e) {
+                    // Show toast notification when clicked
+                    showToast('Opening Resume Builder in a new tab');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Presence Audit Tool - Chapter 15.2</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            .audit-section {
+                page-break-inside: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #0d47a1;
+            border-bottom: 2px solid #0d47a1;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #1565c0;
+            border-bottom: 1px solid #1565c0;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #1976d2;
+            margin-top: 25px;
+        }
+        
+        .print-instructions {
+            background-color: #fffaf0;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #ed8936;
+            border-radius: 4px;
+        }
+        
+        .intro-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+            border-radius: 4px;
+        }
+        
+        .tip-box {
+            background-color: #e1f5fe;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #03a9f4;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background-color: #ffebee;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #f44336;
+            border-radius: 4px;
+        }
+        
+        .audit-section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .audit-header {
+            background-color: #1976d2;
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 15px -20px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .audit-title {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .rating-scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        
+        .rating-option {
+            text-align: center;
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #e0e0e0;
+            background-color: #fff;
+        }
+        
+        .notes-space {
+            border: 1px solid #e0e0e0;
+            min-height: 80px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+        
+        .action-space {
+            border: 1px solid #e0e0e0;
+            min-height: 60px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #1976d2;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #1565c0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .rating-scale {
+                flex-direction: column;
+            }
+            
+            .rating-option {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <h1>Digital Presence Audit Tool</h1>
+    
+    <div class="intro-box">
+        <p>Your online presence is an extension of your personal brand and often the first impression employers will have of you. This audit tool will help you evaluate your current digital presence across platforms, identify areas for improvement, and create an action plan to enhance your professional online image.</p>
+        <p>Complete each section thoroughly and honestly to get an accurate picture of your digital presence. For platforms you don't currently use, you can mark them as "Not Applicable" or use the audit to determine if you should establish a presence there.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Part 1: Digital Presence Inventory</h2>
+    <p>Begin by creating a comprehensive inventory of your current online presence.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Digital Presence Inventory</h3>
+        </div>
+        
+        <p>List all platforms where you have a public or semi-public profile or presence:</p>
+        
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Profile URL</th>
+                <th>Last Updated</th>
+                <th>Profile Completeness (1-5)</th>
+                <th>Active User? (Y/N)</th>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Personal Website/Portfolio</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>GitHub</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Twitter/X</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Instagram</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Facebook</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Medium/Blog</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Industry-Specific Platform</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Other: ________</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Other: ________</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Additional Presence Points to Consider:</strong></p>
+        <ul>
+            <li>Published articles or content with your byline</li>
+            <li>Mentions of you on organization or school websites</li>
+            <li>Profiles on professional association sites</li>
+            <li>Appearances in online news or media</li>
+            <li>Forum participation or comments sections</li>
+            <li>Reviews or testimonials you've written</li>
+        </ul>
+    </div>
+
+    <div class="tip-box">
+        <h3>Search Engine Check</h3>
+        <p>Before continuing with your detailed audit, conduct these searches to understand your current digital footprint:</p>
+        <ul>
+            <li><strong>Search your full name:</strong> Use multiple search engines (Google, Bing, DuckDuckGo) to see what appears</li>
+            <li><strong>Search your name + key terms:</strong> Try your name plus your school, employer, hometown, or industry</li>
+            <li><strong>Image search:</strong> Check what images are associated with your name</li>
+            <li><strong>Social media search:</strong> Use the search functions within major platforms</li>
+        </ul>
+        <p>Note any results that concern you or don't align with your desired professional image, as well as any positive results you can leverage.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Part 2: Platform-Specific Audits</h2>
+    <p>Now that you have an inventory of your digital presence, conduct a detailed audit of each platform where you have a profile.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">LinkedIn Profile Audit</h3>
+        </div>
+        
+        <p>As the primary professional networking platform, LinkedIn often appears prominently in search results and is frequently reviewed by potential employers.</p>
+        
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Rating (1-5)</th>
+                <th>Notes/Issues</th>
+            </tr>
+            <tr>
+                <td><strong>Profile Photo</strong><br>Professional appearance, clear face shot, appropriate attire</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Background Image</strong><br>Professional, relevant to field, good quality</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Headline</strong><br>Clear, compelling, includes key terms</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>About Section</strong><br>Comprehensive, engaging, aligns with personal brand</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Experience Descriptions</strong><br>Detailed, achievement-focused, uses metrics</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Education Information</strong><br>Complete, includes relevant details</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Skills Section</strong><br>Comprehensive, endorsed, relevant to field</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Recommendations</strong><br>Quality and quantity of recommendations</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Featured Section</strong><br>Highlights best work, well-presented</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Activity</strong><br>Regular, professional, aligned with brand</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Overall Profile Completeness</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Priority Improvements for LinkedIn:</strong></p>
+        <div class="notes-space"></div>
+        
+        <p><strong>Action Steps:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Personal Website/Portfolio Audit</h3>
+        </div>
+        
+        <p>If you have a personal website or online portfolio, this section will help you evaluate its effectiveness. If you don't yet have one, use this section to plan its development.</p>
+        
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Rating (1-5)</th>
+                <th>Notes/Issues</th>
+            </tr>
+            <tr>
+                <td><strong>Domain Name</strong><br>Professional, memorable, appropriate</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Visual Design</strong><br>Professional, aligned with personal brand, modern</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Navigation/Usability</strong><br>Intuitive, easy to use, logical organization</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>About/Bio Section</strong><br>Clear, engaging, aligned with personal brand</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Work Samples/Projects</strong><br>Quality, relevance, presentation</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Resume/CV</strong><br>Updated, well-formatted, accessible</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Contact Information</strong><br>Accessible, professional, secure</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Mobile Responsiveness</strong><br>Displays properly on all devices</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Content Freshness</strong><br>Recently updated, current information</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>SEO Elements</strong><br>Discoverable, good meta descriptions</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Overall Quality and Impact</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Priority Improvements for Website/Portfolio:</strong></p>
+        <div class="notes-space"></div>
+        
+        <p><strong>Action Steps:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">GitHub/Technical Portfolio Audit</h3>
+        </div>
+        
+        <p>For technical roles, your GitHub or similar code repository is an important part of your professional presence. Assess its effectiveness below.</p>
+        
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Rating (1-5)</th>
+                <th>Notes/Issues</th>
+            </tr>
+            <tr>
+                <td><strong>Profile Completeness</strong><br>Bio, photo, contact information</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Project Organization</strong><br>Logical repository structure, pinned repositories</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>README Files</strong><br>Clear, detailed, well-formatted</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Code Quality</strong><br>Well-documented, organized, follows best practices</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Contribution Graph</strong><br>Regular activity, green squares</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Project Diversity</strong><br>Shows range of skills and languages</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Collaboration</strong><br>Pull requests, issue participation, forks</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Overall Professional Impression</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Priority Improvements for Technical Portfolio:</strong></p>
+        <div class="notes-space"></div>
+        
+        <p><strong>Action Steps:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Social Media Audit</h3>
+        </div>
+        
+        <p>Evaluate your presence on key social media platforms from a professional perspective. Remember that potential employers may view these accounts even if they're not primarily professional platforms.</p>
+        
+        <h4>Twitter/X</h4>
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Rating (1-5)</th>
+                <th>Notes/Issues</th>
+            </tr>
+            <tr>
+                <td><strong>Profile Photo & Header</strong><br>Professional, aligned with brand</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Bio</strong><br>Clear, professional, includes relevant keywords</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Content Quality</strong><br>Professional, thoughtful, valuable</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Engagement</strong><br>Professional interactions, network quality</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Potential Red Flags</strong><br>Controversial, unprofessional, or divisive content</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h4>Instagram</h4>
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Rating (1-5)</th>
+                <th>Notes/Issues</th>
+            </tr>
+            <tr>
+                <td><strong>Profile Presentation</strong><br>Professional, cohesive visual identity</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Bio & Profile Information</strong><br>Appropriate, aligned with personal brand</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Content Appropriateness</strong><br>Professional, audience-appropriate</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Potential Red Flags</strong><br>Party photos, unprofessional content, etc.</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h4>Facebook</h4>
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Rating (1-5)</th>
+                <th>Notes/Issues</th>
+            </tr>
+            <tr>
+                <td><strong>Privacy Settings</strong><br>Appropriate privacy controls in place</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Public Information</strong><br>Professional, appropriate for employers to see</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Tagged Content</strong><br>Appropriate content you're tagged in</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Potential Red Flags</strong><br>Inappropriate photos, controversial posts, etc.</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h4>Other Platform: ___________</h4>
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Rating (1-5)</th>
+                <th>Notes/Issues</th>
+            </tr>
+            <tr>
+                <td><strong>Profile Presentation</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Content Quality & Appropriateness</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Engagement & Network</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Potential Red Flags</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Priority Improvements for Social Media Presence:</strong></p>
+        <div class="notes-space"></div>
+        
+        <p><strong>Action Steps:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Part 3: Cross-Platform Brand Consistency</h2>
+    <p>Evaluate the consistency of your personal brand across all platforms.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Brand Consistency Audit</h3>
+        </div>
+        
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Rating (1-5)</th>
+                <th>Notes/Issues</th>
+            </tr>
+            <tr>
+                <td><strong>Visual Consistency</strong><br>Similar profile photos, color schemes, design elements</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Message Consistency</strong><br>Similar professional descriptions, personal statements</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Experience/Background Consistency</strong><br>Consistent employment history, education details</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Skills Representation</strong><br>Consistent representation of skills across platforms</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Name/Username Consistency</strong><br>Similar usernames or handles across platforms</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Voice/Tone Consistency</strong><br>Similar communication style across platforms</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Overall Brand Cohesion</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Priority Improvements for Brand Consistency:</strong></p>
+        <div class="notes-space"></div>
+        
+        <p><strong>Action Steps:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="warning-box">
+        <h3>Digital Cleanup Check</h3>
+        <p>Based on your audit, identify any content that should be removed or made private:</p>
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Content to Remove/Hide</th>
+                <th>Action Required</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>Prioritize removing or adjusting privacy settings for content that could negatively impact your professional image.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Part 4: Digital Presence Gap Analysis</h2>
+    <p>Identify where your digital presence could be expanded or improved to better support your career goals.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Digital Presence Gap Analysis</h3>
+        </div>
+        
+        <p><strong>Missing Platforms</strong></p>
+        <p>Identify platforms where you should establish a presence based on your field and career goals:</p>
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Relevance to Your Field (1-5)</th>
+                <th>Priority Level (High/Medium/Low)</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Content Gaps</strong></p>
+        <p>Identify types of content you should develop to strengthen your professional brand:</p>
+        <table>
+            <tr>
+                <th>Content Type</th>
+                <th>Purpose/Value</th>
+                <th>Platform(s)</th>
+                <th>Priority Level</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Profile Enhancement Opportunities</strong></p>
+        <p>List specific enhancements that would strengthen your existing profiles:</p>
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Enhancement Needed</th>
+                <th>Priority Level</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Part 5: Digital Presence Improvement Plan</h2>
+    <p>Based on your audit findings, create a comprehensive plan to enhance your digital presence.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Digital Presence Improvement Plan</h3>
+        </div>
+        
+        <p><strong>Immediate Actions (Next 7 Days)</strong></p>
+        <table>
+            <tr>
+                <th>Action Item</th>
+                <th>Platform</th>
+                <th>Details</th>
+                <th>Target Date</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Short-Term Actions (Next 30 Days)</strong></p>
+        <table>
+            <tr>
+                <th>Action Item</th>
+                <th>Platform</th>
+                <th>Details</th>
+                <th>Target Date</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Medium-Term Actions (Next 2-3 Months)</strong></p>
+        <table>
+            <tr>
+                <th>Action Item</th>
+                <th>Platform</th>
+                <th>Details</th>
+                <th>Target Date</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Long-Term Actions (3+ Months)</strong></p>
+        <table>
+            <tr>
+                <th>Action Item</th>
+                <th>Platform</th>
+                <th>Details</th>
+                <th>Target Date</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Ongoing Digital Presence Management</h3>
+        </div>
+        
+        <p>Create a sustainable plan for maintaining and growing your professional digital presence over time.</p>
+        
+        <p><strong>Regular Maintenance Schedule</strong></p>
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Maintenance Task</th>
+                <th>Frequency</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Content Creation Schedule</strong></p>
+        <table>
+            <tr>
+                <th>Content Type</th>
+                <th>Platform(s)</th>
+                <th>Frequency</th>
+                <th>Topics/Themes</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Engagement Strategy</strong></p>
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Engagement Activities</th>
+                <th>Frequency</th>
+                <th>Target Communities/Individuals</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p><strong>Digital Presence Review Schedule</strong></p>
+        <p>Set a schedule for reviewing and updating your digital presence strategy:</p>
+        <ul>
+            <li>Comprehensive Digital Presence Audit: Every _____ months</li>
+            <li>Personal Brand Alignment Check: Every _____ months</li>
+            <li>Career Goals Alignment Check: Every _____ months</li>
+            <li>Digital Cleanup Review: Every _____ months</li>
+        </ul>
+    </div>
+
+    <div class="tip-box">
+        <h3>Digital Presence Monitoring</h3>
+        <p>Consider these strategies for ongoing monitoring of your digital presence:</p>
+        <ul>
+            <li><strong>Set up Google Alerts</strong> for your name to be notified when you're mentioned online</li>
+            <li><strong>Regularly search yourself</strong> on major search engines (every 2-3 months)</li>
+            <li><strong>Enable notifications</strong> for tags and mentions on social platforms</li>
+            <li><strong>Request feedback</strong> from trusted colleagues on your digital presence</li>
+            <li><strong>Review privacy settings</strong> whenever platforms update their policies</li>
+            <li><strong>Monitor accounts</strong> for unusual activity that might indicate security issues</li>
+        </ul>
+        <p>Proactive monitoring helps you maintain a positive digital presence and address issues quickly.</p>
+    </div>
+
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 7.3: Understanding Credit Scores - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Credit score gauge */
+        .credit-score-gauge {
+            position: relative;
+            width: 250px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .gauge-background {
+            position: absolute;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to right, #ef4444, #f59e0b, #84cc16, #22c55e);
+            border-radius: 120px 120px 0 0;
+            overflow: hidden;
+        }
+
+        .gauge-mask {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background: white;
+            border-radius: 100px 100px 0 0;
+            top: 20px;
+            left: 25px;
+        }
+
+        .gauge-needle {
+            position: absolute;
+            height: 105px;
+            width:.5rem;
+            background: rgba(0,0,0,0.8);
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%) rotate(-90deg);
+            transform-origin: bottom center;
+            transition: transform 1s ease-in-out;
+            z-index: 10;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .gauge-value {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+
+        .gauge-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 10px;
+            margin-top: 5px;
+        }
+
+        /* Credit score range colors */
+        .poor {
+            color: #ef4444;
+        }
+        .fair {
+            color: #f59e0b;
+        }
+        .good {
+            color: #84cc16;
+        }
+        .excellent {
+            color: #22c55e;
+        }
+
+        /* Input field */
+        .input-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .input-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .input-container input, .input-container select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+        }
+
+        /* Timeline steps */
+        .timeline-step {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-step:before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: -1.5rem;
+            width: 2px;
+            background-color: #d1d5db;
+        }
+
+        .timeline-step:last-child:before {
+            bottom: 0;
+        }
+
+        .timeline-indicator {
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            height: 1rem;
+            width: 1rem;
+            border-radius: 50%;
+            background-color: #4f46e5;
+        }
+
+        .timeline-step.completed .timeline-indicator {
+            background-color: #22c55e;
+        }
+
+        /* Select option highlight */
+        .option-highlight {
+            background-color: #e0f2fe;
+            border-left: 3px solid #0ea5e9;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .option-highlight:hover {
+            background-color: #bae6fd;
+        }
+
+        .option-highlight.selected {
+            background-color: #dbeafe;
+            border-left: 3px solid #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 7: Credit & Debt</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding borrowing fundamentals and credit management.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Previous chapters with checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 7.1: Understanding the Cost of Borrowing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 7.2: Choosing the Right Source of Credit
+                                </a>
+                            </li>
+                            
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 7.3: Understanding Credit Scores
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-7-3-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Credit Score Simulator
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Credit Score Impact Calculator
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Credit Strategy Builder
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Future chapters without checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 7.4: Consumer Credit Legislation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 7.5: Understanding Student Loans
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-7-3-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 7.3: Understanding Credit Scores</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Applying credit score concepts through interactive activities</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Analyze how specific financial behaviors impact credit scores</li>
+                            <li>Create a personal credit-building strategy</li>
+                            <li>Evaluate the cost of poor credit over time</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Understanding Credit Scores Learning Lab! Today, you'll put your knowledge from Day 1 into practice. Through interactive activities, you'll analyze how different financial behaviors affect credit scores, calculate the real financial impact of various credit score ranges, and develop a personalized strategy for building or maintaining good credit.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                The activities in today's learning lab simulate real financial scenarios, but simplified for educational purposes. In the real world, credit scoring models are more complex and can vary between credit bureaus. Your actual credit score may be influenced by additional factors not covered in our simulations.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, you learned about what credit scores are, the factors that influence them, and why they matter. Today's learning lab builds on those fundamental concepts by allowing you to simulate different financial decisions and see their impact on credit scores over time. You'll also calculate exactly how much money different credit score ranges can save or cost over time.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Understanding Credit Scores</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/7.3 -  Understanding Credit Score.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Credit score ranges, the five factors that influence credit scores, how lenders use credit scores, and strategies for building good credit.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Station 1: Credit Score Simulator -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 1: Credit Score Simulator</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>This simulator allows you to see how different financial decisions affect your credit score over time. You'll start with a credit score of 670 (considered "good") and make a series of financial decisions. Watch how each decision impacts your score!</p>
+                            
+                            <!-- Credit Score Gauge -->
+                            <div class="mt-6 mb-8">
+                                <div class="credit-score-gauge">
+                                    <div class="gauge-background"></div>
+                                    <div class="gauge-mask"></div>
+                                    <div class="gauge-needle" id="credit-needle" style="transform: translateX(-50%) rotate(-10deg);"></div>
+                                    <div class="gauge-value" id="credit-score">670</div>
+                                </div>
+                                <div class="gauge-labels flex text-xs font-medium">
+                                    <span class="poor">Poor<br>300-579</span>
+                                    <span class="fair">Fair<br>580-669</span>
+                                    <span class="good">Good<br>670-739</span>
+                                    <span class="excellent">Excellent<br>740-850</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Simulator Interface -->
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <div id="scenario-container">
+                                    <h3 class="font-bold text-gray-900 mb-4" id="scenario-title">Month 1: Credit Card Payment</h3>
+                                    <p id="scenario-description" class="mb-4">You have a $1,000 balance on your credit card. How will you handle this month's payment?</p>
+                                    
+                                    <div class="mb-4">
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="15" onclick="selectOption(this, 0)">
+                                            <div class="font-medium">Pay the full balance</div>
+                                            <div class="text-sm text-gray-600">Pay the entire $1,000 balance before the due date.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="5" onclick="selectOption(this, 0)">
+                                            <div class="font-medium">Pay more than the minimum payment</div>
+                                            <div class="text-sm text-gray-600">Pay $300 of the $1,000 balance before the due date.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="0" onclick="selectOption(this, 0)">
+                                            <div class="font-medium">Pay only the minimum payment</div>
+                                            <div class="text-sm text-gray-600">Pay only the $25 minimum payment by the due date.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer" data-impact="-80" onclick="selectOption(this, 0)">
+                                            <div class="font-medium">Miss the payment entirely</div>
+                                            <div class="text-sm text-gray-600">Don't make any payment this month.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hidden scenarios to be revealed with JavaScript -->
+                                <div id="scenario-1" class="hidden">
+                                    <h3 class="font-bold text-gray-900 mb-4">Month 3: New Credit Application</h3>
+                                    <p class="mb-4">You're considering applying for new credit. What will you do?</p>
+                                    
+                                    <div class="mb-4">
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="-5" onclick="selectOption(this, 1)">
+                                            <div class="font-medium">Apply for one new credit card</div>
+                                            <div class="text-sm text-gray-600">Apply for a single new credit card with better rewards.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="-20" onclick="selectOption(this, 1)">
+                                            <div class="font-medium">Apply for multiple credit cards</div>
+                                            <div class="text-sm text-gray-600">Apply for three new credit cards to compare offers.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer" data-impact="10" onclick="selectOption(this, 1)">
+                                            <div class="font-medium">Don't apply for any new credit</div>
+                                            <div class="text-sm text-gray-600">Keep your existing accounts without adding any new applications.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="scenario-2" class="hidden">
+                                    <h3 class="font-bold text-gray-900 mb-4">Month 6: Credit Utilization Decision</h3>
+                                    <p class="mb-4">You have $10,000 in total available credit across all your credit cards. How much will you use?</p>
+                                    
+                                    <div class="mb-4">
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="25" onclick="selectOption(this, 2)">
+                                            <div class="font-medium">Keep utilization very low</div>
+                                            <div class="text-sm text-gray-600">Use only $1,000 (10%) of your available credit.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="15" onclick="selectOption(this, 2)">
+                                            <div class="font-medium">Moderate utilization</div>
+                                            <div class="text-sm text-gray-600">Use $3,000 (30%) of your available credit.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="-10" onclick="selectOption(this, 2)">
+                                            <div class="font-medium">High utilization</div>
+                                            <div class="text-sm text-gray-600">Use $7,000 (70%) of your available credit.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer" data-impact="-30" onclick="selectOption(this, 2)">
+                                            <div class="font-medium">Maxed out</div>
+                                            <div class="text-sm text-gray-600">Use $9,500 (95%) of your available credit.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="scenario-3" class="hidden">
+                                    <h3 class="font-bold text-gray-900 mb-4">Month 12: Credit Mix Decision</h3>
+                                    <p class="mb-4">You currently only have credit cards. How will you diversify your credit mix?</p>
+                                    
+                                    <div class="mb-4">
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="30" onclick="selectOption(this, 3)">
+                                            <div class="font-medium">Add an installment loan</div>
+                                            <div class="text-sm text-gray-600">Take out a small personal loan that you can easily afford to pay back over time.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer mb-2" data-impact="15" onclick="selectOption(this, 3)">
+                                            <div class="font-medium">Become an authorized user</div>
+                                            <div class="text-sm text-gray-600">Become an authorized user on a parent's long-standing credit account.</div>
+                                        </div>
+                                        <div class="option-highlight cursor-pointer" data-impact="0" onclick="selectOption(this, 3)">
+                                            <div class="font-medium">Keep only credit cards</div>
+                                            <div class="text-sm text-gray-600">Don't add any new types of credit to your profile.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="simulator-results" class="hidden mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                                    <h3 class="font-bold text-gray-900 mb-2">Simulation Complete!</h3>
+                                    <p class="mb-2" id="final-score-message"></p>
+                                    <p class="mb-2">Your financial decisions have shaped your credit profile, resulting in a final credit score of <span id="final-score" class="font-bold"></span>.</p>
+                                    <p>This simulation demonstrates how everyday financial decisions can significantly impact your credit score over time. Remember, consistent positive behavior is key to building and maintaining good credit.</p>
+                                </div>
+                                
+                                <!-- Simulation Controls -->
+                                <div class="mt-4 flex justify-between">
+                                    <button id="restart-sim" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 hidden" onclick="restartSimulation()">
+                                        Restart Simulation
+                                    </button>
+                                    <button id="next-scenario" class="pfl-button hidden" onclick="nextScenario()">
+                                        Continue to Next Decision
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center mt-4" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 2: Credit Score Impact Calculator -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Credit Score Impact Calculator</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>Now that you've seen how financial behaviors affect your credit score, let's calculate exactly how much money different credit scores can save or cost you over time. Select a loan type, amount, and term to see the impact.</p>
+                            
+                            <!-- Calculator Interface -->
+                            <div class="p-4 bg-gray-50 rounded-lg mt-4">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                    <div class="input-container">
+                                        <label for="loan-type">Loan Type</label>
+                                        <select id="loan-type" class="w-full p-2 border border-gray-300 rounded" onchange="updateCalculator()">
+                                            <option value="auto">Auto Loan</option>
+                                            <option value="mortgage">Mortgage</option>
+                                            <option value="personal">Personal Loan</option>
+                                            <option value="credit-card">Credit Card</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-container">
+                                        <label for="loan-amount">Loan Amount ($)</label>
+                                        <input type="number" id="loan-amount" value="20000" min="1000" max="1000000" class="w-full p-2 border border-gray-300 rounded" onchange="updateCalculator()">
+                                    </div>
+                                    <div class="input-container">
+                                        <label for="loan-term">Loan Term (Years)</label>
+                                        <select id="loan-term" class="w-full p-2 border border-gray-300 rounded" onchange="updateCalculator()">
+                                            <option value="3">3 Years</option>
+                                            <option value="5" selected>5 Years</option>
+                                            <option value="10">10 Years</option>
+                                            <option value="15">15 Years</option>
+                                            <option value="30">30 Years</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <!-- Results Table -->
+                                <div class="overflow-x-auto mb-4">
+                                    <table class="min-w-full bg-white border border-gray-200">
+                                        <thead>
+                                            <tr>
+                                                <th class="py-2 px-4 bg-gray-100 border-b text-left">Credit Score Range</th>
+                                                <th class="py-2 px-4 bg-gray-100 border-b text-left">Interest Rate</th>
+                                                <th class="py-2 px-4 bg-gray-100 border-b text-left">Monthly Payment</th>
+                                                <th class="py-2 px-4 bg-gray-100 border-b text-left">Total Interest Paid</th>
+                                                <th class="py-2 px-4 bg-gray-100 border-b text-left">Total Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="results-table">
+                                            <!-- Table rows will be populated by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <!-- Charts -->
+                                <div class="mt-6">
+                                    <h3 class="font-semibold text-gray-800 mb-3">Cost Comparison by Credit Score</h3>
+                                    <div style="height: 300px;">
+                                        <canvas id="cost-chart"></canvas>
+                                    </div>
+                                </div>
+                                
+                                <!-- Key Insights -->
+                                <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Key Insights</h3>
+                                    <ul class="list-disc list-inside text-sm text-gray-700">
+                                        <li>The difference between the lowest and highest credit score ranges could save you <span id="potential-savings" class="font-bold"></span> on this loan.</li>
+                                        <li>Improving your credit score by just one range could save you <span id="one-tier-savings" class="font-bold"></span>.</li>
+                                        <li>With excellent credit, you could afford a <span id="upgrade-potential" class="font-bold"></span> higher loan amount for the same monthly payment as someone with poor credit.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 3: Credit Strategy Builder -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: Personal Credit Strategy Builder</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>Based on what you've learned about credit scores and their financial impact, it's time to develop your personal credit strategy. This tool will help you create a personalized plan for building or maintaining good credit.</p>
+                            
+                            <!-- Strategy Builder Interface -->
+                            <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                <h3 class="font-semibold text-gray-800 mb-3">Your Personal Credit Strategy</h3>
+                                
+                                <!-- Credit Score Factors -->
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-gray-700 mb-2">1. Payment History (35% of your score)</h4>
+                                    <select id="payment-strategy" class="w-full p-2 border border-gray-300 rounded mb-2">
+                                        <option value="">Select your strategy...</option>
+                                        <option value="auto-pay">Set up automatic payments for all accounts</option>
+                                        <option value="calendar">Create calendar reminders for all due dates</option>
+                                        <option value="early">Pay all bills a few days before due dates</option>
+                                        <option value="some-auto">Set up automatic payments for some accounts, manual for others</option>
+                                        <option value="custom">Custom strategy (describe below)</option>
+                                    </select>
+                                    <textarea id="payment-notes" class="w-full p-2 border border-gray-300 rounded h-20" placeholder="Additional notes on your payment history strategy..."></textarea>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-gray-700 mb-2">2. Credit Utilization (30% of your score)</h4>
+                                    <select id="utilization-strategy" class="w-full p-2 border border-gray-300 rounded mb-2">
+                                        <option value="">Select your strategy...</option>
+                                        <option value="under-10">Keep utilization under 10%</option>
+                                        <option value="under-30">Keep utilization under 30%</option>
+                                        <option value="pay-weekly">Make weekly payments to keep balances low</option>
+                                        <option value="limit-increase">Request credit limit increases</option>
+                                        <option value="custom">Custom strategy (describe below)</option>
+                                    </select>
+                                    <textarea id="utilization-notes" class="w-full p-2 border border-gray-300 rounded h-20" placeholder="Additional notes on your credit utilization strategy..."></textarea>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-gray-700 mb-2">3. Length of Credit History (15% of your score)</h4>
+                                    <select id="history-strategy" class="w-full p-2 border border-gray-300 rounded mb-2">
+                                        <option value="">Select your strategy...</option>
+                                        <option value="keep-oldest">Keep oldest accounts open</option>
+                                        <option value="authorized">Become authorized user on established accounts</option>
+                                        <option value="no-closing">Avoid closing accounts unnecessarily</option>
+                                        <option value="credit-builder">Open a credit builder account</option>
+                                        <option value="custom">Custom strategy (describe below)</option>
+                                    </select>
+                                    <textarea id="history-notes" class="w-full p-2 border border-gray-300 rounded h-20" placeholder="Additional notes on your credit history strategy..."></textarea>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-gray-700 mb-2">4. Credit Mix (10% of your score)</h4>
+                                    <select id="mix-strategy" class="w-full p-2 border border-gray-300 rounded mb-2">
+                                        <option value="">Select your strategy...</option>
+                                        <option value="diversity">Maintain diverse credit types</option>
+                                        <option value="small-loan">Consider a small personal loan</option>
+                                        <option value="secured-card">Open a secured credit card</option>
+                                        <option value="installment">Add one installment loan to credit cards</option>
+                                        <option value="custom">Custom strategy (describe below)</option>
+                                    </select>
+                                    <textarea id="mix-notes" class="w-full p-2 border border-gray-300 rounded h-20" placeholder="Additional notes on your credit mix strategy..."></textarea>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-gray-700 mb-2">5. New Credit Applications (10% of your score)</h4>
+                                    <select id="new-credit-strategy" class="w-full p-2 border border-gray-300 rounded mb-2">
+                                        <option value="">Select your strategy...</option>
+                                        <option value="limit-inquiries">Limit credit inquiries to one every 6 months</option>
+                                        <option value="research">Research and apply only for cards likely to approve</option>
+                                        <option value="rate-shop">Rate-shop for loans within a 14-day window</option>
+                                        <option value="no-new">Avoid new applications entirely for 1 year</option>
+                                        <option value="custom">Custom strategy (describe below)</option>
+                                    </select>
+                                    <textarea id="new-credit-notes" class="w-full p-2 border border-gray-300 rounded h-20" placeholder="Additional notes on your new credit strategy..."></textarea>
+                                </div>
+                                
+                                <!-- Timeline Selection -->
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-gray-700 mb-2">Implementation Timeline</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <div class="timeline-step" id="short-term">
+                                            <div class="timeline-indicator"></div>
+                                            <h5 class="font-medium text-gray-800">Short-term (1-6 months)</h5>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded h-20 mt-2" placeholder="Actions to take in the next 1-6 months..."></textarea>
+                                        </div>
+                                        <div class="timeline-step" id="medium-term">
+                                            <div class="timeline-indicator"></div>
+                                            <h5 class="font-medium text-gray-800">Medium-term (6-24 months)</h5>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded h-20 mt-2" placeholder="Actions to take in the next 6-24 months..."></textarea>
+                                        </div>
+                                        <div class="timeline-step" id="long-term">
+                                            <div class="timeline-indicator"></div>
+                                            <h5 class="font-medium text-gray-800">Long-term (2-5 years)</h5>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded h-20 mt-2" placeholder="Actions to take in the next 2-5 years..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Target Credit Score -->
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-gray-700 mb-2">Target Credit Score</h4>
+                                    <div class="flex items-center">
+                                        <input type="range" min="300" max="850" value="720" class="w-full" id="target-score" oninput="updateTargetScore()">
+                                        <span class="ml-4 font-bold" id="target-score-display">720</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-1">Credit score range: <span id="target-range">Good (670-739)</span></p>
+                                </div>
+                                
+                                <!-- Strategy Summary -->
+                                <div class="p-4 bg-blue-50 rounded-lg">
+                                    <h4 class="font-medium text-gray-800 mb-2">Strategy Summary</h4>
+                                    <p class="text-sm text-gray-700 mb-2" id="strategy-summary">Complete the sections above to generate your credit strategy summary.</p>
+                                    <button class="pfl-button mt-2" onclick="generateStrategySummary()">Generate Summary</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">
+                            Now it's time to integrate what you've learned about credit scores into your financial portfolio. Combine your simulation results, impact calculations, and personal strategy into a comprehensive credit plan.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <h3 class="font-medium text-gray-800 mb-2">Your Credit Score Understanding</h3>
+                            <p class="text-sm text-gray-700 mb-2">From the simulation, you learned that <textarea class="w-full p-2 border border-gray-300 rounded h-20" placeholder="Describe what you learned from the credit score simulator..."></textarea></p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="font-medium text-gray-800 mb-2">Financial Impact of Your Credit Score</h3>
+                            <p class="text-sm text-gray-700 mb-2">Based on the calculator, a good credit score could save me <textarea class="w-full p-2 border border-gray-300 rounded h-20" placeholder="Describe the financial impact of different credit scores from the calculator..."></textarea></p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="font-medium text-gray-800 mb-2">My Credit Strategy Summary</h3>
+                            <textarea id="portfolio-strategy" class="w-full p-2 border border-gray-300 rounded h-20" placeholder="Copy your credit strategy summary here..."></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="font-medium text-gray-800 mb-2">Portfolio Summary</h3>
+                            <textarea class="w-full p-2 border border-gray-300 rounded h-20" placeholder="Summarize how you'll integrate credit management into your overall financial portfolio..."></textarea>
+                        </div>
+                        
+                        <button class="pfl-button mt-4" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Take a moment to reflect on what you've learned about credit scores and how you'll apply this knowledge to your financial decisions.
+                        </p>
+                        
+                        <p class="text-gray-700 mb-2 font-medium">How has your understanding of credit scores changed after completing these activities?</p>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md mb-4" rows="3" placeholder="Share your thoughts here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        
+                        <p class="text-gray-700 mb-2 font-medium">What specific actions will you take in the next 30 days to improve or maintain your credit score?</p>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Share your next steps here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false
+        };
+        
+        // Simulation variables
+        let currentScenario = 0;
+        let creditScore = 670;
+        let selectedOptions = [];
+        const scenarios = ["scenario-container", "scenario-1", "scenario-2", "scenario-3"];
+        
+        // Loan data for credit score impact calculator
+        const loanRates = {
+            "auto": {
+                "excellent": 3.5,
+                "good": 5.0,
+                "fair": 7.5,
+                "poor": 11.0
+            },
+            "mortgage": {
+                "excellent": 4.0,
+                "good": 4.5,
+                "fair": 5.5,
+                "poor": 7.0
+            },
+            "personal": {
+                "excellent": 7.0,
+                "good": 10.0,
+                "fair": 15.0,
+                "poor": 25.0
+            },
+            "credit-card": {
+                "excellent": 12.0,
+                "good": 16.0,
+                "fair": 22.0,
+                "poor": 28.0
+            }
+        };
+        
+        // Chart.js instance
+        let costChart;
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 3) {
+                // Last station, scroll to portfolio
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionTexts = document.querySelectorAll('textarea[data-ai-check="true"]');
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            let combinedLength = 0;
+            reflectionTexts.forEach(textarea => {
+                combinedLength += textarea.value.length;
+            });
+            
+            if (combinedLength < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider expanding on how your understanding of credit scores has changed and what specific actions you plan to take.";
+            } else if (combinedLength < 150) {
+                aiFeedback.textContent = "Good start! Your reflection shows some understanding of credit scores. Try to be more specific about how you'll apply this knowledge to your own financial decisions.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection! You've demonstrated a thorough understanding of credit scores and provided concrete steps for applying this knowledge to improve your financial future.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Credit Score Simulator Functions
+        function selectOption(option, scenarioIndex) {
+            // Clear any previously selected options
+            const options = option.parentElement.querySelectorAll('.option-highlight');
+            options.forEach(o => o.classList.remove('selected'));
+            
+            // Mark this option as selected
+            option.classList.add('selected');
+            
+            // Store the selected option
+            selectedOptions[scenarioIndex] = parseInt(option.dataset.impact);
+            
+            // Show the next button
+            document.getElementById('next-scenario').classList.remove('hidden');
+        }
+        
+        function nextScenario() {
+            // Update credit score based on selected option
+            updateCreditScore(selectedOptions[currentScenario]);
+            
+            // Move to next scenario
+            document.getElementById(scenarios[currentScenario]).classList.add('hidden');
+            currentScenario++;
+            
+            if (currentScenario < scenarios.length) {
+                document.getElementById(scenarios[currentScenario]).classList.remove('hidden');
+                document.getElementById('next-scenario').classList.add('hidden');
+            } else {
+                // Show final results
+                showSimulationResults();
+            }
+        }
+        
+        function updateCreditScore(impact) {
+            creditScore += impact;
+            
+            // Ensure score stays within valid range
+            if (creditScore > 850) creditScore = 850;
+            if (creditScore < 300) creditScore = 300;
+            
+            // Update the gauge
+            document.getElementById('credit-score').textContent = creditScore;
+            
+            // Update needle rotation
+            // Map credit score range (300-850) to rotation range (-90 to 90 degrees)
+            const rotation = -90 + ((creditScore - 300) / 550) * 180;
+            document.getElementById('credit-needle').style.transform = `translateX(-50%) rotate(${rotation}deg)`;
+        }
+        
+        function showSimulationResults() {
+            // Hide scenario container
+            document.getElementById(scenarios[currentScenario-1]).classList.add('hidden');
+            
+            // Show results
+            document.getElementById('simulator-results').classList.remove('hidden');
+            document.getElementById('next-scenario').classList.add('hidden');
+            document.getElementById('restart-sim').classList.remove('hidden');
+            
+            // Show final score and message
+            document.getElementById('final-score').textContent = creditScore;
+            
+            // Generate message based on score
+            let message = "";
+            if (creditScore >= 740) {
+                message = "Excellent! Your financial decisions have resulted in an excellent credit score.";
+            } else if (creditScore >= 670) {
+                message = "Great job! You've maintained a good credit score through mostly responsible decisions.";
+            } else if (creditScore >= 580) {
+                message = "Your credit score is fair. There's room for improvement with more consistent positive financial behaviors.";
+            } else {
+                message = "Your credit score is in the poor range. Consider reviewing the decisions that led to this outcome and how you might make different choices.";
+            }
+            
+            document.getElementById('final-score-message').textContent = message;
+        }
+        
+        function restartSimulation() {
+            // Reset credit score
+            creditScore = 670;
+            currentScenario = 0;
+            selectedOptions = [];
+            
+            // Update gauge
+            document.getElementById('credit-score').textContent = creditScore;
+            document.getElementById('credit-needle').style.transform = 'translateX(-50%) rotate(-10deg)';
+            
+            // Show first scenario
+            document.getElementById('simulator-results').classList.add('hidden');
+            document.getElementById('restart-sim').classList.add('hidden');
+            
+            // Clear previous selections
+            document.querySelectorAll('.option-highlight').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Show first scenario
+            for (let i = 0; i < scenarios.length; i++) {
+                if (i === 0) {
+                    document.getElementById(scenarios[i]).classList.remove('hidden');
+                } else {
+                    document.getElementById(scenarios[i]).classList.add('hidden');
+                }
+            }
+        }
+        
+        // Credit Score Impact Calculator Functions
+        function updateCalculator() {
+            const loanType = document.getElementById('loan-type').value;
+            const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+            const loanTerm = parseInt(document.getElementById('loan-term').value);
+            
+            // Get rates for this loan type
+            const rates = loanRates[loanType];
+            
+            // Calculate monthly payments and total interest for each credit score range
+            const results = calculateLoanResults(rates, loanAmount, loanTerm);
+            
+            // Update table
+            updateResultsTable(results);
+            
+            // Update chart
+            updateCostChart(results);
+            
+            // Update insights
+            updateInsights(results);
+        }
+        
+        function calculateLoanResults(rates, loanAmount, loanTerm) {
+            const results = {};
+            const ranges = [
+                { name: "Excellent (740-850)", rate: rates.excellent },
+                { name: "Good (670-739)", rate: rates.good },
+                { name: "Fair (580-669)", rate: rates.fair },
+                { name: "Poor (300-579)", rate: rates.poor }
+            ];
+            
+            for (const range of ranges) {
+                const monthlyRate = range.rate / 100 / 12;
+                const numPayments = loanTerm * 12;
+                
+                // Calculate monthly payment: P = L[r(1+r)^n]/[(1+r)^n-1]
+                const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+                
+                // Calculate total payment
+                const totalPayment = monthlyPayment * numPayments;
+                
+                // Calculate total interest
+                const totalInterest = totalPayment - loanAmount;
+                
+                results[range.name] = {
+                    rate: range.rate,
+                    monthlyPayment: monthlyPayment,
+                    totalInterest: totalInterest,
+                    totalCost: totalPayment
+                };
+            }
+            
+            return results;
+        }
+        
+        function updateResultsTable(results) {
+            const tableBody = document.getElementById('results-table');
+            tableBody.innerHTML = '';
+            
+            for (const [range, result] of Object.entries(results)) {
+                const row = document.createElement('tr');
+                
+                // Add row class based on credit score range
+                if (range.includes("Excellent")) {
+                    row.className = "bg-green-50";
+                } else if (range.includes("Good")) {
+                    row.className = "bg-blue-50";
+                } else if (range.includes("Fair")) {
+                    row.className = "bg-yellow-50";
+                } else {
+                    row.className = "bg-red-50";
+                }
+                
+                // Add cells
+                row.innerHTML = `
+                    <td class="py-2 px-4 border-b">${range}</td>
+                    <td class="py-2 px-4 border-b">${result.rate.toFixed(2)}%</td>
+                    <td class="py-2 px-4 border-b">$${result.monthlyPayment.toFixed(2)}</td>
+                    <td class="py-2 px-4 border-b">$${result.totalInterest.toFixed(2)}</td>
+                    <td class="py-2 px-4 border-b">$${result.totalCost.toFixed(2)}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            }
+        }
+        
+        function updateCostChart(results) {
+            const ctx = document.getElementById('cost-chart').getContext('2d');
+            
+            // Extract data
+            const labels = Object.keys(results);
+            const totalInterestData = labels.map(label => results[label].totalInterest);
+            const principalData = labels.map(() => parseFloat(document.getElementById('loan-amount').value));
+            
+            // Destroy previous chart if exists
+            if (costChart) {
+                costChart.destroy();
+            }
+            
+            // Create new chart
+            costChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Principal',
+                            data: principalData,
+                            backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                            borderColor: 'rgba(59, 130, 246, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Total Interest',
+                            data: totalInterestData,
+                            backgroundColor: 'rgba(244, 63, 94, 0.5)',
+                            borderColor: 'rgba(244, 63, 94, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Total Cost by Credit Score Range'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': $' + context.parsed.y.toFixed(2);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function updateInsights(results) {
+            const excellent = results["Excellent (740-850)"];
+            const poor = results["Poor (300-579)"];
+            const fair = results["Fair (580-669)"];
+            const good = results["Good (670-739)"];
+            
+            // Calculate potential savings
+            const potentialSavings = poor.totalCost - excellent.totalCost;
+            document.getElementById('potential-savings').textContent = '$' + potentialSavings.toFixed(2);
+            
+            // Calculate one tier improvement savings (e.g., poor to fair)
+            const oneTierSavings = poor.totalCost - fair.totalCost;
+            document.getElementById('one-tier-savings').textContent = '$' + oneTierSavings.toFixed(2);
+            
+            // Calculate how much more loan excellent credit can afford
+            const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+            const upgradePercentage = (poor.monthlyPayment / excellent.monthlyPayment - 1) * 100;
+            document.getElementById('upgrade-potential').textContent = upgradePercentage.toFixed(1) + '%';
+        }
+        
+        // Credit Strategy Builder Functions
+        function updateTargetScore() {
+            const score = document.getElementById('target-score').value;
+            document.getElementById('target-score-display').textContent = score;
+            
+            // Update the range text
+            let range = "";
+            if (score >= 740) {
+                range = "Excellent (740-850)";
+            } else if (score >= 670) {
+                range = "Good (670-739)";
+            } else if (score >= 580) {
+                range = "Fair (580-669)";
+            } else {
+                range = "Poor (300-579)";
+            }
+            
+            document.getElementById('target-range').textContent = range;
+        }
+        
+        function generateStrategySummary() {
+            // Get all strategy selections
+            const paymentStrategy = document.getElementById('payment-strategy').options[document.getElementById('payment-strategy').selectedIndex].text;
+            const utilizationStrategy = document.getElementById('utilization-strategy').options[document.getElementById('utilization-strategy').selectedIndex].text;
+            const historyStrategy = document.getElementById('history-strategy').options[document.getElementById('history-strategy').selectedIndex].text;
+            const mixStrategy = document.getElementById('mix-strategy').options[document.getElementById('mix-strategy').selectedIndex].text;
+            const newCreditStrategy = document.getElementById('new-credit-strategy').options[document.getElementById('new-credit-strategy').selectedIndex].text;
+            
+            // Get target score
+            const targetScore = document.getElementById('target-score').value;
+            const targetRange = document.getElementById('target-range').textContent;
+            
+            // Generate summary
+            let summary = `My credit strategy aims to achieve a target score of ${targetScore} (${targetRange}) through a combination of focused actions. For payment history (35%), I'll ${paymentStrategy}. To manage credit utilization (30%), I'll ${utilizationStrategy}. To address credit history length (15%), I'll ${historyStrategy}. For credit mix (10%), I'll ${mixStrategy}. And for new credit applications (10%), I'll ${newCreditStrategy}.`;
+            
+            // Set the summary text
+            document.getElementById('strategy-summary').textContent = summary;
+            
+            // Copy to portfolio section
+            document.getElementById('portfolio-strategy').value = summary;
+            
+            // Show toast
+            showToast('Strategy summary generated!');
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize credit score calculator
+            updateCalculator();
+            
+            // Initialize target score display
+            updateTargetScore();
+            
+            // Highlight active section based on scroll position
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

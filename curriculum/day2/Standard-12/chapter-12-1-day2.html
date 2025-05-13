@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 12.1: Understanding the Risks of Gambling - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Custom styles for gambling elements */
+        .probability-calculator {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .simulation-results {
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .game-creator {
+            background-color: #f0f4f8;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            border: 1px solid #d0d7de;
+        }
+
+        .guidelines-builder {
+            background-color: #f0f7f4;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            border: 1px solid #d1e7dd;
+        }
+
+        .scenario-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background-color: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 12: Gambling</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding gambling risks, costs, and responsible practices</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 12.1: Understanding the Risks of Gambling
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-12-1-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-indigo-700 font-medium">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Probability Challenge
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Expected Value Casino
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Gambler's Ruin Simulation
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Gambling Decision Analysis
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station5" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Responsible Gambling Guidelines
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Other Chapters -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 12.2: The Costs and Benefits of Gambling
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station5-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-12-1-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 12.1: Understanding the Risks of Gambling - Learning Lab</h1>
+                    <p class="text-lg text-gray-600 mb-6">Applying mathematical and psychological principles to understand gambling risks</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Calculate odds and expected value in various gambling scenarios</li>
+                            <li>Demonstrate how the house edge ensures long-term profits for gambling operators</li>
+                            <li>Analyze the psychology of gambling decisions and common fallacies</li>
+                            <li>Evaluate the financial impact of different gambling activities</li>
+                            <li>Develop criteria for responsible gambling practices</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <section id="introduction">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Learning Lab for Understanding the Risks of Gambling. Today, we'll apply the concepts from Day 1 through a series of interactive activities designed to deepen your understanding of gambling mathematics, decision-making, and responsible practices. By the end of this lab, you'll have tools to evaluate gambling activities from both mathematical and psychological perspectives.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note">
+                            <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                            <p class="text-gray-700">
+                                This Learning Lab focuses on educational content about gambling. We are not encouraging gambling activities but rather providing you with the mathematical and critical thinking skills to understand gambling risks. All simulations use virtual currency only and are designed for educational purposes.
+                            </p>
+                        </div>
+                        
+                        <!-- Day 1 Connection -->
+                        <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                            <p class="text-gray-700 mb-3">
+                                In Day 1, we explored several key concepts related to gambling risks:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 ml-2">
+                                <li>The mathematical foundations of gambling (probability, expected value)</li>
+                                <li>The house edge and why gambling establishments are profitable businesses</li>
+                                <li>Cognitive biases and psychological factors that influence gambling decisions</li>
+                                <li>Different types of gambling activities and their relative risks</li>
+                                <li>The distinction between entertainment gambling and problem gambling</li>
+                            </ul>
+                            <p class="text-gray-700 mt-3">
+                                Today's Learning Lab will let you apply these concepts through interactive activities and simulations.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                            <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Understanding Gambling Risks</h3>
+                            <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                            
+                            <div class="bg-white rounded-lg p-4">
+                                <audio controls class="w-full mb-2">
+                                    <source src="/finished LM recordings/12.1 - Understanding the Risks of Gambling.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                <div class="text-sm text-gray-500">
+                                    <p>Topics covered: Probability in gambling, the mathematics of the house edge, psychological factors, the entertainment value perspective, and responsible gambling approaches</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 my-4">
+                            Now, let's proceed to the learning stations where you'll apply these concepts through interactive activities. We'll begin with probability calculations, then explore expected value, simulate gambling outcomes, analyze decision-making factors, and develop responsible gambling guidelines.
+                        </p>
+                    </section>
+                    
+                    <!-- Learning Station 1: Probability Challenge -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Probability Challenge</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            In this station, you'll calculate the probabilities for various gambling scenarios to understand the mathematical foundations of gambling activities.
+                        </p>
+                        
+                        <div class="probability-calculator p-4 rounded-lg border border-gray-200 mb-4">
+                            <h3 class="font-semibold text-gray-800 mb-3">Probability Calculator</h3>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Select Gambling Scenario:</label>
+                                <select id="gambling-scenario" class="w-full p-2 border border-gray-300 rounded-md">
+                                    <option value="dice">Dice Roll (Rolling a specific number on a 6-sided die)</option>
+                                    <option value="cards">Card Draw (Drawing a specific card from a standard deck)</option>
+                                    <option value="roulette">Roulette (Ball landing on a specific number)</option>
+                                    <option value="lottery">Lottery (Matching 6 numbers from 49)</option>
+                                    <option value="slots">Slot Machine (Getting 3 matching symbols on a line)</option>
+                                </select>
+                            </div>
+                            
+                            <div id="probability-inputs" class="mb-4">
+                                <!-- Dynamic inputs will be inserted here based on selection -->
+                                <div class="p-3 bg-gray-50 rounded-md">
+                                    <p><strong>Dice Roll:</strong> Calculate the probability of rolling a specific number on a standard 6-sided die.</p>
+                                    <div class="mt-2">
+                                        <label class="block text-gray-700 font-medium mb-1">Target Number (1-6):</label>
+                                        <input type="number" id="dice-target" min="1" max="6" value="1" class="p-2 border border-gray-300 rounded-md w-full">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button id="calculate-probability" class="pfl-button w-full">Calculate Probability</button>
+                            
+                            <div class="mt-4 p-3 bg-gray-50 rounded-md" id="probability-result">
+                                <p class="font-medium text-gray-800">Probability: <span id="probability-value">Calculate to see result</span></p>
+                                <p class="font-medium text-gray-800">Odds: <span id="odds-value">Calculate to see result</span></p>
+                                <p class="text-sm text-gray-600 mt-2">To express this as "odds against": <span id="odds-against">Calculate to see result</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="font-semibold text-gray-800 mb-2">Probability Comparison</h3>
+                            <p class="text-gray-700 mb-3">Compare the probabilities you calculated with other gambling scenarios and everyday events:</p>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full border-collapse border border-gray-300">
+                                    <thead>
+                                        <tr class="bg-gray-100">
+                                            <th class="p-2 border border-gray-300 text-left">Event</th>
+                                            <th class="p-2 border border-gray-300 text-left">Probability</th>
+                                            <th class="p-2 border border-gray-300 text-left">Odds Against</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-2 border border-gray-300">Rolling a 6 on a die</td>
+                                            <td class="p-2 border border-gray-300">1/6 (16.67%)</td>
+                                            <td class="p-2 border border-gray-300">5 to 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 border border-gray-300">Drawing the Ace of Spades</td>
+                                            <td class="p-2 border border-gray-300">1/52 (1.92%)</td>
+                                            <td class="p-2 border border-gray-300">51 to 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 border border-gray-300">Roulette (American) - Single number</td>
+                                            <td class="p-2 border border-gray-300">1/38 (2.63%)</td>
+                                            <td class="p-2 border border-gray-300">37 to 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 border border-gray-300">Lottery (6/49)</td>
+                                            <td class="p-2 border border-gray-300">1/13,983,816 (0.00000715%)</td>
+                                            <td class="p-2 border border-gray-300">13,983,815 to 1</td>
+                                        </tr>
+                                        <tr id="your-calculation">
+                                            <td class="p-2 border border-gray-300">Your calculation</td>
+                                            <td class="p-2 border border-gray-300">-</td>
+                                            <td class="p-2 border border-gray-300">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">What surprised you about these probability comparisons?</label>
+                            <textarea id="probability-reflection" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Share your observations about the probabilities..."></textarea>
+                        </div>
+                        
+                        <button class="pfl-button" onclick="saveStation(1)">
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 2: Expected Value Casino -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Expected Value Casino</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            In this station, you'll create your own gambling games to understand how casinos and gambling operators ensure profitability through the concept of expected value and house edge.
+                        </p>
+                        
+                        <div class="game-creator mb-6">
+                            <h3 class="font-semibold text-gray-800 mb-3">Gambling Game Creator</h3>
+                            <p class="text-gray-700 mb-3">Design your own gambling game by setting the rules, probabilities, and payouts:</p>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Game Name:</label>
+                                <input type="text" id="game-name" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Lucky Spin, Card Clash, etc.">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Game Type:</label>
+                                <select id="game-type" class="w-full p-2 border border-gray-300 rounded-md">
+                                    <option value="dice">Dice Game</option>
+                                    <option value="card">Card Game</option>
+                                    <option value="wheel">Wheel Spin</option>
+                                    <option value="custom">Custom Game</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4 p-3 bg-gray-50 rounded-md">
+                                <h4 class="font-medium text-gray-800 mb-2">Game Rules</h4>
+                                
+                                <div id="dice-game-rules" class="game-rules-section">
+                                    <p class="text-gray-700 mb-2">In this dice game:</p>
+                                    <ul class="list-disc list-inside mb-3 text-gray-700">
+                                        <li>Player bets $<input type="number" id="dice-bet" min="1" value="10" class="inline-block p-1 border border-gray-300 rounded-md w-16 text-center"> to play</li>
+                                        <li>Player wins if they roll a
+                                            <select id="dice-win-condition" class="inline-block p-1 border border-gray-300 rounded-md">
+                                                <option value="exact">specific number</option>
+                                                <option value="above">number above threshold</option>
+                                                <option value="below">number below threshold</option>
+                                            </select>
+                                        </li>
+                                        <li>Win threshold:
+                                            <input type="number" id="dice-threshold" min="1" max="6" value="6" class="inline-block p-1 border border-gray-300 rounded-md w-16 text-center">
+                                            (1-6 for standard die)
+                                        </li>
+                                        <li>Payout on win: $<input type="number" id="dice-payout" min="1" value="50" class="inline-block p-1 border border-gray-300 rounded-md w-16 text-center"></li>
+                                    </ul>
+                                </div>
+                                
+                                <div id="other-game-rules" class="hidden">
+                                    <!-- Other game type rules would be displayed here -->
+                                    <textarea id="custom-rules" class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Describe your game rules here..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <button id="calculate-ev" class="pfl-button w-full">Calculate Expected Value</button>
+                            
+                            <div class="mt-4 p-4 bg-indigo-50 rounded-md hidden" id="ev-results">
+                                <h4 class="font-semibold text-indigo-800 mb-2">Expected Value Analysis</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="font-medium">Probability of winning: <span id="win-probability">-</span></p>
+                                        <p class="font-medium">Probability of losing: <span id="loss-probability">-</span></p>
+                                        <p class="font-medium mt-2">Expected value per play: <span id="expected-value" class="text-red-600 font-bold">-</span></p>
+                                        <p class="font-medium">House edge: <span id="house-edge" class="text-green-600 font-bold">-</span></p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-700">If 100 people each play this game 100 times:</p>
+                                        <p class="text-sm text-gray-700">• Casino revenue: <span id="casino-revenue">-</span></p>
+                                        <p class="text-sm text-gray-700">• Average player loss: <span id="player-loss">-</span></p>
+                                        <p class="text-sm text-gray-700 mt-2">This is why casinos can afford lavish facilities and still be profitable businesses!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="font-semibold text-gray-800 mb-2">Making Your Game "Fair"</h3>
+                            <p class="text-gray-700 mb-3">Now try to adjust your game to make it mathematically fair (expected value = 0):</p>
+                            
+                            <div class="p-3 bg-gray-50 rounded-md mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">To make this game fair, I would need to:</label>
+                                <textarea id="fair-game-adjustments" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Describe what changes would make your game mathematically fair..."></textarea>
+                                
+                                <div class="mt-3">
+                                    <p class="text-sm text-gray-700">For example: "I would need to increase the payout to $X" or "I would need to change the winning probability to Y%"</p>
+                                </div>
+                            </div>
+                            
+                            <label class="block text-gray-700 font-medium mb-2">Why don't casinos offer mathematically fair games?</label>
+                            <textarea id="casino-business-reflection" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain the business implications..."></textarea>
+                        </div>
+                        
+                        <button class="pfl-button" onclick="saveStation(2)">
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 3: Gambler's Ruin Simulation -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Gambler's Ruin Simulation</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            In this station, you'll explore the concept of "gambler's ruin" - the mathematical principle that explains why gamblers with finite resources eventually lose when playing against opponents (like casinos) with virtually unlimited resources, even when the game is fair or only slightly unfavorable.
+                        </p>
+                        
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm mb-6">
+                            <h3 class="font-semibold text-gray-800 mb-3">Coin Flip Betting Simulation</h3>
+                            <p class="text-gray-700 mb-4">In this simulation, you'll start with a bankroll and repeatedly bet on fair coin flips. Watch what happens over time:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Starting Bankroll:</label>
+                                    <input type="number" id="starting-bankroll" min="10" value="100" class="w-full p-2 border border-gray-300 rounded-md">
+                                    
+                                    <label class="block text-gray-700 font-medium mt-3 mb-2">Bet Amount Per Flip:</label>
+                                    <input type="number" id="bet-amount" min="1" value="10" class="w-full p-2 border border-gray-300 rounded-md">
+                                    
+                                    <label class="block text-gray-700 font-medium mt-3 mb-2">House Edge (0% = fair game):</label>
+                                    <input type="range" id="house-edge-slider" min="0" max="10" value="0" class="w-full">
+                                    <div class="flex justify-between text-sm text-gray-600">
+                                        <span>0% (Fair)</span>
+                                        <span id="house-edge-display">0%</span>
+                                        <span>10% (Unfair)</span>
+                                    </div>
+                                    
+                                    <button id="run-simulation" class="mt-4 pfl-button w-full">Run Simulation</button>
+                                </div>
+                                
+                                <div>
+                                    <div class="p-3 bg-gray-50 rounded-md h-full">
+                                        <h4 class="font-medium text-gray-800 mb-2">Simulation Results</h4>
+                                        <div id="simulation-stats">
+                                            <p>Bankroll: $<span id="current-bankroll">100</span></p>
+                                            <p>Flips: <span id="flip-count">0</span></p>
+                                            <p>Wins: <span id="win-count">0</span></p>
+                                            <p>Losses: <span id="loss-count">0</span></p>
+                                            <p>Win Rate: <span id="win-rate">0%</span></p>
+                                            <p class="mt-2">Result: <span id="simulation-result" class="font-medium">Ready to start</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="w-full bg-gray-200 h-6 rounded-full overflow-hidden">
+                                    <div id="bankroll-progress" class="bg-green-500 h-full" style="width: 100%"></div>
+                                </div>
+                                <div class="flex justify-between text-sm mt-1">
+                                    <span>$0</span>
+                                    <span id="max-bankroll-display">$100</span>
+                                </div>
+                            </div>
+                            
+                            <div class="simulation-results p-3 bg-gray-50 rounded-md max-h-40 overflow-y-auto mb-3">
+                                <div id="simulation-log" class="text-sm"></div>
+                            </div>
+                            
+                            <button id="reset-simulation" class="text-indigo-600 text-sm hover:text-indigo-800">Reset Simulation</button>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">What patterns did you observe in the simulation?</label>
+                            <textarea id="simulation-observations" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Describe what happened over time in your simulation..."></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">How does this simulation explain why prolonged gambling typically leads to losses?</label>
+                            <textarea id="gamblers-ruin-explanation" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain the gambler's ruin concept based on your simulation..."></textarea>
+                        </div>
+                        
+                        <button class="pfl-button" onclick="saveStation(3)">
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 4: Gambling Decision Analysis -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Gambling Decision Analysis</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            In this station, you'll analyze gambling scenarios that involve both mathematical and psychological factors. You'll evaluate how various cognitive biases affect gambling decisions despite the mathematical realities.
+                        </p>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-800 mb-3">Gambling Decision Scenarios</h3>
+                            <p class="text-gray-700 mb-3">For each scenario, identify both the mathematical factors and psychological factors that might influence the decision:</p>
+                            
+                            <div class="space-y-6">
+                                <!-- Scenario 1 -->
+                                <div class="scenario-card">
+                                    <h4 class="font-medium text-gray-800 mb-2">Scenario 1: The Near Miss</h4>
+                                    <p class="text-gray-700 mb-3">
+                                        Jasmine is playing a slot machine and gets two jackpot symbols and a different symbol on the third reel. The machine highlights the "near miss" with flashing lights and sounds. She feels like she was "so close" to winning and decides to keep playing.
+                                    </p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Mathematical Reality:</label>
+                                            <textarea id="scenario1-math" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain the mathematical reality of this situation..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Psychological Factors:</label>
+                                            <textarea id="scenario1-psych" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Identify psychological biases at play..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Scenario 2 -->
+                                <div class="scenario-card">
+                                    <h4 class="font-medium text-gray-800 mb-2">Scenario 2: The Hot Streak</h4>
+                                    <p class="text-gray-700 mb-3">
+                                        Marcus has won three blackjack hands in a row. He decides to increase his bet for the next hand because he feels he's on a "hot streak" and likely to keep winning.
+                                    </p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Mathematical Reality:</label>
+                                            <textarea id="scenario2-math" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain the mathematical reality of this situation..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Psychological Factors:</label>
+                                            <textarea id="scenario2-psych" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Identify psychological biases at play..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Scenario 3 -->
+                                <div class="scenario-card">
+                                    <h4 class="font-medium text-gray-800 mb-2">Scenario 3: Chasing Losses</h4>
+                                    <p class="text-gray-700 mb-3">
+                                        Elena has lost $300 playing roulette. She decides to withdraw more money and continue playing because she believes she's "due for a win" and wants to recover her losses.
+                                    </p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Mathematical Reality:</label>
+                                            <textarea id="scenario3-math" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain the mathematical reality of this situation..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Psychological Factors:</label>
+                                            <textarea id="scenario3-psych" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Identify psychological biases at play..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">What other cognitive biases might affect gambling decisions, and how could awareness of these help someone make better choices?</label>
+                            <textarea id="cognitive-bias-reflection" class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Discuss other biases and the value of awareness..."></textarea>
+                        </div>
+                        
+                        <button class="pfl-button" onclick="saveStation(4)">
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 5: Responsible Gambling Guidelines -->
+                    <div class="learning-station" id="station5">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">5</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Responsible Gambling Guidelines</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            In this final station, you'll develop a comprehensive set of responsible gambling guidelines based on your understanding of gambling mathematics, psychology, and personal finance principles.
+                        </p>
+                        
+                        <div class="guidelines-builder mb-6">
+                            <h3 class="font-semibold text-gray-800 mb-3">Responsible Gambling Guidelines Builder</h3>
+                            <p class="text-gray-700 mb-4">
+                                Create a set of guidelines that would help someone approach gambling responsibly, considering the mathematical and psychological factors you've learned about today:
+                            </p>
+                            
+                            <div class="space-y-5">
+                                <!-- Financial Guidelines -->
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Financial Guidelines</h4>
+                                    <p class="text-sm text-gray-600 mb-2">
+                                        Consider: budgeting, bankroll management, loss limits, tracking expenses, etc.
+                                    </p>
+                                    <textarea id="financial-guidelines" class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="List your financial guidelines here..."></textarea>
+                                </div>
+                                
+                                <!-- Mathematical Understanding -->
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Mathematical Guidelines</h4>
+                                    <p class="text-sm text-gray-600 mb-2">
+                                        Consider: understanding probability, expected value, house edge, gambler's fallacy, etc.
+                                    </p>
+                                    <textarea id="mathematical-guidelines" class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="List your mathematical guidelines here..."></textarea>
+                                </div>
+                                
+                                <!-- Psychological Considerations -->
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Psychological Guidelines</h4>
+                                    <p class="text-sm text-gray-600 mb-2">
+                                        Consider: acknowledging cognitive biases, emotional regulation, entertainment vs. income perspective, etc.
+                                    </p>
+                                    <textarea id="psychological-guidelines" class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="List your psychological guidelines here..."></textarea>
+                                </div>
+                                
+                                <!-- Time and Social Considerations -->
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Time and Social Guidelines</h4>
+                                    <p class="text-sm text-gray-600 mb-2">
+                                        Consider: time limits, social aspects, accountability, warning signs to watch for, etc.
+                                    </p>
+                                    <textarea id="social-guidelines" class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="List your time and social guidelines here..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Which of these guidelines do you think is the most important and why?</label>
+                            <textarea id="key-guideline-reflection" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain which guideline you believe is most crucial..."></textarea>
+                        </div>
+                        
+                        <button class="pfl-button" onclick="saveStation(5)">
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration Section -->
+                    <section id="portfolio-integration" class="mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">
+                            Now that you've completed all learning stations, it's time to integrate your work into a comprehensive portfolio.
+                        </p>
+                        
+                        <div class="bg-indigo-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-indigo-900 mb-4">Gambling Mathematics Analysis Portfolio</h3>
+                            <p class="text-gray-700 mb-4">
+                                Your portfolio combines all elements from today's Learning Lab into a cohesive analysis:
+                            </p>
+                            
+                            <ul class="list-disc list-inside mb-4 text-gray-700">
+                                <li>Probability calculations from Station 1</li>
+                                <li>Expected value and house edge insights from Station 2</li>
+                                <li>Gambler's ruin understanding from Station 3</li>
+                                <li>Decision analysis from Station 4</li>
+                                <li>Responsible gambling guidelines from Station 5</li>
+                            </ul>
+                            
+                            <p class="text-gray-700 mb-4">
+                                Now, create a one-page summary that synthesizes your learnings into a comprehensive understanding of gambling mathematics and risk.
+                            </p>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">
+                                    Portfolio Summary: Gambling Mathematics and Risk Analysis
+                                </label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="6" data-ai-check="true" data-assessment-weight="4" id="portfolio-summary" placeholder="Create a comprehensive summary that integrates your key learnings about gambling mathematics, probabilities, expected value, psychological factors, and responsible approaches..."></textarea>
+                                <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                            </div>
+                            
+                            <button class="pfl-button" onclick="savePortfolio()">
+                                Complete Portfolio
+                            </button>
+                        </div>
+                    </section>
+                    
+                    <!-- Reflection Section -->
+                    <section id="reflection" class="mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                        
+                        <div class="discussion-prompt">
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                            <p class="text-gray-700 mb-3">
+                                Considering everything you've learned about gambling mathematics, psychology, and responsible approaches, how has your perspective on gambling changed? How might you apply this knowledge to your own decision-making or when discussing gambling with others?
+                            </p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" id="final-reflection" placeholder="Share your thoughts and reflections here..."></textarea>
+                            <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                        </div>
+                        
+                        <div class="flex justify-end mt-8">
+                            <a href="chapter-12-2-day1.html" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center">
+                                Continue to Chapter 12.2: The Costs and Benefits of Gambling
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            station5: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 5) {
+                // If this was the last station, scroll to portfolio integration
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Portfolio completed!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+            element.addEventListener('blur', function() {
+                if (this.value.length > 30) {
+                    const feedback = this.nextElementSibling;
+                    if (feedback && feedback.classList.contains('feedback-container')) {
+                        feedback.textContent = "Good insights! Your response shows understanding of the mathematical principles and psychological factors that influence gambling decisions.";
+                        feedback.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Initialize interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle scenario selection change for probability calculator
+            const scenarioSelect = document.getElementById('gambling-scenario');
+            if (scenarioSelect) {
+                scenarioSelect.addEventListener('change', function() {
+                    const scenario = this.value;
+                    const inputsContainer = document.getElementById('probability-inputs');
+                    
+                    // Update inputs based on scenario
+                    if (scenario === 'dice') {
+                        inputsContainer.innerHTML = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Dice Roll:</strong> Calculate the probability of rolling a specific number on a standard 6-sided die.</p>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Target Number (1-6):</label>
+                                    <input type="number" id="dice-target" min="1" max="6" value="6" class="p-2 border border-gray-300 rounded-md w-full">
+                                </div>
+                            </div>
+                        `;
+                    } else if (scenario === 'cards') {
+                        inputsContainer.innerHTML = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Card Draw:</strong> Calculate the probability of drawing a specific card from a standard 52-card deck.</p>
+                                <div class="mt-2 grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Card Suit:</label>
+                                        <select id="card-suit" class="p-2 border border-gray-300 rounded-md w-full">
+                                            <option value="any">Any Suit</option>
+                                            <option value="specific">Specific Suit</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Card Value:</label>
+                                        <select id="card-value" class="p-2 border border-gray-300 rounded-md w-full">
+                                            <option value="any">Any Value</option>
+                                            <option value="face">Face Card (J,Q,K)</option>
+                                            <option value="specific">Specific Value</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    } else if (scenario === 'roulette') {
+                        inputsContainer.innerHTML = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Roulette:</strong> Calculate the probability of the ball landing on specific outcomes.</p>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Bet Type:</label>
+                                    <select id="roulette-bet" class="p-2 border border-gray-300 rounded-md w-full">
+                                        <option value="single">Single Number (0-36)</option>
+                                        <option value="red">Red</option>
+                                        <option value="black">Black</option>
+                                        <option value="odd">Odd</option>
+                                        <option value="even">Even</option>
+                                        <option value="first18">First 18 Numbers</option>
+                                        <option value="last18">Last 18 Numbers</option>
+                                    </select>
+                                </div>
+                                <div class="mt-2" id="roulette-number-container">
+                                    <label class="block text-gray-700 font-medium mb-1">Target Number (0-36):</label>
+                                    <input type="number" id="roulette-number" min="0" max="36" value="17" class="p-2 border border-gray-300 rounded-md w-full">
+                                </div>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Wheel Type:</label>
+                                    <select id="roulette-wheel" class="p-2 border border-gray-300 rounded-md w-full">
+                                        <option value="american">American (0 and 00)</option>
+                                        <option value="european">European (Single 0)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // Add Roulette-specific event listener
+                        setTimeout(function() {
+                            const rouletteBet = document.getElementById('roulette-bet');
+                            const rouletteNumberContainer = document.getElementById('roulette-number-container');
+                            
+                            if (rouletteBet) {
+                                rouletteBet.addEventListener('change', function() {
+                                    if (this.value === 'single') {
+                                        rouletteNumberContainer.style.display = 'block';
+                                    } else {
+                                        rouletteNumberContainer.style.display = 'none';
+                                    }
+                                });
+                            }
+                        }, 100);
+                    } else if (scenario === 'lottery') {
+                        inputsContainer.innerHTML = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Lottery:</strong> Calculate the probability of winning by matching a specific number of balls.</p>
+                                <div class="mt-2 grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Total Numbers:</label>
+                                        <input type="number" id="lottery-total" min="1" max="99" value="49" class="p-2 border border-gray-300 rounded-md w-full">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Numbers to Draw:</label>
+                                        <input type="number" id="lottery-draw" min="1" max="10" value="6" class="p-2 border border-gray-300 rounded-md w-full">
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Numbers to Match for Win:</label>
+                                    <input type="number" id="lottery-match" min="1" max="10" value="6" class="p-2 border border-gray-300 rounded-md w-full">
+                                </div>
+                            </div>
+                        `;
+                    } else if (scenario === 'slots') {
+                        inputsContainer.innerHTML = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Slot Machine:</strong> Calculate the probability of getting specific symbol combinations.</p>
+                                <div class="mt-2 grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Number of Reels:</label>
+                                        <input type="number" id="slots-reels" min="3" max="5" value="3" class="p-2 border border-gray-300 rounded-md w-full">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Symbols per Reel:</label>
+                                        <input type="number" id="slots-symbols" min="3" max="20" value="10" class="p-2 border border-gray-300 rounded-md w-full">
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Winning Combination:</label>
+                                    <select id="slots-win" class="p-2 border border-gray-300 rounded-md w-full">
+                                        <option value="all">All Matching Symbols</option>
+                                        <option value="specific">Specific Symbol on All Reels</option>
+                                        <option value="partial">Partial Match (First 2 Reels)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+                
+                // Initialize with default scenario
+                scenarioSelect.dispatchEvent(new Event('change'));
+            }
+            // ========== Station 1: Probability Calculator ==========
+            
+            // Handle scenario selection change
+            const scenarioSelect = document.getElementById('gambling-scenario');
+            if (scenarioSelect) {
+                scenarioSelect.addEventListener('change', function() {
+                    updateProbabilityInputs(this.value);
+                });
+                
+                // Initialize with default scenario
+                updateProbabilityInputs(scenarioSelect.value);
+            }
+            
+            // Function to update probability input fields based on scenario
+            function updateProbabilityInputs(scenario) {
+                const inputsContainer = document.getElementById('probability-inputs');
+                let html = '';
+                
+                switch (scenario) {
+                    case 'dice':
+                        html = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Dice Roll:</strong> Calculate the probability of rolling a specific number on a standard 6-sided die.</p>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Target Number (1-6):</label>
+                                    <input type="number" id="dice-target" min="1" max="6" value="6" class="p-2 border border-gray-300 rounded-md w-full">
+                                </div>
+                            </div>
+                        `;
+                        break;
+                    case 'cards':
+                        html = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Card Draw:</strong> Calculate the probability of drawing a specific card from a standard 52-card deck.</p>
+                                <div class="mt-2 grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Card Suit:</label>
+                                        <select id="card-suit" class="p-2 border border-gray-300 rounded-md w-full">
+                                            <option value="any">Any Suit</option>
+                                            <option value="specific">Specific Suit</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Card Value:</label>
+                                        <select id="card-value" class="p-2 border border-gray-300 rounded-md w-full">
+                                            <option value="any">Any Value</option>
+                                            <option value="face">Face Card (J,Q,K)</option>
+                                            <option value="specific">Specific Value</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                    case 'roulette':
+                        html = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Roulette:</strong> Calculate the probability of the ball landing on specific outcomes.</p>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Bet Type:</label>
+                                    <select id="roulette-bet" class="p-2 border border-gray-300 rounded-md w-full">
+                                        <option value="single">Single Number (0-36)</option>
+                                        <option value="red">Red</option>
+                                        <option value="black">Black</option>
+                                        <option value="odd">Odd</option>
+                                        <option value="even">Even</option>
+                                        <option value="first18">First 18 Numbers</option>
+                                        <option value="last18">Last 18 Numbers</option>
+                                    </select>
+                                </div>
+                                <div class="mt-2" id="roulette-number-container">
+                                    <label class="block text-gray-700 font-medium mb-1">Target Number (0-36):</label>
+                                    <input type="number" id="roulette-number" min="0" max="36" value="17" class="p-2 border border-gray-300 rounded-md w-full">
+                                </div>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Wheel Type:</label>
+                                    <select id="roulette-wheel" class="p-2 border border-gray-300 rounded-md w-full">
+                                        <option value="american">American (0 and 00)</option>
+                                        <option value="european">European (Single 0)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                    case 'lottery':
+                        html = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Lottery:</strong> Calculate the probability of winning by matching a specific number of balls.</p>
+                                <div class="mt-2 grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Total Numbers:</label>
+                                        <input type="number" id="lottery-total" min="1" max="99" value="49" class="p-2 border border-gray-300 rounded-md w-full">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Numbers to Draw:</label>
+                                        <input type="number" id="lottery-draw" min="1" max="10" value="6" class="p-2 border border-gray-300 rounded-md w-full">
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Numbers to Match for Win:</label>
+                                    <input type="number" id="lottery-match" min="1" max="10" value="6" class="p-2 border border-gray-300 rounded-md w-full">
+                                </div>
+                            </div>
+                        `;
+                        break;
+                    case 'slots':
+                        html = `
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p><strong>Slot Machine:</strong> Calculate the probability of getting specific symbol combinations.</p>
+                                <div class="mt-2 grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Number of Reels:</label>
+                                        <input type="number" id="slots-reels" min="3" max="5" value="3" class="p-2 border border-gray-300 rounded-md w-full">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Symbols per Reel:</label>
+                                        <input type="number" id="slots-symbols" min="3" max="20" value="10" class="p-2 border border-gray-300 rounded-md w-full">
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label class="block text-gray-700 font-medium mb-1">Winning Combination:</label>
+                                    <select id="slots-win" class="p-2 border border-gray-300 rounded-md w-full">
+                                        <option value="all">All Matching Symbols</option>
+                                        <option value="specific">Specific Symbol on All Reels</option>
+                                        <option value="partial">Partial Match (First 2 Reels)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                }
+                
+                inputsContainer.innerHTML = html;
+                
+                // Add event listeners for sub-options if needed
+                if (scenario === 'roulette') {
+                    const rouletteBet = document.getElementById('roulette-bet');
+                    const rouletteNumberContainer = document.getElementById('roulette-number-container');
+                    
+                    rouletteBet.addEventListener('change', function() {
+                        if (this.value === 'single') {
+                            rouletteNumberContainer.style.display = 'block';
+                        } else {
+                            rouletteNumberContainer.style.display = 'none';
+                        }
+                    });
+                }
+            }
+            
+            // Handle probability calculation
+            const calculateBtn = document.getElementById('calculate-probability');
+            if (calculateBtn) {
+                calculateBtn.addEventListener('click', function() {
+                    const scenario = document.getElementById('gambling-scenario').value;
+                    let probability = 0;
+                    let oddsAgainst = '';
+                    
+                    switch (scenario) {
+                        case 'dice':
+                            const target = parseInt(document.getElementById('dice-target').value);
+                            probability = 1/6; // For a fair die
+                            oddsAgainst = '5 to 1';
+                            break;
+                            
+                        case 'cards':
+                            const cardSuit = document.getElementById('card-suit').value;
+                            const cardValue = document.getElementById('card-value').value;
+                            
+                            if (cardSuit === 'specific' && cardValue === 'specific') {
+                                // Specific card (e.g., Ace of Spades)
+                                probability = 1/52;
+                                oddsAgainst = '51 to 1';
+                            } else if (cardSuit === 'specific' && cardValue === 'face') {
+                                // Face card of specific suit
+                                probability = 3/52; // 3 face cards in one suit
+                                oddsAgainst = '16.33 to 1';
+                            } else if (cardSuit === 'specific' && cardValue === 'any') {
+                                // Any card of specific suit
+                                probability = 13/52; // 13 cards in one suit
+                                oddsAgainst = '3 to 1';
+                            } else if (cardSuit === 'any' && cardValue === 'specific') {
+                                // Specific value, any suit
+                                probability = 4/52; // 4 cards of one value
+                                oddsAgainst = '12 to 1';
+                            } else if (cardSuit === 'any' && cardValue === 'face') {
+                                // Any face card
+                                probability = 12/52; // 12 face cards in deck
+                                oddsAgainst = '3.33 to 1';
+                            } else {
+                                // Any card (guaranteed)
+                                probability = 1;
+                                oddsAgainst = '0 to 1';
+                            }
+                            break;
+                            
+                        case 'roulette':
+                            const rouletteBet = document.getElementById('roulette-bet').value;
+                            const wheelType = document.getElementById('roulette-wheel').value;
+                            const totalPockets = wheelType === 'american' ? 38 : 37; // American: 0,00,1-36, European: 0,1-36
+                            
+                            if (rouletteBet === 'single') {
+                                probability = 1/totalPockets;
+                            } else if (rouletteBet === 'red' || rouletteBet === 'black' || 
+                                      rouletteBet === 'odd' || rouletteBet === 'even' || 
+                                      rouletteBet === 'first18' || rouletteBet === 'last18') {
+                                // These all cover 18 numbers on a standard wheel
+                                probability = 18/totalPockets;
+                            }
+                            
+                            oddsAgainst = ((1/probability) - 1).toFixed(2) + ' to 1';
+                            break;
+                            
+                        case 'lottery':
+                            const totalNumbers = parseInt(document.getElementById('lottery-total').value);
+                            const numbersToDraw = parseInt(document.getElementById('lottery-draw').value);
+                            const numbersToMatch = parseInt(document.getElementById('lottery-match').value);
+                            
+                            // Calculate combinations using factorial function
+                            function factorial(n) {
+                                if (n === 0 || n === 1) return 1;
+                                return n * factorial(n - 1);
+                            }
+                            
+                            function combinations(n, r) {
+                                return factorial(n) / (factorial(r) * factorial(n - r));
+                            }
+                            
+                            // Calculate winning probability
+                            if (numbersToMatch <= numbersToDraw && numbersToDraw <= totalNumbers) {
+                                const totalCombinations = combinations(totalNumbers, numbersToDraw);
+                                probability = 1 / totalCombinations;
+                                
+                                if (numbersToMatch < numbersToDraw) {
+                                    // Partial match calculations would go here
+                                    // This is a simplified version
+                                    probability = combinations(numbersToDraw, numbersToMatch) / totalCombinations;
+                                }
+                            } else {
+                                probability = 0;
+                            }
+                            
+                            oddsAgainst = probability > 0 ? ((1/probability) - 1).toFixed(0) + ' to 1' : 'Impossible';
+                            break;
+                            
+                        case 'slots':
+                            const reels = parseInt(document.getElementById('slots-reels').value);
+                            const symbols = parseInt(document.getElementById('slots-symbols').value);
+                            const winType = document.getElementById('slots-win').value;
+                            
+                            if (winType === 'all' || winType === 'specific') {
+                                // All matching symbols or specific symbol on all reels
+                                probability = Math.pow(1/symbols, reels - 1);
+                                if (winType === 'specific') {
+                                    probability = Math.pow(1/symbols, reels);
+                                }
+                            } else if (winType === 'partial') {
+                                // Partial match (first 2 reels)
+                                probability = Math.pow(1/symbols, 1);
+                            }
+                            
+                            oddsAgainst = ((1/probability) - 1).toFixed(1) + ' to 1';
+                            break;
+                    }
+                    
+                    // Display results with proper formatting
+                    let formattedProbability;
+                    if (probability < 0.0001) {
+                        formattedProbability = probability.toExponential(6) + ' (' + (probability * 100).toExponential(4) + '%)';
+                    } else {
+                        formattedProbability = probability.toFixed(6) + ' (' + (probability * 100).toFixed(4) + '%)';
+                    }
+                    
+                    document.getElementById('probability-value').textContent = formattedProbability;
+                    document.getElementById('odds-value').textContent = '1 to ' + ((1/probability) - 1).toFixed(2);
+                    document.getElementById('odds-against').textContent = oddsAgainst;
+                    
+                    // Update the comparison table
+                    const yourCalcRow = document.getElementById('your-calculation');
+                    yourCalcRow.cells[0].textContent = 'Your calculation (' + document.getElementById('gambling-scenario').options[document.getElementById('gambling-scenario').selectedIndex].text + ')';
+                    yourCalcRow.cells[1].textContent = (probability * 100).toFixed(6) + '%';
+                    yourCalcRow.cells[2].textContent = oddsAgainst;
+                });
+            }
+            
+            // ========== Station 2: Expected Value Casino ==========
+            
+            // Handle game type selection
+            const gameTypeSelect = document.getElementById('game-type');
+            if (gameTypeSelect) {
+                gameTypeSelect.addEventListener('change', function() {
+                    updateGameRules(this.value);
+                });
+            }
+            
+            // Function to update game rules based on game type
+            function updateGameRules(gameType) {
+                const diceRules = document.getElementById('dice-game-rules');
+                const otherRules = document.getElementById('other-game-rules');
+                
+                if (gameType === 'dice') {
+                    diceRules.style.display = 'block';
+                    otherRules.style.display = 'none';
+                } else {
+                    diceRules.style.display = 'none';
+                    otherRules.style.display = 'block';
+                    
+                    // Update custom game rules interface based on game type
+                    let rulesHtml = '';
+                    switch (gameType) {
+                        case 'card':
+                            rulesHtml = `
+                                <p class="text-gray-700 mb-2">In this card game:</p>
+                                <ul class="list-disc list-inside mb-3 text-gray-700">
+                                    <li>Player bets $<input type="number" id="card-bet" min="1" value="10" class="inline-block p-1 border border-gray-300 rounded-md w-16 text-center"> to play</li>
+                                    <li>Player draws
+                                        <select id="card-draw-count" class="inline-block p-1 border border-gray-300 rounded-md">
+                                            <option value="1">1 card</option>
+                                            <option value="2">2 cards</option>
+                                            <option value="5">5 cards</option>
+                                        </select>
+                                        from a standard 52-card deck
+                                    </li>
+                                    <li>Player wins if they draw
+                                        <select id="card-win-condition" class="inline-block p-1 border border-gray-300 rounded-md">
+                                            <option value="specific">a specific card</option>
+                                            <option value="face">any face card</option>
+                                            <option value="suit">any card of a specific suit</option>
+                                            <option value="pair">a pair (when drawing multiple cards)</option>
+                                        </select>
+                                    </li>
+                                    <li>Payout on win: $<input type="number" id="card-payout" min="1" value="40" class="inline-block p-1 border border-gray-300 rounded-md w-16 text-center"></li>
+                                </ul>
+                            `;
+                            break;
+                            
+                        case 'wheel':
+                            rulesHtml = `
+                                <p class="text-gray-700 mb-2">In this wheel spin game:</p>
+                                <ul class="list-disc list-inside mb-3 text-gray-700">
+                                    <li>Player bets $<input type="number" id="wheel-bet" min="1" value="10" class="inline-block p-1 border border-gray-300 rounded-md w-16 text-center"> to play</li>
+                                    <li>The wheel has
+                                        <input type="number" id="wheel-sections" min="2" max="50" value="10" class="inline-block p-1 border border-gray-300 rounded-md w-16 text-center">
+                                        equal sections
+                                    </li>
+                                    <li>Player wins if the wheel lands on
+                                        <input type="number" id="wheel-win-sections" min="1" max="25" value="3" class="inline-block p-1 border border-gray-300 rounded-md w-16 text-center">
+                                        specific sections
+                                    </li>
+                                    <li>Payout on win: $<input type="number" id="wheel-payout" min="1" value="25" class="inline-block p-1 border border-gray-300 rounded-md w-16 text-center"></li>
+                                </ul>
+                            `;
+                            break;
+                            
+                        case 'custom':
+                            rulesHtml = `
+                                <p class="text-gray-700 mb-2">Define your custom game:</p>
+                                <div class="mb-3">
+                                    <label class="block text-gray-700 font-medium mb-1">Game description:</label>
+                                    <textarea id="custom-description" class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Describe your game..."></textarea>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3 mb-3">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Bet amount:</label>
+                                        <input type="number" id="custom-bet" min="1" value="10" class="w-full p-1 border border-gray-300 rounded-md">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Win payout:</label>
+                                        <input type="number" id="custom-payout" min="1" value="30" class="w-full p-1 border border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Win probability (0-1):</label>
+                                    <input type="number" id="custom-probability" min="0.01" max="0.99" step="0.01" value="0.2" class="w-full p-1 border border-gray-300 rounded-md">
+                                    <p class="text-xs text-gray-500 mt-1">Enter a decimal between 0 and 1 (e.g., 0.25 = 25% chance of winning)</p>
+                                </div>
+                            `;
+                            break;
+                    }
+                    
+                    document.getElementById('other-game-rules').innerHTML = rulesHtml;
+                }
+            }
+            
+            // Expected Value Calculator
+            const calculateEV = document.getElementById('calculate-ev');
+            if (calculateEV) {
+                calculateEV.addEventListener('click', function() {
+                    const gameType = document.getElementById('game-type').value;
+                    let betAmount = 0;
+                    let winProb = 0;
+                    let payout = 0;
+                    
+                    // Calculate based on game type
+                    switch (gameType) {
+                        case 'dice':
+                            betAmount = parseFloat(document.getElementById('dice-bet').value);
+                            const winCondition = document.getElementById('dice-win-condition').value;
+                            const threshold = parseInt(document.getElementById('dice-threshold').value);
+                            payout = parseFloat(document.getElementById('dice-payout').value);
+                            
+                            // Calculate probability based on win condition
+                            if (winCondition === 'exact') {
+                                winProb = 1/6; // Probability of rolling exactly the threshold
+                            } else if (winCondition === 'above') {
+                                winProb = (6 - threshold + 1) / 6; // Probability of rolling >= threshold
+                            } else if (winCondition === 'below') {
+                                winProb = threshold / 6; // Probability of rolling <= threshold
+                            }
+                            break;
+                            
+                        case 'card':
+                            betAmount = parseFloat(document.getElementById('card-bet').value);
+                            payout = parseFloat(document.getElementById('card-payout').value);
+                            const cardDrawCount = parseInt(document.getElementById('card-draw-count').value);
+                            const cardWinCondition = document.getElementById('card-win-condition').value;
+                            
+                            // Calculate probability based on win condition
+                            if (cardDrawCount === 1) {
+                                if (cardWinCondition === 'specific') {
+                                    winProb = 1/52; // Specific card
+                                } else if (cardWinCondition === 'face') {
+                                    winProb = 12/52; // Face cards (J, Q, K)
+                                } else if (cardWinCondition === 'suit') {
+                                    winProb = 13/52; // Specific suit
+                                } else {
+                                    winProb = 0; // Can't get a pair with 1 card
+                                }
+                            } else if (cardDrawCount === 2) {
+                                if (cardWinCondition === 'specific') {
+                                    winProb = 2/52; // 2 chances for specific card
+                                } else if (cardWinCondition === 'face') {
+                                    winProb = 1 - (40/52) * (39/51); // Probability of at least 1 face card
+                                } else if (cardWinCondition === 'suit') {
+                                    winProb = 1 - (39/52) * (38/51); // Probability of at least 1 card of specific suit
+                                } else if (cardWinCondition === 'pair') {
+                                    winProb = (13/52) * (3/51); // Probability of getting a pair
+                                }
+                            } else if (cardDrawCount === 5) {
+                                // Simplified probabilities for 5-card draws
+                                if (cardWinCondition === 'specific') {
+                                    winProb = 5/52; // 5 chances for specific card
+                                } else if (cardWinCondition === 'face') {
+                                    winProb = 0.60; // ~60% chance of at least 1 face card in 5 cards
+                                } else if (cardWinCondition === 'suit') {
+                                    winProb = 0.67; // ~67% chance of at least 1 card of specific suit
+                                } else if (cardWinCondition === 'pair') {
+                                    winProb = 0.42; // ~42% chance of at least one pair
+                                }
+                            }
+                            break;
+                            
+                        case 'wheel':
+                            betAmount = parseFloat(document.getElementById('wheel-bet').value);
+                            payout = parseFloat(document.getElementById('wheel-payout').value);
+                            const totalSections = parseInt(document.getElementById('wheel-sections').value);
+                            const winSections = parseInt(document.getElementById('wheel-win-sections').value);
+                            
+                            // Calculate probability of landing on winning sections
+                            winProb = winSections / totalSections;
+                            break;
+                            
+                        case 'custom':
+                            betAmount = parseFloat(document.getElementById('custom-bet').value);
+                            payout = parseFloat(document.getElementById('custom-payout').value);
+                            winProb = parseFloat(document.getElementById('custom-probability').value);
+                            break;
+                    }
+                    
+                    // Calculate expected value and house edge
+                    const lossProb = 1 - winProb;
+                    const expectedValue = (winProb * payout) - (lossProb * betAmount);
+                    const houseEdge = -expectedValue / betAmount * 100;
+                    
+                    // Update display
+                    document.getElementById('win-probability').textContent = (winProb * 100).toFixed(2) + '%';
+                    document.getElementById('loss-probability').textContent = (lossProb * 100).toFixed(2) + '%';
+                    document.getElementById('expected-value').textContent = '$' + expectedValue.toFixed(2) + ' per play';
+                    document.getElementById('house-edge').textContent = houseEdge.toFixed(2) + '%';
+                    
+                    // Show casino revenue and player loss simulations
+                    const casinoRevenue = Math.abs(expectedValue) * 100 * 100; // 100 people playing 100 times
+                    const playerLoss = Math.abs(expectedValue) * 100; // Average player playing 100 times
+                    document.getElementById('casino-revenue').textContent = '$' + casinoRevenue.toFixed(2);
+                    document.getElementById('player-loss').textContent = '$' + playerLoss.toFixed(2);
+                    
+                    // Show results
+                    document.getElementById('ev-results').classList.remove('hidden');
+                });
+            }
+            
+            // ========== Station 3: Gambler's Ruin Simulation ==========
+            
+            let simulationRunning = false;
+            let simInterval = null;
+            
+            // Handle house edge slider updates
+            const houseEdgeSlider = document.getElementById('house-edge-slider');
+            if (houseEdgeSlider) {
+                houseEdgeSlider.addEventListener('input', function() {
+                    document.getElementById('house-edge-display').textContent = this.value + '%';
+                });
+            }
+            
+            // Run simulation
+            const runSimulation = document.getElementById('run-simulation');
+            if (runSimulation) {
+                runSimulation.addEventListener('click', function() {
+                    // Stop any current simulation
+                    if (simulationRunning) {
+                        clearInterval(simInterval);
+                        simulationRunning = false;
+                        this.textContent = 'Run Simulation';
+                        return;
+                    }
+                    
+                    // Start new simulation
+                    const startingBankroll = parseInt(document.getElementById('starting-bankroll').value);
+                    const betAmount = parseInt(document.getElementById('bet-amount').value);
+                    const houseEdge = parseFloat(document.getElementById('house-edge-slider').value) / 100;
+                    
+                    let bankroll = startingBankroll;
+                    let flips = 0;
+                    let wins = 0;
+                    let losses = 0;
+                    const simulationLog = document.getElementById('simulation-log');
+                    
+                    // Reset UI
+                    simulationLog.innerHTML = '';
+                    document.getElementById('current-bankroll').textContent = bankroll;
+                    document.getElementById('flip-count').textContent = flips;
+                    document.getElementById('win-count').textContent = wins;
+                    document.getElementById('loss-count').textContent = losses;
+                    document.getElementById('win-rate').textContent = '0%';
+                    document.getElementById('max-bankroll-display').textContent = '$' + startingBankroll;
+                    document.getElementById('bankroll-progress').style.width = '100%';
+                    document.getElementById('bankroll-progress').className = 'bg-green-500 h-full';
+                    document.getElementById('simulation-result').textContent = 'Simulation running...';
+                    document.getElementById('simulation-result').className = 'font-medium text-blue-600';
+                    
+                    this.textContent = 'Stop Simulation';
+                    simulationRunning = true;
+                    
+                    // Run simulation
+                    simInterval = setInterval(() => {
+                        if (bankroll <= 0 || bankroll >= startingBankroll * 2 || !simulationRunning) {
+                            clearInterval(simInterval);
+                            simulationRunning = false;
+                            runSimulation.textContent = 'Run Simulation';
+                            
+                            if (bankroll <= 0) {
+                                document.getElementById('simulation-result').textContent = 'RUIN! You've lost your entire bankroll.';
+                                document.getElementById('simulation-result').className = 'font-medium text-red-600';
+                            } else if (bankroll >= startingBankroll * 2) {
+                                document.getElementById('simulation-result').textContent = 'SUCCESS! You've doubled your bankroll!';
+                                document.getElementById('simulation-result').className = 'font-medium text-green-600';
+                            } else {
+                                document.getElementById('simulation-result').textContent = 'Simulation stopped.';
+                                document.getElementById('simulation-result').className = 'font-medium text-gray-600';
+                            }
+                            return;
+                        }
+                        
+                        // Simulate flip with house edge
+                        const winProbability = 0.5 - houseEdge;
+                        const actualFlip = Math.random() < winProbability;
+                        
+                        flips++;
+                        if (actualFlip) {
+                            // Win
+                            bankroll += betAmount;
+                            wins++;
+                            simulationLog.innerHTML = `Flip ${flips}: WIN (+$${betAmount}) | Bankroll: $${bankroll}<br>` + simulationLog.innerHTML;
+                        } else {
+                            // Loss
+                            bankroll -= betAmount;
+                            losses++;
+                            simulationLog.innerHTML = `Flip ${flips}: LOSS (-$${betAmount}) | Bankroll: $${bankroll}<br>` + simulationLog.innerHTML;
+                        }
+                        
+                        // Update UI
+                        document.getElementById('current-bankroll').textContent = bankroll;
+                        document.getElementById('flip-count').textContent = flips;
+                        document.getElementById('win-count').textContent = wins;
+                        document.getElementById('loss-count').textContent = losses;
+                        document.getElementById('win-rate').textContent = ((wins / flips) * 100).toFixed(1) + '%';
+                        
+                        // Update progress bar
+                        const progressWidth = (bankroll / startingBankroll) * 100;
+                        document.getElementById('bankroll-progress').style.width = progressWidth + '%';
+                        
+                        // Change color based on bankroll
+                        if (bankroll < startingBankroll / 2) {
+                            document.getElementById('bankroll-progress').className = 'bg-red-500 h-full';
+                        } else if (bankroll < startingBankroll) {
+                            document.getElementById('bankroll-progress').className = 'bg-yellow-500 h-full';
+                        } else {
+                            document.getElementById('bankroll-progress').className = 'bg-green-500 h-full';
+                        }
+                        
+                        // Limit log to avoid performance issues
+                        if (flips > 500) {
+                            clearInterval(simInterval);
+                            simulationRunning = false;
+                            runSimulation.textContent = 'Run Simulation';
+                            document.getElementById('simulation-result').textContent = 'Simulation reached 500 flips. Final bankroll: $' + bankroll;
+                            document.getElementById('simulation-result').className = 'font-medium text-blue-600';
+                        }
+                    }, 100); // Run faster for better UX
+                });
+                
+                // Reset simulation
+                document.getElementById('reset-simulation').addEventListener('click', function() {
+                    // Stop any running simulation
+                    if (simulationRunning) {
+                        clearInterval(simInterval);
+                        simulationRunning = false;
+                        document.getElementById('run-simulation').textContent = 'Run Simulation';
+                    }
+                    
+                    // Reset UI
+                    const startingBankroll = parseInt(document.getElementById('starting-bankroll').value);
+                    document.getElementById('current-bankroll').textContent = startingBankroll;
+                    document.getElementById('flip-count').textContent = '0';
+                    document.getElementById('win-count').textContent = '0';
+                    document.getElementById('loss-count').textContent = '0';
+                    document.getElementById('win-rate').textContent = '0%';
+                    document.getElementById('simulation-log').innerHTML = '';
+                    document.getElementById('simulation-result').textContent = 'Ready to start';
+                    document.getElementById('simulation-result').className = 'font-medium';
+                    document.getElementById('bankroll-progress').style.width = '100%';
+                    document.getElementById('bankroll-progress').className = 'bg-green-500 h-full';
+                    document.getElementById('max-bankroll-display').textContent = '$' + startingBankroll;
+                });
+            }
+            
+            // Initialize game type selector for Station 2
+            const gameTypeSelect = document.getElementById('game-type');
+            if (gameTypeSelect) {
+                gameTypeSelect.dispatchEvent(new Event('change'));
+            }
+            
+            // Initialize house edge slider display for Station 3
+            const houseEdgeSlider = document.getElementById('house-edge-slider');
+            if (houseEdgeSlider) {
+                document.getElementById('house-edge-display').textContent = houseEdgeSlider.value + '%';
+            }
+            
+            // Highlight active section in navigation based on scroll position
+            const sections = document.querySelectorAll('#learning-objectives, #introduction, #station1, #station2, #station3, #station4, #station5, #portfolio-integration, #reflection');
+            const navLinks = document.querySelectorAll('#section-navigation a');
+            
+            function highlightActiveSection() {
+                const scrollPosition = window.scrollY;
+                
+                // First reset all links
+                navLinks.forEach(link => {
+                    link.classList.remove('text-indigo-700', 'font-medium');
+                    link.classList.add('text-gray-700');
+                });
+                
+                // Find current section
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const section = sections[i];
+                    const sectionTop = section.offsetTop - 100;
+                    
+                    if (scrollPosition >= sectionTop) {
+                        const sectionId = section.getAttribute('id');
+                        const correspondingLink = document.querySelector(`a[href="#${sectionId}"]`);
+                        
+                        if (correspondingLink) {
+                            correspondingLink.classList.remove('text-gray-700');
+                            correspondingLink.classList.add('text-indigo-700', 'font-medium');
+                        }
+                        break;
+                    }
+                }
+            }
+            
+            // Update highlighting on scroll
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

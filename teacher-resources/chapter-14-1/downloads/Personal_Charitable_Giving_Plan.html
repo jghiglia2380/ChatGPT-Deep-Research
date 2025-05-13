@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Charitable Giving Plan Worksheet</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .subsection {
+            margin-bottom: 20px;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        textarea {
+            min-height: 100px;
+        }
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+        .checkbox-item {
+            margin-bottom: 5px;
+        }
+        .example {
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-left: 3px solid #3498db;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .tips {
+            background-color: #f8f9d7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+            .print-button {
+                display: none;
+            }
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+    
+    <h1>Personal Charitable Giving Plan Worksheet</h1>
+    
+    <div class="section">
+        <h2>1. Cause/Organization Selection</h2>
+        
+        <div class="field">
+            <label for="cause">What cause or issue are you passionate about?</label>
+            <input type="text" id="cause" name="cause">
+        </div>
+        
+        <div class="field">
+            <label for="cause-reason">Why is this cause important to you?</label>
+            <textarea id="cause-reason" name="cause-reason"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="organization">Specific organization(s) you might support (if known):</label>
+            <input type="text" id="organization" name="organization">
+        </div>
+        
+        <div class="tips">
+            <strong>Tips:</strong> Choose a cause that genuinely matters to you. Your giving will be more meaningful and sustainable when it connects to your personal values and interests.
+        </div>
+        
+        <div class="example">
+            <strong>Example:</strong> I'm passionate about education access for underserved communities because I believe education is the foundation for opportunity and social mobility. I might support the local tutoring program at Washington Community Center that provides free academic support to students from low-income families.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>2. Type of Contribution</h2>
+        
+        <div class="field">
+            <label>What type(s) of contribution do you plan to make? (Check all that apply)</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="monetary" name="contribution-type">
+                    <label for="monetary">Monetary donation</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="volunteering" name="contribution-type">
+                    <label for="volunteering">Volunteering (time)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="in-kind" name="contribution-type">
+                    <label for="in-kind">In-kind donation (goods or services)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="planned" name="contribution-type">
+                    <label for="planned">Planned giving (future arrangements)</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <h3>Details for each contribution type:</h3>
+            
+            <div class="field" id="monetary-details" style="display: block;">
+                <label for="monetary-amount">Monetary Donation Details:</label>
+                <textarea id="monetary-amount" name="monetary-amount" placeholder="Specify amount, frequency (one-time, monthly, etc.), and method of giving (direct donation, crowdfunding, etc.)"></textarea>
+            </div>
+            
+            <div class="field" id="volunteer-details" style="display: block;">
+                <label for="volunteer-time">Volunteering Details:</label>
+                <textarea id="volunteer-time" name="volunteer-time" placeholder="Specify hours per week/month, type of activities, specific role, or skills offered"></textarea>
+            </div>
+            
+            <div class="field" id="in-kind-details" style="display: block;">
+                <label for="in-kind-details">In-Kind Donation Details:</label>
+                <textarea id="in-kind-details" name="in-kind-details" placeholder="Specify what goods or services you plan to donate, how often, and estimated value"></textarea>
+            </div>
+            
+            <div class="field" id="planned-details" style="display: block;">
+                <label for="planned-details">Planned Giving Details:</label>
+                <textarea id="planned-details" name="planned-details" placeholder="Specify any future giving arrangements you're considering"></textarea>
+            </div>
+        </div>
+        
+        <div class="tips">
+            <strong>Tips:</strong> Consider a combination of different contribution types based on your resources and skills. Even small monetary donations, when paired with volunteering, can create significant impact.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>3. Giving Goals</h2>
+        
+        <div class="field">
+            <label for="short-term">Short-term goals (next 3-6 months):</label>
+            <textarea id="short-term" name="short-term"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="long-term">Long-term goals (next 1-5 years):</label>
+            <textarea id="long-term" name="long-term"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="impact">What impact do you hope your contributions will make?</label>
+            <textarea id="impact" name="impact"></textarea>
+        </div>
+        
+        <div class="tips">
+            <strong>Tips:</strong> Set SMART goals that are Specific, Measurable, Achievable, Relevant, and Time-bound. For example, "Volunteer 4 hours per month at the food bank for the next six months" is more actionable than "Volunteer when I have time."
+        </div>
+        
+        <div class="example">
+            <strong>Example Goals:</strong>
+            <ul>
+                <li>Short-term: Donate $15 monthly to the local education foundation and volunteer twice per month as a tutor at Washington Community Center</li>
+                <li>Long-term: Increase my giving to 3% of my income after graduation and organize an annual fundraiser for education access</li>
+                <li>Impact: Help provide academic support to at least 10 students this year, contributing to improved academic outcomes and confidence</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>4. Giving Strategy Explanation</h2>
+        
+        <div class="field">
+            <label for="strategy">Write a paragraph explaining your giving strategy, including:</label>
+            <ul>
+                <li>Why you chose this particular cause</li>
+                <li>How you plan to contribute</li>
+                <li>What impact you hope to make</li>
+                <li>How this plan fits into your overall financial or personal goals</li>
+            </ul>
+            <textarea id="strategy" name="strategy" style="min-height: 150px;"></textarea>
+        </div>
+        
+        <div class="tips">
+            <strong>Tips:</strong> Your explanation should reflect thoughtful consideration of your values, resources, and intended impact. Consider how your giving strategy might evolve as your circumstances change.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>5. Implementation Plan</h2>
+        
+        <div class="field">
+            <label for="next-steps">What specific actions will you take in the next 30 days to begin implementing your giving plan?</label>
+            <textarea id="next-steps" name="next-steps"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="barriers">What potential barriers might you face, and how will you overcome them?</label>
+            <textarea id="barriers" name="barriers"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="review">When and how will you review and adjust your giving plan?</label>
+            <textarea id="review" name="review"></textarea>
+        </div>
+        
+        <div class="tips">
+            <strong>Tips:</strong> Begin with small, achievable steps that you can build upon. Schedule regular reviews of your giving plan to assess its effectiveness and make adjustments as needed.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>6. Reflection</h2>
+        
+        <div class="field">
+            <label for="alignment">How does this giving plan align with your personal values and priorities?</label>
+            <textarea id="alignment" name="alignment"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="benefit">How might this giving plan benefit you personally while also benefiting others?</label>
+            <textarea id="benefit" name="benefit"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="evolution">How might your giving plan evolve over time as your circumstances change?</label>
+            <textarea id="evolution" name="evolution"></textarea>
+        </div>
+    </div>
+    
+    <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+
+</body>
+</html>

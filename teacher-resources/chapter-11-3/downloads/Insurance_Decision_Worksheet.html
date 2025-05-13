@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Decision Worksheet - Chapter 11.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .decision-section {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        
+        .decision-section {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-box {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+        
+        .scenario-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tip-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-header {
+            display: none;
+        }
+        
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            text-align: center;
+        }
+        
+        .comparison-table th:first-child, .comparison-table td:first-child {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Insurance Decision Worksheet</h1>
+        <p>Chapter 11.3: Managing Insurance Costs</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+
+    <h1>Insurance Decision Worksheet</h1>
+    <p><strong>Chapter 11.3: Managing Insurance Costs</strong></p>
+
+    <h2>Decision Framework for Selecting Insurance</h2>
+    <p>This worksheet provides a systematic approach to making insurance decisions by analyzing your needs, comparing options, and evaluating costs.</p>
+
+    <div class="info-box">
+        <h3>How to Use This Worksheet</h3>
+        <ol>
+            <li>Complete each section in order</li>
+            <li>Be specific about your personal situation and needs</li>
+            <li>Use actual numbers when comparing costs</li>
+            <li>Consider both financial and non-financial factors</li>
+            <li>Revisit your decisions periodically as circumstances change</li>
+        </ol>
+    </div>
+
+    <div class="decision-section">
+        <h3>Step 1: Needs Assessment</h3>
+        <p>Begin by clarifying what risks you need to protect against and what coverage is most important to you.</p>
+        
+        <h4>Insurance Type: <span class="input-field" style="display: inline-block; min-width: 200px;"></span></h4>
+        
+        <table>
+            <tr>
+                <th>Key Questions</th>
+                <th>Your Response</th>
+            </tr>
+            <tr>
+                <td>What specific risks do you need to protect against?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>What assets or liabilities need protection?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>What is your current financial situation? (Emergency fund, income, savings)</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>What is your risk tolerance? (Low, medium, high)</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>What is your monthly budget for insurance?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>What special coverage needs do you have?</td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h4>Priority Ranking</h4>
+        <p>Rank the following aspects of insurance from 1 (most important) to 5 (least important) for your situation:</p>
+        
+        <table>
+            <tr>
+                <td>Low monthly premium costs</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Low out-of-pocket costs when using insurance</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Comprehensive coverage with few exclusions</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Customer service quality and claim handling</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Network size/access (for health insurance) or company reputation</td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="decision-section">
+        <h3>Step 2: Plan Comparison</h3>
+        <p>Compare at least three different insurance options based on your needs assessment.</p>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Features</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+            </tr>
+            <tr>
+                <td>Insurance Provider/Company</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Plan/Policy Name</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Monthly Premium</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Annual Premium Total</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Deductible</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Co-payment/Co-insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Out-of-pocket Maximum</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Coverage Limits</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Key Exclusions</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Special Features/Benefits</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Network Coverage (if applicable)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Company Ratings/Reviews</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="decision-section">
+        <h3>Step 3: Scenario Analysis</h3>
+        <p>Calculate potential costs under different usage scenarios to understand the financial impact of each option.</p>
+        
+        <div class="scenario-box">
+            <h4>Scenario 1: Minimal Usage</h4>
+            <p>Assume minimal use of insurance during the year (e.g., routine preventive care only, no claims).</p>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Cost Category</th>
+                    <th>Option 1</th>
+                    <th>Option 2</th>
+                    <th>Option 3</th>
+                </tr>
+                <tr>
+                    <td>Annual Premium</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Estimated Out-of-pocket Costs</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total Annual Cost</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="scenario-box">
+            <h4>Scenario 2: Moderate Usage</h4>
+            <p>Assume moderate use of insurance during the year (e.g., several doctor visits, minor procedure, or small claim).</p>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Cost Category</th>
+                    <th>Option 1</th>
+                    <th>Option 2</th>
+                    <th>Option 3</th>
+                </tr>
+                <tr>
+                    <td>Annual Premium</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Estimated Out-of-pocket Costs</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total Annual Cost</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="scenario-box">
+            <h4>Scenario 3: Heavy Usage</h4>
+            <p>Assume heavy use of insurance during the year (e.g., major procedure, hospitalization, or significant claim).</p>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Cost Category</th>
+                    <th>Option 1</th>
+                    <th>Option 2</th>
+                    <th>Option 3</th>
+                </tr>
+                <tr>
+                    <td>Annual Premium</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Estimated Out-of-pocket Costs</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total Annual Cost</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="scenario-box">
+            <h4>Scenario Analysis Summary</h4>
+            <p>Based on your scenario analysis, which option provides the best overall value considering the likelihood of each scenario?</p>
+            <div class="input-field" style="min-height: 80px;"></div>
+        </div>
+    </div>
+
+    <div class="decision-section">
+        <h3>Step 4: Non-Financial Considerations</h3>
+        <p>Evaluate important factors beyond cost that may influence your decision.</p>
+        
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+            </tr>
+            <tr>
+                <td>Company Reputation/Reliability</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Customer Service Quality</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Ease of Claims Process</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Convenience Factors</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Access to Preferred Providers</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Special Features or Benefits</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h4>Overall Non-Financial Assessment</h4>
+        <p>Considering the non-financial factors, which option best meets your needs and preferences?</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+    </div>
+
+    <div class="decision-section">
+        <h3>Step 5: Decision and Implementation</h3>
+        <p>Based on your analysis, make your final decision and outline implementation steps.</p>
+        
+        <h4>Final Decision</h4>
+        <p>Which option have you selected and why? Include the key factors that influenced your decision.</p>
+        <div class="input-field" style="min-height: 100px;"></div>
+        
+        <h4>Implementation Plan</h4>
+        <p>List the specific steps you'll take to implement your decision:</p>
+        <ol>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+        </ol>
+        
+        <h4>Review Timeline</h4>
+        <p>When will you review this decision to ensure it still meets your needs?</p>
+        <div class="input-field"></div>
+        
+        <h4>Cost-Saving Strategies</h4>
+        <p>What specific cost-saving strategies will you implement alongside your chosen insurance plan?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="tip-box">
+        <h3>Decision-Making Tips</h3>
+        <ul>
+            <li><strong>Be realistic about usage:</strong> Consider your past history and anticipated future needs when evaluating scenarios.</li>
+            <li><strong>Factor in your financial situation:</strong> Your emergency fund and financial stability should influence your deductible choice.</li>
+            <li><strong>Consider tax advantages:</strong> For health insurance, remember HSA eligibility can provide tax benefits with high-deductible plans.</li>
+            <li><strong>Look beyond price:</strong> The cheapest option may not provide the best value or protection.</li>
+            <li><strong>Check for discounts:</strong> Many insurers offer multiple discounts that can significantly reduce premiums.</li>
+            <li><strong>Read the fine print:</strong> Pay attention to exclusions, limitations, and special conditions.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Chapter 11.3: Managing Insurance Costs | Insurance Decision Worksheet</p>
+        <p>Page 1 of 1</p>
+    </div>
+    
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+</body>
+</html>

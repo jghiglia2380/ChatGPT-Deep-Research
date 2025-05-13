@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Service Provider Research Worksheet - Chapter 3.1</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Worksheet specific styles */
+        .worksheet-section {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            background-color: #f9fafb;
+        }
+        
+        .instructions {
+            background-color: #e6f0ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .provider-form {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            margin-bottom: 12px;
+        }
+        
+        .form-row label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .form-row input[type="text"],
+        .form-row textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .form-row textarea {
+            min-height: 60px;
+        }
+        
+        .service-checklist {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-item input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        
+        .resource-links {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            .worksheet-section { break-inside: avoid; }
+            .provider-form { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>To save as PDF:</strong> Open this page in Chrome, Edge, or Firefox. Click on Print (Ctrl+P or Cmd+P), 
+        then select "Save as PDF" as the destination. Click "Save" and choose where to save the file on your computer.</p>
+    </div>
+    
+    <div class="header">
+        <h1>Financial Service Provider Research Worksheet</h1>
+        <p><strong>Chapter 3.1:</strong> Understanding Financial Service Providers</p>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Instructions</h2>
+        
+        <div class="instructions">
+            <p><strong>Research Assignment:</strong> In this activity, you will research and compare financial service providers to better understand their offerings, fees, and features. This research will help you make informed recommendations in later activities.</p>
+            
+            <p><strong>Steps:</strong></p>
+            <ol>
+                <li>Select a type of financial service provider to research (bank, credit union, etc.)</li>
+                <li>Choose 2-3 specific providers of that type to compare</li>
+                <li>Complete a research form for each provider</li>
+                <li>Create a comparison summary highlighting key differences</li>
+            </ol>
+        </div>
+        
+        <div class="resource-links">
+            <p><strong>Helpful Research Resources:</strong></p>
+            <ul>
+                <li>Provider websites (look for "About Us," "Products & Services," "Fees," and "Account Types" sections)</li>
+                <li>Consumer review sites (Nerdwallet, Bankrate, Consumer Reports)</li>
+                <li>Government resources (FDIC, NCUA, Consumer Financial Protection Bureau)</li>
+                <li>Financial comparison tools (checking account comparison sites, loan rate finders)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Provider Type</h2>
+        
+        <p>Select the type of financial service provider you're researching:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 15px 0;">
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="type-bank" name="provider-type" value="bank">
+                <label for="type-bank" style="margin-left: 5px;">Traditional Bank</label>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="type-cu" name="provider-type" value="credit-union">
+                <label for="type-cu" style="margin-left: 5px;">Credit Union</label>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="type-insurance" name="provider-type" value="insurance">
+                <label for="type-insurance" style="margin-left: 5px;">Insurance Company</label>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="type-mortgage" name="provider-type" value="mortgage">
+                <label for="type-mortgage" style="margin-left: 5px;">Mortgage Company</label>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="type-investment" name="provider-type" value="investment">
+                <label for="type-investment" style="margin-left: 5px;">Investment Firm</label>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="type-brokerage" name="provider-type" value="brokerage">
+                <label for="type-brokerage" style="margin-left: 5px;">Stock Brokerage Firm</label>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="type-online" name="provider-type" value="online">
+                <label for="type-online" style="margin-left: 5px;">Online/Digital Bank</label>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="type-other" name="provider-type" value="other">
+                <label for="type-other" style="margin-left: 5px;">Other: </label>
+                <input type="text" style="width: 100px; margin-left: 5px; padding: 2px; border: 1px solid #d1d5db; border-radius: 4px;">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Provider 1 -->
+    <div class="worksheet-section">
+        <h2>Provider 1</h2>
+        
+        <div class="provider-form">
+            <div class="form-row">
+                <label for="provider1-name">Provider Name:</label>
+                <input type="text" id="provider1-name">
+            </div>
+            
+            <div class="form-row">
+                <label for="provider1-website">Website:</label>
+                <input type="text" id="provider1-website">
+            </div>
+            
+            <div class="form-row">
+                <label>Services Offered:</label>
+                <div class="service-checklist">
+                    <div class="service-item">
+                        <input type="checkbox" id="provider1-checking">
+                        <label for="provider1-checking">Checking Accounts</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider1-savings">
+                        <label for="provider1-savings">Savings Accounts</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider1-creditcards">
+                        <label for="provider1-creditcards">Credit Cards</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider1-loans">
+                        <label for="provider1-loans">Personal Loans</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider1-mortgages">
+                        <label for="provider1-mortgages">Mortgages</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider1-retirement">
+                        <label for="provider1-retirement">Retirement Accounts</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider1-investment">
+                        <label for="provider1-investment">Investment Services</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider1-insurance">
+                        <label for="provider1-insurance">Insurance Products</label>
+                    </div>
+                </div>
+                <div style="margin-top: 5px;">
+                    <label for="provider1-otherservices">Other Services:</label>
+                    <input type="text" id="provider1-otherservices">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider1-fees">Fee Structure:</label>
+                <textarea id="provider1-fees" placeholder="Describe monthly maintenance fees, ATM fees, overdraft fees, etc."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider1-requirements">Minimum Requirements:</label>
+                <textarea id="provider1-requirements" placeholder="Describe minimum balance requirements, credit score requirements, membership eligibility, etc."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider1-accessibility">Accessibility:</label>
+                <textarea id="provider1-accessibility" placeholder="Describe physical locations, online/mobile banking options, ATM network, customer service hours, etc."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider1-unique">Unique Features or Benefits:</label>
+                <textarea id="provider1-unique" placeholder="Describe any special programs, rewards, or features that make this provider stand out."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider1-reviews">Customer Reviews/Ratings:</label>
+                <textarea id="provider1-reviews" placeholder="Summarize customer reviews or ratings you found online."></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Provider 2 -->
+    <div class="worksheet-section">
+        <h2>Provider 2</h2>
+        
+        <div class="provider-form">
+            <div class="form-row">
+                <label for="provider2-name">Provider Name:</label>
+                <input type="text" id="provider2-name">
+            </div>
+            
+            <div class="form-row">
+                <label for="provider2-website">Website:</label>
+                <input type="text" id="provider2-website">
+            </div>
+            
+            <div class="form-row">
+                <label>Services Offered:</label>
+                <div class="service-checklist">
+                    <div class="service-item">
+                        <input type="checkbox" id="provider2-checking">
+                        <label for="provider2-checking">Checking Accounts</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider2-savings">
+                        <label for="provider2-savings">Savings Accounts</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider2-creditcards">
+                        <label for="provider2-creditcards">Credit Cards</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider2-loans">
+                        <label for="provider2-loans">Personal Loans</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider2-mortgages">
+                        <label for="provider2-mortgages">Mortgages</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider2-retirement">
+                        <label for="provider2-retirement">Retirement Accounts</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider2-investment">
+                        <label for="provider2-investment">Investment Services</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider2-insurance">
+                        <label for="provider2-insurance">Insurance Products</label>
+                    </div>
+                </div>
+                <div style="margin-top: 5px;">
+                    <label for="provider2-otherservices">Other Services:</label>
+                    <input type="text" id="provider2-otherservices">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider2-fees">Fee Structure:</label>
+                <textarea id="provider2-fees" placeholder="Describe monthly maintenance fees, ATM fees, overdraft fees, etc."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider2-requirements">Minimum Requirements:</label>
+                <textarea id="provider2-requirements" placeholder="Describe minimum balance requirements, credit score requirements, membership eligibility, etc."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider2-accessibility">Accessibility:</label>
+                <textarea id="provider2-accessibility" placeholder="Describe physical locations, online/mobile banking options, ATM network, customer service hours, etc."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider2-unique">Unique Features or Benefits:</label>
+                <textarea id="provider2-unique" placeholder="Describe any special programs, rewards, or features that make this provider stand out."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider2-reviews">Customer Reviews/Ratings:</label>
+                <textarea id="provider2-reviews" placeholder="Summarize customer reviews or ratings you found online."></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Provider 3 (Optional) -->
+    <div class="worksheet-section">
+        <h2>Provider 3 (Optional)</h2>
+        
+        <div class="provider-form">
+            <div class="form-row">
+                <label for="provider3-name">Provider Name:</label>
+                <input type="text" id="provider3-name">
+            </div>
+            
+            <div class="form-row">
+                <label for="provider3-website">Website:</label>
+                <input type="text" id="provider3-website">
+            </div>
+            
+            <div class="form-row">
+                <label>Services Offered:</label>
+                <div class="service-checklist">
+                    <div class="service-item">
+                        <input type="checkbox" id="provider3-checking">
+                        <label for="provider3-checking">Checking Accounts</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider3-savings">
+                        <label for="provider3-savings">Savings Accounts</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider3-creditcards">
+                        <label for="provider3-creditcards">Credit Cards</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider3-loans">
+                        <label for="provider3-loans">Personal Loans</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider3-mortgages">
+                        <label for="provider3-mortgages">Mortgages</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider3-retirement">
+                        <label for="provider3-retirement">Retirement Accounts</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider3-investment">
+                        <label for="provider3-investment">Investment Services</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="provider3-insurance">
+                        <label for="provider3-insurance">Insurance Products</label>
+                    </div>
+                </div>
+                <div style="margin-top: 5px;">
+                    <label for="provider3-otherservices">Other Services:</label>
+                    <input type="text" id="provider3-otherservices">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider3-fees">Fee Structure:</label>
+                <textarea id="provider3-fees" placeholder="Describe monthly maintenance fees, ATM fees, overdraft fees, etc."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider3-requirements">Minimum Requirements:</label>
+                <textarea id="provider3-requirements" placeholder="Describe minimum balance requirements, credit score requirements, membership eligibility, etc."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider3-accessibility">Accessibility:</label>
+                <textarea id="provider3-accessibility" placeholder="Describe physical locations, online/mobile banking options, ATM network, customer service hours, etc."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider3-unique">Unique Features or Benefits:</label>
+                <textarea id="provider3-unique" placeholder="Describe any special programs, rewards, or features that make this provider stand out."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label for="provider3-reviews">Customer Reviews/Ratings:</label>
+                <textarea id="provider3-reviews" placeholder="Summarize customer reviews or ratings you found online."></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Comparison Summary -->
+    <div class="worksheet-section">
+        <h2>Comparison Summary</h2>
+        
+        <p>Based on your research, summarize the key differences between the providers you researched.</p>
+        
+        <div class="form-row">
+            <label for="comparison-strengths">Key Strengths of Each Provider:</label>
+            <textarea id="comparison-strengths" rows="5"></textarea>
+        </div>
+        
+        <div class="form-row">
+            <label for="comparison-weaknesses">Key Weaknesses of Each Provider:</label>
+            <textarea id="comparison-weaknesses" rows="5"></textarea>
+        </div>
+        
+        <div class="form-row">
+            <label for="comparison-bestfor">Best Provider For:</label>
+            <textarea id="comparison-bestfor" rows="4" placeholder="Describe which provider would be best for different types of customers or financial needs."></textarea>
+        </div>
+        
+        <div class="form-row">
+            <label for="comparison-surprises">Surprising Findings:</label>
+            <textarea id="comparison-surprises" rows="3" placeholder="Describe anything that surprised you or challenged your assumptions during your research."></textarea>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy © 2025 | Chapter 3.1: Understanding Financial Service Providers</p>
+    </div>
+</body>
+</html>

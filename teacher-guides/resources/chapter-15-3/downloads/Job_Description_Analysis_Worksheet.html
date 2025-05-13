@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Description Analysis Worksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4a86e8;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2c5aa0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        
+        .instructions {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4a86e8;
+            margin-bottom: 25px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f6fd;
+        }
+        
+        .category {
+            width: 30%;
+            font-weight: bold;
+        }
+        
+        .notes {
+            width: 70%;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        
+        .highlight-box {
+            background-color: #e8f0fe;
+            border: 1px solid #4a86e8;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .tips {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .tips h3 {
+            margin-top: 0;
+            color: #2c5aa0;
+        }
+        
+        .tips ul {
+            margin-bottom: 0;
+        }
+        
+        .compatibility-rating {
+            margin-top: 15px;
+        }
+        
+        .compatibility-rating label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .print-button {
+            background-color: #4a86e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #3a76d8;
+        }
+        
+        @media print {
+            .no-print {
+                display: none;
+            }
+            
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            
+            .header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            textarea {
+                border: none;
+                height: auto;
+                min-height: 60px;
+            }
+            
+            .instructions {
+                border-left: 2px solid #4a86e8;
+                padding: 10px;
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Job Description Analysis Worksheet</h1>
+        <p>Use this worksheet to analyze job descriptions and identify key requirements, qualifications, and keywords for effective application tailoring.</p>
+    </div>
+    
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Paste the complete job description in the designated area</li>
+            <li>Identify and categorize key components including required qualifications, preferred qualifications, responsibilities, and keywords</li>
+            <li>Assess your compatibility with the position based on your analysis</li>
+            <li>Identify specific qualifications to highlight in your application materials</li>
+            <li>Complete the application tailoring strategy for this position</li>
+        </ol>
+    </div>
+    
+    <div class="section">
+        <h2>Job Information</h2>
+        <table>
+            <tr>
+                <td class="category">Position Title:</td>
+                <td class="notes"><textarea placeholder="Enter the exact job title as listed"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Company:</td>
+                <td class="notes"><textarea placeholder="Enter the company name"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Location:</td>
+                <td class="notes"><textarea placeholder="Enter job location (including remote options)"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Date Posted:</td>
+                <td class="notes"><textarea placeholder="Enter when the job was posted"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Application Deadline:</td>
+                <td class="notes"><textarea placeholder="Enter the deadline (if provided)"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Salary/Benefits:</td>
+                <td class="notes"><textarea placeholder="Enter any compensation information provided"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>Complete Job Description</h2>
+        <textarea style="height: 200px;" placeholder="Paste the complete job description here"></textarea>
+    </div>
+    
+    <div class="section">
+        <h2>Required Qualifications</h2>
+        <p>List all stated requirements that appear to be mandatory for the position.</p>
+        <table>
+            <tr>
+                <th>Qualification</th>
+                <th>Do I Meet This?</th>
+                <th>Evidence/Examples</th>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Required qualification 1"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="partial">Partially</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidence from your experience or education"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Required qualification 2"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="partial">Partially</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidence from your experience or education"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Required qualification 3"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="partial">Partially</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidence from your experience or education"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Required qualification 4"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="partial">Partially</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidence from your experience or education"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Required qualification 5"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="partial">Partially</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidence from your experience or education"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>Preferred Qualifications</h2>
+        <p>List qualifications that would strengthen your application but are not absolutely required.</p>
+        <table>
+            <tr>
+                <th>Qualification</th>
+                <th>Do I Meet This?</th>
+                <th>Evidence/Examples</th>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Preferred qualification 1"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="partial">Partially</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidence from your experience or education"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Preferred qualification 2"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="partial">Partially</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidence from your experience or education"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Preferred qualification 3"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="partial">Partially</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidence from your experience or education"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>Key Responsibilities</h2>
+        <p>List the main duties and responsibilities of the position.</p>
+        <table>
+            <tr>
+                <th>Responsibility</th>
+                <th>Relevant Experience</th>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsibility 1"></textarea></td>
+                <td><textarea placeholder="Your relevant experience with this responsibility"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsibility 2"></textarea></td>
+                <td><textarea placeholder="Your relevant experience with this responsibility"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsibility 3"></textarea></td>
+                <td><textarea placeholder="Your relevant experience with this responsibility"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsibility 4"></textarea></td>
+                <td><textarea placeholder="Your relevant experience with this responsibility"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsibility 5"></textarea></td>
+                <td><textarea placeholder="Your relevant experience with this responsibility"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>Keywords & Phrases</h2>
+        <p>Identify important keywords and phrases that appear in the job description. These should be incorporated into your application materials.</p>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Keywords/Phrases</th>
+            </tr>
+            <tr>
+                <td>Hard Skills<br><small>(technical abilities)</small></td>
+                <td><textarea placeholder="List technical skills mentioned (e.g., programming languages, software, methodologies)"></textarea></td>
+            </tr>
+            <tr>
+                <td>Soft Skills<br><small>(interpersonal abilities)</small></td>
+                <td><textarea placeholder="List soft skills mentioned (e.g., communication, teamwork, leadership)"></textarea></td>
+            </tr>
+            <tr>
+                <td>Industry-Specific Terms</td>
+                <td><textarea placeholder="List industry jargon or specialized terminology"></textarea></td>
+            </tr>
+            <tr>
+                <td>Credentials & Qualifications</td>
+                <td><textarea placeholder="List degrees, certifications, or specific credentials mentioned"></textarea></td>
+            </tr>
+            <tr>
+                <td>Repeated Terms<br><small>(appearing multiple times)</small></td>
+                <td><textarea placeholder="List terms that appear multiple times throughout the description"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>Company Culture & Values</h2>
+        <p>Identify any mentions of company culture, values, or work environment that should inform your application.</p>
+        <textarea style="height: 100px;" placeholder="Note any mentions of company values, culture, or work environment (e.g., fast-paced, collaborative, innovative)"></textarea>
+    </div>
+    
+    <div class="section highlight-box">
+        <h2>Overall Position Compatibility Assessment</h2>
+        <p>Based on your analysis, evaluate your overall fit for this position:</p>
+        
+        <div class="compatibility-rating">
+            <label>Required Qualifications Match:</label>
+            <select style="width: 50%">
+                <option value="">Select compatibility level</option>
+                <option value="excellent">Excellent (90-100%)</option>
+                <option value="strong">Strong (75-89%)</option>
+                <option value="moderate">Moderate (60-74%)</option>
+                <option value="limited">Limited (below 60%)</option>
+            </select>
+        </div>
+        
+        <div class="compatibility-rating">
+            <label>Preferred Qualifications Match:</label>
+            <select style="width: 50%">
+                <option value="">Select compatibility level</option>
+                <option value="excellent">Excellent (90-100%)</option>
+                <option value="strong">Strong (75-89%)</option>
+                <option value="moderate">Moderate (60-74%)</option>
+                <option value="limited">Limited (below 60%)</option>
+            </select>
+        </div>
+        
+        <div class="compatibility-rating">
+            <label>Overall Position Fit:</label>
+            <select style="width: 50%">
+                <option value="">Select overall fit</option>
+                <option value="excellent">Excellent - High Priority Application</option>
+                <option value="good">Good - Worth Applying</option>
+                <option value="fair">Fair - Consider Applying</option>
+                <option value="poor">Poor - Not Recommended</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Application Tailoring Strategy</h2>
+        <table>
+            <tr>
+                <td class="category">Top Strengths to Highlight:</td>
+                <td class="notes"><textarea placeholder="List 3-5 of your strongest qualifications that align with this position"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Experience to Emphasize:</td>
+                <td class="notes"><textarea placeholder="Note specific experiences that should be featured prominently"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Potential Gaps to Address:</td>
+                <td class="notes"><textarea placeholder="Identify any gaps between requirements and your qualifications, and strategies to address them"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Resume Customization Notes:</td>
+                <td class="notes"><textarea placeholder="Specific changes to make to your resume for this position"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Cover Letter Focus:</td>
+                <td class="notes"><textarea placeholder="Key points to emphasize in your cover letter"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="tips">
+        <h3>Analysis Tips:</h3>
+        <ul>
+            <li><strong>Required vs. Preferred:</strong> Look for language like "must have," "required," or "essential" vs. "preferred," "desired," or "a plus."</li>
+            <li><strong>Qualification Assessment:</strong> Be honest about your qualifications; this helps you prepare for interviews and identify areas for growth.</li>
+            <li><strong>Cultural Fit:</strong> Pay attention to language about work style, team dynamics, and company values.</li>
+            <li><strong>Application Decision:</strong> Consider applying if you meet 70-80% of the required qualifications, even if you don't meet all preferred qualifications.</li>
+            <li><strong>Resume Tailoring:</strong> Use this analysis to customize your resume, featuring the most relevant experiences and incorporating key terms.</li>
+        </ul>
+    </div>
+    
+    <button class="print-button no-print" onclick="window.print()">Print/Save as PDF</button>
+</body>
+</html>

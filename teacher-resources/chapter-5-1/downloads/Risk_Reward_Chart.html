@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk-Reward Spectrum Chart - Chapter 5.1</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #F3F4F6;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .spectrum-container {
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .spectrum {
+            height: 60px;
+            background: linear-gradient(to right, #10B981, #FBBF24, #EF4444);
+            border-radius: 5px;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .spectrum-labels {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .spectrum-marker {
+            position: absolute;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            top: -40px;
+        }
+        
+        .marker-dot {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 2px solid #4F46E5;
+            border-radius: 50%;
+        }
+        
+        .marker-line {
+            width: 2px;
+            height: 20px;
+            background-color: #4F46E5;
+        }
+        
+        .marker-label {
+            font-weight: bold;
+            color: #4F46E5;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            text-align: center;
+            max-width: 150px;
+        }
+        
+        .investment-card {
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: white;
+            overflow: hidden;
+        }
+        
+        .investment-header {
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        
+        .investment-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #4F46E5;
+        }
+        
+        .risk-indicator {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .risk-low {
+            background-color: #10B981;
+        }
+        
+        .risk-medium-low {
+            background-color: #22D3EE;
+        }
+        
+        .risk-medium {
+            background-color: #FBBF24;
+        }
+        
+        .risk-medium-high {
+            background-color: #F97316;
+        }
+        
+        .risk-high {
+            background-color: #EF4444;
+        }
+        
+        .investment-body {
+            padding: 15px;
+        }
+        
+        .investment-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .metric {
+            flex: 1;
+            min-width: 120px;
+            background-color: #F9FAFB;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .metric-title {
+            font-size: 0.8rem;
+            color: #6B7280;
+            margin-bottom: 5px;
+        }
+        
+        .metric-value {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #1F2937;
+        }
+        
+        .diversification-diagram {
+            margin: 30px 0;
+            position: relative;
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        
+        .portfolio-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto;
+            background: conic-gradient(
+                #10B981 0% 40%,
+                #3B82F6 40% 70%,
+                #FBBF24 70% 85%,
+                #EF4444 85% 95%,
+                #8B5CF6 95% 100%
+            );
+            position: relative;
+        }
+        
+        .portfolio-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #4F46E5;
+        }
+        
+        .portfolio-legend {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+        
+        .volatility-chart {
+            margin: 30px 0;
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        
+        .volatility-lines {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            border-left: 1px solid #E5E7EB;
+            border-bottom: 1px solid #E5E7EB;
+            position: relative;
+            margin: 20px 0;
+            padding-bottom: 30px;
+        }
+        
+        .volatility-line {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+        }
+        
+        .time-axis {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+        
+        .time-marker {
+            position: relative;
+        }
+        
+        .time-marker::before {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            height: 10px;
+            width: 1px;
+            background-color: #E5E7EB;
+        }
+        
+        .market-line {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .cash-line {
+            background-color: #10B981;
+            height: 2px;
+            margin-top: 19px;
+        }
+        
+        .bonds-line {
+            background-color: #22D3EE;
+            height: 30px;
+            clip-path: polygon(0% 50%, 10% 40%, 20% 60%, 30% 45%, 40% 55%, 50% 35%, 60% 50%, 70% 45%, 80% 60%, 90% 45%, 100% 50%);
+        }
+        
+        .stocks-line {
+            background-color: #EF4444;
+            height: 40px;
+            clip-path: polygon(0% 50%, 5% 20%, 10% 70%, 20% 30%, 30% 80%, 40% 20%, 50% 60%, 60% 10%, 70% 90%, 80% 30%, 90% 70%, 95% 20%, 100% 50%);
+        }
+        
+        .line-labels {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .line-label {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .line-color {
+            width: 15px;
+            height: 5px;
+            margin-right: 5px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend landscape orientation for charts)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Risk-Reward Spectrum Chart</h1>
+        <p class="subtitle">Chapter 5.1: Saving and Investing</p>
+    </div>
+
+    <h2>Understanding the Risk-Reward Relationship</h2>
+    <p>In the world of saving and investing, risk and reward are closely related. Generally, investments with higher potential returns come with higher levels of risk, while safer options typically offer lower returns. This relationship is fundamental to making informed financial decisions based on your goals, time horizon, and personal risk tolerance.</p>
+
+    <div class="important-note">
+        <strong>Why This Matters:</strong> Understanding where different financial vehicles fall on the risk-reward spectrum helps you make appropriate choices for your specific goals. Higher-risk investments may be suitable for long-term goals when you have time to weather market volatility, while lower-risk options are better for short-term needs and emergency funds.
+    </div>
+
+    <h2>The Risk-Reward Spectrum</h2>
+    
+    <div class="spectrum-container">
+        <div class="spectrum-labels">
+            <div>Lower Risk / Lower Potential Return</div>
+            <div>Higher Risk / Higher Potential Return</div>
+        </div>
+        
+        <div class="spectrum">
+            <!-- Cash/Savings -->
+            <div class="spectrum-marker" style="left: 5%;">
+                <div class="marker-label">Cash & Savings</div>
+                <div class="marker-dot"></div>
+                <div class="marker-line"></div>
+            </div>
+            
+            <!-- CDs -->
+            <div class="spectrum-marker" style="left: 15%;">
+                <div class="marker-label">CDs</div>
+                <div class="marker-dot"></div>
+                <div class="marker-line"></div>
+            </div>
+            
+            <!-- Government Bonds -->
+            <div class="spectrum-marker" style="left: 25%;">
+                <div class="marker-label">Government Bonds</div>
+                <div class="marker-dot"></div>
+                <div class="marker-line"></div>
+            </div>
+            
+            <!-- Corporate Bonds -->
+            <div class="spectrum-marker" style="left: 40%;">
+                <div class="marker-label">Corporate Bonds</div>
+                <div class="marker-dot"></div>
+                <div class="marker-line"></div>
+            </div>
+            
+            <!-- Balanced Funds -->
+            <div class="spectrum-marker" style="left: 50%;">
+                <div class="marker-label">Balanced Funds</div>
+                <div class="marker-dot"></div>
+                <div class="marker-line"></div>
+            </div>
+            
+            <!-- Blue Chip Stocks -->
+            <div class="spectrum-marker" style="left: 65%;">
+                <div class="marker-label">Blue Chip Stocks</div>
+                <div class="marker-dot"></div>
+                <div class="marker-line"></div>
+            </div>
+            
+            <!-- Small Cap Stocks -->
+            <div class="spectrum-marker" style="left: 80%;">
+                <div class="marker-label">Small Cap Stocks</div>
+                <div class="marker-dot"></div>
+                <div class="marker-line"></div>
+            </div>
+            
+            <!-- Cryptocurrencies -->
+            <div class="spectrum-marker" style="left: 95%;">
+                <div class="marker-label">Cryptocurrencies</div>
+                <div class="marker-dot"></div>
+                <div class="marker-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Common Investment Types: Risk-Return Profiles</h2>
+    
+    <div class="investment-card">
+        <div class="investment-header">
+            <div class="investment-title">Savings Accounts</div>
+            <div class="risk-indicator risk-low">Very Low Risk</div>
+        </div>
+        <div class="investment-body">
+            <p>Savings accounts are among the safest places to keep your money. They offer guaranteed principal protection (up to FDIC limits) and immediate access to your funds.</p>
+            <div class="investment-metrics">
+                <div class="metric">
+                    <div class="metric-title">Typical Return</div>
+                    <div class="metric-value">0.01-3%</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Liquidity</div>
+                    <div class="metric-value">Very High</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Minimum Timeframe</div>
+                    <div class="metric-value">None</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Principal Protection</div>
+                    <div class="metric-value">FDIC Insured</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="investment-card">
+        <div class="investment-header">
+            <div class="investment-title">Certificates of Deposit (CDs)</div>
+            <div class="risk-indicator risk-low">Low Risk</div>
+        </div>
+        <div class="investment-body">
+            <p>CDs are time deposits that typically offer slightly higher interest rates than savings accounts in exchange for committing your money for a fixed period. Early withdrawal usually incurs penalties.</p>
+            <div class="investment-metrics">
+                <div class="metric">
+                    <div class="metric-title">Typical Return</div>
+                    <div class="metric-value">0.5-5%</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Liquidity</div>
+                    <div class="metric-value">Low</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Minimum Timeframe</div>
+                    <div class="metric-value">1 month-5 years</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Principal Protection</div>
+                    <div class="metric-value">FDIC Insured</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="investment-card">
+        <div class="investment-header">
+            <div class="investment-title">U.S. Treasury Bonds</div>
+            <div class="risk-indicator risk-medium-low">Low-Medium Risk</div>
+        </div>
+        <div class="investment-body">
+            <p>Treasury bonds, notes, and bills are debt securities issued by the U.S. government. They're considered among the safest investments because they're backed by the "full faith and credit" of the U.S. government.</p>
+            <div class="investment-metrics">
+                <div class="metric">
+                    <div class="metric-title">Typical Return</div>
+                    <div class="metric-value">1-5%</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Liquidity</div>
+                    <div class="metric-value">Medium</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Minimum Timeframe</div>
+                    <div class="metric-value">4 weeks-30 years</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Principal Risk</div>
+                    <div class="metric-value">Interest Rate Risk</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="investment-card">
+        <div class="investment-header">
+            <div class="investment-title">Corporate Bonds</div>
+            <div class="risk-indicator risk-medium">Medium Risk</div>
+        </div>
+        <div class="investment-body">
+            <p>Corporate bonds are debt securities issued by corporations to raise capital. They typically offer higher yields than government bonds but come with greater risk since companies can default on their obligations.</p>
+            <div class="investment-metrics">
+                <div class="metric">
+                    <div class="metric-title">Typical Return</div>
+                    <div class="metric-value">3-8%</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Liquidity</div>
+                    <div class="metric-value">Medium</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Minimum Timeframe</div>
+                    <div class="metric-value">2-5 years</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Principal Risk</div>
+                    <div class="metric-value">Default Risk, Interest Rate Risk</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="investment-card">
+        <div class="investment-header">
+            <div class="investment-title">Blue Chip Stocks</div>
+            <div class="risk-indicator risk-medium-high">Medium-High Risk</div>
+        </div>
+        <div class="investment-body">
+            <p>Blue chip stocks are shares in large, well-established companies with a history of stable performance. While they can be volatile in the short term, they've historically provided solid long-term returns.</p>
+            <div class="investment-metrics">
+                <div class="metric">
+                    <div class="metric-title">Typical Return</div>
+                    <div class="metric-value">7-10% (long-term)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Liquidity</div>
+                    <div class="metric-value">High</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Recommended Timeframe</div>
+                    <div class="metric-value">5+ years</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Volatility</div>
+                    <div class="metric-value">Moderate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="investment-card">
+        <div class="investment-header">
+            <div class="investment-title">Small Cap Stocks</div>
+            <div class="risk-indicator risk-high">High Risk</div>
+        </div>
+        <div class="investment-body">
+            <p>Small cap stocks are shares in companies with relatively small market capitalizations. These companies often have greater growth potential but also higher volatility and risk of failure compared to larger companies.</p>
+            <div class="investment-metrics">
+                <div class="metric">
+                    <div class="metric-title">Typical Return</div>
+                    <div class="metric-value">9-12% (long-term)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Liquidity</div>
+                    <div class="metric-value">Medium-High</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Recommended Timeframe</div>
+                    <div class="metric-value">7+ years</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Volatility</div>
+                    <div class="metric-value">High</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Managing Risk Through Diversification</h2>
+    <p>One of the most effective strategies for managing investment risk is diversification—spreading your money across different types of investments to reduce the impact of any single investment's performance on your overall portfolio.</p>
+    
+    <div class="diversification-diagram">
+        <h3 style="text-align: center; margin-top: 0;">Sample Diversified Portfolio</h3>
+        
+        <div class="portfolio-circle">
+            <div class="portfolio-center">Diversified Portfolio</div>
+        </div>
+        
+        <div class="portfolio-legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #10B981;"></div>
+                <div>Large Cap Stocks (40%)</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #3B82F6;"></div>
+                <div>Bonds (30%)</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #FBBF24;"></div>
+                <div>International Stocks (15%)</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #EF4444;"></div>
+                <div>Small Cap Stocks (10%)</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #8B5CF6;"></div>
+                <div>Cash (5%)</div>
+            </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 20px;">A diversified portfolio helps reduce risk by including assets that may perform differently under various economic conditions.</p>
+    </div>
+
+    <h2>Understanding Market Volatility</h2>
+    <p>Volatility refers to the degree to which an investment's value fluctuates over time. Higher volatility means more dramatic price swings, which can be stressful for investors but may also offer greater potential returns.</p>
+    
+    <div class="volatility-chart">
+        <h3 style="text-align: center; margin-top: 0;">Comparison of Price Volatility</h3>
+        
+        <div class="volatility-lines">
+            <div class="market-line cash-line"></div>
+            <div class="market-line bonds-line"></div>
+            <div class="market-line stocks-line"></div>
+            
+            <div class="time-axis">
+                <div class="time-marker">Year 1</div>
+                <div class="time-marker">Year 2</div>
+                <div class="time-marker">Year 3</div>
+                <div class="time-marker">Year 4</div>
+                <div class="time-marker">Year 5</div>
+            </div>
+        </div>
+        
+        <div class="line-labels">
+            <div class="line-label">
+                <div class="line-color" style="background-color: #10B981;"></div>
+                <div>Cash (Low Volatility)</div>
+            </div>
+            <div class="line-label">
+                <div class="line-color" style="background-color: #22D3EE;"></div>
+                <div>Bonds (Medium Volatility)</div>
+            </div>
+            <div class="line-label">
+                <div class="line-color" style="background-color: #EF4444;"></div>
+                <div>Stocks (High Volatility)</div>
+            </div>
+        </div>
+        
+        <p style="text-align: center;">This simplified chart illustrates how the value of different asset classes might fluctuate over time. While stocks show the most dramatic ups and downs, they have historically provided the highest returns over long periods.</p>
+    </div>
+
+    <h2>Risk, Time Horizon, and Investment Selection</h2>
+    <p>Your time horizon—the length of time until you need to access your money—should heavily influence your risk tolerance and investment choices. Generally, the longer your time horizon, the more risk you can afford to take.</p>
+    
+    <table>
+        <tr>
+            <th>Time Horizon</th>
+            <th>Recommended Risk Level</th>
+            <th>Typical Asset Allocation</th>
+            <th>Rationale</th>
+        </tr>
+        <tr>
+            <td>Short-Term<br>(0-2 years)</td>
+            <td>Very Low to Low</td>
+            <td>Cash, High-yield savings, Short-term CDs, Treasury bills</td>
+            <td>Principal protection is critical; no time to recover from market downturns</td>
+        </tr>
+        <tr>
+            <td>Medium-Term<br>(2-5 years)</td>
+            <td>Low to Medium</td>
+            <td>Mix of cash, CDs, bonds, and possibly some conservative stock funds</td>
+            <td>Some growth needed with moderate stability; limited time to recover from major downturns</td>
+        </tr>
+        <tr>
+            <td>Long-Term<br>(5-10 years)</td>
+            <td>Medium to Medium-High</td>
+            <td>Balanced portfolio with significant stock allocation, bonds, and minimal cash</td>
+            <td>Growth is important; sufficient time to recover from market cycles</td>
+        </tr>
+        <tr>
+            <td>Very Long-Term<br>(10+ years)</td>
+            <td>Medium-High to High</td>
+            <td>Predominantly stocks with some bonds; minimal cash holdings</td>
+            <td>Maximize growth potential; ample time to ride out market volatility</td>
+        </tr>
+    </table>
+
+    <h2>Determining Your Risk Tolerance</h2>
+    <p>Your risk tolerance is your personal comfort level with investment uncertainty and potential losses. It's influenced by your financial situation, knowledge, experience, and psychological factors. Here are some questions to help assess your risk tolerance:</p>
+    
+    <ol>
+        <li><strong>How would you react if your investments suddenly lost 20% of their value?</strong>
+            <ul>
+                <li>Sell everything immediately (Very Low Risk Tolerance)</li>
+                <li>Sell some investments to reduce further losses (Low Risk Tolerance)</li>
+                <li>Hold steady and wait for recovery (Medium Risk Tolerance)</li>
+                <li>See it as an opportunity to buy more at lower prices (High Risk Tolerance)</li>
+            </ul>
+        </li>
+        <li><strong>When making financial decisions, do you prioritize:?</strong>
+            <ul>
+                <li>Avoiding losses at all costs (Very Low Risk Tolerance)</li>
+                <li>Preserving capital with modest growth (Low Risk Tolerance)</li>
+                <li>Balancing growth with security (Medium Risk Tolerance)</li>
+                <li>Maximizing long-term growth (High Risk Tolerance)</li>
+            </ul>
+        </li>
+        <li><strong>How long can you comfortably leave your money invested without needing to access it?</strong>
+            <ul>
+                <li>Less than 1 year (Very Low Risk Tolerance)</li>
+                <li>1-3 years (Low Risk Tolerance)</li>
+                <li>3-10 years (Medium Risk Tolerance)</li>
+                <li>10+ years (High Risk Tolerance)</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <div class="important-note">
+        <strong>Remember:</strong> Your risk tolerance may change over time as your financial situation, knowledge, goals, and life circumstances evolve. Regular reassessment of your risk tolerance is an important part of maintaining an appropriate investment strategy throughout your life.
+    </div>
+
+    <h2>Key Risk-Reward Principles</h2>
+    <ol>
+        <li><strong>The risk-reward relationship is fundamental</strong> - Generally, higher potential returns require accepting higher risk</li>
+        <li><strong>Time horizon significantly impacts appropriate risk levels</strong> - Longer timeframes can help mitigate the effects of short-term volatility</li>
+        <li><strong>Diversification can reduce overall portfolio risk</strong> - Different asset classes often respond differently to economic conditions</li>
+        <li><strong>Personal risk tolerance should guide investment decisions</strong> - The "best" investment strategy is one you can stick with through market cycles</li>
+        <li><strong>The balance between risk and security evolves</strong> - Investment allocations should generally become more conservative as goals approach</li>
+    </ol>
+
+    <footer>
+        <p>PFL Academy - Chapter 5.1: Saving and Investing</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not financial advice.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Accountability System Designer</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            margin-top: 25px;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .instructions {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .example {
+            background-color: #f0f9ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #2ecc71;
+            font-style: italic;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .table th {
+            background-color: #f2f2f2;
+        }
+        
+        .table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+        }
+        
+        textarea {
+            height: 100px;
+        }
+        
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-item {
+            margin-bottom: 5px;
+        }
+        
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .note {
+            background-color: #fef9e7;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 4px solid #f1c40f;
+        }
+        
+        @media print {
+            .print-button {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .section {
+                break-inside: avoid;
+            }
+            
+            input[type="text"], textarea, select {
+                border: 1px solid #ddd !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+        
+        <h1>Career Accountability System Designer</h1>
+        
+        <div class="instructions">
+            <p><strong>Purpose:</strong> This worksheet will help you design a personalized accountability system to keep your career development goals on track. An effective accountability system combines regular progress tracking, meaningful rewards, support from others, and strategies to overcome obstacles.</p>
+            <p><strong>Instructions:</strong> Complete each section thoughtfully to create a comprehensive accountability structure that works with your personality, preferences, and specific career goals. This system should motivate and support you in achieving your short, medium, and long-term career objectives.</p>
+        </div>
+        
+        <div class="section">
+            <h2>1. Goal Clarity & Commitment</h2>
+            
+            <div class="form-group">
+                <label>Primary Career Goal:</label>
+                <input type="text" placeholder="E.g., Become a certified web developer within 18 months">
+            </div>
+            
+            <div class="form-group">
+                <label>Why this goal matters to me (Your "Why"):</label>
+                <textarea placeholder="Describe why this goal is personally meaningful and important to you..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Key milestones to reach this goal:</label>
+                <textarea placeholder="List 3-5 specific, measurable milestones on the path to your goal..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>My public commitment statement:</label>
+                <textarea placeholder="Write a clear statement of your commitment that you could share with accountability partners..."></textarea>
+            </div>
+            
+            <div class="note">
+                <p><strong>Tip:</strong> Research shows that publicly declaring your goals increases the likelihood of achievement. Consider who you will share your commitment with and how specific you'll be about your intentions.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>2. Progress Tracking System</h2>
+            
+            <div class="form-group">
+                <label>Tracking method(s) I will use (check all that apply):</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="digital-tracker">
+                        <label for="digital-tracker" style="display: inline;">Digital goal tracker app/software</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="physical-journal">
+                        <label for="physical-journal" style="display: inline;">Physical journal or planner</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="visual-board">
+                        <label for="visual-board" style="display: inline;">Visual board/chart</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="calendar">
+                        <label for="calendar" style="display: inline;">Calendar system with deadlines</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="spreadsheet">
+                        <label for="spreadsheet" style="display: inline;">Spreadsheet</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="other-tracker">
+                        <label for="other-tracker" style="display: inline;">Other:</label>
+                        <input type="text" style="width: 300px; display: inline-block;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Specific metrics/data points I will track:</label>
+                <textarea placeholder="List the specific items you'll measure (e.g., hours spent studying, courses completed, skills mastered, networking contacts made)..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Tracking frequency:</label>
+                <select>
+                    <option value="">Select frequency</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="bi-weekly">Bi-weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="custom">Custom schedule</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Regular review process (when and how you'll evaluate progress):</label>
+                <textarea placeholder="Describe your process for reviewing progress and making adjustments..."></textarea>
+            </div>
+            
+            <div class="example">
+                <p><strong>Example:</strong> I will use a combination of a digital habit tracker app for daily activities and a monthly reflection journal. I'll track daily study hours, weekly coding projects completed, monthly networking events attended, and skills mastered. Every Sunday evening, I'll spend 20 minutes reviewing my weekly progress, and on the last day of each month, I'll conduct a more comprehensive review to assess overall progress toward milestones and make adjustments as needed.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>3. Accountability Partnerships</h2>
+            
+            <div class="form-group">
+                <label>Potential accountability partners:</label>
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Relationship</th>
+                        <th>How They'll Support Me</th>
+                        <th>Check-in Frequency</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="form-group">
+                <label>What I expect from my accountability partners:</label>
+                <textarea placeholder="Describe the specific ways your partners can hold you accountable (e.g., check-ins, feedback, encouragement)..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>What I will offer my accountability partners in return:</label>
+                <textarea placeholder="How you plan to support them in their goals (reciprocity increases commitment)..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Groups or communities I will join for additional support:</label>
+                <textarea placeholder="List online or in-person groups related to your career goals..."></textarea>
+            </div>
+            
+            <div class="note">
+                <p><strong>Tip:</strong> The most effective accountability partnerships involve clear expectations, regular check-ins, and honest feedback. Choose partners who will be supportive but also willing to challenge you when needed.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>4. Reward & Consequence System</h2>
+            
+            <h3>Milestone Rewards</h3>
+            <div class="form-group">
+                <table class="table">
+                    <tr>
+                        <th>Milestone</th>
+                        <th>Reward</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Milestone 1"></td>
+                        <td><input type="text" placeholder="Reward for achieving this milestone"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Milestone 2"></td>
+                        <td><input type="text" placeholder="Reward for achieving this milestone"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Milestone 3"></td>
+                        <td><input type="text" placeholder="Reward for achieving this milestone"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Milestone 4"></td>
+                        <td><input type="text" placeholder="Reward for achieving this milestone"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Final Goal Achievement"></td>
+                        <td><input type="text" placeholder="Major reward for achieving your goal"></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Mini-Rewards for Process Consistency</h3>
+            <div class="form-group">
+                <textarea placeholder="List small, frequent rewards for consistent progress (e.g., 'After completing my daily study goal for 5 consecutive days, I'll...')"></textarea>
+            </div>
+            
+            <h3>Constructive Consequences</h3>
+            <div class="form-group">
+                <label>If I miss key deadlines or commitments, I will:</label>
+                <textarea placeholder="List meaningful but constructive consequences that will motivate you to stay on track..."></textarea>
+            </div>
+            
+            <div class="example">
+                <p><strong>Example:</strong> If I miss my weekly coding project deadline, I will donate $20 to charity and add an extra hour of practice the following week. I'll also send a detailed explanation to my accountability partner about what went wrong and my plan to get back on track.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>5. Obstacle Prevention & Management</h2>
+            
+            <div class="form-group">
+                <label>Potential obstacles to achieving my goals:</label>
+                <textarea placeholder="List the most likely obstacles you may encounter..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Proactive strategies to prevent common obstacles:</label>
+                <textarea placeholder="Describe preventive measures you can take to minimize these obstacles..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>My plan for getting back on track after setbacks:</label>
+                <textarea placeholder="Outline specific steps you'll take if you encounter setbacks..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Motivation renewal strategies when enthusiasm wanes:</label>
+                <textarea placeholder="List techniques to renew your motivation (e.g., reviewing your 'why', watching inspiring videos)..."></textarea>
+            </div>
+            
+            <div class="note">
+                <p><strong>Tip:</strong> Anticipating obstacles and having specific plans to address them significantly increases your chances of long-term success. This "if-then" planning approach has been shown to improve goal achievement by up to 300% in some studies.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>6. Environment Design</h2>
+            
+            <div class="form-group">
+                <label>Physical environment changes to support my goals:</label>
+                <textarea placeholder="Describe how you'll set up your physical space to facilitate progress (e.g., dedicated workspace, visual reminders)..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Digital environment adjustments:</label>
+                <textarea placeholder="List changes to your digital environment (e.g., app blockers, notification settings, desktop organization)..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Social environment considerations:</label>
+                <textarea placeholder="Describe how you'll manage your social environment to support your goals (e.g., communicating needs to family, spending time with supportive peers)..."></textarea>
+            </div>
+            
+            <div class="example">
+                <p><strong>Example:</strong> I will create a dedicated study space in the spare bedroom with all necessary resources organized and accessible. I'll set up website blockers on my computer during designated study hours and create a "do not disturb" notification setting. I've explained my goals to my roommates and asked them to respect my study hours on Tuesday and Thursday evenings and Saturday mornings.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>7. Progress Celebration & Reflection System</h2>
+            
+            <div class="form-group">
+                <label>How I'll celebrate progress (beyond rewards):</label>
+                <textarea placeholder="Describe how you'll acknowledge and celebrate progress (e.g., reflection journal, progress gallery, sharing accomplishments)..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Regular reflection questions:</label>
+                <textarea placeholder="List 3-5 questions you'll ask yourself during regular reviews (e.g., 'What worked well this week?', 'What did I learn about myself?')..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>How I'll document learnings and insights:</label>
+                <textarea placeholder="Describe your system for capturing important lessons and insights..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Plan for quarterly system review and adjustment:</label>
+                <textarea placeholder="Outline how you'll periodically review and improve your accountability system..."></textarea>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>8. My Complete Accountability System Summary</h2>
+            
+            <div class="form-group">
+                <label>Daily accountability actions:</label>
+                <textarea placeholder="List the specific accountability actions you'll take daily..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Weekly accountability actions:</label>
+                <textarea placeholder="List the specific accountability actions you'll take weekly..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Monthly accountability actions:</label>
+                <textarea placeholder="List the specific accountability actions you'll take monthly..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Quarterly accountability actions:</label>
+                <textarea placeholder="List the specific accountability actions you'll take quarterly..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>My accountability system commitment:</label>
+                <textarea placeholder="Write a statement committing to implementing this accountability system..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Start date:</label>
+                <input type="text" placeholder="When will you begin implementing this system?">
+            </div>
+            
+            <div class="form-group">
+                <label>First review date:</label>
+                <input type="text" placeholder="When will you conduct your first system review?">
+            </div>
+        </div>
+        
+        <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+</body>
+</html>

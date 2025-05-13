@@ -1,0 +1,1695 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 10.3: Understanding Home Buying - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 max-h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 10: Housing and Transportation</h2>
+                <p class="text-gray-600 mb-4">This standard explores housing options, evaluating costs and benefits of renting vs. buying, and understanding factors that impact housing and transportation decisions.</p>
+            </div>
+            
+            <!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-10-3-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Previous chapters with checkmarks -->
+                <li>
+                    <a href="chapter-10-1-day2.html" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        Chapter 10.1: Renting vs. Owning
+                    </a>
+                </li>
+                <li>
+                    <a href="chapter-10-2-day2.html" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        Chapter 10.2: Understanding Renting
+                    </a>
+                </li>
+                
+                <!-- Current chapter expanded -->
+                <li>
+                    <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                        <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                        Chapter 10.3: Understanding Home Buying
+                    </a>
+                    <ul class="ml-6 mt-1 space-y-1">
+                        <li>
+                            <a href="chapter-10-3-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                <span class="mr-2">→</span>
+                                Day 1: Content Guide
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                <span class="mr-2">↓</span>
+                                Day 2: Learning Lab
+                            </a>
+                            <!-- Section Navigation -->
+                            <ul class="ml-6 mt-1 space-y-1">
+                                <li>
+                                    <a href="#learning-objectives" class="text-xs flex items-center py-1 text-indigo-700 font-medium">
+                                        <span class="mr-2">•</span>
+                                        Learning Objectives
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#intro" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                        <span class="mr-2">•</span>
+                                        Introduction
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                        <span class="mr-2">•</span>
+                                        Mortgage Option Analysis
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                        <span class="mr-2">•</span>
+                                        True Cost of Homeownership
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                        <span class="mr-2">•</span>
+                                        Property Evaluation Matrix
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                        <span class="mr-2">•</span>
+                                        Home Buying Timeline
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#portfolio" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                        <span class="mr-2">•</span>
+                                        Portfolio Integration
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                        <span class="mr-2">•</span>
+                                        Reflection
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Future chapters without checkmarks -->
+                <li>
+                    <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                        Chapter 10.4: Transportation Costs
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/5 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator" id="station1-indicator"></div>
+                    <div class="station-indicator" id="station2-indicator"></div>
+                    <div class="station-indicator" id="station3-indicator"></div>
+                    <div class="station-indicator" id="station4-indicator"></div>
+                    <div class="station-indicator" id="portfolio-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-10-3-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <!-- Title and Description -->
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 10.3: Understanding Home Buying</h1>
+            <h2 class="text-xl text-gray-600 mb-6">Learning Lab: Applying home buying concepts through interactive activities</h2>
+            
+            <!-- Learning Objectives -->
+            <div class="learning-objectives" id="learning-objectives">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Learning Objectives</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li>Compare different mortgage options and determine which best suits various financial situations</li>
+                    <li>Calculate the complete costs of homeownership beyond the mortgage payment</li>
+                    <li>Evaluate properties based on both financial and lifestyle factors</li>
+                    <li>Develop a personalized home buying timeline and savings plan</li>
+                    <li>Assess potential challenges in the home buying process and develop strategies to overcome them</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <div class="mt-8 mb-10" id="intro">
+                <h2 class="text-2xl font-bold section-title text-gray-900">Introduction</h2>
+                <p class="text-gray-700 mb-4">
+                    Welcome to the Home Buying Learning Lab! Today, you'll apply what you learned about the home buying process through hands-on activities that simulate real-world decisions. You'll analyze mortgage options, calculate the true costs of homeownership, evaluate property choices, and develop a personalized home buying plan based on your financial goals and lifestyle needs.
+                </p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-amber-800 mb-2">Important Note</h3>
+                    <p class="text-amber-700">
+                        The housing market varies significantly by location and can change based on economic conditions. The examples in today's activities provide realistic scenarios, but actual costs, interest rates, and availability will depend on your specific market and timeline. Focus on understanding the process and considerations rather than the exact numbers.
+                    </p>
+                </div>
+                
+                <!-- Connection to Day 1 -->
+                <div class="p-4 my-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md">
+                    <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                    <p class="text-indigo-800">
+                        In Day 1, you learned about the home buying process, different types of mortgages, and the factors to consider when deciding whether homeownership is right for you. Today's activities build on that knowledge by giving you practical experience with the financial calculations, comparison tools, and planning strategies you'll need to make informed decisions about homeownership.
+                    </p>
+                </div>
+                
+                <!-- Podcast Review -->
+                <div class="mt-6 mb-8">
+                    <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Understanding Home Buying</h3>
+                    <p class="text-gray-700 mb-3">
+                        Listen to this brief overview to refresh key concepts from this chapter:
+                    </p>
+                    <div class="audio-player">
+                        <audio controls class="w-full">
+                            <source src="/finished LM recordings/10.3 - Understanding Home Buying.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <p class="text-sm text-gray-600 italic mt-2">
+                        Topics covered: The mortgage process, types of home loans, calculating total costs of homeownership, evaluating readiness to buy, and creating a home buying timeline.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Learning Station 1: Mortgage Option Analysis -->
+            <div class="learning-station" id="station1">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Mortgage Option Analysis</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    In this activity, you'll analyze different mortgage options for a variety of homebuyer profiles and determine which option best fits each scenario.
+                </p>
+                
+                <!-- Tab Navigation for Profiles -->
+                <div class="border-b border-gray-200 mb-4">
+                    <ul class="flex flex-wrap -mb-px" id="profileTabs" role="tablist">
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block py-2 px-4 text-sm font-medium text-center text-indigo-600 border-b-2 border-indigo-600 active" id="profile1-tab" data-bs-toggle="tab" data-bs-target="#profile1" type="button" role="tab" aria-controls="profile1" aria-selected="true">
+                                First-Time Buyer
+                            </button>
+                        </li>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block py-2 px-4 text-sm font-medium text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 border-b-2 border-transparent" id="profile2-tab" data-bs-toggle="tab" data-bs-target="#profile2" type="button" role="tab" aria-controls="profile2" aria-selected="false">
+                                Military Veteran
+                            </button>
+                        </li>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block py-2 px-4 text-sm font-medium text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 border-b-2 border-transparent" id="profile3-tab" data-bs-toggle="tab" data-bs-target="#profile3" type="button" role="tab" aria-controls="profile3" aria-selected="false">
+                                Rural Location
+                            </button>
+                        </li>
+                        <li role="presentation">
+                            <button class="inline-block py-2 px-4 text-sm font-medium text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 border-b-2 border-transparent" id="profile4-tab" data-bs-toggle="tab" data-bs-target="#profile4" type="button" role="tab" aria-controls="profile4" aria-selected="false">
+                                High-Income Urban
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Profile Content -->
+                <div class="tab-content" id="profileTabContent">
+                    <!-- Profile 1: First-Time Buyer -->
+                    <div class="block" id="profile1" role="tabpanel" aria-labelledby="profile1-tab">
+                        <div class="bg-indigo-50 p-4 rounded-md mb-4">
+                            <h3 class="font-medium text-indigo-800 mb-2">Homebuyer Profile: First-Time Buyer with Limited Savings</h3>
+                            <ul class="list-disc pl-5 text-indigo-700 text-sm space-y-1">
+                                <li><strong>Maria</strong>: 26 years old, single</li>
+                                <li>Annual income: $48,000</li>
+                                <li>Credit score: 680</li>
+                                <li>Savings: $8,000</li>
+                                <li>Student loan debt: $25,000</li>
+                                <li>Goals: Wants to stop renting and start building equity</li>
+                                <li>Location: Mid-sized city with average home prices of $180,000</li>
+                            </ul>
+                        </div>
+                        
+                        <h4 class="font-medium text-gray-900 mb-3">Mortgage Options</h4>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <!-- Option A -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option A: Conventional Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 3%</li>
+                                    <li>Interest rate: 4.5%</li>
+                                    <li>Requires PMI</li>
+                                    <li>Down payment needed: $5,400</li>
+                                    <li>Monthly payment: ~$1,150 (including PMI)</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Option B -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option B: FHA Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 3.5%</li>
+                                    <li>Interest rate: 4.25%</li>
+                                    <li>Upfront and annual mortgage insurance</li>
+                                    <li>Down payment needed: $6,300</li>
+                                    <li>Monthly payment: ~$1,125 (including MI)</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Option C -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option C: Adjustable-Rate Mortgage</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 5%</li>
+                                    <li>Initial rate: 3.75% (fixed for 5 years)</li>
+                                    <li>Adjustable annually after 5 years</li>
+                                    <li>Down payment needed: $9,000</li>
+                                    <li>Initial monthly payment: ~$1,025</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Which option would you recommend for Maria?</label>
+                            <select class="w-full p-2 border border-gray-300 rounded-md" id="recommendationProfile1">
+                                <option value="" selected disabled>Select your recommendation</option>
+                                <option value="optionA">Option A: Conventional Loan</option>
+                                <option value="optionB">Option B: FHA Loan</option>
+                                <option value="optionC">Option C: Adjustable-Rate Mortgage</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Justify your recommendation:</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="justificationProfile1"></textarea>
+                        </div>
+                        
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-md hidden" id="feedbackProfile1">
+                            <h4 class="font-medium text-green-800 mb-2">Expert Analysis</h4>
+                            <p class="text-green-700 text-sm">
+                                <strong>Option B: FHA Loan</strong> is often recommended for first-time buyers like Maria with limited savings and moderate credit scores. The slightly lower down payment requirement than Option C helps her conserve cash for emergencies, while the fixed interest rate provides stability that the ARM doesn't offer. Though the mortgage insurance is required for the life of the loan (unlike conventional PMI which can be removed), Maria can refinance later when her equity and credit improve.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile 2: Military Veteran -->
+                    <div class="hidden" id="profile2" role="tabpanel" aria-labelledby="profile2-tab">
+                        <div class="bg-indigo-50 p-4 rounded-md mb-4">
+                            <h3 class="font-medium text-indigo-800 mb-2">Homebuyer Profile: Military Veteran</h3>
+                            <ul class="list-disc pl-5 text-indigo-700 text-sm space-y-1">
+                                <li><strong>James</strong>: 35 years old, married with one child</li>
+                                <li>Annual income: $85,000</li>
+                                <li>Credit score: 710</li>
+                                <li>Savings: $30,000</li>
+                                <li>Car loan: $8,000 remaining</li>
+                                <li>Goals: Stable home for growing family in good school district</li>
+                                <li>Location: Suburban area with average home prices of $275,000</li>
+                                <li>Additional: Qualified for VA loan benefits</li>
+                            </ul>
+                        </div>
+                        
+                        <h4 class="font-medium text-gray-900 mb-3">Mortgage Options</h4>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <!-- Option A -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option A: Conventional Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 10%</li>
+                                    <li>Interest rate: 4.25%</li>
+                                    <li>Requires PMI</li>
+                                    <li>Down payment needed: $27,500</li>
+                                    <li>Monthly payment: ~$1,450 (including PMI)</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Option B -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option B: VA Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 0%</li>
+                                    <li>Interest rate: 4.5%</li>
+                                    <li>No PMI</li>
+                                    <li>Includes funding fee</li>
+                                    <li>Monthly payment: ~$1,395</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Option C -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option C: FHA Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 3.5%</li>
+                                    <li>Interest rate: 4.0%</li>
+                                    <li>Includes upfront and annual mortgage insurance</li>
+                                    <li>Down payment needed: $9,625</li>
+                                    <li>Monthly payment: ~$1,425 (including MI)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Which option would you recommend for James?</label>
+                            <select class="w-full p-2 border border-gray-300 rounded-md" id="recommendationProfile2">
+                                <option value="" selected disabled>Select your recommendation</option>
+                                <option value="optionA">Option A: Conventional Loan</option>
+                                <option value="optionB">Option B: VA Loan</option>
+                                <option value="optionC">Option C: FHA Loan</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Justify your recommendation:</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="justificationProfile2"></textarea>
+                        </div>
+                        
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-md hidden" id="feedbackProfile2">
+                            <h4 class="font-medium text-green-800 mb-2">Expert Analysis</h4>
+                            <p class="text-green-700 text-sm">
+                                <strong>Option B: VA Loan</strong> is typically the best choice for eligible veterans like James. The 0% down payment saves $27,500 that can be used for moving costs, home improvements, or kept as an emergency fund. There's no PMI requirement, saving hundreds per month. While the interest rate is slightly higher than Option C, the overall benefits of no down payment and no PMI make this the most financially advantageous option for a veteran.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile 3: Rural Location Buyer -->
+                    <div class="hidden" id="profile3" role="tabpanel" aria-labelledby="profile3-tab">
+                        <div class="bg-indigo-50 p-4 rounded-md mb-4">
+                            <h3 class="font-medium text-indigo-800 mb-2">Homebuyer Profile: Rural Location Buyer</h3>
+                            <ul class="list-disc pl-5 text-indigo-700 text-sm space-y-1">
+                                <li><strong>The Garcia Family</strong>: Couple with two children</li>
+                                <li>Annual household income: $62,000</li>
+                                <li>Credit score: 695</li>
+                                <li>Savings: $15,000</li>
+                                <li>Credit card debt: $6,000</li>
+                                <li>Goals: More space for children, garden/yard, affordable payments</li>
+                                <li>Location: Rural area with average home prices of $165,000</li>
+                            </ul>
+                        </div>
+                        
+                        <h4 class="font-medium text-gray-900 mb-3">Mortgage Options</h4>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <!-- Option A -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option A: Conventional Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 5%</li>
+                                    <li>Interest rate: 4.5%</li>
+                                    <li>Requires PMI</li>
+                                    <li>Down payment needed: $8,250</li>
+                                    <li>Monthly payment: ~$950 (including PMI)</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Option B -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option B: USDA Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 0%</li>
+                                    <li>Interest rate: 4.25%</li>
+                                    <li>Includes guarantee fee</li>
+                                    <li>No down payment required</li>
+                                    <li>Monthly payment: ~$925 (including guarantee fee)</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Option C -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option C: FHA Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 3.5%</li>
+                                    <li>Interest rate: 4.0%</li>
+                                    <li>Includes upfront and annual mortgage insurance</li>
+                                    <li>Down payment needed: $5,775</li>
+                                    <li>Monthly payment: ~$900 (including MI)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Which option would you recommend for the Garcia Family?</label>
+                            <select class="w-full p-2 border border-gray-300 rounded-md" id="recommendationProfile3">
+                                <option value="" selected disabled>Select your recommendation</option>
+                                <option value="optionA">Option A: Conventional Loan</option>
+                                <option value="optionB">Option B: USDA Loan</option>
+                                <option value="optionC">Option C: FHA Loan</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Justify your recommendation:</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="justificationProfile3"></textarea>
+                        </div>
+                        
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-md hidden" id="feedbackProfile3">
+                            <h4 class="font-medium text-green-800 mb-2">Expert Analysis</h4>
+                            <p class="text-green-700 text-sm">
+                                <strong>Option B: USDA Loan</strong> is ideal for the Garcia family. As rural homebuyers with modest income, they qualify for this specialized loan program that requires no down payment, allowing them to preserve their $15,000 savings for emergencies, moving costs, and paying down their credit card debt. The guarantee fee is typically less than conventional PMI, and the competitive interest rate makes this the most affordable option. The USDA loan is specifically designed for rural properties and moderate-income families like the Garcias.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile 4: High-Income Urban Buyer -->
+                    <div class="hidden" id="profile4" role="tabpanel" aria-labelledby="profile4-tab">
+                        <div class="bg-indigo-50 p-4 rounded-md mb-4">
+                            <h3 class="font-medium text-indigo-800 mb-2">Homebuyer Profile: High-Income Urban Buyer</h3>
+                            <ul class="list-disc pl-5 text-indigo-700 text-sm space-y-1">
+                                <li><strong>Priya</strong>: 42 years old, divorced with shared custody of two teenagers</li>
+                                <li>Annual income: $175,000</li>
+                                <li>Credit score: 780</li>
+                                <li>Savings: $200,000</li>
+                                <li>No consumer debt</li>
+                                <li>Goals: Luxury condo with amenities in urban center, close to children's schools</li>
+                                <li>Location: Major city with average condo prices of $750,000</li>
+                            </ul>
+                        </div>
+                        
+                        <h4 class="font-medium text-gray-900 mb-3">Mortgage Options</h4>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <!-- Option A -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option A: Conventional Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 20%</li>
+                                    <li>Interest rate: 4.0%</li>
+                                    <li>No PMI</li>
+                                    <li>Down payment needed: $150,000</li>
+                                    <li>Monthly payment: ~$2,860</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Option B -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option B: Jumbo Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 15%</li>
+                                    <li>Interest rate: 4.25%</li>
+                                    <li>Requires PMI</li>
+                                    <li>Down payment needed: $112,500</li>
+                                    <li>Monthly payment: ~$3,350 (including PMI)</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Option C -->
+                            <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition">
+                                <h5 class="font-medium text-indigo-700 mb-2">Option C: Adjustable-Rate Jumbo Loan</h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>Down payment: 20%</li>
+                                    <li>Initial rate: 3.5% (fixed for 7 years)</li>
+                                    <li>Adjustable annually after 7 years</li>
+                                    <li>Down payment needed: $150,000</li>
+                                    <li>Initial monthly payment: ~$2,695</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Which option would you recommend for Priya?</label>
+                            <select class="w-full p-2 border border-gray-300 rounded-md" id="recommendationProfile4">
+                                <option value="" selected disabled>Select your recommendation</option>
+                                <option value="optionA">Option A: Conventional Loan</option>
+                                <option value="optionB">Option B: Jumbo Loan</option>
+                                <option value="optionC">Option C: Adjustable-Rate Jumbo Loan</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Justify your recommendation:</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="justificationProfile4"></textarea>
+                        </div>
+                        
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-md hidden" id="feedbackProfile4">
+                            <h4 class="font-medium text-green-800 mb-2">Expert Analysis</h4>
+                            <p class="text-green-700 text-sm">
+                                <strong>Option A: Conventional Loan</strong> is recommended for Priya given her excellent financial position. With her high income, excellent credit score, and substantial savings, she can comfortably afford the 20% down payment to avoid PMI. This option offers a competitive fixed interest rate with stable, predictable payments for the life of the loan. While Option C offers a lower initial rate, the potential for rate increases after 7 years introduces uncertainty that someone in Priya's stable financial position doesn't need to accept.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button mt-4" onclick="saveStation(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Learning Station 2: True Cost of Homeownership Calculator -->
+            <div class="learning-station" id="station2">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h2 class="text-xl font-semibold text-gray-900">True Cost of Homeownership Calculator</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    In this activity, you'll calculate the complete costs of homeownership for a specific property, including both upfront and ongoing expenses. This will help you understand the true financial impact of buying a home beyond just the mortgage payment.
+                </p>
+                
+                <!-- Property Details Card -->
+                <div class="bg-gray-50 p-4 rounded-md border border-gray-200 mb-4">
+                    <h3 class="font-medium text-gray-900 mb-2">Property Details</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li><strong>Purchase price:</strong> $280,000</li>
+                                <li><strong>Down payment:</strong> 10% ($28,000)</li>
+                                <li><strong>Loan amount:</strong> $252,000</li>
+                                <li><strong>Loan term:</strong> 30-year fixed</li>
+                                <li><strong>Interest rate:</strong> 4.5%</li>
+                                <li><strong>Property tax rate:</strong> 1.2% of property value per year</li>
+                                <li><strong>Homeowner's insurance:</strong> $1,200 per year</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li><strong>PMI rate:</strong> 0.5% of loan amount per year</li>
+                                <li><strong>HOA fees:</strong> $250 per month</li>
+                                <li><strong>Estimated annual maintenance:</strong> 1% of home value</li>
+                                <li><strong>Estimated monthly utilities:</strong> $350</li>
+                                <li><strong>Estimated closing costs:</strong> 3% of purchase price</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Calculation Sections -->
+                <div class="mb-6">
+                    <h3 class="font-medium text-gray-900 mb-3">Upfront Costs</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Down Payment</label>
+                            <input type="text" value="$28,000" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Closing Costs (3%)</label>
+                            <input type="text" value="$8,400" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Total Upfront Costs</label>
+                        <input type="text" value="$36,400" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md font-medium text-indigo-700" readonly>
+                    </div>
+                </div>
+                
+                <!-- Monthly Costs -->
+                <div class="mb-6">
+                    <h3 class="font-medium text-gray-900 mb-3">Monthly Housing Expenses</h3>
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Principal & Interest</label>
+                            <input type="text" value="$1,277" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Property Taxes</label>
+                            <input type="text" value="$280" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Homeowner's Insurance</label>
+                            <input type="text" value="$100" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">PMI</label>
+                            <input type="text" value="$105" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">HOA Fees</label>
+                            <input type="text" value="$250" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Utilities</label>
+                            <input type="text" value="$350" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Maintenance (Monthly Average)</label>
+                            <input type="text" value="$233" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Total Monthly Housing Costs</label>
+                            <input type="text" value="$2,595" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md font-medium text-indigo-700" readonly>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comparison with Renting -->
+                <div class="mb-6">
+                    <h3 class="font-medium text-gray-900 mb-3">Comparison with Renting</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Owning -->
+                        <div class="bg-indigo-50 p-4 rounded-md">
+                            <h4 class="font-medium text-indigo-800 mb-2">Owning Costs</h4>
+                            <ul class="text-sm space-y-1 text-indigo-700">
+                                <li><strong>Monthly Housing Costs:</strong> $2,595</li>
+                                <li><strong>Annual Housing Costs:</strong> $31,140</li>
+                                <li><strong>5-Year Total Costs:</strong> $155,700</li>
+                                <li><strong>Equity Built (5 years):</strong> ~$39,000</li>
+                                <li><strong>Net 5-Year Cost:</strong> $116,700</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Renting -->
+                        <div class="bg-purple-50 p-4 rounded-md">
+                            <h4 class="font-medium text-purple-800 mb-2">Renting Costs</h4>
+                            <ul class="text-sm space-y-1 text-purple-700">
+                                <li><strong>Monthly Rent + Utilities:</strong> $2,020</li>
+                                <li><strong>Annual Renting Costs:</strong> $24,240</li>
+                                <li><strong>5-Year Total Costs:</strong> $126,600</li>
+                                <li><strong>Equity Built:</strong> $0</li>
+                                <li><strong>Net 5-Year Cost:</strong> $126,600</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Break-even Chart -->
+                    <div class="mt-6 mb-4">
+                        <h4 class="font-medium text-gray-900 mb-2">Break-even Analysis</h4>
+                        <div class="bg-white border border-gray-200 rounded-md p-4">
+                            <canvas id="breakEvenChart" width="400" height="200"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-2">
+                            Based on the analysis above, owning becomes more cost-effective than renting after approximately 7 years, accounting for equity building, maintenance costs, and property appreciation.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Analysis Questions -->
+                <div class="mb-4">
+                    <h3 class="font-medium text-gray-900 mb-3">Reflection Questions</h3>
+                    
+                    <div class="mb-3">
+                        <label class="block text-gray-700 mb-2">What homeownership costs surprised you the most?</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" id="surprisingCosts"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="block text-gray-700 mb-2">How might these calculations change in a different housing market or economic climate?</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="2" id="marketChanges"></textarea>
+                    </div>
+                </div>
+                
+                <button class="pfl-button mt-2" onclick="saveStation(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Learning Station 3: Property Evaluation Matrix -->
+            <div class="learning-station" id="station3">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Property Evaluation Matrix</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    In this activity, you'll evaluate three potential properties based on both financial and lifestyle factors to determine the best fit for a specific buyer profile.
+                </p>
+                
+                <!-- Buyer Profile -->
+                <div class="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 class="font-medium text-blue-800 mb-2">Buyer Profile: The Jacksons</h3>
+                    <ul class="list-disc pl-5 text-blue-700 text-sm space-y-1">
+                        <li>Married couple with one child (age 5) and planning for another</li>
+                        <li>Combined annual income: $110,000</li>
+                        <li>Available for down payment: $40,000</li>
+                        <li>Pre-approved for mortgage up to $350,000</li>
+                        <li><strong>Must-haves:</strong> Good school district, at least 3 bedrooms, 2 bathrooms</li>
+                        <li><strong>Strong preferences:</strong> Short commute to downtown, yard for children, move-in ready condition</li>
+                        <li><strong>Future needs:</strong> Space for growing family, ability to work from home occasionally</li>
+                    </ul>
+                </div>
+                
+                <!-- Property Cards -->
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <!-- Property A -->
+                    <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition bg-white">
+                        <h4 class="font-medium text-indigo-700 mb-2">Property A: Suburban New Construction</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li><strong>Price:</strong> $330,000</li>
+                            <li><strong>Size:</strong> 4 bed, 2.5 bath, 2,200 sq ft</li>
+                            <li><strong>Condition:</strong> New construction, warranty included</li>
+                            <li><strong>School District:</strong> Excellent</li>
+                            <li><strong>Commute:</strong> 25-minute to downtown</li>
+                            <li><strong>Yard:</strong> Large, family-friendly neighborhood</li>
+                            <li><strong>HOA:</strong> $75/month</li>
+                            <li><strong>Property taxes:</strong> $3,600/year</li>
+                            <li><strong>Utilities:</strong> $300/month (estimated)</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Property B -->
+                    <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition bg-white">
+                        <h4 class="font-medium text-indigo-700 mb-2">Property B: Urban Townhouse</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li><strong>Price:</strong> $310,000</li>
+                            <li><strong>Size:</strong> 3 bed, 2.5 bath, 1,800 sq ft</li>
+                            <li><strong>Condition:</strong> Built in 2010, well-maintained</li>
+                            <li><strong>School District:</strong> Good</li>
+                            <li><strong>Commute:</strong> 10-minute to downtown</li>
+                            <li><strong>Yard:</strong> Small patio, near community park</li>
+                            <li><strong>HOA:</strong> $250/month</li>
+                            <li><strong>Property taxes:</strong> $3,200/year</li>
+                            <li><strong>Utilities:</strong> $250/month (estimated)</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Property C -->
+                    <div class="border border-gray-300 rounded-md p-4 hover:shadow-md transition bg-white">
+                        <h4 class="font-medium text-indigo-700 mb-2">Property C: Older Suburban Home</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li><strong>Price:</strong> $290,000</li>
+                            <li><strong>Size:</strong> 4 bed, 2 bath, 2,400 sq ft</li>
+                            <li><strong>Condition:</strong> Built in 1985, needs updates</li>
+                            <li><strong>School District:</strong> Very good</li>
+                            <li><strong>Commute:</strong> 20-minute to downtown</li>
+                            <li><strong>Yard:</strong> Large yard, established neighborhood</li>
+                            <li><strong>HOA:</strong> None</li>
+                            <li><strong>Property taxes:</strong> $3,000/year</li>
+                            <li><strong>Utilities:</strong> $325/month (estimated)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Evaluation Matrix -->
+                <h3 class="font-medium text-gray-900 mb-3">Evaluation Matrix</h3>
+                <p class="text-gray-700 text-sm mb-4">
+                    For each factor, assign a weight (1-10) based on importance to the Jacksons, then score each property (1-5) on how well it meets that factor.
+                </p>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full bg-white border border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="py-2 px-4 border-b border-r border-gray-300 text-left text-sm font-medium text-gray-700">Factor</th>
+                                <th class="py-2 px-4 border-b border-r border-gray-300 text-center text-sm font-medium text-gray-700">Weight (1-10)</th>
+                                <th class="py-2 px-4 border-b border-r border-gray-300 text-center text-sm font-medium text-gray-700">Property A Score (1-5)</th>
+                                <th class="py-2 px-4 border-b border-r border-gray-300 text-center text-sm font-medium text-gray-700">Property B Score (1-5)</th>
+                                <th class="py-2 px-4 border-b border-gray-300 text-center text-sm font-medium text-gray-700">Property C Score (1-5)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Price/Affordability -->
+                            <tr>
+                                <td class="py-2 px-4 border-b border-r border-gray-300 text-sm font-medium">Price/Affordability</td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300">
+                                    <input type="number" min="1" max="10" class="w-full p-1 border border-gray-300 rounded" value="8">
+                                </td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300">
+                                    <input type="number" min="1" max="5" class="w-full p-1 border border-gray-300 rounded" value="3">
+                                </td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300">
+                                    <input type="number" min="1" max="5" class="w-full p-1 border border-gray-300 rounded" value="4">
+                                </td>
+                                <td class="py-2 px-4 border-b border-gray-300">
+                                    <input type="number" min="1" max="5" class="w-full p-1 border border-gray-300 rounded" value="5">
+                                </td>
+                            </tr>
+                            
+                            <!-- Size/Space -->
+                            <tr>
+                                <td class="py-2 px-4 border-b border-r border-gray-300 text-sm font-medium">Size/Space</td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300">
+                                    <input type="number" min="1" max="10" class="w-full p-1 border border-gray-300 rounded" value="9">
+                                </td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300">
+                                    <input type="number" min="1" max="5" class="w-full p-1 border border-gray-300 rounded" value="4">
+                                </td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300">
+                                    <input type="number" min="1" max="5" class="w-full p-1 border border-gray-300 rounded" value="3">
+                                </td>
+                                <td class="py-2 px-4 border-b border-gray-300">
+                                    <input type="number" min="1" max="5" class="w-full p-1 border border-gray-300 rounded" value="5">
+                                </td>
+                            </tr>
+                            
+                            <!-- Location/Commute -->
+                            <tr>
+                                <td class="py-2 px-4 border-b border-r border-gray-300 text-sm font-medium">Location/Commute</td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300">
+                                    <input type="number" min="1" max="10" class="w-full p-1 border border-gray-300 rounded" value="7">
+                                </td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300">
+                                    <input type="number" min="1" max="5" class="w-full p-1 border border-gray-300 rounded" value="3">
+                                </td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300">
+                                    <input type="number" min="1" max="5" class="w-full p-1 border border-gray-300 rounded" value="5">
+                                </td>
+                                <td class="py-2 px-4 border-b border-gray-300">
+                                    <input type="number" min="1" max="5" class="w-full p-1 border border-gray-300 rounded" value="4">
+                                </td>
+                            </tr>
+                            
+                            <!-- TOTAL WEIGHTED SCORE row -->
+                            <tr class="bg-indigo-50">
+                                <td class="py-2 px-4 border-b border-r border-gray-300 text-sm font-bold">TOTAL WEIGHTED SCORE</td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300 text-center">-</td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300 text-center font-bold" id="propertyAScore">132</td>
+                                <td class="py-2 px-4 border-b border-r border-gray-300 text-center font-bold" id="propertyBScore">116</td>
+                                <td class="py-2 px-4 border-b border-gray-300 text-center font-bold" id="propertyCScore">147</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-medium mb-2">Based on your analysis, which property would you recommend for the Jacksons?</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-md" id="propertyRecommendation">
+                        <option value="" selected disabled>Select your recommendation</option>
+                        <option value="propertyA">Property A: Suburban New Construction</option>
+                        <option value="propertyB">Property B: Urban Townhouse</option>
+                        <option value="propertyC">Property C: Older Suburban Home</option>
+                    </select>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-medium mb-2">Justify your recommendation:</label>
+                    <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="propertyJustification"></textarea>
+                </div>
+                
+                <button class="pfl-button mt-2" onclick="saveStation(3)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Learning Station 4: Home Buying Timeline -->
+            <div class="learning-station" id="station4">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">4</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Home Buying Timeline and Savings Plan</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    In this activity, you'll develop a personalized plan for preparing to buy a home, including a savings strategy, credit improvement plan, and timeline of key milestones.
+                </p>
+                
+                <!-- Home Buying Preparation Worksheet -->
+                <div class="border border-gray-300 rounded-lg p-6 bg-white mb-6">
+                    <h3 class="font-bold text-gray-900 text-lg mb-4">Home Buying Preparation Worksheet</h3>
+                    
+                    <!-- Target Home Purchase Section -->
+                    <div class="mb-6">
+                        <h4 class="font-medium text-indigo-700 mb-3">Target Home Purchase</h4>
+                        <div class="grid md:grid-cols-2 gap-4 mb-3">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Desired purchase timeframe (years from now)</label>
+                                <input type="number" class="w-full p-2 border border-gray-300 rounded-md" id="purchaseTimeframe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Target home price range</label>
+                                <div class="flex space-x-2">
+                                    <span class="flex items-center px-3 bg-gray-200 rounded-l-md">$</span>
+                                    <input type="text" placeholder="Min" class="w-full p-2 border border-gray-300" id="minPrice">
+                                    <span class="flex items-center px-3 bg-gray-200">to</span>
+                                    <input type="text" placeholder="Max" class="w-full p-2 border border-gray-300 rounded-r-md" id="maxPrice">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-3">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Desired down payment percentage</label>
+                                <div class="flex">
+                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-l-md" id="downPaymentPercentage">
+                                    <span class="flex items-center px-3 bg-gray-200 rounded-r-md">%</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Down payment amount needed</label>
+                                <div class="flex">
+                                    <span class="flex items-center px-3 bg-gray-200 rounded-l-md">$</span>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-r-md" id="downPaymentAmount">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Estimated closing costs (3-5% of purchase)</label>
+                                <div class="flex">
+                                    <span class="flex items-center px-3 bg-gray-200 rounded-l-md">$</span>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-r-md" id="closingCosts">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Moving and initial expenses</label>
+                                <div class="flex">
+                                    <span class="flex items-center px-3 bg-gray-200 rounded-l-md">$</span>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-r-md" id="movingExpenses">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Total savings needed</label>
+                                <div class="flex">
+                                    <span class="flex items-center px-3 bg-gray-200 rounded-l-md">$</span>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-r-md font-medium text-indigo-700" id="totalSavingsNeeded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Savings Plan Section -->
+                    <div class="mb-6">
+                        <h4 class="font-medium text-indigo-700 mb-3">Savings Plan</h4>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Current savings for home purchase</label>
+                                <div class="flex">
+                                    <span class="flex items-center px-3 bg-gray-200 rounded-l-md">$</span>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-r-md" id="currentSavings">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Additional amount needed</label>
+                                <div class="flex">
+                                    <span class="flex items-center px-3 bg-gray-200 rounded-l-md">$</span>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-r-md" id="additionalNeeded">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Monthly savings target</label>
+                                <div class="flex">
+                                    <span class="flex items-center px-3 bg-gray-200 rounded-l-md">$</span>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-r-md" id="monthlySavings">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Savings strategies (specific actions)</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="savingsStrategies"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Credit Improvement Plan -->
+                    <div class="mb-6">
+                        <h4 class="font-medium text-indigo-700 mb-3">Credit Improvement Plan</h4>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Current credit score (if known)</label>
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" id="currentCreditScore">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Target credit score</label>
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" id="targetCreditScore">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Credit improvement strategies</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="creditStrategies"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Home Buying Timeline -->
+                    <div class="mb-6">
+                        <h4 class="font-medium text-indigo-700 mb-3">Home Buying Timeline</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">6-12 months before buying</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="timeline612"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">3-6 months before buying</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="timeline36"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">1-3 months before buying</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="timeline13"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Final month before buying</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="timelineFinal"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button mt-2" onclick="saveStation(4)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Portfolio Integration -->
+            <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration: Mortgage Analysis Case Study</h2>
+                
+                <p class="text-gray-700 mb-4">
+                    For this portfolio project, you'll conduct an in-depth analysis of mortgage options for a specific property and buyer profile, comparing the financial implications of different loan choices.
+                </p>
+                
+                <div class="mb-6">
+                    <h3 class="font-medium text-gray-900 mb-3">Create Your Case Study</h3>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Select a property price point and buyer profile:</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-md mb-3" id="portfolioProfile">
+                            <option value="firstTime">First-time buyer ($200,000 home)</option>
+                            <option value="moveUp">Move-up buyer ($350,000 home)</option>
+                            <option value="luxury">Luxury buyer ($750,000 home)</option>
+                            <option value="custom">Custom scenario</option>
+                        </select>
+                        
+                        <div id="customProfile" class="hidden bg-white p-4 rounded-md border border-gray-300 mb-3">
+                            <h4 class="font-medium text-gray-900 mb-2">Create Custom Profile</h4>
+                            <!-- Custom profile inputs would go here -->
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-900 mb-2">Mortgage Options to Compare</h4>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="conventional30" class="mr-2" checked>
+                                <label for="conventional30">Conventional 30-year fixed</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="conventional15" class="mr-2" checked>
+                                <label for="conventional15">15-year fixed</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="arm51" class="mr-2" checked>
+                                <label for="arm51">5/1 ARM</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="fha" class="mr-2">
+                                <label for="fha">FHA Loan</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="va" class="mr-2">
+                                <label for="va">VA Loan</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-900 mb-2">Portfolio Components</h4>
+                        <p class="text-gray-700 text-sm mb-3">
+                            Your completed case study should include the following components:
+                        </p>
+                        <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1 mb-3">
+                            <li>Side-by-side financial analysis of all selected mortgage options</li>
+                            <li>Short-term impact (first 5 years) including monthly payments and equity built</li>
+                            <li>Long-term impact (full loan term) including total interest paid</li>
+                            <li>Advantages and disadvantages of each option</li>
+                            <li>Risk assessment for each option</li>
+                            <li>Recommendation with detailed justification</li>
+                            <li>Visualization (chart/graph) illustrating the comparison</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-medium mb-2">Portfolio Summary</label>
+                    <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Summarize what you've learned about mortgage options and how this case study helps demonstrate your understanding..." id="portfolioSummary"></textarea>
+                </div>
+                
+                <button class="pfl-button" onclick="savePortfolio()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Add to Portfolio
+                </button>
+            </div>
+            
+            <!-- Final Reflection -->
+            <div class="discussion-prompt" id="reflection">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection and Application</h2>
+                
+                <p class="text-gray-700 mb-4">
+                    Take a few minutes to reflect on everything you've learned about the home buying process through these activities.
+                </p>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-medium mb-2">What was the most surprising or valuable insight you gained about homeownership?</label>
+                    <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3" id="reflectionInsight"></textarea>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-medium mb-2">How has your perception of buying a home changed after completing these activities?</label>
+                    <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3" id="reflectionPerception"></textarea>
+                </div>
+                
+                <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                    <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                    <p class="text-gray-700" id="ai-feedback"></p>
+                </div>
+                
+                <div class="flex justify-between mt-6">
+                    <button class="pfl-button" onclick="checkReflection()">
+                        Get Feedback
+                    </button>
+                    <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md flex items-center">
+                        Continue to Chapter 10.4
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Toast Notification -->
+            <div class="toast-notification" id="toast">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span id="toast-message">Progress saved successfully!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Chart.js implementation
+        function initializeCharts() {
+            const breakEvenCtx = document.getElementById('breakEvenChart');
+            
+            if (breakEvenCtx) {
+                new Chart(breakEvenCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5', 'Year 6', 'Year 7', 'Year 8', 'Year 9', 'Year 10'],
+                        datasets: [
+                            {
+                                label: 'Renting (Cumulative Cost)',
+                                data: [24240, 49930, 77110, 105820, 126600, 154650, 184000, 214650, 246700, 280200],
+                                borderColor: 'rgb(147, 51, 234)',
+                                backgroundColor: 'rgba(147, 51, 234, 0.1)',
+                                tension: 0.3,
+                                fill: true
+                            },
+                            {
+                                label: 'Owning (Net Cost After Equity)',
+                                data: [31140, 62280, 93420, 114560, 116700, 131840, 144980, 150120, 145260, 140400],
+                                borderColor: 'rgb(79, 70, 229)',
+                                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                                tension: 0.3,
+                                fill: true
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                });
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+        });
+
+        // Tab functionality for the mortgage profiles
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('#profileTabs button');
+            const tabContents = document.querySelectorAll('#profileTabContent > div');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('text-indigo-600', 'border-indigo-600');
+                        t.classList.add('text-gray-500', 'border-transparent');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    
+                    // Add active class to clicked tab
+                    tab.classList.remove('text-gray-500', 'border-transparent');
+                    tab.classList.add('text-indigo-600', 'border-indigo-600');
+                    tab.setAttribute('aria-selected', 'true');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Show the selected tab content
+                    const targetId = tab.getAttribute('data-bs-target');
+                    const targetContent = document.querySelector(targetId);
+                    if (targetContent) {
+                        targetContent.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('active');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 4) {
+                // If it's the last station, scroll to portfolio
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.add('active');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.querySelector('.bg-gradient-to-r.from-indigo-600.to-purple-600').style.width = percentage + '%';
+            document.querySelector('span.font-medium').textContent = completedStations + '/' + totalStations + ' stations';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback simulation
+        function checkReflection() {
+            const reflectionText = document.querySelector('textarea[data-ai-check="true"]').value;
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            if (reflectionText.length < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider expanding on your thoughts and connecting them to the concepts learned about homeownership.";
+            } else if (reflectionText.length < 150) {
+                aiFeedback.textContent = "Good start! Your reflections show understanding of the home buying process. To enhance your response, try to provide more specific examples of how this knowledge might change your approach to housing decisions.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection! You've demonstrated a thorough understanding of the home buying process and have thoughtfully connected the concepts to your own situation.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sectionLinks = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            const sections = [
+                document.getElementById('learning-objectives'),
+                document.getElementById('intro'),
+                document.getElementById('station1'),
+                document.getElementById('station2'),
+                document.getElementById('station3'),
+                document.getElementById('station4'),
+                document.getElementById('portfolio'),
+                document.getElementById('reflection')
+            ];
+            
+            function highlightActiveSection() {
+                let currentSectionId = '';
+                const scrollPosition = window.scrollY + 200;
+                
+                sections.forEach(section => {
+                    if (section) {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.offsetHeight;
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                            currentSectionId = section.getAttribute('id');
+                        }
+                    }
+                });
+                
+                sectionLinks.forEach(link => {
+                    link.classList.remove('text-indigo-700', 'font-medium');
+                    link.classList.add('text-gray-700');
+                    
+                    if (link.getAttribute('href') === '#' + currentSectionId) {
+                        link.classList.remove('text-gray-700');
+                        link.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

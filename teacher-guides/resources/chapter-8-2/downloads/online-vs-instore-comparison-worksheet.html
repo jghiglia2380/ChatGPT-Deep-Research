@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online vs. In-Store Purchase Analysis - Chapter 8.2</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #1E3A8A;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            color: #1E3A8A;
+            margin: 0;
+            font-size: 24pt;
+        }
+        
+        h2 {
+            color: #1E3A8A;
+            border-bottom: 1px solid #1E3A8A;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        
+        h3 {
+            color: #2563EB;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background-color: #F3F4F6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background-color: #E0E7FF;
+            border: 1px solid #BFDBFE;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        td {
+            border: 1px solid #BFDBFE;
+            padding: 10px;
+            vertical-align: top;
+        }
+        
+        .factor-cell {
+            background-color: #F0F9FF;
+            font-weight: bold;
+            width: 20%;
+        }
+        
+        .consideration-cell {
+            font-size: 0.9em;
+            color: #6B7280;
+            font-style: italic;
+            background-color: #F9FAFB;
+        }
+        
+        .option-cell {
+            width: 35%;
+            height: 70px;
+        }
+        
+        .preference-cell {
+            width: 10%;
+        }
+        
+        .response-area {
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            min-height: 100px;
+        }
+        
+        .example-row {
+            background-color: #FAFBFD;
+        }
+        
+        .print-button {
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14pt;
+            margin-top: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #1E40AF;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 10pt;
+            color: #6B7280;
+            border-top: 1px solid #D1D5DB;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online vs. In-Store Purchase Analysis</h1>
+        <p>Chapter 8.2: Online Shopping</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This worksheet will help you analyze whether to purchase a specific product online or in a physical store. Consider all the factors listed below for both online and in-store options, then determine which shopping method would be better for your specific situation.</p>
+        <ol>
+            <li>Select a product you're interested in purchasing</li>
+            <li>For each factor, note the advantages and disadvantages of both shopping methods</li>
+            <li>Indicate your preference for each factor in the "My Preference" column</li>
+            <li>Based on your analysis, determine which option would be better for you overall</li>
+            <li>Complete the reflection questions to deepen your understanding</li>
+        </ol>
+    </div>
+    
+    <h2>Product Information</h2>
+    
+    <p><strong>Product:</strong> _________________________________________________ (e.g., laptop, headphones, clothing)</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Factor</th>
+                <th>Things to Consider</th>
+                <th>Online Option</th>
+                <th>In-Store Option</th>
+                <th>My Preference</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="example-row">
+                <td class="factor-cell">Price</td>
+                <td class="consideration-cell">Base price, shipping costs, taxes, discounts, promo codes, price matching</td>
+                <td class="option-cell">Example: $899 with free shipping, no tax in my state, found 10% coupon code online</td>
+                <td class="option-cell">Example: $949 plus 7% sales tax, but could price match to online competitor</td>
+                <td class="preference-cell">Example: Online</td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Price</td>
+                <td class="consideration-cell">Base price, shipping costs, taxes, discounts, promo codes, price matching</td>
+                <td class="option-cell"></td>
+                <td class="option-cell"></td>
+                <td class="preference-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Convenience</td>
+                <td class="consideration-cell">Time, effort, transportation costs, shopping from home, hours of operation</td>
+                <td class="option-cell"></td>
+                <td class="option-cell"></td>
+                <td class="preference-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Selection</td>
+                <td class="consideration-cell">Variety of options, sizes, colors, models, store inventory limitations</td>
+                <td class="option-cell"></td>
+                <td class="option-cell"></td>
+                <td class="preference-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Product Evaluation</td>
+                <td class="consideration-cell">Ability to see, touch, try product, rely on photos/descriptions, read reviews</td>
+                <td class="option-cell"></td>
+                <td class="option-cell"></td>
+                <td class="preference-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Return Policy</td>
+                <td class="consideration-cell">Ease of returns, timeframe, restocking fees, return shipping costs</td>
+                <td class="option-cell"></td>
+                <td class="option-cell"></td>
+                <td class="preference-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Immediate Availability</td>
+                <td class="consideration-cell">Shipping time, in-stock status, immediate need, pickup options</td>
+                <td class="option-cell"></td>
+                <td class="option-cell"></td>
+                <td class="preference-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Customer Service</td>
+                <td class="consideration-cell">Expert advice, assistance, post-purchase support, contact methods</td>
+                <td class="option-cell"></td>
+                <td class="option-cell"></td>
+                <td class="preference-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Security</td>
+                <td class="consideration-cell">Payment safety, personal information protection, privacy concerns</td>
+                <td class="option-cell"></td>
+                <td class="option-cell"></td>
+                <td class="preference-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Additional Fees</td>
+                <td class="consideration-cell">Shipping, handling, extended warranties, assembly, delivery</td>
+                <td class="option-cell"></td>
+                <td class="option-cell"></td>
+                <td class="preference-cell"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>Analysis and Decision</h2>
+    
+    <h3>Based on your analysis, which option would be better for you?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h3>Explain your reasoning. Which factors were most important in your decision?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h2>Reflection Questions</h2>
+    
+    <h3>1. What factors were most important in your decision?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h3>2. In what situations would you choose the opposite option?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h3>3. How might your preferences change based on the type of product?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h3>4. What security concerns influenced your decision?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <div class="no-print">
+        <button class="print-button" onclick="window.print();">Print or Save as PDF</button>
+        <p><small>Click the button above to print this worksheet or save it as a PDF file.</small></p>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 8.2: Online Shopping</p>
+    </footer>
+</body>
+</html>

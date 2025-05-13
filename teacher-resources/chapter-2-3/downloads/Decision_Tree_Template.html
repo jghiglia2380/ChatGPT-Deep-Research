@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Filing Decision Tree Template - Chapter 2.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+            .decision-box, .outcome-box {
+                border: 1px solid #000;
+            }
+            svg {
+                max-width: 100% !important;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        .decision-tree-container {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        
+        .decision-box {
+            width: 200px;
+            min-height: 80px;
+            background-color: #DBEAFE;
+            border: 2px solid #3B82F6;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 10px auto;
+            position: relative;
+        }
+        
+        .outcome-box {
+            width: 200px;
+            min-height: 60px;
+            background-color: #DCFCE7;
+            border: 2px solid #22C55E;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 10px auto;
+        }
+        
+        .connector {
+            width: 2px;
+            height: 30px;
+            background-color: #6B7280;
+            margin: 0 auto;
+        }
+        
+        .yes-no-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 45%;
+        }
+        
+        .label {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        
+        .yes-label {
+            color: #22C55E;
+        }
+        
+        .no-label {
+            color: #EF4444;
+        }
+        
+        .connector-horizontal {
+            height: 2px;
+            background-color: #6B7280;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .decision-tree-template {
+            border: 1px dashed #6B7280;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .instructions {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background-color: white;
+            padding: 0 10px;
+            color: #6B7280;
+        }
+        
+        .decision-tree-example {
+            margin: 40px 0;
+        }
+        
+        .example-svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .construction-steps {
+            background-color: #F3F4F6;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .construction-steps ol {
+            padding-left: 25px;
+        }
+        
+        .construction-steps li {
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend landscape orientation for the decision tree)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Tax Filing Decision Tree Template</h1>
+        <p class="subtitle">Chapter 2.3: Understanding Tax Filing Requirements</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>This template will help you create a decision tree to determine whether someone needs to file a federal tax return based on various factors like filing status, income, age, and special situations. A decision tree is a flowchart-like structure that asks yes/no questions to arrive at a conclusion.</p>
+
+    <div class="important-note">
+        <strong>Important:</strong> This template is based on general tax filing requirements and should be used for educational purposes only. Tax laws and filing thresholds change annually. Always verify current requirements on the official IRS website at <a href="https://www.irs.gov">www.irs.gov</a>.
+    </div>
+
+    <h2>Decision Tree Construction Guide</h2>
+
+    <div class="construction-steps">
+        <h3>Steps to Create Your Tax Filing Decision Tree</h3>
+        <ol>
+            <li><strong>Start with a clear question:</strong> Begin your decision tree with the main question: "Do I need to file a federal tax return?"</li>
+            <li><strong>Identify key decision factors:</strong> The main factors that determine filing requirements are:
+                <ul>
+                    <li>Filing status (Single, Married Filing Jointly, etc.)</li>
+                    <li>Gross income amount</li>
+                    <li>Age (under 65 vs. 65 or older)</li>
+                    <li>Dependency status (whether someone can claim you as a dependent)</li>
+                    <li>Self-employment income</li>
+                    <li>Special situations (tax credits, refunds, etc.)</li>
+                </ul>
+            </li>
+            <li><strong>Structure your decision points:</strong> Organize your questions in a logical order, usually from most general to most specific. For example:
+                <ul>
+                    <li>First question might be about dependency status</li>
+                    <li>Second question might be about filing status</li>
+                    <li>Third question might be about age</li>
+                    <li>Fourth question might be about income thresholds</li>
+                    <li>Later questions might address special situations</li>
+                </ul>
+            </li>
+            <li><strong>Create branches:</strong> Each decision point should have at least two branches (typically "Yes" and "No")</li>
+            <li><strong>Define outcomes:</strong> Each path through your decision tree should end with a clear conclusion:
+                <ul>
+                    <li>"Required to file a tax return"</li>
+                    <li>"Not required to file a tax return"</li>
+                    <li>"Not required to file, but should file to claim refund/credits"</li>
+                </ul>
+            </li>
+            <li><strong>Test your decision tree:</strong> Use multiple scenarios to verify that your tree produces the correct results</li>
+            <li><strong>Refine as needed:</strong> Adjust your decision tree based on testing results and add more detail where needed</li>
+        </ol>
+    </div>
+
+    <h2>Decision Tree Template</h2>
+
+    <div class="decision-tree-template">
+        <div class="instructions">Your Decision Tree (Use this space to draw or outline your tree)</div>
+        
+        <!-- Template structure for students to fill in -->
+        <div class="decision-box">Do I need to file a federal tax return?</div>
+        <div class="connector"></div>
+        
+        <div class="yes-no-container">
+            <div class="branch">
+                <div class="label">First Decision Point:</div>
+                <div class="decision-box">[Write your first decision question here]</div>
+                <div class="connector"></div>
+                
+                <div class="yes-no-container">
+                    <div class="branch">
+                        <div class="label yes-label">Yes</div>
+                        <div class="connector"></div>
+                        <div class="decision-box">[Next question if Yes]</div>
+                    </div>
+                    
+                    <div class="branch">
+                        <div class="label no-label">No</div>
+                        <div class="connector"></div>
+                        <div class="decision-box">[Next question if No]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 30px; color: #6B7280;">Continue building your decision tree by adding more decision points and outcomes...</p>
+        
+        <div style="margin-top: 30px; text-align: center;">
+            <div class="outcome-box">Example Outcome: Required to file a tax return</div>
+            <div style="margin-top: 20px;"></div>
+            <div class="outcome-box">Example Outcome: Not required to file a tax return</div>
+            <div style="margin-top: 20px;"></div>
+            <div class="outcome-box">Example Outcome: Not required but should file to claim refund/credits</div>
+        </div>
+    </div>
+
+    <h2>Sample Decision Tree Structure</h2>
+    <p>Below is a simplified example of a tax filing decision tree to help you understand the structure. Your tree should be more comprehensive and include specific income thresholds, age considerations, and special situations.</p>
+
+    <div class="decision-tree-example">
+        <svg class="example-svg" viewBox="0 0 800 650" width="800" height="650" xmlns="http://www.w3.org/2000/svg">
+            <!-- Main Question -->
+            <rect x="300" y="20" width="200" height="80" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+            <text x="400" y="60" text-anchor="middle" font-size="14" font-weight="bold">Do I need to file a federal tax return?</text>
+            
+            <!-- Connector -->
+            <line x1="400" y1="100" x2="400" y2="130" stroke="#6B7280" stroke-width="2"/>
+            
+            <!-- First Decision -->
+            <rect x="300" y="130" width="200" height="80" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+            <text x="400" y="170" text-anchor="middle" font-size="14" font-weight="bold">Can someone claim me as a dependent?</text>
+            
+            <!-- Yes/No branches -->
+            <line x1="400" y1="210" x2="400" y2="230" stroke="#6B7280" stroke-width="2"/>
+            <line x1="400" y1="230" x2="200" y2="230" stroke="#6B7280" stroke-width="2"/>
+            <line x1="400" y1="230" x2="600" y2="230" stroke="#6B7280" stroke-width="2"/>
+            <line x1="200" y1="230" x2="200" y2="260" stroke="#6B7280" stroke-width="2"/>
+            <line x1="600" y1="230" x2="600" y2="260" stroke="#6B7280" stroke-width="2"/>
+            
+            <text x="200" y="250" text-anchor="middle" font-size="14" font-weight="bold" fill="#22C55E">Yes</text>
+            <text x="600" y="250" text-anchor="middle" font-size="14" font-weight="bold" fill="#EF4444">No</text>
+            
+            <!-- Left branch (Yes to dependent) -->
+            <rect x="100" y="260" width="200" height="80" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+            <text x="200" y="290" text-anchor="middle" font-size="14" font-weight="bold">Do I have earned income</text>
+            <text x="200" y="310" text-anchor="middle" font-size="14" font-weight="bold">over $12,950?</text>
+            
+            <!-- Right branch (No to dependent) -->
+            <rect x="500" y="260" width="200" height="80" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+            <text x="600" y="290" text-anchor="middle" font-size="14" font-weight="bold">What is my</text>
+            <text x="600" y="310" text-anchor="middle" font-size="14" font-weight="bold">filing status?</text>
+            
+            <!-- Left branch continued -->
+            <line x1="200" y1="340" x2="200" y2="360" stroke="#6B7280" stroke-width="2"/>
+            <line x1="200" y1="360" x2="100" y2="360" stroke="#6B7280" stroke-width="2"/>
+            <line x1="200" y1="360" x2="300" y2="360" stroke="#6B7280" stroke-width="2"/>
+            <line x1="100" y1="360" x2="100" y2="390" stroke="#6B7280" stroke-width="2"/>
+            <line x1="300" y1="360" x2="300" y2="390" stroke="#6B7280" stroke-width="2"/>
+            
+            <text x="100" y="380" text-anchor="middle" font-size="14" font-weight="bold" fill="#22C55E">Yes</text>
+            <text x="300" y="380" text-anchor="middle" font-size="14" font-weight="bold" fill="#EF4444">No</text>
+            
+            <!-- Right branch continued -->
+            <line x1="600" y1="340" x2="600" y2="360" stroke="#6B7280" stroke-width="2"/>
+            <line x1="600" y1="360" x2="500" y2="360" stroke="#6B7280" stroke-width="2"/>
+            <line x1="600" y1="360" x2="700" y2="360" stroke="#6B7280" stroke-width="2"/>
+            <line x1="500" y1="360" x2="500" y2="390" stroke="#6B7280" stroke-width="2"/>
+            <line x1="700" y1="360" x2="700" y2="390" stroke="#6B7280" stroke-width="2"/>
+            
+            <text x="450" y="380" text-anchor="middle" font-size="14" font-weight="bold">Single</text>
+            <text x="750" y="380" text-anchor="middle" font-size="14" font-weight="bold">Married</text>
+            
+            <!-- Outcomes -->
+            <rect x="50" y="390" width="100" height="60" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
+            <text x="100" y="425" text-anchor="middle" font-size="14" font-weight="bold">Required to file</text>
+            
+            <rect x="250" y="390" width="100" height="60" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
+            <text x="300" y="425" text-anchor="middle" font-size="14" font-weight="bold">Not required</text>
+            
+            <!-- Right side next level -->
+            <rect x="450" y="390" width="100" height="60" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+            <text x="500" y="415" text-anchor="middle" font-size="14" font-weight="bold">Income over $12,950?</text>
+            
+            <rect x="650" y="390" width="100" height="60" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+            <text x="700" y="415" text-anchor="middle" font-size="14" font-weight="bold">Income over $25,900?</text>
+            
+            <!-- Single branch continued -->
+            <line x1="500" y1="450" x2="500" y2="470" stroke="#6B7280" stroke-width="2"/>
+            <line x1="500" y1="470" x2="450" y2="470" stroke="#6B7280" stroke-width="2"/>
+            <line x1="500" y1="470" x2="550" y2="470" stroke="#6B7280" stroke-width="2"/>
+            <line x1="450" y1="470" x2="450" y2="500" stroke="#6B7280" stroke-width="2"/>
+            <line x1="550" y1="470" x2="550" y2="500" stroke="#6B7280" stroke-width="2"/>
+            
+            <text x="450" y="490" text-anchor="middle" font-size="14" font-weight="bold" fill="#22C55E">Yes</text>
+            <text x="550" y="490" text-anchor="middle" font-size="14" font-weight="bold" fill="#EF4444">No</text>
+            
+            <!-- Married branch continued -->
+            <line x1="700" y1="450" x2="700" y2="470" stroke="#6B7280" stroke-width="2"/>
+            <line x1="700" y1="470" x2="650" y2="470" stroke="#6B7280" stroke-width="2"/>
+            <line x1="700" y1="470" x2="750" y2="470" stroke="#6B7280" stroke-width="2"/>
+            <line x1="650" y1="470" x2="650" y2="500" stroke="#6B7280" stroke-width="2"/>
+            <line x1="750" y1="470" x2="750" y2="500" stroke="#6B7280" stroke-width="2"/>
+            
+            <text x="650" y="490" text-anchor="middle" font-size="14" font-weight="bold" fill="#22C55E">Yes</text>
+            <text x="750" y="490" text-anchor="middle" font-size="14" font-weight="bold" fill="#EF4444">No</text>
+            
+            <!-- Final outcomes -->
+            <rect x="400" y="500" width="100" height="60" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
+            <text x="450" y="535" text-anchor="middle" font-size="14" font-weight="bold">Required to file</text>
+            
+            <rect x="500" y="500" width="100" height="60" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
+            <text x="550" y="525" text-anchor="middle" font-size="14" font-weight="bold">Not required</text>
+            <text x="550" y="545" text-anchor="middle" font-size="14" font-weight="bold">to file</text>
+            
+            <rect x="600" y="500" width="100" height="60" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
+            <text x="650" y="535" text-anchor="middle" font-size="14" font-weight="bold">Required to file</text>
+            
+            <rect x="700" y="500" width="100" height="60" rx="10" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
+            <text x="750" y="525" text-anchor="middle" font-size="14" font-weight="bold">Not required</text>
+            <text x="750" y="545" text-anchor="middle" font-size="14" font-weight="bold">to file</text>
+            
+            <!-- Special situation branch -->
+            <line x1="300" y1="450" x2="300" y2="550" stroke="#6B7280" stroke-width="2" stroke-dasharray="5,5"/>
+            <line x1="300" y1="550" x2="300" y2="580" stroke="#6B7280" stroke-width="2"/>
+            
+            <rect x="200" y="580" width="200" height="60" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+            <text x="300" y="610" text-anchor="middle" font-size="14" font-weight="bold">Federal income tax withheld?</text>
+            
+            <!-- Note at bottom -->
+            <text x="400" y="640" text-anchor="middle" font-size="12" font-style="italic" fill="#6B7280">Continue building with more decision points and special situations...</text>
+        </svg>
+    </div>
+
+    <h2>Key Decision Points to Include</h2>
+    <p>Make sure your decision tree addresses these important factors:</p>
+
+    <h3>1. Dependency Status</h3>
+    <ul>
+        <li>Can someone claim you as a dependent?</li>
+        <li>Different filing thresholds apply to dependents</li>
+    </ul>
+
+    <h3>2. Filing Status</h3>
+    <ul>
+        <li>Single</li>
+        <li>Married Filing Jointly</li>
+        <li>Married Filing Separately</li>
+        <li>Head of Household</li>
+        <li>Qualifying Widow(er)</li>
+    </ul>
+
+    <h3>3. Age Considerations</h3>
+    <ul>
+        <li>Under 65</li>
+        <li>65 or older (higher filing thresholds)</li>
+    </ul>
+
+    <h3>4. Income Thresholds</h3>
+    <ul>
+        <li>Different thresholds for each filing status</li>
+        <li>Special thresholds for dependents</li>
+    </ul>
+
+    <h3>5. Special Situations That Require Filing</h3>
+    <ul>
+        <li>Self-employment income of $400 or more</li>
+        <li>Special taxes owed (AMT, household employment taxes, etc.)</li>
+        <li>Advance premium tax credit received</li>
+        <li>Distribution from an HSA</li>
+    </ul>
+
+    <h3>6. Reasons to File Even If Not Required</h3>
+    <ul>
+        <li>Federal income tax withheld (to get a refund)</li>
+        <li>Eligible for refundable credits (Earned Income Credit, Additional Child Tax Credit, etc.)</li>
+        <li>To start the statute of limitations for audit</li>
+    </ul>
+
+    <h2>Making Your Decision Tree Comprehensive</h2>
+
+    <div class="important-note">
+        <strong>Remember:</strong> Your decision tree should be much more detailed than the simple example shown above. Include specific income thresholds for each filing status, age-specific requirements, and various special situations that might require filing or make filing beneficial even when not required.
+    </div>
+
+    <p>As you build your decision tree, consider these tips:</p>
+    <ul>
+        <li><strong>Balance detail and usability:</strong> Include enough detail to be accurate, but not so much that the tree becomes confusing</li>
+        <li><strong>Use logical grouping:</strong> Group related questions together (e.g., all filing status questions in one branch)</li>
+        <li><strong>Consider frequency:</strong> Put more common scenarios earlier in the tree when possible</li>
+        <li><strong>Include reference notes:</strong> Add information about where specific thresholds or rules come from</li>
+        <li><strong>Date your tree:</strong> Include the tax year this tree applies to, since requirements change annually</li>
+    </ul>
+
+    <h2>Testing Your Decision Tree</h2>
+    <p>Use these example scenarios to test your decision tree:</p>
+
+    <ol>
+        <li>Single person, under 65, not a dependent, income of $15,000</li>
+        <li>Married couple, both under 65, filing jointly, income of $24,000</li>
+        <li>Dependent student, age 19, earned income of $5,000, no unearned income</li>
+        <li>Single parent with child, Head of Household, income of $18,000</li>
+        <li>Self-employed individual with business income of $3,000 and no other income</li>
+        <li>Retired person, age 67, Single, Social Security benefits of $14,000 and pension of $8,000</li>
+        <li>Part-time worker with income of $4,000 and federal income tax withholding of $200</li>
+    </ol>
+
+    <p>Follow each scenario through your decision tree and verify that you reach the correct conclusion about whether they need to file a tax return.</p>
+
+    <div class="important-note">
+        <strong>Final Note:</strong> Your tax filing decision tree is a valuable tool, but tax laws change. Update your tree annually with current information from the IRS website.
+    </div>
+
+    <footer>
+        <p>PFL Academy - Chapter 2.3: Understanding Tax Filing Requirements</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not tax advice.</p>
+    </footer>
+</body>
+</html>

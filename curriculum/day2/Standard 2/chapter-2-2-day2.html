@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 2.2: Tax Strategy Ethics and Impact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .case-study {
+            background-color: #f0f9ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .skill-builder {
+            background-color: #f3e8ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background-color: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+        
+        .station {
+            background-color: #f0f9ff;
+            border: 2px solid #3b82f6;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .station-title {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            margin: -2.5rem 0 1rem 0;
+            display: inline-block;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Fixed Header - Purple with Navigation -->
+    <header class="bg-indigo-600 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">PFL Academy</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-white hover:text-indigo-200">Home</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Curriculum</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Resources</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Spacer to push content below fixed header -->
+    <div class="h-16"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Left Navigation Sidebar -->
+        <div class="lg:col-span-3 bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 2: Taxes</h2>
+            <p class="text-gray-600 mb-6">Covers types of taxes, deductions, credits, and their impact on income, emphasizing financial management and tax compliance.</p>
+            
+            <!-- Chapter Navigation with blue indicators and green checkmarks -->
+            <nav class="space-y-2" aria-label="Chapters">
+                <!-- Completed chapter with green checkmark -->
+                <a href="chapter-2-1-day1.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.1 Understanding Federal and State Taxes</span>
+                </a>
+                
+                <!-- Current chapter with blue left border -->
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-50 text-indigo-700 border-l-4 border-indigo-700">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.2 Understanding Tax Brackets and Tax Rates</span>
+                </a>
+                
+                <!-- Indented section links when a chapter is selected -->
+                <div class="ml-6 space-y-1 mt-1">
+                    <a href="#intro" class="text-indigo-700 font-medium flex items-center">
+                        <span class="mr-2">•</span> Introduction
+                    </a>
+                    <a href="#research-challenge" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Tax Ethics Research
+                    </a>
+                    <a href="#tax-impact" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Tax Impact Analysis
+                    </a>
+                    <a href="#policy-proposal" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Tax Policy Proposal
+                    </a>
+                    <a href="#position-statement" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Ethics Position Statement
+                    </a>
+                </div>
+                
+                <!-- Upcoming chapters -->
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.3 Understanding Tax Filing Requirements</span>
+                </a>
+                
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.4 Understanding Tax Deductions and Credits</span>
+                </a>
+                
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.5 Tax Planning and Compliance</span>
+                </a>
+            </nav>
+            
+            <hr class="my-4 border-gray-200">
+            
+            <!-- Progress Indicator -->
+            <div class="mt-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-gray-700">Progress</span>
+                    <span class="text-sm text-gray-600">40%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="h-full bg-indigo-600" style="width: 40%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="lg:col-span-7 bg-white rounded-lg shadow p-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Chapter 2.2: Learning Lab - Tax Strategy Ethics and Impact</h1>
+            
+            <div class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Analyze the ethical implications of tax avoidance strategies</li>
+                    <li>Evaluate the societal impact of corporate and individual tax policies</li>
+                    <li>Develop a reasoned position on tax fairness and responsibility</li>
+                    <li>Create a policy proposal to address a tax-related issue</li>
+                </ul>
+            </div>
+            
+            <section class="mb-8" id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
+                <p class="text-gray-700 mb-4">Today we'll build upon our understanding of tax brackets and explore deeper ethical and practical considerations around taxation. You'll analyze real-world tax strategies, evaluate their impact on society, and develop your own position on tax policy.</p>
+                
+                <div class="audio-player">
+                    <h3 class="font-semibold mb-2">Key Concepts Review</h3>
+                    <div class="flex items-center space-x-2">
+                        <button class="bg-indigo-600 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                        <div class="flex-1">
+                            <div class="h-2 bg-gray-200 rounded-full">
+                                <div class="h-2 bg-indigo-500 rounded-full" style="width: 25%"></div>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                <span>00:34</span>
+                                <span>02:17</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Listen to this brief review of key concepts from Day 1: progressive tax system, marginal vs. effective tax rates, tax avoidance vs. tax evasion, and how tax brackets work.</p>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="research-challenge">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Tax Ethics Research Challenge</h2>
+                <div class="activity-timer">
+                    <span>⏱️ Activity Time: 20 minutes</span>
+                </div>
+                
+                <div class="station">
+                    <div class="station-title">Station 1: Ethics Research</div>
+                    
+                    <p class="mb-4">Working individually or in small groups, you'll research a specific tax policy or strategy and analyze its societal impact.</p>
+                    
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                        <h3 class="font-semibold text-lg mb-3">Choose a Research Topic</h3>
+                        <select id="research-topic" class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">-- Select a topic --</option>
+                            <option value="corporate">Corporate Tax Inversions</option>
+                            <option value="charitable">Charitable Giving Tax Incentives</option>
+                            <option value="capital">Capital Gains Tax Preferences</option>
+                            <option value="state">State Tax Competition</option>
+                            <option value="international">International Tax Havens</option>
+                        </select>
+                    </div>
+                    
+                    <div id="topic-info" class="hidden bg-indigo-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold mb-2" id="topic-title"></h4>
+                        <p class="mb-2" id="topic-description"></p>
+                        <ul class="list-disc ml-6" id="topic-resources">
+                        </ul>
+                    </div>
+                    
+                    <h3 class="font-semibold text-lg mb-3">Research Analysis</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Who benefits from this policy/strategy?</label>
+                            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Who might be disadvantaged?</label>
+                            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">What are the broader societal impacts?</label>
+                            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Is this policy/strategy primarily about fairness or economic growth?</label>
+                            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="tax-impact">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Tax Impact Analysis</h2>
+                <div class="activity-timer">
+                    <span>⏱️ Activity Time: 15 minutes</span>
+                </div>
+                
+                <div class="station">
+                    <div class="station-title">Station 2: Impact Calculator</div>
+                    
+                    <p class="mb-4">Use this interactive calculator to explore how different tax strategies impact individuals and businesses across income levels.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h3 class="font-semibold text-lg mb-3">Income & Tax Settings</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Annual Income</label>
+                                    <input id="income-slider" type="range" min="20000" max="500000" step="10000" value="75000" class="w-full">
+                                    <div class="flex justify-between">
+                                        <span class="text-sm">$20,000</span>
+                                        <span id="income-value" class="font-medium">$75,000</span>
+                                        <span class="text-sm">$500,000</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Filing Status</label>
+                                    <select id="filing-status" class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                        <option value="single">Single</option>
+                                        <option value="joint">Married Filing Jointly</option>
+                                        <option value="hoh">Head of Household</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Deduction Strategy</label>
+                                    <select id="deduction-strategy" class="w-full p-2 border border-gray-300 rounded-md text-sm">
+                                        <option value="standard">Standard Deduction</option>
+                                        <option value="itemized">Itemized Deductions</option>
+                                        <option value="retirement">Maximize Retirement Contributions</option>
+                                        <option value="charitable">Charitable Giving Focus</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-3">Tax Impact Results</h3>
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 h-64 flex items-center justify-center">
+                                <canvas id="tax-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-3">Impact Analysis</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="font-medium text-gray-700">Tax Liability</p>
+                                <p id="tax-liability" class="text-xl font-bold text-indigo-700">$14,375</p>
+                                <p class="text-sm text-gray-500">Before Deductions & Credits</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="font-medium text-gray-700">Effective Tax Rate</p>
+                                <p id="effective-rate" class="text-xl font-bold text-indigo-700">19.2%</p>
+                                <p class="text-sm text-gray-500">Average Rate on Income</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="font-medium text-gray-700">Take-Home Pay</p>
+                                <p id="take-home" class="text-xl font-bold text-green-600">$60,625</p>
+                                <p class="text-sm text-gray-500">Annual Amount</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <label class="block text-gray-700 font-medium mb-2">Based on your analysis, how do different tax strategies affect lifetime wealth accumulation?</label>
+                        <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="policy-proposal">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Tax Policy Proposal</h2>
+                <div class="activity-timer">
+                    <span>⏱️ Activity Time: 15 minutes</span>
+                </div>
+                
+                <div class="station">
+                    <div class="station-title">Station 3: Policy Workshop</div>
+                    
+                    <p class="mb-4">Develop a policy proposal that addresses a specific issue related to tax fairness, corporate taxation, or individual tax responsibility.</p>
+                    
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                        <h3 class="font-semibold text-lg mb-3">Policy Development Template</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">1. Problem Identification: What specific issue with the current tax system are you addressing?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">2. Proposed Solution: What specific change do you recommend?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="4"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">3. Fairness Analysis: How does your proposal balance fairness and economic considerations?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="4"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">4. Addressing Objections: What potential criticisms of your proposal can you address?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="position-statement">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Tax Ethics Position Statement</h2>
+                <div class="activity-timer">
+                    <span>⏱️ Activity Time: 10 minutes</span>
+                </div>
+                
+                <div class="station">
+                    <div class="station-title">Station 4: Ethics Position</div>
+                    
+                    <p class="mb-4">Based on your research and analysis, develop a position statement on tax ethics that reflects your understanding of both individual and corporate tax responsibilities.</p>
+                    
+                    <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                        <h3 class="font-semibold mb-2">Your Day 1 Skill Builder Responses</h3>
+                        <div id="day1-responses" class="text-gray-700 text-sm italic">
+                            <p>"Al Capone case response will appear here from your Day 1 work..."</p>
+                            <p class="mt-2">"Amazon tax strategy response will appear here from your Day 1 work..."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                        <h3 class="font-semibold text-lg mb-3">Position Statement Development</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">1. Core Values: What ethical principles should guide tax policy and compliance?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">2. Individual Responsibility: What are individuals' ethical responsibilities regarding taxes?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">3. Corporate Responsibility: What are businesses' ethical responsibilities regarding taxes?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">4. Where to Draw the Line: How do you distinguish between legitimate tax planning and unethical avoidance?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                
+                <p class="text-gray-700 mb-4">You'll compile your analysis, policy proposal, and position statement into your financial literacy portfolio. This comprehensive package will showcase your understanding of tax ethics and policy considerations.</p>
+                
+                <div class="bg-white rounded-lg border border-gray-200 p-4">
+                    <h3 class="font-semibold text-lg mb-3">Portfolio Summary</h3>
+                    
+                    <p class="text-gray-700 mb-4">Select which elements you'd like to highlight in your financial literacy portfolio:</p>
+                    
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="include-research" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                            <label for="include-research" class="ml-2 block text-gray-700">Research Analysis</label>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="include-impact" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                            <label for="include-impact" class="ml-2 block text-gray-700">Tax Impact Analysis</label>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="include-policy" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                            <label for="include-policy" class="ml-2 block text-gray-700">Policy Proposal</label>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="include-position" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                            <label for="include-position" class="ml-2 block text-gray-700">Ethics Position Statement</label>
+                        </div>
+                    </div>
+                    
+                    <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Save to Portfolio</button>
+                    
+                    <div id="save-confirmation" class="hidden mt-3 text-green-600 bg-green-50 p-2 rounded">
+                        <svg class="inline-block h-5 w-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        Your tax ethics and impact work has been saved to your portfolio.
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Reflection and Next Steps</h2>
+                
+                <div class="discussion-prompt">
+                    <p>How has your perspective on taxation changed after completing this learning lab? How might this new understanding affect your financial decision-making?</p>
+                    <textarea class="w-full px-3 py-2 mt-3 border border-gray-300 rounded-md" rows="3" placeholder="Enter your reflection..."></textarea>
+                </div>
+                
+                <p class="text-gray-700 mt-6">In the next chapter, we'll explore tax filing requirements and the process of preparing and filing tax returns. Understanding how tax brackets work and the ethical considerations surrounding taxation will help you navigate these topics more effectively.</p>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // Example chart for the tax impact calculator
+        const ctx = document.getElementById('tax-chart').getContext('2d');
+        const taxChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Federal Tax', 'Take-Home Pay'],
+                datasets: [{
+                    data: [19.2, 80.8],
+                    backgroundColor: [
+                        '#4f46e5',
+                        '#16a34a'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Show topic information when a research topic is selected
+        document.getElementById('research-topic').addEventListener('change', function() {
+            const topicInfo = document.getElementById('topic-info');
+            const topicTitle = document.getElementById('topic-title');
+            const topicDescription = document.getElementById('topic-description');
+            const topicResources = document.getElementById('topic-resources');
+            
+            if (this.value) {
+                topicInfo.classList.remove('hidden');
+                
+                // Set topic information based on selection
+                switch(this.value) {
+                    case 'corporate':
+                        topicTitle.textContent = 'Corporate Tax Inversions';
+                        topicDescription.textContent = 'A process where a company relocates its legal domicile to a lower-tax nation while maintaining operations in its higher-tax country of origin.';
+                        topicResources.innerHTML = '<li>Congressional Research Service Report on Tax Inversions</li><li>Corporate Taxation Case Studies</li>';
+                        break;
+                    case 'charitable':
+                        topicTitle.textContent = 'Charitable Giving Tax Incentives';
+                        topicDescription.textContent = 'Tax deductions that encourage individuals and businesses to donate to qualifying charitable organizations.';
+                        topicResources.innerHTML = '<li>IRS Publication on Charitable Contributions</li><li>Research on Giving Patterns</li>';
+                        break;
+                    case 'capital':
+                        topicTitle.textContent = 'Capital Gains Tax Preferences';
+                        topicDescription.textContent = 'Lower tax rates applied to profits from selling capital assets held long-term compared to ordinary income.';
+                        topicResources.innerHTML = '<li>Tax Foundation Report on Capital Gains</li><li>Historical Capital Gains Tax Rates</li>';
+                        break;
+                    case 'state':
+                        topicTitle.textContent = 'State Tax Competition';
+                        topicDescription.textContent = 'When states compete to attract businesses and residents by offering favorable tax policies.';
+                        topicResources.innerHTML = '<li>Case Study: Texas vs. California</li><li>Interstate Migration Data</li>';
+                        break;
+                    case 'international':
+                        topicTitle.textContent = 'International Tax Havens';
+                        topicDescription.textContent = 'Countries that offer minimal tax liability for foreign individuals and businesses.';
+                        topicResources.innerHTML = '<li>OECD Reports on Tax Havens</li><li>Global Minimum Tax Agreements</li>';
+                        break;
+                }
+            } else {
+                topicInfo.classList.add('hidden');
+            }
+        });
+        
+        // Update income value display when slider changes
+        document.getElementById('income-slider').addEventListener('input', function() {
+            document.getElementById('income-value').textContent = '$' + this.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            
+            // In a full implementation, this would recalculate tax impacts
+            // This is a simplified example
+            updateTaxCalculations(parseInt(this.value));
+        });
+        
+        // Portfolio save button
+        document.querySelector('button').addEventListener('click', function() {
+            document.getElementById('save-confirmation').classList.remove('hidden');
+        });
+        
+        // Simple tax calculation update
+        function updateTaxCalculations(income) {
+            // This is a very simplified tax calculation for demonstration
+            let taxLiability = 0;
+            
+            if (income <= 11000) {
+                taxLiability = income * 0.10;
+            } else if (income <= 44725) {
+                taxLiability = 1100 + (income - 11000) * 0.12;
+            } else if (income <= 95375) {
+                taxLiability = 1100 + 4047 + (income - 44725) * 0.22;
+            } else if (income <= 182100) {
+                taxLiability = 1100 + 4047 + 11143 + (income - 95375) * 0.24;
+            } else {
+                taxLiability = 1100 + 4047 + 11143 + 20814 + (income - 182100) * 0.32;
+            }
+            
+            const effectiveRate = ((taxLiability / income) * 100).toFixed(1);
+            const takeHome = income - taxLiability;
+            
+            document.getElementById('tax-liability').textContent = '$' + Math.round(taxLiability).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById('effective-rate').textContent = effectiveRate + '%';
+            document.getElementById('take-home').textContent = '$' + Math.round(takeHome).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            
+            // Update chart
+            taxChart.data.datasets[0].data = [effectiveRate, (100 - effectiveRate).toFixed(1)];
+            taxChart.update();
+        }
+    </script>
+</body>
+</html>

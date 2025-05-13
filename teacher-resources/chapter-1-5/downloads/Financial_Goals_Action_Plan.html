@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Goals Action Plan - Chapter 1.5: Managing Your Income Effectively</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Financial Goals specific styles */
+        .goal-section {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .short-term {
+            border-left: 5px solid #4f46e5;
+        }
+        
+        .long-term {
+            border-left: 5px solid #8b5cf6;
+        }
+        
+        .obstacles {
+            border-left: 5px solid #f59e0b;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #4b5563;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        textarea.form-control {
+            min-height: 80px;
+        }
+        
+        .row {
+            display: flex;
+            margin: 0 -10px;
+        }
+        
+        .col {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        .progress-tracker {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .timeline {
+            display: flex;
+            margin: 20px 0;
+            padding: 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #cbd5e1;
+            z-index: 1;
+        }
+        
+        .milestone {
+            position: relative;
+            flex: 1;
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .milestone-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 2px solid #4f46e5;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+        }
+        
+        .milestone-label {
+            font-size: 14px;
+            color: #4b5563;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>To save as PDF:</strong> Open this page in Chrome, Edge, or Firefox. Click on Print (Ctrl+P or Cmd+P), 
+        then select "Save as PDF" as the destination. Click "Save" and choose where to save the file on your computer.</p>
+    </div>
+    
+    <div class="header">
+        <h1>Financial Goals Action Plan</h1>
+        <p><strong>Chapter 1.5:</strong> Managing Your Income Effectively</p>
+    </div>
+    
+    <div class="progress-tracker">
+        <h2>Financial Goal Timeline</h2>
+        <p>Use this action plan to map out your financial goals and the steps you'll take to achieve them using the 50/30/20 framework.</p>
+        
+        <div class="timeline">
+            <div class="milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-label">Start</div>
+            </div>
+            <div class="milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-label">3 Months</div>
+            </div>
+            <div class="milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-label">6 Months</div>
+            </div>
+            <div class="milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-label">1 Year</div>
+            </div>
+            <div class="milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-label">2 Years</div>
+            </div>
+            <div class="milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-label">5+ Years</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="goal-section short-term">
+        <h2>Short-Term Financial Goal (1 year or less)</h2>
+        
+        <div class="form-group">
+            <label for="short-term-goal">Goal Description:</label>
+            <input type="text" id="short-term-goal" class="form-control" placeholder="What do you want to achieve?">
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="short-term-amount">Target Amount:</label>
+                    <input type="text" id="short-term-amount" class="form-control" placeholder="How much money is needed?">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="short-term-timeline">Timeline:</label>
+                    <select id="short-term-timeline" class="form-control">
+                        <option value="">Select timeline...</option>
+                        <option value="1month">1 month</option>
+                        <option value="3months">3 months</option>
+                        <option value="6months">6 months</option>
+                        <option value="1year">1 year</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="short-term-why">Importance (Why this goal matters to you):</label>
+            <textarea id="short-term-why" class="form-control" placeholder="Why is this goal important? How will achieving it improve your life?"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="short-term-budget">Budget Adjustments to Achieve Goal:</label>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Current Allocation</th>
+                    <th>Adjusted Allocation</th>
+                    <th>Monthly Savings</th>
+                </tr>
+                <tr>
+                    <td>Needs (50%)</td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <td>Wants (30%)</td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <td>Savings (20%)</td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="form-group">
+            <label for="short-term-specific">Specific Action Steps:</label>
+            <textarea id="short-term-specific" class="form-control" placeholder="List 3-5 specific actions you will take to achieve this goal (e.g., 'Reduce dining out to once per week')"></textarea>
+        </div>
+    </div>
+    
+    <div class="goal-section long-term">
+        <h2>Long-Term Financial Goal (more than 1 year)</h2>
+        
+        <div class="form-group">
+            <label for="long-term-goal">Goal Description:</label>
+            <input type="text" id="long-term-goal" class="form-control" placeholder="What do you want to achieve?">
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="long-term-amount">Target Amount:</label>
+                    <input type="text" id="long-term-amount" class="form-control" placeholder="How much money is needed?">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="long-term-timeline">Timeline:</label>
+                    <select id="long-term-timeline" class="form-control">
+                        <option value="">Select timeline...</option>
+                        <option value="2years">2 years</option>
+                        <option value="3-5years">3-5 years</option>
+                        <option value="5-10years">5-10 years</option>
+                        <option value="10+years">10+ years</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="long-term-why">Importance (Why this goal matters to you):</label>
+            <textarea id="long-term-why" class="form-control" placeholder="Why is this goal important? How will achieving it improve your life?"></textarea>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="monthly-contribution">Monthly Contribution Needed:</label>
+                    <input type="text" id="monthly-contribution" class="form-control" placeholder="How much do you need to save monthly?">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="savings-source">Source of Monthly Contribution:</label>
+                    <input type="text" id="savings-source" class="form-control" placeholder="Which budget categories will you adjust?">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="investment-strategy">Investment Strategy (if applicable):</label>
+            <textarea id="investment-strategy" class="form-control" placeholder="What investment approach will you use to reach this goal? (e.g., savings account, retirement account, mutual funds, etc.)"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="long-term-milestones">Key Milestones:</label>
+            <table>
+                <tr>
+                    <th>Milestone</th>
+                    <th>Target Date</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" placeholder="Milestone 1"></td>
+                    <td><input type="text" class="form-control" placeholder="Date"></td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" placeholder="Milestone 2"></td>
+                    <td><input type="text" class="form-control" placeholder="Date"></td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" placeholder="Milestone 3"></td>
+                    <td><input type="text" class="form-control" placeholder="Date"></td>
+                    <td><input type="text" class="form-control" placeholder="$"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="goal-section obstacles">
+        <h2>Obstacles and Solutions</h2>
+        
+        <div class="form-group">
+            <label for="obstacles">Potential Challenges:</label>
+            <textarea id="obstacles" class="form-control" placeholder="What challenges or obstacles might you face in achieving these financial goals?"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="solutions">Planned Solutions:</label>
+            <textarea id="solutions" class="form-control" placeholder="What specific strategies will you use to overcome these challenges?"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="accountability">Accountability Plan:</label>
+            <textarea id="accountability" class="form-control" placeholder="How will you hold yourself accountable? Will you have a tracking system, check-ins with yourself or others, or other mechanisms to stay on track?"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="adjustment-triggers">Adjustment Triggers:</label>
+            <textarea id="adjustment-triggers" class="form-control" placeholder="What circumstances would cause you to adjust your plan? (e.g., income change, unexpected expenses, change in priorities)"></textarea>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <h2>Income Management Summary</h2>
+        <p>Summarize how your financial goals align with the 50/30/20 rule and your overall income management strategy:</p>
+        <textarea class="form-control" rows="5" placeholder="How will your budget allocations and financial goals work together to create a comprehensive income management plan?"></textarea>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy © 2025 | Chapter 1.5: Managing Your Income Effectively</p>
+    </div>
+</body>
+</html>

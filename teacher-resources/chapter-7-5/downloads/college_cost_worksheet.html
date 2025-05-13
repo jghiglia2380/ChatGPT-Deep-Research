@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Budget Worksheet - PFL Academy</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #4f46e5;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            color: #333;
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background-color: #f3f4f6;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+        
+        td {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+        
+        .input-cell {
+            background-color: #f9fafb;
+        }
+        
+        .expense-category {
+            font-weight: 600;
+            color: #4f46e5;
+        }
+        
+        .notes {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tips {
+            background-color: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .example {
+            background-color: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .print-instructions {
+            text-align: center;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            background-color: #e0f2fe;
+            border-radius: 6px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .print-instructions {
+                display: none;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+            
+            h2 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PFL Academy</div>
+            <h1>College Budget Worksheet</h1>
+            <div class="subtitle">Chapter 7.5: Understanding Student Loans</div>
+        </div>
+        
+        <div class="print-instructions">
+            <strong>Teacher Instructions:</strong> To save as PDF, use your browser's print function (Ctrl+P or ⌘+P) and select "Save as PDF" as the destination.
+        </div>
+        
+        <h2>Introduction</h2>
+        <p>
+            This worksheet will help you analyze college expenses and identify strategies to reduce costs. By minimizing expenses, you can reduce the amount you need to borrow in student loans. Complete this worksheet for the type of institution you're considering attending.
+        </p>
+        
+        <div class="tips">
+            <strong>TIP:</strong> For each expense category, consider all possible ways to reduce costs. Even small savings add up over 4+ years of college and can significantly reduce your total student loan debt.
+        </div>
+        
+        <h2>College Information</h2>
+        <table>
+            <tr>
+                <td width="50%">Institution Name:</td>
+                <td class="input-cell" width="50%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Type of Institution:</td>
+                <td class="input-cell">
+                    □ Public (In-State)<br>
+                    □ Public (Out-of-State)<br>
+                    □ Private<br>
+                    □ Community College<br>
+                    □ Technical/Trade School
+                </td>
+            </tr>
+            <tr>
+                <td>Program/Degree:</td>
+                <td class="input-cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Expected Length of Program:</td>
+                <td class="input-cell">&nbsp;</td>
+            </tr>
+        </table>
+        
+        <h2>Annual College Expenses Analysis</h2>
+        <p>
+            For each expense category, list the typical annual cost, identify at least one strategy to reduce that cost, and calculate your potential annual savings.
+        </p>
+        
+        <table>
+            <tr>
+                <th width="30%">Expense Category</th>
+                <th width="15%">Typical Annual Cost</th>
+                <th width="40%">Cost Reduction Strategies</th>
+                <th width="15%">Potential Annual Savings</th>
+            </tr>
+            
+            <tr>
+                <td class="expense-category">Tuition and Fees</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Example Strategies:</strong> Start at community college and transfer; attend in-state public university; apply for scholarships; look for tuition-free programs; negotiate with financial aid office; take advantage of employer tuition assistance
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="expense-category">Housing</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Example Strategies:</strong> Live at home; become a resident assistant (RA); share apartment with multiple roommates; look for off-campus housing; choose less expensive housing options
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="expense-category">Meal Plan/Food</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Example Strategies:</strong> Choose cheaper meal plan; cook your own meals; use campus food pantry; share groceries with roommates; use student discounts at local restaurants
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="expense-category">Books and Supplies</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Example Strategies:</strong> Rent textbooks; buy used books; use digital versions; share books with classmates; check campus library for reserve copies; use open educational resources (OERs)
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="expense-category">Transportation</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Example Strategies:</strong> Use public transportation; walk or bike; carpool with other students; use campus shuttle service; limit trips home; avoid bringing a car to campus
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="expense-category">Personal Expenses</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Example Strategies:</strong> Create and stick to a budget; use student discounts; limit eating out; minimize entertainment expenses; use campus recreation facilities instead of gym memberships
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="expense-category">Healthcare/Insurance</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Example Strategies:</strong> Stay on parents' health insurance plan; use campus health services; compare insurance options; take advantage of preventive care
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="expense-category">Technology</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Example Strategies:</strong> Use campus computer labs; buy refurbished devices; get student discounts on laptops and software; share subscriptions with roommates
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="expense-category">Other Expenses</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Example Strategies:</strong> List any other expenses specific to your situation and strategies to reduce them
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="expense-category"><strong>TOTAL</strong></td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+        </table>
+        
+        <h2>Income Sources During College</h2>
+        <p>
+            List potential sources of income during college that can help reduce your need for student loans.
+        </p>
+        
+        <table>
+            <tr>
+                <th width="50%">Income Source</th>
+                <th width="25%">Estimated Annual Amount</th>
+                <th width="25%">Is This Realistic?</th>
+            </tr>
+            <tr>
+                <td>Part-time job during school year</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Yes □ No □ Maybe</td>
+            </tr>
+            <tr>
+                <td>Summer employment</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Yes □ No □ Maybe</td>
+            </tr>
+            <tr>
+                <td>Work-study</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Yes □ No □ Maybe</td>
+            </tr>
+            <tr>
+                <td>Scholarships (merit-based)</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Yes □ No □ Maybe</td>
+            </tr>
+            <tr>
+                <td>Grants (need-based)</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Yes □ No □ Maybe</td>
+            </tr>
+            <tr>
+                <td>Family contribution</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Yes □ No □ Maybe</td>
+            </tr>
+            <tr>
+                <td>Personal savings</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Yes □ No □ Maybe</td>
+            </tr>
+            <tr>
+                <td>Other: _________________</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Yes □ No □ Maybe</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+            </tr>
+        </table>
+        
+        <h2>Student Loan Analysis</h2>
+        
+        <table>
+            <tr>
+                <td width="60%">Total Annual College Cost (from expense analysis):</td>
+                <td class="input-cell" width="40%">$</td>
+            </tr>
+            <tr>
+                <td>Total Annual Income/Resources (from income sources):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Annual Funding Gap (amount needed from loans):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Total Potential Annual Savings (from expense analysis):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Revised Annual Funding Gap (after implementing savings strategies):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Estimated Total Program Cost (annual cost × program length):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Estimated Total Borrowing Needed:</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Estimated Total Borrowing After Savings Strategies:</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Total Reduction in Borrowing:</td>
+                <td class="input-cell">$</td>
+            </tr>
+        </table>
+        
+        <div class="notes">
+            <strong>Note:</strong> Remember that every dollar you don't borrow is a dollar (plus interest) that you won't have to repay after graduation. Even modest savings can significantly reduce your total student loan debt and monthly payments after graduation.
+        </div>
+        
+        <h2>Reflection Questions</h2>
+        <p>
+            Answer the following questions to help develop your education financing strategy:
+        </p>
+        
+        <ol>
+            <li>What are the three most effective strategies you identified to reduce college expenses?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <li>How realistic are these strategies for your particular situation?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <li>What additional income sources might you be able to develop before or during college?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <li>How does the total estimated borrowing compare to your expected starting salary in your chosen field?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <li>What steps will you take now to prepare financially for college and minimize your need for student loans?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+        </ol>
+        
+        <div class="tips">
+            <strong>Financial Planning Tip:</strong> Financial experts generally recommend that your total student loan debt should not exceed your expected first-year salary after graduation. Research typical starting salaries in your chosen field to ensure your borrowing plan is sustainable.
+        </div>
+        
+        <div class="footer">
+            <p>PFL Academy | Chapter 7.5: Understanding Student Loans | © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

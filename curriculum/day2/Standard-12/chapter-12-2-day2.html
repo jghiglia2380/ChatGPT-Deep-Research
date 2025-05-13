@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 12.2: The Costs and Benefits of Gambling - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        .case-study {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 12: Understanding Gambling</h2>
+                        <p class="text-gray-600 text-sm mt-1">Analyzing the financial, social, and psychological impacts of gambling.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Chapter 12.1 with checkmark -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 12.1: Understanding the Risks of Gambling
+                                </a>
+                            </li>
+                            
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 12.2: The Costs and Benefits of Gambling
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-12-2-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 1: Community Impact Analysis
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 2: Gambling Psychology Exploration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 3: Responsible Gambling Campaign
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 4: Gambling Policy Debate
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-indigo-600" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-12-2-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 12.2: The Costs and Benefits of Gambling</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Analyzing gambling from economic, psychological, and social perspectives</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Analyze the economic impact of gambling on communities, including both benefits and costs</li>
+                            <li>Evaluate the psychological factors that influence gambling behavior and decision-making</li>
+                            <li>Design effective communication strategies for responsible gambling practices</li>
+                            <li>Compare different policy approaches to gambling regulation and their effects</li>
+                            <li>Develop a comprehensive framework for assessing gambling's multifaceted impacts</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            In today's Learning Lab, we'll move beyond simply identifying gambling risks to developing a nuanced understanding of gambling's complex impacts. You'll analyze gambling from economic, psychological, and social perspectives to form a balanced view of both its costs and potential benefits. Through interactive activities, you'll examine real-world case studies, explore the psychology behind gambling behaviors, create responsible gambling messaging, and consider various approaches to gambling policy.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                The goal of this Learning Lab is not to promote or discourage gambling, but rather to develop critical thinking skills about a complex financial activity that has both potential benefits and significant risks. You'll learn to evaluate gambling objectively using multiple frameworks while recognizing the importance of responsible approaches.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, you explored the fundamental costs and benefits of gambling, examining how it can function as both entertainment and a financial risk. Today, we'll build on that foundation by diving deeper into the community impacts, psychological factors, responsible messaging approaches, and policy considerations. The activities in this Learning Lab will help you synthesize and apply the concepts from Day 1 in practical contexts.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: The Costs and Benefits of Gambling</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/Users/justin/pfl-academy/finished LM recordings/12.2 The costs and Benefits of Gambling.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Economic impact of gambling, gambling as entertainment vs. investment, psychological factors, responsible gambling practices, gambling policy approaches, and comprehensive impact assessment frameworks.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Entertainment Value Assessment Warm-Up -->
+                    <div class="learning-station mb-8">
+                        <div class="flex items-center mb-3">
+                            <h2 class="text-xl font-semibold text-gray-900">Warm-Up: Entertainment Value Assessment</h2>
+                        </div>
+                        
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">Before diving into our main learning stations, let's start with a brief warm-up activity to assess the entertainment value perspective of gambling.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                <p class="mb-2 font-medium">Consider these entertainment options and their approximate costs:</p>
+                                <ul class="list-disc list-inside space-y-1 mb-4">
+                                    <li>Movie theater ticket: $15 for 2 hours</li>
+                                    <li>Streaming service: $15/month for unlimited viewing</li>
+                                    <li>Concert ticket: $75 for 3 hours</li>
+                                    <li>Professional sports game: $100 for 3 hours</li>
+                                    <li>Casino gambling: Variable cost for variable time</li>
+                                </ul>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">If you were to spend $50 gambling at a casino, how many hours of entertainment would you need to get to consider it equal value to other entertainment options?</label>
+                                    <select id="entertainment-hours" class="w-full p-2 border border-gray-300 rounded">
+                                        <option value="">Select an option...</option>
+                                        <option value="1">1 hour or less</option>
+                                        <option value="2">2 hours</option>
+                                        <option value="3">3 hours</option>
+                                        <option value="4">4 hours</option>
+                                        <option value="5">5+ hours</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">What factors beyond time spent should be considered when evaluating gambling as entertainment?</label>
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="factors" value="enjoyment">
+                                            Enjoyment level
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="factors" value="social">
+                                            Social interaction
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="factors" value="stress">
+                                            Stress/excitement
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="factors" value="risk">
+                                            Financial risk
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="factors" value="skill">
+                                            Skill development
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Station 1: Community Impact Analysis -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 1: Community Impact Analysis</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this station, you'll analyze three different case studies of communities with various types of gambling operations to understand their economic and social impacts.</p>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-center gap-4 mb-4">
+                                    <button class="pfl-button case-button" data-case="1">Case Study 1</button>
+                                    <button class="pfl-button case-button bg-gray-300" data-case="2">Case Study 2</button>
+                                    <button class="pfl-button case-button bg-gray-300" data-case="3">Case Study 3</button>
+                                </div>
+                                
+                                <!-- Case Study 1 -->
+                                <div class="case-study case-content" id="case-1">
+                                    <h3 class="font-bold text-lg text-blue-800">Case Study 1: Riverfront Casino Resort</h3>
+                                    <p class="mb-2"><strong>Community:</strong> Riverview (population 45,000), a former manufacturing town that lost its primary employer 15 years ago</p>
+                                    <p class="mb-2"><strong>Gambling Operation:</strong> $350 million casino resort with hotel, restaurants, and entertainment venue</p>
+                                    <p class="mb-2"><strong>Economic Impacts:</strong></p>
+                                    <ul class="list-disc list-inside mb-2 ml-4">
+                                        <li>Created 1,200 direct jobs and estimated 500 indirect jobs</li>
+                                        <li>$8.5 million in annual tax revenue to local government</li>
+                                        <li>12% increase in tourism to the area</li>
+                                        <li>Decreased unemployment rate from 11.2% to 7.8%</li>
+                                        <li>25% increase in property values near casino</li>
+                                    </ul>
+                                    <p class="mb-2"><strong>Social Impacts:</strong></p>
+                                    <ul class="list-disc list-inside mb-2 ml-4">
+                                        <li>7% increase in problem gambling in the local area</li>
+                                        <li>9% increase in local bankruptcy filings</li>
+                                        <li>Initial 12% increase in DUI arrests, dropping to 5% after enforcement campaign</li>
+                                        <li>Increase in community mental health service demand (15%)</li>
+                                        <li>Funding for new community center and recreational facilities</li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Case Study 2 (hidden initially) -->
+                                <div class="case-study case-content hidden" id="case-2">
+                                    <h3 class="font-bold text-lg text-blue-800">Case Study 2: State Lottery Expansion</h3>
+                                    <p class="mb-2"><strong>Community:</strong> Statewide program, primarily impacting urban and rural low-income areas</p>
+                                    <p class="mb-2"><strong>Gambling Operation:</strong> Expanded state lottery with increased marketing and new game offerings</p>
+                                    <p class="mb-2"><strong>Economic Impacts:</strong></p>
+                                    <ul class="list-disc list-inside mb-2 ml-4">
+                                        <li>$420 million in annual revenues, $165 million directed to education fund</li>
+                                        <li>Funded $85 million in school construction and technology upgrades</li>
+                                        <li>Created approximately 200 direct jobs in administration and sales</li>
+                                        <li>Average household spending of $325 annually on lottery tickets</li>
+                                        <li>Households earning under $30,000 spend roughly 3x more as percentage of income</li>
+                                    </ul>
+                                    <p class="mb-2"><strong>Social Impacts:</strong></p>
+                                    <ul class="list-disc list-inside mb-2 ml-4">
+                                        <li>Disproportionate participation from lower-income communities</li>
+                                        <li>Minimal increase in problem gambling (2.5%)</li>
+                                        <li>Public perception of lottery as "voluntary tax" with 63% approval</li>
+                                        <li>Some evidence of displacement of charitable giving (8% decrease)</li>
+                                        <li>Improved educational resources in underfunded districts</li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Case Study 3 (hidden initially) -->
+                                <div class="case-study case-content hidden" id="case-3">
+                                    <h3 class="font-bold text-lg text-blue-800">Case Study 3: Online Gaming Legalization</h3>
+                                    <p class="mb-2"><strong>Community:</strong> Tech-forward state with 7.2 million population and high digital connectivity</p>
+                                    <p class="mb-2"><strong>Gambling Operation:</strong> Legalized online poker, casino games, and sports betting with 12 licensed operators</p>
+                                    <p class="mb-2"><strong>Economic Impacts:</strong></p>
+                                    <ul class="list-disc list-inside mb-2 ml-4">
+                                        <li>$275 million in annual tax revenue from operations</li>
+                                        <li>Created tech sector jobs (estimated 850 direct positions)</li>
+                                        <li>47% of gambling revenue previously left state through offshore sites</li>
+                                        <li>Attracted 5 tech companies to establish offices in state</li>
+                                        <li>Decreased illegal gambling operations by estimated 65%</li>
+                                    </ul>
+                                    <p class="mb-2"><strong>Social Impacts:</strong></p>
+                                    <ul class="list-disc list-inside mb-2 ml-4">
+                                        <li>13% increase in gambling addiction helpline calls</li>
+                                        <li>Increased accessibility to gambling (24/7 from home)</li>
+                                        <li>Rise in young adult (21-30) participation (36% increase)</li>
+                                        <li>Improved consumer protections compared to offshore sites</li>
+                                        <li>$15 million in dedicated funds for gambling prevention and treatment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-semibold text-gray-900 mb-3">Impact Analysis Worksheet</h3>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Which case study are you analyzing?</label>
+                                    <select id="analysis-case" class="w-full p-2 border border-gray-300 rounded">
+                                        <option value="1">Case Study 1: Riverfront Casino Resort</option>
+                                        <option value="2">Case Study 2: State Lottery Expansion</option>
+                                        <option value="3">Case Study 3: Online Gaming Legalization</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Identify the three most significant positive economic impacts:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" id="positive-economic"></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Identify the three most concerning negative social impacts:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" id="negative-social"></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">How equitably are the benefits and costs distributed across the community?</label>
+                                    <select id="equity-rating" class="w-full p-2 border border-gray-300 rounded">
+                                        <option value="">Select an option...</option>
+                                        <option value="very-inequitable">Very inequitable - benefits few, costs many</option>
+                                        <option value="somewhat-inequitable">Somewhat inequitable - benefits and costs unevenly distributed</option>
+                                        <option value="neutral">Neutral - roughly even distribution</option>
+                                        <option value="somewhat-equitable">Somewhat equitable - benefits and costs fairly distributed</option>
+                                        <option value="very-equitable">Very equitable - benefits and costs evenly distributed</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">What additional safeguards would you recommend to mitigate negative impacts?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" id="safeguards"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 2: Gambling Psychology Exploration -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Gambling Psychology Exploration</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this station, you'll explore the psychological factors that influence gambling behavior, including common cognitive biases and decision-making patterns.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                                <h3 class="font-semibold text-gray-900 mb-3">Cognitive Biases in Gambling</h3>
+
+                                <div class="mb-5 bg-blue-50 p-4 rounded-md border-l-4 border-blue-500">
+                                    <h4 class="font-semibold text-blue-800 mb-2">Understanding Cognitive Biases</h4>
+                                    <p class="mb-2 text-blue-900">Cognitive biases are systematic errors in thinking that affect our decisions and judgments. In gambling, these biases often lead people to make irrational choices:</p>
+                                    <ul class="list-disc list-inside space-y-1 text-blue-900 mb-2">
+                                        <li><strong>Gambler's Fallacy:</strong> The mistaken belief that if something happens more frequently than normal during a given period, it will happen less frequently in the future (or vice versa).</li>
+                                        <li><strong>Illusion of Control:</strong> The tendency to believe you can control or influence outcomes that are actually determined by chance.</li>
+                                        <li><strong>Selective Memory:</strong> Remembering wins vividly while forgetting or minimizing losses, creating a distorted view of overall gambling experiences.</li>
+                                        <li><strong>Hot Hand Fallacy:</strong> The belief that a person who has experienced success has a greater chance of further success in additional attempts.</li>
+                                        <li><strong>Sunk Cost Fallacy:</strong> Continuing to gamble to recover money already lost, rather than accepting the loss and moving on.</li>
+                                    </ul>
+                                    <p class="text-blue-900">Understanding these biases can help you make more rational decisions about gambling.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-semibold text-gray-900 mb-3">Decision-Making Scenarios</h3>
+                                <p class="mb-3">Analyze how each cognitive bias might influence gambling decisions in these realistic scenarios:</p>
+                                
+                                <div class="bg-white p-3 rounded shadow-sm mb-4">
+                                    <p class="font-semibold mb-2">Scenario 1: The Roulette Player</p>
+                                    <p class="mb-3">Carlos has been watching a roulette wheel land on black seven times in a row. He decides to place a large bet on red, thinking, "Red is due to come up soon. The odds of black coming up eight times in a row are extremely low."</p>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">Which cognitive bias is Carlos experiencing?</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded" id="bias-1">
+                                            <option value="">Select the cognitive bias...</option>
+                                            <option value="gambler">Gambler's Fallacy</option>
+                                            <option value="control">Illusion of Control</option>
+                                            <option value="memory">Selective Memory</option>
+                                            <option value="hothand">Hot Hand Fallacy</option>
+                                            <option value="sunkcost">Sunk Cost Fallacy</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">How is this bias affecting Carlos's decision?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario1-analysis"></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">What would be a more rational approach to this situation?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario1-rational"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded shadow-sm mb-4">
+                                    <p class="font-semibold mb-2">Scenario 2: The Slot Machine Player</p>
+                                    <p class="mb-3">Jennifer always uses the same slot machine, presses the button at specific times, and has a ritual of rubbing the screen before spinning. She believes these actions increase her chances of winning, saying "This machine knows me, and I know how to play it just right."</p>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">Which cognitive bias is Jennifer experiencing?</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded" id="bias-2">
+                                            <option value="">Select the cognitive bias...</option>
+                                            <option value="gambler">Gambler's Fallacy</option>
+                                            <option value="control">Illusion of Control</option>
+                                            <option value="memory">Selective Memory</option>
+                                            <option value="hothand">Hot Hand Fallacy</option>
+                                            <option value="sunkcost">Sunk Cost Fallacy</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">How is this bias affecting Jennifer's gambling behavior?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario2-analysis"></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">What would be a more rational approach to slot machine gambling?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario2-rational"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded shadow-sm mb-4">
+                                    <p class="font-semibold mb-2">Scenario 3: The Casino Regular</p>
+                                    <p class="mb-3">Michael frequently tells friends about his $500 win last month and the time he won $1,200 on a poker hand. When asked about his overall gambling results, he insists he's "up overall" despite actually losing approximately $3,000 over the past year.</p>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">Which cognitive bias is Michael experiencing?</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded" id="bias-3">
+                                            <option value="">Select the cognitive bias...</option>
+                                            <option value="gambler">Gambler's Fallacy</option>
+                                            <option value="control">Illusion of Control</option>
+                                            <option value="memory">Selective Memory</option>
+                                            <option value="hothand">Hot Hand Fallacy</option>
+                                            <option value="sunkcost">Sunk Cost Fallacy</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">How is this bias influencing Michael's perception of gambling?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario3-analysis"></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">What could Michael do to get a more accurate view of his gambling results?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario3-rational"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded shadow-sm mb-4">
+                                    <p class="font-semibold mb-2">Scenario 4: The Blackjack Player</p>
+                                    <p class="mb-3">James has won four hands of blackjack in a row. He decides to increase his bet significantly for the next hand because he feels he's "on a hot streak" and is likely to win again.</p>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">Which cognitive bias is James experiencing?</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded" id="bias-4">
+                                            <option value="">Select the cognitive bias...</option>
+                                            <option value="gambler">Gambler's Fallacy</option>
+                                            <option value="control">Illusion of Control</option>
+                                            <option value="memory">Selective Memory</option>
+                                            <option value="hothand">Hot Hand Fallacy</option>
+                                            <option value="sunkcost">Sunk Cost Fallacy</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">How is this bias affecting James's betting decision?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario4-analysis"></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">What would be a more rational approach to betting in this situation?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario4-rational"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded shadow-sm">
+                                    <p class="font-semibold mb-2">Scenario 5: The Sports Bettor</p>
+                                    <p class="mb-3">Maria has lost $200 betting on football games today. She thinks, "I've already invested so much, I need to place another bet to win it back. I can't end the day at a loss."</p>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">Which cognitive bias is Maria experiencing?</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded" id="bias-5">
+                                            <option value="">Select the cognitive bias...</option>
+                                            <option value="gambler">Gambler's Fallacy</option>
+                                            <option value="control">Illusion of Control</option>
+                                            <option value="memory">Selective Memory</option>
+                                            <option value="hothand">Hot Hand Fallacy</option>
+                                            <option value="sunkcost">Sunk Cost Fallacy</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">How is this bias driving Maria's continued betting?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario5-analysis"></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-gray-700 font-medium mb-2">What would be a more rational approach to this situation?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="scenario5-rational"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 3: Responsible Gambling Campaign -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: Responsible Gambling Campaign</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this station, you'll develop a responsible gambling public service campaign that acknowledges gambling as a legal adult activity while promoting behaviors that minimize harm.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                                <h3 class="font-semibold text-gray-900 mb-3">Responsible Gambling Campaign Builder</h3>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Campaign Target Audience (select one)</label>
+                                    <select id="campaign-audience" class="w-full p-2 border border-gray-300 rounded">
+                                        <option value="">Select target audience...</option>
+                                        <option value="young-adults">Young adults (21-29)</option>
+                                        <option value="middle-aged">Middle-aged adults (30-50)</option>
+                                        <option value="seniors">Seniors (51+)</option>
+                                        <option value="frequent">Frequent gamblers (all ages)</option>
+                                        <option value="casual">Casual/social gamblers (all ages)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Campaign Focus (select all that apply)</label>
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-focus" value="budget">
+                                            Setting spending limits
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-focus" value="time">
+                                            Time management
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-focus" value="odds">
+                                            Understanding odds
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-focus" value="entertainment">
+                                            Gambling as entertainment only
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-focus" value="warning">
+                                            Warning signs of problem gambling
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-focus" value="resources">
+                                            Help resources
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Campaign Tone (select one)</label>
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" class="mr-2" name="campaign-tone" value="informative">
+                                            Informative/Educational
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" class="mr-2" name="campaign-tone" value="supportive">
+                                            Supportive/Encouraging
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" class="mr-2" name="campaign-tone" value="cautionary">
+                                            Cautionary/Warning
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" class="mr-2" name="campaign-tone" value="humorous">
+                                            Humorous/Light
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Campaign Slogan (create a brief, memorable slogan)</label>
+                                    <input type="text" id="campaign-slogan" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your campaign slogan">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Key Messages (describe 3 key messages your campaign will communicate)</label>
+                                    <textarea id="campaign-messages" class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="1. 
+2. 
+3."></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Distribution Channels (select all that apply)</label>
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-channels" value="social">
+                                            Social media
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-channels" value="websites">
+                                            Gambling websites/apps
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-channels" value="venues">
+                                            Physical gambling venues
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-channels" value="tv">
+                                            TV/streaming
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-channels" value="print">
+                                            Print media
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="campaign-channels" value="schools">
+                                            Schools/colleges
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Campaign Effectiveness Metrics (how would you measure success?)</label>
+                                    <textarea id="campaign-metrics" class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Describe how you would measure the effectiveness of your campaign"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 4: Gambling Policy Debate -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 4: Gambling Policy Debate</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this station, you'll analyze different policy approaches to gambling regulation and consider the advantages and disadvantages of each approach.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                                <h3 class="font-semibold text-gray-900 mb-3">Gambling Policy Approaches</h3>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                    <div class="bg-white p-3 rounded shadow-sm">
+                                        <h4 class="font-semibold text-indigo-800 mb-2">Approach 1: Prohibition</h4>
+                                        <p class="text-sm mb-2">Complete ban on gambling activities</p>
+                                        <ul class="text-sm list-disc list-inside mb-2">
+                                            <li>Eliminates legitimate gambling options</li>
+                                            <li>May drive activity to illegal markets</li>
+                                            <li>No tax revenue generated</li>
+                                            <li>Reduces gambling-related harm</li>
+                                            <li>Aligns with certain moral/ethical views</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-white p-3 rounded shadow-sm">
+                                        <h4 class="font-semibold text-indigo-800 mb-2">Approach 2: Limited Regulation</h4>
+                                        <p class="text-sm mb-2">Allows gambling with basic oversight</p>
+                                        <ul class="text-sm list-disc list-inside mb-2">
+                                            <li>Provides legal options for consumers</li>
+                                            <li>Generates tax revenue</li>
+                                            <li>Creates legitimate jobs</li>
+                                            <li>Some consumer protections</li>
+                                            <li>May not adequately address harms</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-white p-3 rounded shadow-sm">
+                                        <h4 class="font-semibold text-indigo-800 mb-2">Approach 3: Comprehensive Regulation</h4>
+                                        <p class="text-sm mb-2">Strong oversight with harm reduction</p>
+                                        <ul class="text-sm list-disc list-inside mb-2">
+                                            <li>Strong consumer protections</li>
+                                            <li>Required responsible gambling measures</li>
+                                            <li>Dedicated treatment funding</li>
+                                            <li>Higher compliance costs</li>
+                                            <li>Balance of revenue and protection</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Which policy approach do you think strikes the best balance? Why?</label>
+                                    <select id="policy-approach" class="w-full p-2 border border-gray-300 rounded mb-3">
+                                        <option value="">Select policy approach...</option>
+                                        <option value="prohibition">Approach 1: Prohibition</option>
+                                        <option value="limited">Approach 2: Limited Regulation</option>
+                                        <option value="comprehensive">Approach 3: Comprehensive Regulation</option>
+                                        <option value="custom">A different approach (describe below)</option>
+                                    </select>
+                                    <textarea id="policy-justification" class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Explain your reasoning and the evidence that supports your position"></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">What specific regulations would you include in your preferred approach?</label>
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="regulations" value="age">
+                                            Age verification
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="regulations" value="limits">
+                                            Deposit/loss limits
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="regulations" value="exclusion">
+                                            Self-exclusion programs
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="regulations" value="advertising">
+                                            Advertising restrictions
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="regulations" value="warnings">
+                                            Warning messages
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="regulations" value="treatment">
+                                            Mandatory treatment funding
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="regulations" value="licensing">
+                                            Strict operator licensing
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="regulations" value="odds">
+                                            Required odds disclosure
+                                        </label>
+                                        <label class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                            <input type="checkbox" class="mr-2" name="regulations" value="research">
+                                            Ongoing research funding
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">What challenges would your preferred approach face in implementation?</label>
+                                    <textarea id="policy-challenges" class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Identify potential challenges and how they might be addressed"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration: Comprehensive Gambling Impact Assessment</h2>
+                        <p class="text-gray-700 mb-4">
+                            Using the insights from all of today's activities, you'll create a comprehensive framework for assessing gambling's impacts from multiple perspectives. This balanced assessment will be a valuable addition to your financial literacy portfolio.
+                        </p>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <h3 class="font-semibold text-indigo-800 mb-3">Gambling Impact Assessment Framework</h3>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Economic Impact Assessment (summarize key economic benefits and costs)</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" id="portfolio-economic"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Social Impact Assessment (summarize key social benefits and costs)</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" id="portfolio-social"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Psychological Considerations (summarize key psychological factors and safeguards)</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" id="portfolio-psychological"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Responsible Gambling Approaches (summarize key elements for responsible gambling)</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" id="portfolio-responsible"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Policy Recommendations (summarize your preferred policy approach)</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" id="portfolio-policy"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button mt-4" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Reflect on how your understanding of gambling has evolved through these activities. How has your perspective on the costs and benefits of gambling changed? What insights will you apply to your own financial decision-making or discussions about gambling with friends and family?
+                        </p>
+                        
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Share your reflections here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection section
+            document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionText = document.querySelector('textarea[data-ai-check="true"]').value;
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            if (reflectionText.length < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider expanding on how your understanding of gambling has evolved through these activities and how you might apply these insights to your own financial decision-making.";
+            } else if (reflectionText.length < 100) {
+                aiFeedback.textContent = "Good start! Try to provide more specific examples of how your perspective on gambling has changed and the specific insights you'll apply to your own decision-making or discussions with others.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection! You've thoughtfully considered how your understanding of gambling has evolved and demonstrated how you'll apply these insights in practical ways. Your balanced perspective shows strong critical thinking skills.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Toggle between case studies
+        document.addEventListener('DOMContentLoaded', function() {
+            const caseButtons = document.querySelectorAll('.case-button');
+            const caseContents = document.querySelectorAll('.case-content');
+            
+            caseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const caseNumber = this.getAttribute('data-case');
+                    
+                    // Hide all case contents
+                    caseContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Show selected case content
+                    document.getElementById('case-' + caseNumber).classList.remove('hidden');
+                    
+                    // Update selected case in dropdown
+                    document.getElementById('analysis-case').value = caseNumber;
+                    
+                    // Update button styling
+                    caseButtons.forEach(btn => {
+                        btn.classList.add('bg-gray-300');
+                    });
+                    this.classList.remove('bg-gray-300');
+                });
+            });
+            
+            // Highlight active section based on scroll position
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href');
+                    if (href && href.substring(1) === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

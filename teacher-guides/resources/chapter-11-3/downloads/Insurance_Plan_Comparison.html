@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Plan Comparison Template - Chapter 11.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table th:not(:first-child), .comparison-table td:not(:first-child) {
+            text-align: center;
+        }
+        
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+        
+        .scenario {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .note {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-header {
+            display: none;
+        }
+        
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Insurance Plan Comparison Template</h1>
+        <p>Chapter 11.3: Managing Insurance Costs</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+
+    <h1>Insurance Plan Comparison Template</h1>
+    <p><strong>Chapter 11.3: Managing Insurance Costs</strong></p>
+
+    <h2>Health Insurance Plan Comparison</h2>
+    
+    <div class="note">
+        <h3>How to Use This Template</h3>
+        <ol>
+            <li>Fill in the details for each plan you are comparing</li>
+            <li>Calculate costs under different usage scenarios</li>
+            <li>Compare total annual costs (premium + out-of-pocket)</li>
+            <li>Consider non-financial factors that may influence your decision</li>
+            <li>Determine which plan offers the best value for your specific situation</li>
+        </ol>
+        <p>Remember: The lowest premium does not always mean the lowest total cost!</p>
+    </div>
+
+    <h3>Basic Plan Information</h3>
+    
+    <table class="comparison-table">
+        <tr>
+            <th>Plan Feature</th>
+            <th>Plan A</th>
+            <th>Plan B</th>
+            <th>Plan C</th>
+        </tr>
+        <tr>
+            <td>Insurance Provider</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Plan Name/Type</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Monthly Premium</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Annual Premium</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Annual Deductible</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Co-payments</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Co-insurance</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Out-of-pocket Maximum</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>HSA Eligible?</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Provider Network</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Prescription Coverage</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Special Features/Benefits</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+    </table>
+
+    <h3>Coverage for Specific Services</h3>
+    
+    <table class="comparison-table">
+        <tr>
+            <th>Service</th>
+            <th>Plan A</th>
+            <th>Plan B</th>
+            <th>Plan C</th>
+        </tr>
+        <tr>
+            <td>Primary Care Visit</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Specialist Visit</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Preventive Care</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Emergency Room Visit</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Hospital Stay</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Lab Tests/X-rays</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Mental Health Services</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Prescription Drugs</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+    </table>
+
+    <h3>Cost Comparison Under Different Scenarios</h3>
+    
+    <div class="scenario">
+        <h4>Scenario 1: Minimal Usage</h4>
+        <p>Assume you only use preventive care services and have no significant medical expenses during the year.</p>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Cost Category</th>
+                <th>Plan A</th>
+                <th>Plan B</th>
+                <th>Plan C</th>
+            </tr>
+            <tr>
+                <td>Annual Premium</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Preventive Care Costs</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Other Out-of-pocket Costs</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Annual Cost</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Tax Savings (HSA)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Net Annual Cost</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="scenario">
+        <h4>Scenario 2: Moderate Usage</h4>
+        <p>Assume you have several doctor visits, one urgent care visit, and some prescription needs during the year.</p>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Cost Category</th>
+                <th>Plan A</th>
+                <th>Plan B</th>
+                <th>Plan C</th>
+            </tr>
+            <tr>
+                <td>Annual Premium</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Doctor Visits (3-5)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Urgent Care Visit (1)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Prescription Costs</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Annual Cost</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Tax Savings (HSA)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Net Annual Cost</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="scenario">
+        <h4>Scenario 3: Heavy Usage</h4>
+        <p>Assume you have a major medical event requiring hospital stay, surgery, or extensive treatment.</p>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Cost Category</th>
+                <th>Plan A</th>
+                <th>Plan B</th>
+                <th>Plan C</th>
+            </tr>
+            <tr>
+                <td>Annual Premium</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Deductible Payment</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Co-insurance/Co-pays</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Additional Expenses</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Annual Cost</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Tax Savings (HSA)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Net Annual Cost</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>Non-financial Comparison Factors</h3>
+    
+    <table class="comparison-table">
+        <tr>
+            <th>Factor</th>
+            <th>Plan A</th>
+            <th>Plan B</th>
+            <th>Plan C</th>
+        </tr>
+        <tr>
+            <td>Provider Network Quality</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Includes Preferred Doctors</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Convenience Factors</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Customer Service Reputation</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Claim Processing Efficiency</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Additional Benefits/Perks</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+    </table>
+
+    <h3>Decision Analysis</h3>
+    
+    <table>
+        <tr>
+            <th>Analysis Question</th>
+            <th>Your Response</th>
+        </tr>
+        <tr>
+            <td>Based on your health history and anticipated needs, which usage scenario is most likely?</td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Which plan is most cost-effective in that scenario?</td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>What is your risk tolerance for unexpected medical expenses?</td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>How important are the non-financial factors in your decision?</td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>What tax benefits might influence your decision?</td>
+            <td class="input-field"></td>
+        </tr>
+    </table>
+    
+    <h4>Overall Recommendation</h4>
+    <div class="input-field" style="min-height: 80px;"></div>
+
+    <h2>Auto Insurance Plan Comparison</h2>
+    
+    <p>Use this section to compare auto insurance plans with different coverage levels and deductibles.</p>
+    
+    <h3>Basic Plan Information</h3>
+    
+    <table class="comparison-table">
+        <tr>
+            <th>Plan Feature</th>
+            <th>Plan A</th>
+            <th>Plan B</th>
+            <th>Plan C</th>
+        </tr>
+        <tr>
+            <td>Insurance Provider</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Plan Type</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>6-Month Premium</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Annual Premium</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Collision Deductible</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Comprehensive Deductible</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Liability Coverage (Bodily Injury)</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Liability Coverage (Property Damage)</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Uninsured/Underinsured Motorist</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Medical Payments/PIP</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Additional Coverage/Riders</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Available Discounts</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+    </table>
+
+    <h3>Cost Comparison Under Different Scenarios</h3>
+    
+    <div class="scenario">
+        <h4>Scenario 1: No Claims</h4>
+        <p>Assume no accidents or claims during the year.</p>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Cost Category</th>
+                <th>Plan A</th>
+                <th>Plan B</th>
+                <th>Plan C</th>
+            </tr>
+            <tr>
+                <td>Annual Premium</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Out-of-pocket Costs</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Annual Cost</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="scenario">
+        <h4>Scenario 2: Minor Claim</h4>
+        <p>Assume one minor accident with $3,000 in damages.</p>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Cost Category</th>
+                <th>Plan A</th>
+                <th>Plan B</th>
+                <th>Plan C</th>
+            </tr>
+            <tr>
+                <td>Annual Premium</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Deductible Payment</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Other Out-of-pocket Costs</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Annual Cost</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="scenario">
+        <h4>Scenario 3: Major Claim</h4>
+        <p>Assume one significant accident with $15,000 in damages.</p>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Cost Category</th>
+                <th>Plan A</th>
+                <th>Plan B</th>
+                <th>Plan C</th>
+            </tr>
+            <tr>
+                <td>Annual Premium</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Deductible Payment</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Other Out-of-pocket Costs</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Annual Cost</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>Decision Analysis</h3>
+    
+    <table>
+        <tr>
+            <th>Analysis Question</th>
+            <th>Your Response</th>
+        </tr>
+        <tr>
+            <td>Based on your driving history, which scenario is most likely?</td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Which plan provides the best balance of premium cost and coverage?</td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>How does your vehicle's value affect your coverage needs?</td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>How would your financial situation be affected by paying a higher deductible in case of a claim?</td>
+            <td class="input-field"></td>
+        </tr>
+    </table>
+    
+    <h4>Overall Recommendation</h4>
+    <div class="input-field" style="min-height: 80px;"></div>
+
+    <div class="warning">
+        <h3>Important Considerations</h3>
+        <ul>
+            <li><strong>Future Premium Changes:</strong> Claims may affect future premiums. Consider long-term impacts when comparing plans.</li>
+            <li><strong>Coverage Limits:</strong> Ensure liability limits are adequate for your assets and financial situation.</li>
+            <li><strong>Deductible Savings:</strong> If choosing a high-deductible plan, consider setting aside the difference in premiums to cover potential deductible expenses.</li>
+            <li><strong>Policy Exclusions:</strong> Review all policy exclusions carefully before making a final decision.</li>
+            <li><strong>Discount Opportunities:</strong> Inquire about all available discounts (multi-policy, safe driver, etc.) before finalizing.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Chapter 11.3: Managing Insurance Costs | Insurance Plan Comparison Template</p>
+        <p>Page 1 of 1</p>
+    </div>
+    
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+</body>
+</html>

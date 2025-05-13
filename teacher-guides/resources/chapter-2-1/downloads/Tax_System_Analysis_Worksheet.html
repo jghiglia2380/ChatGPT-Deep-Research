@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax System Analysis Worksheet - Chapter 2.1: Understanding Federal and State Taxes</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Worksheet specific styles */
+        .worksheet-section {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            background-color: #f9fafb;
+        }
+        
+        .tax-system {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .system-title {
+            font-weight: bold;
+            color: #4f46e5;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .calculation-table input {
+            width: 100px;
+            padding: 5px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+        }
+        
+        .notes-box {
+            border: 1px solid #d1d5db;
+            min-height: 80px;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            background-color: white;
+        }
+        
+        .info-box {
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            .worksheet-section { break-inside: avoid; }
+            .tax-system { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>To save as PDF:</strong> Open this page in Chrome, Edge, or Firefox. Click on Print (Ctrl+P or Cmd+P), 
+        then select "Save as PDF" as the destination. Click "Save" and choose where to save the file on your computer.</p>
+    </div>
+    
+    <div class="header">
+        <h1>Tax System Analysis Worksheet</h1>
+        <p><strong>Chapter 2.1:</strong> Understanding Federal and State Taxes</p>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Understanding Different Tax Systems</h2>
+        
+        <p>This worksheet will help you analyze three different tax systems and understand how they impact people at different income levels. For each system, you'll calculate the tax amount and effective tax rate for various incomes, then evaluate the fairness and implications of each approach.</p>
+        
+        <div class="info-box">
+            <p><strong>Key Definitions:</strong></p>
+            <p><strong>Progressive Tax System:</strong> A tax system where the tax rate increases as the taxable income increases.</p>
+            <p><strong>Regressive Tax System:</strong> A tax system where the tax rate decreases as the taxable income increases.</p>
+            <p><strong>Flat Tax System:</strong> A tax system where everyone pays the same percentage of their income, regardless of how much they earn.</p>
+            <p><strong>Effective Tax Rate:</strong> The percentage of income actually paid in taxes after all calculations (total tax ÷ total income).</p>
+        </div>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Tax System 1: Progressive Federal Income Tax</h2>
+        
+        <div class="tax-system">
+            <div class="system-title">Current U.S. Federal Income Tax Brackets (Simplified)</div>
+            
+            <p>This system uses graduated tax brackets where different portions of income are taxed at increasing rates:</p>
+            
+            <ul>
+                <li>Income up to $10,275: 10% tax rate</li>
+                <li>Income from $10,276 to $41,775: 12% tax rate</li>
+                <li>Income from $41,776 to $89,075: 22% tax rate</li>
+                <li>Income from $89,076 to $170,050: 24% tax rate</li>
+                <li>Income from $170,051 to $215,950: 32% tax rate</li>
+                <li>Income over $215,951: 35% tax rate</li>
+            </ul>
+            
+            <p><strong>Remember:</strong> Each tax rate applies only to the income within that bracket.</p>
+            
+            <h3>Tax Calculations</h3>
+            
+            <table class="calculation-table">
+                <tr>
+                    <th>Annual Income</th>
+                    <th>Tax Amount ($)</th>
+                    <th>Effective Tax Rate (%)</th>
+                </tr>
+                <tr>
+                    <td>$30,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>$75,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>$150,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>$250,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+            
+            <h3>Analysis Questions</h3>
+            
+            <p>1. How does the effective tax rate change as income increases?</p>
+            <div class="notes-box"></div>
+            
+            <p>2. Who benefits most from this tax system? Who carries the heaviest burden?</p>
+            <div class="notes-box"></div>
+            
+            <p>3. What might be the social or economic implications of this tax structure?</p>
+            <div class="notes-box"></div>
+        </div>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Tax System 2: Flat Tax Rate</h2>
+        
+        <div class="tax-system">
+            <div class="system-title">Flat Rate: 15% of All Income</div>
+            
+            <p>This system applies the same tax rate (15%) to all income, regardless of how much someone earns.</p>
+            
+            <h3>Tax Calculations</h3>
+            
+            <table class="calculation-table">
+                <tr>
+                    <th>Annual Income</th>
+                    <th>Tax Amount ($)</th>
+                    <th>Effective Tax Rate (%)</th>
+                </tr>
+                <tr>
+                    <td>$30,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>$75,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>$150,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>$250,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+            
+            <h3>Analysis Questions</h3>
+            
+            <p>1. How do the effective tax rates compare across different income levels?</p>
+            <div class="notes-box"></div>
+            
+            <p>2. Is this system progressive, regressive, or neither? Explain your reasoning.</p>
+            <div class="notes-box"></div>
+            
+            <p>3. What might be some advantages and disadvantages of this tax system?</p>
+            <div class="notes-box"></div>
+        </div>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Tax System 3: Sales Tax</h2>
+        
+        <div class="tax-system">
+            <div class="system-title">State Sales Tax: 8% on All Purchases</div>
+            
+            <p>This system taxes consumption rather than income. We'll analyze it based on spending patterns at different income levels, assuming people spend different percentages of their income.</p>
+            
+            <ul>
+                <li>Low income ($30,000): Spends 90% of income on taxable items</li>
+                <li>Moderate income ($75,000): Spends 70% of income on taxable items</li>
+                <li>High income ($150,000): Spends 50% of income on taxable items</li>
+                <li>Very high income ($250,000): Spends 30% of income on taxable items</li>
+            </ul>
+            
+            <h3>Tax Calculations</h3>
+            
+            <table class="calculation-table">
+                <tr>
+                    <th>Annual Income</th>
+                    <th>Taxable Spending ($)</th>
+                    <th>Tax Amount ($)</th>
+                    <th>Effective Tax Rate (%)</th>
+                </tr>
+                <tr>
+                    <td>$30,000</td>
+                    <td>$27,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>$75,000</td>
+                    <td>$52,500</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>$150,000</td>
+                    <td>$75,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>$250,000</td>
+                    <td>$75,000</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+            
+            <h3>Analysis Questions</h3>
+            
+            <p>1. Is sales tax progressive, regressive, or neutral? Explain why based on your calculations.</p>
+            <div class="notes-box"></div>
+            
+            <p>2. Which income groups are most affected by this type of tax?</p>
+            <div class="notes-box"></div>
+            
+            <p>3. Why do you think many states rely heavily on sales tax for revenue?</p>
+            <div class="notes-box"></div>
+        </div>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Comparative Analysis</h2>
+        
+        <p>Now that you've analyzed all three systems, compare them and consider their broader implications.</p>
+        
+        <p>1. Rank the three tax systems from most progressive to most regressive, and explain your reasoning.</p>
+        <div class="notes-box"></div>
+        
+        <p>2. Which tax system do you think is most fair? Why?</p>
+        <div class="notes-box"></div>
+        
+        <p>3. If you were designing a tax system, which elements would you include, and why?</p>
+        <div class="notes-box"></div>
+        
+        <p>4. How might tax policy influence people's financial decisions (such as where to live, how much to work, or how to spend their money)?</p>
+        <div class="notes-box"></div>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy © 2025 | Chapter 2.1: Understanding Federal and State Taxes</p>
+    </div>
+</body>
+</html>

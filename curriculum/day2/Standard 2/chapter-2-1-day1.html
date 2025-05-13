@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 2.1: Understanding Federal and State Taxes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .case-study {
+            background-color: #f0f9ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .skill-builder {
+            background-color: #f3e8ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background-color: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Fixed Header - Purple with Navigation -->
+    <header class="bg-indigo-600 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">PFL Academy</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-white hover:text-indigo-200">Home</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Curriculum</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Resources</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Spacer to push content below fixed header -->
+    <div class="h-16"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Left Navigation Sidebar -->
+        <div class="lg:col-span-3 bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 2: Taxes</h2>
+            <p class="text-gray-600 mb-6">Covers types of taxes, deductions, credits, and their impact on income, emphasizing financial management and tax compliance.</p>
+            
+            <!-- Chapter Navigation with blue indicators and green checkmarks -->
+            <nav class="space-y-2" aria-label="Chapters">
+                <!-- Current chapter with blue left border -->
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-50 text-indigo-700 border-l-4 border-indigo-700">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.1 Understanding Federal and State Taxes</span>
+                </a>
+                
+                <!-- Indented section links when a chapter is selected -->
+                <div class="ml-6 space-y-1 mt-1">
+                    <a href="#intro" class="text-indigo-700 font-medium flex items-center">
+                        <span class="mr-2">•</span> Introduction
+                    </a>
+                    <a href="#federal-income-tax" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Federal Income Tax
+                    </a>
+                    <a href="#state-income-tax" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> State Income Tax
+                    </a>
+                    <a href="#payroll-taxes" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Payroll Taxes
+                    </a>
+                    <a href="#case-study" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Case Study
+                    </a>
+                    <a href="#skill-builder" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Skill Builder
+                    </a>
+                </div>
+                
+                <!-- Upcoming chapters -->
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.2 Understanding Tax Brackets and Tax Rates</span>
+                </a>
+                
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.3 Understanding Tax Filing Requirements</span>
+                </a>
+                
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.4 Understanding Tax Deductions and Credits</span>
+                </a>
+                
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.5 Tax Planning and Compliance</span>
+                </a>
+            </nav>
+            
+            <hr class="my-4 border-gray-200">
+            
+            <!-- Progress Indicator -->
+            <div class="mt-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-gray-700">Progress</span>
+                    <span class="text-sm text-gray-600">20%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="h-full bg-indigo-600" style="width: 20%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="lg:col-span-7 bg-white rounded-lg shadow p-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Chapter 2.1: Understanding Federal and State Taxes</h1>
+            
+            <div class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Distinguish between federal and state taxes</li>
+                    <li>Explain how tax brackets work in a progressive tax system</li>
+                    <li>Identify payroll taxes and their purpose</li>
+                    <li>Compare tax structures across different states</li>
+                    <li>Calculate take-home pay after taxes</li>
+                </ul>
+            </div>
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
+                <p class="text-gray-700 mb-4">In this lesson, you'll explore how federal and state taxes impact your income and how to plan your budget accordingly. You'll learn about different types of taxes, how they're calculated, and how they fund essential public services.</p>
+                
+                <div class="discussion-prompt" id="intro">
+                    <h3 class="font-semibold text-lg mb-2">Where Does the Money Come From?</h3>
+                    <p>Think about the services you use daily—schools, roads, healthcare, police—how do you think these are funded? Where does the money come from?</p>
+                </div>
+            </section>
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Key Terms</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Federal Income Tax</h3>
+                        <p class="text-gray-700">Tax collected by the federal government based on personal or business income.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Progressive Tax</h3>
+                        <p class="text-gray-700">A tax system where the tax rate increases as the taxable amount increases.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Payroll Taxes</h3>
+                        <p class="text-gray-700">Taxes withheld from employee paychecks for Social Security and Medicare.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Social Security Tax</h3>
+                        <p class="text-gray-700">Tax on earnings that funds the Social Security program.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Medicare Tax</h3>
+                        <p class="text-gray-700">Tax on earnings that helps fund Medicare health insurance.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">State Income Tax</h3>
+                        <p class="text-gray-700">Tax collected by individual states on income, varies by state.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Sales Tax</h3>
+                        <p class="text-gray-700">Tax charged on goods and services at the point of purchase.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Property Tax</h3>
+                        <p class="text-gray-700">Tax assessed on real estate and certain personal property.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Tax Bracket</h3>
+                        <p class="text-gray-700">Income range subject to a specific tax rate in a progressive tax system.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Withholding</h3>
+                        <p class="text-gray-700">Amount of tax deducted from your paycheck and sent to the government.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="federal-income-tax">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Exploring Federal Income Tax</h2>
+                <p class="text-gray-700 mb-4">Federal income tax is based on a progressive tax system, meaning tax rates increase as your income increases. Let's examine how federal tax brackets work and what that means for your take-home pay.</p>
+                
+                <div class="bg-white border border-gray-200 rounded-lg p-5 my-4">
+                    <h3 class="font-semibold text-lg mb-3">How Progressive Taxes Work</h3>
+                    <p class="mb-4">In a progressive tax system, different portions of your income are taxed at increasing rates as your income rises. This means that:</p>
+                    <ul class="list-disc ml-6 space-y-2 mb-4">
+                        <li>Your first dollars earned are taxed at the lowest rate</li>
+                        <li>As you earn more, additional dollars are taxed at higher rates</li>
+                        <li>Only the portion of income that falls within a specific bracket is taxed at that bracket's rate</li>
+                        <li>You don't pay the higher rate on all your income, just the portion in that bracket</li>
+                    </ul>
+                    <p class="mb-2">This system is designed to ensure that those with higher incomes contribute proportionally more in taxes, while protecting lower-income earners.</p>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="state-income-tax">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">State Income Tax Comparison</h2>
+                <p class="text-gray-700 mb-4">Each state has its own tax system. Some states like Texas and Florida have no state income tax, while others like California have higher income tax rates.</p>
+                
+                <div class="discussion-prompt">
+                    <h3 class="font-semibold text-lg mb-2">Comparing State Tax Approaches</h3>
+                    <p>Would you prefer to live in a state with no income tax but higher property and sales taxes, or a state with income tax but potentially lower other taxes? What factors would influence your decision?</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-lg p-5 my-4">
+                    <h3 class="font-semibold text-lg mb-3">State Tax Approaches</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-3 text-left">Approach</th>
+                                    <th class="p-3 text-left">Example States</th>
+                                    <th class="p-3 text-left">Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-3">No State Income Tax</td>
+                                    <td class="p-3">Florida, Texas, Nevada, Washington</td>
+                                    <td class="p-3">Higher sales taxes, property taxes, or other fees to compensate</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Flat Tax Rate</td>
+                                    <td class="p-3">Illinois, Colorado, Michigan</td>
+                                    <td class="p-3">Same percentage regardless of income level</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Progressive Tax</td>
+                                    <td class="p-3">California, New York, Oregon</td>
+                                    <td class="p-3">Higher rates as income increases, similar to federal system</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="payroll-taxes">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Payroll Taxes and Your Paycheck</h2>
+                <p class="text-gray-700 mb-4">Beyond income taxes, every employee pays payroll taxes (FICA) to fund Social Security and Medicare. These taxes are automatically deducted from your paycheck.</p>
+                
+                <div class="bg-white border border-gray-200 rounded-lg p-5 my-4">
+                    <h3 class="font-semibold text-lg mb-3">Sample Pay Stub Analysis</h3>
+                    <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+                        <h4 class="font-semibold mb-2">Paycheck for: Jane Smith</h4>
+                        <h5 class="text-gray-600 mb-3">Pay Period: 1/1/2025 - 1/15/2025</h5>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <p class="font-medium">Earnings</p>
+                                <div class="flex justify-between mt-2">
+                                    <span>Gross Pay:</span>
+                                    <span>$3,000.00</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <p class="font-medium">Deductions</p>
+                                <div class="flex justify-between mt-2">
+                                    <span>Federal Income Tax:</span>
+                                    <span>$450.00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>State Income Tax:</span>
+                                    <span>$150.00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Social Security (6.2%):</span>
+                                    <span>$186.00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Medicare (1.45%):</span>
+                                    <span>$43.50</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Health Insurance:</span>
+                                    <span>$120.00</span>
+                                </div>
+                                <div class="flex justify-between font-medium mt-2">
+                                    <span>Total Deductions:</span>
+                                    <span>$949.50</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-gray-300 pt-3 flex justify-between font-semibold">
+                            <span>Net Pay:</span>
+                            <span>$2,050.50</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <p class="mb-2">Notice how different taxes impact the take-home pay:</p>
+                        <ul class="list-disc ml-6 space-y-1">
+                            <li>Federal income tax: based on tax brackets and withholding choices</li>
+                            <li>State income tax: varies by state</li>
+                            <li>Social Security: fixed rate of 6.2% on earnings up to annual limit</li>
+                            <li>Medicare: fixed rate of 1.45% on all earnings</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="case-study">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Case Study Analysis</h2>
+                
+                <div class="case-study">
+                    <h3 class="text-xl font-semibold mb-3">Tax Impact Across States</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-lg p-4 border border-blue-200">
+                            <h4 class="font-semibold text-blue-600 mb-2">Mia in California</h4>
+                            <p class="mb-2"><strong>Annual Salary:</strong> $75,000</p>
+                            <p class="mb-2"><strong>State Income Tax:</strong> ~$4,200 (progressive system)</p>
+                            <p class="mb-2"><strong>Property Taxes:</strong> Lower rate but higher property values</p>
+                            <p class="mb-2"><strong>Sales Tax:</strong> 7.25% state + local taxes</p>
+                            <p class="mt-4"><strong>Advantages:</strong> More state-funded services, potentially lower property taxes</p>
+                            <p class="mt-2"><strong>Disadvantages:</strong> Higher overall tax burden, complicated tax filing</p>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 border border-blue-200">
+                            <h4 class="font-semibold text-blue-600 mb-2">Liam in Texas</h4>
+                            <p class="mb-2"><strong>Annual Salary:</strong> $75,000</p>
+                            <p class="mb-2"><strong>State Income Tax:</strong> $0 (no state income tax)</p>
+                            <p class="mb-2"><strong>Property Taxes:</strong> Higher rates (~2-3% of home value)</p>
+                            <p class="mb-2"><strong>Sales Tax:</strong> 6.25% state + up to 2% local</p>
+                            <p class="mt-4"><strong>Advantages:</strong> No state income tax, potentially lower overall tax burden</p>
+                            <p class="mt-2"><strong>Disadvantages:</strong> Higher property taxes, less state funding for services</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <p>Both Mia and Liam have the same gross income, but their tax situations and take-home pay differ significantly due to state tax structures. Consider how this might impact:</p>
+                        <ul class="list-disc ml-6 mt-2 space-y-1">
+                            <li>Housing affordability in each location</li>
+                            <li>Quality and availability of public services</li>
+                            <li>Overall cost of living and financial planning</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="skill-builder">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Skill Builder Activity: Tax System Analysis</h2>
+                
+                <div class="skill-builder">
+                    <h3 class="text-xl font-semibold mb-4">Tax System Analysis</h3>
+                    
+                    <div class="mb-4">
+                        <p class="mb-3">For each scenario below, decide whether a progressive tax system or a regressive tax system would be more appropriate. Consider each person's ability to pay, the impact on their financial situation, and the potential benefits received.</p>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                            <p class="font-semibold">Progressive Tax System:</p>
+                            <p>A system where higher-income individuals pay a higher percentage of their income in taxes.</p>
+                            
+                            <p class="font-semibold mt-3">Regressive Tax System:</p>
+                            <p>A system where lower-income individuals pay a higher percentage of their income in taxes compared to higher-income individuals.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg border border-gray-200 p-4">
+                            <h4 class="font-semibold text-lg mb-2">Scenario 1: John – Entry-Level Worker</h4>
+                            <ul class="list-disc ml-6 mb-4">
+                                <li>Income: $25,000 per year</li>
+                                <li>Job: Works full-time as a retail associate</li>
+                                <li>Financial Situation: Has no dependents, but struggles to afford basic living expenses such as rent, utilities, and groceries</li>
+                                <li>Other Information: Limited access to government services and no discretionary income for savings or investments</li>
+                            </ul>
+                            
+                            <div class="mt-3">
+                                <label class="block text-gray-700 font-medium mb-2">Which tax system would be more appropriate?</label>
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center">
+                                        <input type="radio" id="john-progressive" name="john-tax" class="h-4 w-4 text-indigo-600">
+                                        <label for="john-progressive" class="ml-2">Progressive</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="john-regressive" name="john-tax" class="h-4 w-4 text-indigo-600">
+                                        <label for="john-regressive" class="ml-2">Regressive</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <label class="block text-gray-700 font-medium mb-2">Justification (2-3 sentences):</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg border border-gray-200 p-4">
+                            <h4 class="font-semibold text-lg mb-2">Scenario 2: Samantha – Mid-Career Professional</h4>
+                            <ul class="list-disc ml-6 mb-4">
+                                <li>Income: $80,000 per year</li>
+                                <li>Job: Works as a marketing manager for a mid-sized company</li>
+                                <li>Financial Situation: Supports a family of four, owns a home, and has substantial mortgage and childcare expenses</li>
+                                <li>Other Information: Uses a mix of public and private services (e.g., public schooling for children, local public transit) and has a small investment portfolio</li>
+                            </ul>
+                            
+                            <div class="mt-3">
+                                <label class="block text-gray-700 font-medium mb-2">Which tax system would be more appropriate?</label>
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center">
+                                        <input type="radio" id="samantha-progressive" name="samantha-tax" class="h-4 w-4 text-indigo-600">
+                                        <label for="samantha-progressive" class="ml-2">Progressive</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="samantha-regressive" name="samantha-tax" class="h-4 w-4 text-indigo-600">
+                                        <label for="samantha-regressive" class="ml-2">Regressive</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <label class="block text-gray-700 font-medium mb-2">Justification (2-3 sentences):</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg border border-gray-200 p-4">
+                            <h4 class="font-semibold text-lg mb-2">Scenario 3: Andrew – High-Earning Business Owner</h4>
+                            <ul class="list-disc ml-6 mb-4">
+                                <li>Income: $500,000 per year</li>
+                                <li>Job: Owns a successful real estate investment business</li>
+                                <li>Financial Situation: Has multiple income streams and significant assets, including several properties. Uses various tax loopholes and deductions to minimize tax liabilities</li>
+                                <li>Other Information: Has access to private services (e.g., private schooling for children) and receives less direct benefit from government-funded programs</li>
+                            </ul>
+                            
+                            <div class="mt-3">
+                                <label class="block text-gray-700 font-medium mb-2">Which tax system would be more appropriate?</label>
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center">
+                                        <input type="radio" id="andrew-progressive" name="andrew-tax" class="h-4 w-4 text-indigo-600">
+                                        <label for="andrew-progressive" class="ml-2">Progressive</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="andrew-regressive" name="andrew-tax" class="h-4 w-4 text-indigo-600">
+                                        <label for="andrew-regressive" class="ml-2">Regressive</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <label class="block text-gray-700 font-medium mb-2">Justification (2-3 sentences):</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Submit Responses</button>
+                        <div id="feedback-container" class="mt-4 hidden bg-green-50 p-4 rounded-lg border border-green-200">
+                            <p class="text-green-800">Your responses have been submitted. Feedback will be provided in the next class session.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Reflection Questions</h2>
+                
+                <div class="discussion-prompt">
+                    <ol class="list-decimal ml-6 space-y-3">
+                        <li>How do different tax structures affect people's financial decisions about where to live and work?</li>
+                        <li>How might your personal tax situation change as you progress through your career?</li>
+                        <li>What are the trade-offs between higher taxes and more government services versus lower taxes and fewer government services?</li>
+                    </ol>
+                </div>
+            </section>
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Day 2 Preview</h2>
+                <p class="text-gray-700 mb-4">In tomorrow's Learning Lab, you'll apply what you learned about taxes by creating a take-home pay calculator, analyzing tax impacts across states, and developing strategies for tax planning.</p>
+                <a href="chapter-2-1-day2.html" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Preview Day 2 Learning Lab</a>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // Simple script to show feedback on form submission
+        document.querySelector('button').addEventListener('click', function() {
+            document.getElementById('feedback-container').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Insurance Budget Planner - Chapter 11.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .budget-section {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        
+        .budget-section {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+        
+        .info-box {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tip-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-header {
+            display: none;
+        }
+        
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .total-row {
+            font-weight: bold;
+            background-color: #f5f5f5;
+        }
+        
+        .percentage-bar {
+            height: 20px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            margin-top: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .percentage-fill {
+            height: 100%;
+            background-color: #3498db;
+            width: 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Personal Insurance Budget Planner</h1>
+        <p>Chapter 11.3: Managing Insurance Costs</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+
+    <h1>Personal Insurance Budget Planner</h1>
+    <p><strong>Chapter 11.3: Managing Insurance Costs</strong></p>
+
+    <h2>Introduction</h2>
+    <p>This planner helps you create a comprehensive insurance budget, track your current insurance expenses, and develop a plan to optimize your insurance costs while maintaining appropriate coverage.</p>
+
+    <div class="info-box">
+        <h3>How to Use This Planner</h3>
+        <ol>
+            <li>Complete each section, entering your current insurance expenses</li>
+            <li>Analyze your insurance spending as a percentage of your income</li>
+            <li>Set target budgets for each insurance type</li>
+            <li>Develop specific strategies to optimize costs</li>
+            <li>Create an implementation timeline</li>
+        </ol>
+        <p>A good insurance budget balances adequate protection with affordability, typically aiming for 10-15% of your monthly budget for all insurance types combined.</p>
+    </div>
+
+    <div class="budget-section">
+        <h3>Personal Financial Overview</h3>
+        <p>Before examining insurance costs specifically, let's establish your overall financial picture:</p>
+        
+        <table>
+            <tr>
+                <th>Financial Data</th>
+                <th>Monthly Amount</th>
+                <th>Annual Amount</th>
+            </tr>
+            <tr>
+                <td>Gross Income</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Net (Take-home) Income</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Total Monthly Expenses (excluding insurance)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Current Insurance Expenses (total)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Emergency Fund Balance</td>
+                <td colspan="2" class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h4>Insurance as Percentage of Income</h4>
+        <p>Current insurance expenses as a percentage of net income: <span class="input-field" style="display:inline-block; min-width:100px;"></span>%</p>
+        <div class="percentage-bar">
+            <div class="percentage-fill" style="width: 0%;"></div>
+        </div>
+        <p><small>Recommended range: 10-15% of net income</small></p>
+    </div>
+
+    <div class="budget-section">
+        <h3>Current Insurance Expenses Breakdown</h3>
+        <p>Document all your current insurance policies and their costs:</p>
+        
+        <table>
+            <tr>
+                <th>Insurance Type</th>
+                <th>Provider</th>
+                <th>Policy Details</th>
+                <th>Monthly Premium</th>
+                <th>Annual Premium</th>
+                <th>Renewal Date</th>
+            </tr>
+            <tr>
+                <td>Health Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Auto Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Home/Renters Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Life Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Disability Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Other Insurance (specify)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Other Insurance (specify)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr class="total-row">
+                <td colspan="3"><strong>TOTALS</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h4>Insurance Cost Distribution</h4>
+        <p>Calculate what percentage of your total insurance budget goes to each type:</p>
+        <table>
+            <tr>
+                <th>Insurance Type</th>
+                <th>Percentage of Total Insurance Budget</th>
+                <th>Typical Range</th>
+            </tr>
+            <tr>
+                <td>Health Insurance</td>
+                <td class="input-field"></td>
+                <td>40-60%</td>
+            </tr>
+            <tr>
+                <td>Auto Insurance</td>
+                <td class="input-field"></td>
+                <td>20-30%</td>
+            </tr>
+            <tr>
+                <td>Home/Renters Insurance</td>
+                <td class="input-field"></td>
+                <td>15-25%</td>
+            </tr>
+            <tr>
+                <td>Life Insurance</td>
+                <td class="input-field"></td>
+                <td>5-15%</td>
+            </tr>
+            <tr>
+                <td>Disability Insurance</td>
+                <td class="input-field"></td>
+                <td>2-8%</td>
+            </tr>
+            <tr>
+                <td>Other Insurance</td>
+                <td class="input-field"></td>
+                <td>0-10%</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="budget-section">
+        <h3>Insurance Budget Optimization Plan</h3>
+        <p>Based on your current expenses, develop a plan to optimize your insurance budget:</p>
+        
+        <h4>Target Budget</h4>
+        <table>
+            <tr>
+                <th>Insurance Type</th>
+                <th>Current Monthly Premium</th>
+                <th>Target Monthly Premium</th>
+                <th>Potential Monthly Savings</th>
+                <th>Annual Savings</th>
+            </tr>
+            <tr>
+                <td>Health Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Auto Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Home/Renters Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Life Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Disability Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Other Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr class="total-row">
+                <td><strong>TOTALS</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <div class="tip-box">
+            <h4>Tips for Setting Realistic Targets</h4>
+            <ul>
+                <li><strong>Health Insurance:</strong> Consider HDHP with HSA if you're generally healthy</li>
+                <li><strong>Auto Insurance:</strong> Review for unnecessary coverage and increase deductibles if you have adequate emergency funds</li>
+                <li><strong>Home/Renters:</strong> Bundle with auto insurance and consider higher deductibles</li>
+                <li><strong>Life Insurance:</strong> Term insurance provides more coverage per dollar than whole life</li>
+                <li><strong>General:</strong> Compare quotes from 3-5 providers before renewal, take advantage of all available discounts</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="budget-section">
+        <h3>Specific Cost-Saving Strategies</h3>
+        <p>For each insurance type, identify specific strategies to reduce costs while maintaining adequate coverage:</p>
+        
+        <table>
+            <tr>
+                <th>Insurance Type</th>
+                <th>Current Issues/Opportunities</th>
+                <th>Specific Cost-Saving Strategies</th>
+                <th>Potential Savings</th>
+            </tr>
+            <tr>
+                <td>Health Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Auto Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Home/Renters Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Life Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Disability Insurance</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Overall Strategy</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h4>Bundling Opportunities</h4>
+        <p>Identify which policies could be bundled for additional discounts:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+        
+        <h4>Employer Benefit Optimization</h4>
+        <p>How can you better utilize employer-provided benefits?</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+        
+        <h4>Tax-Advantaged Accounts</h4>
+        <p>Plan for utilizing HSAs, FSAs, or other tax-advantaged options:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+    </div>
+
+    <div class="budget-section">
+        <h3>Implementation Timeline</h3>
+        <p>Create a schedule for implementing your cost-saving strategies:</p>
+        
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Action Item</th>
+                <th>Insurance Type</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h4>Research and Preparation Needed</h4>
+        <p>What information do you need to gather before implementing these changes?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="budget-section">
+        <h3>Monitoring and Evaluation Plan</h3>
+        <p>How will you track progress and know if your optimization efforts are successful?</p>
+        
+        <h4>Success Metrics</h4>
+        <ul>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+        </ul>
+        
+        <h4>Regular Review Schedule</h4>
+        <table>
+            <tr>
+                <th>Review Timeframe</th>
+                <th>Activities</th>
+            </tr>
+            <tr>
+                <td>Monthly</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Quarterly</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Semi-Annual</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Annual</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Life Changes<br>(Move, new job, marriage, etc.)</td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="warning-box">
+        <h3>Important Considerations</h3>
+        <ul>
+            <li><strong>Coverage Quality:</strong> Cost reduction should never compromise essential coverage</li>
+            <li><strong>Emergency Fund:</strong> Higher deductibles require adequate emergency savings</li>
+            <li><strong>Life Changes:</strong> Major life events often necessitate insurance adjustments</li>
+            <li><strong>Auto-Renewals:</strong> Never let policies auto-renew without reviewing terms and shopping around</li>
+            <li><strong>Documentation:</strong> Keep records of all insurance policies in a secure, accessible location</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Chapter 11.3: Managing Insurance Costs | Personal Insurance Budget Planner</p>
+        <p>Page 1 of 1</p>
+    </div>
+    
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+</body>
+</html>

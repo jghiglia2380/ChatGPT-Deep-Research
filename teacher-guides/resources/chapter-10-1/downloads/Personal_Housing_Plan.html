@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Housing Plan Template</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .plan-section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #6366f1;
+        }
+        
+        .input-area {
+            border: 1px solid #d1d5db;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 60px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+        
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+        
+        .timeline {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 0 5px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .short-term {
+            background-color: #4f46e5;
+        }
+        
+        .medium-term {
+            background-color: #6366f1;
+        }
+        
+        .long-term {
+            background-color: #818cf8;
+        }
+        
+        .checklist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .checklist li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        .note {
+            font-style: italic;
+            font-size: 0.9em;
+            color: #6b7280;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Personal Housing Plan</h1>
+        <p>Chapter 10.1: Renting vs. Owning - Making Informed Housing Decisions</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This template will help you develop a personalized housing plan based on your current circumstances, future goals, and financial situation. Complete each section with as much detail as possible to create a roadmap for your housing decisions.</p>
+        <p class="no-print">To save this plan as a PDF: Click File → Print → Change destination to "Save as PDF" → Save</p>
+    </div>
+    
+    <div class="plan-section">
+        <h2>1. My Current Housing Profile</h2>
+        
+        <h3>Current Housing Situation</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe your current living arrangement (e.g., living with family, renting, etc.) and level of satisfaction.</p>
+        
+        <h3>Financial Resources</h3>
+        <table>
+            <tr>
+                <td width="50%"><strong>Monthly Income (after taxes):</strong></td>
+                <td width="50%">$<input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+            <tr>
+                <td><strong>Current Savings:</strong></td>
+                <td>$<input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+            <tr>
+                <td><strong>Monthly Debt Payments:</strong></td>
+                <td>$<input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+            <tr>
+                <td><strong>Estimated Credit Score Range:</strong></td>
+                <td><input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+            <tr>
+                <td><strong>Current Housing Costs:</strong></td>
+                <td>$<input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+        </table>
+        
+        <h3>Career/Location Stability</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe your career plans, potential for relocation, and how long you plan to stay in your current location.</p>
+        
+        <h3>My Top Housing Priorities</h3>
+        <ol>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+        </ol>
+    </div>
+    
+    <div class="plan-section">
+        <h2>2. My Housing Goals</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item short-term">SHORT-TERM<br>(1-2 years)</div>
+            <div class="timeline-item medium-term">MEDIUM-TERM<br>(3-5 years)</div>
+            <div class="timeline-item long-term">LONG-TERM<br>(6+ years)</div>
+        </div>
+        
+        <h3>Short-Term Housing Goals (1-2 years)</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe your housing goals for the next 1-2 years. Be specific about location, type of housing, cost, etc.</p>
+        
+        <h3>Medium-Term Housing Goals (3-5 years)</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe your housing goals for 3-5 years from now. How might your needs or preferences change?</p>
+        
+        <h3>Long-Term Housing Goals (6+ years)</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe your housing goals for 6+ years from now. Consider major life changes and long-term aspirations.</p>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="plan-section">
+        <h2>3. My Housing Action Plan</h2>
+        
+        <h3>Financial Preparation Steps</h3>
+        <ul class="checklist">
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+        </ul>
+        <p class="note">List specific financial steps you'll take to prepare for your housing goals (e.g., saving for security deposit, improving credit score, reducing debt, etc.).</p>
+        
+        <h3>Timeline for Housing Transitions</h3>
+        <table>
+            <tr>
+                <th>Target Date</th>
+                <th>Goal</th>
+                <th>Required Action Steps</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+        
+        <h3>Housing Market Research Needed</h3>
+        <div class="input-area"></div>
+        <p class="note">List specific information you need to research about housing markets, neighborhoods, etc.</p>
+        
+        <h3>Resources to Consult</h3>
+        <div class="input-area"></div>
+        <p class="note">List resources you plan to consult (websites, professionals, family members, etc.).</p>
+    </div>
+    
+    <div class="plan-section">
+        <h2>4. Potential Challenges and Solutions</h2>
+        
+        <h3>Financial Obstacles</h3>
+        <table>
+            <tr>
+                <th>Potential Obstacle</th>
+                <th>Strategy to Overcome</th>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+        </table>
+        
+        <h3>Market Condition Challenges</h3>
+        <table>
+            <tr>
+                <th>Potential Challenge</th>
+                <th>Strategy to Address</th>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+        </table>
+        
+        <h3>Personal Circumstance Challenges</h3>
+        <table>
+            <tr>
+                <th>Potential Challenge</th>
+                <th>Strategy to Address</th>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="plan-section">
+        <h2>5. My Housing Decision Framework</h2>
+        
+        <h3>When Renting Makes Sense for Me</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe the circumstances under which renting would be your best option.</p>
+        
+        <h3>When Buying Makes Sense for Me</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe the circumstances under which buying would be your best option.</p>
+        
+        <h3>How I'll Know It's Time to Transition</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe specific indicators that would signal it's time to move from renting to buying (or vice versa).</p>
+    </div>
+    
+    <div class="plan-section">
+        <h2>6. Reflection</h2>
+        
+        <h3>Based on my current circumstances and future goals, my optimal housing plan is:</h3>
+        <div class="input-area" style="min-height: 150px;"></div>
+        
+        <h3>The most important next steps I need to take are:</h3>
+        <ol>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+        </ol>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 10.1: Renting vs. Owning - Making Informed Housing Decisions</p>
+    </footer>
+</body>
+</html>

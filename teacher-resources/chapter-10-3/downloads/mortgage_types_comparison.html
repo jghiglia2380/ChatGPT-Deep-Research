@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Types Comparison Chart - PFL Academy</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #4f46e5;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            color: #333;
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background-color: #f3f4f6;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+        
+        td {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
+        .highlight-row {
+            background-color: #e0f2fe;
+        }
+        
+        .highlight-cell {
+            background-color: #e5edff;
+        }
+        
+        .feature-yes {
+            color: #047857;
+            font-weight: 600;
+        }
+        
+        .feature-no {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .feature-maybe {
+            color: #d97706;
+            font-weight: 600;
+        }
+        
+        .notes {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-instructions {
+            text-align: center;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            background-color: #e0f2fe;
+            border-radius: 6px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .print-instructions {
+                display: none;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+            
+            tr {
+                page-break-inside: avoid;
+            }
+            
+            h2 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PFL Academy</div>
+            <h1>Mortgage Types Comparison Chart</h1>
+            <div class="subtitle">Chapter 10.3: Understanding Home Buying</div>
+        </div>
+        
+        <div class="print-instructions">
+            <strong>Teacher Instructions:</strong> To save as PDF, use your browser's print function (Ctrl+P or ⌘+P) and select "Save as PDF" as the destination.
+        </div>
+        
+        <h2>Primary Mortgage Types</h2>
+        
+        <table>
+            <tr>
+                <th width="20%">Mortgage Type</th>
+                <th width="20%">Best For</th>
+                <th width="20%">Down Payment</th>
+                <th width="20%">Credit Score</th>
+                <th width="20%">Key Requirements</th>
+            </tr>
+            <tr>
+                <td><strong>Conventional</strong></td>
+                <td>Borrowers with good credit and savings for down payment</td>
+                <td>3% to 20%<br><small>(PMI required below 20%)</small></td>
+                <td>620+<br><small>(Better rates with 740+)</small></td>
+                <td>
+                    • Stable income<br>
+                    • Debt-to-income ratio under 43%<br>
+                    • Property must meet basic standards
+                </td>
+            </tr>
+            <tr class="highlight-row">
+                <td><strong>FHA</strong></td>
+                <td>First-time homebuyers and those with lower credit scores</td>
+                <td>3.5% with 580+ credit<br>10% with 500-579 credit</td>
+                <td>500+<br><small>(Better terms with 580+)</small></td>
+                <td>
+                    • Property must meet FHA standards<br>
+                    • Mortgage insurance required<br>
+                    • Primary residence only
+                </td>
+            </tr>
+            <tr>
+                <td><strong>VA</strong></td>
+                <td>Eligible veterans, active-duty military, and surviving spouses</td>
+                <td>0%<br><small>(No PMI required)</small></td>
+                <td>No minimum from VA, but lenders typically require 620+</td>
+                <td>
+                    • VA Certificate of Eligibility<br>
+                    • Property must meet VA standards<br>
+                    • Funding fee required (can be financed)
+                </td>
+            </tr>
+            <tr class="highlight-row">
+                <td><strong>USDA</strong></td>
+                <td>Low to moderate income buyers in eligible rural/suburban areas</td>
+                <td>0%<br><small>(Guarantee fee required)</small></td>
+                <td>640+ for streamlined processing<br><small>(Lower possible with manual underwriting)</small></td>
+                <td>
+                    • Property must be in eligible rural area<br>
+                    • Income cannot exceed 115% of area median<br>
+                    • Primary residence only
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Jumbo</strong></td>
+                <td>Buyers purchasing high-value properties above conforming loan limits</td>
+                <td>10% to 20%<br><small>(Can vary by lender)</small></td>
+                <td>700+ typically<br><small>(720+ for best terms)</small></td>
+                <td>
+                    • Higher income requirements<br>
+                    • Stricter debt-to-income ratios<br>
+                    • More cash reserves required<br>
+                    • Higher closing costs
+                </td>
+            </tr>
+        </table>
+        
+        <div class="notes">
+            <strong>Note:</strong> Requirements can vary by lender and may change over time. PMI = Private Mortgage Insurance. Current conforming loan limits for 2024 are $766,550 in most areas, but up to $1,149,825 in high-cost areas.
+        </div>
+        
+        <h2>Interest Rate Options</h2>
+        
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Advantages</th>
+                <th>Disadvantages</th>
+                <th>Best For</th>
+            </tr>
+            <tr>
+                <td><strong>Fixed Rate</strong></td>
+                <td>Interest rate remains the same for the entire loan term</td>
+                <td>
+                    • Predictable payments<br>
+                    • Protection from rate increases<br>
+                    • Easier budgeting
+                </td>
+                <td>
+                    • Higher initial rate than ARMs<br>
+                    • Rate doesn't decrease if market rates fall<br>
+                    • Refinancing required to take advantage of lower rates
+                </td>
+                <td>
+                    • Long-term homeowners<br>
+                    • Those who prioritize payment stability<br>
+                    • Buyers during low-rate environments
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Adjustable Rate (ARM)</strong></td>
+                <td>Rate is fixed for initial period, then adjusts periodically based on market index</td>
+                <td>
+                    • Lower initial rate than fixed<br>
+                    • Potential for lower payments if rates fall<br>
+                    • Good for short-term homeowners
+                </td>
+                <td>
+                    • Payment uncertainty after fixed period<br>
+                    • Potential for significantly higher payments<br>
+                    • More complex to understand
+                </td>
+                <td>
+                    • Short-term homeowners<br>
+                    • Those planning to sell/refinance before adjustment period<br>
+                    • Buyers during high-rate environments
+                </td>
+            </tr>
+        </table>
+        
+        <div class="notes">
+            <strong>Common ARM Types:</strong>
+            <br>• 5/1 ARM: Fixed for 5 years, then adjusts annually
+            <br>• 7/1 ARM: Fixed for 7 years, then adjusts annually
+            <br>• 10/1 ARM: Fixed for 10 years, then adjusts annually
+            <br>Most ARMs have caps on how much rates can increase per adjustment and over the loan life.
+        </div>
+        
+        <h2>Loan Term Options</h2>
+        
+        <table>
+            <tr>
+                <th width="15%">Term</th>
+                <th width="30%">Key Features</th>
+                <th width="25%">Advantages</th>
+                <th width="30%">Disadvantages</th>
+            </tr>
+            <tr>
+                <td><strong>15-Year</strong></td>
+                <td>
+                    • Higher monthly payments<br>
+                    • Lower interest rate<br>
+                    • Faster equity building<br>
+                    • Shorter repayment period
+                </td>
+                <td>
+                    • Less total interest paid<br>
+                    • Faster path to full ownership<br>
+                    • Lower interest rate than 30-year<br>
+                    • Debt-free sooner
+                </td>
+                <td>
+                    • Higher monthly payments (roughly 50% more)<br>
+                    • Less budget flexibility<br>
+                    • May limit purchasing power<br>
+                    • Less money for other investments
+                </td>
+            </tr>
+            <tr>
+                <td><strong>20-Year</strong></td>
+                <td>
+                    • Middle ground option<br>
+                    • Moderate monthly payments<br>
+                    • Moderate interest rate<br>
+                    • Medium-term commitment
+                </td>
+                <td>
+                    • Less total interest than 30-year<br>
+                    • Lower payments than 15-year<br>
+                    • Balanced approach to payoff<br>
+                    • More affordable than 15-year
+                </td>
+                <td>
+                    • Higher payments than 30-year<br>
+                    • Higher total interest than 15-year<br>
+                    • Less common, may be harder to find<br>
+                    • May still constrain budget
+                </td>
+            </tr>
+            <tr>
+                <td><strong>30-Year</strong></td>
+                <td>
+                    • Lower monthly payments<br>
+                    • Higher interest rate<br>
+                    • Slower equity building<br>
+                    • Most common term
+                </td>
+                <td>
+                    • Most affordable monthly payment<br>
+                    • Greater purchasing power<br>
+                    • More budget flexibility<br>
+                    • Can always pay extra to accelerate
+                </td>
+                <td>
+                    • Much more total interest paid<br>
+                    • Slower equity building<br>
+                    • Higher interest rate<br>
+                    • Longer debt obligation
+                </td>
+            </tr>
+        </table>
+        
+        <h2>Sample Payment Comparison</h2>
+        
+        <table>
+            <tr>
+                <th>Loan Variables</th>
+                <th>15-Year Fixed</th>
+                <th>30-Year Fixed</th>
+            </tr>
+            <tr>
+                <td>Loan Amount</td>
+                <td>$300,000</td>
+                <td>$300,000</td>
+            </tr>
+            <tr>
+                <td>Interest Rate</td>
+                <td>5.25%</td>
+                <td>5.75%</td>
+            </tr>
+            <tr>
+                <td>Monthly Principal & Interest</td>
+                <td>$2,406</td>
+                <td>$1,751</td>
+            </tr>
+            <tr>
+                <td>Total Interest Paid</td>
+                <td>$133,080</td>
+                <td>$330,360</td>
+            </tr>
+            <tr>
+                <td>Total Cost (Principal + Interest)</td>
+                <td>$433,080</td>
+                <td>$630,360</td>
+            </tr>
+            <tr>
+                <td>Difference in Total Cost</td>
+                <td colspan="2" class="highlight-cell" style="text-align: center;"><strong>$197,280 savings with 15-year loan</strong></td>
+            </tr>
+        </table>
+        
+        <div class="notes">
+            <strong>Note:</strong> This example is for illustration purposes and uses sample rates. Actual payments will vary based on current market rates, credit score, down payment, and other factors. The calculation doesn't include property taxes, insurance, or PMI, which would be additional costs.
+        </div>
+        
+        <h2>Buyer Profile Matching</h2>
+        
+        <p>This table helps match different buyer profiles with the most appropriate mortgage options.</p>
+        
+        <table>
+            <tr>
+                <th>Buyer Profile</th>
+                <th>Recommended Mortgage Options</th>
+                <th>Reasoning</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>First-time buyer with limited savings</strong><br>
+                    • 640 credit score<br>
+                    • 5% down payment<br>
+                    • Stable income<br>
+                    • Medium-term homeownership plans (5-7 years)
+                </td>
+                <td>
+                    1. FHA 30-year fixed<br>
+                    2. Conventional 30-year fixed<br>
+                    3. 5/1 ARM (if rates are high)
+                </td>
+                <td>
+                    FHA allows lower down payment with average credit. Conventional would require PMI but could be a good option if the borrower qualifies. 30-year term keeps payments manageable.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Military veteran</strong><br>
+                    • 680 credit score<br>
+                    • Little savings for down payment<br>
+                    • VA eligible<br>
+                    • Long-term homeownership plans
+                </td>
+                <td>
+                    1. VA 30-year fixed<br>
+                    2. VA 15-year fixed (if affordable)
+                </td>
+                <td>
+                    VA loan offers 0% down payment with no PMI, making it ideal for eligible veterans with limited savings. VA also typically offers competitive rates.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>High-income professional</strong><br>
+                    • 760 credit score<br>
+                    • 20% down payment<br>
+                    • Excellent income<br>
+                    • Long-term homeownership plans
+                </td>
+                <td>
+                    1. Conventional 15-year fixed<br>
+                    2. Conventional 30-year fixed (with extra payments)<br>
+                    3. Jumbo (if high-value property)
+                </td>
+                <td>
+                    With excellent credit, high income, and substantial down payment, this buyer can benefit from a shorter term to save on interest. Jumbo loan if purchasing a high-value property.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Rural homebuyer with moderate income</strong><br>
+                    • 650 credit score<br>
+                    • 5% down payment<br>
+                    • Moderate income<br>
+                    • First home in rural area
+                </td>
+                <td>
+                    1. USDA 30-year fixed<br>
+                    2. FHA 30-year fixed<br>
+                    3. Conventional 30-year fixed
+                </td>
+                <td>
+                    USDA offers 0% down payment for eligible rural properties with no PMI. Income must be within program limits. FHA is a good backup option if USDA doesn't work out.
+                </td>
+            </tr>
+        </table>
+        
+        <div class="footer">
+            <p>PFL Academy | Chapter 10.3: Understanding Home Buying | © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

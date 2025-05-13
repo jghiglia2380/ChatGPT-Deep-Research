@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Scenario Matchmaker Worksheet - Chapter 3.1</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Worksheet specific styles */
+        .worksheet-section {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            background-color: #f9fafb;
+        }
+        
+        .instructions {
+            background-color: #e6f0ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .scenario {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .scenario-title {
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .provider-selection {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f9fafb;
+            border-radius: 4px;
+        }
+        
+        .provider-selection select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .provider-selection textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            min-height: 80px;
+            box-sizing: border-box;
+        }
+        
+        .provider-types {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            .worksheet-section { break-inside: avoid; }
+            .scenario { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>To save as PDF:</strong> Open this page in Chrome, Edge, or Firefox. Click on Print (Ctrl+P or Cmd+P), 
+        then select "Save as PDF" as the destination. Click "Save" and choose where to save the file on your computer.</p>
+    </div>
+    
+    <div class="header">
+        <h1>Financial Scenario Matchmaker Worksheet</h1>
+        <p><strong>Chapter 3.1:</strong> Understanding Financial Service Providers</p>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Instructions</h2>
+        
+        <div class="instructions">
+            <p><strong>Financial Matchmaker Challenge:</strong> For each scenario, your task is to match the individual or family with the most appropriate financial service provider(s) based on their needs.</p>
+            
+            <p><strong>Steps:</strong></p>
+            <ol>
+                <li>Read each scenario carefully, noting specific financial needs</li>
+                <li>Select the most appropriate financial service provider type</li>
+                <li>Write a detailed justification for your recommendation</li>
+                <li>Consider alternative providers that might also meet their needs</li>
+            </ol>
+            
+            <p><strong>Remember:</strong> Some scenarios may require multiple provider types. In these cases, identify the primary provider and explain why multiple providers might be needed.</p>
+        </div>
+        
+        <div class="provider-types">
+            <p><strong>Financial Service Provider Types:</strong></p>
+            <ul>
+                <li><strong>Traditional Bank:</strong> For-profit financial institution offering checking, savings, loans, credit cards, etc.</li>
+                <li><strong>Credit Union:</strong> Member-owned nonprofit financial cooperative offering similar services to banks</li>
+                <li><strong>Insurance Company:</strong> Provides policies to protect against financial loss from various risks</li>
+                <li><strong>Mortgage Company:</strong> Specializes in home loans and real estate financing</li>
+                <li><strong>Investment Firm:</strong> Manages investment portfolios and offers financial planning services</li>
+                <li><strong>Brokerage Firm:</strong> Facilitates buying and selling of securities like stocks and bonds</li>
+                <li><strong>Online/Digital Bank:</strong> Internet-only bank without physical branches</li>
+                <li><strong>Specialized Lender:</strong> Focuses on specific types of loans (auto, student, personal, etc.)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Scenario 1 -->
+    <div class="worksheet-section">
+        <h2>Scenario 1: Recent College Graduate</h2>
+        
+        <div class="scenario">
+            <div class="scenario-title">Emma's Situation:</div>
+            
+            <p>Emma (22) just graduated from college and is starting her first professional job in a new city. She has:</p>
+            <ul>
+                <li>$30,000 in student loan debt with payments starting in 6 months</li>
+                <li>No credit history beyond a student credit card</li>
+                <li>$3,000 in savings</li>
+                <li>Starting salary of $48,000/year</li>
+                <li>No retirement plan yet</li>
+                <li>Needs convenient mobile/online banking and ATM access</li>
+                <li>Plans to rent an apartment and possibly buy a car within the next year</li>
+                <li>Wants to start building savings for future goals</li>
+            </ul>
+            
+            <div class="provider-selection">
+                <p><strong>Recommended Primary Provider Type:</strong></p>
+                <select>
+                    <option value="">Select a provider type...</option>
+                    <option value="bank">Traditional Bank</option>
+                    <option value="credit-union">Credit Union</option>
+                    <option value="insurance">Insurance Company</option>
+                    <option value="mortgage">Mortgage Company</option>
+                    <option value="investment">Investment Firm</option>
+                    <option value="brokerage">Brokerage Firm</option>
+                    <option value="online">Online/Digital Bank</option>
+                    <option value="specialized">Specialized Lender</option>
+                </select>
+                
+                <p><strong>Justification for Your Recommendation:</strong></p>
+                <textarea placeholder="Explain why this provider type is the best fit for Emma's situation. Consider her immediate needs, financial goals, and circumstances."></textarea>
+                
+                <p><strong>Additional Provider Types She Might Need:</strong></p>
+                <textarea placeholder="What other financial service providers might Emma need in addition to your primary recommendation? Why?"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scenario 2 -->
+    <div class="worksheet-section">
+        <h2>Scenario 2: Young Family Buying First Home</h2>
+        
+        <div class="scenario">
+            <div class="scenario-title">The Martinez Family Situation:</div>
+            
+            <p>Carlos and Sophia Martinez (both 28) are planning to buy their first home. They have:</p>
+            <ul>
+                <li>Combined income of $95,000/year</li>
+                <li>$35,000 saved for a down payment</li>
+                <li>Good credit scores (720+)</li>
+                <li>An 18-month-old child</li>
+                <li>Basic checking and savings accounts at a large national bank</li>
+                <li>401(k) retirement accounts through their employers</li>
+                <li>Car loans and credit card debt totaling $8,000</li>
+                <li>Want to get the best mortgage rate possible</li>
+                <li>Need to protect their growing family and new home</li>
+                <li>Planning to start a college fund for their child</li>
+            </ul>
+            
+            <div class="provider-selection">
+                <p><strong>Recommended Primary Provider Type:</strong></p>
+                <select>
+                    <option value="">Select a provider type...</option>
+                    <option value="bank">Traditional Bank</option>
+                    <option value="credit-union">Credit Union</option>
+                    <option value="insurance">Insurance Company</option>
+                    <option value="mortgage">Mortgage Company</option>
+                    <option value="investment">Investment Firm</option>
+                    <option value="brokerage">Brokerage Firm</option>
+                    <option value="online">Online/Digital Bank</option>
+                    <option value="specialized">Specialized Lender</option>
+                </select>
+                
+                <p><strong>Justification for Your Recommendation:</strong></p>
+                <textarea placeholder="Explain why this provider type is the best fit for the Martinez family's situation. Consider their immediate needs, financial goals, and circumstances."></textarea>
+                
+                <p><strong>Additional Provider Types They Might Need:</strong></p>
+                <textarea placeholder="What other financial service providers might the Martinez family need in addition to your primary recommendation? Why?"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scenario 3 -->
+    <div class="worksheet-section">
+        <h2>Scenario 3: Small Business Owner</h2>
+        
+        <div class="scenario">
+            <div class="scenario-title">Marcus's Situation:</div>
+            
+            <p>Marcus (35) owns a growing small business with 5 employees. He has:</p>
+            <ul>
+                <li>Annual business revenue of $350,000</li>
+                <li>Personal income of approximately $75,000/year</li>
+                <li>Plans to expand the business and possibly hire more employees</li>
+                <li>Needs a business checking account with merchant services</li>
+                <li>Occasionally needs short-term financing for inventory or equipment</li>
+                <li>Wants to offer retirement benefits to employees</li>
+                <li>Needs to manage business cash flow efficiently</li>
+                <li>Looking for business insurance options</li>
+                <li>Interested in building personal wealth outside the business</li>
+                <li>Prefers personalized service and business advice</li>
+            </ul>
+            
+            <div class="provider-selection">
+                <p><strong>Recommended Primary Provider Type:</strong></p>
+                <select>
+                    <option value="">Select a provider type...</option>
+                    <option value="bank">Traditional Bank</option>
+                    <option value="credit-union">Credit Union</option>
+                    <option value="insurance">Insurance Company</option>
+                    <option value="mortgage">Mortgage Company</option>
+                    <option value="investment">Investment Firm</option>
+                    <option value="brokerage">Brokerage Firm</option>
+                    <option value="online">Online/Digital Bank</option>
+                    <option value="specialized">Specialized Lender</option>
+                </select>
+                
+                <p><strong>Justification for Your Recommendation:</strong></p>
+                <textarea placeholder="Explain why this provider type is the best fit for Marcus's situation. Consider his immediate needs, financial goals, and circumstances."></textarea>
+                
+                <p><strong>Additional Provider Types He Might Need:</strong></p>
+                <textarea placeholder="What other financial service providers might Marcus need in addition to your primary recommendation? Why?"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scenario 4 -->
+    <div class="worksheet-section">
+        <h2>Scenario 4: Near-Retirement Couple</h2>
+        
+        <div class="scenario">
+            <div class="scenario-title">The Johnson's Situation:</div>
+            
+            <p>Robert and Patricia Johnson (both 58) are planning for retirement in about 7 years. They have:</p>
+            <ul>
+                <li>Combined income of $150,000/year</li>
+                <li>$850,000 in various retirement accounts</li>
+                <li>Paid-off home worth approximately $450,000</li>
+                <li>$150,000 in non-retirement investments</li>
+                <li>No debt except a small mortgage balance of $50,000</li>
+                <li>Basic banking relationship with a national bank</li>
+                <li>Want to optimize their investments for retirement income</li>
+                <li>Need to make decisions about future healthcare coverage</li>
+                <li>Interested in estate planning and wealth transfer strategies</li>
+                <li>Considering downsizing their home in retirement</li>
+            </ul>
+            
+            <div class="provider-selection">
+                <p><strong>Recommended Primary Provider Type:</strong></p>
+                <select>
+                    <option value="">Select a provider type...</option>
+                    <option value="bank">Traditional Bank</option>
+                    <option value="credit-union">Credit Union</option>
+                    <option value="insurance">Insurance Company</option>
+                    <option value="mortgage">Mortgage Company</option>
+                    <option value="investment">Investment Firm</option>
+                    <option value="brokerage">Brokerage Firm</option>
+                    <option value="online">Online/Digital Bank</option>
+                    <option value="specialized">Specialized Lender</option>
+                </select>
+                
+                <p><strong>Justification for Your Recommendation:</strong></p>
+                <textarea placeholder="Explain why this provider type is the best fit for the Johnson's situation. Consider their immediate needs, financial goals, and circumstances."></textarea>
+                
+                <p><strong>Additional Provider Types They Might Need:</strong></p>
+                <textarea placeholder="What other financial service providers might the Johnsons need in addition to your primary recommendation? Why?"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scenario 5 -->
+    <div class="worksheet-section">
+        <h2>Scenario 5: Create Your Own Scenario</h2>
+        
+        <div class="scenario">
+            <div class="scenario-title">Custom Scenario:</div>
+            
+            <p>Create your own financial scenario describing an individual, family, or business with specific financial needs and circumstances.</p>
+            
+            <textarea placeholder="Describe your custom scenario here. Include details about income, assets, debt, financial goals, and specific needs." style="width: 100%; min-height: 150px; padding: 10px; margin: 10px 0; border: 1px solid #d1d5db; border-radius: 4px;"></textarea>
+            
+            <div class="provider-selection">
+                <p><strong>Recommended Primary Provider Type:</strong></p>
+                <select>
+                    <option value="">Select a provider type...</option>
+                    <option value="bank">Traditional Bank</option>
+                    <option value="credit-union">Credit Union</option>
+                    <option value="insurance">Insurance Company</option>
+                    <option value="mortgage">Mortgage Company</option>
+                    <option value="investment">Investment Firm</option>
+                    <option value="brokerage">Brokerage Firm</option>
+                    <option value="online">Online/Digital Bank</option>
+                    <option value="specialized">Specialized Lender</option>
+                </select>
+                
+                <p><strong>Justification for Your Recommendation:</strong></p>
+                <textarea placeholder="Explain why this provider type is the best fit for your custom scenario. Consider the immediate needs, financial goals, and circumstances you described."></textarea>
+                
+                <p><strong>Additional Provider Types They Might Need:</strong></p>
+                <textarea placeholder="What other financial service providers might be needed in addition to your primary recommendation? Why?"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Reflection Section -->
+    <div class="worksheet-section">
+        <h2>Reflection</h2>
+        
+        <p>After completing the Financial Matchmaker Challenge, reflect on what you've learned about matching financial needs with appropriate service providers.</p>
+        
+        <div class="form-row" style="margin-bottom: 15px;">
+            <p><strong>1. What patterns did you notice about which financial needs correspond to which provider types?</strong></p>
+            <textarea style="width: 100%; min-height: 80px; padding: 10px; border: 1px solid #d1d5db; border-radius: 4px;"></textarea>
+        </div>
+        
+        <div class="form-row" style="margin-bottom: 15px;">
+            <p><strong>2. In which scenarios did you recommend multiple provider types? Why was a single provider insufficient?</strong></p>
+            <textarea style="width: 100%; min-height: 80px; padding: 10px; border: 1px solid #d1d5db; border-radius: 4px;"></textarea>
+        </div>
+        
+        <div class="form-row">
+            <p><strong>3. How might your own financial service provider needs change throughout different life stages?</strong></p>
+            <textarea style="width: 100%; min-height: 80px; padding: 10px; border: 1px solid #d1d5db; border-radius: 4px;"></textarea>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy © 2025 | Chapter 3.1: Understanding Financial Service Providers</p>
+    </div>
+</body>
+</html>

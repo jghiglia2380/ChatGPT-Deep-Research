@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracking Spreadsheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4a86e8;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2c5aa0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        
+        h3 {
+            color: #2c5aa0;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .instructions {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4a86e8;
+            margin-bottom: 25px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f6fd;
+            position: sticky;
+            top: 0;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background-color: #e8f0fe;
+            border: 1px solid #4a86e8;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .tips {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .tips h3 {
+            margin-top: 0;
+            color: #2c5aa0;
+        }
+        
+        .tips ul {
+            margin-bottom: 0;
+        }
+        
+        .print-button {
+            background-color: #4a86e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #3a76d8;
+        }
+        
+        .excel-link {
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border: 1px solid #66bb6a;
+            border-radius: 4px;
+            color: #2e7d32;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .excel-link:hover {
+            background-color: #c8e6c9;
+        }
+        
+        .status-key {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .status-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        .status-not-started {
+            background-color: #f5f5f5;
+        }
+        
+        .status-in-progress {
+            background-color: #fff3e0;
+        }
+        
+        .status-applied {
+            background-color: #e8f5e9;
+        }
+        
+        .status-interview {
+            background-color: #e3f2fd;
+        }
+        
+        .status-offer {
+            background-color: #e8eaf6;
+        }
+        
+        .status-rejected {
+            background-color: #ffebee;
+        }
+        
+        .status-accepted {
+            background-color: #e8f5e9;
+            border: 2px solid #4caf50;
+        }
+        
+        .status-declined {
+            background-color: #f3e5f5;
+        }
+        
+        .tracker-table input[type="text"],
+        .tracker-table input[type="date"],
+        .tracker-table select,
+        .tracker-table textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .tracker-table textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        
+        .tracker-table select {
+            height: 35px;
+        }
+        
+        @media print {
+            .no-print {
+                display: none;
+            }
+            
+            body {
+                padding: 0;
+                font-size: 10pt;
+            }
+            
+            .header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            table {
+                font-size: 9pt;
+            }
+            
+            th, td {
+                padding: 5px;
+            }
+            
+            .instructions,
+            .highlight-box,
+            .tips {
+                border: 1px solid #ccc;
+                padding: 5px;
+                background-color: white !important;
+                margin: 10px 0;
+            }
+            
+            .status-color {
+                border: 1px solid #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Job Application Tracking Spreadsheet</h1>
+        <p>A comprehensive tool to organize and monitor your job search progress</p>
+    </div>
+    
+    <div class="instructions">
+        <h3>How to Use This Tracker:</h3>
+        <ol>
+            <li>Create a copy of this spreadsheet to track all your job applications</li>
+            <li>Fill in all relevant information for each application</li>
+            <li>Update the status as you progress through the application process</li>
+            <li>Use the notes section to record important details about interactions</li>
+            <li>Schedule follow-up tasks with specific dates to stay organized</li>
+            <li>Analyze your application-to-interview ratio to refine your strategy</li>
+        </ol>
+    </div>
+    
+    <div class="section">
+        <h2>Application Status Key</h2>
+        <div class="status-key">
+            <div class="status-item">
+                <div class="status-color status-not-started"></div>
+                <span>Not Started</span>
+            </div>
+            <div class="status-item">
+                <div class="status-color status-in-progress"></div>
+                <span>In Progress</span>
+            </div>
+            <div class="status-item">
+                <div class="status-color status-applied"></div>
+                <span>Applied</span>
+            </div>
+            <div class="status-item">
+                <div class="status-color status-interview"></div>
+                <span>Interview</span>
+            </div>
+            <div class="status-item">
+                <div class="status-color status-offer"></div>
+                <span>Offer Received</span>
+            </div>
+            <div class="status-item">
+                <div class="status-color status-rejected"></div>
+                <span>Rejected</span>
+            </div>
+            <div class="status-item">
+                <div class="status-color status-accepted"></div>
+                <span>Offer Accepted</span>
+            </div>
+            <div class="status-item">
+                <div class="status-color status-declined"></div>
+                <span>Offer Declined</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Job Application Tracker</h2>
+        <p>Use this spreadsheet to track all job applications and their current status.</p>
+        
+        <div class="table-container">
+            <table class="tracker-table">
+                <tr>
+                    <th style="width: 3%;">#</th>
+                    <th style="width: 10%;">Company</th>
+                    <th style="width: 12%;">Position</th>
+                    <th style="width: 8%;">Location</th>
+                    <th style="width: 7%;">Source</th>
+                    <th style="width: 7%;">Date Applied</th>
+                    <th style="width: 8%;">Application Status</th>
+                    <th style="width: 12%;">Key Requirements</th>
+                    <th style="width: 7%;">Contact Name</th>
+                    <th style="width: 7%;">Contact Info</th>
+                    <th style="width: 8%;">Next Follow-up</th>
+                    <th style="width: 11%;">Notes</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" placeholder="ABC Company"></td>
+                    <td><input type="text" placeholder="Marketing Coordinator"></td>
+                    <td><input type="text" placeholder="Remote"></td>
+                    <td><input type="text" placeholder="LinkedIn"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea placeholder="List key qualifications"></textarea></td>
+                    <td><input type="text" placeholder="Jane Smith"></td>
+                    <td><input type="text" placeholder="jsmith@abc.com"></td>
+                    <td><input type="date"></td>
+                    <td><textarea placeholder="Notes about the application"></textarea></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="accepted">Offer Accepted</option>
+                            <option value="declined">Offer Declined</option>
+                        </select>
+                    </td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                </tr>
+            </table>
+        </div>
+        
+        <a href="#" class="excel-link no-print" onclick="alert('This would download an Excel version of this tracker in a real application.')">
+            Download Excel Spreadsheet Template
+        </a>
+    </div>
+    
+    <div class="section">
+        <h2>Interview Tracker</h2>
+        <p>Track interview details, preparation, and follow-up actions.</p>
+        
+        <div class="table-container">
+            <table class="tracker-table">
+                <tr>
+                    <th style="width: 3%;">#</th>
+                    <th style="width: 12%;">Company</th>
+                    <th style="width: 12%;">Position</th>
+                    <th style="width: 10%;">Interview Date</th>
+                    <th style="width: 8%;">Interview Type</th>
+                    <th style="width: 12%;">Interviewer(s)</th>
+                    <th style="width: 15%;">Preparation Notes</th>
+                    <th style="width: 10%;">Thank You Sent</th>
+                    <th style="width: 8%;">Next Steps</th>
+                    <th style="width: 10%;">Follow-up Date</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" placeholder="ABC Company"></td>
+                    <td><input type="text" placeholder="Marketing Coordinator"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select type</option>
+                            <option value="phone">Phone Screen</option>
+                            <option value="video">Video Interview</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="panel">Panel Interview</option>
+                            <option value="technical">Technical</option>
+                            <option value="assessment">Assessment</option>
+                        </select>
+                    </td>
+                    <td><input type="text" placeholder="Jane Smith, HR Director"></td>
+                    <td><textarea placeholder="Research completed, questions prepared"></textarea></td>
+                    <td>
+                        <select>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="na">N/A</option>
+                        </select>
+                    </td>
+                    <td><input type="text" placeholder="Second interview"></td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select type</option>
+                            <option value="phone">Phone Screen</option>
+                            <option value="video">Video Interview</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="panel">Panel Interview</option>
+                            <option value="technical">Technical</option>
+                            <option value="assessment">Assessment</option>
+                        </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><textarea></textarea></td>
+                    <td>
+                        <select>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="na">N/A</option>
+                        </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select type</option>
+                            <option value="phone">Phone Screen</option>
+                            <option value="video">Video Interview</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="panel">Panel Interview</option>
+                            <option value="technical">Technical</option>
+                            <option value="assessment">Assessment</option>
+                        </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><textarea></textarea></td>
+                    <td>
+                        <select>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="na">N/A</option>
+                        </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select type</option>
+                            <option value="phone">Phone Screen</option>
+                            <option value="video">Video Interview</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="panel">Panel Interview</option>
+                            <option value="technical">Technical</option>
+                            <option value="assessment">Assessment</option>
+                        </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><textarea></textarea></td>
+                    <td>
+                        <select>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="na">N/A</option>
+                        </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td>
+                        <select>
+                            <option value="">Select type</option>
+                            <option value="phone">Phone Screen</option>
+                            <option value="video">Video Interview</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="panel">Panel Interview</option>
+                            <option value="technical">Technical</option>
+                            <option value="assessment">Assessment</option>
+                        </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><textarea></textarea></td>
+                    <td>
+                        <select>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="na">N/A</option>
+                        </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Application Follow-Up Log</h2>
+        <p>Record all follow-up communications and networking activities related to your job applications.</p>
+        
+        <div class="table-container">
+            <table class="tracker-table">
+                <tr>
+                    <th style="width: 3%;">#</th>
+                    <th style="width: 12%;">Company</th>
+                    <th style="width: 12%;">Position</th>
+                    <th style="width: 10%;">Contact Name</th>
+                    <th style="width: 10%;">Contact Method</th>
+                    <th style="width: 10%;">Date</th>
+                    <th style="width: 15%;">Summary of Communication</th>
+                    <th style="width: 15%;">Response/Outcome</th>
+                    <th style="width: 13%;">Next Steps</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" placeholder="ABC Company"></td>
+                    <td><input type="text" placeholder="Marketing Coordinator"></td>
+                    <td><input type="text" placeholder="Jane Smith"></td>
+                    <td>
+                        <select>
+                            <option value="">Select method</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="in-person">In Person</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                    <td><input type="date"></td>
+                    <td><textarea placeholder="Thank you email after phone screen"></textarea></td>
+                    <td><textarea placeholder="Received reply confirming next steps"></textarea></td>
+                    <td><input type="text" placeholder="Wait for interview invitation"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <select>
+                            <option value="">Select method</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="in-person">In Person</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <select>
+                            <option value="">Select method</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="in-person">In Person</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <select>
+                            <option value="">Select method</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="in-person">In Person</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <select>
+                            <option value="">Select method</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="in-person">In Person</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                    <td><input type="date"></td>
+                    <td><textarea></textarea></td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Application Metrics Summary</h2>
+        <p>Track key metrics to analyze your job search effectiveness and adjust your strategy accordingly.</p>
+        
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Count/Percentage</th>
+                    <th>Notes/Observations</th>
+                </tr>
+                <tr>
+                    <td>Total Applications Submitted</td>
+                    <td><input type="text" placeholder="0"></td>
+                    <td><textarea placeholder="Notes on application volume and pace"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Application-to-Response Rate</td>
+                    <td><input type="text" placeholder="0%"></td>
+                    <td><textarea placeholder="Analysis of which applications received responses"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Interview Rate</td>
+                    <td><input type="text" placeholder="0%"></td>
+                    <td><textarea placeholder="Patterns in which applications led to interviews"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Offer Rate</td>
+                    <td><input type="text" placeholder="0%"></td>
+                    <td><textarea placeholder="Analysis of interviews that converted to offers"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Average Response Time</td>
+                    <td><input type="text" placeholder="0 days"></td>
+                    <td><textarea placeholder="Typical time between application and first response"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Most Effective Job Source</td>
+                    <td><input type="text" placeholder="LinkedIn"></td>
+                    <td><textarea placeholder="Which sources provided the most promising leads"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Most Common Rejection Reason</td>
+                    <td><input type="text" placeholder="Experience level"></td>
+                    <td><textarea placeholder="Patterns in feedback from rejections"></textarea></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="tips">
+        <h3>Job Application Tracking Tips:</h3>
+        <ul>
+            <li><strong>Update regularly:</strong> Set aside time each week to update your tracking spreadsheet.</li>
+            <li><strong>Schedule follow-ups:</strong> Use the "Next Follow-up" column to plan when to check on applications.</li>
+            <li><strong>Document everything:</strong> Record all interactions, including phone calls and networking conversations.</li>
+            <li><strong>Analyze patterns:</strong> Review your metrics regularly to identify which strategies are most effective.</li>
+            <li><strong>Customize for each application:</strong> Use the notes section to track specific customizations for each position.</li>
+            <li><strong>Track keywords:</strong> Note which keywords you've included in each application to avoid repetition.</li>
+            <li><strong>Maintain contact info:</strong> Keep detailed records of all hiring contacts for future networking.</li>
+            <li><strong>Review regularly:</strong> Set aside time weekly to review your job search progress.</li>
+        </ul>
+    </div>
+    
+    <div class="highlight-box">
+        <h3>Application-to-Interview Ratio Analysis</h3>
+        <p>Your application-to-interview ratio is a crucial metric for assessing your job search effectiveness:</p>
+        <ul>
+            <li><strong>Strong ratio:</strong> 1 interview per 10 applications or better</li>
+            <li><strong>Average ratio:</strong> 1 interview per 20 applications</li>
+            <li><strong>Weak ratio:</strong> 1 interview per 30+ applications</li>
+        </ul>
+        <p>If your ratio is weak, consider:</p>
+        <ul>
+            <li>Revising your resume to better highlight relevant qualifications</li>
+            <li>Customizing applications more thoroughly for each position</li>
+            <li>Focusing on positions that better match your qualifications</li>
+            <li>Increasing networking efforts to access unadvertised opportunities</li>
+            <li>Working with a career counselor to identify improvement areas</li>
+        </ul>
+    </div>
+    
+    <button class="print-button no-print" onclick="window.print()">Print/Save as PDF</button>
+</body>
+</html>

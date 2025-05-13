@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Needs Calculator - Chapter 11.2</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            .calculator-section {
+                page-break-inside: avoid;
+            }
+            button {
+                display: none;
+            }
+            input {
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c5282;
+            border-bottom: 2px solid #2c5282;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2c5282;
+            border-bottom: 1px solid #2c5282;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #3182ce;
+            margin-top: 25px;
+        }
+        
+        .print-instructions {
+            background-color: #fffaf0;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #ed8936;
+            border-radius: 4px;
+        }
+        
+        .intro {
+            background-color: #ebf8ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .calculator-section {
+            background-color: #f0f4f8;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-header {
+            background-color: #2c5282;
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 15px -20px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .calculator-title {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #4a5568;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .result-area {
+            background-color: #e6fffa;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            border-left: 4px solid #38b2ac;
+        }
+        
+        .result-title {
+            margin-top: 0;
+            color: #38b2ac;
+        }
+        
+        .result-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c5282;
+            margin: 10px 0;
+        }
+        
+        .notes-space {
+            margin-top: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 10px;
+            min-height: 100px;
+            background-color: #f8fafc;
+        }
+        
+        .notes-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #4a5568;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #ebf4ff;
+            color: #2c5282;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+        
+        .example-box {
+            background-color: #ebf8ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4299e1;
+            border-radius: 4px;
+        }
+        
+        .tip-box {
+            background-color: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3182ce;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #2c5282;
+        }
+        
+        .calculate-btn {
+            display: block;
+            background-color: #38b2ac;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+        }
+        
+        .reset-btn {
+            background-color: #718096;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            input[type="number"] {
+                width: calc(100% - 16px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <h1>Insurance Needs Calculator</h1>
+    
+    <div class="intro">
+        <p>This calculator tool helps you estimate your insurance needs across different categories. Complete the sections that are relevant to your situation to determine appropriate coverage levels.</p>
+        <p>Remember that these calculations provide general guidelines. Your individual circumstances may require adjustments to these recommendations. Consider consulting with a qualified insurance professional for personalized advice.</p>
+    </div>
+    
+    <h2>Life Insurance Needs Calculator</h2>
+    <p>This calculator helps estimate how much life insurance you need to protect your dependents by considering income replacement, debt payoff, and future expenses.</p>
+    
+    <div class="calculator-section">
+        <div class="calculator-header">
+            <h3 class="calculator-title">Life Insurance Needs Estimator</h3>
+        </div>
+        
+        <form id="life-insurance-form">
+            <div class="form-group">
+                <label for="annual-income">Annual Income:</label>
+                <input type="number" id="annual-income" min="0" step="1000" placeholder="Example: 60000">
+            </div>
+            
+            <div class="form-group">
+                <label for="years-income">Years of Income to Replace:</label>
+                <input type="number" id="years-income" min="0" max="30" step="1" placeholder="Example: 10">
+            </div>
+            
+            <div class="form-group">
+                <label for="mortgage-balance">Mortgage Balance:</label>
+                <input type="number" id="mortgage-balance" min="0" step="1000" placeholder="Example: 200000">
+            </div>
+            
+            <div class="form-group">
+                <label for="other-debt">Other Debt (Credit Cards, Auto Loans, etc.):</label>
+                <input type="number" id="other-debt" min="0" step="1000" placeholder="Example: 15000">
+            </div>
+            
+            <div class="form-group">
+                <label for="education-fund">Children's Education Fund:</label>
+                <input type="number" id="education-fund" min="0" step="1000" placeholder="Example: 100000">
+            </div>
+            
+            <div class="form-group">
+                <label for="final-expenses">Final Expenses (Funeral, Estate Settlement):</label>
+                <input type="number" id="final-expenses" min="0" step="1000" placeholder="Example: 15000">
+            </div>
+            
+            <div class="form-group">
+                <label for="existing-life-insurance">Existing Life Insurance Coverage:</label>
+                <input type="number" id="existing-life-insurance" min="0" step="1000" placeholder="Example: 100000">
+            </div>
+            
+            <div class="form-group">
+                <label for="liquid-assets">Liquid Assets (Savings, Investments):</label>
+                <input type="number" id="liquid-assets" min="0" step="1000" placeholder="Example: 50000">
+            </div>
+            
+            <button type="button" id="life-insurance-calculate" class="btn calculate-btn">Calculate Life Insurance Needs</button>
+        </form>
+        
+        <div class="result-area" id="life-insurance-result" style="display: none;">
+            <h4 class="result-title">Estimated Life Insurance Needs</h4>
+            <p>Based on your inputs, your estimated life insurance needs are:</p>
+            <div class="result-value" id="life-insurance-value">$0</div>
+            <p>This represents the amount of death benefit needed to:</p>
+            <ul>
+                <li>Replace <span id="years-income-result">0</span> years of income: <span id="income-result">$0</span></li>
+                <li>Pay off mortgage and other debts: <span id="debt-result">$0</span></li>
+                <li>Fund children's education: <span id="education-result">$0</span></li>
+                <li>Cover final expenses: <span id="final-expenses-result">$0</span></li>
+                <li>Less existing coverage and assets: <span id="existing-result">$0</span></li>
+            </ul>
+        </div>
+        
+        <div class="notes-space">
+            <span class="notes-label">Notes About Your Life Insurance Needs:</span>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+    
+    <h2>Disability Insurance Needs Calculator</h2>
+    <p>This calculator helps estimate how much disability insurance coverage you would need to maintain your lifestyle if you became unable to work due to illness or injury.</p>
+    
+    <div class="calculator-section">
+        <div class="calculator-header">
+            <h3 class="calculator-title">Disability Insurance Needs Estimator</h3>
+        </div>
+        
+        <form id="disability-insurance-form">
+            <div class="form-group">
+                <label for="monthly-income">Current Monthly Income:</label>
+                <input type="number" id="monthly-income" min="0" step="100" placeholder="Example: 5000">
+            </div>
+            
+            <div class="form-group">
+                <label for="monthly-expenses">Essential Monthly Expenses:</label>
+                <input type="number" id="monthly-expenses" min="0" step="100" placeholder="Example: 3500">
+            </div>
+            
+            <div class="form-group">
+                <label for="emergency-fund">Emergency Fund (Months of Expenses):</label>
+                <input type="number" id="emergency-fund" min="0" max="24" step="0.5" placeholder="Example: 3">
+            </div>
+            
+            <div class="form-group">
+                <label for="employer-coverage">Monthly Employer-Provided Disability Coverage (if any):</label>
+                <input type="number" id="employer-coverage" min="0" step="100" placeholder="Example: 1500">
+            </div>
+            
+            <div class="form-group">
+                <label for="passive-income">Monthly Passive Income (Rental Properties, etc.):</label>
+                <input type="number" id="passive-income" min="0" step="100" placeholder="Example: 500">
+            </div>
+            
+            <button type="button" id="disability-insurance-calculate" class="btn calculate-btn">Calculate Disability Insurance Needs</button>
+        </form>
+        
+        <div class="result-area" id="disability-insurance-result" style="display: none;">
+            <h4 class="result-title">Estimated Disability Insurance Needs</h4>
+            <p>Based on your inputs, your estimated monthly disability insurance needs are:</p>
+            <div class="result-value" id="disability-insurance-value">$0</div>
+            <p>This represents the amount of monthly benefit needed to:</p>
+            <ul>
+                <li>Cover your essential monthly expenses: <span id="expenses-result">$0</span></li>
+                <li>Accounting for emergency fund coverage: <span id="emergency-fund-result">$0</span> months</li>
+                <li>Less employer coverage: <span id="employer-coverage-result">$0</span></li>
+                <li>Less passive income: <span id="passive-income-result">$0</span></li>
+            </ul>
+            <p>Recommended elimination period based on emergency fund: <span id="elimination-period-recommendation">90 days</span></p>
+        </div>
+        
+        <div class="notes-space">
+            <span class="notes-label">Notes About Your Disability Insurance Needs:</span>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>Property Insurance Coverage Calculator</h2>
+    <p>This calculator helps estimate appropriate coverage levels for homeowner's or renter's insurance by evaluating your property value and personal belongings.</p>
+    
+    <div class="calculator-section">
+        <div class="calculator-header">
+            <h3 class="calculator-title">Property Insurance Coverage Estimator</h3>
+        </div>
+        
+        <form id="property-insurance-form">
+            <div class="form-group">
+                <label for="home-value">Home Replacement Cost (skip if renting):</label>
+                <input type="number" id="home-value" min="0" step="1000" placeholder="Example: 300000">
+            </div>
+            
+            <div class="form-group">
+                <label for="personal-property">Estimated Value of Personal Property:</label>
+                <input type="number" id="personal-property" min="0" step="1000" placeholder="Example: 75000">
+            </div>
+            
+            <div class="form-group">
+                <label for="high-value-items">High-Value Items (Jewelry, Art, Electronics):</label>
+                <input type="number" id="high-value-items" min="0" step="1000" placeholder="Example: 15000">
+            </div>
+            
+            <div class="form-group">
+                <label for="additional-structures">Value of Additional Structures (Garage, Shed):</label>
+                <input type="number" id="additional-structures" min="0" step="1000" placeholder="Example: 25000">
+            </div>
+            
+            <div class="form-group">
+                <label for="net-worth">Approximate Net Worth (for Liability Coverage):</label>
+                <input type="number" id="net-worth" min="0" step="1000" placeholder="Example: 250000">
+            </div>
+            
+            <button type="button" id="property-insurance-calculate" class="btn calculate-btn">Calculate Property Insurance Needs</button>
+        </form>
+        
+        <div class="result-area" id="property-insurance-result" style="display: none;">
+            <h4 class="result-title">Estimated Property Insurance Coverage Needs</h4>
+            <p>Based on your inputs, your estimated property insurance coverage needs are:</p>
+            
+            <h5>Dwelling Coverage (Homeowner's Insurance):</h5>
+            <div class="result-value" id="dwelling-coverage-value">$0</div>
+            
+            <h5>Personal Property Coverage:</h5>
+            <div class="result-value" id="personal-property-value">$0</div>
+            
+            <h5>Scheduled Personal Property (for high-value items):</h5>
+            <div class="result-value" id="scheduled-property-value">$0</div>
+            
+            <h5>Other Structures Coverage:</h5>
+            <div class="result-value" id="other-structures-value">$0</div>
+            
+            <h5>Liability Coverage:</h5>
+            <div class="result-value" id="liability-value">$0</div>
+            
+            <h5>Additional Living Expenses Coverage:</h5>
+            <div class="result-value" id="living-expenses-value">$0</div>
+        </div>
+        
+        <div class="notes-space">
+            <span class="notes-label">Notes About Your Property Insurance Needs:</span>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>Auto Insurance Coverage Calculator</h2>
+    <p>This calculator helps estimate appropriate auto insurance coverage levels based on your vehicle value, assets, and risk tolerance.</p>
+    
+    <div class="calculator-section">
+        <div class="calculator-header">
+            <h3 class="calculator-title">Auto Insurance Coverage Estimator</h3>
+        </div>
+        
+        <form id="auto-insurance-form">
+            <div class="form-group">
+                <label for="vehicle-value">Current Vehicle Value:</label>
+                <input type="number" id="vehicle-value" min="0" step="1000" placeholder="Example: 20000">
+            </div>
+            
+            <div class="form-group">
+                <label for="auto-loan">Remaining Auto Loan Balance (if any):</label>
+                <input type="number" id="auto-loan" min="0" step="1000" placeholder="Example: 12000">
+            </div>
+            
+            <div class="form-group">
+                <label for="assets">Total Assets (Home, Savings, Investments):</label>
+                <input type="number" id="assets" min="0" step="1000" placeholder="Example: 350000">
+            </div>
+            
+            <div class="form-group">
+                <label for="annual-mileage">Annual Mileage:</label>
+                <input type="number" id="annual-mileage" min="0" max="100000" step="1000" placeholder="Example: 12000">
+            </div>
+            
+            <div class="form-group">
+                <label for="risk-tolerance">Risk Tolerance (1-5, where 1 is very conservative):</label>
+                <input type="number" id="risk-tolerance" min="1" max="5" step="1" placeholder="Example: 3">
+            </div>
+            
+            <button type="button" id="auto-insurance-calculate" class="btn calculate-btn">Calculate Auto Insurance Needs</button>
+        </form>
+        
+        <div class="result-area" id="auto-insurance-result" style="display: none;">
+            <h4 class="result-title">Estimated Auto Insurance Coverage Needs</h4>
+            <p>Based on your inputs, your estimated auto insurance coverage needs are:</p>
+            
+            <h5>Bodily Injury Liability:</h5>
+            <div class="result-value" id="bodily-injury-value">$0/$0</div>
+            
+            <h5>Property Damage Liability:</h5>
+            <div class="result-value" id="property-damage-value">$0</div>
+            
+            <h5>Collision Coverage:</h5>
+            <div class="result-value" id="collision-value">Recommended</div>
+            <p>Recommended deductible: <span id="collision-deductible">$0</span></p>
+            
+            <h5>Comprehensive Coverage:</h5>
+            <div class="result-value" id="comprehensive-value">Recommended</div>
+            <p>Recommended deductible: <span id="comprehensive-deductible">$0</span></p>
+            
+            <h5>Uninsured/Underinsured Motorist:</h5>
+            <div class="result-value" id="uninsured-value">Recommended</div>
+            
+            <h5>Gap Insurance:</h5>
+            <div class="result-value" id="gap-value">Not Needed</div>
+        </div>
+        
+        <div class="notes-space">
+            <span class="notes-label">Notes About Your Auto Insurance Needs:</span>
+        </div>
+    </div>
+    
+    <h2>Insurance Cost-Benefit Analysis</h2>
+    <p>This section helps you evaluate the cost-benefit trade-offs of different insurance options, particularly for deductibles and coverage limits.</p>
+    
+    <div class="calculator-section">
+        <div class="calculator-header">
+            <h3 class="calculator-title">Deductible Cost-Benefit Calculator</h3>
+        </div>
+        
+        <form id="deductible-form">
+            <div class="form-group">
+                <label for="low-deductible">Lower Deductible Amount:</label>
+                <input type="number" id="low-deductible" min="0" step="100" placeholder="Example: 500">
+            </div>
+            
+            <div class="form-group">
+                <label for="low-premium">Annual Premium with Lower Deductible:</label>
+                <input type="number" id="low-premium" min="0" step="10" placeholder="Example: 1200">
+            </div>
+            
+            <div class="form-group">
+                <label for="high-deductible">Higher Deductible Amount:</label>
+                <input type="number" id="high-deductible" min="0" step="100" placeholder="Example: 1000">
+            </div>
+            
+            <div class="form-group">
+                <label for="high-premium">Annual Premium with Higher Deductible:</label>
+                <input type="number" id="high-premium" min="0" step="10" placeholder="Example: 1000">
+            </div>
+            
+            <div class="form-group">
+                <label for="claims-estimate">Estimated Claims per 5 Years:</label>
+                <input type="number" id="claims-estimate" min="0" max="10" step="1" placeholder="Example: 1">
+            </div>
+            
+            <button type="button" id="deductible-calculate" class="btn calculate-btn">Calculate Deductible Cost-Benefit</button>
+        </form>
+        
+        <div class="result-area" id="deductible-result" style="display: none;">
+            <h4 class="result-title">Deductible Cost-Benefit Analysis</h4>
+            <p>Based on your inputs:</p>
+            
+            <h5>5-Year Cost with Lower Deductible:</h5>
+            <div class="result-value" id="low-deductible-cost">$0</div>
+            <p>(Premium cost: <span id="low-premium-total">$0</span> + Claims cost: <span id="low-claims-cost">$0</span>)</p>
+            
+            <h5>5-Year Cost with Higher Deductible:</h5>
+            <div class="result-value" id="high-deductible-cost">$0</div>
+            <p>(Premium cost: <span id="high-premium-total">$0</span> + Claims cost: <span id="high-claims-cost">$0</span>)</p>
+            
+            <h5>5-Year Savings:</h5>
+            <div class="result-value" id="deductible-savings">$0</div>
+            
+            <h5>Recommendation:</h5>
+            <p id="deductible-recommendation">Based on your inputs, the lower/higher deductible option is more cost-effective over 5 years.</p>
+            
+            <h5>Break-Even Analysis:</h5>
+            <p id="break-even-analysis">You would need to file X claims over 5 years for the options to be equal in cost.</p>
+        </div>
+        
+        <div class="notes-space">
+            <span class="notes-label">Notes About Your Deductible Analysis:</span>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+    
+    <h2>Insurance Coverage Summary</h2>
+    <p>Use this section to record your calculated insurance needs and create a comprehensive insurance plan.</p>
+    
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Insurance Type</th>
+                <th>Calculated Need</th>
+                <th>Current Coverage</th>
+                <th>Gap</th>
+                <th>Priority (1-5)</th>
+                <th>Action Needed</th>
+            </tr>
+            <tr>
+                <td>Life Insurance</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Disability Insurance</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Health Insurance</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Homeowner's/Renter's</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Auto Insurance</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Umbrella Liability</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Long-Term Care</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Other: ___________</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="tip-box">
+        <h3>Implementation Timeline</h3>
+        <p>Based on your insurance needs assessment, create an implementation timeline that prioritizes the most critical coverage gaps:</p>
+        
+        <h4>Immediate Actions (1-30 days):</h4>
+        <div class="notes-space">
+            <span class="notes-label">List your highest priority insurance needs to address immediately:</span>
+        </div>
+        
+        <h4>Short-Term Actions (1-3 months):</h4>
+        <div class="notes-space">
+            <span class="notes-label">List insurance needs to address in the next 1-3 months:</span>
+        </div>
+        
+        <h4>Medium-Term Actions (3-12 months):</h4>
+        <div class="notes-space">
+            <span class="notes-label">List insurance needs to address in the next 3-12 months:</span>
+        </div>
+        
+        <h4>Long-Term Considerations (1+ years):</h4>
+        <div class="notes-space">
+            <span class="notes-label">List insurance needs to address in the future as circumstances change:</span>
+        </div>
+    </div>
+
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <script>
+        // Life Insurance Calculator
+        document.getElementById('life-insurance-calculate').addEventListener('click', function() {
+            // Get input values
+            const annualIncome = parseFloat(document.getElementById('annual-income').value) || 0;
+            const yearsIncome = parseFloat(document.getElementById('years-income').value) || 0;
+            const mortgageBalance = parseFloat(document.getElementById('mortgage-balance').value) || 0;
+            const otherDebt = parseFloat(document.getElementById('other-debt').value) || 0;
+            const educationFund = parseFloat(document.getElementById('education-fund').value) || 0;
+            const finalExpenses = parseFloat(document.getElementById('final-expenses').value) || 0;
+            const existingInsurance = parseFloat(document.getElementById('existing-life-insurance').value) || 0;
+            const liquidAssets = parseFloat(document.getElementById('liquid-assets').value) || 0;
+            
+            // Calculate needs
+            const incomeReplacement = annualIncome * yearsIncome;
+            const debtPayoff = mortgageBalance + otherDebt;
+            const totalNeeds = incomeReplacement + debtPayoff + educationFund + finalExpenses;
+            const existingResources = existingInsurance + liquidAssets;
+            const additionalNeeds = Math.max(0, totalNeeds - existingResources);
+            
+            // Display results
+            document.getElementById('years-income-result').textContent = yearsIncome;
+            document.getElementById('income-result').textContent = '$' + incomeReplacement.toLocaleString();
+            document.getElementById('debt-result').textContent = '$' + debtPayoff.toLocaleString();
+            document.getElementById('education-result').textContent = '$' + educationFund.toLocaleString();
+            document.getElementById('final-expenses-result').textContent = '$' + finalExpenses.toLocaleString();
+            document.getElementById('existing-result').textContent = '$' + existingResources.toLocaleString();
+            document.getElementById('life-insurance-value').textContent = '$' + additionalNeeds.toLocaleString();
+            
+            // Show results area
+            document.getElementById('life-insurance-result').style.display = 'block';
+        });
+        
+        // Disability Insurance Calculator
+        document.getElementById('disability-insurance-calculate').addEventListener('click', function() {
+            // Get input values
+            const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
+            const monthlyExpenses = parseFloat(document.getElementById('monthly-expenses').value) || 0;
+            const emergencyFund = parseFloat(document.getElementById('emergency-fund').value) || 0;
+            const employerCoverage = parseFloat(document.getElementById('employer-coverage').value) || 0;
+            const passiveIncome = parseFloat(document.getElementById('passive-income').value) || 0;
+            
+            // Calculate needs
+            const totalCoverage = monthlyExpenses;
+            const otherIncome = employerCoverage + passiveIncome;
+            const additionalNeeds = Math.max(0, totalCoverage - otherIncome);
+            
+            // Determine elimination period recommendation
+            let eliminationPeriod = "90 days";
+            if (emergencyFund < 3) {
+                eliminationPeriod = "30 days";
+            } else if (emergencyFund >= 6) {
+                eliminationPeriod = "180 days";
+            }
+            
+            // Display results
+            document.getElementById('expenses-result').textContent = '$' + monthlyExpenses.toLocaleString();
+            document.getElementById('emergency-fund-result').textContent = emergencyFund;
+            document.getElementById('employer-coverage-result').textContent = '$' + employerCoverage.toLocaleString();
+            document.getElementById('passive-income-result').textContent = '$' + passiveIncome.toLocaleString();
+            document.getElementById('disability-insurance-value').textContent = '$' + additionalNeeds.toLocaleString() + '/month';
+            document.getElementById('elimination-period-recommendation').textContent = eliminationPeriod;
+            
+            // Show results area
+            document.getElementById('disability-insurance-result').style.display = 'block';
+        });
+        
+        // Property Insurance Calculator
+        document.getElementById('property-insurance-calculate').addEventListener('click', function() {
+            // Get input values
+            const homeValue = parseFloat(document.getElementById('home-value').value) || 0;
+            const personalProperty = parseFloat(document.getElementById('personal-property').value) || 0;
+            const highValueItems = parseFloat(document.getElementById('high-value-items').value) || 0;
+            const additionalStructures = parseFloat(document.getElementById('additional-structures').value) || 0;
+            const netWorth = parseFloat(document.getElementById('net-worth').value) || 0;
+            
+            // Calculate coverage recommendations
+            const dwellingCoverage = homeValue;
+            const personalPropertyCoverage = Math.max(personalProperty, homeValue * 0.5);
+            const scheduledPropertyCoverage = highValueItems;
+            const otherStructuresCoverage = Math.max(additionalStructures, homeValue * 0.1);
+            
+            // Calculate liability recommendation based on net worth
+            let liabilityCoverage = 300000;
+            if (netWorth > 500000) {
+                liabilityCoverage = 500000;
+            }
+            if (netWorth > 1000000) {
+                liabilityCoverage = 1000000;
+            }
+            
+            // Calculate additional living expenses
+            const livingExpensesCoverage = homeValue > 0 ? homeValue * 0.2 : personalProperty * 0.5;
+            
+            // Display results
+            document.getElementById('dwelling-coverage-value').textContent = homeValue > 0 ? '$' + dwellingCoverage.toLocaleString() : 'N/A (Renter)';
+            document.getElementById('personal-property-value').textContent = '$' + personalPropertyCoverage.toLocaleString();
+            document.getElementById('scheduled-property-value').textContent = '$' + scheduledPropertyCoverage.toLocaleString();
+            document.getElementById('other-structures-value').textContent = homeValue > 0 ? '$' + otherStructuresCoverage.toLocaleString() : 'N/A (Renter)';
+            document.getElementById('liability-value').textContent = '$' + liabilityCoverage.toLocaleString();
+            document.getElementById('living-expenses-value').textContent = '$' + livingExpensesCoverage.toLocaleString();
+            
+            // Show results area
+            document.getElementById('property-insurance-result').style.display = 'block';
+        });
+        
+        // Auto Insurance Calculator
+        document.getElementById('auto-insurance-calculate').addEventListener('click', function() {
+            // Get input values
+            const vehicleValue = parseFloat(document.getElementById('vehicle-value').value) || 0;
+            const autoLoan = parseFloat(document.getElementById('auto-loan').value) || 0;
+            const assets = parseFloat(document.getElementById('assets').value) || 0;
+            const annualMileage = parseFloat(document.getElementById('annual-mileage').value) || 0;
+            const riskTolerance = parseFloat(document.getElementById('risk-tolerance').value) || 3;
+            
+            // Calculate coverage recommendations
+            // Liability recommendations based on assets
+            let bodilyInjuryPer = 100000;
+            let bodilyInjuryTotal = 300000;
+            let propertyDamage = 50000;
+            
+            if (assets > 300000) {
+                bodilyInjuryPer = 250000;
+                bodilyInjuryTotal = 500000;
+                propertyDamage = 100000;
+            }
+            if (assets > 500000) {
+                bodilyInjuryPer = 500000;
+                bodilyInjuryTotal = 1000000;
+                propertyDamage = 250000;
+            }
+            
+            // Collision and comprehensive recommendations
+            let collisionRecommendation = "Recommended";
+            let comprehensiveRecommendation = "Recommended";
+            
+            if (vehicleValue < 3000 && riskTolerance > 3) {
+                collisionRecommendation = "Optional";
+                comprehensiveRecommendation = "Optional";
+            }
+            
+            // Deductible recommendations based on risk tolerance
+            let collisionDeductible = 500;
+            let comprehensiveDeductible = 500;
+            
+            if (riskTolerance == 1) {
+                collisionDeductible = 250;
+                comprehensiveDeductible = 250;
+            } else if (riskTolerance >= 4) {
+                collisionDeductible = 1000;
+                comprehensiveDeductible = 1000;
+            }
+            
+            // Uninsured motorist recommendation
+            const uninsuredRecommendation = "Recommended";
+            
+            // Gap insurance recommendation
+            let gapRecommendation = "Not Needed";
+            if (autoLoan > vehicleValue * 0.9) {
+                gapRecommendation = "Recommended";
+            }
+            
+            // Display results
+            document.getElementById('bodily-injury-value').textContent = '$' + bodilyInjuryPer.toLocaleString() + '/$' + bodilyInjuryTotal.toLocaleString();
+            document.getElementById('property-damage-value').textContent = '$' + propertyDamage.toLocaleString();
+            document.getElementById('collision-value').textContent = collisionRecommendation;
+            document.getElementById('collision-deductible').textContent = '$' + collisionDeductible.toLocaleString();
+            document.getElementById('comprehensive-value').textContent = comprehensiveRecommendation;
+            document.getElementById('comprehensive-deductible').textContent = '$' + comprehensiveDeductible.toLocaleString();
+            document.getElementById('uninsured-value').textContent = uninsuredRecommendation;
+            document.getElementById('gap-value').textContent = gapRecommendation;
+            
+            // Show results area
+            document.getElementById('auto-insurance-result').style.display = 'block';
+        });
+        
+        // Deductible Cost-Benefit Calculator
+        document.getElementById('deductible-calculate').addEventListener('click', function() {
+            // Get input values
+            const lowDeductible = parseFloat(document.getElementById('low-deductible').value) || 0;
+            const lowPremium = parseFloat(document.getElementById('low-premium').value) || 0;
+            const highDeductible = parseFloat(document.getElementById('high-deductible').value) || 0;
+            const highPremium = parseFloat(document.getElementById('high-premium').value) || 0;
+            const claimsEstimate = parseFloat(document.getElementById('claims-estimate').value) || 0;
+            
+            // Calculate 5-year costs
+            const lowPremiumTotal = lowPremium * 5;
+            const highPremiumTotal = highPremium * 5;
+            const lowClaimsCost = lowDeductible * claimsEstimate;
+            const highClaimsCost = highDeductible * claimsEstimate;
+            
+            const lowDeductibleCost = lowPremiumTotal + lowClaimsCost;
+            const highDeductibleCost = highPremiumTotal + highClaimsCost;
+            
+            const savings = lowDeductibleCost - highDeductibleCost;
+            
+            // Calculate break-even number of claims
+            const premiumDifference = lowPremium - highPremium;
+            const deductibleDifference = highDeductible - lowDeductible;
+            let breakEvenClaims = 0;
+            
+            if (deductibleDifference > 0) {
+                breakEvenClaims = (premiumDifference * 5) / deductibleDifference;
+            }
+            
+            // Display results
+            document.getElementById('low-premium-total').textContent = '$' + lowPremiumTotal.toLocaleString();
+            document.getElementById('low-claims-cost').textContent = '$' + lowClaimsCost.toLocaleString();
+            document.getElementById('high-premium-total').textContent = '$' + highPremiumTotal.toLocaleString();
+            document.getElementById('high-claims-cost').textContent = '$' + highClaimsCost.toLocaleString();
+            
+            document.getElementById('low-deductible-cost').textContent = '$' + lowDeductibleCost.toLocaleString();
+            document.getElementById('high-deductible-cost').textContent = '$' + highDeductibleCost.toLocaleString();
+            document.getElementById('deductible-savings').textContent = savings >= 0 ? '$' + savings.toLocaleString() : '-$' + Math.abs(savings).toLocaleString();
+            
+            const recommendation = savings > 0 ? 
+                `Based on your inputs, the higher deductible option is more cost-effective over 5 years, saving you $${savings.toLocaleString()}.` : 
+                `Based on your inputs, the lower deductible option is more cost-effective over 5 years, saving you $${Math.abs(savings).toLocaleString()}.`;
+            
+            document.getElementById('deductible-recommendation').textContent = recommendation;
+            
+            const breakEvenText = deductibleDifference > 0 ? 
+                `You would need to file ${breakEvenClaims.toFixed(2)} claims over 5 years for the options to be equal in cost.` : 
+                `These deductible options cannot be directly compared because the higher deductible is not actually higher.`;
+            
+            document.getElementById('break-even-analysis').textContent = breakEvenText;
+            
+            // Show results area
+            document.getElementById('deductible-result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

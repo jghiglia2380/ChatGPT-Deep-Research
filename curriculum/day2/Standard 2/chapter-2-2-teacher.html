@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Teacher Guide: Chapter 2.2: Understanding Tax Brackets and Tax Rates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .case-study {
+            background-color: #f0f9ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .skill-builder {
+            background-color: #f3e8ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .teacher-note {
+            background-color: #f0fdf4;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #16a34a;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .instructor-support-panel {
+            position: fixed;
+            right: -30rem;
+            top: 5rem;
+            width: 30rem;
+            height: calc(100vh - 5rem);
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 30;
+            transition: right 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+        
+        .instructor-support-panel.open {
+            right: 0;
+        }
+        
+        .support-category {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .support-category:hover {
+            background-color: #f3f4f6;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Fixed Header - Purple with Navigation and Instructor Support Button -->
+    <header class="bg-indigo-600 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">PFL Academy Teacher Guide</h1>
+            <div class="flex items-center space-x-4">
+                <button id="instructor-support-btn" class="bg-white text-indigo-600 px-4 py-2 rounded-md font-medium hover:bg-gray-100 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                    </svg>
+                    Instructor Support
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Spacer to push content below fixed header -->
+    <div class="h-16"></div>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <!-- Tabs -->
+            <div class="flex border-b">
+                <button class="tab-btn px-6 py-3 w-1/2 font-medium text-center focus:outline-none bg-indigo-50 text-indigo-700 border-b-2 border-indigo-700" data-tab="content-guide">Content Guide (Day 1)</button>
+                <button class="tab-btn px-6 py-3 w-1/2 font-medium text-center focus:outline-none text-gray-500 hover:text-gray-700" data-tab="learning-lab">Learning Lab (Day 2)</button>
+            </div>
+            
+            <!-- Content Guide Tab (Day 1) -->
+            <div id="content-guide" class="tab-content active p-6">
+                <h1 class="text-3xl font-bold text-gray-900 mb-6">Teacher Guide: Chapter 2.2: Understanding Tax Brackets and Tax Rates</h1>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Lesson Overview</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <ul class="space-y-2">
+                                <li><strong>Standard:</strong> Standard 2: Taxes</li>
+                                <li><strong>Chapter:</strong> 2.2: Understanding Tax Brackets and Tax Rates</li>
+                                <li><strong>Duration:</strong> 55 minutes</li>
+                                <li><strong>Focus:</strong> Understanding how tax brackets work in a progressive tax system</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-2">Learning Objectives</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Explain how tax brackets work in a progressive tax system</li>
+                                <li>Calculate marginal and effective tax rates</li>
+                                <li>Analyze how tax brackets affect financial planning</li>
+                                <li>Differentiate between tax avoidance and tax evasion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Materials Needed</h2>
+                    <ul class="list-disc ml-6 space-y-1">
+                        <li>Current year's tax bracket information (update yearly)</li>
+                        <li>Calculators or spreadsheet access</li>
+                        <li>Group activity worksheets</li>
+                        <li>Case study handouts</li>
+                        <li>Visual aids showing progressive taxation</li>
+                    </ul>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Pre-Class Setup</h2>
+                    <ol class="list-decimal ml-6 space-y-2">
+                        <li>Ensure all students have access to the digital content for Chapter 2.2</li>
+                        <li>Prepare tax bracket calculation examples</li>
+                        <li>Prepare group activity worksheets with different income scenarios</li>
+                        <li>Review tax evasion vs. avoidance examples to facilitate discussion</li>
+                        <li>Create visual aid showing how income "stacks" into different brackets</li>
+                    </ol>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Lesson Timeline</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="py-3 px-4 border-b border-gray-200 text-left">Time</th>
+                                    <th class="py-3 px-4 border-b border-gray-200 text-left">Activity</th>
+                                    <th class="py-3 px-4 border-b border-gray-200 text-left">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">5 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Introduction</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Poll on tax perceptions and explain importance of understanding tax brackets</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">10 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Key Concepts</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Explain tax brackets, marginal and effective tax rates, progressive taxation</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">10 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Real-World Examples</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Walk through Jared and Sara examples with different filing statuses</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">3 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Discussion</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Compare examples and discuss financial planning implications</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">10 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Group Activity</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Tax calculation exercise with different income scenarios</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">5 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Recent Graduate Case</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Apply tax concepts to recent graduate with $55,000 salary</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">5 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Filing Status Discussion</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Explore how filing status impacts tax brackets and liability</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">10 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Skill Builder</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Introduce tax evasion vs. avoidance with Al Capone and Amazon examples</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">2 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Closing Reflection</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Begin reflection on tax brackets and financial planning</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Detailed Instruction Notes</h2>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Introduction (5 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Opening Hook</h4>
+                            <p class="mb-3">Begin with the quick poll: "What percentage of your income do you think most Americans pay in federal income tax?"</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Allow students to share their perceptions (most will likely guess higher than actual rates)</li>
+                                <li>Ask about their understanding of what parents or family members mean when discussing taxes</li>
+                                <li>Emphasize the importance of understanding tax brackets for financial planning</li>
+                            </ul>
+                            <p class="mt-3">Transition: "Today we'll explore how tax brackets work and how they impact your financial decisions."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Key Concepts (10 minutes)</h3>
+                        <div class="teacher-note">
+                            <p class="mb-3">Explain these foundational concepts:</p>
+                            <ul class="list-disc ml-6 mb-4">
+                                <li><strong>Tax Brackets:</strong> Income ranges taxed at different percentages</li>
+                                <li><strong>Marginal Tax Rate:</strong> The rate applied to the last dollar earned (highest bracket)</li>
+                                <li><strong>Effective Tax Rate:</strong> The average rate paid on total income</li>
+                                <li><strong>Progressive Taxation:</strong> System where higher incomes are taxed at higher percentages</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Key Teaching Points</h4>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Emphasize that only income within each bracket is taxed at that bracket's rate</li>
+                                <li>Address common misconception that earning more can result in taking home less</li>
+                                <li>Use visual aids to show how income "stacks" into different brackets</li>
+                                <li>Explain the rationale behind progressive taxation (ability to pay principle)</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mt-3 mb-2">Checking for Understanding</h4>
+                            <p>Ask these quick questions:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>"If I earn $1 more and it puts me in a higher tax bracket, what happens to my previous income?"</li>
+                                <li>"What's the difference between marginal and effective tax rates?"</li>
+                                <li>"Why might someone's effective tax rate be much lower than their marginal rate?"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Real-World Examples (10 minutes)</h3>
+                        <div class="teacher-note">
+                            <p class="mb-3">Walk through these practical examples:</p>
+                            
+                            <h4 class="font-semibold mb-2">Jared's Example (Single Filer with $50,000)</h4>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Show the calculation for each bracket: 10% on first $11,000, 12% on next $33,725, etc.</li>
+                                <li>Calculate total tax ($6,307) and effective rate (12.6%)</li>
+                                <li>Point out that only a small portion falls into the 22% bracket</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Sara's Example (Married Filing Jointly with $110,000)</h4>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Demonstrate how filing status changes the bracket thresholds</li>
+                                <li>Calculate total tax ($14,815) and effective rate (13.5%)</li>
+                                <li>Compare with what Sara would pay if filing as single</li>
+                                <li>Mention strategies like retirement contributions to reduce taxable income</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Visualization Tip</h4>
+                            <p>Use a stacked bar chart or diagram to visually represent how income is taxed at different rates within each bracket.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Discussion (3 minutes)</h3>
+                        <div class="teacher-note">
+                            <p class="mb-3">Facilitate a brief discussion comparing the examples:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>How do Jared and Sara's financial situations differ?</li>
+                                <li>How might knowledge of tax brackets affect their decisions about saving for retirement or buying a home?</li>
+                                <li>What strategies might each person use to minimize their tax liability?</li>
+                            </ul>
+                            
+                            <p class="mt-3">Look for students who can make connections between tax brackets and financial planning decisions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Group Activity: Tax Calculation Exercise (10 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Setup Instructions</h4>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Divide students into small groups (3-4 students each)</li>
+                                <li>Assign each group a different income level: $40,000, $70,000, or $100,000</li>
+                                <li>Provide the current tax bracket information</li>
+                                <li>Have calculators or spreadsheets available</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Activity Steps</h4>
+                            <ol class="list-decimal ml-6 mb-4 space-y-1">
+                                <li>Groups calculate taxes owed for their assigned income level</li>
+                                <li>Students determine how much tax is paid in each bracket</li>
+                                <li>Calculate both marginal and effective tax rates</li>
+                                <li>Each group shares their results with the class</li>
+                            </ol>
+                            
+                            <h4 class="font-semibold mb-2">Debrief Points</h4>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Compare effective tax rates across the different income levels</li>
+                                <li>Discuss how the gap between marginal and effective rates changes with income</li>
+                                <li>Highlight how knowing these calculations helps with financial planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Recent Graduate Case Study (5 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Case Presentation</h4>
+                            <p class="mb-3">Present the scenario of a recent graduate with $55,000 salary. Guide students through calculating:</p>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Tax owed in each bracket (10%, 12%, and 22% brackets)</li>
+                                <li>Total tax liability</li>
+                                <li>Marginal tax rate (22%)</li>
+                                <li>Effective tax rate (approximately 13-14%)</li>
+                                <li>Monthly take-home pay implications</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Discussion Questions</h4>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>How would this tax burden impact monthly budgeting?</li>
+                                <li>What strategies could the graduate use to reduce their taxable income?</li>
+                                <li>How might this affect housing affordability and other financial goals?</li>
+                            </ul>
+                            
+                            <p class="mt-3">Connect this example to students' own post-graduation plans and expectations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Filing Status Discussion (5 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Key Teaching Points</h4>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Explain how different filing statuses (single, married filing jointly, head of household) affect tax brackets</li>
+                                <li>Review the comparison table showing the same income taxed under different filing statuses</li>
+                                <li>Discuss the concept of "marriage penalty" or "marriage bonus" depending on income levels</li>
+                                <li>Connect to life decisions like marriage timing, having children, etc.</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Facilitation Tips</h4>
+                            <p>Ask questions like:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>"Why might some couples decide to get married in January rather than December?"</li>
+                                <li>"How might tax considerations impact decisions about when to have children?"</li>
+                                <li>"What other factors beyond taxes should influence these life decisions?"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Skill Builder: Tax Evasion vs. Avoidance (10 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Key Distinctions</h4>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Tax Evasion: Illegal actions to hide income or provide false information (criminal)</li>
+                                <li>Tax Avoidance: Legal strategies to minimize tax liability using existing laws</li>
+                                <li>The difference is legality, but ethical considerations also apply</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Activity Facilitation</h4>
+                            <ol class="list-decimal ml-6 mb-4 space-y-1">
+                                <li>Have students read the Al Capone example (illegal tax evasion)</li>
+                                <li>Discuss why the government prioritized tax evasion charges</li>
+                                <li>Have students read the Amazon example (legal tax avoidance)</li>
+                                <li>Discuss ethical dimensions of corporate tax strategies</li>
+                                <li>Guide students in responding to the reflection questions</li>
+                            </ol>
+                            
+                            <h4 class="font-semibold mb-2">Discussion Notes</h4>
+                            <p>Be prepared for students to have strong opinions on corporate tax practices. Keep the discussion balanced by:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Acknowledging multiple perspectives on tax policy</li>
+                                <li>Focusing on the distinction between legal compliance and ethical considerations</li>
+                                <li>Relating the discussion to personal tax decisions students might face</li>
+                                <li>Distinguishing between individual and corporate tax contexts</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Closing Reflection (2 minutes)</h3>
+                        <div class="teacher-note">
+                            <p class="mb-3">Guide students to begin reflecting on how understanding tax brackets affects financial planning:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Ask students to consider their current or projected income level</li>
+                                <li>Prompt them to think about how tax knowledge influences budgeting and planning</li>
+                                <li>Encourage them to complete this reflection as homework if time runs short</li>
+                            </ul>
+                            
+                            <p class="mt-3">Preview Day 2: "Tomorrow we'll explore deeper ethical and practical considerations around taxation, and you'll develop your own position on tax policy."</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Discussion Prompts</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-lg mb-2">Tax Perception Poll</h3>
+                            <p class="mb-2">Expected responses:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Many students will overestimate actual tax rates (25-30% or higher)</li>
+                                <li>Some may confuse marginal and effective rates</li>
+                                <li>Responses may reflect political views or family discussions about taxes</li>
+                            </ul>
+                            <p class="mt-2">Follow-up questions:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>"Where did your perception of tax rates come from?"</li>
+                                <li>"Why do you think many people misunderstand how much they pay in taxes?"</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-lg mb-2">Tax Brackets and Financial Decisions</h3>
+                            <p class="mb-2">Expected responses:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Contributing to retirement accounts to reduce taxable income</li>
+                                <li>Timing major purchases or sales to manage tax liability</li>
+                                <li>Considering tax implications of geographic relocation</li>
+                            </ul>
+                            <p class="mt-2">Follow-up questions:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>"What specific financial decisions might be influenced by your tax bracket?"</li>
+                                <li>"How might your approach to taxes change as your income increases?"</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-lg mb-2">Tax Evasion vs. Avoidance Ethics</h3>
+                            <p class="mb-2">Expected responses on corporate practices:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Some students will view legal tax minimization as responsible business practice</li>
+                                <li>Others will see corporate strategies as exploiting loopholes unfairly</li>
+                                <li>Discussion of corporate social responsibility and "fair share"</li>
+                            </ul>
+                            <p class="mt-2">Guiding questions:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>"Is there a difference between what is legal and what is ethical?"</li>
+                                <li>"How should we balance individual/corporate rights with societal needs?"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Differentiation Strategies</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For Advanced Students</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Introduce concept of bracket creep and inflation adjustments</li>
+                                <li>Assign analysis of historical changes in tax brackets</li>
+                                <li>Challenge them to calculate tax implications of complex scenarios</li>
+                                <li>Explore international tax comparison data</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For Struggling Students</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Provide tax calculation worksheet with formulas</li>
+                                <li>Use simplified examples with smaller numbers</li>
+                                <li>Create visual step-by-step guides for tax calculations</li>
+                                <li>Pair with stronger students for collaborative work</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For ELL Students</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Provide glossary of tax terminology</li>
+                                <li>Use infographics and visual aids for key concepts</li>
+                                <li>Allow use of translation tools for complex terms</li>
+                                <li>Connect concepts to familiar examples from different cultures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Assessment Opportunities</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Formative Assessment</h3>
+                            <p>Look for students who can:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Correctly calculate taxes across multiple brackets</li>
+                                <li>Distinguish between marginal and effective tax rates</li>
+                                <li>Explain the progressive nature of the tax system</li>
+                                <li>Apply tax concepts to real-world financial scenarios</li>
+                                <li>Differentiate between tax evasion and tax avoidance</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Group Activity Assessment</h3>
+                            <p>Evaluate group work based on:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Accuracy of tax calculations for assigned income level</li>
+                                <li>Correct identification of marginal and effective rates</li>
+                                <li>Clarity of explanation when sharing with the class</li>
+                                <li>Ability to compare results with other groups' findings</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Skill Builder Assessment</h3>
+                            <p>Assess written responses for:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Clear understanding of the distinction between evasion and avoidance</li>
+                                <li>Analysis of legal vs. ethical dimensions of tax practices</li>
+                                <li>Reasoned perspectives on corporate tax strategies</li>
+                                <li>Connection of concepts to broader societal impacts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Common Misconceptions to Address</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white border border-red-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-red-700 mb-2">"If I make more money and move into a higher tax bracket, I'll take home less money"</h3>
+                            <p>This common misconception fails to understand that only the additional income in the higher bracket is taxed at the higher rate. Clarify with examples showing the "stacking" of income into different brackets.</p>
+                        </div>
+                        
+                        <div class="bg-white border border-red-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-red-700 mb-2">"My entire income is taxed at my tax bracket rate"</h3>
+                            <p>Many students confuse marginal rate with effective rate. Emphasize that the tax bracket rate only applies to income within that bracket, not all income.</p>
+                        </div>
+                        
+                        <div class="bg-white border border-red-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-red-700 mb-2">"Tax deductions and tax credits work the same way"</h3>
+                            <p>Clarify that deductions reduce taxable income, while credits directly reduce tax liability dollar-for-dollar. A $1,000 credit is more valuable than a $1,000 deduction.</p>
+                        </div>
+                        
+                        <div class="bg-white border border-red-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-red-700 mb-2">"The U.S. has the highest tax rates in the world"</h3>
+                            <p>This perception is often not supported by data. Compare U.S. tax rates with other developed nations to provide perspective on relative tax burdens globally.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Additional Resources</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For Educators</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li><a href="https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments" class="text-blue-600 hover:underline">IRS Tax Bracket Information</a></li>
+                                <li><a href="https://www.taxpolicycenter.org/taxvox/understanding-tax-brackets-and-marginal-tax-rates" class="text-blue-600 hover:underline">Tax Policy Center Resources</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Visual Tax Bracket Calculator</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Tax Ethics Discussion Guide</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For Students</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li><a href="#" class="text-blue-600 hover:underline">Interactive Tax Calculator</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Tax Bracket Visualization Tool</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Young Adult's Guide to Understanding Taxes</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Tax Strategy Comparison Tool</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-2">Downloadable Materials</h3>
+                        <ul class="list-disc ml-6 space-y-1">
+                            <li><a href="/resources/chapter-2-2/downloads/tax-bracket-calculation-worksheet.html" class="text-blue-600 hover:underline">Tax Bracket Calculation Worksheet</a></li>
+                            <li><a href="/resources/chapter-2-2/downloads/marginal-vs-effective-visual-guide.html" class="text-blue-600 hover:underline">Marginal vs. Effective Rate Visual Guide</a></li>
+                            <li><a href="/resources/chapter-2-2/downloads/tax-ethics-case-studies.html" class="text-blue-600 hover:underline">Tax Ethics Case Studies (Extended)</a></li>
+                            <li><a href="/resources/chapter-2-2/downloads/filing-status-comparison-chart.html" class="text-blue-600 hover:underline">Filing Status Comparison Chart</a></li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="/resources/chapter-2-2/downloads/chapter-2-2-materials.zip" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Download All Materials (ZIP)</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Learning Lab Tab (Day 2) -->
+            <div id="learning-lab" class="tab-content p-6">
+                <h1 class="text-3xl font-bold text-gray-900 mb-6">Teacher Guide: Chapter 2.2: Tax Strategy Ethics and Impact - Learning Lab</h1>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Learning Lab Overview</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <ul class="space-y-2">
+                                <li><strong>Standard:</strong> Standard 2: Taxes</li>
+                                <li><strong>Chapter:</strong> 2.2: Understanding Tax Brackets and Tax Rates</li>
+                                <li><strong>Duration:</strong> 55 minutes</li>
+                                <li><strong>Focus:</strong> Ethical and practical considerations of taxation</li>
+                                <li><strong>Learning Format:</strong> Multiple interactive stations and activities</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-2">Learning Objectives</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Analyze the ethical implications of tax avoidance strategies</li>
+                                <li>Evaluate the societal impact of corporate and individual tax policies</li>
+                                <li>Develop a reasoned position on tax fairness and responsibility</li>
+                                <li>Create a policy proposal to address a tax-related issue</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Materials Needed</h2>
+                    <ul class="list-disc ml-6 space-y-1">
+                        <li>Student devices with internet access</li>
+                        <li>Headphones for podcast listening</li>
+                        <li>Research resources on tax policies and strategies</li>
+                        <li>Access to interactive tax impact calculator</li>
+                        <li>Policy proposal templates</li>
+                        <li>Student responses from Day 1 Skill Builder</li>
+                    </ul>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Pre-Class Setup</h2>
+                    <ol class="list-decimal ml-6 space-y-2">
+                        <li>Ensure the podcast review content is accessible to all students</li>
+                        <li>Prepare research topics and resources for the Tax Ethics Research Challenge</li>
+                        <li>Test the interactive tax impact calculator functionality</li>
+                        <li>Create policy proposal templates or frameworks</li>
+                        <li>Retrieve student responses from Day 1 Skill Builder for reference</li>
+                        <li>Ensure portfolio integration system is ready</li>
+                    </ol>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Learning Lab Structure</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="py-3 px-4 border-b border-gray-200 text-left">Time</th>
+                                    <th class="py-3 px-4 border-b border-gray-200 text-left">Activity</th>
+                                    <th class="py-3 px-4 border-b border-gray-200 text-left">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">10 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Introduction and Review</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Podcast review of Day 1 concepts and Q&A</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">15 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Tax Ethics Research Challenge</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Group research on tax policies/strategies and analysis</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">10 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Tax Impact Analysis</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Interactive calculator exploration of tax impacts</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">10 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Tax Policy Proposal</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Develop policy proposal based on research and analysis</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 border-b border-gray-200">10 min</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Ethics Position and Integration</td>
+                                    <td class="py-3 px-4 border-b border-gray-200">Create position statement and integrate into portfolio</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Detailed Facilitation Notes</h2>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Introduction and Review (10 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Podcast Content Review</h4>
+                            <p class="mb-3">The podcast will cover key concepts from Day 1:</p>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Progressive tax system and how brackets work</li>
+                                <li>Marginal vs. effective tax rates</li>
+                                <li>Tax brackets and calculation methods</li>
+                                <li>Tax avoidance vs. tax evasion distinctions</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Facilitation Steps</h4>
+                            <ol class="list-decimal ml-6 mb-4 space-y-1">
+                                <li>Have students listen to the podcast (approximately 5 minutes)</li>
+                                <li>After listening, conduct a brief Q&A to address any lingering questions</li>
+                                <li>Clarify any misconceptions about tax brackets or calculations</li>
+                                <li>Preview today's focus on ethical dimensions and societal impacts</li>
+                            </ol>
+                            
+                            <h4 class="font-semibold mb-2">Transition to Learning Lab</h4>
+                            <p>Emphasize to students that today's activities build upon yesterday's foundational knowledge:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>"Now that we understand how tax brackets work, we'll explore the ethical implications"</li>
+                                <li>"Today you'll develop and articulate your own informed position on tax policy"</li>
+                                <li>"The work you do today will contribute to your financial literacy portfolio"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Tax Ethics Research Challenge (15 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Setup Instructions</h4>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Divide students into small groups (3-4 students)</li>
+                                <li>Assign each group one of the tax policy/strategy topics:
+                                    <ul>
+                                        <li>Corporate tax inversions</li>
+                                        <li>Charitable giving tax incentives</li>
+                                        <li>Capital gains tax preferences</li>
+                                        <li>State tax competition</li>
+                                        <li>International tax havens</li>
+                                    </ul>
+                                </li>
+                                <li>Provide access to research resources for each topic</li>
+                                <li>Distribute analysis framework worksheets</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Research Guidance</h4>
+                            <p>Direct students to analyze their assigned topic by addressing these questions:</p>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Who benefits from this policy/strategy?</li>
+                                <li>Who might be disadvantaged?</li>
+                                <li>What are the broader societal impacts?</li>
+                                <li>Is this policy/strategy primarily about fairness or economic growth?</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Facilitation Tips</h4>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Circulate among groups to provide guidance and keep them on track</li>
+                                <li>Encourage balanced analysis considering multiple perspectives</li>
+                                <li>Remind students to document their sources and findings</li>
+                                <li>If a group finishes early, have them consider potential reforms</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Mini-Share (Optional)</h4>
+                            <p>If time permits, have one representative from each group briefly share a key insight from their research.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Tax Impact Analysis (10 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Calculator Introduction</h4>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Demonstrate the interactive tax impact calculator functionality</li>
+                                <li>Show how to adjust income levels, filing status, and deduction strategies</li>
+                                <li>Explain the visualization of tax burden and take-home pay</li>
+                                <li>Point out how to interpret the effective tax rate calculations</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Guided Exploration</h4>
+                            <p>Direct students to use the calculator to explore:</p>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Comparing tax burdens across income levels (low, middle, high)</li>
+                                <li>Examining how different deductions affect tax liability</li>
+                                <li>Analyzing how various tax strategies change effective tax rates</li>
+                                <li>Exploring the impact of different filing statuses on the same income</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Key Analysis Questions</h4>
+                            <p>Have students reflect on:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>How progressive is our current tax system in practice?</li>
+                                <li>Which groups benefit most from current tax structures?</li>
+                                <li>How do different strategies impact lifetime wealth accumulation?</li>
+                                <li>What patterns do they notice about the relationship between income and effective tax rates?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Tax Policy Proposal (10 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Proposal Development</h4>
+                            <p class="mb-3">Based on their research and analysis, students will develop a brief policy proposal that addresses a specific issue with the current tax system.</p>
+                            
+                            <h4 class="font-semibold mb-2">Proposal Structure Guidance</h4>
+                            <p>Guide students to include these elements in their proposals:</p>
+                            <ol class="list-decimal ml-6 mb-4 space-y-1">
+                                <li>Problem Identification: What specific issue with the current tax system are they addressing?</li>
+                                <li>Proposed Solution: What specific change do they recommend?</li>
+                                <li>Fairness Analysis: How does their proposal balance fairness and economic considerations?</li>
+                                <li>Addressing Objections: What potential criticisms of their proposal can they address?</li>
+                            </ol>
+                            
+                            <h4 class="font-semibold mb-2">Facilitation Tips</h4>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Encourage realistic, focused proposals rather than sweeping changes</li>
+                                <li>Remind students to consider multiple stakeholder perspectives</li>
+                                <li>Suggest they draw from their earlier research and calculator exploration</li>
+                                <li>Emphasize the importance of anticipating and addressing potential objections</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Common Student Challenges</h4>
+                            <p>Be prepared to help students who:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Struggle to identify a specific issue (suggest focusing on one aspect)</li>
+                                <li>Propose overly simplistic solutions (encourage deeper analysis)</li>
+                                <li>Overlook unintended consequences (prompt broader thinking)</li>
+                                <li>Fail to connect to broader principles (suggest ethical frameworks)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Tax Ethics Position Statement and Integration (10 minutes)</h3>
+                        <div class="teacher-note">
+                            <h4 class="font-semibold mb-2">Position Statement Development</h4>
+                            <p class="mb-3">Students will develop a position statement on tax ethics that reflects their understanding of both individual and corporate tax responsibilities.</p>
+                            
+                            <h4 class="font-semibold mb-2">Statement Components</h4>
+                            <p>Guide students to address:</p>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Core Values: What ethical principles should guide tax policy and compliance?</li>
+                                <li>Individual Responsibility: What are individuals' ethical responsibilities regarding taxes?</li>
+                                <li>Corporate Responsibility: What are businesses' ethical responsibilities regarding taxes?</li>
+                                <li>Drawing the Line: How do they distinguish between legitimate tax planning and unethical avoidance?</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Day 1 Connection</h4>
+                            <p>Ensure students:</p>
+                            <ul class="list-disc ml-6 mb-4 space-y-1">
+                                <li>Reference their Day 1 Skill Builder responses on the Al Capone and Amazon examples</li>
+                                <li>Reflect on how their thinking has evolved since yesterday</li>
+                                <li>Integrate insights from today's research and analysis</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Portfolio Integration</h4>
+                            <p>Guide students to compile their work into a comprehensive portfolio piece:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Research findings from the Tax Ethics Research Challenge</li>
+                                <li>Key insights from the Tax Impact Analysis</li>
+                                <li>Their Tax Policy Proposal</li>
+                                <li>Their Tax Ethics Position Statement</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold mb-2">Closing Discussion</h4>
+                            <p>If time permits, invite a few volunteers to share a key insight from their position statement with the class.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Differentiation Strategies</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For Advanced Students</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Assign more complex research topics like international tax systems</li>
+                                <li>Encourage analysis of historical context in tax policy</li>
+                                <li>Challenge them to develop more detailed policy proposals</li>
+                                <li>Suggest exploration of economic modeling of tax policy impacts</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For Struggling Students</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Provide guided research templates with simplified questions</li>
+                                <li>Offer pre-selected, accessible resources</li>
+                                <li>Simplify the policy proposal structure</li>
+                                <li>Allow verbal rather than written responses if needed</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For ELL Students</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Provide glossary of tax policy and ethics terminology</li>
+                                <li>Allow use of visual representations in portfolio submissions</li>
+                                <li>Permit use of translation tools for research</li>
+                                <li>Offer sentence starters for position statements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Assessment Strategies</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Research Challenge Assessment</h3>
+                            <p class="mb-2">Evaluate student research on:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Depth and accuracy of topic analysis</li>
+                                <li>Consideration of multiple stakeholder perspectives</li>
+                                <li>Understanding of both benefits and drawbacks</li>
+                                <li>Connection to broader societal impacts</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Policy Proposal Assessment</h3>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full bg-white border border-gray-200">
+                                    <thead>
+                                        <tr class="bg-gray-100">
+                                            <th class="py-3 px-4 border-b border-gray-200 text-left">Criterion</th>
+                                            <th class="py-3 px-4 border-b border-gray-200 text-left">Excellent</th>
+                                            <th class="py-3 px-4 border-b border-gray-200 text-left">Proficient</th>
+                                            <th class="py-3 px-4 border-b border-gray-200 text-left">Needs Improvement</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="py-3 px-4 border-b border-gray-200 font-medium">Problem Identification</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Clearly identifies specific issue with supporting evidence</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Identifies general issue with some support</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Issue is vague or poorly defined</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3 px-4 border-b border-gray-200 font-medium">Solution Practicality</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Proposes realistic, well-reasoned solution</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Solution is reasonable but may lack detail</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Solution is impractical or underdeveloped</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3 px-4 border-b border-gray-200 font-medium">Fairness Analysis</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Thoughtfully balances fairness and economic concerns</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Addresses both fairness and economics</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Analysis is one-sided or superficial</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3 px-4 border-b border-gray-200 font-medium">Objection Handling</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Anticipates and addresses multiple valid objections</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Addresses some potential objections</td>
+                                            <td class="py-3 px-4 border-b border-gray-200">Few or no objections addressed</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Position Statement Assessment</h3>
+                            <p class="mb-2">Evaluate position statements on:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Clarity and coherence of ethical position</li>
+                                <li>Evidence of evolution in thinking since Day 1</li>
+                                <li>Integration of research insights and calculator analysis</li>
+                                <li>Balanced consideration of individual and corporate contexts</li>
+                                <li>Logical consistency and evidence-based reasoning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Reflection & Wrap-up</h2>
+                    <div class="teacher-note">
+                        <h3 class="font-semibold mb-2">Final Reflection Prompts</h3>
+                        <p class="mb-3">Guide students through these reflection questions in the final minutes:</p>
+                        <ul class="list-disc ml-6 space-y-1">
+                            <li>How has your perspective on taxation changed after completing this learning lab?</li>
+                            <li>How might this new understanding affect your financial decision-making?</li>
+                            <li>What connections do you see between tax policy and broader societal values?</li>
+                        </ul>
+                        
+                        <h3 class="font-semibold mt-4 mb-2">Learning Connection</h3>
+                        <p class="mb-3">Help students connect their learning to the chapter objectives:</p>
+                        <ul class="list-disc ml-6 space-y-1">
+                            <li>Understanding how tax brackets function in a progressive system</li>
+                            <li>Calculating and applying marginal and effective tax rates</li>
+                            <li>Analyzing the ethical dimensions of tax strategies</li>
+                            <li>Differentiating between legal compliance and ethical considerations</li>
+                        </ul>
+                        
+                        <h3 class="font-semibold mt-4 mb-2">Preview of Next Chapter</h3>
+                        <p>"In our next chapter, we'll explore tax filing requirements and processes, building on your understanding of how tax brackets work and the ethical considerations we've discussed."</p>
+                    </div>
+                </section>
+                
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Additional Resources and References</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For Educators</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li><a href="#" class="text-blue-600 hover:underline">Tax Policy Center: Teaching Tax Ethics</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">OECD Tax Policy Research Resources</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Tax Ethics Case Study Collection</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Corporate Tax Strategy Analysis Guide</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">For Students</h3>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li><a href="#" class="text-blue-600 hover:underline">Tax Policy Comparison Tool</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Tax Ethics Framework for Young Adults</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">International Tax System Comparisons</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Historical Tax Rate Calculator</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-2">Downloadable Materials</h3>
+                        <ul class="list-disc ml-6 space-y-1">
+                            <li><a href="/resources/chapter-2-2/downloads/tax-policy-research-guide.html" class="text-blue-600 hover:underline">Tax Policy Research Guide</a></li>
+                            <li><a href="/resources/chapter-2-2/downloads/tax-impact-analysis-worksheet.html" class="text-blue-600 hover:underline">Tax Impact Analysis Worksheet</a></li>
+                            <li><a href="/resources/chapter-2-2/downloads/policy-proposal-template.html" class="text-blue-600 hover:underline">Policy Proposal Template</a></li>
+                            <li><a href="/resources/chapter-2-2/downloads/tax-ethics-position-framework.html" class="text-blue-600 hover:underline">Tax Ethics Position Framework</a></li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="/resources/chapter-2-2/downloads/chapter-2-2-materials.zip" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Download All Materials (ZIP)</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Instructor Support Panel -->
+    <div id="instructor-support-panel" class="instructor-support-panel">
+        <div class="bg-indigo-600 text-white p-4">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-bold">Instructor Support</h2>
+                <button id="close-support-btn" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="p-4">
+            <div class="mb-4">
+                <input type="text" id="support-search" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Ask a question about teaching this chapter...">
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="font-semibold text-lg mb-3">Support Categories</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="support-category bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
+                        <h4 class="font-medium text-indigo-700">Teaching Strategies</h4>
+                        <p class="text-sm text-gray-600">Methods for teaching complex tax concepts</p>
+                    </div>
+                    <div class="support-category bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
+                        <h4 class="font-medium text-indigo-700">Student Explanations</h4>
+                        <p class="text-sm text-gray-600">Alternative ways to explain to struggling students</p>
+                    </div>
+                    <div class="support-category bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
+                        <h4 class="font-medium text-indigo-700">Extension Ideas</h4>
+                        <p class="text-sm text-gray-600">Challenges for advanced learners</p>
+                    </div>
+                    <div class="support-category bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
+                        <h4 class="font-medium text-indigo-700">Examples & Analogies</h4>
+                        <p class="text-sm text-gray-600">Real-world connections for tax concepts</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="font-semibold text-lg mb-3">Suggested Questions</h3>
+                <div class="space-y-2">
+                    <div class="bg-gray-50 p-3 rounded-lg cursor-pointer hover:bg-gray-100">
+                        <p>How can I explain the difference between marginal and effective tax rates?</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg cursor-pointer hover:bg-gray-100">
+                        <p>What's a good analogy for explaining how progressive taxation works?</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg cursor-pointer hover:bg-gray-100">
+                        <p>How do I facilitate a balanced discussion on tax ethics without injecting bias?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold text-lg mb-3">Question History</h3>
+                <p class="text-gray-500 italic">Your question history will appear here.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('bg-indigo-50', 'text-indigo-700', 'border-b-2', 'border-indigo-700');
+                    btn.classList.add('text-gray-500', 'hover:text-gray-700');
+                });
+                
+                // Add active class to clicked tab
+                button.classList.add('bg-indigo-50', 'text-indigo-700', 'border-b-2', 'border-indigo-700');
+                button.classList.remove('text-gray-500', 'hover:text-gray-700');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show selected tab content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Instructor Support Panel toggle
+        document.getElementById('instructor-support-btn').addEventListener('click', () => {
+            document.getElementById('instructor-support-panel').classList.add('open');
+        });
+        
+        document.getElementById('close-support-btn').addEventListener('click', () => {
+            document.getElementById('instructor-support-panel').classList.remove('open');
+        });
+        
+        // Support category click simulation
+        document.querySelectorAll('.support-category').forEach(category => {
+            category.addEventListener('click', () => {
+                // Placeholder for real functionality
+                alert(`Support for ${category.querySelector('h4').textContent} would appear here.`);
+            });
+        });
+        
+        // Suggested question click simulation
+        document.querySelectorAll('.bg-gray-50.p-3.rounded-lg.cursor-pointer').forEach(question => {
+            question.addEventListener('click', () => {
+                // Placeholder for real functionality
+                alert(`Answer to "${question.textContent.trim()}" would appear here.`);
+            });
+        });
+    </script>
+</body>
+</html>

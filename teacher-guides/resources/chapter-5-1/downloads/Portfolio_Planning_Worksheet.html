@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Planning Worksheet - Chapter 5.1</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+            .form-field {
+                border: 1px solid #000;
+                padding: 5px;
+                margin-bottom: 10px;
+                min-height: 20px;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        .form-section {
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-field {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            margin-bottom: 15px;
+            min-height: 25px;
+            background-color: white;
+        }
+        
+        .large-field {
+            min-height: 80px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+        
+        th, td {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #F3F4F6;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .risk-assessment {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .risk-scale {
+            flex-grow: 1;
+            height: 30px;
+            background: linear-gradient(to right, #10B981, #FBBF24, #EF4444);
+            border-radius: 5px;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .risk-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+            color: #6B7280;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            width: calc(50% - 15px);
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            border: 1px solid #E5E7EB;
+            margin-right: 8px;
+            margin-top: 3px;
+        }
+        
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #6366F1 0% 0%,
+                #10B981 0% 0%,
+                #F59E0B 0% 0%,
+                #EF4444 0% 0%,
+                #A1A1AA 0% 100%
+            );
+            margin: 20px auto;
+            position: relative;
+        }
+        
+        .pie-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        
+        .pie-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+        
+        .allocation-field {
+            width: 60px;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #E5E7EB;
+            border-radius: 3px;
+        }
+        
+        .allocation-table td:last-child {
+            text-align: center;
+        }
+        
+        .action-item {
+            margin-bottom: 15px;
+        }
+        
+        .action-field {
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #E5E7EB;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .action-text {
+            flex-grow: 1;
+            border: 1px solid #E5E7EB;
+            padding: 8px;
+            min-height: 20px;
+            background-color: white;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend portrait orientation)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Portfolio Planning Worksheet</h1>
+        <p class="subtitle">Chapter 5.1: Saving and Investing</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>This worksheet will help you create a personalized saving and investing strategy based on your financial goals, time horizon, and risk tolerance. By completing each section, you'll develop a comprehensive plan that integrates the saving and investing concepts covered in this chapter.</p>
+
+    <div class="important-note">
+        <strong>Why Portfolio Planning Matters:</strong> A thoughtful, well-structured portfolio aligns your financial resources with your specific goals and circumstances. This planning process helps you make intentional decisions about where to save versus invest, how to allocate your assets, and what specific financial vehicles to use. The result is a roadmap that will guide your financial decisions over time.
+    </div>
+
+    <h2>Section 1: Financial Goals Assessment</h2>
+    <div class="form-section">
+        <p>Begin by identifying your financial goals. Include both short-term and long-term objectives.</p>
+        
+        <table>
+            <tr>
+                <th>Financial Goal</th>
+                <th>Target Amount</th>
+                <th>Timeframe</th>
+                <th>Priority (High/Medium/Low)</th>
+                <th>Better for Saving or Investing?</th>
+            </tr>
+            <tr>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+            </tr>
+            <tr>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+            </tr>
+            <tr>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+            </tr>
+            <tr>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+            </tr>
+        </table>
+        
+        <div class="form-group">
+            <label>Does your list include both short-term and long-term goals? What's the balance between them?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>Based on your goals analysis, what percentage of your available funds should go toward saving versus investing?</label>
+            <div class="form-field"></div>
+        </div>
+    </div>
+
+    <h2>Section 2: Risk Tolerance Assessment</h2>
+    <div class="form-section">
+        <p>Understanding your comfort level with financial risk is crucial for creating an appropriate portfolio.</p>
+        
+        <div class="form-group">
+            <label>How would you react if your investment suddenly decreased in value by 20%?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>What's more important to you: growing your money significantly over time or protecting it from losses?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>How much investment experience do you have?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>If you had to choose between an investment with a steady 4% return and one with potential returns ranging from -5% to 15%, which would you prefer and why?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>Based on your answers above, how would you rate your overall risk tolerance?</label>
+            
+            <div class="risk-assessment">
+                <div>Low Risk</div>
+                <div class="risk-scale"></div>
+                <div>High Risk</div>
+            </div>
+            
+            <div class="risk-labels">
+                <div>Conservative</div>
+                <div>Moderately Conservative</div>
+                <div>Moderate</div>
+                <div>Moderately Aggressive</div>
+                <div>Aggressive</div>
+            </div>
+            
+            <div class="form-field" style="margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <h2>Section 3: Investment Objectives</h2>
+    <div class="form-section">
+        <p>Identify your primary investment objectives based on your goals and risk tolerance.</p>
+        
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <div>Capital Preservation (minimizing risk of loss)</div>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <div>Income Generation (regular income from investments)</div>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <div>Growth (increasing value over long periods)</div>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <div>Balanced Approach (mixture of income and growth)</div>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <div>Speculation (potential for high returns with high risk)</div>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <div>Other: <div class="form-field" style="display: inline-block; width: 70%; min-height: auto; padding: 5px;"></div></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>How do your investment objectives align with your financial goals and time horizons?</label>
+            <div class="form-field large-field"></div>
+        </div>
+    </div>
+
+    <h2>Section 4: Asset Allocation Strategy</h2>
+    <div class="form-section">
+        <p>Based on your risk tolerance and goals, determine how you would allocate your investment portfolio among different asset classes.</p>
+        
+        <div class="form-group">
+            <label>Create your target allocation by filling in percentages (should total 100%):</label>
+            
+            <table class="allocation-table">
+                <tr>
+                    <th>Asset Class</th>
+                    <th>Description</th>
+                    <th>Allocation %</th>
+                </tr>
+                <tr>
+                    <td>Cash/Cash Equivalents</td>
+                    <td>Savings accounts, money market funds, CDs, Treasury bills</td>
+                    <td><div class="form-field allocation-field"></div></td>
+                </tr>
+                <tr>
+                    <td>Bonds/Fixed Income</td>
+                    <td>Government bonds, corporate bonds, bond funds</td>
+                    <td><div class="form-field allocation-field"></div></td>
+                </tr>
+                <tr>
+                    <td>Stocks/Equities</td>
+                    <td>Individual stocks, stock mutual funds, ETFs</td>
+                    <td><div class="form-field allocation-field"></div></td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td>Real estate, commodities, alternatives</td>
+                    <td><div class="form-field allocation-field"></div></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right;"><strong>Total:</strong></td>
+                    <td><div class="form-field allocation-field"></div></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div style="width: 48%;">
+                <div class="pie-chart">
+                    <div class="pie-center">
+                        Your<br>Portfolio<br>Allocation
+                    </div>
+                </div>
+                
+                <div class="pie-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #6366F1;"></div>
+                        <div>Cash</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #10B981;"></div>
+                        <div>Bonds</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #F59E0B;"></div>
+                        <div>Stocks</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #EF4444;"></div>
+                        <div>Other</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="width: 48%;">
+                <div class="form-group">
+                    <label>Why did you choose this allocation? How does it reflect your risk tolerance and time horizons?</label>
+                    <div class="form-field large-field"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label>How might you adjust this allocation in the future as your goals or circumstances change?</label>
+                    <div class="form-field"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Section 5: Account Selection</h2>
+    <div class="form-section">
+        <p>Identify specific accounts or investment vehicles for each of your financial goals.</p>
+        
+        <table>
+            <tr>
+                <th>Financial Goal</th>
+                <th>Saving or Investment Account Type</th>
+                <th>Why This Account Type?</th>
+            </tr>
+            <tr>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+            </tr>
+            <tr>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+            </tr>
+            <tr>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+            </tr>
+            <tr>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+                <td><div class="form-field"></div></td>
+            </tr>
+        </table>
+        
+        <div class="form-group">
+            <label>What tax considerations influenced your account selections?</label>
+            <div class="form-field"></div>
+        </div>
+    </div>
+
+    <h2>Section 6: Implementation Plan</h2>
+    <div class="form-section">
+        <p>Create a specific action plan for implementing your saving and investing strategy.</p>
+        
+        <div class="form-group">
+            <label>How much can you realistically commit to saving and investing each month?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>How will you allocate this amount among your different goals and accounts?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>Will you use dollar-cost averaging or lump-sum investing? Why?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>How will you monitor and rebalance your portfolio over time?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <h3>Action Steps</h3>
+        <p>List specific actions you'll take to implement your strategy, with target completion dates.</p>
+        
+        <div class="action-item">
+            <div class="action-field">
+                <div class="action-checkbox"></div>
+                <div class="action-text"></div>
+            </div>
+            <div style="margin-left: 30px; margin-top: 5px;">
+                <strong>By when:</strong> <div class="form-field" style="display: inline-block; width: 150px; min-height: auto; padding: 5px;"></div>
+            </div>
+        </div>
+        
+        <div class="action-item">
+            <div class="action-field">
+                <div class="action-checkbox"></div>
+                <div class="action-text"></div>
+            </div>
+            <div style="margin-left: 30px; margin-top: 5px;">
+                <strong>By when:</strong> <div class="form-field" style="display: inline-block; width: 150px; min-height: auto; padding: 5px;"></div>
+            </div>
+        </div>
+        
+        <div class="action-item">
+            <div class="action-field">
+                <div class="action-checkbox"></div>
+                <div class="action-text"></div>
+            </div>
+            <div style="margin-left: 30px; margin-top: 5px;">
+                <strong>By when:</strong> <div class="form-field" style="display: inline-block; width: 150px; min-height: auto; padding: 5px;"></div>
+            </div>
+        </div>
+        
+        <div class="action-item">
+            <div class="action-field">
+                <div class="action-checkbox"></div>
+                <div class="action-text"></div>
+            </div>
+            <div style="margin-left: 30px; margin-top: 5px;">
+                <strong>By when:</strong> <div class="form-field" style="display: inline-block; width: 150px; min-height: auto; padding: 5px;"></div>
+            </div>
+        </div>
+        
+        <div class="action-item">
+            <div class="action-field">
+                <div class="action-checkbox"></div>
+                <div class="action-text"></div>
+            </div>
+            <div style="margin-left: 30px; margin-top: 5px;">
+                <strong>By when:</strong> <div class="form-field" style="display: inline-block; width: 150px; min-height: auto; padding: 5px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Section 7: Reflection and Further Learning</h2>
+    <div class="form-section">
+        <div class="form-group">
+            <label>What was the most important insight you gained from creating this portfolio plan?</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>What aspects of saving and investing do you want to learn more about?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>What potential obstacles might prevent you from implementing this plan, and how will you address them?</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>How will you track your progress toward your financial goals?</label>
+            <div class="form-field"></div>
+        </div>
+    </div>
+
+    <div class="important-note">
+        <strong>Next Steps:</strong> Remember that a portfolio plan is a living document that should evolve as your life circumstances change. Plan to review your strategy at least annually or whenever you experience significant life changes (career shifts, marriage, children, etc.). Starting with a thoughtful plan is the first step toward financial success, even if you have limited funds to begin with. The habits and knowledge you develop now will serve you throughout your financial life.
+    </div>
+
+    <footer>
+        <p>PFL Academy - Chapter 5.1: Saving and Investing</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not financial advice.</p>
+    </footer>
+</body>
+</html>

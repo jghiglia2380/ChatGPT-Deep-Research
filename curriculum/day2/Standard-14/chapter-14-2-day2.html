@@ -1,0 +1,1878 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 14.2: Checking Out Charitable Groups - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4);
+        }
+        
+        /* Case study styling for charity evaluation */
+        .case-study {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        /* Charity evaluation scorecard */
+        .evaluation-criteria {
+            border: 1px solid #e0e7ff;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Red flag indicators */
+        .red-flag {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <\!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+    <\!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <\!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 14: Charitable Giving</h2>
+                        <p class="text-gray-600 text-sm mt-1">Evaluating charitable organizations and making informed giving decisions.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <\!-- Previous chapter with checkmark -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 14.1: Charitable Giving and Financial Planning
+                                </a>
+                            </li>
+                            
+                            <\!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 14.2: Checking Out Charitable Groups
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-14-2-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <\!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Charity Evaluation Workshop
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Evaluation Criteria Development
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Giving Plan Simulation
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Mock Grant Committee
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station5" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Charity Scam Investigation
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <\!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station5-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-14-2-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <\!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 14.2: Checking Out Charitable Groups</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Analyzing and evaluating charitable organizations</p>
+                    
+                    <\!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Apply professional tools and techniques to evaluate charitable organizations</li>
+                            <li>Develop personal criteria for assessing charitable effectiveness based on your values</li>
+                            <li>Create a strategic charitable giving plan that aligns with your priorities</li>
+                            <li>Experience the decision-making process of a grant committee</li>
+                            <li>Identify warning signs of fraudulent or problematic charitable organizations</li>
+                        </ul>
+                    </div>
+                    
+                    <\!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Learning Lab for Checking Out Charitable Groups\! Today, you'll apply what you learned about evaluating charitable organizations through hands-on activities. You'll analyze real nonprofits, develop evaluation criteria, create a personal giving plan, and participate in a mock grant committee. These interactive experiences will help you become a more informed and effective charitable contributor.
+                        </p>
+                        
+                        <\!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                This Learning Lab focuses on applying critical thinking to charitable giving decisions. While we'll analyze real organizations, remember that all evaluations are educational exercises and should not be considered formal endorsements or critiques of any particular organization.
+                            </p>
+                        </div>
+                        
+                        <\!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, you learned about various methods for evaluating charitable organizations, including financial ratios, transparency measures, and impact assessment. You also explored resources like Charity Navigator, GuideStar, and the IRS Form 990. Today's Learning Lab will give you practical experience using these tools and techniques to make informed giving decisions.
+                            </p>
+                        </div>
+                        
+                        <\!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Checking Out Charitable Groups</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts about evaluating charitable organizations:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/14.2 - Checking Out Charitable Groups.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Charity evaluation resources, financial metrics, red flags, and strategic giving approaches
+                            </p>
+                        </div>
+                    </div>
+                    <\!-- Station 1: Charity Evaluation Workshop -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Charity Evaluation Workshop</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <\!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this activity, you'll conduct a thorough analysis of a real charitable organization using professional evaluation tools.</p>
+                            
+                            <h4 class="text-gray-800 font-medium mt-4">Instructions:</h4>
+                            <ol class="list-decimal list-inside space-y-2 ml-2">
+                                <li>Select one of the following well-known charitable organizations:
+                                    <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+                                        <li>American Red Cross</li>
+                                        <li>Habitat for Humanity</li>
+                                        <li>World Wildlife Fund</li>
+                                        <li>Feeding America</li>
+                                        <li>UNICEF</li>
+                                    </ul>
+                                </li>
+                                <li class="mt-3">Using the Charity Evaluation Worksheet below, research your selected organization through online resources like Charity Navigator or GuideStar.</li>
+                            </ol>
+                            
+                            <div class="border border-gray-200 rounded-lg p-4 my-4">
+                                <h4 class="font-semibold text-indigo-700 mb-3">Charity Evaluation Worksheet</h4>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Organization Name:</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2" placeholder="Enter organization name">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Mission and Programs:</label>
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Describe the organization's mission and main programs"></textarea>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Program Expense Ratio:</label>
+                                            <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2" placeholder="e.g., 85%">
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Fundraising Efficiency:</label>
+                                            <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2" placeholder="e.g., $0.10 per $1 raised">
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Transparency and Accountability:</label>
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Describe transparency measures and accountability"></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Leadership Structure:</label>
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Describe leadership and governance"></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Impact Measurement:</label>
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="How does the organization measure and report impact?"></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Red Flags or Concerns:</label>
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="List any concerns or potential issues"></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Recommendation:</label>
+                                        <select class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                            <option value="">Select your recommendation...</option>
+                                            <option value="highly_recommend">Highly Recommend</option>
+                                            <option value="recommend">Recommend</option>
+                                            <option value="recommend_with_caution">Recommend with Caution</option>
+                                            <option value="needs_more_research">Needs More Research</option>
+                                            <option value="not_recommend">Not Recommended</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Justification:</label>
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="3" placeholder="Explain the reasoning behind your recommendation"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <\!-- Station 2: Developing Your Charity Evaluation Criteria -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Developing Your Charity Evaluation Criteria</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <\!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this activity, you'll develop a personalized framework for evaluating charitable organizations based on your own values and priorities.</p>
+                            
+                            <h4 class="text-gray-800 font-medium mt-4">Different Aspects to Consider:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-indigo-50 p-3 rounded-md">
+                                    <h5 class="font-medium text-indigo-800">Financial Efficiency</h5>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 mt-1">
+                                        <li>Program expense ratio</li>
+                                        <li>Fundraising costs</li>
+                                        <li>Admin overhead</li>
+                                        <li>Long-term sustainability</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-indigo-50 p-3 rounded-md">
+                                    <h5 class="font-medium text-indigo-800">Program Effectiveness</h5>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 mt-1">
+                                        <li>Impact measurement</li>
+                                        <li>Evidence-based approaches</li>
+                                        <li>Scale of reach</li>
+                                        <li>Sustainability of impact</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-indigo-50 p-3 rounded-md">
+                                    <h5 class="font-medium text-indigo-800">Leadership & Governance</h5>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 mt-1">
+                                        <li>Board composition</li>
+                                        <li>Executive compensation</li>
+                                        <li>Conflicts of interest</li>
+                                        <li>Strategic planning</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-indigo-50 p-3 rounded-md">
+                                    <h5 class="font-medium text-indigo-800">Accountability & Values</h5>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 mt-1">
+                                        <li>Transparency</li>
+                                        <li>Ethical considerations</li>
+                                        <li>Community engagement</li>
+                                        <li>Values alignment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h4 class="text-gray-800 font-medium mt-4">Create Your Evaluation Scorecard:</h4>
+                            <p>Select 5-7 criteria that matter most to you and create your personal evaluation scorecard.</p>
+                            
+                            <div class="border border-gray-200 rounded-lg p-4 my-4">
+                                <h4 class="font-semibold text-indigo-700 mb-3">Personal Charity Evaluation Scorecard</h4>
+                                
+                                <div id="evaluation-criteria-container">
+                                    <\!-- First criteria row is added by default -->
+                                    <div class="evaluation-criteria">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <label class="block text-sm font-medium text-gray-700">Criterion 1:</label>
+                                            <div>
+                                                <label class="text-xs text-gray-600 mr-2">Weight:</label>
+                                                <select class="border border-gray-300 rounded-md px-2 py-1 text-sm">
+                                                    <option value="1">1 (Low)</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3" selected>3 (Medium)</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5 (High)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 mb-2" placeholder="Enter criterion name (e.g., Program Expense Ratio)">
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="How will you measure this criterion? What specific questions will you ask?"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <button id="add-criterion-btn" class="mt-3 text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1 rounded-md text-sm flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                    </svg>
+                                    Add Another Criterion
+                                </button>
+                                
+                                <div class="mt-4 p-3 bg-gray-50 rounded-md">
+                                    <h5 class="font-medium text-gray-700 mb-2">Test Your Framework</h5>
+                                    <label class="block text-sm text-gray-600 mb-1">Select a charity you're familiar with:</label>
+                                    <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 mb-3" placeholder="Enter organization name">
+                                    
+                                    <div class="grid grid-cols-5 gap-2 mb-2 text-center">
+                                        <div class="text-xs text-gray-500">1 Star</div>
+                                        <div class="text-xs text-gray-500">2 Stars</div>
+                                        <div class="text-xs text-gray-500">3 Stars</div>
+                                        <div class="text-xs text-gray-500">4 Stars</div>
+                                        <div class="text-xs text-gray-500">5 Stars</div>
+                                    </div>
+                                    
+                                    <div class="space-y-2" id="rating-rows-container">
+                                        <\!-- Rating rows will be added dynamically to match criteria -->
+                                        <div class="flex items-center">
+                                            <span class="text-sm text-gray-700 w-1/3">Criterion 1</span>
+                                            <div class="w-2/3 flex justify-between">
+                                                <label class="inline-flex items-center">
+                                                    <input type="radio" name="criterion1" value="1" class="text-indigo-600">
+                                                </label>
+                                                <label class="inline-flex items-center">
+                                                    <input type="radio" name="criterion1" value="2" class="text-indigo-600">
+                                                </label>
+                                                <label class="inline-flex items-center">
+                                                    <input type="radio" name="criterion1" value="3" class="text-indigo-600">
+                                                </label>
+                                                <label class="inline-flex items-center">
+                                                    <input type="radio" name="criterion1" value="4" class="text-indigo-600">
+                                                </label>
+                                                <label class="inline-flex items-center">
+                                                    <input type="radio" name="criterion1" value="5" class="text-indigo-600">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-3 p-3 border border-indigo-200 rounded-md bg-indigo-50">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-medium text-indigo-800">Overall Score:</span>
+                                            <span class="text-xl font-bold text-indigo-700" id="overall-score">0 / 5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h4 class="text-gray-800 font-medium">Reflection Questions:</h4>
+                                <ul class="list-disc list-inside space-y-2 ml-2 text-gray-700">
+                                    <li>Why did you prioritize certain criteria over others?</li>
+                                    <li>How might this framework change depending on the type of charity or cause?</li>
+                                    <li>What did you learn about your own values through this process?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <\!-- Station 3: Charitable Giving Plan Simulation -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Charitable Giving Plan Simulation</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">20 minutes</span></span>
+                        </div>
+                        
+                        <\!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this activity, you'll create a charitable giving plan that aligns with your values, budget, and desired impact.</p>
+                            
+                            <div class="case-study my-4">
+                                <h4 class="font-medium text-blue-800">Scenario</h4>
+                                <p class="text-blue-700">You have $1,000 to donate this year and want to create a strategic plan for your charitable giving. How will you allocate these funds to maximize your impact while aligning with your values?</p>
+                            </div>
+                            
+                            <div class="border border-gray-200 rounded-lg p-4 my-4">
+                                <h4 class="font-semibold text-indigo-700 mb-3">Your Charitable Giving Plan</h4>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Philanthropic Mission Statement:</label>
+                                        <p class="text-xs text-gray-500 mb-1">A 1-2 sentence statement about what you hope to accomplish with your charitable giving</p>
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Example: My goal is to support organizations that provide educational opportunities for underserved youth and protect the environment for future generations."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Cause Areas:</label>
+                                        <p class="text-xs text-gray-500 mb-1">Identify 2-3 cause areas that align with your values and interests</p>
+                                        
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
+                                            <div>
+                                                <label class="block text-xs text-gray-600 mb-1">Cause Area 1:</label>
+                                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2" placeholder="e.g., Education">
+                                            </div>
+                                            <div>
+                                                <label class="block text-xs text-gray-600 mb-1">Cause Area 2:</label>
+                                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2" placeholder="e.g., Environment">
+                                            </div>
+                                            <div>
+                                                <label class="block text-xs text-gray-600 mb-1">Cause Area 3 (optional):</label>
+                                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2" placeholder="e.g., Animal Welfare">
+                                            </div>
+                                        </div>
+                                        
+                                        <label class="block text-xs text-gray-600 mt-2 mb-1">Why are these causes important to you?</label>
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Explain why you've chosen these cause areas and how they align with your values"></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Organization Selection:</label>
+                                        <p class="text-xs text-gray-500 mb-1">Select 2-4 charitable organizations across your chosen cause areas</p>
+                                        
+                                        <div class="space-y-3" id="organizations-container">
+                                            <div class="p-3 border border-gray-200 rounded-md">
+                                                <div class="flex justify-between items-center mb-2">
+                                                    <label class="block text-sm font-medium text-gray-700">Organization 1:</label>
+                                                    <div>
+                                                        <label class="text-xs text-gray-600 mr-2">Cause Area:</label>
+                                                        <select class="border border-gray-300 rounded-md px-2 py-1 text-sm">
+                                                            <option value="">Select...</option>
+                                                            <option value="cause1">Cause Area 1</option>
+                                                            <option value="cause2">Cause Area 2</option>
+                                                            <option value="cause3">Cause Area 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 mb-2" placeholder="Organization name">
+                                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Why did you select this organization? What impact do you hope to achieve?"></textarea>
+                                            </div>
+                                            
+                                            <div class="p-3 border border-gray-200 rounded-md">
+                                                <div class="flex justify-between items-center mb-2">
+                                                    <label class="block text-sm font-medium text-gray-700">Organization 2:</label>
+                                                    <div>
+                                                        <label class="text-xs text-gray-600 mr-2">Cause Area:</label>
+                                                        <select class="border border-gray-300 rounded-md px-2 py-1 text-sm">
+                                                            <option value="">Select...</option>
+                                                            <option value="cause1">Cause Area 1</option>
+                                                            <option value="cause2">Cause Area 2</option>
+                                                            <option value="cause3">Cause Area 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 mb-2" placeholder="Organization name">
+                                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Why did you select this organization? What impact do you hope to achieve?"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <button id="add-organization-btn" class="mt-3 text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1 rounded-md text-sm flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                            </svg>
+                                            Add Another Organization
+                                        </button>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Budget Allocation:</label>
+                                        <p class="text-xs text-gray-500 mb-3">Allocate your $1,000 budget across your selected organizations</p>
+                                        
+                                        <div class="p-4 bg-gray-50 rounded-lg">
+                                            <div class="flex justify-between items-center mb-2">
+                                                <span class="text-sm text-gray-700">Organization 1:</span>
+                                                <div class="flex items-center">
+                                                    <span class="text-green-600 mr-2">$</span>
+                                                    <input type="number" min="0" max="1000" value="500" class="border border-gray-300 rounded-md px-3 py-1 w-24 text-right" id="org1-amount">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex justify-between items-center mb-2">
+                                                <span class="text-sm text-gray-700">Organization 2:</span>
+                                                <div class="flex items-center">
+                                                    <span class="text-green-600 mr-2">$</span>
+                                                    <input type="number" min="0" max="1000" value="500" class="border border-gray-300 rounded-md px-3 py-1 w-24 text-right" id="org2-amount">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex justify-between items-center mb-3" id="org3-row" style="display: none;">
+                                                <span class="text-sm text-gray-700">Organization 3:</span>
+                                                <div class="flex items-center">
+                                                    <span class="text-green-600 mr-2">$</span>
+                                                    <input type="number" min="0" max="1000" value="0" class="border border-gray-300 rounded-md px-3 py-1 w-24 text-right" id="org3-amount">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex justify-between items-center mb-3" id="org4-row" style="display: none;">
+                                                <span class="text-sm text-gray-700">Organization 4:</span>
+                                                <div class="flex items-center">
+                                                    <span class="text-green-600 mr-2">$</span>
+                                                    <input type="number" min="0" max="1000" value="0" class="border border-gray-300 rounded-md px-3 py-1 w-24 text-right" id="org4-amount">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="h-px bg-gray-300 my-3"></div>
+                                            
+                                            <div class="flex justify-between items-center font-medium">
+                                                <span class="text-sm text-gray-800">Total:</span>
+                                                <span class="text-green-600" id="donation-total">$1,000</span>
+                                            </div>
+                                            
+                                            <div class="mt-4">
+                                                <canvas id="allocation-chart" height="200"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Impact Tracking Plan:</label>
+                                        <p class="text-xs text-gray-500 mb-1">How will you track the impact of your donations throughout the year?</p>
+                                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Describe how you'll follow up on your donations and evaluate their impact"></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Beyond Financial Contributions:</label>
+                                        <p class="text-xs text-gray-500 mb-1">How else might you support these causes beyond financial donations?</p>
+                                        
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
+                                            <div class="p-3 bg-gray-50 rounded-md">
+                                                <h5 class="font-medium text-gray-700 mb-1">Volunteering</h5>
+                                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Describe potential volunteer opportunities"></textarea>
+                                            </div>
+                                            
+                                            <div class="p-3 bg-gray-50 rounded-md">
+                                                <h5 class="font-medium text-gray-700 mb-1">Advocacy</h5>
+                                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Describe potential advocacy activities"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <\!-- Station 4: Mock Grant Committee -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Mock Grant Committee</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">25 minutes</span></span>
+                        </div>
+                        
+                        <\!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this activity, you'll experience the decision-making process of a philanthropic foundation by evaluating grant proposals from different organizations.</p>
+                            
+                            <div class="case-study my-4">
+                                <h4 class="font-medium text-blue-800">Community Impact Foundation Scenario</h4>
+                                <p class="text-blue-700">You are serving on a grant committee for the "Community Impact Foundation." Your committee has $10,000 to award to charitable organizations, with a minimum grant of $2,000 and a maximum of $5,000 per organization.</p>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                                <h4 class="font-medium text-indigo-800 mb-2">Grant Committee Guidelines</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                    <li>You must allocate the full $10,000 budget</li>
+                                    <li>Grants must be between $2,000 and $5,000 per organization</li>
+                                    <li>You may fund some, all, or none of each organization's requested amount</li>
+                                    <li>Your decisions should be based on merit, impact, and alignment with foundation priorities</li>
+                                </ul>
+                            </div>
+                            
+                            <h4 class="text-gray-800 font-medium mt-5">Grant Proposals:</h4>
+                            
+                            <div class="space-y-4 mt-3">
+                                <\!-- Proposal 1 -->
+                                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                                        <h5 class="font-semibold text-gray-800">Proposal 1: Youth Literacy Project</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+                                            <div>
+                                                <span class="text-xs text-gray-500">ORGANIZATION</span>
+                                                <p class="font-medium">Neighborhood Learning Center</p>
+                                            </div>
+                                            <div>
+                                                <span class="text-xs text-gray-500">AMOUNT REQUESTED</span>
+                                                <p class="font-medium text-green-600">$4,500</p>
+                                            </div>
+                                            <div>
+                                                <span class="text-xs text-gray-500">FOCUS AREA</span>
+                                                <p class="font-medium">Education</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="text-xs text-gray-500">PROJECT DESCRIPTION</span>
+                                            <p class="text-sm mt-1">The Youth Literacy Project aims to provide after-school reading programs for 100 elementary school students in low-income neighborhoods. Funds will be used for reading materials, tutor stipends, and program coordination. The program has shown a 35% improvement in reading scores for participating students in previous years.</p>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="text-xs text-gray-500">BUDGET HIGHLIGHTS</span>
+                                            <ul class="list-disc list-inside text-sm mt-1 space-y-1">
+                                                <li>Reading materials: $1,500</li>
+                                                <li>Tutor stipends: $2,000</li>
+                                                <li>Program coordination: $800</li>
+                                                <li>Facilities and overhead: $200</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div>
+                                            <span class="text-xs text-gray-500">IMPACT MEASUREMENT</span>
+                                            <p class="text-sm mt-1">Success will be measured through pre and post reading assessments, attendance rates, and parent/teacher feedback. The organization has a strong track record of documenting outcomes and has received positive evaluations from previous funders.</p>
+                                        </div>
+                                        
+                                        <div class="mt-4 pt-3 border-t border-gray-200">
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Funding Decision:</label>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="flex items-center">
+                                                    <span class="text-green-600 mr-2">$</span>
+                                                    <input type="number" min="0" max="5000" step="500" class="border border-gray-300 rounded-md px-3 py-1 w-24" id="proposal1-amount">
+                                                </div>
+                                                <span class="text-sm text-gray-500">Requested: $4,500</span>
+                                            </div>
+                                            <div class="mt-2">
+                                                <label class="block text-sm text-gray-600 mb-1">Rationale for decision:</label>
+                                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Explain your funding decision"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Proposal 2 -->
+                                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                                        <h5 class="font-semibold text-gray-800">Proposal 2: Community Garden Initiative</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+                                            <div>
+                                                <span class="text-xs text-gray-500">ORGANIZATION</span>
+                                                <p class="font-medium">Green Spaces Alliance</p>
+                                            </div>
+                                            <div>
+                                                <span class="text-xs text-gray-500">AMOUNT REQUESTED</span>
+                                                <p class="font-medium text-green-600">$3,800</p>
+                                            </div>
+                                            <div>
+                                                <span class="text-xs text-gray-500">FOCUS AREA</span>
+                                                <p class="font-medium">Environment & Food Security</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="text-xs text-gray-500">PROJECT DESCRIPTION</span>
+                                            <p class="text-sm mt-1">The Community Garden Initiative will establish three new community gardens in urban food deserts, providing fresh produce and gardening education to approximately 150 families. The project includes garden plot construction, training workshops, and seed distribution programs.</p>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="text-xs text-gray-500">BUDGET HIGHLIGHTS</span>
+                                            <ul class="list-disc list-inside text-sm mt-1 space-y-1">
+                                                <li>Garden construction materials: $1,700</li>
+                                                <li>Tools and equipment: $900</li>
+                                                <li>Seeds and plants: $600</li>
+                                                <li>Workshop facilitation: $400</li>
+                                                <li>Administrative costs: $200</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div>
+                                            <span class="text-xs text-gray-500">IMPACT MEASUREMENT</span>
+                                            <p class="text-sm mt-1">Success will be measured by number of gardens established, number of families participating, pounds of produce harvested, and participant surveys. New to grant-funded projects, the organization has limited experience with formal impact reporting.</p>
+                                        </div>
+                                        
+                                        <div class="mt-4 pt-3 border-t border-gray-200">
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Funding Decision:</label>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="flex items-center">
+                                                    <span class="text-green-600 mr-2">$</span>
+                                                    <input type="number" min="0" max="5000" step="500" class="border border-gray-300 rounded-md px-3 py-1 w-24" id="proposal2-amount">
+                                                </div>
+                                                <span class="text-sm text-gray-500">Requested: $3,800</span>
+                                            </div>
+                                            <div class="mt-2">
+                                                <label class="block text-sm text-gray-600 mb-1">Rationale for decision:</label>
+                                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Explain your funding decision"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <\!-- Proposal 3 -->
+                                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                                        <h5 class="font-semibold text-gray-800">Proposal 3: Senior Wellness Program</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+                                            <div>
+                                                <span class="text-xs text-gray-500">ORGANIZATION</span>
+                                                <p class="font-medium">Aging Well Foundation</p>
+                                            </div>
+                                            <div>
+                                                <span class="text-xs text-gray-500">AMOUNT REQUESTED</span>
+                                                <p class="font-medium text-green-600">$5,000</p>
+                                            </div>
+                                            <div>
+                                                <span class="text-xs text-gray-500">FOCUS AREA</span>
+                                                <p class="font-medium">Health & Senior Services</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="text-xs text-gray-500">PROJECT DESCRIPTION</span>
+                                            <p class="text-sm mt-1">The Senior Wellness Program provides health screenings, exercise classes, and social activities for seniors living independently. The grant would expand the program to serve an additional 75 seniors. The organization has been operating for 15 years and has a strong reputation in the community.</p>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="text-xs text-gray-500">BUDGET HIGHLIGHTS</span>
+                                            <ul class="list-disc list-inside text-sm mt-1 space-y-1">
+                                                <li>Health screening equipment: $1,500</li>
+                                                <li>Exercise instructor fees: $1,800</li>
+                                                <li>Program supplies: $700</li>
+                                                <li>Transportation assistance: $600</li>
+                                                <li>Administration: $400</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div>
+                                            <span class="text-xs text-gray-500">IMPACT MEASUREMENT</span>
+                                            <p class="text-sm mt-1">Success will be measured through participation rates, health outcome tracking, and participant surveys. The organization has a sophisticated data tracking system and produces annual impact reports with verified outcomes.</p>
+                                        </div>
+                                        
+                                        <div class="mt-4 pt-3 border-t border-gray-200">
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Funding Decision:</label>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="flex items-center">
+                                                    <span class="text-green-600 mr-2">$</span>
+                                                    <input type="number" min="0" max="5000" step="500" class="border border-gray-300 rounded-md px-3 py-1 w-24" id="proposal3-amount">
+                                                </div>
+                                                <span class="text-sm text-gray-500">Requested: $5,000</span>
+                                            </div>
+                                            <div class="mt-2">
+                                                <label class="block text-sm text-gray-600 mb-1">Rationale for decision:</label>
+                                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Explain your funding decision"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Proposal 4 -->
+                                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                                        <h5 class="font-semibold text-gray-800">Proposal 4: Arts Access Initiative</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+                                            <div>
+                                                <span class="text-xs text-gray-500">ORGANIZATION</span>
+                                                <p class="font-medium">Creative Communities Collective</p>
+                                            </div>
+                                            <div>
+                                                <span class="text-xs text-gray-500">AMOUNT REQUESTED</span>
+                                                <p class="font-medium text-green-600">$4,200</p>
+                                            </div>
+                                            <div>
+                                                <span class="text-xs text-gray-500">FOCUS AREA</span>
+                                                <p class="font-medium">Arts & Culture</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="text-xs text-gray-500">PROJECT DESCRIPTION</span>
+                                            <p class="text-sm mt-1">The Arts Access Initiative provides free arts education programs to youth in underserved communities. The grant would fund a series of 12 workshops reaching approximately 200 students, culminating in a community art exhibition. This is a new program from an organization with 5 years of experience in arts education.</p>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="text-xs text-gray-500">BUDGET HIGHLIGHTS</span>
+                                            <ul class="list-disc list-inside text-sm mt-1 space-y-1">
+                                                <li>Teaching artist fees: $2,400</li>
+                                                <li>Art supplies: $1,000</li>
+                                                <li>Exhibition costs: $500</li>
+                                                <li>Administrative overhead: $300</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div>
+                                            <span class="text-xs text-gray-500">IMPACT MEASUREMENT</span>
+                                            <p class="text-sm mt-1">Success will be measured through student participation, skills assessment, and public engagement with the final exhibition. The organization has moderate experience with outcome measurement and has provided testimonials from previous program participants.</p>
+                                        </div>
+                                        
+                                        <div class="mt-4 pt-3 border-t border-gray-200">
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Funding Decision:</label>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="flex items-center">
+                                                    <span class="text-green-600 mr-2">$</span>
+                                                    <input type="number" min="0" max="5000" step="500" class="border border-gray-300 rounded-md px-3 py-1 w-24" id="proposal4-amount">
+                                                </div>
+                                                <span class="text-sm text-gray-500">Requested: $4,200</span>
+                                            </div>
+                                            <div class="mt-2">
+                                                <label class="block text-sm text-gray-600 mb-1">Rationale for decision:</label>
+                                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Explain your funding decision"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg mt-5">
+                                <h4 class="font-medium text-indigo-800 mb-3">Grant Committee Decision Summary</h4>
+                                
+                                <div class="bg-white p-4 rounded-md shadow-sm mb-4">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span class="font-medium text-gray-700">Total Budget:</span>
+                                        <span class="font-medium text-green-600">$10,000</span>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm text-gray-700">Allocated:</span>
+                                        <span class="text-green-600" id="allocated-amount">$0</span>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span class="text-sm text-gray-700">Remaining:</span>
+                                        <span class="text-red-600" id="remaining-amount">$10,000</span>
+                                    </div>
+                                    
+                                    <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="allocation-progress" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Committee Funding Strategy & Decision Process:</label>
+                                    <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="3" placeholder="Explain your committee's overall funding strategy and decision-making process"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <\!-- Station 5: Charity Scam Investigation -->
+                    <div class="learning-station" id="station5">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">5</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Charity Scam Investigation</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <\!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this activity, you'll learn to identify warning signs of fraudulent or problematic charitable organizations.</p>
+                            
+                            <\!-- Red Flag List -->
+                            <div class="red-flag mt-4">
+                                <h4 class="font-medium text-red-800 mb-2">Common Red Flags in Charitable Organizations</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                        <li>Pressure for immediate donations</li>
+                                        <li>Thank you for previous donations you don't remember making</li>
+                                        <li>Similar names to well-known organizations</li>
+                                        <li>Vague mission statements or program descriptions</li>
+                                    </ul>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                        <li>Limited or no financial information available</li>
+                                        <li>No proof of tax-exempt status</li>
+                                        <li>Excessive administrative or fundraising costs</li>
+                                        <li>No physical address or contact information</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h4 class="text-gray-800 font-medium mt-5">Charity Investigation Cases:</h4>
+                            <p class="text-sm">Examine the following profiles to identify potential red flags and concerning practices.</p>
+                            
+                            <div class="space-y-4 mt-3">
+                                <\!-- Case 1 -->
+                                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                                        <h5 class="font-semibold text-gray-800">Case 1: International Children's Relief Fund</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                                            <div>
+                                                <p class="text-sm">This organization solicits donations for orphaned children in several developing countries. Their website features emotional images of children in need, with immediate donation buttons on every page. They claim that "90% of donations go directly to the children," but their website does not include any financial reports or specific program descriptions.</p>
+                                                <p class="text-sm mt-2">The organization has a similar name to a well-known international relief organization but is not affiliated with them. Contact information includes only an email address and a P.O. box.</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-medium mb-1">Notable Features:</p>
+                                                <ul class="list-disc list-inside text-sm space-y-1">
+                                                    <li>Established: Claims to be operating since 2010</li>
+                                                    <li>Website: Professional looking with emotional appeals</li>
+                                                    <li>Donations: Credit card, wire transfer, or cryptocurrency</li>
+                                                    <li>Transparency: No annual reports or financial statements</li>
+                                                    <li>Solicitation: Email campaigns with urgent appeals</li>
+                                                    <li>Media presence: No media coverage or third-party reviews</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3 border-t border-gray-200 pt-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Identify potential red flags:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="List the warning signs you see in this organization"></textarea>
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mt-3 mb-1">What questions would you want answered before donating?</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="What would you need to know before considering a donation?"></textarea>
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mt-3 mb-1">Verification steps:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="What steps would you take to verify this organization's legitimacy?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Case 2 -->
+                                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                                        <h5 class="font-semibold text-gray-800">Case 2: Hometown Veterans Support Alliance</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                                            <div>
+                                                <p class="text-sm">This local organization raises funds for veterans' services in your community. They operate through phone solicitations and community events. Their representatives mention specific local veterans by name and have detailed knowledge of the community. They have a small but functional website that includes their physical address, staff names, and board members (some of whom are recognizable community figures).</p>
+                                                <p class="text-sm mt-2">They acknowledge that 30% of donations go to fundraising and administrative costs, with the remainder supporting various veterans' programs. They're a newer organization, established 3 years ago.</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-medium mb-1">Notable Features:</p>
+                                                <ul class="list-disc list-inside text-sm space-y-1">
+                                                    <li>Established: Operating for 3 years</li>
+                                                    <li>Website: Basic site with program descriptions</li>
+                                                    <li>Donations: Credit card, check, or in-person</li>
+                                                    <li>Transparency: Shows fundraising costs, no detailed financial reports</li>
+                                                    <li>Solicitation: Phone calls and local events</li>
+                                                    <li>Media presence: Some local news coverage of their events</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3 border-t border-gray-200 pt-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Identify potential red flags:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="List the warning signs you see in this organization"></textarea>
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mt-3 mb-1">What questions would you want answered before donating?</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="What would you need to know before considering a donation?"></textarea>
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mt-3 mb-1">Verification steps:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="What steps would you take to verify this organization's legitimacy?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <\!-- Case 3 -->
+                                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                                        <h5 class="font-semibold text-gray-800">Case 3: Save Our Parks Foundation</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                                            <div>
+                                                <p class="text-sm">This environmental organization focuses on preserving local parks and green spaces. Their professional website includes their mission, specific programs, staff bios, and board members. They have a physical office and provide multiple contact methods. Their financial information shows 75% of funds going to programs, 15% to administration, and 10% to fundraising.</p>
+                                                <p class="text-sm mt-2">They publish an annual report detailing their activities and impact, including the number of acres preserved and educational programs conducted. The organization is registered as a 501(c)(3) with the IRS, and this information is prominently displayed on their website.</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-medium mb-1">Notable Features:</p>
+                                                <ul class="list-disc list-inside text-sm space-y-1">
+                                                    <li>Established: Operating for 12 years</li>
+                                                    <li>Website: Comprehensive with detailed program information</li>
+                                                    <li>Donations: Multiple options including monthly giving</li>
+                                                    <li>Transparency: Publishes annual reports and audited financials</li>
+                                                    <li>Solicitation: Email, website, community events</li>
+                                                    <li>Media presence: Regular coverage in local media</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3 border-t border-gray-200 pt-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Identify potential red flags:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="List the warning signs you see in this organization"></textarea>
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mt-3 mb-1">What questions would you want answered before donating?</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="What would you need to know before considering a donation?"></textarea>
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mt-3 mb-1">Verification steps:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="What steps would you take to verify this organization's legitimacy?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Case 4 -->
+                                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                                        <h5 class="font-semibold text-gray-800">Case 4: Disaster Recovery Network</h5>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                                            <div>
+                                                <p class="text-sm">This organization appears immediately after natural disasters, soliciting urgent donations for relief efforts. Their website includes dramatic images of disaster scenes and emotional appeals. They claim to work across multiple countries and disaster types, but provide few specifics about their programs or how funds are used.</p>
+                                                <p class="text-sm mt-2">The organization claims to be tax-exempt but does not provide an EIN (Employer Identification Number) for verification. The "About Us" page is vague about the organization's history and leadership. Their contact page lists only an email address and an online form.</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-medium mb-1">Notable Features:</p>
+                                                <ul class="list-disc list-inside text-sm space-y-1">
+                                                    <li>Established: Claims to be established but no date provided</li>
+                                                    <li>Website: Professional design but limited content</li>
+                                                    <li>Donations: Credit card only, with suggested minimum of $50</li>
+                                                    <li>Transparency: No financial information or reports</li>
+                                                    <li>Solicitation: Social media ads targeting disaster news</li>
+                                                    <li>Media presence: None verifiable</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3 border-t border-gray-200 pt-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Identify potential red flags:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="List the warning signs you see in this organization"></textarea>
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mt-3 mb-1">What questions would you want answered before donating?</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="What would you need to know before considering a donation?"></textarea>
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mt-3 mb-1">Verification steps:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="What steps would you take to verify this organization's legitimacy?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-5">
+                                <h4 class="text-gray-800 font-medium">Discussion Question:</h4>
+                                <p class="text-gray-700">What strategies can consumers use to protect themselves from charity scams while still supporting worthy causes?</p>
+                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2 mt-2" rows="3" placeholder="Share your thoughts on protecting yourself from charity scams..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(5)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <\!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration: Your Charitable Giving Strategy</h2>
+                        <p class="text-gray-700 mb-4">
+                            Create a personal charitable giving strategy document for your financial literacy portfolio. This document should bring together what you've learned throughout this chapter and serve as a reference for your future charitable giving decisions.
+                        </p>
+                        
+                        <div class="bg-white rounded-lg p-5 shadow-sm">
+                            <h3 class="text-lg font-semibold text-indigo-700 mb-4">Charitable Giving Strategy Document</h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Your Philanthropic Values Statement:</label>
+                                    <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="What causes matter most to you and why?"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Your Evaluation Criteria:</label>
+                                    <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="3" placeholder="Based on your work in Station 2, summarize your approach to evaluating charitable organizations"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Research Resources:</label>
+                                    <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="List the tools and resources you'll use to research charitable organizations"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Giving Plan Framework:</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs text-gray-600 mb-1">Budget Allocation & Timing:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="How will you approach budgeting for charitable giving?"></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs text-gray-600 mb-1">Emotional vs. Strategic Balance:</label>
+                                            <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="How will you balance emotional giving with strategic planning?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Red Flag Checklist:</label>
+                                    <p class="text-xs text-gray-500 mb-2">Create a quick reference guide of warning signs to watch for when considering charitable organizations</p>
+                                    <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="3" placeholder="Based on your work in Station 5, list the key red flags you'll watch for"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Integration with Overall Financial Plan:</label>
+                                    <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="How does charitable giving fit into your broader financial goals and plans?"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button mt-4" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <\!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Consider the following questions and write a brief reflection on what you've learned about evaluating charitable organizations:
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">How has this learning lab changed the way you think about charitable giving?</label>
+                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Your thoughts..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">What surprised you most about the process of evaluating charitable organizations?</label>
+                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Your thoughts..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">How might you apply these evaluation skills to other financial decisions in your life?</label>
+                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Your thoughts..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">What additional information or skills do you feel you need to become a more effective charitable giver?</label>
+                                <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Your thoughts..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <\!-- Toast Notification -->
+    <div class="toast-notification" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully\!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            station5: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed\!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 5) {
+                // If this was the last station, scroll to portfolio
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio\!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionTextareas = document.querySelectorAll('textarea[data-ai-check="true"]');
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            // Check all reflection textareas
+            let totalLength = 0;
+            let filledTextareas = 0;
+            
+            reflectionTextareas.forEach(textarea => {
+                if (textarea.value.length > 0) {
+                    filledTextareas++;
+                    totalLength += textarea.value.length;
+                }
+            });
+            
+            // Generate feedback based on the responses
+            if (filledTextareas === 0) {
+                aiFeedback.textContent = "Please answer at least one reflection question to receive feedback.";
+            } else if (filledTextareas < reflectionTextareas.length) {
+                aiFeedback.textContent = "Good start\! Consider answering all reflection questions for a more comprehensive understanding of your learning.";
+            } else if (totalLength < 200) {
+                aiFeedback.textContent = "Your reflections are brief. Consider expanding on your thoughts and providing specific examples from the learning activities.";
+            } else if (totalLength < 400) {
+                aiFeedback.textContent = "Good reflections\! You've demonstrated understanding of the key concepts. Try to make more connections between charitable giving evaluation and your personal financial goals.";
+            } else {
+                aiFeedback.textContent = "Excellent reflections\! You've demonstrated a deep understanding of charitable evaluation principles and have thoughtfully considered how to apply these concepts to your own financial decisions.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Initialize interactive components on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Highlight active section based on scroll position
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href');
+                    if (href && href.substring(1) === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+            
+            // Station 2: Add criteria button functionality
+            const addCriterionBtn = document.getElementById('add-criterion-btn');
+            if (addCriterionBtn) {
+                let criterionCount = 1;
+                
+                addCriterionBtn.addEventListener('click', function() {
+                    criterionCount++;
+                    const criteriaContainer = document.getElementById('evaluation-criteria-container');
+                    
+                    const newCriterion = document.createElement('div');
+                    newCriterion.className = 'evaluation-criteria';
+                    newCriterion.innerHTML = `
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="block text-sm font-medium text-gray-700">Criterion ${criterionCount}:</label>
+                            <div>
+                                <label class="text-xs text-gray-600 mr-2">Weight:</label>
+                                <select class="border border-gray-300 rounded-md px-2 py-1 text-sm">
+                                    <option value="1">1 (Low)</option>
+                                    <option value="2">2</option>
+                                    <option value="3" selected>3 (Medium)</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (High)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 mb-2" placeholder="Enter criterion name">
+                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="How will you measure this criterion? What specific questions will you ask?"></textarea>
+                    `;
+                    
+                    criteriaContainer.appendChild(newCriterion);
+                    
+                    // Add a new rating row
+                    const ratingRowsContainer = document.getElementById('rating-rows-container');
+                    const newRatingRow = document.createElement('div');
+                    newRatingRow.className = 'flex items-center';
+                    newRatingRow.innerHTML = `
+                        <span class="text-sm text-gray-700 w-1/3">Criterion ${criterionCount}</span>
+                        <div class="w-2/3 flex justify-between">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="criterion${criterionCount}" value="1" class="text-indigo-600">
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="criterion${criterionCount}" value="2" class="text-indigo-600">
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="criterion${criterionCount}" value="3" class="text-indigo-600">
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="criterion${criterionCount}" value="4" class="text-indigo-600">
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="criterion${criterionCount}" value="5" class="text-indigo-600">
+                            </label>
+                        </div>
+                    `;
+                    
+                    ratingRowsContainer.appendChild(newRatingRow);
+                });
+            }
+            
+            // Station 3: Add organization button functionality
+            const addOrganizationBtn = document.getElementById('add-organization-btn');
+            if (addOrganizationBtn) {
+                let orgCount = 2;
+                
+                addOrganizationBtn.addEventListener('click', function() {
+                    if (orgCount >= 4) return; // Limit to 4 organizations
+                    
+                    orgCount++;
+                    const organizationsContainer = document.getElementById('organizations-container');
+                    
+                    const newOrg = document.createElement('div');
+                    newOrg.className = 'p-3 border border-gray-200 rounded-md';
+                    newOrg.innerHTML = `
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="block text-sm font-medium text-gray-700">Organization ${orgCount}:</label>
+                            <div>
+                                <label class="text-xs text-gray-600 mr-2">Cause Area:</label>
+                                <select class="border border-gray-300 rounded-md px-2 py-1 text-sm">
+                                    <option value="">Select...</option>
+                                    <option value="cause1">Cause Area 1</option>
+                                    <option value="cause2">Cause Area 2</option>
+                                    <option value="cause3">Cause Area 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 mb-2" placeholder="Organization name">
+                        <textarea class="w-full border border-gray-300 rounded-md px-3 py-2" rows="2" placeholder="Why did you select this organization? What impact do you hope to achieve?"></textarea>
+                    `;
+                    
+                    organizationsContainer.appendChild(newOrg);
+                    
+                    // Show the corresponding row in the budget allocation section
+                    const orgRow = document.getElementById(`org${orgCount}-row`);
+                    if (orgRow) {
+                        orgRow.style.display = 'flex';
+                    }
+                    
+                    // Update the chart if it exists
+                    updateAllocationChart();
+                });
+            }
+            
+            // Station 3: Budget allocation chart
+            function updateAllocationChart() {
+                if (typeof Chart === 'undefined') return;
+                
+                const ctx = document.getElementById('allocation-chart');
+                if (\!ctx) return;
+                
+                // Get current values
+                const org1Amount = parseInt(document.getElementById('org1-amount')?.value || 0);
+                const org2Amount = parseInt(document.getElementById('org2-amount')?.value || 0);
+                const org3Amount = parseInt(document.getElementById('org3-amount')?.value || 0);
+                const org4Amount = parseInt(document.getElementById('org4-amount')?.value || 0);
+                
+                const total = org1Amount + org2Amount + org3Amount + org4Amount;
+                
+                // Update total display
+                const totalDisplay = document.getElementById('donation-total');
+                if (totalDisplay) {
+                    totalDisplay.textContent = '$' + total.toLocaleString();
+                    
+                    // Highlight if over/under budget
+                    if (total > 1000) {
+                        totalDisplay.classList.add('text-red-600');
+                        totalDisplay.classList.remove('text-green-600');
+                    } else if (total < 1000) {
+                        totalDisplay.classList.add('text-yellow-600');
+                        totalDisplay.classList.remove('text-green-600', 'text-red-600');
+                    } else {
+                        totalDisplay.classList.add('text-green-600');
+                        totalDisplay.classList.remove('text-red-600', 'text-yellow-600');
+                    }
+                }
+                
+                // If chart already exists, destroy it
+                if (window.allocationChart) {
+                    window.allocationChart.destroy();
+                }
+                
+                // Create chart
+                window.allocationChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Organization 1', 'Organization 2', 'Organization 3', 'Organization 4'],
+                        datasets: [{
+                            data: [org1Amount, org2Amount, org3Amount, org4Amount],
+                            backgroundColor: [
+                                'rgba(79, 70, 229, 0.8)',
+                                'rgba(139, 92, 246, 0.8)',
+                                'rgba(59, 130, 246, 0.8)',
+                                'rgba(14, 165, 233, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(79, 70, 229, 1)',
+                                'rgba(139, 92, 246, 1)',
+                                'rgba(59, 130, 246, 1)',
+                                'rgba(14, 165, 233, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const value = context.raw;
+                                        const percentage = Math.round((value / total) * 100);
+                                        return `$${value} (${percentage}%)`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Setup budget allocation listeners
+            const amountInputs = ['org1-amount', 'org2-amount', 'org3-amount', 'org4-amount'];
+            amountInputs.forEach(id => {
+                const input = document.getElementById(id);
+                if (input) {
+                    input.addEventListener('input', updateAllocationChart);
+                }
+            });
+            
+            // Initialize allocation chart
+            updateAllocationChart();
+            
+            // Station 4: Grant committee functionality
+            function updateGrantAllocation() {
+                const amountInputs = ['proposal1-amount', 'proposal2-amount', 'proposal3-amount', 'proposal4-amount'];
+                let total = 0;
+                
+                amountInputs.forEach(id => {
+                    const input = document.getElementById(id);
+                    if (input) {
+                        total += parseInt(input.value || 0);
+                    }
+                });
+                
+                const allocatedAmount = document.getElementById('allocated-amount');
+                const remainingAmount = document.getElementById('remaining-amount');
+                const allocationProgress = document.getElementById('allocation-progress');
+                
+                if (allocatedAmount && remainingAmount && allocationProgress) {
+                    allocatedAmount.textContent = '$' + total.toLocaleString();
+                    const remaining = 10000 - total;
+                    remainingAmount.textContent = '$' + remaining.toLocaleString();
+                    
+                    // Update color based on status
+                    if (remaining < 0) {
+                        remainingAmount.classList.add('text-red-600');
+                        remainingAmount.classList.remove('text-green-600');
+                    } else if (remaining === 0) {
+                        remainingAmount.classList.add('text-green-600');
+                        remainingAmount.classList.remove('text-red-600');
+                    } else {
+                        remainingAmount.classList.add('text-red-600');
+                        remainingAmount.classList.remove('text-green-600');
+                    }
+                    
+                    // Update progress bar
+                    const percentage = Math.min(100, Math.round((total / 10000) * 100));
+                    allocationProgress.style.width = percentage + '%';
+                }
+            }
+            
+            // Setup grant committee listeners
+            const proposalInputs = ['proposal1-amount', 'proposal2-amount', 'proposal3-amount', 'proposal4-amount'];
+            proposalInputs.forEach(id => {
+                const input = document.getElementById(id);
+                if (input) {
+                    input.addEventListener('input', updateGrantAllocation);
+                    // Initialize with 0
+                    input.value = 0;
+                }
+            });
+            
+            // Initialize grant allocation display
+            updateGrantAllocation();
+        });
+    </script>
+</body>
+</html>

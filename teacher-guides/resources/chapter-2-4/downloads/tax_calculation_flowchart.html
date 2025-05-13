@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculation Flowchart</title>
+    <style>
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+                background-color: white;
+                color: black;
+            }
+            .print-instruction {
+                display: none;
+            }
+            .flowchart {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .print-instruction {
+            background-color: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #f1c40f;
+        }
+        
+        .flowchart {
+            margin: 30px 0;
+        }
+        
+        .flowchart-step {
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            position: relative;
+            background-color: #f7fbfe;
+        }
+        
+        .flowchart-step::after {
+            content: "↓";
+            display: block;
+            font-size: 24px;
+            color: #3498db;
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .flowchart-step:last-child::after {
+            content: none;
+        }
+        
+        .flowchart-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #2980b9;
+        }
+        
+        .step-number {
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+        
+        .formula {
+            background-color: #eaf6ff;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", monospace;
+            margin: 10px 0;
+        }
+        
+        .example {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #bdc3c7;
+        }
+        
+        .highlight-deduction {
+            background-color: #d6eaf8;
+            border: 1px solid #85c1e9;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .highlight-credit {
+            background-color: #d5f5e3;
+            border: 1px solid #82e0aa;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .footnote {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instruction">
+        <p><strong>Printing Instructions:</strong> To save or print this document, use your browser's print function (Ctrl+P or Cmd+P) and select "Save as PDF" as the destination.</p>
+    </div>
+
+    <h1>Tax Calculation Flowchart</h1>
+    
+    <p>This flowchart illustrates the step-by-step process of calculating your federal income tax, highlighting where deductions and credits are applied in the calculation sequence.</p>
+    
+    <div class="flowchart">
+        <div class="flowchart-step">
+            <div class="flowchart-title"><span class="step-number">1</span> Start with Total Income</div>
+            <p>Add up all sources of income:</p>
+            <ul>
+                <li>Wages and salaries</li>
+                <li>Interest and dividends</li>
+                <li>Business income</li>
+                <li>Capital gains</li>
+                <li>Retirement distributions</li>
+                <li>Other income</li>
+            </ul>
+            <div class="formula">Total Income = Sum of all income sources</div>
+            <div class="example">Example: $60,000 wages + $1,000 interest + $2,000 dividends = $63,000 Total Income</div>
+        </div>
+        
+        <div class="flowchart-step">
+            <div class="flowchart-title"><span class="step-number">2</span> Subtract Above-the-Line Deductions</div>
+            <p>These are also called "adjustments to income" and can be taken regardless of whether you itemize. <span class="highlight-deduction">This is the first place deductions appear in the tax calculation process.</span></p>
+            <ul>
+                <li>Student loan interest (up to $2,500)</li>
+                <li>Educator expenses (up to $300)</li>
+                <li>Health Savings Account contributions</li>
+                <li>Self-employed health insurance</li>
+                <li>Retirement plan contributions (Traditional IRA)</li>
+                <li>Self-employment tax (50%)</li>
+            </ul>
+            <div class="formula">Adjusted Gross Income (AGI) = Total Income - Above-the-Line Deductions</div>
+            <div class="example">Example: $63,000 Total Income - $2,500 student loan interest - $6,000 Traditional IRA contribution = $54,500 AGI</div>
+        </div>
+        
+        <div class="flowchart-step">
+            <div class="flowchart-title"><span class="step-number">3</span> Subtract Standard or Itemized Deductions</div>
+            <p><span class="highlight-deduction">This is the second place deductions appear in the tax calculation process.</span> Choose the option that gives you the larger total deduction:</p>
+            
+            <p><strong>Option A: Standard Deduction (2023)</strong></p>
+            <ul>
+                <li>Single: $13,850</li>
+                <li>Married Filing Jointly: $27,700</li>
+                <li>Head of Household: $20,800</li>
+            </ul>
+            
+            <p><strong>Option B: Sum of Itemized Deductions</strong></p>
+            <ul>
+                <li>Mortgage interest</li>
+                <li>State and local taxes (up to $10,000)</li>
+                <li>Charitable contributions</li>
+                <li>Medical expenses (exceeding 7.5% of AGI)</li>
+                <li>Other eligible itemized deductions</li>
+            </ul>
+            
+            <div class="formula">Taxable Income = AGI - (Standard OR Itemized Deductions)</div>
+            <div class="example">Example: $54,500 AGI - $13,850 Standard Deduction = $40,650 Taxable Income</div>
+        </div>
+        
+        <div class="flowchart-step">
+            <div class="flowchart-title"><span class="step-number">4</span> Calculate Tax Based on Tax Brackets</div>
+            <p>Apply the progressive tax rates to your taxable income, based on your filing status.</p>
+            
+            <p><strong>2023 Tax Brackets (Single Filer)</strong></p>
+            <ul>
+                <li>10% on income up to $11,000</li>
+                <li>12% on income from $11,001 to $44,725</li>
+                <li>22% on income from $44,726 to $95,375</li>
+                <li>24% on income from $95,376 to $182,100</li>
+                <li>Higher brackets: 32%, 35%, and 37%</li>
+            </ul>
+            
+            <div class="formula">Initial Tax Liability = Sum of tax calculated for each bracket portion</div>
+            <div class="example">
+                Example for $40,650 Taxable Income (Single)<br>
+                10% of first $11,000 = $1,100<br>
+                12% of next $29,650 ($40,650 - $11,000) = $3,558<br>
+                Initial Tax Liability = $1,100 + $3,558 = $4,658
+            </div>
+        </div>
+        
+        <div class="flowchart-step">
+            <div class="flowchart-title"><span class="step-number">5</span> Subtract Tax Credits</div>
+            <p><span class="highlight-credit">This is where tax credits are applied in the tax calculation process.</span> Credits directly reduce your tax bill, dollar-for-dollar:</p>
+            
+            <p><strong>Nonrefundable Credits</strong> (can reduce tax to zero, but not below)</p>
+            <ul>
+                <li>Child and Dependent Care Credit</li>
+                <li>Lifetime Learning Credit</li>
+                <li>Foreign Tax Credit</li>
+                <li>Adoption Credit</li>
+                <li>Saver's Credit (Retirement Savings Contributions)</li>
+            </ul>
+            
+            <p><strong>Refundable Credits</strong> (can reduce tax below zero, resulting in a refund)</p>
+            <ul>
+                <li>Earned Income Tax Credit (EITC)</li>
+                <li>Additional Child Tax Credit</li>
+                <li>American Opportunity Credit (partially refundable)</li>
+                <li>Premium Tax Credit (for health insurance)</li>
+            </ul>
+            
+            <div class="formula">Tax After Credits = Initial Tax Liability - Tax Credits</div>
+            <div class="example">
+                Example:<br>
+                $4,658 Initial Tax Liability<br>
+                - $2,000 American Opportunity Credit<br>
+                = $2,658 Tax After Credits
+            </div>
+        </div>
+        
+        <div class="flowchart-step">
+            <div class="flowchart-title"><span class="step-number">6</span> Compare to Withholding and Payments</div>
+            <p>The final step is to compare your tax after credits to what you've already paid through:</p>
+            <ul>
+                <li>Federal income tax withholding from paychecks</li>
+                <li>Estimated tax payments made during the year</li>
+                <li>Other tax payments</li>
+            </ul>
+            
+            <div class="formula">Tax Due or Refund = Tax After Credits - Total Payments</div>
+            <div class="example">
+                Example:<br>
+                $2,658 Tax After Credits<br>
+                - $3,200 Federal Withholding<br>
+                = -$542 (Negative amount means you get a $542 refund)
+            </div>
+        </div>
+    </div>
+    
+    <h2>Key Points to Remember</h2>
+    <ul>
+        <li><strong>Deductions appear in Steps 2 and 3</strong>, reducing the income that will be taxed</li>
+        <li><strong>Credits appear in Step 5</strong>, directly reducing the tax after it's calculated</li>
+        <li>The value of deductions depends on your tax bracket, while credits have the same value regardless of income</li>
+        <li>Refundable credits can result in a refund even if your tax liability is zero</li>
+        <li>Tax planning often involves optimizing both deductions and credits to minimize your overall tax liability</li>
+    </ul>
+    
+    <div class="footnote">
+        <p>Note: This flowchart is for educational purposes only and does not constitute tax advice. Tax laws and amounts change regularly. For specific tax advice, consult a qualified tax professional.</p>
+        <p>PFL Academy - Chapter 2.4: Understanding Tax Deductions and Credits</p>
+    </div>
+</body>
+</html>

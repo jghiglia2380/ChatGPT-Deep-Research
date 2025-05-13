@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 5.5: Understanding Monetary Risks in Saving and Investing - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Risk tolerance slider */
+        .risk-slider {
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #86efac, #fde68a, #f87171);
+            border-radius: 5px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .risk-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #4f46e5;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .risk-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #4f46e5;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Investment allocation sliders */
+        .investment-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .investment-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #4f46e5;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .investment-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #4f46e5;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Scenario card styles */
+        .scenario-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            transition: all 0.2s ease;
+        }
+        
+        .scenario-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .scenario-card.active {
+            border-color: #4f46e5;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 5: Saving and Investing</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding saving and investment strategies to build wealth over time.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Previous chapters with checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 5.1: Saving and Investing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 5.2: Understanding Compound Interest
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 5.3: Evaluating Saving & Investment Strategies
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 5.4: Time is Money
+                                </a>
+                            </li>
+                            
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 5.5: Understanding Monetary Risks
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-5-5-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Investment Strategy Simulator
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Risk Management Plan
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Life Changes and Risk
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-indigo-600" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="reflection-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-5-5-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 5.5: Understanding Monetary Risks in Saving and Investing</h1>
+                    <p class="text-lg text-gray-600 mb-6">Risk Management Learning Lab: Applying risk concepts to your financial strategy</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Apply risk tolerance insights to create a personalized investment strategy</li>
+                            <li>Analyze how different investment allocations perform under various economic scenarios</li>
+                            <li>Develop a risk management plan that aligns with your financial goals</li>
+                            <li>Evaluate and adjust investment strategies based on changing circumstances</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Risk Management Learning Lab! Today, we'll build on what you learned about monetary risks and risk tolerance by applying these concepts to real-world scenarios. You'll develop a personalized investment strategy, test it against different economic conditions, and create a plan for managing financial risks over time.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                Remember that risk management is personal and there's no single "right" approach. Your risk tolerance, time horizon, and financial goals all influence the best strategy for you. The tools in this Learning Lab are for educational purposes and shouldn't replace professional financial advice.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm mb-2">
+                                In Day 1, we explored key concepts about financial risks in saving and investing:
+                            </p>
+                            <ul class="list-disc list-inside text-indigo-800 text-sm">
+                                <li>Different types of financial risks (market, financial, inflation, fraud)</li>
+                                <li>How risk tolerance varies among individuals</li>
+                                <li>The relationship between risk and potential returns</li>
+                                <li>Strategies like diversification and asset allocation to manage risk</li>
+                            </ul>
+                            <p class="text-indigo-800 text-sm mt-2">
+                                Today, we'll apply these concepts to create personalized risk management strategies.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Understanding Monetary Risk in Saving and Investing</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/5.5 - Understanding Monetary Risk in Saving and Investing.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Market risk, financial risk, inflation risk, fraud risk, risk tolerance, diversification, asset allocation
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Station 1: Investment Strategy Simulator -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 1: Investment Strategy Simulator</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this activity, you'll create investment portfolios for three different scenarios and analyze how they might perform under various economic conditions.</p>
+                            
+                            <!-- Risk Tolerance Profile -->
+                            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Your Risk Tolerance Profile</h3>
+                                <p class="mb-4">Before creating your investment allocations, indicate your risk tolerance level from Day 1:</p>
+                                
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-green-600 font-medium">Conservative</span>
+                                    <span class="text-yellow-600 font-medium">Moderate</span>
+                                    <span class="text-red-600 font-medium">Aggressive</span>
+                                </div>
+                                <input type="range" min="1" max="10" value="5" class="risk-slider mb-4" id="risk-tolerance">
+                                <div class="flex justify-between text-sm text-gray-500">
+                                    <span>Lower risk/return</span>
+                                    <span>Higher risk/return</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Scenarios -->
+                            <div class="mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Investment Scenario 1: Short-term Goal (1-3 years)</h3>
+                                <p class="mb-3">Imagine you're saving for a car or vacation in the near future:</p>
+                                
+                                <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                                    <h4 class="font-medium text-gray-900 mb-2">Create Your Allocation</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Stocks: <span id="stocks1-value">0</span>%</label>
+                                            <input type="range" min="0" max="100" value="0" class="investment-slider bg-blue-200 mb-3" id="stocks1" oninput="updateAllocation('1')">
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Bonds: <span id="bonds1-value">0</span>%</label>
+                                            <input type="range" min="0" max="100" value="0" class="investment-slider bg-purple-200 mb-3" id="bonds1" oninput="updateAllocation('1')">
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Cash/Money Market: <span id="cash1-value">0</span>%</label>
+                                            <input type="range" min="0" max="100" value="0" class="investment-slider bg-green-200 mb-3" id="cash1" oninput="updateAllocation('1')">
+                                            
+                                            <div class="text-sm text-red-600 hidden" id="allocation1-warning">Total allocation must equal 100%</div>
+                                        </div>
+                                        <div>
+                                            <canvas id="allocation-chart1" height="200"></canvas>
+                                        </div>
+                                    </div>
+                                    
+                                    <h4 class="font-medium text-gray-900 mb-2">Test Economic Scenarios</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <select id="scenario1" class="w-full p-2 border border-gray-300 rounded-md" onchange="updateScenarioAnalysis('1')">
+                                                <option value="">Select economic scenario...</option>
+                                                <option value="growth">Strong economic growth</option>
+                                                <option value="recession">Recession</option>
+                                                <option value="inflation">High inflation</option>
+                                                <option value="lowInterest">Low interest rates</option>
+                                                <option value="volatility">Market volatility</option>
+                                            </select>
+                                            <div class="mt-4 p-3 bg-gray-50 rounded-md hidden" id="scenario1-analysis">
+                                                <h5 class="font-medium text-gray-900 mb-1">Scenario Impact:</h5>
+                                                <p id="scenario1-text" class="text-sm"></p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Explain your reasoning for this allocation..." id="reasoning1"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 mt-6">Investment Scenario 2: Medium-term Goal (5-10 years)</h3>
+                                <p class="mb-3">Imagine you're saving for a home down payment:</p>
+                                
+                                <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                                    <h4 class="font-medium text-gray-900 mb-2">Create Your Allocation</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Stocks: <span id="stocks2-value">0</span>%</label>
+                                            <input type="range" min="0" max="100" value="0" class="investment-slider bg-blue-200 mb-3" id="stocks2" oninput="updateAllocation('2')">
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Bonds: <span id="bonds2-value">0</span>%</label>
+                                            <input type="range" min="0" max="100" value="0" class="investment-slider bg-purple-200 mb-3" id="bonds2" oninput="updateAllocation('2')">
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Cash/Money Market: <span id="cash2-value">0</span>%</label>
+                                            <input type="range" min="0" max="100" value="0" class="investment-slider bg-green-200 mb-3" id="cash2" oninput="updateAllocation('2')">
+                                            
+                                            <div class="text-sm text-red-600 hidden" id="allocation2-warning">Total allocation must equal 100%</div>
+                                        </div>
+                                        <div>
+                                            <canvas id="allocation-chart2" height="200"></canvas>
+                                        </div>
+                                    </div>
+                                    
+                                    <h4 class="font-medium text-gray-900 mb-2">Test Economic Scenarios</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <select id="scenario2" class="w-full p-2 border border-gray-300 rounded-md" onchange="updateScenarioAnalysis('2')">
+                                                <option value="">Select economic scenario...</option>
+                                                <option value="growth">Strong economic growth</option>
+                                                <option value="recession">Recession</option>
+                                                <option value="inflation">High inflation</option>
+                                                <option value="lowInterest">Low interest rates</option>
+                                                <option value="volatility">Market volatility</option>
+                                            </select>
+                                            <div class="mt-4 p-3 bg-gray-50 rounded-md hidden" id="scenario2-analysis">
+                                                <h5 class="font-medium text-gray-900 mb-1">Scenario Impact:</h5>
+                                                <p id="scenario2-text" class="text-sm"></p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Explain your reasoning for this allocation..." id="reasoning2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 mt-6">Investment Scenario 3: Long-term Goal (30+ years)</h3>
+                                <p class="mb-3">Imagine you're saving for retirement:</p>
+                                
+                                <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                                    <h4 class="font-medium text-gray-900 mb-2">Create Your Allocation</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Stocks: <span id="stocks3-value">0</span>%</label>
+                                            <input type="range" min="0" max="100" value="0" class="investment-slider bg-blue-200 mb-3" id="stocks3" oninput="updateAllocation('3')">
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Bonds: <span id="bonds3-value">0</span>%</label>
+                                            <input type="range" min="0" max="100" value="0" class="investment-slider bg-purple-200 mb-3" id="bonds3" oninput="updateAllocation('3')">
+                                            
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Cash/Money Market: <span id="cash3-value">0</span>%</label>
+                                            <input type="range" min="0" max="100" value="0" class="investment-slider bg-green-200 mb-3" id="cash3" oninput="updateAllocation('3')">
+                                            
+                                            <div class="text-sm text-red-600 hidden" id="allocation3-warning">Total allocation must equal 100%</div>
+                                        </div>
+                                        <div>
+                                            <canvas id="allocation-chart3" height="200"></canvas>
+                                        </div>
+                                    </div>
+                                    
+                                    <h4 class="font-medium text-gray-900 mb-2">Test Economic Scenarios</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <select id="scenario3" class="w-full p-2 border border-gray-300 rounded-md" onchange="updateScenarioAnalysis('3')">
+                                                <option value="">Select economic scenario...</option>
+                                                <option value="growth">Strong economic growth</option>
+                                                <option value="recession">Recession</option>
+                                                <option value="inflation">High inflation</option>
+                                                <option value="lowInterest">Low interest rates</option>
+                                                <option value="volatility">Market volatility</option>
+                                            </select>
+                                            <div class="mt-4 p-3 bg-gray-50 rounded-md hidden" id="scenario3-analysis">
+                                                <h5 class="font-medium text-gray-900 mb-1">Scenario Impact:</h5>
+                                                <p id="scenario3-text" class="text-sm"></p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Explain your reasoning for this allocation..." id="reasoning3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-gray-900 mb-2">Analysis Questions</h4>
+                                    <div class="mb-3">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">How does your time horizon affect your risk tolerance across these scenarios?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="time-horizon-analysis"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Which types of risk (market, financial, inflation, fraud) concern you most for each goal?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="risk-type-analysis"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 2: Risk Management Plan -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Risk Management Plan</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">Now that you've explored how different investment allocations perform under various scenarios, it's time to create a comprehensive risk management plan that addresses multiple types of financial risk.</p>
+                            
+                            <!-- Current Risk Profile -->
+                            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">1. Current Risk Profile</h3>
+                                <p class="mb-3">Summarize your risk tolerance (from Day 1 and Station 1) and explain whether you think it's appropriate for your current life stage:</p>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="current-risk-profile"></textarea>
+                            </div>
+                            
+                            <!-- Risk Mitigation Strategies -->
+                            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">2. Risk Mitigation Strategies</h3>
+                                <p class="mb-3">Identify specific strategies to address each type of risk:</p>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Market Risk (changes in investment values due to market movements)</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="market-risk-strategy"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Financial Risk (default, institutional failure, etc.)</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="financial-risk-strategy"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Inflation Risk (erosion of purchasing power)</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="inflation-risk-strategy"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Fraud Risk (scams, identity theft, etc.)</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="fraud-risk-strategy"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 3: Life Changes and Risk -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: Life Changes and Risk</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">Your risk tolerance and investment strategy will need to evolve as you move through different life stages. This station explores how life changes should prompt reassessment of your risk management approach.</p>
+                            
+                            <!-- Life Changes -->
+                            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Life Changes</h3>
+                                <p class="mb-3">Describe how your risk tolerance and investment strategy might need to change during these life transitions:</p>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Graduating from college and starting your career</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="life-change-college"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Starting a family</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="life-change-family"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Approaching retirement</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="life-change-retirement"></textarea>
+                                </div>
+                            </div>
+                            
+                            <!-- Emergency Preparedness -->
+                            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Emergency Preparedness</h3>
+                                <p class="mb-3">Explain how an emergency fund fits into your risk management strategy:</p>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Why is an emergency fund important for risk management?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="emergency-fund-importance"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">How much should you ideally save in your emergency fund?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="emergency-fund-amount"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Where should you keep your emergency fund?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="emergency-fund-location"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration Section -->
+                    <div id="portfolio-integration" class="bg-indigo-50 rounded-lg p-6 mb-8 mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">Apply what you've learned to update your financial portfolio. Review your current financial goals from previous chapters and make adjustments based on your risk tolerance analysis.</p>
+                        
+                        <div class="bg-white p-4 rounded-lg mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Risk-Adjusted Financial Goals</h3>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Review your current financial goals from previous chapters. Do they align with your risk tolerance?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="goal-alignment"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">What adjustments would you make to your savings or investment strategy based on your risk profile?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="strategy-adjustments"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-900 mb-2">Create a timeline for reviewing your risk management plan</h4>
+                                <p class="text-sm text-gray-600 mb-3">Set specific dates or life events when you'll reassess your risk tolerance and investment strategy:</p>
+                                
+                                <div class="flex items-center mb-2">
+                                    <input type="checkbox" id="review-annually" class="mr-2">
+                                    <label for="review-annually" class="text-sm">Annual review</label>
+                                </div>
+                                
+                                <div class="flex items-center mb-2">
+                                    <input type="checkbox" id="review-major-purchase" class="mr-2">
+                                    <label for="review-major-purchase" class="text-sm">Before major purchases</label>
+                                </div>
+                                
+                                <div class="flex items-center mb-2">
+                                    <input type="checkbox" id="review-life-changes" class="mr-2">
+                                    <label for="review-life-changes" class="text-sm">During major life changes</label>
+                                </div>
+                                
+                                <div class="flex items-center mb-2">
+                                    <input type="checkbox" id="review-economic" class="mr-2">
+                                    <label for="review-economic" class="text-sm">During significant economic changes</label>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Other review triggers:</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" id="other-review-triggers">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Portfolio Summary</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize how your risk management plan will help you achieve your financial goals..." id="portfolio-summary"></textarea>
+                            <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                        </div>
+                        
+                        <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1" onclick="savePortfolio()">Complete Portfolio</button>
+                    </div>
+                    
+                    <!-- Reflection Section -->
+                    <div id="reflection" class="mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                        
+                        <div class="discussion-prompt">
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                            <p class="text-gray-700 mb-3">Reflect on how understanding risk has changed your perspective on saving and investing. How will you apply these concepts to make more informed financial decisions in the future?</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..." id="final-reflection"></textarea>
+                            <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                        </div>
+                        
+                        <div class="flex justify-end mt-8">
+                            <a href="chapter-6-1-day1.html" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                                Continue to Chapter 6.1: Planning for Retirement
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved!</span>
+        </div>
+    </div>
+    
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false,
+            reflection: false
+        };
+        
+        // Initialize charts and allocation values
+        let charts = {};
+        let allocations = {
+            '1': { stocks: 0, bonds: 0, cash: 0 },
+            '2': { stocks: 0, bonds: 0, cash: 0 },
+            '3': { stocks: 0, bonds: 0, cash: 0 }
+        };
+        
+        // Economic scenario impacts
+        const scenarioImpacts = {
+            growth: {
+                stocks: "Strong positive growth: +8% to +15%",
+                bonds: "Neutral to slight negative: -2% to +1%",
+                cash: "Low but stable returns: +0.5% to +1%",
+                analysis: "During strong economic growth, stocks typically perform well due to increased corporate profits. Bonds may underperform due to potential interest rate increases, while cash provides stability but low returns."
+            },
+            recession: {
+                stocks: "Significant decline: -10% to -30%",
+                bonds: "Mixed performance: -5% to +10%",
+                cash: "Stable but low returns: +0.5% to +1%",
+                analysis: "In a recession, stocks typically decline sharply due to reduced consumer spending and corporate profits. Government bonds often perform well as investors seek safety and interest rates tend to decline. High-yield bonds may suffer. Cash remains stable but offers minimal returns."
+            },
+            inflation: {
+                stocks: "Mixed performance: -5% to +10%",
+                bonds: "Negative impact: -5% to -10%",
+                cash: "Negative real returns: Nominal +1% but -3% to -6% real return",
+                analysis: "High inflation erodes the value of fixed-income investments like bonds and cash. Stocks show mixed performance - companies with pricing power may keep up with inflation, while others struggle. Real returns (after inflation) can be negative across all asset classes."
+            },
+            lowInterest: {
+                stocks: "Generally positive: +5% to +12%",
+                bonds: "Initially positive but limited upside: +3% to +5%",
+                cash: "Very low returns: +0.1% to +0.5%",
+                analysis: "In a low interest rate environment, stocks often perform well due to reduced borrowing costs for companies and investors seeking higher returns. Bonds may initially increase in value but offer lower yields going forward. Cash provides safety but negligible returns."
+            },
+            volatility: {
+                stocks: "Highly variable returns: -15% to +15%",
+                bonds: "Moderate volatility: -3% to +5%",
+                cash: "Stable returns: +0.5% to +1%",
+                analysis: "During market volatility, well-diversified portfolios perform better than concentrated ones. Cash and high-quality bonds provide stability while stocks may swing dramatically. Rebalancing becomes particularly important in volatile markets."
+            }
+        };
+        
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create initial allocation charts
+            for (let i = 1; i <= 3; i++) {
+                createAllocationChart(i);
+            }
+            
+            // Initialize slider values
+            document.querySelectorAll('.investment-slider').forEach(slider => {
+                const id = slider.id;
+                const valueSpan = document.getElementById(`${id}-value`);
+                if (valueSpan) {
+                    valueSpan.textContent = slider.value;
+                }
+            });
+        });
+        
+        // Create allocation chart
+        function createAllocationChart(scenarioNumber) {
+            const ctx = document.getElementById(`allocation-chart${scenarioNumber}`).getContext('2d');
+            charts[scenarioNumber] = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Stocks', 'Bonds', 'Cash/Money Market'],
+                    datasets: [{
+                        data: [0, 0, 0],
+                        backgroundColor: ['#93c5fd', '#c4b5fd', '#86efac'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 10
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Update allocation when sliders change
+        function updateAllocation(scenarioNumber) {
+            // Get slider values
+            const stocks = parseInt(document.getElementById(`stocks${scenarioNumber}`).value);
+            const bonds = parseInt(document.getElementById(`bonds${scenarioNumber}`).value);
+            const cash = parseInt(document.getElementById(`cash${scenarioNumber}`).value);
+            
+            // Update value displays
+            document.getElementById(`stocks${scenarioNumber}-value`).textContent = stocks;
+            document.getElementById(`bonds${scenarioNumber}-value`).textContent = bonds;
+            document.getElementById(`cash${scenarioNumber}-value`).textContent = cash;
+            
+            // Store values
+            allocations[scenarioNumber] = { stocks, bonds, cash };
+            
+            // Calculate total (should be 100%)
+            const total = stocks + bonds + cash;
+            const warningElement = document.getElementById(`allocation${scenarioNumber}-warning`);
+            
+            if (total !== 100) {
+                warningElement.classList.remove('hidden');
+                warningElement.textContent = `Total allocation is ${total}%, should be 100%`;
+            } else {
+                warningElement.classList.add('hidden');
+            }
+            
+            // Update chart
+            charts[scenarioNumber].data.datasets[0].data = [stocks, bonds, cash];
+            charts[scenarioNumber].update();
+            
+            // Update scenario analysis if scenario is selected
+            const scenario = document.getElementById(`scenario${scenarioNumber}`).value;
+            if (scenario) {
+                updateScenarioAnalysis(scenarioNumber);
+            }
+        }
+        
+        // Update scenario analysis
+        function updateScenarioAnalysis(scenarioNumber) {
+            const scenario = document.getElementById(`scenario${scenarioNumber}`).value;
+            const analysisContainer = document.getElementById(`scenario${scenarioNumber}-analysis`);
+            const analysisText = document.getElementById(`scenario${scenarioNumber}-text`);
+            
+            if (!scenario) {
+                analysisContainer.classList.add('hidden');
+                return;
+            }
+            
+            // Get current allocation
+            const { stocks, bonds, cash } = allocations[scenarioNumber];
+            
+            // Create analysis
+            const impact = scenarioImpacts[scenario];
+            let analysis = impact.analysis + "\n\n";
+            
+            // Calculate expected impact based on allocation
+            if (stocks + bonds + cash === 100) {
+                analysis += `<strong>Impact on your portfolio:</strong><br>`;
+                analysis += `Stocks (${stocks}%): ${impact.stocks}<br>`;
+                analysis += `Bonds (${bonds}%): ${impact.bonds}<br>`;
+                analysis += `Cash (${cash}%): ${impact.cash}<br>`;
+            }
+            
+            // Display analysis
+            analysisText.innerHTML = analysis;
+            analysisContainer.classList.remove('hidden');
+        }
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else {
+                // If there's no next station, scroll to portfolio integration
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        document.querySelectorAll('[data-ai-check="true"]').forEach(textarea => {
+            textarea.addEventListener('blur', function() {
+                const feedbackContainer = this.nextElementSibling;
+                if (this.value.length < 10) {
+                    return;
+                }
+                
+                let feedback = "";
+                if (this.value.length < 50) {
+                    feedback = "Your response is a good start. Consider adding more details about how you'll apply risk management concepts to your personal financial decisions.";
+                } else if (this.value.length < 100) {
+                    feedback = "Good progress! Your response shows understanding of risk management concepts. Try connecting these ideas more directly to your personal financial goals.";
+                } else {
+                    feedback = "Excellent reflection! You've demonstrated strong understanding of risk management concepts and how they apply to your personal financial situation.";
+                }
+                
+                feedbackContainer.textContent = feedback;
+                feedbackContainer.classList.remove('hidden');
+            });
+        });
+        
+        // Highlight active section in navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            // Check learning objectives section
+            const learningObjectives = document.getElementById('learning-objectives');
+            const objTop = learningObjectives.offsetTop - 100;
+            const objBottom = objTop + learningObjectives.offsetHeight;
+            
+            // Check introduction section
+            const introduction = document.getElementById('introduction');
+            const introTop = introduction.offsetTop - 100;
+            const introBottom = introTop + introduction.offsetHeight;
+            
+            // Check station sections
+            const station1 = document.getElementById('station1');
+            const st1Top = station1.offsetTop - 100;
+            const st1Bottom = st1Top + station1.offsetHeight;
+            
+            const station2 = document.getElementById('station2');
+            const st2Top = station2.offsetTop - 100;
+            const st2Bottom = st2Top + station2.offsetHeight;
+            
+            const station3 = document.getElementById('station3');
+            const st3Top = station3.offsetTop - 100;
+            const st3Bottom = st3Top + station3.offsetHeight;
+            
+            // Check portfolio section
+            const portfolio = document.getElementById('portfolio-integration');
+            const portTop = portfolio.offsetTop - 100;
+            const portBottom = portTop + portfolio.offsetHeight;
+            
+            // Check reflection section
+            const reflection = document.getElementById('reflection');
+            const reflTop = reflection.offsetTop - 100;
+            const reflBottom = reflTop + reflection.offsetHeight;
+            
+            // Reset all nav links
+            document.querySelectorAll('#section-navigation a').forEach(link => {
+                link.classList.remove('text-indigo-700', 'font-medium');
+                link.classList.add('text-gray-700', 'hover:text-indigo-700');
+            });
+            
+            // Highlight active section
+            if (scrollPosition >= reflTop && scrollPosition < reflBottom) {
+                document.querySelector('a[href="#reflection"]').classList.add('text-indigo-700', 'font-medium');
+                document.querySelector('a[href="#reflection"]').classList.remove('text-gray-700', 'hover:text-indigo-700');
+            } else if (scrollPosition >= portTop && scrollPosition < portBottom) {
+                document.querySelector('a[href="#portfolio-integration"]').classList.add('text-indigo-700', 'font-medium');
+                document.querySelector('a[href="#portfolio-integration"]').classList.remove('text-gray-700', 'hover:text-indigo-700');
+            } else if (scrollPosition >= st3Top && scrollPosition < st3Bottom) {
+                document.querySelector('a[href="#station3"]').classList.add('text-indigo-700', 'font-medium');
+                document.querySelector('a[href="#station3"]').classList.remove('text-gray-700', 'hover:text-indigo-700');
+            } else if (scrollPosition >= st2Top && scrollPosition < st2Bottom) {
+                document.querySelector('a[href="#station2"]').classList.add('text-indigo-700', 'font-medium');
+                document.querySelector('a[href="#station2"]').classList.remove('text-gray-700', 'hover:text-indigo-700');
+            } else if (scrollPosition >= st1Top && scrollPosition < st1Bottom) {
+                document.querySelector('a[href="#station1"]').classList.add('text-indigo-700', 'font-medium');
+                document.querySelector('a[href="#station1"]').classList.remove('text-gray-700', 'hover:text-indigo-700');
+            } else if (scrollPosition >= introTop && scrollPosition < introBottom) {
+                document.querySelector('a[href="#introduction"]').classList.add('text-indigo-700', 'font-medium');
+                document.querySelector('a[href="#introduction"]').classList.remove('text-gray-700', 'hover:text-indigo-700');
+            } else if (scrollPosition >= objTop && scrollPosition < objBottom) {
+                document.querySelector('a[href="#learning-objectives"]').classList.add('text-indigo-700', 'font-medium');
+                document.querySelector('a[href="#learning-objectives"]').classList.remove('text-gray-700', 'hover:text-indigo-700');
+            }
+        });
+    </script>
+</body>
+</html>

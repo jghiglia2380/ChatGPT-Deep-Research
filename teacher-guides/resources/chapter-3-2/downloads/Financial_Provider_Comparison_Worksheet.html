@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Service Provider Comparison Worksheet</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.3;
+                font-family: 'Times New Roman', Times, serif;
+                margin: 0.5in;
+            }
+            
+            .print-note {
+                display: none;
+            }
+            
+            .header {
+                margin-bottom: 20px;
+            }
+            
+            h1 {
+                font-size: 18pt;
+                margin-bottom: 5px;
+            }
+            
+            h2 {
+                font-size: 16pt;
+                margin-top: 15px;
+                margin-bottom: 10px;
+                page-break-after: avoid;
+            }
+            
+            h3 {
+                font-size: 14pt;
+                margin-top: 12px;
+                margin-bottom: 8px;
+                page-break-after: avoid;
+            }
+            
+            p {
+                margin-bottom: 10px;
+            }
+            
+            ul, ol {
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .footer {
+                margin-top: 20px;
+                font-size: 10pt;
+                text-align: center;
+            }
+            
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 15px;
+            }
+            
+            th, td {
+                border: 1px solid #000;
+                padding: 5px;
+                text-align: left;
+                vertical-align: top;
+            }
+            
+            .notes-box {
+                border: 1px solid #000;
+                padding: 8px;
+                margin-bottom: 15px;
+                min-height: 60px;
+            }
+            
+            .section {
+                margin-bottom: 15px;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+        }
+        
+        /* Screen styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .print-note {
+            background-color: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+        
+        h2 {
+            color: #1e40af;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        
+        h3 {
+            color: #1e40af;
+            margin-top: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            vertical-align: top;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        .provider-col {
+            width: 30%;
+        }
+        
+        .category-header {
+            background-color: #e6f3ff;
+            font-weight: bold;
+        }
+        
+        .notes-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            min-height: 80px;
+            background-color: #f9fafb;
+        }
+        
+        .section {
+            background-color: #f9fafb;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .instructions {
+            background-color: #fff4e5;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .tips {
+            background-color: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-note">
+        <strong>Note:</strong> To save this document as a PDF, click Print (Ctrl+P or Cmd+P) and select "Save as PDF" as the destination.
+    </div>
+    
+    <div class="header">
+        <h1>Financial Service Provider Comparison Worksheet</h1>
+        <p>PFL Academy - Chapter 3.2: Choosing and Evaluating Financial Service Providers</p>
+    </div>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This worksheet will guide you through comparing three different types of financial service providers: a traditional bank, a credit union, and an online bank. Use institution websites, fee schedules, and other resources to gather accurate information for your comparison.</p>
+        <ol>
+            <li>Select three specific institutions to research (one from each category)</li>
+            <li>Fill in the comparison chart with details about fees, interest rates, accessibility, and services</li>
+            <li>Analyze which provider would be best for different financial situations</li>
+            <li>Complete the final recommendation section based on your research</li>
+        </ol>
+    </div>
+    
+    <div class="tips">
+        <h3>Research Tips</h3>
+        <ul>
+            <li><strong>Fees:</strong> Look for fee schedules on the institution's website, typically under "Disclosures" or "Account Terms"</li>
+            <li><strong>Interest Rates:</strong> Check current rates for savings accounts, CDs, and loans</li>
+            <li><strong>Accessibility:</strong> Research branch/ATM locations, online/mobile features, and customer service options</li>
+            <li><strong>Services:</strong> Explore additional financial products and tools offered</li>
+        </ul>
+        <p>Be thorough in your research - small differences can have a big impact over time!</p>
+    </div>
+
+    <div class="section">
+        <h2>1. Selected Financial Institutions</h2>
+        <table>
+            <tr>
+                <th>Provider Type</th>
+                <th>Institution Name</th>
+                <th>Why You Selected This Institution</th>
+            </tr>
+            <tr>
+                <td>Traditional Bank</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Credit Union</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Online Bank</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>2. Comparison Chart</h2>
+        
+        <h3>Fees and Costs</h3>
+        <table>
+            <tr>
+                <th class="provider-col">Fee Type</th>
+                <th>Traditional Bank<br><span class="institution-name"></span></th>
+                <th>Credit Union<br><span class="institution-name"></span></th>
+                <th>Online Bank<br><span class="institution-name"></span></th>
+            </tr>
+            <tr>
+                <td>Monthly Account Maintenance Fee</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Requirements to Waive Monthly Fee</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Minimum Balance Requirement</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Overdraft Fee</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>ATM Fee (In-Network)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>ATM Fee (Out-of-Network)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Paper Statement Fee</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Wire Transfer Fee</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Other Notable Fees</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Annual Cost Estimate</strong><br>(Based on your typical usage)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h3>Interest Rates</h3>
+        <table>
+            <tr>
+                <th class="provider-col">Account Type</th>
+                <th>Traditional Bank</th>
+                <th>Credit Union</th>
+                <th>Online Bank</th>
+            </tr>
+            <tr>
+                <td>Checking Account APY</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Savings Account APY</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Money Market Account APY</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>12-Month CD Rate</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Auto Loan Rate (60 months)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Personal Loan Rate</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Credit Card APR (Range)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <div class="page-break"></div>
+        
+        <h3>Accessibility and Convenience</h3>
+        <table>
+            <tr>
+                <th class="provider-col">Feature</th>
+                <th>Traditional Bank</th>
+                <th>Credit Union</th>
+                <th>Online Bank</th>
+            </tr>
+            <tr>
+                <td>Number of Branch Locations</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Number of ATMs</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>ATM Fee Reimbursement</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Mobile App Features</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Mobile App Ratings</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Online Banking Features</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Customer Service Hours</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Customer Service Channels<br>(phone, chat, email, etc.)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>User Interface Quality</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h3>Additional Services</h3>
+        <table>
+            <tr>
+                <th class="provider-col">Service</th>
+                <th>Traditional Bank</th>
+                <th>Credit Union</th>
+                <th>Online Bank</th>
+            </tr>
+            <tr>
+                <td>Investment Options</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Financial Planning Resources</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Budgeting/Money Management Tools</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Educational Resources</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Account Alerts</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Unique Features</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h3>Security and Insurance</h3>
+        <table>
+            <tr>
+                <th class="provider-col">Feature</th>
+                <th>Traditional Bank</th>
+                <th>Credit Union</th>
+                <th>Online Bank</th>
+            </tr>
+            <tr>
+                <td>FDIC/NCUA Insured?</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Security Features</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Fraud Protection</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="section">
+        <h2>3. Scenario-Based Recommendations</h2>
+        <p>Based on your research, determine which financial service provider would be best for each scenario and explain why.</p>
+        
+        <h3>Scenario 1: College Student</h3>
+        <p><strong>Profile:</strong> A college student with a part-time job, limited income, primarily concerned with avoiding fees and having convenient access to money.</p>
+        
+        <div class="notes-box">
+            <p><strong>Recommended Provider Type:</strong> </p>
+            <p><strong>Specific Institution:</strong> </p>
+            <p><strong>Rationale:</strong> </p>
+        </div>
+        
+        <h3>Scenario 2: Young Professional Saving for a Major Purchase</h3>
+        <p><strong>Profile:</strong> A young professional with steady income, saving for a down payment on a home in the next 2-3 years. Needs a balance of good interest rates and occasional in-person service.</p>
+        
+        <div class="notes-box">
+            <p><strong>Recommended Provider Type:</strong> </p>
+            <p><strong>Specific Institution:</strong> </p>
+            <p><strong>Rationale:</strong> </p>
+        </div>
+        
+        <h3>Scenario 3: Person Beginning to Invest for Retirement</h3>
+        <p><strong>Profile:</strong> A mid-career professional looking to start investing for retirement while also maintaining everyday banking services. Has some financial knowledge but isn't an expert investor.</p>
+        
+        <div class="notes-box">
+            <p><strong>Recommended Provider Type:</strong> </p>
+            <p><strong>Specific Institution:</strong> </p>
+            <p><strong>Rationale:</strong> </p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>4. Overall Analysis and Observations</h2>
+        
+        <p><strong>Biggest differences you observed between the three provider types:</strong></p>
+        <div class="notes-box"></div>
+        
+        <p><strong>Areas where one provider clearly outperformed the others:</strong></p>
+        <div class="notes-box"></div>
+        
+        <p><strong>Any surprising findings from your research:</strong></p>
+        <div class="notes-box"></div>
+        
+        <p><strong>How your perception of these financial service providers changed after this research:</strong></p>
+        <div class="notes-box"></div>
+    </div>
+    
+    <div class="section">
+        <h2>5. Your Personal Preference</h2>
+        <p>Based on your current financial situation and needs, which of these providers would you personally choose and why?</p>
+        
+        <div class="notes-box">
+            <p><strong>My Selected Provider Type and Institution:</strong> </p>
+            <p><strong>Reasons for my choice:</strong> </p>
+            <p><strong>How this provider aligns with my current financial goals:</strong> </p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy - Chapter 3.2: Choosing and Evaluating Financial Service Providers</p>
+        <p>&copy; 2025 PFL Academy. For educational purposes only.</p>
+    </div>
+</body>
+</html>

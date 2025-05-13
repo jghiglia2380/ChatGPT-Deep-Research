@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Factors Worksheet - Chapter 7.3</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #1E3A8A;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            color: #1E3A8A;
+            margin: 0;
+            font-size: 24pt;
+        }
+        
+        h2 {
+            color: #1E3A8A;
+            border-bottom: 1px solid #1E3A8A;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        
+        h3 {
+            color: #2563EB;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background-color: #F3F4F6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .chart-container {
+            background-color: #F0F9FF;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .chart-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 10px;
+        }
+        
+        .color-box {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        
+        .factor-description {
+            margin-bottom: 30px;
+        }
+        
+        .response-area {
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            min-height: 150px;
+        }
+        
+        .print-button {
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14pt;
+            margin-top: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #1E40AF;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 10pt;
+            color: #6B7280;
+            border-top: 1px solid #D1D5DB;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Credit Score Factors Worksheet</h1>
+        <p>Chapter 7.3: Understanding Credit Scores</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This worksheet is designed to help you understand the five key factors that influence your FICO credit score and reflect on which factors might be easiest or most challenging for you to manage.</p>
+        <ol>
+            <li>Review the credit score components chart and descriptions below</li>
+            <li>Reflect on each factor and consider how it might apply to your current or future financial situation</li>
+            <li>Answer the reflection questions in the spaces provided</li>
+            <li>Use this worksheet to inform your credit strategy development in the Learning Lab</li>
+        </ol>
+    </div>
+    
+    <h2>The FICO Score Breakdown</h2>
+    
+    <div class="chart-container">
+        <div style="position: relative; height: 300px; width: 300px; margin: 0 auto;">
+            <!-- SVG Pie Chart -->
+            <svg width="300" height="300" viewBox="0 0 300 300">
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#E5E7EB" stroke-width="100" stroke-dasharray="628" stroke-dashoffset="0"></circle>
+                <!-- Payment History 35% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#1E40AF" stroke-width="100" stroke-dasharray="220 408" stroke-dashoffset="0"></circle>
+                <!-- Credit Utilization 30% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#3B82F6" stroke-width="100" stroke-dasharray="188 440" stroke-dashoffset="-220"></circle>
+                <!-- Length of Credit History 15% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#60A5FA" stroke-width="100" stroke-dasharray="94 534" stroke-dashoffset="-408"></circle>
+                <!-- Credit Mix 10% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#93C5FD" stroke-width="100" stroke-dasharray="63 565" stroke-dashoffset="-502"></circle>
+                <!-- New Credit 10% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#BFDBFE" stroke-width="100" stroke-dasharray="63 565" stroke-dashoffset="-565"></circle>
+                <text x="150" y="150" text-anchor="middle" dominant-baseline="middle" font-size="16" font-weight="bold">FICO Score Components</text>
+            </svg>
+        </div>
+        
+        <div class="chart-legend">
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #1E40AF;"></div>
+                <span>Payment History (35%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #3B82F6;"></div>
+                <span>Credit Utilization (30%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #60A5FA;"></div>
+                <span>Length of Credit History (15%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #93C5FD;"></div>
+                <span>Credit Mix (10%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #BFDBFE;"></div>
+                <span>New Credit (10%)</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="factor-description">
+        <h3>Payment History (35%)</h3>
+        <p>This is the most important factor in your credit score. It tracks whether you pay your bills on time, how often you miss payments, how many days past due your payments are, and how recently any late payments occurred. Even a single missed payment can significantly impact your score.</p>
+        
+        <h3>Credit Utilization (30%)</h3>
+        <p>This measures how much of your available credit you're using. It's calculated both for individual accounts and across all your credit cards. For example, if you have a $1,000 credit limit and a $300 balance, your utilization is 30%. Lower utilization (below 30%) is better for your score.</p>
+        
+        <h3>Length of Credit History (15%)</h3>
+        <p>This considers how long your credit accounts have been established, including the age of your oldest account, the age of your newest account, and the average age of all your accounts. Longer credit histories are viewed more favorably.</p>
+        
+        <h3>Credit Mix (10%)</h3>
+        <p>This looks at the variety of credit accounts you have, such as credit cards, retail accounts, installment loans, and mortgage loans. Having a diverse mix of credit types can positively impact your score, as it shows you can manage different types of credit.</p>
+        
+        <h3>New Credit (10%)</h3>
+        <p>This considers how many new accounts you've opened recently and how many recent inquiries appear on your report from applying for credit. Opening several accounts in a short period can indicate higher risk and lower your score temporarily.</p>
+    </div>
+    
+    <h2>Reflection Questions</h2>
+    
+    <h3>1. Based on these five factors, which one do you think would be easiest for you to control and improve? Why?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h3>2. Which factor might be the most challenging for you to manage? Why?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h3>3. What specific actions could you take to positively influence each of these factors?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h3>4. How might your credit management strategy need to change as you transition from high school to college or work?</h3>
+    <div class="response-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <div class="no-print">
+        <button class="print-button" onclick="window.print();">Print or Save as PDF</button>
+        <p><small>Click the button above to print this worksheet or save it as a PDF file.</small></p>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 7.3: Understanding Credit Scores</p>
+    </footer>
+</body>
+</html>

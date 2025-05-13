@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Savings Plan Worksheet</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+                padding: 0;
+                margin: 0;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #6366F1;
+        }
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 8px;
+        }
+        h2 {
+            color: #4F46E5;
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6366F1;
+            margin-top: 20px;
+        }
+        .intro {
+            background-color: #f0f4ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .section {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .worksheet-section {
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f4ff;
+            font-weight: bold;
+        }
+        .goal-box {
+            border: 2px solid #6366F1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #f9f9ff;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .answer-space {
+            min-height: 80px;
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .short-answer-space {
+            min-height: 40px;
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .hint {
+            font-style: italic;
+            color: #6366F1;
+            margin: 10px 0;
+        }
+        .example {
+            background-color: #f0fff4;
+            padding: 15px;
+            border-left: 4px solid #4ADE80;
+            margin: 15px 0;
+        }
+        .calculation-box {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .steps {
+            background-color: #fff8e7;
+            padding: 15px;
+            border-left: 4px solid #F59E0B;
+            margin: 15px 0;
+        }
+        .tip {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-left: 4px solid #3B82F6;
+            margin: 15px 0;
+        }
+        .no-print {
+            background-color: #FFB62C;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <h3>How to Save/Print This Worksheet</h3>
+        <p>To save this worksheet as a PDF or print a paper copy:</p>
+        <ol>
+            <li>Click the Print button below or press Ctrl+P (Cmd+P on Mac)</li>
+            <li>In the print dialog, choose "Save as PDF" from the destination/printer options</li>
+            <li>Click Save or Print</li>
+        </ol>
+        <button onclick="window.print()">Print Worksheet</button>
+    </div>
+
+    <div class="header">
+        <h1>Personal Savings Plan Worksheet</h1>
+        <p>Chapter 5.2: Understanding the Power of Compound Interest and the Rule of 72</p>
+    </div>
+
+    <div class="intro">
+        <p>This worksheet will help you create a personalized savings plan using compound interest principles. You'll select financial goals, determine target amounts and timeframes, and calculate savings strategies to achieve those goals.</p>
+        <p><strong>Name: _______________________________</strong>&nbsp;&nbsp;&nbsp;<strong>Date: _______________</strong></p>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Part 1: Goal Identification</h2>
+        
+        <p>Start by identifying both short-term and long-term financial goals. Think about what you want to save for and when you want to achieve these goals.</p>
+        
+        <div class="goal-box">
+            <h3>Short-Term Goal (1-5 years)</h3>
+            
+            <div class="form-group">
+                <label for="short-goal">Goal Description:</label>
+                <input type="text" id="short-goal" placeholder="Example: Car down payment, travel fund, emergency fund">
+            </div>
+            
+            <div class="form-group">
+                <label for="short-amount">Target Amount ($):</label>
+                <input type="number" id="short-amount" placeholder="Example: 5000">
+            </div>
+            
+            <div class="form-group">
+                <label for="short-time">Time Frame (years):</label>
+                <input type="number" id="short-time" min="1" max="5" placeholder="1-5 years">
+            </div>
+            
+            <div class="form-group">
+                <label for="short-priority">Priority Level:</label>
+                <select id="short-priority">
+                    <option value="high">High (Essential)</option>
+                    <option value="medium">Medium (Important)</option>
+                    <option value="low">Low (Nice to have)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="goal-box">
+            <h3>Long-Term Goal (6+ years)</h3>
+            
+            <div class="form-group">
+                <label for="long-goal">Goal Description:</label>
+                <input type="text" id="long-goal" placeholder="Example: College fund, house down payment, retirement">
+            </div>
+            
+            <div class="form-group">
+                <label for="long-amount">Target Amount ($):</label>
+                <input type="number" id="long-amount" placeholder="Example: 50000">
+            </div>
+            
+            <div class="form-group">
+                <label for="long-time">Time Frame (years):</label>
+                <input type="number" id="long-time" min="6" placeholder="6+ years">
+            </div>
+            
+            <div class="form-group">
+                <label for="long-priority">Priority Level:</label>
+                <select id="long-priority">
+                    <option value="high">High (Essential)</option>
+                    <option value="medium">Medium (Important)</option>
+                    <option value="low">Low (Nice to have)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Part 2: Savings Calculation for Short-Term Goal</h2>
+        
+        <div class="calculation-box">
+            <p>For your short-term goal, you'll calculate:</p>
+            <ol>
+                <li>How much you would need to invest as a lump sum today</li>
+                <li>How much you would need to save monthly</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h3>Lump Sum Calculation</h3>
+            
+            <p>Use this formula to calculate how much you would need to invest as a single deposit to reach your goal:</p>
+            <p><strong>Lump Sum = Target Amount ÷ (1 + r)<sup>t</sup></strong></p>
+            <p>Where r is the annual interest rate (as a decimal) and t is the time in years.</p>
+            
+            <div class="steps">
+                <h4>Step-by-Step Calculation:</h4>
+                <p>1. Enter your target amount: $ <input type="text" style="width: 100px;"></p>
+                <p>2. Enter the expected annual interest rate: <input type="text" style="width: 40px;"> %</p>
+                <p>3. Enter your time frame: <input type="text" style="width: 40px;"> years</p>
+                <p>4. Convert the interest rate to a decimal: <input type="text" style="width: 60px;"></p>
+                <p>5. Calculate (1 + r)<sup>t</sup>: <input type="text" style="width: 100px;"></p>
+                <p>6. Calculate Lump Sum = Target Amount ÷ Result from step 5: $ <input type="text" style="width: 100px;"></p>
+            </div>
+            
+            <div class="form-group">
+                <label>Required Lump Sum Investment:</label>
+                <div class="short-answer-space"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Monthly Contribution Calculation</h3>
+            
+            <p>If you can't invest a lump sum, calculate how much you would need to save monthly:</p>
+            <p><strong>Monthly Contribution = Target Amount ÷ [((1 + r/12)<sup>n</sup> - 1) ÷ (r/12)]</strong></p>
+            <p>Where r is the annual interest rate (as a decimal) and n is the total number of months.</p>
+            
+            <div class="tip">
+                <p>For complex calculations like this one, you can use an online calculator. Search for "monthly savings calculator" or use a financial calculator app.</p>
+            </div>
+            
+            <div class="steps">
+                <h4>Using an Online Calculator:</h4>
+                <p>1. Target amount: $ <input type="text" style="width: 100px;"></p>
+                <p>2. Time period: <input type="text" style="width: 40px;"> years (or <input type="text" style="width: 40px;"> months)</p>
+                <p>3. Expected annual interest rate: <input type="text" style="width: 40px;"> %</p>
+                <p>4. Calculated monthly contribution: $ <input type="text" style="width: 100px;"></p>
+            </div>
+            
+            <div class="form-group">
+                <label>Required Monthly Contribution:</label>
+                <div class="short-answer-space"></div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>Example Calculation:</h3>
+            <p>Goal: Save $5,000 for a vacation in 3 years with a 4% annual interest rate.</p>
+            <p><strong>Lump Sum Calculation:</strong><br>
+            Lump Sum = $5,000 ÷ (1 + 0.04)<sup>3</sup><br>
+            Lump Sum = $5,000 ÷ 1.125<br>
+            Lump Sum = $4,444.44</p>
+            
+            <p><strong>Monthly Contribution Calculation:</strong><br>
+            Using a savings calculator with $5,000 target, 3 years (36 months), and 4% interest:<br>
+            Monthly Contribution = $132.25</p>
+        </div>
+        
+        <div class="page-break"></div>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Part 3: Savings Calculation for Long-Term Goal</h2>
+        
+        <p>For long-term goals, compound interest has an even more dramatic effect.</p>
+        
+        <div class="calculation-box">
+            <p>For your long-term goal, you'll calculate:</p>
+            <ol>
+                <li>How much you would need to invest as a lump sum today</li>
+                <li>How much you would need to save monthly</li>
+                <li>How many times your money might double using the Rule of 72</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h3>Lump Sum Calculation</h3>
+            
+            <div class="steps">
+                <h4>Step-by-Step Calculation:</h4>
+                <p>1. Enter your target amount: $ <input type="text" style="width: 100px;"></p>
+                <p>2. Enter the expected annual interest rate: <input type="text" style="width: 40px;"> %</p>
+                <p>3. Enter your time frame: <input type="text" style="width: 40px;"> years</p>
+                <p>4. Convert the interest rate to a decimal: <input type="text" style="width: 60px;"></p>
+                <p>5. Calculate (1 + r)<sup>t</sup>: <input type="text" style="width: 100px;"></p>
+                <p>6. Calculate Lump Sum = Target Amount ÷ Result from step 5: $ <input type="text" style="width: 100px;"></p>
+            </div>
+            
+            <div class="form-group">
+                <label>Required Lump Sum Investment:</label>
+                <div class="short-answer-space"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Monthly Contribution Calculation</h3>
+            
+            <div class="steps">
+                <h4>Using an Online Calculator:</h4>
+                <p>1. Target amount: $ <input type="text" style="width: 100px;"></p>
+                <p>2. Time period: <input type="text" style="width: 40px;"> years (or <input type="text" style="width: 40px;"> months)</p>
+                <p>3. Expected annual interest rate: <input type="text" style="width: 40px;"> %</p>
+                <p>4. Calculated monthly contribution: $ <input type="text" style="width: 100px;"></p>
+            </div>
+            
+            <div class="form-group">
+                <label>Required Monthly Contribution:</label>
+                <div class="short-answer-space"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Rule of 72 Application</h3>
+            
+            <p>Use the Rule of 72 to see how many times your money could double over your investment period:</p>
+            
+            <div class="steps">
+                <h4>Calculation:</h4>
+                <p>1. Years to double = 72 ÷ Interest rate (%): <input type="text" style="width: 60px;"> years</p>
+                <p>2. Number of doublings = Time frame ÷ Years to double: <input type="text" style="width: 60px;"> doublings</p>
+                <p>3. Final multiplier = 2<sup>Number of doublings</sup>: <input type="text" style="width: 100px;"> times original amount</p>
+            </div>
+            
+            <div class="form-group">
+                <label>This means if you invested $1,000 today, it could grow to approximately $ <input type="text" style="width: 100px;"> over your time frame.</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Part 4: Savings Strategy Development</h2>
+        
+        <p>Based on your calculations, develop a practical savings strategy that works within your current financial situation.</p>
+        
+        <div class="section">
+            <h3>Financial Assessment</h3>
+            
+            <div class="form-group">
+                <label>Current Monthly Income: $</label>
+                <input type="number" placeholder="Example: 2500">
+            </div>
+            
+            <div class="form-group">
+                <label>Current Monthly Expenses: $</label>
+                <input type="number" placeholder="Example: 2000">
+            </div>
+            
+            <div class="form-group">
+                <label>Available for Savings/Investment: $</label>
+                <input type="number" placeholder="Example: 500">
+            </div>
+            
+            <div class="form-group">
+                <label>Current Savings/Emergency Fund: $</label>
+                <input type="number" placeholder="Example: 1000">
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Savings Allocation Plan</h3>
+            
+            <p>Based on your available savings amount, how will you allocate funds toward your goals?</p>
+            
+            <div class="form-group">
+                <label>Amount to allocate to Short-Term Goal: $</label>
+                <input type="number" placeholder="Example: 200">
+            </div>
+            
+            <div class="form-group">
+                <label>Amount to allocate to Long-Term Goal: $</label>
+                <input type="number" placeholder="Example: 200">
+            </div>
+            
+            <div class="form-group">
+                <label>Amount to allocate to Emergency Fund: $</label>
+                <input type="number" placeholder="Example: 100">
+            </div>
+            
+            <div class="form-group">
+                <label>How does this allocation compare to the required amounts from your calculations?</label>
+                <div class="answer-space"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Specific Action Steps</h3>
+            
+            <p>List 3-5 specific actions you'll take to implement your savings plan:</p>
+            
+            <div class="form-group">
+                <label>Action 1:</label>
+                <input type="text" placeholder="Example: Set up automatic transfer of $200 on payday">
+            </div>
+            
+            <div class="form-group">
+                <label>Action 2:</label>
+                <input type="text" placeholder="Example: Research high-yield savings accounts">
+            </div>
+            
+            <div class="form-group">
+                <label>Action 3:</label>
+                <input type="text" placeholder="Example: Cut subscription services to save $30/month">
+            </div>
+            
+            <div class="form-group">
+                <label>Action 4:</label>
+                <input type="text">
+            </div>
+            
+            <div class="form-group">
+                <label>Action 5:</label>
+                <input type="text">
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+    </div>
+    
+    <div class="worksheet-section">
+        <h2>Part 5: Reflection and Adjustments</h2>
+        
+        <div class="section">
+            <h3>Impact of Compound Interest</h3>
+            
+            <p>Reflect on how compound interest will help you reach your goals:</p>
+            
+            <div class="form-group">
+                <label>How much of your short-term goal amount will come from interest versus your contributions?</label>
+                <div class="answer-space"></div>
+            </div>
+            
+            <div class="form-group">
+                <label>How much of your long-term goal amount will come from interest versus your contributions?</label>
+                <div class="answer-space"></div>
+            </div>
+            
+            <div class="form-group">
+                <label>What did you find most surprising about the power of compound interest in your calculations?</label>
+                <div class="answer-space"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Plan Adjustments</h3>
+            
+            <p>Consider potential adjustments to optimize your savings plan:</p>
+            
+            <div class="form-group">
+                <label>What would happen if you increased your interest rate by 1% (through a different savings vehicle or investment)?</label>
+                <div class="answer-space"></div>
+            </div>
+            
+            <div class="form-group">
+                <label>What would happen if you extended your time frame by 2 years?</label>
+                <div class="answer-space"></div>
+            </div>
+            
+            <div class="form-group">
+                <label>What would happen if you increased your monthly contribution by $50?</label>
+                <div class="answer-space"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Final Savings Plan Summary</h3>
+            
+            <p>Summarize your final savings plan for each goal:</p>
+            
+            <div class="form-group">
+                <label>Short-Term Goal Plan:</label>
+                <div class="answer-space"></div>
+            </div>
+            
+            <div class="form-group">
+                <label>Long-Term Goal Plan:</label>
+                <div class="answer-space"></div>
+            </div>
+            
+            <div class="form-group">
+                <label>How will you track your progress toward these goals?</label>
+                <div class="answer-space"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>PFL Academy | Chapter 5.2: Understanding the Power of Compound Interest and the Rule of 72</p>
+    </footer>
+</body>
+</html>

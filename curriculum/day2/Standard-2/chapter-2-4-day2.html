@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 2.4: Understanding Tax Deductions and Credits - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Case study styling for case-study template format */
+        .case-study {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #f8fafc;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        /* Slider styling for tax simulator */
+        .slider-container {
+            margin: 15px 0;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;  
+            background: #d3d3d3;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%; 
+            background: #4f46e5;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4f46e5;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 2: Taxes</h2>
+                <p class="text-gray-600 mb-4">Covers types of taxes, deductions, credits, and their impact on income, emphasizing financial management and tax compliance.</p>
+            </div>
+            
+            <!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-2-4-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Previous Chapters -->
+                <li>
+                    <a href="chapter-2-1-day2.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <span class="text-left">2.1 Understanding Federal and State Taxes</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="chapter-2-2-day2.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <span class="text-left">2.2 Understanding Tax Brackets and Tax Rates</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="chapter-2-3-day2.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <span class="text-left">2.3 Understanding Tax Filing Requirements</span>
+                    </a>
+                </li>
+                
+                <!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">2.4: Understanding Tax Deductions and Credits</span>
+                    </div>
+                    <!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Standard vs. Itemized Deductions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Maximize Tax Credits
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Strategic Tax Planning
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Future Chapters -->
+                <li>
+                    <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                        </span>
+                        <span class="text-left">2.5 Tax Planning and Compliance</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/3 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-2-4-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Understanding Tax Deductions and Credits - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Apply your knowledge of tax benefits through interactive simulations and case studies</p>
+            
+            <!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Apply knowledge of tax deductions and credits to real-world scenarios</li>
+                    <li>Determine when to use standard vs. itemized deductions based on specific situations</li>
+                    <li>Analyze the impact of different tax credits on overall tax liability</li>
+                    <li>Develop strategic tax planning approaches for various financial situations</li>
+                    <li>Create a personalized tax strategy plan aligned with financial goals</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">Welcome to the Learning Lab! Today, you'll apply what you learned about tax deductions and credits by working with a tax strategy simulator and developing a personal tax strategy plan. These hands-on activities will help you better understand how to make strategic tax decisions in the future.</p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700">The tax scenarios and calculations in this Learning Lab are simplified for educational purposes. Real-world tax situations may be more complex and require professional assistance. Tax rates, deductions, and credits also change regularly based on tax law updates.</p>
+                </div>
+                
+                <!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">Today's Learning Lab builds on these key concepts from Day 1:</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>How tax deductions reduce your taxable income</li>
+                        <li>How tax credits directly reduce your tax bill</li>
+                        <li>The difference between standard and itemized deductions</li>
+                        <li>The distinction between refundable and nonrefundable credits</li>
+                    </ul>
+                </div>
+                
+                <!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Tax Benefits and Strategic Planning</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="/finished LM recordings/2.4 - Understanding Tax Deductions and Credits.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Tax deduction basics, standard vs. itemized deductions, common tax credits, strategic tax planning</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">In today's Learning Lab, you'll use a tax strategy simulator to explore different tax situations and analyze how various deductions and credits can impact your overall tax liability. You'll also create a personalized tax strategy plan to apply what you've learned to your future financial planning.</p>
+            </section>
+            
+            <!-- Learning Station 1: Standard vs. Itemized Deductions -->
+            <div id="station1" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h3 class="text-xl font-semibold">Compare Standard vs. Itemized Deductions</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Using the simulator below, you'll work with different income and expense scenarios to determine when it makes sense to itemize deductions versus taking the standard deduction.</p>
+                
+                <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Tax Deduction Simulator</h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Scenario Selector -->
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h5 class="font-medium text-gray-900 mb-3">Select a Scenario:</h5>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <input type="radio" id="scenario1" name="scenario" class="mr-2 scenario-selector" checked>
+                                    <label for="scenario1" class="text-gray-700">Single filer, $75,000 income, $12,000 itemized</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="radio" id="scenario2" name="scenario" class="mr-2 scenario-selector">
+                                    <label for="scenario2" class="text-gray-700">Married couple, $95,000 income, $25,000 itemized</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="radio" id="scenario3" name="scenario" class="mr-2 scenario-selector">
+                                    <label for="scenario3" class="text-gray-700">Single filer, $60,000 income, $15,000 itemized</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="radio" id="scenarioCustom" name="scenario" class="mr-2 scenario-selector">
+                                    <label for="scenarioCustom" class="text-gray-700">Custom scenario</label>
+                                </div>
+                            </div>
+                            
+                            <!-- Custom Scenario Controls (hidden by default) -->
+                            <div id="customControls" class="hidden mt-4 border-t pt-4">
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Filing Status:</label>
+                                    <select id="filingStatus" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                        <option value="single">Single</option>
+                                        <option value="married">Married Filing Jointly</option>
+                                        <option value="head">Head of Household</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Annual Income: $<span id="incomeValue">50000</span></label>
+                                    <div class="slider-container">
+                                        <input type="range" min="10000" max="200000" value="50000" class="slider" id="incomeSlider">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Potential Itemized Deductions: $<span id="itemizedValue">12000</span></label>
+                                    <div class="slider-container">
+                                        <input type="range" min="0" max="50000" value="12000" class="slider" id="itemizedSlider">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Results Display -->
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h5 class="font-medium text-gray-900 mb-3">Tax Impact:</h5>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="p-3 bg-blue-50 rounded-lg">
+                                    <h6 class="font-medium text-blue-800 mb-1">Standard Deduction</h6>
+                                    <p class="text-sm mb-1">Deduction amount: $<span id="standardAmount">12950</span></p>
+                                    <p class="text-sm">Tax savings: $<span id="standardSavings">1554</span></p>
+                                </div>
+                                <div class="p-3 bg-green-50 rounded-lg">
+                                    <h6 class="font-medium text-green-800 mb-1">Itemized Deduction</h6>
+                                    <p class="text-sm mb-1">Deduction amount: $<span id="itemizedAmount">12000</span></p>
+                                    <p class="text-sm">Tax savings: $<span id="itemizedSavings">1440</span></p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4 p-3 bg-indigo-50 rounded-lg">
+                                <h6 class="font-medium text-indigo-800 mb-1">Optimal Choice</h6>
+                                <p id="recommendationText" class="text-sm">For this scenario, the <strong>Standard Deduction</strong> provides the greater tax benefit (additional $114 in tax savings).</p>
+                            </div>
+                            
+                            <div>
+                                <h6 class="font-medium text-gray-900 mb-1">Breakeven Analysis:</h6>
+                                <p class="text-sm">Itemizing becomes beneficial when deductions exceed $<span id="threshold">12950</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-gray-900 mb-3">Your Analysis</h4>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">1. Based on your simulation, when does it make sense to itemize deductions versus taking the standard deduction?</label>
+                        <textarea class="w-full p-2 border rounded" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">2. How would your recommendation change if the taxpayer's charitable donations increased by $5,000?</label>
+                        <textarea class="w-full p-2 border rounded" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                    </div>
+                    
+                    <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Save and Continue
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Learning Station 2: Maximize Tax Credits -->
+            <div id="station2" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h3 class="text-xl font-semibold">Maximize Tax Credits</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Explore various tax credit scenarios to determine how different credits affect your overall tax liability and which strategy would result in the lowest tax bill.</p>
+                
+                <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Tax Credit Simulator</h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Case Study Selector -->
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h5 class="font-medium text-gray-900 mb-3">Select a Scenario:</h5>
+                            <div class="space-y-2">
+                                <div class="case-study-option p-3 border rounded-md cursor-pointer hover:bg-blue-50" data-case="student">
+                                    <h6 class="font-medium text-gray-900">College Student</h6>
+                                    <p class="text-sm text-gray-700">Jordan, 20, full-time student, part-time job earning $18,000, paying $8,000 in qualified tuition.</p>
+                                </div>
+                                <div class="case-study-option p-3 border rounded-md cursor-pointer hover:bg-blue-50" data-case="lowincome">
+                                    <h6 class="font-medium text-gray-900">Low-Income Worker</h6>
+                                    <p class="text-sm text-gray-700">Alex, 25, earning $24,000 annually, no children, renting an apartment.</p>
+                                </div>
+                                <div class="case-study-option p-3 border rounded-md cursor-pointer hover:bg-blue-50" data-case="family">
+                                    <h6 class="font-medium text-gray-900">Family with Dependents</h6>
+                                    <p class="text-sm text-gray-700">Sam & Taylor, married with 2 children (ages 4 and 7), earning $85,000, paying $6,000 for childcare.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Credit Analysis -->
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h5 class="font-medium text-gray-900 mb-3">Credit Options:</h5>
+                            
+                            <div id="creditOptions" class="mb-4">
+                                <!-- Dynamically populated based on selected case study -->
+                                <div class="space-y-2">
+                                    <div class="p-3 bg-blue-50 rounded-lg">
+                                        <h6 class="font-medium text-blue-800">American Opportunity Tax Credit</h6>
+                                        <p class="text-sm">Maximum credit: $2,500</p>
+                                        <p class="text-sm">Type: <span class="px-2 py-0.5 bg-green-100 rounded-full text-xs text-green-800">Partially Refundable</span></p>
+                                    </div>
+                                    <div class="p-3 bg-blue-50 rounded-lg">
+                                        <h6 class="font-medium text-blue-800">Lifetime Learning Credit</h6>
+                                        <p class="text-sm">Maximum credit: $2,000</p>
+                                        <p class="text-sm">Type: <span class="px-2 py-0.5 bg-red-100 rounded-full text-xs text-red-800">Nonrefundable</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4 p-3 bg-indigo-50 rounded-lg">
+                                <h6 class="font-medium text-indigo-800 mb-1">Optimal Strategy</h6>
+                                <p id="creditStrategy" class="text-sm">For Jordan, the <strong>American Opportunity Tax Credit</strong> provides the greater benefit of up to $2,500, with up to $1,000 potentially refundable even if no tax is owed.</p>
+                            </div>
+                            
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <h6 class="font-medium text-purple-800 mb-1">Credit vs. Deduction Comparison</h6>
+                                <p class="text-sm mb-2">For a $2,000 education expense:</p>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="p-2 bg-white rounded border border-purple-200">
+                                        <p class="text-xs text-gray-700">As a deduction (12% bracket):</p>
+                                        <p class="text-sm font-bold">$240 tax savings</p>
+                                    </div>
+                                    <div class="p-2 bg-white rounded border border-purple-200">
+                                        <p class="text-xs text-gray-700">As a credit:</p>
+                                        <p class="text-sm font-bold">$2,000 tax savings</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-gray-900 mb-3">Your Analysis</h4>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">1. Why is a $1,000 tax credit generally more valuable than a $1,000 tax deduction?</label>
+                        <textarea class="w-full p-2 border rounded" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">2. Explain the difference between refundable and nonrefundable tax credits. Why is this distinction important?</label>
+                        <textarea class="w-full p-2 border rounded" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">3. Based on your exploration, which case study benefited most from tax credits and why?</label>
+                        <textarea class="w-full p-2 border rounded" rows="3" data-ai-check="true" data-assessment-weight="4"></textarea>
+                    </div>
+                    
+                    <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Save and Continue
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Learning Station 3: Strategic Tax Planning Challenge -->
+            <div id="station3" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h3 class="text-xl font-semibold">Strategic Tax Planning Challenge</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Apply your knowledge to a complex tax situation where you'll need to make decisions about timing expenses, claiming deductions, and utilizing credits to minimize tax liability over multiple years.</p>
+                
+                <div class="case-study mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Multi-Year Tax Planning Scenario</h4>
+                    
+                    <div class="bg-white p-4 rounded-lg">
+                        <h5 class="font-medium text-gray-900 mb-2">Meet the Rivera Family</h5>
+                        <p class="text-gray-700 mb-4">Miguel and Elena Rivera, both 35, are married with two children (ages 7 and 10). They're facing several significant financial decisions over the next three years that will impact their taxes.</p>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <h6 class="font-medium text-blue-800 mb-1">Year 1</h6>
+                                <ul class="text-sm text-gray-700 list-disc list-inside">
+                                    <li>Combined income: $110,000</li>
+                                    <li>Medical expenses: $10,000</li>
+                                    <li>Mortgage interest: $8,000</li>
+                                    <li>Planned charitable donation: $5,000</li>
+                                    <li>College course for Elena: $4,000</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <h6 class="font-medium text-blue-800 mb-1">Year 2</h6>
+                                <ul class="text-sm text-gray-700 list-disc list-inside">
+                                    <li>Combined income: $118,000</li>
+                                    <li>Medical expenses: $2,000</li>
+                                    <li>Mortgage interest: $7,800</li>
+                                    <li>Planned charitable donation: $5,000</li>
+                                    <li>College course for Elena: $4,500</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <h6 class="font-medium text-blue-800 mb-1">Year 3</h6>
+                                <ul class="text-sm text-gray-700 list-disc list-inside">
+                                    <li>Combined income: $126,000</li>
+                                    <li>Medical expenses: $2,500</li>
+                                    <li>Mortgage interest: $7,600</li>
+                                    <li>Planned charitable donation: $5,000</li>
+                                    <li>College course for Elena: $0</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-3 rounded-lg mb-4">
+                            <h6 class="font-medium text-yellow-800 mb-1">Important Tax Information</h6>
+                            <ul class="text-sm text-gray-700 list-disc list-inside">
+                                <li>Standard deduction (Married Filing Jointly): $25,900</li>
+                                <li>Medical expenses are only deductible if they exceed 7.5% of Adjusted Gross Income (AGI)</li>
+                                <li>Lifetime Learning Credit: Up to $2,000 for qualified education expenses (phaseout begins at $118,000 for married filing jointly)</li>
+                                <li>The Riveras can choose when to make their charitable donations and could "bunch" them into a single year</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-gray-900 mb-3">Develop Your Tax Strategy</h4>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">1. What strategy would you recommend for the Riveras' charitable donations over the three years to maximize their tax benefits?</label>
+                        <textarea class="w-full p-2 border rounded" rows="3" data-ai-check="true" data-assessment-weight="4"></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">2. When should the Riveras itemize deductions vs. take the standard deduction? Explain your reasoning.</label>
+                        <textarea class="w-full p-2 border rounded" rows="3" data-ai-check="true" data-assessment-weight="4"></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">3. How would you advise the Riveras about claiming the Lifetime Learning Credit for Elena's education expenses?</label>
+                        <textarea class="w-full p-2 border rounded" rows="3" data-ai-check="true" data-assessment-weight="4"></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">4. What is your overall three-year tax strategy for the Riveras that would help them minimize their total tax liability?</label>
+                        <textarea class="w-full p-2 border rounded" rows="4" data-ai-check="true" data-assessment-weight="5"></textarea>
+                    </div>
+                    
+                    <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Save and Continue
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Portfolio Integration Section -->
+            <section id="portfolio" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive personal tax strategy plan.</p>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-900 mb-4">Personal Tax Strategy Plan</h3>
+                    <p class="text-gray-700 mb-4">Based on your work in the Learning Lab, create a personal tax strategy plan that outlines:</p>
+                    
+                    <ul class="list-disc list-inside mb-4 text-gray-700">
+                        <li>Which tax deductions you might qualify for in the future</li>
+                        <li>Which tax credits could be beneficial to you</li>
+                        <li>Strategic decisions you might make to minimize your tax liability</li>
+                        <li>How understanding tax benefits will impact your financial planning</li>
+                    </ul>
+                    
+                    <div class="bg-white p-4 rounded-lg border border-indigo-200 mb-4">
+                        <h4 class="font-medium text-gray-900 mb-3">Your Personal Tax Strategy Plan</h4>
+                        
+                        <div class="mb-4">
+                            <h5 class="font-medium text-gray-800 mb-2">1. Potential Deductions I Might Qualify For</h5>
+                            <textarea class="w-full p-2 border rounded" rows="3" placeholder="List deductions you may qualify for based on your future plans..."></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="font-medium text-gray-800 mb-2">2. Potential Tax Credits I Could Benefit From</h5>
+                            <textarea class="w-full p-2 border rounded" rows="3" placeholder="List credits that may be relevant to your situation..."></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="font-medium text-gray-800 mb-2">3. My Tax Strategy Timeline (3-5 years)</h5>
+                            <textarea class="w-full p-2 border rounded" rows="4" placeholder="Outline how your tax situation might change and your strategy for each phase..."></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="font-medium text-gray-800 mb-2">4. How This Strategy Aligns With My Financial Goals</h5>
+                            <textarea class="w-full p-2 border rounded" rows="3" placeholder="Explain how your tax strategy supports your broader financial objectives..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1" onclick="savePortfolio()">
+                        Add to Portfolio
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Reflection Section -->
+            <section id="reflection" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                    <p class="text-gray-700 mb-3">Reflect on how your understanding of tax deductions and credits will influence your future financial decisions. Which tax benefits do you think will be most relevant to your personal situation in the next 5 years, and how might strategic tax planning influence your other financial decisions?</p>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <a href="#" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                        Continue to Chapter 2.5: Tax Planning and Compliance
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved!</span>
+        </div>
+    </div>
+    
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 3) {
+                // If this was the last station, scroll to portfolio
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.querySelector('.bg-gradient-to-r.from-indigo-600.to-purple-600.h-2\\.5').style.width = percentage + '%';
+            document.querySelector('.font-medium').textContent = completedStations + '/' + (totalStations - 1) + ' stations';
+            
+            // Update station indicators
+            updateStationIndicators();
+        }
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            
+            // Set color based on type
+            if (type === 'warning') {
+                toast.style.backgroundColor = '#f59e0b';
+            } else {
+                toast.style.backgroundColor = '#4f46e5';
+            }
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+            element.addEventListener('blur', function() {
+                if (this.value.length > 50) {
+                    const feedbackContainer = this.nextElementSibling;
+                    if (feedbackContainer && feedbackContainer.classList.contains('feedback-container')) {
+                        feedbackContainer.textContent = "Great job! Your analysis shows a strong understanding of the tax concepts.";
+                        feedbackContainer.classList.remove('hidden');
+                    }
+                } else if (this.value.length > 10) {
+                    const feedbackContainer = this.nextElementSibling;
+                    if (feedbackContainer && feedbackContainer.classList.contains('feedback-container')) {
+                        feedbackContainer.textContent = "Consider expanding your response with more specific examples or analysis.";
+                        feedbackContainer.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Update station indicators
+        function updateStationIndicators() {
+            const stationIndicators = document.querySelectorAll('.station-indicator');
+            
+            // Update for completed stations
+            if (stationProgress.station1 && stationIndicators[0]) {
+                stationIndicators[0].classList.add('active');
+            }
+            if (stationProgress.station2 && stationIndicators[1]) {
+                stationIndicators[1].classList.add('active');
+            }
+            if (stationProgress.station3 && stationIndicators[2]) {
+                stationIndicators[2].classList.add('active');
+            }
+        }
+        
+        // Highlight active section based on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.learning-objectives, #intro, .learning-station, #portfolio, #reflection');
+            const navItems = document.querySelectorAll('#section-navigation a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+        
+        // Tax Deduction Simulator - Station 1
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scenario selection
+            const scenarios = {
+                scenario1: {
+                    filingStatus: "single",
+                    income: 75000,
+                    itemized: 12000,
+                    standard: 12950
+                },
+                scenario2: {
+                    filingStatus: "married",
+                    income: 95000,
+                    itemized: 25000,
+                    standard: 25900
+                },
+                scenario3: {
+                    filingStatus: "single",
+                    income: 60000,
+                    itemized: 15000,
+                    standard: 12950
+                },
+                scenarioCustom: {
+                    filingStatus: "single",
+                    income: 50000,
+                    itemized: 12000,
+                    standard: 12950
+                }
+            };
+            
+            // Custom controls toggle
+            document.querySelectorAll('.scenario-selector').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const customControls = document.getElementById('customControls');
+                    if (this.id === 'scenarioCustom') {
+                        customControls.classList.remove('hidden');
+                    } else {
+                        customControls.classList.add('hidden');
+                        updateDeductionCalculation(scenarios[this.id]);
+                    }
+                });
+            });
+            
+            // Custom scenario sliders
+            const incomeSlider = document.getElementById('incomeSlider');
+            const incomeValue = document.getElementById('incomeValue');
+            const itemizedSlider = document.getElementById('itemizedSlider');
+            const itemizedValue = document.getElementById('itemizedValue');
+            const filingStatus = document.getElementById('filingStatus');
+            
+            incomeSlider.addEventListener('input', function() {
+                incomeValue.textContent = this.value;
+                updateCustomScenario();
+            });
+            
+            itemizedSlider.addEventListener('input', function() {
+                itemizedValue.textContent = this.value;
+                updateCustomScenario();
+            });
+            
+            filingStatus.addEventListener('change', function() {
+                updateCustomScenario();
+            });
+            
+            function updateCustomScenario() {
+                const status = filingStatus.value;
+                const income = parseInt(incomeSlider.value);
+                const itemized = parseInt(itemizedSlider.value);
+                const standard = status === 'married' ? 25900 : 12950;
+                
+                scenarios.scenarioCustom = {
+                    filingStatus: status,
+                    income: income,
+                    itemized: itemized,
+                    standard: standard
+                };
+                
+                if (document.getElementById('scenarioCustom').checked) {
+                    updateDeductionCalculation(scenarios.scenarioCustom);
+                }
+            }
+            
+            function updateDeductionCalculation(scenario) {
+                // Update display values
+                document.getElementById('standardAmount').textContent = scenario.standard;
+                document.getElementById('itemizedAmount').textContent = scenario.itemized;
+                document.getElementById('threshold').textContent = scenario.standard;
+                
+                // Calculate tax bracket (simplified for demo)
+                let taxRate = 0.12; // Default to 12% bracket
+                if (scenario.income > 89075 && scenario.filingStatus === 'single') {
+                    taxRate = 0.22;
+                } else if (scenario.income > 178150 && scenario.filingStatus === 'married') {
+                    taxRate = 0.22;
+                }
+                
+                // Calculate savings
+                const standardSavings = Math.round(scenario.standard * taxRate);
+                const itemizedSavings = Math.round(scenario.itemized * taxRate);
+                
+                document.getElementById('standardSavings').textContent = standardSavings;
+                document.getElementById('itemizedSavings').textContent = itemizedSavings;
+                
+                // Determine recommendation
+                const recommendationText = document.getElementById('recommendationText');
+                if (standardSavings > itemizedSavings) {
+                    const difference = standardSavings - itemizedSavings;
+                    recommendationText.innerHTML = `For this scenario, the <strong>Standard Deduction</strong> provides the greater tax benefit (additional $${difference} in tax savings).`;
+                } else if (itemizedSavings > standardSavings) {
+                    const difference = itemizedSavings - standardSavings;
+                    recommendationText.innerHTML = `For this scenario, <strong>Itemizing Deductions</strong> provides the greater tax benefit (additional $${difference} in tax savings).`;
+                } else {
+                    recommendationText.innerHTML = `For this scenario, both methods provide equivalent tax benefits ($${standardSavings} in tax savings).`;
+                }
+            }
+            
+            // Initialize with first scenario
+            updateDeductionCalculation(scenarios.scenario1);
+            
+            // Tax Credit Simulator - Station 2
+            const caseStudyOptions = document.querySelectorAll('.case-study-option');
+            
+            caseStudyOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Reset all options
+                    caseStudyOptions.forEach(opt => {
+                        opt.classList.remove('bg-blue-50', 'border-blue-300');
+                        opt.classList.add('hover:bg-blue-50');
+                    });
+                    
+                    // Highlight selected option
+                    this.classList.add('bg-blue-50', 'border-blue-300');
+                    this.classList.remove('hover:bg-blue-50');
+                    
+                    // Update credit options based on case
+                    const caseType = this.getAttribute('data-case');
+                    updateCreditOptions(caseType);
+                });
+            });
+            
+            function updateCreditOptions(caseType) {
+                const creditOptions = document.getElementById('creditOptions');
+                const creditStrategy = document.getElementById('creditStrategy');
+                
+                switch(caseType) {
+                    case 'student':
+                        creditOptions.innerHTML = `
+                            <div class="space-y-2">
+                                <div class="p-3 bg-blue-50 rounded-lg">
+                                    <h6 class="font-medium text-blue-800">American Opportunity Tax Credit</h6>
+                                    <p class="text-sm">Maximum credit: $2,500</p>
+                                    <p class="text-sm">Type: <span class="px-2 py-0.5 bg-green-100 rounded-full text-xs text-green-800">Partially Refundable</span></p>
+                                </div>
+                                <div class="p-3 bg-blue-50 rounded-lg">
+                                    <h6 class="font-medium text-blue-800">Lifetime Learning Credit</h6>
+                                    <p class="text-sm">Maximum credit: $2,000</p>
+                                    <p class="text-sm">Type: <span class="px-2 py-0.5 bg-red-100 rounded-full text-xs text-red-800">Nonrefundable</span></p>
+                                </div>
+                            </div>
+                        `;
+                        creditStrategy.innerHTML = `For Jordan, the <strong>American Opportunity Tax Credit</strong> provides the greater benefit of up to $2,500, with up to $1,000 potentially refundable even if no tax is owed.`;
+                        break;
+                    case 'lowincome':
+                        creditOptions.innerHTML = `
+                            <div class="space-y-2">
+                                <div class="p-3 bg-blue-50 rounded-lg">
+                                    <h6 class="font-medium text-blue-800">Earned Income Tax Credit (EITC)</h6>
+                                    <p class="text-sm">Maximum credit: $560 (no children)</p>
+                                    <p class="text-sm">Type: <span class="px-2 py-0.5 bg-green-100 rounded-full text-xs text-green-800">Refundable</span></p>
+                                </div>
+                                <div class="p-3 bg-blue-50 rounded-lg">
+                                    <h6 class="font-medium text-blue-800">Saver's Credit</h6>
+                                    <p class="text-sm">Maximum credit: $1,000</p>
+                                    <p class="text-sm">Type: <span class="px-2 py-0.5 bg-red-100 rounded-full text-xs text-red-800">Nonrefundable</span></p>
+                                </div>
+                            </div>
+                        `;
+                        creditStrategy.innerHTML = `For Alex, the <strong>Earned Income Tax Credit</strong> is most valuable because it's fully refundable, meaning Alex can receive it even with low tax liability. Contributing to retirement could also qualify for the Saver's Credit.`;
+                        break;
+                    case 'family':
+                        creditOptions.innerHTML = `
+                            <div class="space-y-2">
+                                <div class="p-3 bg-blue-50 rounded-lg">
+                                    <h6 class="font-medium text-blue-800">Child Tax Credit</h6>
+                                    <p class="text-sm">Maximum credit: $2,000 per qualifying child</p>
+                                    <p class="text-sm">Type: <span class="px-2 py-0.5 bg-green-100 rounded-full text-xs text-green-800">Partially Refundable</span></p>
+                                </div>
+                                <div class="p-3 bg-blue-50 rounded-lg">
+                                    <h6 class="font-medium text-blue-800">Child and Dependent Care Credit</h6>
+                                    <p class="text-sm">Maximum credit: $1,200 (20% of expenses up to $6,000)</p>
+                                    <p class="text-sm">Type: <span class="px-2 py-0.5 bg-red-100 rounded-full text-xs text-red-800">Nonrefundable</span></p>
+                                </div>
+                            </div>
+                        `;
+                        creditStrategy.innerHTML = `For Sam & Taylor, the <strong>Child Tax Credit</strong> provides $4,000 total ($2,000 per child), and the <strong>Child and Dependent Care Credit</strong> provides an additional $1,200. Together, these credits reduce their tax bill by $5,200.`;
+                        break;
+                }
+            }
+            
+            // Highlight first case study by default
+            caseStudyOptions[0].click();
+        });
+    </script>
+</body>
+</html>

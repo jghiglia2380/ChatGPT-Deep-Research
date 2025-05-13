@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 2.2: Understanding Tax Brackets and Tax Rates - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Case study card styling */
+        .case-study-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            background-color: #f9fafb;
+            transition: all 0.3s ease;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 2: Taxes</h2>
+                        <p class="text-gray-600 text-sm mt-1">Tax systems, rates, requirements, credits, and compliance</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Previous chapter with checkmark -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 2.1: Understanding Federal and State Taxes
+                                </a>
+                            </li>
+                            
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 2.2: Understanding Tax Brackets and Tax Rates
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-2-2-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-indigo-700 font-medium">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Tax Ethics Research Challenge
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Tax Impact Analysis
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Tax Policy Proposal
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Future chapters without checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 2.3: Understanding Tax Filing Requirements
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 2.4: Understanding Tax Credits
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 2.5: Tax Planning and Compliance
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-2-2-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 2.2: Understanding Tax Brackets and Tax Rates</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Tax Ethics and Policy Analysis</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Evaluate the difference between tax avoidance and tax evasion in real-world contexts</li>
+                            <li>Analyze the impact of tax brackets on different income levels</li>
+                            <li>Calculate effective tax rates and understand their significance</li>
+                            <li>Compare the outcomes of different tax policy approaches</li>
+                            <li>Develop and articulate a position on ethical tax practices</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            In today's Learning Lab, you'll investigate the ethical implications of taxation and analyze how tax brackets and rates affect individuals at different income levels. Through research, analysis, and policy development, you'll deepen your understanding of our progressive tax system and explore the fine line between legitimate tax avoidance and illegal tax evasion.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                This Learning Lab focuses on the ethical and analytical aspects of taxation rather than providing tax advice. The scenarios and calculations presented are simplified for educational purposes. Always consult a tax professional for personal tax situations and compliance with current tax laws.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, we learned about progressive tax brackets, how to calculate marginal vs. effective tax rates, and the distinction between tax avoidance and tax evasion. Today, we'll apply these concepts by analyzing real-world examples, calculating tax impacts across different income levels, and developing policy proposals that address the ethical dimensions of taxation.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Understanding Tax Brackets and Tax Rates</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/2.2 - Understanding Tax Brackets and Tax Rates.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Progressive taxation, tax brackets, marginal vs. effective tax rates, tax planning strategies
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Stations -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Tax Ethics Research Challenge</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">Building on the tax avoidance vs. tax evasion concepts from Day 1, research and analyze these contemporary case studies involving more complex tax strategies.</p>
+                        
+                        <div class="mb-6 bg-indigo-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-indigo-900 mb-3">Refresher: Avoidance vs. Evasion</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-medium text-indigo-800 mb-1">Tax Avoidance (Legal)</h4>
+                                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                                        <li>Using legal methods to reduce tax burden</li>
+                                        <li>Taking advantage of tax incentives, deductions, and credits</li>
+                                        <li>Transparent use of legal provisions in tax code</li>
+                                        <li>May be controversial but doesn't break laws</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-medium text-indigo-800 mb-1">Tax Evasion (Illegal)</h4>
+                                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                                        <li>Deliberately hiding income or information</li>
+                                        <li>Falsifying records or providing fraudulent information</li>
+                                        <li>Failure to report all income</li>
+                                        <li>Carries legal penalties including fines and imprisonment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="case-study-card">
+                                <h3 class="font-semibold text-indigo-900 mb-2">Case Study 1: The Panama Papers</h3>
+                                <p class="text-gray-700 text-sm mb-3">
+                                    In 2016, the "Panama Papers" leak revealed how wealthy individuals and public officials used offshore entities to conceal assets and avoid taxes. The documents exposed over 214,000 shell companies set up through Panamanian law firm Mossack Fonseca.
+                                </p>
+                                <p class="text-gray-700 text-sm mb-2">
+                                    Many of these arrangements existed in a gray area between legal tax avoidance and illegal tax evasion:
+                                </p>
+                                <ul class="list-disc list-inside text-gray-700 text-sm mb-3">
+                                    <li>Some individuals legally held assets in offshore accounts but reported them properly to tax authorities</li>
+                                    <li>Others used complex structures to hide income that should have been reported</li>
+                                    <li>Several implicated individuals faced criminal charges for tax evasion and money laundering</li>
+                                    <li>The revelations prompted many countries to strengthen tax transparency laws</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-study-card">
+                                <h3 class="font-semibold text-indigo-900 mb-2">Case Study 2: Apple's Irish Tax Structure</h3>
+                                <p class="text-gray-700 text-sm mb-3">
+                                    Apple created a complex international tax structure that allowed the company to pay very little tax on its international profits. The European Commission ordered Apple to pay Ireland €13 billion in back taxes, ruling that Ireland had given the company illegal tax benefits.
+                                </p>
+                                <p class="text-gray-700 text-sm mb-2">
+                                    Key elements of Apple's strategy included:
+                                </p>
+                                <ul class="list-disc list-inside text-gray-700 text-sm mb-3">
+                                    <li>Transferring intellectual property rights to Irish subsidiaries</li>
+                                    <li>Using the "Double Irish" arrangement to shift profits to tax havens</li>
+                                    <li>Creating "stateless" income that wasn't taxed in any jurisdiction</li>
+                                    <li>All actions were technically legal but exploited loopholes in international tax laws</li>
+                                </ul>
+                                <p class="text-gray-700 text-sm">
+                                    Apple and Ireland both appealed the ruling, with Apple CEO Tim Cook calling it "political crap."
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 bg-white p-5 border border-gray-200 rounded-lg shadow-sm">
+                            <h3 class="font-medium text-gray-900 mb-3">Gray Area: Tax Shelters and Legal Loopholes</h3>
+                            <p class="text-gray-700 mb-3">
+                                Many tax strategies exist in a gray area that may be technically legal but raise ethical questions. Research these real-world examples to better understand the complexities:
+                            </p>
+                            
+                            <div class="grid md:grid-cols-3 gap-4 mb-4">
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-1">1. Transfer Pricing</h4>
+                                    <p class="text-gray-700 text-sm">
+                                        Multinational companies set prices for goods and services transferred between their subsidiaries in different countries, often to reduce taxes.
+                                    </p>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-1">2. Corporate Inversions</h4>
+                                    <p class="text-gray-700 text-sm">
+                                        Companies relocate their legal domicile to a lower-tax country while maintaining operations in higher-tax countries.
+                                    </p>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-1">3. Tax Havens</h4>
+                                    <p class="text-gray-700 text-sm">
+                                        Jurisdictions offering minimal or no taxation are used to shield income from higher tax rates elsewhere.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-medium text-gray-900 mb-2">Ethical Analysis Questions</h3>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">1. Based on the Panama Papers and Apple case studies, identify situations where legal tax avoidance crosses into ethically questionable territory:</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="ethical-boundary"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">2. Research the outcome of the Apple tax case (post-2016). What implications did this case have for international tax policy?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="case-outcome"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">3. How might tax laws need to be adjusted to address global tax avoidance strategies while still allowing legitimate tax planning?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="policy-recommendations"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Tax Bracket Visualization Studio</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">Explore how tax brackets work at a granular level with this interactive visualization tool. See exactly how each dollar is taxed as your income moves through different tax brackets.</p>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-3">The "Tax Bracket Misconception"</h3>
+                            <p class="text-gray-700 mb-3">
+                                A common misconception is that when your income moves into a higher tax bracket, <em>all</em> of your income is taxed at the higher rate. In reality, only the portion of your income that falls within each bracket is taxed at that bracket's rate. This interactive tool helps visualize how this actually works.
+                            </p>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-medium text-indigo-800 mb-1">The Misconception</h4>
+                                    <p class="text-gray-700 text-sm mb-2">
+                                        "If I get a raise that puts me in a higher tax bracket, I'll actually take home less money."
+                                    </p>
+                                    <div class="flex items-center text-red-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">False</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-medium text-indigo-800 mb-1">The Reality</h4>
+                                    <p class="text-gray-700 text-sm mb-2">
+                                        "Only the income above the bracket threshold is taxed at the higher rate. You always take home more money when your income increases."
+                                    </p>
+                                    <div class="flex items-center text-green-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm font-medium">True</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <div class="bg-white border border-gray-200 p-4 rounded-lg shadow-sm mb-4">
+                                    <h3 class="font-medium text-gray-900 mb-3">2023 Federal Income Tax Brackets</h3>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead>
+                                                <tr>
+                                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bracket</th>
+                                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Single Filers</th>
+                                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rate</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="divide-y divide-gray-200 bg-white text-sm">
+                                                <tr>
+                                                    <td class="px-3 py-2">1</td>
+                                                    <td class="px-3 py-2">$0 - $11,000</td>
+                                                    <td class="px-3 py-2">10%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-3 py-2">2</td>
+                                                    <td class="px-3 py-2">$11,001 - $44,725</td>
+                                                    <td class="px-3 py-2">12%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-3 py-2">3</td>
+                                                    <td class="px-3 py-2">$44,726 - $95,375</td>
+                                                    <td class="px-3 py-2">22%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-3 py-2">4</td>
+                                                    <td class="px-3 py-2">$95,376 - $182,100</td>
+                                                    <td class="px-3 py-2">24%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-3 py-2">5</td>
+                                                    <td class="px-3 py-2">$182,101 - $231,250</td>
+                                                    <td class="px-3 py-2">32%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-3 py-2">6</td>
+                                                    <td class="px-3 py-2">$231,251 - $578,125</td>
+                                                    <td class="px-3 py-2">35%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-3 py-2">7</td>
+                                                    <td class="px-3 py-2">$578,126+</td>
+                                                    <td class="px-3 py-2">37%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h3 class="font-medium text-gray-900 mb-3">Tax Bracket Calculator</h3>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-gray-700 text-sm font-medium mb-1">Enter Your Annual Income</label>
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 mr-2">$</span>
+                                            <input type="number" id="bracket-income" class="w-full border border-gray-300 rounded-md px-3 py-2" value="65000">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-gray-700 text-sm font-medium mb-1">Compare with Second Income</label>
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 mr-2">$</span>
+                                            <input type="number" id="compare-income" class="w-full border border-gray-300 rounded-md px-3 py-2" value="95000">
+                                        </div>
+                                        <p class="text-xs text-gray-500 mt-1">See how taxes change when income crosses bracket thresholds</p>
+                                    </div>
+                                    
+                                    <button class="pfl-button w-full" onclick="calculateBracketVisualization()">Visualize Tax Brackets</button>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 border border-gray-200 rounded-lg shadow-sm">
+                                <h3 class="font-medium text-gray-900 mb-3">Results Analysis</h3>
+                                
+                                <div class="grid grid-cols-2 gap-2 mb-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">Income 1:</p>
+                                        <p class="text-xl font-bold text-gray-900" id="result-income1">$65,000</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">Income 2:</p>
+                                        <p class="text-xl font-bold text-gray-900" id="result-income2">$95,000</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">Total Tax (Income 1):</p>
+                                        <p class="text-lg font-medium text-red-600" id="result-tax1">$0</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">Total Tax (Income 2):</p>
+                                        <p class="text-lg font-medium text-red-600" id="result-tax2">$0</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">Effective Rate (Income 1):</p>
+                                        <p class="text-lg font-medium text-indigo-700" id="result-effective1">0%</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">Effective Rate (Income 2):</p>
+                                        <p class="text-lg font-medium text-indigo-700" id="result-effective2">0%</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-3 bg-green-50 rounded-lg border border-green-200 mb-4">
+                                    <h4 class="font-medium text-green-800 mb-1">Tax Savings Analysis</h4>
+                                    <div class="flex items-center mb-1">
+                                        <p class="text-sm text-gray-700 font-medium">Additional Income:</p>
+                                        <p class="text-sm ml-auto font-bold" id="additional-income">$30,000</p>
+                                    </div>
+                                    <div class="flex items-center mb-1">
+                                        <p class="text-sm text-gray-700 font-medium">Additional Tax:</p>
+                                        <p class="text-sm ml-auto font-bold text-red-600" id="additional-tax">$6,600</p>
+                                    </div>
+                                    <div class="flex items-center mb-1">
+                                        <p class="text-sm text-gray-700 font-medium">Marginal Tax Rate:</p>
+                                        <p class="text-sm ml-auto font-bold" id="marginal-rate-result">22%</p>
+                                    </div>
+                                    <div class="flex items-center pt-2 border-t border-green-200">
+                                        <p class="text-sm text-gray-700 font-medium">Net Additional Income:</p>
+                                        <p class="text-sm ml-auto font-bold text-green-600" id="net-additional">$23,400</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-sm text-gray-500 italic mb-2">Note: This simplified calculation focuses on federal income tax brackets only and doesn't include deductions, credits, or other taxes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
+                            <h3 class="font-medium text-gray-900 mb-3">Tax Bracket Breakdown</h3>
+                            <div class="mb-4">
+                                <canvas id="bracket-breakdown-chart" height="250"></canvas>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-700 mb-2">How to Read This Chart:</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                        <li>Each color represents a different tax bracket</li>
+                                        <li>The width of each segment shows how much income is taxed in that bracket</li>
+                                        <li>The height represents the tax rate for that bracket</li>
+                                        <li>The area of each segment shows the tax paid in that bracket</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-700 mb-2">Bracket-by-Bracket Taxes (Income 1):</h4>
+                                    <div id="bracket-by-bracket" class="text-sm text-gray-700 overflow-y-auto max-h-32">
+                                        <!-- Filled by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-medium text-gray-900 mb-3">Understanding Brackets Analysis</h3>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">1. Based on the visualization, explain why the "higher bracket means less take-home pay" myth is incorrect:</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="bracket-myth-analysis"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">2. What's the difference between your marginal tax rate and your effective tax rate? How does the visualization help explain this?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="rate-difference-analysis"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">3. How do the two incomes you compared demonstrate the progressive nature of the income tax system?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="progressive-analysis"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Tax Policy Proposal</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">Now that you understand tax brackets and their impacts, develop a tax policy proposal that addresses some of the ethical and practical issues we've explored.</p>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-3">Tax Policy Framework</h3>
+                            <p class="text-gray-700 mb-3">Effective tax policy addresses several key considerations:</p>
+                            
+                            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-semibold text-indigo-800 mb-1">Revenue Generation</h4>
+                                    <p class="text-gray-700">How much revenue will the policy raise to fund government services?</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-semibold text-indigo-800 mb-1">Fairness</h4>
+                                    <p class="text-gray-700">Is the distribution of the tax burden equitable across income levels?</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-semibold text-indigo-800 mb-1">Simplicity</h4>
+                                    <p class="text-gray-700">Is the policy easy to understand and comply with?</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-semibold text-indigo-800 mb-1">Economic Impact</h4>
+                                    <p class="text-gray-700">How will the policy affect economic growth, jobs, and investment?</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-semibold text-indigo-800 mb-1">Enforcement</h4>
+                                    <p class="text-gray-700">Can the policy be effectively enforced to ensure compliance?</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <h4 class="font-semibold text-indigo-800 mb-1">Transparency</h4>
+                                    <p class="text-gray-700">Is it clear to taxpayers how much they owe and why?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-medium text-gray-900 mb-3">Your Tax Policy Proposal</h3>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-1">Policy Name</label>
+                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2" id="policy-name" placeholder="Give your tax policy a descriptive name">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-1">Tax System Approach</label>
+                                <select class="w-full border border-gray-300 rounded-md px-3 py-2" id="policy-approach">
+                                    <option value="">Select an approach...</option>
+                                    <option value="progressive">Progressive (higher rates for higher incomes)</option>
+                                    <option value="flat">Flat (same rate for all incomes)</option>
+                                    <option value="modified">Modified Progressive (fewer brackets)</option>
+                                    <option value="hybrid">Hybrid System (combination approach)</option>
+                                    <option value="other">Other Innovative Approach</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-1">Policy Description</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="policy-description" placeholder="Describe your tax policy approach in detail..."></textarea>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Key Features</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" id="policy-features" placeholder="List the main features of your policy..."></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Intended Benefits</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" id="policy-benefits" placeholder="What benefits would your policy provide?"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Potential Challenges</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="policy-challenges" placeholder="What challenges might your policy face?"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Implementation Strategy</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="policy-implementation" placeholder="How would you implement this policy?"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 bg-indigo-50 p-4 rounded-lg">
+                            <h3 class="font-medium text-gray-900 mb-3">Tax Ethics Position Statement</h3>
+                            <p class="text-gray-700 mb-3">Based on everything you've learned about tax brackets, rates, and ethical considerations, develop a position statement on ethical tax practices.</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" id="ethics-statement" placeholder="Write your position statement on ethical tax practices..."></textarea>
+                        </div>
+                        
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration Section -->
+                    <section id="portfolio" class="mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive tax ethics and policy portfolio.</p>
+                        
+                        <div class="bg-indigo-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-indigo-900 mb-4">Tax Ethics and Policy Portfolio</h3>
+                            <p class="text-gray-700 mb-4">Your portfolio combines the key elements from today's Learning Lab into a cohesive analysis and position statement:</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <h4 class="font-medium text-gray-900 mb-2">Tax Ethics Analysis</h4>
+                                    <p class="text-sm text-gray-700 mb-3">Summarize your understanding of tax avoidance vs. tax evasion, addressing:</p>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1 mb-3">
+                                        <li>Key distinctions between legal and illegal tax practices</li>
+                                        <li>Ethical considerations beyond legal compliance</li>
+                                        <li>Corporate responsibility in tax planning</li>
+                                    </ul>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md text-sm" rows="3" id="portfolio-ethics"></textarea>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <h4 class="font-medium text-gray-900 mb-2">Tax Impact Framework</h4>
+                                    <p class="text-sm text-gray-700 mb-3">Create a framework for evaluating tax systems based on:</p>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1 mb-3">
+                                        <li>Treatment of different income levels</li>
+                                        <li>Marginal vs. effective tax rates</li>
+                                        <li>Economic and social impacts</li>
+                                        <li>Your criteria for a "fair" tax system</li>
+                                    </ul>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md text-sm" rows="3" id="portfolio-impact"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
+                                <h4 class="font-medium text-gray-900 mb-2">Tax Policy Recommendations</h4>
+                                <p class="text-sm text-gray-700 mb-3">Develop a concise set of tax policy recommendations that incorporate the key elements of your proposal:</p>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" id="portfolio-recommendations"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Portfolio Summary</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" id="portfolio-summary" placeholder="Summarize what you've learned about tax brackets, rates, ethics, and policy..."></textarea>
+                            </div>
+                            
+                            <button class="pfl-button" onclick="savePortfolio()">
+                                Add to Portfolio
+                            </button>
+                        </div>
+                    </section>
+                    
+                    <!-- Reflection Section -->
+                    <section id="reflection" class="mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                        
+                        <div class="discussion-prompt">
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                            <p class="text-gray-700 mb-3">Reflect on how your understanding of tax brackets, rates, and tax ethics has evolved through this Learning Lab. Consider how these concepts will influence your financial decision-making, tax planning, and perspective on taxation policies. What responsibility do individuals and businesses have in the tax system, and how can we balance individual tax planning with broader social obligations?</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" id="final-reflection" placeholder="Share your thoughts and reflections here..."></textarea>
+                            <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                        </div>
+                        
+                        <div class="flex justify-end mt-8">
+                            <a href="chapter-2-3-day1.html" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                                Continue to Chapter 2.3
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+    
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false
+        };
+        
+        // Tax bracket visualization calculator
+        function calculateBracketVisualization() {
+            const income1 = parseFloat(document.getElementById('bracket-income').value) || 65000;
+            const income2 = parseFloat(document.getElementById('compare-income').value) || 95000;
+            
+            // Define 2023 tax brackets (single filer)
+            const brackets = [
+                { threshold: 0, rate: 0.10, limit: 11000 },
+                { threshold: 11000, rate: 0.12, limit: 44725 },
+                { threshold: 44725, rate: 0.22, limit: 95375 },
+                { threshold: 95375, rate: 0.24, limit: 182100 },
+                { threshold: 182100, rate: 0.32, limit: 231250 },
+                { threshold: 231250, rate: 0.35, limit: 578125 },
+                { threshold: 578125, rate: 0.37, limit: Infinity }
+            ];
+            
+            // Format currency
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            });
+            
+            // Calculate tax for income1
+            let tax1 = 0;
+            let marginalRate1 = 0;
+            const bracketBreakdown1 = [];
+            
+            for (let i = 0; i < brackets.length; i++) {
+                const bracket = brackets[i];
+                if (income1 > bracket.threshold) {
+                    const taxableInBracket = Math.min(income1, bracket.limit) - bracket.threshold;
+                    const taxInBracket = taxableInBracket * bracket.rate;
+                    tax1 += taxInBracket;
+                    
+                    // Store breakdown for visualization
+                    bracketBreakdown1.push({
+                        bracket: i + 1,
+                        rate: bracket.rate * 100,
+                        taxableAmount: taxableInBracket,
+                        taxPaid: taxInBracket
+                    });
+                    
+                    // Set marginal rate to the highest bracket rate applied
+                    marginalRate1 = bracket.rate * 100;
+                }
+            }
+            
+            // Calculate tax for income2
+            let tax2 = 0;
+            let marginalRate2 = 0;
+            const bracketBreakdown2 = [];
+            
+            for (let i = 0; i < brackets.length; i++) {
+                const bracket = brackets[i];
+                if (income2 > bracket.threshold) {
+                    const taxableInBracket = Math.min(income2, bracket.limit) - bracket.threshold;
+                    const taxInBracket = taxableInBracket * bracket.rate;
+                    tax2 += taxInBracket;
+                    
+                    // Store breakdown for visualization
+                    bracketBreakdown2.push({
+                        bracket: i + 1,
+                        rate: bracket.rate * 100,
+                        taxableAmount: taxableInBracket,
+                        taxPaid: taxInBracket
+                    });
+                    
+                    // Set marginal rate to the highest bracket rate applied
+                    marginalRate2 = bracket.rate * 100;
+                }
+            }
+            
+            // Calculate effective rates
+            const effectiveRate1 = (tax1 / income1) * 100;
+            const effectiveRate2 = (tax2 / income2) * 100;
+            
+            // Calculate difference analysis
+            const additionalIncome = income2 - income1;
+            const additionalTax = tax2 - tax1;
+            const netAdditional = additionalIncome - additionalTax;
+            
+            // Update results in the UI
+            document.getElementById('result-income1').textContent = formatter.format(income1);
+            document.getElementById('result-income2').textContent = formatter.format(income2);
+            document.getElementById('result-tax1').textContent = formatter.format(tax1);
+            document.getElementById('result-tax2').textContent = formatter.format(tax2);
+            document.getElementById('result-effective1').textContent = effectiveRate1.toFixed(1) + '%';
+            document.getElementById('result-effective2').textContent = effectiveRate2.toFixed(1) + '%';
+            
+            document.getElementById('additional-income').textContent = formatter.format(additionalIncome);
+            document.getElementById('additional-tax').textContent = formatter.format(additionalTax);
+            document.getElementById('marginal-rate-result').textContent = marginalRate2.toFixed(0) + '%';
+            document.getElementById('net-additional').textContent = formatter.format(netAdditional);
+            
+            // Generate bracket-by-bracket breakdown text
+            const breakdownEl = document.getElementById('bracket-by-bracket');
+            breakdownEl.innerHTML = '';
+            
+            bracketBreakdown1.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'mb-1';
+                div.innerHTML = `Bracket ${item.bracket} (${item.rate}%): <span class="font-medium">${formatter.format(item.taxableAmount)}</span> → Tax: <span class="text-red-600 font-medium">${formatter.format(item.taxPaid)}</span>`;
+                breakdownEl.appendChild(div);
+            });
+            
+            // Create the bracket visualization chart
+            createBracketBreakdownChart(bracketBreakdown1, bracketBreakdown2, income1, income2);
+        }
+        
+        // Create tax bracket breakdown visualization chart
+        function createBracketBreakdownChart(breakdown1, breakdown2, income1, income2) {
+            const ctx = document.getElementById('bracket-breakdown-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.bracketChart) {
+                window.bracketChart.destroy();
+            }
+            
+            // Prepare data for stacked bar chart
+            const labels = ['Income 1', 'Income 2'];
+            
+            // Configure datasets with different colors for each bracket
+            const bracketColors = [
+                'rgba(59, 130, 246, 0.7)',   // blue - 10% bracket
+                'rgba(16, 185, 129, 0.7)',   // green - 12% bracket
+                'rgba(245, 158, 11, 0.7)',   // amber - 22% bracket
+                'rgba(239, 68, 68, 0.7)',    // red - 24% bracket
+                'rgba(139, 92, 246, 0.7)',   // purple - 32% bracket
+                'rgba(236, 72, 153, 0.7)',   // pink - 35% bracket
+                'rgba(75, 85, 99, 0.7)'      // gray - 37% bracket
+            ];
+            
+            // Create datasets for each bracket
+            const datasets = [];
+            const maxBrackets = Math.max(breakdown1.length, breakdown2.length);
+            
+            for (let i = 0; i < maxBrackets; i++) {
+                const dataset = {
+                    label: `Bracket ${i + 1} (${i < breakdown1.length ? breakdown1[i].rate : breakdown2[i].rate}%)`,
+                    data: [
+                        i < breakdown1.length ? breakdown1[i].taxPaid : 0,
+                        i < breakdown2.length ? breakdown2[i].taxPaid : 0
+                    ],
+                    backgroundColor: bracketColors[i],
+                    borderColor: bracketColors[i].replace('0.7', '1'),
+                    borderWidth: 1
+                };
+                datasets.push(dataset);
+            }
+            
+            // Create the chart
+            window.bracketChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        x: {
+                            stacked: true,
+                            title: {
+                                display: true,
+                                text: 'Income Level'
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            title: {
+                                display: true,
+                                text: 'Tax Amount ($)'
+                            },
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                boxWidth: 12,
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const formatter = new Intl.NumberFormat('en-US', {
+                                        style: 'currency',
+                                        currency: 'USD',
+                                        minimumFractionDigits: 0
+                                    });
+                                    return context.dataset.label + ': ' + formatter.format(context.raw);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Tax impact calculator functionality
+        function calculateTaxImpact() {
+            const income = parseFloat(document.getElementById('income').value) || 50000;
+            const taxSystem = document.getElementById('tax-system').value;
+            const filingStatus = document.getElementById('filing-status').value;
+            
+            // Format currency
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2
+            });
+            
+            let taxAmount = 0;
+            let marginalRate = 0;
+            
+            // Calculate tax based on selected system
+            if (taxSystem === 'progressive') {
+                // Progressive tax calculation (simplified 2023 tax brackets for single filers)
+                if (income <= 11000) {
+                    taxAmount = income * 0.10;
+                    marginalRate = 10;
+                } else if (income <= 44725) {
+                    taxAmount = 1100 + (income - 11000) * 0.12;
+                    marginalRate = 12;
+                } else if (income <= 95375) {
+                    taxAmount = 5147 + (income - 44725) * 0.22;
+                    marginalRate = 22;
+                } else if (income <= 182100) {
+                    taxAmount = 16290 + (income - 95375) * 0.24;
+                    marginalRate = 24;
+                } else if (income <= 231250) {
+                    taxAmount = 37104 + (income - 182100) * 0.32;
+                    marginalRate = 32;
+                } else if (income <= 578125) {
+                    taxAmount = 52832 + (income - 231250) * 0.35;
+                    marginalRate = 35;
+                } else {
+                    taxAmount = 174238.25 + (income - 578125) * 0.37;
+                    marginalRate = 37;
+                }
+            } else if (taxSystem === 'flat') {
+                // Flat tax (10%)
+                taxAmount = income * 0.10;
+                marginalRate = 10;
+            } else if (taxSystem === 'regressive') {
+                // Regressive tax (higher rates for lower incomes)
+                if (income <= 20000) {
+                    taxAmount = income * 0.15;
+                    marginalRate = 15;
+                } else if (income <= 50000) {
+                    taxAmount = 3000 + (income - 20000) * 0.12;
+                    marginalRate = 12;
+                } else if (income <= 100000) {
+                    taxAmount = 6600 + (income - 50000) * 0.10;
+                    marginalRate = 10;
+                } else {
+                    taxAmount = 11600 + (income - 100000) * 0.08;
+                    marginalRate = 8;
+                }
+            }
+            
+            // Calculate take-home pay and effective rate
+            const takeHome = income - taxAmount;
+            const effectiveRate = (taxAmount / income) * 100;
+            
+            // Update the results
+            document.getElementById('gross-income').textContent = formatter.format(income);
+            document.getElementById('tax-amount').textContent = '-' + formatter.format(taxAmount);
+            document.getElementById('take-home').textContent = formatter.format(takeHome);
+            document.getElementById('effective-rate').textContent = effectiveRate.toFixed(1) + '%';
+            document.getElementById('marginal-rate').textContent = marginalRate.toFixed(1) + '%';
+            
+            // Create comparison chart
+            createComparisonChart(income);
+        }
+        
+        // Create tax system comparison chart
+        function createComparisonChart(income) {
+            const ctx = document.getElementById('tax-comparison-chart').getContext('2d');
+            
+            // Calculate tax for each system
+            let progressiveTax = 0;
+            if (income <= 11000) {
+                progressiveTax = income * 0.10;
+            } else if (income <= 44725) {
+                progressiveTax = 1100 + (income - 11000) * 0.12;
+            } else if (income <= 95375) {
+                progressiveTax = 5147 + (income - 44725) * 0.22;
+            } else if (income <= 182100) {
+                progressiveTax = 16290 + (income - 95375) * 0.24;
+            } else if (income <= 231250) {
+                progressiveTax = 37104 + (income - 182100) * 0.32;
+            } else if (income <= 578125) {
+                progressiveTax = 52832 + (income - 231250) * 0.35;
+            } else {
+                progressiveTax = 174238.25 + (income - 578125) * 0.37;
+            }
+            
+            const flatTax = income * 0.10;
+            
+            let regressiveTax = 0;
+            if (income <= 20000) {
+                regressiveTax = income * 0.15;
+            } else if (income <= 50000) {
+                regressiveTax = 3000 + (income - 20000) * 0.12;
+            } else if (income <= 100000) {
+                regressiveTax = 6600 + (income - 50000) * 0.10;
+            } else {
+                regressiveTax = 11600 + (income - 100000) * 0.08;
+            }
+            
+            // Calculate effective rates
+            const progressiveRate = (progressiveTax / income) * 100;
+            const flatRate = 10;
+            const regressiveRate = (regressiveTax / income) * 100;
+            
+            // Destroy existing chart if it exists
+            if (window.taxChart) {
+                window.taxChart.destroy();
+            }
+            
+            // Create new chart
+            window.taxChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Progressive Tax', 'Flat Tax (10%)', 'Regressive Tax'],
+                    datasets: [
+                        {
+                            label: 'Effective Tax Rate (%)',
+                            data: [progressiveRate, flatRate, regressiveRate],
+                            backgroundColor: [
+                                'rgba(79, 70, 229, 0.6)', // indigo for progressive
+                                'rgba(59, 130, 246, 0.6)', // blue for flat
+                                'rgba(245, 158, 11, 0.6)'  // amber for regressive
+                            ],
+                            borderColor: [
+                                'rgb(79, 70, 229)',
+                                'rgb(59, 130, 246)',
+                                'rgb(245, 158, 11)'
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Tax Amount',
+                            data: [progressiveTax, flatTax, regressiveTax],
+                            type: 'line',
+                            borderColor: 'rgb(220, 38, 38)',
+                            backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                            fill: false,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.dataset.label === 'Tax Amount') {
+                                        return context.dataset.label + ': $' + context.raw.toFixed(2);
+                                    } else {
+                                        return context.dataset.label + ': ' + context.raw.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Effective Tax Rate (%)'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'Tax Amount ($)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Compare multiple income levels
+        function runMultiIncomeComparison() {
+            const ctx = document.getElementById('tax-comparison-chart').getContext('2d');
+            
+            // Income levels to compare
+            const incomes = [25000, 50000, 100000, 250000, 500000];
+            
+            // Calculate effective tax rates for each income level and tax system
+            const progressiveRates = [];
+            const flatRates = [];
+            const regressiveRates = [];
+            
+            incomes.forEach(income => {
+                // Progressive tax calculation
+                let progressiveTax = 0;
+                if (income <= 11000) {
+                    progressiveTax = income * 0.10;
+                } else if (income <= 44725) {
+                    progressiveTax = 1100 + (income - 11000) * 0.12;
+                } else if (income <= 95375) {
+                    progressiveTax = 5147 + (income - 44725) * 0.22;
+                } else if (income <= 182100) {
+                    progressiveTax = 16290 + (income - 95375) * 0.24;
+                } else if (income <= 231250) {
+                    progressiveTax = 37104 + (income - 182100) * 0.32;
+                } else if (income <= 578125) {
+                    progressiveTax = 52832 + (income - 231250) * 0.35;
+                } else {
+                    progressiveTax = 174238.25 + (income - 578125) * 0.37;
+                }
+                
+                const flatTax = income * 0.10;
+                
+                let regressiveTax = 0;
+                if (income <= 20000) {
+                    regressiveTax = income * 0.15;
+                } else if (income <= 50000) {
+                    regressiveTax = 3000 + (income - 20000) * 0.12;
+                } else if (income <= 100000) {
+                    regressiveTax = 6600 + (income - 50000) * 0.10;
+                } else {
+                    regressiveTax = 11600 + (income - 100000) * 0.08;
+                }
+                
+                progressiveRates.push((progressiveTax / income) * 100);
+                flatRates.push(10); // Always 10%
+                regressiveRates.push((regressiveTax / income) * 100);
+            });
+            
+            // Destroy existing chart if it exists
+            if (window.taxChart) {
+                window.taxChart.destroy();
+            }
+            
+            // Create new chart
+            window.taxChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: incomes.map(income => '$' + income.toLocaleString()),
+                    datasets: [
+                        {
+                            label: 'Progressive Tax',
+                            data: progressiveRates,
+                            borderColor: 'rgb(79, 70, 229)',
+                            backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                            fill: true,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Flat Tax (10%)',
+                            data: flatRates,
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            fill: true,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Regressive Tax',
+                            data: regressiveRates,
+                            borderColor: 'rgb(245, 158, 11)',
+                            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                            fill: true,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Effective Tax Rates Across Income Levels'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw.toFixed(2) + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Effective Tax Rate (%)'
+                            },
+                            min: 0
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Income Level'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 3) {
+                // Scroll to portfolio section after the last station
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection section
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize bracket calculator
+            calculateBracketVisualization();
+            
+            // AI feedback system for reflection
+            document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+                element.addEventListener('blur', function() {
+                    if (this.value.length > 20) {
+                        const feedback = this.nextElementSibling;
+                        if (feedback && feedback.classList.contains('feedback-container')) {
+                            feedback.textContent = "Excellent reflection! You've demonstrated thoughtful understanding of tax brackets, rates, and the ethical considerations involved in taxation.";
+                            feedback.classList.remove('hidden');
+                        }
+                    }
+                });
+            });
+            
+            // Highlight active section in navigation based on scroll position
+            const sections = document.querySelectorAll('#learning-objectives, #introduction, .learning-station, #portfolio, #reflection');
+            const navLinks = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    if (window.scrollY >= sectionTop) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

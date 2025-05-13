@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Cost Comparison Worksheet - Chapter 7.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .worksheet-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .input-field {
+            background-color: #fff;
+            height: 18px;
+            border-bottom: 1px solid #999;
+        }
+        .note {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .scenario {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .scenario h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        .analysis {
+            background-color: #f1f9e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .worksheet-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="worksheet-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Print / Save as PDF</button>
+        </div>
+        
+        <h1>Loan Cost Comparison Worksheet</h1>
+        
+        <div class="note">
+            <p><strong>Instructions:</strong> This worksheet walks you through realistic borrowing scenarios to help you understand and calculate the true cost of different loans. Fill in the calculations for each scenario and answer the analysis questions to develop your borrowing decision-making skills.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Scenario 1: Auto Loan Options</h2>
+            
+            <div class="scenario">
+                <h3>Scenario Background</h3>
+                <p>Jordan needs a reliable car for commuting to their new job. After researching, Jordan has found a used car for $15,000 and a new car for $25,000. Jordan has $3,000 saved for a down payment and is considering the following loan options:</p>
+                
+                <table>
+                    <tr>
+                        <th>Option</th>
+                        <th>Used Car Loan</th>
+                        <th>New Car Loan</th>
+                    </tr>
+                    <tr>
+                        <td>Vehicle Price</td>
+                        <td>$15,000</td>
+                        <td>$25,000</td>
+                    </tr>
+                    <tr>
+                        <td>Down Payment</td>
+                        <td>$3,000</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>Loan Amount</td>
+                        <td>$12,000</td>
+                        <td>$22,000</td>
+                    </tr>
+                    <tr>
+                        <td>Interest Rate</td>
+                        <td>6.5%</td>
+                        <td>4.9%</td>
+                    </tr>
+                    <tr>
+                        <td>Loan Term</td>
+                        <td>4 years</td>
+                        <td>5 years</td>
+                    </tr>
+                </table>
+                
+                <h3>Your Calculations</h3>
+                <table>
+                    <tr>
+                        <th>Calculation</th>
+                        <th>Used Car Loan</th>
+                        <th>New Car Loan</th>
+                    </tr>
+                    <tr>
+                        <td>Monthly Payment</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total of All Payments</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Interest Paid</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Cost (Price + Interest)</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Insurance Estimate</td>
+                        <td>$100</td>
+                        <td>$150</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Total (Payment + Insurance)</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+                
+                <div class="analysis">
+                    <h3>Analysis Questions</h3>
+                    <ol>
+                        <li>Which option has the higher monthly payment? By how much?<br>
+                        <div class="input-field"></div></li>
+                        <li>Which option has the higher total cost when including interest? By how much?<br>
+                        <div class="input-field"></div></li>
+                        <li>How much more is spent on insurance over the life of the loan for the new car compared to the used car?<br>
+                        <div class="input-field"></div></li>
+                        <li>If Jordan expects to keep the car for 7 years, which option makes more financial sense? Why?<br>
+                        <div class="input-field" style="height: 40px;"></div></li>
+                        <li>What other factors besides cost should Jordan consider when making this decision?<br>
+                        <div class="input-field" style="height: 40px;"></div></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Scenario 2: Education Financing</h2>
+            
+            <div class="scenario">
+                <h3>Scenario Background</h3>
+                <p>Taylor is planning to attend college and needs to choose between different student loan options to cover $20,000 in expenses. Here are the options:</p>
+                
+                <table>
+                    <tr>
+                        <th>Option</th>
+                        <th>Federal Subsidized Loan</th>
+                        <th>Federal Unsubsidized Loan</th>
+                        <th>Private Student Loan</th>
+                    </tr>
+                    <tr>
+                        <td>Loan Amount</td>
+                        <td>$20,000</td>
+                        <td>$20,000</td>
+                        <td>$20,000</td>
+                    </tr>
+                    <tr>
+                        <td>Interest Rate</td>
+                        <td>4.5%</td>
+                        <td>5.0%</td>
+                        <td>7.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Loan Term</td>
+                        <td>10 years</td>
+                        <td>10 years</td>
+                        <td>10 years</td>
+                    </tr>
+                    <tr>
+                        <td>Interest During School</td>
+                        <td>Government pays</td>
+                        <td>Accrues (est. $3,000)</td>
+                        <td>Accrues (est. $4,500)</td>
+                    </tr>
+                    <tr>
+                        <td>Repayment Begins</td>
+                        <td>After graduation</td>
+                        <td>After graduation</td>
+                        <td>After graduation</td>
+                    </tr>
+                </table>
+                
+                <h3>Your Calculations</h3>
+                <table>
+                    <tr>
+                        <th>Calculation</th>
+                        <th>Federal Subsidized</th>
+                        <th>Federal Unsubsidized</th>
+                        <th>Private Loan</th>
+                    </tr>
+                    <tr>
+                        <td>Principal at Repayment Start</td>
+                        <td>$20,000</td>
+                        <td>$23,000 (inc. accrued interest)</td>
+                        <td>$24,500 (inc. accrued interest)</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Payment</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total of All Payments</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Interest Paid</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Cost (Principal + Interest)</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+                
+                <div class="analysis">
+                    <h3>Analysis Questions</h3>
+                    <ol>
+                        <li>How much more will Taylor pay in total for the private loan compared to the subsidized federal loan?<br>
+                        <div class="input-field"></div></li>
+                        <li>Which loan option provides the best value? Why?<br>
+                        <div class="input-field"></div></li>
+                        <li>What is the impact of interest accruing during school? How much does this add to the total cost?<br>
+                        <div class="input-field"></div></li>
+                        <li>If Taylor could pay the interest during school on the unsubsidized loan, how would this affect the total cost?<br>
+                        <div class="input-field"></div></li>
+                        <li>Besides interest rates, what other factors should Taylor consider when choosing a student loan?<br>
+                        <div class="input-field" style="height: 40px;"></div></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Scenario 3: Credit Card vs. Personal Loan</h2>
+            
+            <div class="scenario">
+                <h3>Scenario Background</h3>
+                <p>Alex needs to cover $5,000 in emergency home repairs and is considering two options: using an existing credit card or taking out a personal loan. Here are the details:</p>
+                
+                <table>
+                    <tr>
+                        <th>Option</th>
+                        <th>Credit Card</th>
+                        <th>Personal Loan</th>
+                    </tr>
+                    <tr>
+                        <td>Amount</td>
+                        <td>$5,000</td>
+                        <td>$5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Interest Rate</td>
+                        <td>18.99% APR</td>
+                        <td>10.5% APR</td>
+                    </tr>
+                    <tr>
+                        <td>Minimum Payment</td>
+                        <td>2% of balance ($25 min)</td>
+                        <td>Fixed payment</td>
+                    </tr>
+                    <tr>
+                        <td>Term</td>
+                        <td>Variable (with min. payments)</td>
+                        <td>3 years (36 months)</td>
+                    </tr>
+                    <tr>
+                        <td>Fees</td>
+                        <td>None (existing card)</td>
+                        <td>$150 origination fee</td>
+                    </tr>
+                </table>
+                
+                <h3>Your Calculations</h3>
+                <table>
+                    <tr>
+                        <th>Calculation</th>
+                        <th>Credit Card (min. payments)</th>
+                        <th>Credit Card ($200/month)</th>
+                        <th>Personal Loan</th>
+                    </tr>
+                    <tr>
+                        <td>Monthly Payment</td>
+                        <td>Starts at $100, decreases</td>
+                        <td>$200 fixed</td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Time to Pay Off</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td>36 months</td>
+                    </tr>
+                    <tr>
+                        <td>Total of All Payments</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Interest Paid</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Fees</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>$150</td>
+                    </tr>
+                    <tr>
+                        <td>Total Cost (Amount + Interest + Fees)</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+                
+                <div class="analysis">
+                    <h3>Analysis Questions</h3>
+                    <ol>
+                        <li>How long would it take to pay off the credit card making only minimum payments?<br>
+                        <div class="input-field"></div></li>
+                        <li>How much can Alex save by paying $200/month on the credit card instead of making minimum payments?<br>
+                        <div class="input-field"></div></li>
+                        <li>Which option has the lowest total cost when including fees and interest? By how much?<br>
+                        <div class="input-field"></div></li>
+                        <li>If Alex needs to minimize monthly payments right now due to budget constraints, which option is better?<br>
+                        <div class="input-field"></div></li>
+                        <li>What are the pros and cons of each option beyond just the cost?<br>
+                        <div class="input-field" style="height: 40px;"></div></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Decision-Making Framework</h2>
+            <p>Based on your analysis of these scenarios, develop a framework for evaluating loan options:</p>
+            
+            <h3>Key Factors to Consider When Comparing Loans</h3>
+            <ol>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+            </ol>
+            
+            <h3>My Personal Loan Evaluation Process</h3>
+            <p>When evaluating loan options, I will follow these steps:</p>
+            <ol>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+            </ol>
+        </div>
+        
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Remember:</strong> The true cost of borrowing includes more than just the principal amount. Always calculate the total interest paid and consider all fees and terms when comparing loan options.</p>
+        </div>
+    </div>
+</body>
+</html>

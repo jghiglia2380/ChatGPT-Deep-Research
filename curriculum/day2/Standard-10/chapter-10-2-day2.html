@@ -1,0 +1,2003 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 10.2: Understanding the Costs and Responsibilities of Renting - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 10: Housing Decisions</h2>
+                <p class="text-gray-600 mb-4">Making informed housing decisions including renting vs. owning</p>
+            </div>
+            
+            <!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-10-2-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Previous Chapter -->
+                <li>
+                    <a href="chapter-10-1-day2.html" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        10.1: Renting vs. Owning - Making Informed Housing Decisions
+                    </a>
+                </li>
+                
+                <!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">10.2: Understanding the Costs and Responsibilities of Renting</span>
+                    </div>
+                    <!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Lease Agreement Analysis
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> True Cost of Renting
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Tenant Rights & Responsibilities
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station4" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Rental Readiness Plan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Next Chapter -->
+                <li>
+                    <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                        10.3: Understanding Home Buying
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/4 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-10-2-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 10.2: Understanding the Costs and Responsibilities of Renting - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Applying concepts through interactive renting scenarios and calculations</p>
+            
+            <!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Analyze lease agreements to identify important terms, potential concerns, and negotiation points</li>
+                    <li>Calculate the complete costs of renting beyond just monthly rent</li>
+                    <li>Navigate common tenant-landlord scenarios based on tenant rights and responsibilities</li>
+                    <li>Develop a comprehensive rental readiness plan for future housing decisions</li>
+                    <li>Compare different rental options based on cost, location, and amenities</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">
+                    Welcome to the Learning Lab for Understanding the Costs and Responsibilities of Renting! Today, you'll apply what you learned about leases, tenant rights, and the true costs of renting through hands-on activities. These exercises will give you practical experience analyzing lease agreements, calculating complete rental costs, navigating tenant-landlord relationships, and creating a personalized rental readiness plan.
+                </p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700">
+                        While this Learning Lab uses realistic rental scenarios and actual lease terms, remember that rental laws vary by state and locality. When making real-world rental decisions, always consult local housing regulations and consider seeking legal advice before signing binding agreements.
+                    </p>
+                </div>
+                
+                <!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">Today's Learning Lab builds directly on the rental concepts you learned in Day 1:</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>Common lease terms and provisions</li>
+                        <li>Upfront costs vs. ongoing expenses in rental properties</li>
+                        <li>Rights and responsibilities of both tenants and landlords</li>
+                        <li>Important factors to consider when evaluating rental properties</li>
+                        <li>Proper documentation and communication in rental agreements</li>
+                    </ul>
+                </div>
+                
+                <!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Understanding the Costs and Responsibilities of Renting</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="/finished LM recordings/10.2 Understanding the cost and Responsibilites of Renting.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Lease agreements, security deposits, tenant rights, landlord expectations, rental costs beyond rent, maintenance responsibilities, rental application process</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">Today you'll work through four interactive stations that will help you understand the practical aspects of renting. You'll analyze lease agreements, calculate the true costs of renting in different scenarios, navigate tenant-landlord relationships, and create a personalized rental readiness plan.</p>
+            </section>
+            
+            <!-- Learning Station 1: Lease Agreement Analysis -->
+            <div class="learning-station" id="station1">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Lease Agreement Analysis</h3>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    In this station, you'll analyze sample lease agreements to identify important terms, potential concerns, and negotiation points. Being able to understand lease terms is essential before signing any rental agreement.
+                </p>
+                
+                <!-- Lease Agreement Analyzer Tool -->
+                <div class="mb-6">
+                    <h4 class="font-medium text-gray-900 mb-3">Sample Lease Comparison</h4>
+                    <p class="text-gray-700 mb-4">Below are excerpts from two different apartment lease agreements. Review each section and identify important terms, potential concerns, and negotiation opportunities.</p>
+                    
+                    <!-- Tabs for different lease sections -->
+                    <div class="border border-gray-200 rounded-lg mb-6">
+                        <div class="flex border-b border-gray-200">
+                            <button id="lease-a-tab" class="flex-1 py-2 px-4 text-center bg-indigo-50 text-indigo-700 font-medium rounded-tl-lg lease-tab">Lease A: Downtown Apartments</button>
+                            <button id="lease-b-tab" class="flex-1 py-2 px-4 text-center text-gray-700 hover:bg-gray-50 rounded-tr-lg lease-tab">Lease B: Suburban Townhomes</button>
+                        </div>
+                        
+                        <!-- Lease A Content -->
+                        <div id="lease-a-content" class="p-4 bg-white rounded-b-lg lease-content">
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-900">Rent and Deposit Terms</h5>
+                                <div class="bg-gray-50 p-3 rounded text-sm font-mono">
+                                    <p class="mb-2"><span class="font-bold">Monthly Rent:</span> $1,500 due on the 1st day of each month.</p>
+                                    <p class="mb-2"><span class="font-bold">Late Fee:</span> $75 if rent is not received by the 3rd of the month. Additional $15 per day thereafter.</p>
+                                    <p class="mb-2"><span class="font-bold">Security Deposit:</span> $2,250 (1.5x monthly rent). Refundable within 30 days of move-out, less any damages or unpaid charges.</p>
+                                    <p class="mb-2"><span class="font-bold">Pet Deposit:</span> $500 non-refundable pet fee plus $50 monthly pet rent per pet.</p>
+                                    <p><span class="font-bold">Application Fee:</span> $75 non-refundable.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-900">Maintenance and Repairs</h5>
+                                <div class="bg-gray-50 p-3 rounded text-sm font-mono">
+                                    <p class="mb-2"><span class="font-bold">Tenant Responsibilities:</span> Tenant shall keep premises in clean and sanitary condition. Tenant is responsible for minor repairs under $150.</p>
+                                    <p class="mb-2"><span class="font-bold">Landlord Access:</span> Landlord may enter premises with 24-hour notice for repairs or inspections, or without notice in emergencies.</p>
+                                    <p><span class="font-bold">Reporting:</span> Tenant must report maintenance issues within 48 hours of discovery or may be held liable for increased damages.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-900">Termination and Renewal</h5>
+                                <div class="bg-gray-50 p-3 rounded text-sm font-mono">
+                                    <p class="mb-2"><span class="font-bold">Lease Term:</span> 12 months from signing date.</p>
+                                    <p class="mb-2"><span class="font-bold">Early Termination:</span> Tenant must pay a fee equal to two months' rent plus forfeit security deposit to terminate lease early.</p>
+                                    <p class="mb-2"><span class="font-bold">Automatic Renewal:</span> Lease automatically renews for 12 months unless tenant provides 60-day written notice.</p>
+                                    <p><span class="font-bold">Rent Increase:</span> Landlord may increase rent upon renewal with 30-day notice.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lease B Content -->
+                        <div id="lease-b-content" class="p-4 bg-white rounded-b-lg lease-content hidden">
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-900">Rent and Deposit Terms</h5>
+                                <div class="bg-gray-50 p-3 rounded text-sm font-mono">
+                                    <p class="mb-2"><span class="font-bold">Monthly Rent:</span> $1,900 due on the 5th day of each month.</p>
+                                    <p class="mb-2"><span class="font-bold">Late Fee:</span> $50 if rent is not received by the 7th of the month. Additional $10 per day thereafter up to $150 maximum.</p>
+                                    <p class="mb-2"><span class="font-bold">Security Deposit:</span> $1,900 (equal to monthly rent). Refundable within 21 days of move-out, less any damages or unpaid charges.</p>
+                                    <p class="mb-2"><span class="font-bold">Pet Deposit:</span> $300 refundable pet deposit plus $25 monthly pet rent per pet. Limited to two pets.</p>
+                                    <p><span class="font-bold">Application Fee:</span> $50 non-refundable, per applicant.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-900">Maintenance and Repairs</h5>
+                                <div class="bg-gray-50 p-3 rounded text-sm font-mono">
+                                    <p class="mb-2"><span class="font-bold">Tenant Responsibilities:</span> Tenant shall maintain the property in good condition. Landlord responsible for all repairs except those resulting from tenant negligence.</p>
+                                    <p class="mb-2"><span class="font-bold">Landlord Access:</span> Landlord must provide 48-hour notice before entering premises, except in emergencies.</p>
+                                    <p><span class="font-bold">Reporting:</span> Tenant should report maintenance issues promptly. Emergency maintenance available 24/7 for significant issues.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-900">Termination and Renewal</h5>
+                                <div class="bg-gray-50 p-3 rounded text-sm font-mono">
+                                    <p class="mb-2"><span class="font-bold">Lease Term:</span> 12 months from signing date with month-to-month option after initial term.</p>
+                                    <p class="mb-2"><span class="font-bold">Early Termination:</span> Tenant may terminate with 60-day notice and a fee of one month's rent.</p>
+                                    <p class="mb-2"><span class="font-bold">Renewal:</span> Month-to-month tenancy automatically begins after initial term unless tenant or landlord provides 30-day notice.</p>
+                                    <p><span class="font-bold">Rent Increase:</span> Rent may increase annually with 60-day written notice, not to exceed 5% per year.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Analysis Questions -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">1. Identify three concerning terms in this lease that could be financially challenging for tenants:</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">2. What sections of this lease would you try to negotiate before signing?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">3. Calculate the total upfront costs required to move into this apartment with one pet:</label>
+                            <div class="flex space-x-4">
+                                <div class="w-1/2">
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter calculation...">
+                                </div>
+                                <div class="w-1/2 flex items-center text-sm text-gray-600">
+                                    <p>Hint: Include first month's rent, security deposit, pet fees, and application fee</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">4. Explain the potential issues with the automatic renewal and rent increase terms:</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Lease Term Dictionary -->
+                    <div class="mt-6 bg-indigo-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-indigo-800 mb-2">Lease Term Dictionary</h4>
+                        <p class="text-gray-700 mb-2 text-sm">Reference these common lease terms as you analyze the agreement:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                            <div class="bg-white p-2 rounded">
+                                <span class="font-bold">Security Deposit:</span> Money held by landlord to cover potential damages or unpaid rent
+                            </div>
+                            <div class="bg-white p-2 rounded">
+                                <span class="font-bold">Subletting:</span> Renting part or all of your leased property to another person
+                            </div>
+                            <div class="bg-white p-2 rounded">
+                                <span class="font-bold">Joint and Several Liability:</span> Each roommate is fully responsible for entire rent
+                            </div>
+                            <div class="bg-white p-2 rounded">
+                                <span class="font-bold">Holdover:</span> Continuing to occupy property after lease expires
+                            </div>
+                            <div class="bg-white p-2 rounded">
+                                <span class="font-bold">Prorated Rent:</span> Partial rent calculated for partial rental periods
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            <!-- Learning Station 2: True Cost of Renting Calculator -->
+            <div class="learning-station" id="station2">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h3 class="text-xl font-semibold text-gray-900">True Cost of Renting Calculator</h3>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    Monthly rent is just one component of the total cost of renting. In this station, you'll calculate the complete costs across different rental scenarios, including upfront costs, monthly expenses, and annual totals.
+                </p>
+                
+                <!-- Rental Scenarios Calculator -->
+                <div class="mb-6">
+                    <h4 class="font-medium text-gray-900 mb-3">Rental Scenario Comparison</h4>
+                    <p class="text-gray-700 mb-4">Compare these three rental scenarios to understand the complete costs involved in each option:</p>
+                    
+                    <!-- Tabs for different scenarios -->
+                    <div class="border border-gray-200 rounded-lg mb-6">
+                        <div class="flex border-b border-gray-200">
+                            <button id="scenario1-tab" class="flex-1 py-2 px-4 text-center bg-indigo-50 text-indigo-700 font-medium scenario-tab">Downtown Studio</button>
+                            <button id="scenario2-tab" class="flex-1 py-2 px-4 text-center text-gray-700 hover:bg-gray-50 scenario-tab">2-Bedroom with Roommate</button>
+                            <button id="scenario3-tab" class="flex-1 py-2 px-4 text-center text-gray-700 hover:bg-gray-50 scenario-tab">Campus 3-Bedroom Share</button>
+                        </div>
+                        
+                        <!-- Scenario Content -->
+                        <div class="p-4 bg-white rounded-b-lg" id="scenario-content">
+                            <!-- Downtown Studio Content (Default) -->
+                            <div id="scenario1-content" class="scenario-content">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">Property Details</h5>
+                                        <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+                                            <li>Downtown studio apartment (450 sq ft)</li>
+                                            <li>Walking distance to shops and restaurants</li>
+                                            <li>Utilities not included</li>
+                                            <li>No parking space included</li>
+                                            <li>Coin-operated laundry in building</li>
+                                            <li>Small pets allowed with fee</li>
+                                        </ul>
+                                        
+                                        <h5 class="font-medium text-gray-900 mt-4 mb-2">Upfront Costs</h5>
+                                        <div class="space-y-1 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Security Deposit:</span>
+                                                <span class="font-medium">$1,400</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Application Fee:</span>
+                                                <span class="font-medium">$50</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>First Month's Rent:</span>
+                                                <span class="font-medium">$1,200</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Pet Deposit:</span>
+                                                <span class="font-medium">$300</span>
+                                            </div>
+                                            <div class="flex justify-between pt-1 border-t border-gray-200">
+                                                <span class="font-medium">Total Upfront:</span>
+                                                <span class="font-medium">$2,950</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">Monthly Costs</h5>
+                                        <div class="space-y-1 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Base Rent:</span>
+                                                <span class="font-medium">$1,200</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Pet Rent:</span>
+                                                <span class="font-medium">$35</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Utilities (estimated):</span>
+                                                <span class="font-medium">$120</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Internet:</span>
+                                                <span class="font-medium">$60</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Parking Garage:</span>
+                                                <span class="font-medium">$150</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Laundry (estimated):</span>
+                                                <span class="font-medium">$40</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Renter's Insurance:</span>
+                                                <span class="font-medium">$15</span>
+                                            </div>
+                                            <div class="flex justify-between pt-1 border-t border-gray-200">
+                                                <span class="font-medium">Total Monthly:</span>
+                                                <span class="font-medium">$1,620</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <h5 class="font-medium text-gray-900 mt-4 mb-2">Annual Cost Summary</h5>
+                                        <div class="space-y-1 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Monthly Total × 12:</span>
+                                                <span class="font-medium">$19,440</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Upfront Costs (first year):</span>
+                                                <span class="font-medium">$2,950</span>
+                                            </div>
+                                            <div class="flex justify-between pt-1 border-t border-gray-200">
+                                                <span class="font-medium">First Year Total:</span>
+                                                <span class="font-medium">$22,390</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Visualization -->
+                                <div class="mt-6">
+                                    <h5 class="font-medium text-gray-900 mb-3">Cost Breakdown Visualization</h5>
+                                    <div class="aspect-w-16 aspect-h-9">
+                                        <canvas id="scenario1-chart" class="w-full h-64"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2-Bedroom with Roommate Content (Hidden) -->
+                            <div id="scenario2-content" class="scenario-content hidden">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">Property Details</h5>
+                                        <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+                                            <li>2-bedroom apartment in residential area (900 sq ft)</li>
+                                            <li>10-minute drive to downtown</li>
+                                            <li>Water included, other utilities not included</li>
+                                            <li>One covered parking space included</li>
+                                            <li>In-unit washer and dryer</li>
+                                            <li>Small pets allowed with fee</li>
+                                        </ul>
+                                        
+                                        <h5 class="font-medium text-gray-900 mt-4 mb-2">Upfront Costs (Your Share)</h5>
+                                        <div class="space-y-1 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Security Deposit:</span>
+                                                <span class="font-medium">$850</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Application Fee:</span>
+                                                <span class="font-medium">$50</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>First Month's Rent:</span>
+                                                <span class="font-medium">$850</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Pet Deposit:</span>
+                                                <span class="font-medium">$300</span>
+                                            </div>
+                                            <div class="flex justify-between pt-1 border-t border-gray-200">
+                                                <span class="font-medium">Total Upfront:</span>
+                                                <span class="font-medium">$2,050</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">Monthly Costs (Your Share)</h5>
+                                        <div class="space-y-1 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Base Rent:</span>
+                                                <span class="font-medium">$850</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Pet Rent:</span>
+                                                <span class="font-medium">$35</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Utilities (estimated):</span>
+                                                <span class="font-medium">$80</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Internet (shared):</span>
+                                                <span class="font-medium">$35</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Extra Parking Space:</span>
+                                                <span class="font-medium">$50</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Renter's Insurance:</span>
+                                                <span class="font-medium">$15</span>
+                                            </div>
+                                            <div class="flex justify-between pt-1 border-t border-gray-200">
+                                                <span class="font-medium">Total Monthly:</span>
+                                                <span class="font-medium">$1,065</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <h5 class="font-medium text-gray-900 mt-4 mb-2">Annual Cost Summary</h5>
+                                        <div class="space-y-1 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Monthly Total × 12:</span>
+                                                <span class="font-medium">$12,780</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Upfront Costs (first year):</span>
+                                                <span class="font-medium">$2,050</span>
+                                            </div>
+                                            <div class="flex justify-between pt-1 border-t border-gray-200">
+                                                <span class="font-medium">First Year Total:</span>
+                                                <span class="font-medium">$14,830</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Visualization -->
+                                <div class="mt-6">
+                                    <h5 class="font-medium text-gray-900 mb-3">Cost Breakdown Visualization</h5>
+                                    <div class="aspect-w-16 aspect-h-9">
+                                        <canvas id="scenario2-chart" class="w-full h-64"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Campus 3-Bedroom Share Content (Hidden) -->
+                            <div id="scenario3-content" class="scenario-content hidden">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">Property Details</h5>
+                                        <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+                                            <li>3-bedroom house near campus (1,200 sq ft)</li>
+                                            <li>Walking distance to campus</li>
+                                            <li>All utilities included in rent</li>
+                                            <li>Street parking (permit required)</li>
+                                            <li>Shared washer and dryer in basement</li>
+                                            <li>No pets allowed</li>
+                                        </ul>
+                                        
+                                        <h5 class="font-medium text-gray-900 mt-4 mb-2">Upfront Costs (Your Share)</h5>
+                                        <div class="space-y-1 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Security Deposit:</span>
+                                                <span class="font-medium">$700</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Application Fee:</span>
+                                                <span class="font-medium">$50</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>First Month's Rent:</span>
+                                                <span class="font-medium">$700</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Parking Permit:</span>
+                                                <span class="font-medium">$120</span>
+                                            </div>
+                                            <div class="flex justify-between pt-1 border-t border-gray-200">
+                                                <span class="font-medium">Total Upfront:</span>
+                                                <span class="font-medium">$1,570</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-2">Monthly Costs (Your Share)</h5>
+                                        <div class="space-y-1 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Base Rent (utilities included):</span>
+                                                <span class="font-medium">$700</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Internet (shared):</span>
+                                                <span class="font-medium">$25</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Renter's Insurance:</span>
+                                                <span class="font-medium">$15</span>
+                                            </div>
+                                            <div class="flex justify-between pt-1 border-t border-gray-200">
+                                                <span class="font-medium">Total Monthly:</span>
+                                                <span class="font-medium">$740</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <h5 class="font-medium text-gray-900 mt-4 mb-2">Annual Cost Summary</h5>
+                                        <div class="space-y-1 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Monthly Total × 12:</span>
+                                                <span class="font-medium">$8,880</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Upfront Costs (first year):</span>
+                                                <span class="font-medium">$1,570</span>
+                                            </div>
+                                            <div class="flex justify-between pt-1 border-t border-gray-200">
+                                                <span class="font-medium">First Year Total:</span>
+                                                <span class="font-medium">$10,450</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Visualization -->
+                                <div class="mt-6">
+                                    <h5 class="font-medium text-gray-900 mb-3">Cost Breakdown Visualization</h5>
+                                    <div class="aspect-w-16 aspect-h-9">
+                                        <canvas id="scenario3-chart" class="w-full h-64"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Analysis Questions -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">1. Calculate the difference in first-year costs between the most and least expensive options:</label>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter your calculation...">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">2. Which scenario has the lowest monthly overhead cost? What factors contribute to this?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">3. What are some non-cost factors (convenience, location, amenities) that might influence your decision between these options?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">4. If you needed to save 20% of your income for other financial goals, what approximate annual income would you need to afford each option?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            <!-- Learning Station 3: Tenant Rights and Responsibilities Simulation -->
+            <div class="learning-station" id="station3">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Tenant Rights and Responsibilities Simulation</h3>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    Understanding your rights and responsibilities as a tenant helps you navigate common renting challenges. In this simulation, you'll respond to various rental scenarios that test your knowledge of tenant-landlord relationships.
+                </p>
+                
+                <!-- Scenario Simulator -->
+                <div class="mb-6">
+                    <h4 class="font-medium text-gray-900 mb-3">Tenant-Landlord Scenario Simulator</h4>
+                    <p class="text-gray-700 mb-4">For each scenario below, decide what actions you would take as a tenant. Consider your legal rights, responsibilities, and best practices for documentation and communication.</p>
+                    
+                    <!-- Accordion for scenarios -->
+                    <div class="space-y-4">
+                        <!-- Scenario 1 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left" onclick="toggleScenario('scenario-1')">
+                                <span class="font-medium">Scenario 1: Maintenance Request</span>
+                                <svg id="scenario-1-arrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform rotate-0 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div id="scenario-1-content" class="p-4 bg-white hidden">
+                                <p class="text-gray-700 mb-4">
+                                    Your bathroom sink has been leaking for three days, causing water to pool on the floor. You reported it to your landlord when it started, but they haven't responded or sent anyone to fix it. The water is now seeping into the baseboards.
+                                </p>
+                                <label class="block text-gray-700 font-medium mb-2">How would you handle this situation?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md mb-3" rows="3" placeholder="Describe the steps you would take..."></textarea>
+                                
+                                <div class="bg-indigo-50 p-3 rounded-lg border-l-4 border-indigo-500 mt-4 hidden" id="feedback-1">
+                                    <h5 class="font-medium text-indigo-900 mb-1">Best Practice Guidance:</h5>
+                                    <ul class="list-disc list-inside text-sm text-gray-700">
+                                        <li>Send a written follow-up request via email or certified mail</li>
+                                        <li>Document the leak with photos and videos showing the damage</li>
+                                        <li>Keep records of all communication with the landlord</li>
+                                        <li>Check your state's repair and deduct laws if urgent repairs are needed</li>
+                                        <li>If the issue poses health/safety risks and landlord is unresponsive, contact local housing authority</li>
+                                    </ul>
+                                </div>
+                                
+                                <button class="mt-3 px-4 py-2 bg-indigo-100 text-indigo-700 rounded hover:bg-indigo-200" onclick="showFeedback('feedback-1')">Show Best Practices</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Scenario 2 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left" onclick="toggleScenario('scenario-2')">
+                                <span class="font-medium">Scenario 2: Security Deposit Dispute</span>
+                                <svg id="scenario-2-arrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform rotate-0 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div id="scenario-2-content" class="p-4 bg-white hidden">
+                                <p class="text-gray-700 mb-4">
+                                    You've moved out of your apartment after living there for two years. You thoroughly cleaned the unit before leaving and there was only normal wear and tear (a few small nail holes in walls, slight carpet wear). The landlord is now claiming they're keeping your entire $1,800 security deposit for "extensive cleaning and repairs."
+                                </p>
+                                <label class="block text-gray-700 font-medium mb-2">What steps would you take to address this situation?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md mb-3" rows="3" placeholder="Outline your approach..."></textarea>
+                                
+                                <div class="bg-indigo-50 p-3 rounded-lg border-l-4 border-indigo-500 mt-4 hidden" id="feedback-2">
+                                    <h5 class="font-medium text-indigo-900 mb-1">Best Practice Guidance:</h5>
+                                    <ul class="list-disc list-inside text-sm text-gray-700">
+                                        <li>Request an itemized list of all deductions and associated costs</li>
+                                        <li>Provide your move-out documentation (photos/videos, move-out inspection checklist)</li>
+                                        <li>Cite your state's law regarding normal wear and tear vs. damage</li>
+                                        <li>Send a formal dispute letter requesting the return of your deposit</li>
+                                        <li>If needed, pursue the matter in small claims court (most states have expedited procedures for security deposit disputes)</li>
+                                    </ul>
+                                </div>
+                                
+                                <button class="mt-3 px-4 py-2 bg-indigo-100 text-indigo-700 rounded hover:bg-indigo-200" onclick="showFeedback('feedback-2')">Show Best Practices</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Scenario 3 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left" onclick="toggleScenario('scenario-3')">
+                                <span class="font-medium">Scenario 3: Roommate Issues</span>
+                                <svg id="scenario-3-arrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform rotate-0 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div id="scenario-3-content" class="p-4 bg-white hidden">
+                                <p class="text-gray-700 mb-4">
+                                    You and two roommates are on a joint lease. One roommate has consistently been late with their portion of the rent for the past three months, causing tension. They're now saying they want to move out immediately, even though there are 8 months left on the lease.
+                                </p>
+                                <label class="block text-gray-700 font-medium mb-2">How would you handle this roommate situation?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md mb-3" rows="3" placeholder="Describe your approach..."></textarea>
+                                
+                                <div class="bg-indigo-50 p-3 rounded-lg border-l-4 border-indigo-500 mt-4 hidden" id="feedback-3">
+                                    <h5 class="font-medium text-indigo-900 mb-1">Best Practice Guidance:</h5>
+                                    <ul class="list-disc list-inside text-sm text-gray-700">
+                                        <li>Review your lease for joint and several liability clauses (all roommates responsible for full rent)</li>
+                                        <li>Discuss the situation with your landlord regarding lease modification options</li>
+                                        <li>Consider a formal roommate replacement process if allowed by your lease</li>
+                                        <li>Get any agreements in writing, including a release of liability for the departing roommate</li>
+                                        <li>Create a written payment plan or agreement with documentation of all payments</li>
+                                        <li>Protect yourself by ensuring full rent is paid even if roommate leaves (you may be liable for their portion)</li>
+                                    </ul>
+                                </div>
+                                
+                                <button class="mt-3 px-4 py-2 bg-indigo-100 text-indigo-700 rounded hover:bg-indigo-200" onclick="showFeedback('feedback-3')">Show Best Practices</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Scenario 4 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left" onclick="toggleScenario('scenario-4')">
+                                <span class="font-medium">Scenario 4: Rent Increase</span>
+                                <svg id="scenario-4-arrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform rotate-0 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div id="scenario-4-content" class="p-4 bg-white hidden">
+                                <p class="text-gray-700 mb-4">
+                                    You receive a notice from your landlord that your monthly rent will increase by $300 (25% increase) in 45 days. You're currently on a month-to-month lease, having completed your initial one-year term. This increase would make the apartment difficult to afford on your current budget.
+                                </p>
+                                <label class="block text-gray-700 font-medium mb-2">What would you do in response to this significant rent increase?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md mb-3" rows="3" placeholder="Outline your strategy..."></textarea>
+                                
+                                <div class="bg-indigo-50 p-3 rounded-lg border-l-4 border-indigo-500 mt-4 hidden" id="feedback-4">
+                                    <h5 class="font-medium text-indigo-900 mb-1">Best Practice Guidance:</h5>
+                                    <ul class="list-disc list-inside text-sm text-gray-700">
+                                        <li>Check local rent control laws or rent increase limits in your area</li>
+                                        <li>Research comparable rental rates in your area to determine market rates</li>
+                                        <li>Consider negotiating with your landlord (e.g., smaller increase, longer lease term, property improvements)</li>
+                                        <li>If negotiation fails, develop a moving plan that accounts for application fees, security deposits, and moving costs</li>
+                                        <li>Give proper written notice according to your lease if you decide to move</li>
+                                        <li>Begin saving immediately for moving expenses if relocation seems likely</li>
+                                    </ul>
+                                </div>
+                                
+                                <button class="mt-3 px-4 py-2 bg-indigo-100 text-indigo-700 rounded hover:bg-indigo-200" onclick="showFeedback('feedback-4')">Show Best Practices</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Scenario 5 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left" onclick="toggleScenario('scenario-5')">
+                                <span class="font-medium">Scenario 5: Privacy and Landlord Entry</span>
+                                <svg id="scenario-5-arrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform rotate-0 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div id="scenario-5-content" class="p-4 bg-white hidden">
+                                <p class="text-gray-700 mb-4">
+                                    You've noticed your landlord entering your apartment while you're at work without providing any notice. Nothing appears to be missing, but you feel your privacy has been violated. Your lease states that the landlord must provide 24-hour notice before entering except in emergencies.
+                                </p>
+                                <label class="block text-gray-700 font-medium mb-2">How would you address this privacy concern?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md mb-3" rows="3" placeholder="Explain your approach..."></textarea>
+                                
+                                <div class="bg-indigo-50 p-3 rounded-lg border-l-4 border-indigo-500 mt-4 hidden" id="feedback-5">
+                                    <h5 class="font-medium text-indigo-900 mb-1">Best Practice Guidance:</h5>
+                                    <ul class="list-disc list-inside text-sm text-gray-700">
+                                        <li>Document evidence of unauthorized entry (security camera, witness statements, etc.)</li>
+                                        <li>Send a formal written letter referencing the specific lease provision requiring notice</li>
+                                        <li>Request acknowledgment of the privacy policy and confirmation of future compliance</li>
+                                        <li>Research your state's landlord-tenant laws regarding entry (most require 24-48 hours notice)</li>
+                                        <li>Consider installing a doorbell camera or similar security device (if allowed by lease)</li>
+                                        <li>If violations continue, contact a tenant's rights organization or consider legal counsel</li>
+                                    </ul>
+                                </div>
+                                
+                                <button class="mt-3 px-4 py-2 bg-indigo-100 text-indigo-700 rounded hover:bg-indigo-200" onclick="showFeedback('feedback-5')">Show Best Practices</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summary Exercise -->
+                    <div class="mt-6 bg-indigo-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-indigo-800 mb-2">Key Insights Summary</h4>
+                        <p class="text-gray-700 mb-3 text-sm">Based on the scenarios above, summarize three key best practices for maintaining a positive tenant-landlord relationship:</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4"></textarea>
+                    </div>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            <!-- Learning Station 4: Rental Readiness Plan -->
+            <div class="learning-station" id="station4">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">4</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Rental Readiness Plan</h3>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">20 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    Being prepared is essential for a successful rental experience. In this station, you'll create a personalized rental readiness plan covering everything from financial preparation to the apartment search and move-in process.
+                </p>
+                
+                <!-- Rental Readiness Planner -->
+                <div class="mb-6">
+                    <h4 class="font-medium text-gray-900 mb-3">Your Personal Rental Readiness Plan</h4>
+                    <p class="text-gray-700 mb-4">Complete each section of this planner to create a comprehensive strategy for your future rental experience:</p>
+                    
+                    <!-- Multi-tab Planner -->
+                    <div class="mb-6">
+                        <!-- Tab Navigation -->
+                        <div class="flex border-b border-gray-200">
+                            <button id="assessment-tab" class="py-2 px-4 font-medium text-indigo-700 border-b-2 border-indigo-500 plan-tab">1. Assessment</button>
+                            <button id="financial-tab" class="py-2 px-4 text-gray-700 hover:text-indigo-600 plan-tab">2. Financial</button>
+                            <button id="search-tab" class="py-2 px-4 text-gray-700 hover:text-indigo-600 plan-tab">3. Search</button>
+                            <button id="movein-tab" class="py-2 px-4 text-gray-700 hover:text-indigo-600 plan-tab">4. Move-In</button>
+                        </div>
+                        
+                        <!-- Tab Content -->
+                        <div class="p-4 border border-gray-200 border-t-0 rounded-b-lg bg-white">
+                            <!-- Assessment Tab (Default) -->
+                            <div id="assessment-content" class="plan-content">
+                                <h5 class="font-medium text-gray-900 mb-3">Needs and Preferences Assessment</h5>
+                                <p class="text-gray-700 mb-4 text-sm">Evaluate your rental needs and preferences to guide your housing search:</p>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Target move-in timeframe:</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                                            <option>Within 1-3 months</option>
+                                            <option>Within 4-6 months</option>
+                                            <option>Within 7-12 months</option>
+                                            <option>More than a year from now</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Monthly rent budget (maximum):</label>
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Preferred location/neighborhood(s):</label>
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="List preferred areas">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Ideal commute time (max minutes):</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Minutes">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Property type preferences (select all that apply):</label>
+                                        <div class="grid grid-cols-2 gap-2">
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Apartment</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">House</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Townhouse</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Duplex/Triplex</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Studio</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Room in shared house</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Must-have amenities (select your top 3):</label>
+                                        <div class="grid grid-cols-2 gap-2">
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">In-unit washer/dryer</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Dishwasher</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Central air/heating</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Parking space</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Pet-friendly</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Outdoor space</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Gym/fitness center</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Security features</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Roommate plans:</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                                            <option>No roommates - living alone</option>
+                                            <option>One roommate</option>
+                                            <option>Two roommates</option>
+                                            <option>Three or more roommates</option>
+                                            <option>Undecided</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-end mt-4">
+                                    <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700" onclick="changeTab('financial-tab')">Next: Financial Preparation →</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Financial Preparation Tab (Hidden) -->
+                            <div id="financial-content" class="plan-content hidden">
+                                <h5 class="font-medium text-gray-900 mb-3">Financial Preparation Plan</h5>
+                                <p class="text-gray-700 mb-4 text-sm">Prepare your finances for the rental application process and ongoing expenses:</p>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Current savings for rental costs:</label>
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Target savings goal for move-in expenses:</label>
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                        <p class="text-sm text-gray-500 mt-1">Tip: Plan for first month's rent, security deposit, application fees, moving costs, and initial supplies.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Monthly savings plan:</label>
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$ per month">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Credit score preparation:</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                                            <option>I've checked my credit score and it's ready for rental applications</option>
+                                            <option>I need to check my credit score</option>
+                                            <option>I need to improve my credit score before applying</option>
+                                            <option>I need to establish credit history</option>
+                                            <option>I'll need a co-signer due to limited credit history</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Income verification documents to prepare:</label>
+                                        <div class="space-y-1">
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Pay stubs (last 2-3 months)</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Bank statements</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Tax returns</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Offer letter/employment verification</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Other income documentation</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Rental insurance research:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Notes on insurance providers, coverage needs, and estimated costs"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between mt-4">
+                                    <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded hover:bg-gray-50" onclick="changeTab('assessment-tab')">← Previous</button>
+                                    <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700" onclick="changeTab('search-tab')">Next: Search Strategy →</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Search Strategy Tab (Hidden) -->
+                            <div id="search-content" class="plan-content hidden">
+                                <h5 class="font-medium text-gray-900 mb-3">Rental Search Strategy</h5>
+                                <p class="text-gray-700 mb-4 text-sm">Develop a plan for finding and evaluating potential rental properties:</p>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Search resources to use (select all that apply):</label>
+                                        <div class="grid grid-cols-2 gap-2">
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Apartment listing websites</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Property management companies</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Social media groups</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Local newspaper listings</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Word of mouth/referrals</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">For Rent signs in target neighborhoods</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Property visit checklist (list 5-7 key items you'll check during visits):</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Example: Check water pressure, test cell service, inspect appliances, etc."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Questions to ask landlords/property managers:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="List questions about lease terms, maintenance procedures, etc."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Transportation and commute considerations:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Notes on transportation needs, parking, public transit access, etc."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Neighborhood research strategy:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="How will you research neighborhood safety, amenities, etc.?"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between mt-4">
+                                    <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded hover:bg-gray-50" onclick="changeTab('financial-tab')">← Previous</button>
+                                    <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700" onclick="changeTab('movein-tab')">Next: Move-In Preparation →</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Move-In Preparation Tab (Hidden) -->
+                            <div id="movein-content" class="plan-content hidden">
+                                <h5 class="font-medium text-gray-900 mb-3">Move-In Preparation Checklist</h5>
+                                <p class="text-gray-700 mb-4 text-sm">Plan for a smooth move-in process and protect yourself legally:</p>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Before signing the lease (checklist):</label>
+                                        <div class="space-y-1">
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Read the entire lease carefully</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Research state/local tenant rights</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Clarify all fees and deposits</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Understand maintenance responsibilities</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Verify all verbal promises are in writing</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Take photos of property condition</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Move-in inventory system:</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md">
+                                            <option>Detailed written inventory with photos</option>
+                                            <option>Property manager's checklist with my additions</option>
+                                            <option>Video walkthrough with narration</option>
+                                            <option>Combination of methods</option>
+                                        </select>
+                                        <p class="text-sm text-gray-500 mt-1">This protects your security deposit by documenting pre-existing conditions.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Essential services to set up:</label>
+                                        <div class="space-y-1">
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Electricity</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Water/Sewer (if not included)</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Gas (if applicable)</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Internet</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Renter's insurance</span>
+                                            </label>
+                                            <label class="inline-flex items-center block">
+                                                <input type="checkbox" class="form-checkbox text-indigo-600 rounded">
+                                                <span class="ml-2 text-gray-700">Change of address with USPS</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">First week essentials shopping list:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List essential items needed immediately upon move-in"></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Emergency contact plan:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="List important contact information (property manager, maintenance, etc.)"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between mt-4">
+                                    <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded hover:bg-gray-50" onclick="changeTab('search-tab')">← Previous</button>
+                                    <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700" onclick="savePlan()">Save Complete Plan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Savings Calculator -->
+                    <div class="mt-6 bg-indigo-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-indigo-800 mb-2">Rental Savings Calculator</h4>
+                        <p class="text-gray-700 mb-3 text-sm">Calculate how much you need to save and how long it will take:</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-1">Estimated total move-in costs:</label>
+                                <input type="number" id="total-costs" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                <p class="text-xs text-gray-500 mt-1">Include security deposit, first month's rent, application fees, moving costs</p>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-1">Current savings:</label>
+                                <input type="number" id="current-savings" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-1">Amount left to save:</label>
+                                <input type="text" id="amount-needed" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-1">Monthly savings amount:</label>
+                                <input type="number" id="monthly-savings" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-1">Months until ready:</label>
+                                <input type="text" id="months-needed" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
+                            </div>
+                            <div class="flex items-end">
+                                <button class="w-full p-2 bg-indigo-600 text-white rounded hover:bg-indigo-700" onclick="calculateSavings()">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Portfolio Integration Section -->
+            <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">
+                    In this Learning Lab, you've developed a comprehensive understanding of rental costs and responsibilities. Now, integrate your key insights and personal rental readiness plan into your financial portfolio.
+                </p>
+                
+                <div class="bg-white rounded-lg p-5 shadow-sm mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Rental Readiness Portfolio Summary</h3>
+                    <p class="text-gray-700 mb-4">Summarize your key findings from today's learning stations:</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">1. What are the most significant upfront costs you identified in the rental process?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">2. Summarize the most important tenant rights and responsibilities from your perspective:</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">3. Based on your rental readiness plan, what is your ideal rental budget and timeframe?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">4. What preparation steps are most crucial for your personal rental journey?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-5 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Connect to Your Overall Financial Plan</h3>
+                    <p class="text-gray-700 mb-4">Explain how this rental planning connects to your broader financial goals:</p>
+                    
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="How will your rental choices affect your other financial goals? How does housing fit into your overall budget?"></textarea>
+                </div>
+                
+                <button class="pfl-button mt-4" onclick="savePortfolio()">
+                    Add to Portfolio
+                </button>
+            </div>
+            
+            <!-- Reflection Section -->
+            <div class="discussion-prompt" id="reflection">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                <p class="text-gray-700 mb-4">
+                    Take some time to reflect on what you've learned about the costs and responsibilities of renting. Consider how this knowledge will influence your future housing decisions.
+                </p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">How has your perspective on renting changed after completing today's Learning Lab activities?</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Share your reflections..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">What specific strategies will you implement to make informed rental decisions in the future?</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Describe your strategies..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                    <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                    <p class="text-gray-700" id="ai-feedback"></p>
+                </div>
+                
+                <div class="flex justify-between mt-4">
+                    <button class="pfl-button" onclick="checkReflection()">
+                        Get Feedback
+                    </button>
+                    <a href="chapter-10-3-day1.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md flex items-center">
+                        Continue to Next Chapter
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Initialize charts when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the first scenario chart (downtown studio)
+            createCostBreakdownChart('scenario1-chart', 
+                ['Base Rent', 'Pet Rent', 'Utilities', 'Internet', 'Parking', 'Laundry', 'Insurance'],
+                [1200, 35, 120, 60, 150, 40, 15],
+                ['#4f46e5', '#8b5cf6', '#6366f1', '#818cf8', '#a78bfa', '#c4b5fd', '#ddd6fe']
+            );
+            
+            // Set up lease tabs
+            const leaseTabs = document.querySelectorAll('.lease-tab');
+            leaseTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    leaseTabs.forEach(t => {
+                        t.classList.remove('bg-indigo-50', 'text-indigo-700', 'font-medium');
+                        t.classList.add('text-gray-700', 'hover:bg-gray-50');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.remove('text-gray-700', 'hover:bg-gray-50');
+                    this.classList.add('bg-indigo-50', 'text-indigo-700', 'font-medium');
+                    
+                    // Hide all content
+                    const leaseContents = document.querySelectorAll('.lease-content');
+                    leaseContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Show selected content
+                    const tabId = this.id;
+                    const contentId = tabId.replace('-tab', '-content');
+                    document.getElementById(contentId).classList.remove('hidden');
+                });
+            });
+            
+            // Set up scenario tabs
+            const scenarioTabs = document.querySelectorAll('.scenario-tab');
+            scenarioTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    scenarioTabs.forEach(t => {
+                        t.classList.remove('bg-indigo-50', 'text-indigo-700', 'font-medium');
+                        t.classList.add('text-gray-700', 'hover:bg-gray-50');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.remove('text-gray-700', 'hover:bg-gray-50');
+                    this.classList.add('bg-indigo-50', 'text-indigo-700', 'font-medium');
+                    
+                    // Hide all content
+                    const scenarioContents = document.querySelectorAll('.scenario-content');
+                    scenarioContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Show selected content
+                    const tabId = this.id;
+                    const contentId = tabId.replace('-tab', '-content');
+                    document.getElementById(contentId).classList.remove('hidden');
+                    
+                    // Initialize chart for the selected scenario
+                    if (tabId === 'scenario1-tab') {
+                        createCostBreakdownChart('scenario1-chart', 
+                            ['Base Rent', 'Pet Rent', 'Utilities', 'Internet', 'Parking', 'Laundry', 'Insurance'],
+                            [1200, 35, 120, 60, 150, 40, 15],
+                            ['#4f46e5', '#8b5cf6', '#6366f1', '#818cf8', '#a78bfa', '#c4b5fd', '#ddd6fe']
+                        );
+                    } else if (tabId === 'scenario2-tab') {
+                        createCostBreakdownChart('scenario2-chart', 
+                            ['Base Rent', 'Pet Rent', 'Utilities', 'Internet', 'Parking', 'Insurance'],
+                            [850, 35, 80, 35, 50, 15],
+                            ['#4f46e5', '#8b5cf6', '#6366f1', '#818cf8', '#a78bfa', '#ddd6fe']
+                        );
+                    } else if (tabId === 'scenario3-tab') {
+                        createCostBreakdownChart('scenario3-chart', 
+                            ['Base Rent (w/ Utilities)', 'Internet', 'Insurance'],
+                            [700, 25, 15],
+                            ['#4f46e5', '#8b5cf6', '#6366f1']
+                        );
+                    }
+                });
+            });
+            
+            // Set up plan tabs
+            const planTabs = document.querySelectorAll('.plan-tab');
+            planTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    changeTab(this.id);
+                });
+            });
+            
+            // Set up section navigation highlighting
+            const sections = document.querySelectorAll('#learning-objectives, #intro, .learning-station, #portfolio, #reflection');
+            const navItems = document.querySelectorAll('#section-navigation a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700', 'hover:text-indigo-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700', 'hover:text-indigo-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+        
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.querySelectorAll('.station-indicator')[stationNumber - 1].classList.add('active');
+            
+            // Scroll to next section if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 4) {
+                // If this is the last station, scroll to portfolio section
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.querySelectorAll('.station-indicator')[4].classList.add('active');
+            
+            // Scroll to reflection section
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress percentage and bar
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.querySelector('.bg-gradient-to-r.from-indigo-600').style.width = percentage + '%';
+            document.querySelector('p.text-sm.text-indigo-800 span').textContent = completedStations + '/5 stations';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Create cost breakdown chart
+        function createCostBreakdownChart(canvasId, labels, data, colors) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.charts && window.charts[canvasId]) {
+                window.charts[canvasId].destroy();
+            }
+            
+            // Initialize charts object if it doesn't exist
+            if (!window.charts) {
+                window.charts = {};
+            }
+            
+            // Create new chart
+            window.charts[canvasId] = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed || 0;
+                                    const total = context.dataset.data.reduce((acc, val) => acc + val, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: $${value} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Toggle scenario in accordion
+        function toggleScenario(scenarioId) {
+            const content = document.getElementById(scenarioId + '-content');
+            const arrow = document.getElementById(scenarioId + '-arrow');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+        
+        // Show feedback for scenarios
+        function showFeedback(feedbackId) {
+            document.getElementById(feedbackId).classList.remove('hidden');
+        }
+        
+        // Change tab in rental readiness plan
+        function changeTab(tabId) {
+            // Remove active class from all tabs
+            const planTabs = document.querySelectorAll('.plan-tab');
+            planTabs.forEach(tab => {
+                tab.classList.remove('text-indigo-700', 'border-b-2', 'border-indigo-500', 'font-medium');
+                tab.classList.add('text-gray-700', 'hover:text-indigo-600');
+            });
+            
+            // Add active class to selected tab
+            document.getElementById(tabId).classList.remove('text-gray-700', 'hover:text-indigo-600');
+            document.getElementById(tabId).classList.add('text-indigo-700', 'border-b-2', 'border-indigo-500', 'font-medium');
+            
+            // Hide all content
+            const planContents = document.querySelectorAll('.plan-content');
+            planContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Show selected content
+            const contentId = tabId.replace('-tab', '-content');
+            document.getElementById(contentId).classList.remove('hidden');
+        }
+        
+        // Save rental readiness plan
+        function savePlan() {
+            showToast('Rental readiness plan saved!');
+        }
+        
+        // Calculate savings for rental plan
+        function calculateSavings() {
+            const totalCosts = parseFloat(document.getElementById('total-costs').value) || 0;
+            const currentSavings = parseFloat(document.getElementById('current-savings').value) || 0;
+            const monthlySavings = parseFloat(document.getElementById('monthly-savings').value) || 0;
+            
+            const amountNeeded = totalCosts - currentSavings;
+            let monthsNeeded = 0;
+            
+            if (monthlySavings > 0) {
+                monthsNeeded = Math.ceil(amountNeeded / monthlySavings);
+            }
+            
+            document.getElementById('amount-needed').value = '$' + amountNeeded.toFixed(2);
+            
+            if (amountNeeded <= 0) {
+                document.getElementById('months-needed').value = 'Ready now!';
+            } else if (monthlySavings <= 0) {
+                document.getElementById('months-needed').value = 'Add monthly savings amount';
+            } else {
+                document.getElementById('months-needed').value = monthsNeeded + ' month' + (monthsNeeded === 1 ? '' : 's');
+            }
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionElements = document.querySelectorAll('textarea[data-ai-check="true"]');
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            let totalLength = 0;
+            reflectionElements.forEach(element => {
+                totalLength += element.value.length;
+            });
+            
+            if (totalLength < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Try to expand on your thoughts and connect them to the specific rental costs and responsibilities you learned about today.";
+            } else if (totalLength < 150) {
+                aiFeedback.textContent = "Good start! Consider addressing more specific aspects of rental costs and tenant rights. How might you apply this knowledge to evaluate future rental opportunities?";
+            } else if (totalLength < 300) {
+                aiFeedback.textContent = "Strong reflection! You've provided thoughtful insights about rental costs and responsibilities. To further strengthen your response, consider discussing specific lease terms and how you'll prepare financially for future rental decisions.";
+            } else {
+                aiFeedback.textContent = "Excellent, comprehensive reflection! You've demonstrated a thorough understanding of rental costs and responsibilities, and articulated clear strategies for making informed housing decisions in the future.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

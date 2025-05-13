@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Costs Calculator Worksheet</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+        
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+        
+        .input-box {
+            display: block;
+            width: 100%;
+            border: 1px solid #d1d5db;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        
+        .calculator-section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .result-section {
+            background-color: #e0e7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .rent-section {
+            border-left: 5px solid #60a5fa;
+            background-color: #eff6ff;
+        }
+        
+        .buy-section {
+            border-left: 5px solid #6366f1;
+            background-color: #eef2ff;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #a5b4fc;
+        }
+        
+        .comparison-table td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            text-align: center;
+        }
+        
+        .comparison-table tr.category {
+            background-color: #f3f4f6;
+            font-weight: bold;
+        }
+        
+        .analysis-section {
+            background-color: #f0f9ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 5px solid #0ea5e9;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Housing Costs Calculator Worksheet</h1>
+        <p>Chapter 10.1: Renting vs. Owning - Making Informed Housing Decisions</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This worksheet will help you calculate and compare the true costs of renting versus buying a home. Enter the requested information for both options, then calculate and analyze the results to determine which option might be financially advantageous in different time frames.</p>
+        <p class="no-print">To save this worksheet as a PDF: Click File → Print → Change destination to "Save as PDF" → Save</p>
+    </div>
+    
+    <div class="calculator-section rent-section">
+        <h2>Rental Cost Inputs</h2>
+        
+        <table>
+            <tr>
+                <td width="60%"><strong>Monthly Rent:</strong> The amount you would pay each month for rent</td>
+                <td width="40%">$<input type="text" class="input-box" placeholder="Example: 1,200"></td>
+            </tr>
+            <tr>
+                <td><strong>Expected Annual Rent Increase:</strong> The percentage your rent is likely to increase each year</td>
+                <td><input type="text" class="input-box" placeholder="Example: 3">%</td>
+            </tr>
+            <tr>
+                <td><strong>Security Deposit:</strong> One-time payment typically equal to 1-2 months of rent</td>
+                <td>$<input type="text" class="input-box" placeholder="Example: 1,200"></td>
+            </tr>
+            <tr>
+                <td><strong>Renter's Insurance:</strong> Monthly cost to protect your belongings</td>
+                <td>$<input type="text" class="input-box" placeholder="Example: 15">/month</td>
+            </tr>
+            <tr>
+                <td><strong>Utilities Not Included in Rent:</strong> Monthly cost of utilities you would pay separately</td>
+                <td>$<input type="text" class="input-box" placeholder="Example: 150">/month</td>
+            </tr>
+            <tr>
+                <td><strong>Application Fee:</strong> One-time fee to apply for rental</td>
+                <td>$<input type="text" class="input-box" placeholder="Example: 50"></td>
+            </tr>
+            <tr>
+                <td><strong>Other Rental Fees:</strong> Any additional fees (pet deposits, amenity fees, etc.)</td>
+                <td>$<input type="text" class="input-box" placeholder="Example: 30">/month</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="calculator-section buy-section">
+        <h2>Home Purchase Cost Inputs</h2>
+        
+        <table>
+            <tr>
+                <td width="60%"><strong>Home Purchase Price:</strong> The price of the home you would buy</td>
+                <td width="40%">$<input type="text" class="input-box" placeholder="Example: 250,000"></td>
+            </tr>
+            <tr>
+                <td><strong>Down Payment Percentage:</strong> The percentage of the purchase price you would pay upfront</td>
+                <td><input type="text" class="input-box" placeholder="Example: 10">%</td>
+            </tr>
+            <tr>
+                <td><strong>Down Payment Amount:</strong> Calculated from purchase price and percentage</td>
+                <td>$<input type="text" class="input-box" placeholder="Calculate this amount"></td>
+            </tr>
+            <tr>
+                <td><strong>Mortgage Interest Rate:</strong> The annual interest rate on your home loan</td>
+                <td><input type="text" class="input-box" placeholder="Example: 4.5">%</td>
+            </tr>
+            <tr>
+                <td><strong>Loan Term:</strong> The length of your mortgage in years</td>
+                <td><input type="text" class="input-box" placeholder="Example: 30"> years</td>
+            </tr>
+            <tr>
+                <td><strong>Closing Costs:</strong> Typically 2-5% of the purchase price</td>
+                <td>$<input type="text" class="input-box" placeholder="Calculate this amount"></td>
+            </tr>
+            <tr>
+                <td><strong>Property Tax Rate:</strong> Annual percentage of home value</td>
+                <td><input type="text" class="input-box" placeholder="Example: 1.2">%</td>
+            </tr>
+            <tr>
+                <td><strong>Homeowner's Insurance:</strong> Monthly cost to protect your home and possessions</td>
+                <td>$<input type="text" class="input-box" placeholder="Example: 100">/month</td>
+            </tr>
+            <tr>
+                <td><strong>HOA Fees:</strong> Monthly homeowners association fees, if applicable</td>
+                <td>$<input type="text" class="input-box" placeholder="Example: 100">/month</td>
+            </tr>
+            <tr>
+                <td><strong>Estimated Monthly Utilities:</strong> Total monthly utility costs</td>
+                <td>$<input type="text" class="input-box" placeholder="Example: 200">/month</td>
+            </tr>
+            <tr>
+                <td><strong>Estimated Maintenance Costs:</strong> Annual percentage of home value</td>
+                <td><input type="text" class="input-box" placeholder="Example: 1">%</td>
+            </tr>
+            <tr>
+                <td><strong>Expected Home Appreciation Rate:</strong> Annual percentage increase in home value</td>
+                <td><input type="text" class="input-box" placeholder="Example: 3">%</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>Monthly Payment Calculations</h2>
+    
+    <div class="calculator-section rent-section">
+        <h3>Monthly Rental Costs</h3>
+        
+        <table>
+            <tr>
+                <td width="60%">Monthly Rent:</td>
+                <td width="40%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Renter's Insurance:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Utilities Not Included in Rent:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Other Monthly Fees:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Monthly Rental Cost:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="calculator-section buy-section">
+        <h3>Monthly Homeownership Costs</h3>
+        
+        <table>
+            <tr>
+                <td width="60%">Principal and Interest Payment:</td>
+                <td width="40%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Property Taxes (monthly):</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Homeowner's Insurance:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>HOA Fees:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Utilities:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Maintenance (monthly average):</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Monthly Homeownership Cost:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <h2>Long-Term Cost Comparison</h2>
+    
+    <div class="calculator-section">
+        <h3>5-Year Cost Comparison</h3>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Cost Category</th>
+                <th>Renting</th>
+                <th>Buying</th>
+                <th>Difference</th>
+            </tr>
+            <tr class="category">
+                <td>Initial Costs</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Security Deposit / Down Payment</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Application Fees / Closing Costs</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="category">
+                <td>Ongoing Costs (5 years)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Monthly Payments (including rent increases)</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Insurance</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Maintenance/Repairs</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Property Taxes</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="category">
+                <td>Exit Costs/Values</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Security Deposit Return</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>N/A</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Home Equity (Principal + Appreciation)</td>
+                <td>N/A</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td></td>
+            </tr>
+            <tr class="category">
+                <td><strong>NET TOTAL COST (5 years)</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="calculator-section">
+        <h3>10-Year Cost Comparison</h3>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Cost Category</th>
+                <th>Renting</th>
+                <th>Buying</th>
+                <th>Difference</th>
+            </tr>
+            <tr class="category">
+                <td>Initial Costs</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Security Deposit / Down Payment</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Application Fees / Closing Costs</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="category">
+                <td>Ongoing Costs (10 years)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Monthly Payments (including rent increases)</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Insurance</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Maintenance/Repairs</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Property Taxes</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="category">
+                <td>Exit Costs/Values</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Security Deposit Return</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>N/A</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Home Equity (Principal + Appreciation)</td>
+                <td>N/A</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td></td>
+            </tr>
+            <tr class="category">
+                <td><strong>NET TOTAL COST (10 years)</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>Analysis Questions</h2>
+    
+    <div class="analysis-section">
+        <ol>
+            <li><strong>Based on your calculations, which option (renting or buying) appears more cost-effective in the 5-year timeframe?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+            
+            <li><strong>Which option appears more cost-effective in the 10-year timeframe?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+            
+            <li><strong>At approximately what point (how many years) does buying become more cost-effective than renting in your scenario?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+            
+            <li><strong>How does changing the down payment percentage affect the comparison? Try calculating with a 20% down payment.</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+            
+            <li><strong>How does changing the appreciation rate affect the comparison? Try calculating with a 1% appreciation rate.</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+            
+            <li><strong>Which variable seems to have the biggest impact on whether renting or buying is more cost-effective?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+            
+            <li><strong>What non-financial factors would you also consider when making a housing decision?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+        </ol>
+    </div>
+    
+    <h2>Calculation Notes</h2>
+    
+    <div class="calculator-section">
+        <h3>Helpful Formulas</h3>
+        
+        <p><strong>Monthly Mortgage Payment (Principal and Interest):</strong></p>
+        <p>For a 30-year mortgage with monthly payments:</p>
+        <pre>Monthly Payment = P × [r(1+r)^n] ÷ [(1+r)^n - 1]</pre>
+        <p>Where:</p>
+        <ul>
+            <li>P = Principal (loan amount)</li>
+            <li>r = Monthly interest rate (annual rate ÷ 12, expressed as a decimal)</li>
+            <li>n = Total number of payments (term in years × 12)</li>
+        </ul>
+        
+        <p><strong>Example:</strong> For a $225,000 loan at 4.5% for 30 years:</p>
+        <ul>
+            <li>P = $225,000</li>
+            <li>r = 0.045 ÷ 12 = 0.00375</li>
+            <li>n = 30 × 12 = 360</li>
+            <li>Monthly Payment = $1,140.05</li>
+        </ul>
+        
+        <p><strong>Monthly Property Tax:</strong></p>
+        <pre>Monthly Property Tax = (Home Value × Annual Tax Rate) ÷ 12</pre>
+        
+        <p><strong>Projected Rent in Future Years (with annual increases):</strong></p>
+        <pre>Year N Rent = Initial Rent × (1 + Annual Increase Rate)^(N-1)</pre>
+        
+        <p><strong>Home Equity after N years:</strong></p>
+        <pre>Equity = Down Payment + Principal Paid + Appreciation</pre>
+        
+        <p><strong>Projected Home Value after N years (with appreciation):</strong></p>
+        <pre>Year N Value = Initial Value × (1 + Annual Appreciation Rate)^N</pre>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 10.1: Renting vs. Owning - Making Informed Housing Decisions</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charitable Organization Evaluation Guide</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .subsection {
+            margin-bottom: 20px;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        textarea {
+            min-height: 80px;
+        }
+        .tips {
+            background-color: #f8f9d7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .warning {
+            background-color: #ffe6e6;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #ff3333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .resources {
+            background-color: #e6f2ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .rating {
+            margin-top: 10px;
+        }
+        .rating label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+            .print-button {
+                display: none;
+            }
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+    
+    <h1>Charitable Organization Evaluation Guide</h1>
+    
+    <div class="section">
+        <h2>Introduction</h2>
+        <p>This guide will help you thoroughly evaluate charitable organizations to ensure your contributions create maximum impact. By researching key aspects of an organization's operations, finances, and effectiveness, you can make informed giving decisions that align with your values and priorities.</p>
+        
+        <div class="resources">
+            <h3>Helpful Resources for Charity Evaluation</h3>
+            <ul>
+                <li><a href="https://www.charitynavigator.org">Charity Navigator</a> - Evaluates charities based on financial health, accountability, and transparency</li>
+                <li><a href="https://www.guidestar.org">GuideStar</a> - Provides comprehensive nonprofit information including financial reports and program details</li>
+                <li><a href="https://www.charitywatch.org">CharityWatch</a> - Independent charity watchdog that rates organizations based on financial efficiency</li>
+                <li><a href="https://www.give.org">BBB Wise Giving Alliance</a> - Evaluates charities against 20 standards of accountability</li>
+                <li><a href="https://www.irs.gov/charities-non-profits/tax-exempt-organization-search">IRS Tax Exempt Organization Search</a> - Verify an organization's tax-exempt status</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Organization Profile</h2>
+        
+        <div class="field">
+            <label for="org-name">Organization Name:</label>
+            <input type="text" id="org-name" name="org-name">
+        </div>
+        
+        <div class="field">
+            <label for="org-website">Organization Website:</label>
+            <input type="text" id="org-website" name="org-website">
+        </div>
+        
+        <div class="field">
+            <label for="org-mission">Mission Statement:</label>
+            <textarea id="org-mission" name="org-mission"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="org-programs">Main Programs/Services:</label>
+            <textarea id="org-programs" name="org-programs"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="org-founded">Year Founded:</label>
+            <input type="text" id="org-founded" name="org-founded">
+        </div>
+        
+        <div class="field">
+            <label for="org-size">Organization Size:</label>
+            <select id="org-size" name="org-size">
+                <option value="">Select size</option>
+                <option value="small">Small (Annual budget under $1 million)</option>
+                <option value="medium">Medium (Annual budget $1-10 million)</option>
+                <option value="large">Large (Annual budget over $10 million)</option>
+                <option value="unknown">Unknown</option>
+            </select>
+        </div>
+        
+        <div class="field">
+            <label for="org-scope">Geographic Scope:</label>
+            <select id="org-scope" name="org-scope">
+                <option value="">Select scope</option>
+                <option value="local">Local</option>
+                <option value="regional">Regional</option>
+                <option value="national">National</option>
+                <option value="international">International</option>
+            </select>
+        </div>
+        
+        <div class="field">
+            <label for="tax-status">Tax-Exempt Status:</label>
+            <select id="tax-status" name="tax-status">
+                <option value="">Select status</option>
+                <option value="501c3">501(c)(3) Public Charity</option>
+                <option value="501c4">501(c)(4) Social Welfare Organization</option>
+                <option value="other">Other</option>
+                <option value="unknown">Unknown/Not Verified</option>
+            </select>
+        </div>
+        
+        <div class="tips">
+            <strong>Tip:</strong> Always verify an organization's tax-exempt status using the IRS Tax Exempt Organization Search tool. Only donations to qualified 501(c)(3) organizations are tax-deductible.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Financial Health Assessment</h2>
+        
+        <table>
+            <tr>
+                <th>Financial Metric</th>
+                <th>Value</th>
+                <th>Notes/Interpretation</th>
+            </tr>
+            <tr>
+                <td>Annual Revenue</td>
+                <td><input type="text" name="annual-revenue"></td>
+                <td><input type="text" name="revenue-notes"></td>
+            </tr>
+            <tr>
+                <td>Program Expenses (% of total)</td>
+                <td><input type="text" name="program-expense-percent"></td>
+                <td><input type="text" name="program-expense-notes"></td>
+            </tr>
+            <tr>
+                <td>Administrative Expenses (% of total)</td>
+                <td><input type="text" name="admin-expense-percent"></td>
+                <td><input type="text" name="admin-expense-notes"></td>
+            </tr>
+            <tr>
+                <td>Fundraising Expenses (% of total)</td>
+                <td><input type="text" name="fundraising-expense-percent"></td>
+                <td><input type="text" name="fundraising-expense-notes"></td>
+            </tr>
+            <tr>
+                <td>Executive Compensation</td>
+                <td><input type="text" name="executive-compensation"></td>
+                <td><input type="text" name="compensation-notes"></td>
+            </tr>
+            <tr>
+                <td>Fundraising Efficiency (Cost to raise $1)</td>
+                <td><input type="text" name="fundraising-efficiency"></td>
+                <td><input type="text" name="efficiency-notes"></td>
+            </tr>
+            <tr>
+                <td>Revenue Growth Rate (Year-over-Year)</td>
+                <td><input type="text" name="revenue-growth"></td>
+                <td><input type="text" name="growth-notes"></td>
+            </tr>
+        </table>
+        
+        <div class="tips">
+            <strong>Interpretation Guidelines:</strong>
+            <ul>
+                <li><strong>Program Expenses:</strong> Generally, higher percentages (70%+) indicate more efficient use of funds for mission-related activities</li>
+                <li><strong>Administrative Expenses:</strong> While lower is often better, extremely low percentages may indicate insufficient infrastructure</li>
+                <li><strong>Fundraising Efficiency:</strong> Lower costs to raise $1 (under $0.20) suggest efficient fundraising</li>
+                <li><strong>Executive Compensation:</strong> Should be reasonable given organization size, location, and sector</li>
+            </ul>
+        </div>
+        
+        <div class="warning">
+            <strong>Important Note:</strong> Financial metrics alone don't tell the full story. A newer organization, smaller charity, or one working in a particularly challenging field may have higher overhead costs while still creating significant impact. Consider these metrics alongside program effectiveness and organizational leadership.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Transparency & Accountability</h2>
+        
+        <table>
+            <tr>
+                <th>Indicator</th>
+                <th>Yes/No/Unknown</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Annual Report Publicly Available</td>
+                <td>
+                    <select name="annual-report">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="annual-report-notes"></td>
+            </tr>
+            <tr>
+                <td>Form 990 (Tax Return) Publicly Available</td>
+                <td>
+                    <select name="form-990">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="form-990-notes"></td>
+            </tr>
+            <tr>
+                <td>Independent Board of Directors</td>
+                <td>
+                    <select name="independent-board">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="board-notes"></td>
+            </tr>
+            <tr>
+                <td>Conflict of Interest Policy</td>
+                <td>
+                    <select name="conflict-policy">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="conflict-notes"></td>
+            </tr>
+            <tr>
+                <td>Clear Description of Programs and Outcomes</td>
+                <td>
+                    <select name="program-description">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="program-description-notes"></td>
+            </tr>
+            <tr>
+                <td>Publishes Metrics for Program Evaluation</td>
+                <td>
+                    <select name="program-metrics">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="metrics-notes"></td>
+            </tr>
+            <tr>
+                <td>Third-Party Ratings/Accreditations</td>
+                <td>
+                    <select name="third-party">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="third-party-notes"></td>
+            </tr>
+        </table>
+        
+        <div class="tips">
+            <strong>Tip:</strong> Transparency indicators demonstrate an organization's commitment to accountability. Organizations that openly share information about their finances, governance, and program outcomes typically exhibit better stewardship of donor funds.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Program Effectiveness</h2>
+        
+        <div class="field">
+            <label for="stated-goals">Organization's Stated Goals & Objectives:</label>
+            <textarea id="stated-goals" name="stated-goals"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="evidence-impact">Evidence of Impact (Outcomes & Results):</label>
+            <textarea id="evidence-impact" name="evidence-impact"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="measurement">How Does the Organization Measure Success?</label>
+            <textarea id="measurement" name="measurement"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="beneficiaries">Number of Beneficiaries/People Served:</label>
+            <input type="text" id="beneficiaries" name="beneficiaries">
+        </div>
+        
+        <div class="field">
+            <label for="cost-effectiveness">Cost per Beneficiary/Unit of Service (if available):</label>
+            <input type="text" id="cost-effectiveness" name="cost-effectiveness">
+        </div>
+        
+        <div class="field">
+            <label for="unique-approach">What Makes This Organization's Approach Unique or Effective?</label>
+            <textarea id="unique-approach" name="unique-approach"></textarea>
+        </div>
+        
+        <div class="tips">
+            <strong>Tip:</strong> Look for specific, measurable outcomes rather than vague statements about impact. Effective organizations can clearly articulate what success looks like and provide evidence that their programs are achieving meaningful results.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Contribution Options</h2>
+        
+        <h3>Ways to Give</h3>
+        <table>
+            <tr>
+                <th>Contribution Type</th>
+                <th>Available?</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>One-time Monetary Donations</td>
+                <td>
+                    <select name="one-time">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="one-time-details"></td>
+            </tr>
+            <tr>
+                <td>Recurring Donations</td>
+                <td>
+                    <select name="recurring">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="recurring-details"></td>
+            </tr>
+            <tr>
+                <td>Volunteer Opportunities</td>
+                <td>
+                    <select name="volunteer">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="volunteer-details"></td>
+            </tr>
+            <tr>
+                <td>In-Kind Donations</td>
+                <td>
+                    <select name="in-kind">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="in-kind-details"></td>
+            </tr>
+            <tr>
+                <td>Planned Giving Options</td>
+                <td>
+                    <select name="planned">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="planned-details"></td>
+            </tr>
+            <tr>
+                <td>Specific Projects/Programs to Support</td>
+                <td>
+                    <select name="specific">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><input type="text" name="specific-details"></td>
+            </tr>
+        </table>
+        
+        <div class="field">
+            <label for="minimum-donation">Minimum Donation Amount (if any):</label>
+            <input type="text" id="minimum-donation" name="minimum-donation">
+        </div>
+        
+        <div class="field">
+            <label for="donation-allocation">How are donations allocated? Can donors designate funds for specific programs?</label>
+            <textarea id="donation-allocation" name="donation-allocation"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="donation-recognition">Donor Recognition Programs (if any):</label>
+            <textarea id="donation-recognition" name="donation-recognition"></textarea>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Red Flags Checklist</h2>
+        
+        <p>Check for any potential warning signs:</p>
+        
+        <div class="field">
+            <input type="checkbox" id="flag1" name="red-flags">
+            <label for="flag1" style="display: inline;">Unwillingness to share financial information</label>
+        </div>
+        
+        <div class="field">
+            <input type="checkbox" id="flag2" name="red-flags">
+            <label for="flag2" style="display: inline;">Extremely high administrative or fundraising costs (over 50%)</label>
+        </div>
+        
+        <div class="field">
+            <input type="checkbox" id="flag3" name="red-flags">
+            <label for="flag3" style="display: inline;">Inability to clearly explain programs or provide evidence of impact</label>
+        </div>
+        
+        <div class="field">
+            <input type="checkbox" id="flag4" name="red-flags">
+            <label for="flag4" style="display: inline;">High-pressure fundraising tactics</label>
+        </div>
+        
+        <div class="field">
+            <input type="checkbox" id="flag5" name="red-flags">
+            <label for="flag5" style="display: inline;">No independent board of directors</label>
+        </div>
+        
+        <div class="field">
+            <input type="checkbox" id="flag6" name="red-flags">
+            <label for="flag6" style="display: inline;">Lack of clear mission or focus</label>
+        </div>
+        
+        <div class="field">
+            <input type="checkbox" id="flag7" name="red-flags">
+            <label for="flag7" style="display: inline;">Recent scandals or legal issues</label>
+        </div>
+        
+        <div class="field">
+            <input type="checkbox" id="flag8" name="red-flags">
+            <label for="flag8" style="display: inline;">Unwillingness to provide references or testimonials</label>
+        </div>
+        
+        <div class="field">
+            <input type="checkbox" id="flag9" name="red-flags">
+            <label for="flag9" style="display: inline;">Questionable or misleading claims about impact</label>
+        </div>
+        
+        <div class="field">
+            <input type="checkbox" id="flag10" name="red-flags">
+            <label for="flag10" style="display: inline;">Poor reviews or ratings from charity evaluators</label>
+        </div>
+        
+        <div class="field">
+            <label for="other-concerns">Other Concerns or Notes:</label>
+            <textarea id="other-concerns" name="other-concerns"></textarea>
+        </div>
+        
+        <div class="warning">
+            <strong>Warning:</strong> The presence of one or more red flags doesn't necessarily mean an organization should be avoided, but it does suggest the need for further investigation before making a contribution.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Overall Evaluation</h2>
+        
+        <div class="field">
+            <label for="strengths">Organizational Strengths:</label>
+            <textarea id="strengths" name="strengths"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="weaknesses">Organizational Weaknesses/Areas for Improvement:</label>
+            <textarea id="weaknesses" name="weaknesses"></textarea>
+        </div>
+        
+        <div class="field">
+            <label for="personal-alignment">Alignment with Your Personal Values and Giving Priorities:</label>
+            <textarea id="personal-alignment" name="personal-alignment"></textarea>
+        </div>
+        
+        <div class="rating">
+            <label for="financial-health">Financial Health Rating (1-5):</label>
+            <select id="financial-health" name="financial-health">
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Below Average</option>
+                <option value="3">3 - Average</option>
+                <option value="4">4 - Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+        </div>
+        
+        <div class="rating">
+            <label for="transparency">Transparency & Accountability Rating (1-5):</label>
+            <select id="transparency" name="transparency">
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Below Average</option>
+                <option value="3">3 - Average</option>
+                <option value="4">4 - Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+        </div>
+        
+        <div class="rating">
+            <label for="effectiveness">Program Effectiveness Rating (1-5):</label>
+            <select id="effectiveness" name="effectiveness">
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Below Average</option>
+                <option value="3">3 - Average</option>
+                <option value="4">4 - Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+        </div>
+        
+        <div class="rating">
+            <label for="overall">Overall Rating (1-5):</label>
+            <select id="overall" name="overall">
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Below Average</option>
+                <option value="3">3 - Average</option>
+                <option value="4">4 - Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+        </div>
+        
+        <div class="field">
+            <label for="giving-decision">Giving Decision:</label>
+            <select id="giving-decision" name="giving-decision">
+                <option value="strong-yes">Strong Yes - Will definitely support</option>
+                <option value="yes">Yes - Plan to support</option>
+                <option value="maybe">Maybe - Need more information</option>
+                <option value="no">No - Will not support at this time</option>
+            </select>
+        </div>
+        
+        <div class="field">
+            <label for="notes">Additional Notes/Follow-up Items:</label>
+            <textarea id="notes" name="notes"></textarea>
+        </div>
+    </div>
+    
+    <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+
+</body>
+</html>

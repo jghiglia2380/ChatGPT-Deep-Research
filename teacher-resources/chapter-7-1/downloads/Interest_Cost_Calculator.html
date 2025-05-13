@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Cost Calculator Worksheet - Chapter 7.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .input-field {
+            background-color: #fff;
+            height: 18px;
+            border-bottom: 1px solid #999;
+        }
+        .formula {
+            background-color: #f0f7ff;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .example {
+            background-color: #f1f9e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .example h3 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .calculator-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Print / Save as PDF</button>
+        </div>
+        
+        <h1>Interest Cost Calculator Worksheet</h1>
+        
+        <div class="note">
+            <p><strong>Instructions:</strong> This worksheet will help you calculate and understand the true cost of borrowing money. Fill in the required information for each loan example and follow the formulas to determine monthly payments and total interest costs.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Basic Interest Calculation</h2>
+            <p>For simple interest over one year:</p>
+            <div class="formula">
+                Interest = Principal × Interest Rate
+            </div>
+            
+            <h3>Practice Problems</h3>
+            <table>
+                <tr>
+                    <th>Problem</th>
+                    <th>Principal</th>
+                    <th>Interest Rate</th>
+                    <th>Calculation</th>
+                    <th>Interest Amount</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>$1,000</td>
+                    <td>5%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>$5,000</td>
+                    <td>7%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>$10,000</td>
+                    <td>3.5%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+            
+            <div class="example">
+                <h3>Example</h3>
+                <p>If you borrow $2,000 at 6% simple interest for one year:</p>
+                <p>Interest = $2,000 × 0.06 = $120</p>
+                <p>Total amount to repay = $2,000 + $120 = $2,120</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Installment Loan Calculator</h2>
+            <p>For loans with fixed payments over a specific term (like car loans, mortgages):</p>
+            
+            <div class="formula">
+                Monthly Payment = P × r × (1 + r)^n / [(1 + r)^n - 1]
+            </div>
+            <p>Where:</p>
+            <ul>
+                <li>P = Principal (loan amount)</li>
+                <li>r = Monthly interest rate (annual rate divided by 12)</li>
+                <li>n = Total number of payments (years × 12)</li>
+            </ul>
+            
+            <h3>Loan Scenario Analysis</h3>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Loan Amount</th>
+                    <th>Annual Interest Rate</th>
+                    <th>Loan Term</th>
+                    <th>Monthly Payment</th>
+                    <th>Total Interest Paid</th>
+                </tr>
+                <tr>
+                    <td>Car Loan A</td>
+                    <td>$20,000</td>
+                    <td>4.5%</td>
+                    <td>5 years</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Car Loan B</td>
+                    <td>$20,000</td>
+                    <td>4.5%</td>
+                    <td>3 years</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Car Loan C</td>
+                    <td>$20,000</td>
+                    <td>7%</td>
+                    <td>5 years</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+            
+            <p>Formula for total interest paid:</p>
+            <div class="formula">
+                Total Interest = (Monthly Payment × Number of Payments) - Principal
+            </div>
+            
+            <h3>Analysis Questions</h3>
+            <ol>
+                <li>How much more interest would you pay with Car Loan A compared to Car Loan B?<br>
+                <div class="input-field"></div></li>
+                <li>How much more would your monthly payment be with Car Loan B compared to Car Loan A?<br>
+                <div class="input-field"></div></li>
+                <li>What is the difference in total interest between Car Loan A and Car Loan C?<br>
+                <div class="input-field"></div></li>
+                <li>What would be your recommendation for someone looking to minimize overall borrowing costs?<br>
+                <div class="input-field" style="height: 50px;"></div></li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>Credit Card Interest Calculator</h2>
+            <p>For revolving credit with minimum payments:</p>
+            
+            <div class="formula">
+                Minimum Payment = Percentage of Balance (typically 2-3%) or fixed amount (whichever is greater)
+            </div>
+            
+            <h3>Credit Card Scenarios</h3>
+            <p>Calculate how long it would take to pay off these credit card balances making only minimum payments (assume 2% of balance or $25, whichever is greater):</p>
+            
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Initial Balance</th>
+                    <th>APR</th>
+                    <th>Initial Minimum Payment</th>
+                    <th>Time to Pay Off</th>
+                    <th>Total Interest Paid</th>
+                </tr>
+                <tr>
+                    <td>Credit Card A</td>
+                    <td>$5,000</td>
+                    <td>18%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Credit Card B<br>(Fixed payment)</td>
+                    <td>$5,000</td>
+                    <td>18%</td>
+                    <td>$200/month</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Credit Card C</td>
+                    <td>$5,000</td>
+                    <td>24%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+            
+            <h3>Analysis Questions</h3>
+            <ol>
+                <li>How much less interest would you pay with Credit Card B (fixed payment) compared to Credit Card A (minimum payments)?<br>
+                <div class="input-field"></div></li>
+                <li>How much sooner would you pay off Credit Card B compared to Credit Card A?<br>
+                <div class="input-field"></div></li>
+                <li>What is the effect of the higher interest rate on Credit Card C compared to Credit Card A?<br>
+                <div class="input-field"></div></li>
+                <li>What strategies would you recommend to someone with credit card debt?<br>
+                <div class="input-field" style="height: 50px;"></div></li>
+            </ol>
+            
+            <div class="example">
+                <h3>Credit Card Calculation Example</h3>
+                <p>For a $1,000 balance at 18% APR with 2% minimum payment:</p>
+                <ul>
+                    <li>Month 1: Minimum payment = $25 (greater of 2% of $1,000 or $25)</li>
+                    <li>Interest for month 1 = $1,000 × (18% ÷ 12) = $15</li>
+                    <li>Principal reduction = $25 - $15 = $10</li>
+                    <li>New balance = $1,000 - $10 = $990</li>
+                    <li>Month 2: Minimum payment = $25 (greater of 2% of $990 or $25)</li>
+                    <li>Interest for month 2 = $990 × (18% ÷ 12) = $14.85</li>
+                    <li>And so on...</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Payment Strategy Comparison</h2>
+            <p>Compare different payment strategies for a $10,000 loan at 6% for 5 years:</p>
+            
+            <table>
+                <tr>
+                    <th>Strategy</th>
+                    <th>Standard Monthly</th>
+                    <th>Bi-weekly Payments</th>
+                    <th>Monthly + $100 Extra</th>
+                </tr>
+                <tr>
+                    <td>Monthly Payment</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total Payments</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Time to Pay Off</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total Interest</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Interest Saved</td>
+                    <td>N/A</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Time Saved</td>
+                    <td>N/A</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+            
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Which payment strategy would you choose and why?<br>
+                <div class="input-field" style="height: 40px;"></div></li>
+                <li>What are the trade-offs between the different strategies?<br>
+                <div class="input-field" style="height: 40px;"></div></li>
+                <li>How might your choice of payment strategy depend on your other financial goals?<br>
+                <div class="input-field" style="height: 40px;"></div></li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>Real Life Application</h2>
+            <p>Think about a major purchase you might make in the future that would require borrowing (education, car, house, etc.):</p>
+            
+            <table>
+                <tr>
+                    <td><strong>Type of purchase:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Estimated cost:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Down payment amount:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Amount to borrow:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Likely interest rate:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Loan term (years):</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Estimated monthly payment:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Total interest you would pay:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Total cost (purchase + interest):</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Payment strategy I would use:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>How I would ensure I could afford this:</strong></td>
+                    <td class="input-field" style="height: 40px;"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Remember:</strong> Understanding the true cost of borrowing helps you make informed financial decisions. Always calculate the total cost including interest before taking on any debt, and consider strategies to minimize these costs.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calendar - Chapter 2.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #F3F4F6;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .key-date {
+            background-color: #DBEAFE;
+            border-left: 4px solid #3B82F6;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .month-header {
+            background-color: #6366F1;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .deadline-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #E5E7EB;
+        }
+        
+        .deadline-date {
+            font-weight: bold;
+            color: #4F46E5;
+        }
+        
+        .deadline-description {
+            margin-left: 20px;
+        }
+        
+        .deadline-detail {
+            font-size: 0.9em;
+            color: #6B7280;
+            margin-left: 20px;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        .checklist {
+            background-color: #F3F4F6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .checklist h3 {
+            margin-top: 0;
+        }
+        
+        .checklist ul {
+            padding-left: 25px;
+        }
+        
+        .checklist li {
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend portrait orientation)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Tax Calendar</h1>
+        <p class="subtitle">Chapter 2.3: Understanding Tax Filing Requirements</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>This tax calendar provides a comprehensive overview of important tax deadlines throughout the year. Understanding these deadlines is crucial for timely tax filing and avoiding penalties. Use this calendar as a reference to plan your tax activities throughout the year.</p>
+
+    <div class="important-note">
+        <strong>Important:</strong> Tax deadlines occasionally change due to holidays, weekends, or special circumstances. Always verify current deadlines on the official IRS website at <a href="https://www.irs.gov">www.irs.gov</a>.
+    </div>
+
+    <h2>Key Annual Tax Deadlines</h2>
+    <div class="key-date">
+        <p><strong>April 15</strong> - Standard filing deadline for individual tax returns (Forms 1040). Also deadline for requesting an automatic extension and for making Q1 estimated tax payments.</p>
+    </div>
+    <div class="key-date">
+        <p><strong>June 15</strong> - Second quarter estimated tax payment due for the current tax year.</p>
+    </div>
+    <div class="key-date">
+        <p><strong>September 15</strong> - Third quarter estimated tax payment due for the current tax year.</p>
+    </div>
+    <div class="key-date">
+        <p><strong>October 15</strong> - Extended filing deadline for those who requested an automatic extension on their individual tax returns.</p>
+    </div>
+    <div class="key-date">
+        <p><strong>January 15</strong> (of the following year) - Fourth quarter estimated tax payment due for the previous tax year.</p>
+    </div>
+
+    <h2>Monthly Tax Calendar</h2>
+
+    <div class="month-header">January</div>
+    <div class="deadline-item">
+        <p class="deadline-date">January 15</p>
+        <p class="deadline-description">Fourth quarter estimated tax payment due for the previous tax year</p>
+        <p class="deadline-detail">Applies to individuals who are self-employed or have income that's not subject to withholding</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">January 31</p>
+        <p class="deadline-description">Employers must send W-2 forms to employees</p>
+        <p class="deadline-detail">Shows wages earned and taxes withheld in the previous year</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">January 31</p>
+        <p class="deadline-description">Businesses must send 1099 forms to recipients</p>
+        <p class="deadline-detail">Reports various types of income other than wages, salaries, and tips</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">January 31</p>
+        <p class="deadline-description">Educational institutions must send Form 1098-T to students</p>
+        <p class="deadline-detail">Reports qualified tuition and related expenses</p>
+    </div>
+
+    <div class="month-header">February</div>
+    <div class="deadline-item">
+        <p class="deadline-date">February 1-15</p>
+        <p class="deadline-description">Good time to gather all tax documents and begin preparation</p>
+        <p class="deadline-detail">Create a checklist of expected forms and check them off as they arrive</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">February 15</p>
+        <p class="deadline-description">If you claimed exemption from income tax withholding last year, you must file a new Form W-4 to maintain your exempt status</p>
+        <p class="deadline-detail">Applies to employees who expect no tax liability for the current year</p>
+    </div>
+
+    <div class="month-header">March</div>
+    <div class="deadline-item">
+        <p class="deadline-date">March 1-31</p>
+        <p class="deadline-description">Optimal time to prepare and file your tax return</p>
+        <p class="deadline-detail">Filing early helps avoid the last-minute rush and may speed up refunds</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">March 15</p>
+        <p class="deadline-description">Tax return filing deadline for S corporations and partnerships</p>
+        <p class="deadline-detail">Forms 1120-S and 1065 are due</p>
+    </div>
+
+    <div class="month-header">April</div>
+    <div class="deadline-item">
+        <p class="deadline-date">April 15</p>
+        <p class="deadline-description">Filing deadline for individual tax returns (Form 1040)</p>
+        <p class="deadline-detail">Last day to file your tax return or request an extension</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">April 15</p>
+        <p class="deadline-description">Deadline to make contributions to Traditional and Roth IRAs for the previous tax year</p>
+        <p class="deadline-detail">Last chance to make IRA contributions that may affect your tax return</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">April 15</p>
+        <p class="deadline-description">Deadline to file for an automatic six-month extension (Form 4868)</p>
+        <p class="deadline-detail">Extends your filing deadline to October 15, but does not extend the time to pay any taxes due</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">April 15</p>
+        <p class="deadline-description">First quarter estimated tax payment due for the current tax year</p>
+        <p class="deadline-detail">For self-employed individuals and those with income not subject to withholding</p>
+    </div>
+
+    <div class="month-header">May</div>
+    <div class="deadline-item">
+        <p class="deadline-date">May 1-31</p>
+        <p class="deadline-description">Good time to review your withholding for the current year</p>
+        <p class="deadline-detail">Use the IRS Withholding Estimator to check if your withholding is appropriate</p>
+    </div>
+
+    <div class="month-header">June</div>
+    <div class="deadline-item">
+        <p class="deadline-date">June 15</p>
+        <p class="deadline-description">Second quarter estimated tax payment due for the current tax year</p>
+        <p class="deadline-detail">For self-employed individuals and those with income not subject to withholding</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">June 15</p>
+        <p class="deadline-description">Tax filing deadline for U.S. citizens living abroad</p>
+        <p class="deadline-detail">Automatic 2-month extension from the regular April 15 deadline</p>
+    </div>
+
+    <div class="month-header">July-August</div>
+    <div class="deadline-item">
+        <p class="deadline-date">July-August</p>
+        <p class="deadline-description">Mid-year tax planning opportunity</p>
+        <p class="deadline-detail">Good time to review your tax situation and make adjustments if needed</p>
+    </div>
+
+    <div class="month-header">September</div>
+    <div class="deadline-item">
+        <p class="deadline-date">September 15</p>
+        <p class="deadline-description">Third quarter estimated tax payment due for the current tax year</p>
+        <p class="deadline-detail">For self-employed individuals and those with income not subject to withholding</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">September 15</p>
+        <p class="deadline-description">Extended deadline for S corporations and partnerships</p>
+        <p class="deadline-detail">Final extended deadline for filing Forms 1120-S and 1065</p>
+    </div>
+
+    <div class="month-header">October</div>
+    <div class="deadline-item">
+        <p class="deadline-date">October 15</p>
+        <p class="deadline-description">Extended filing deadline for individual tax returns</p>
+        <p class="deadline-detail">Final deadline for those who requested a six-month extension on April 15</p>
+    </div>
+
+    <div class="month-header">November-December</div>
+    <div class="deadline-item">
+        <p class="deadline-date">November-December</p>
+        <p class="deadline-description">Year-end tax planning</p>
+        <p class="deadline-detail">Last opportunity to make tax-affecting transactions for the current year</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">December 31</p>
+        <p class="deadline-description">Last day to make tax-deductible charitable contributions for the current tax year</p>
+        <p class="deadline-detail">Remember to get receipts for all donations</p>
+    </div>
+    <div class="deadline-item">
+        <p class="deadline-date">December 31</p>
+        <p class="deadline-description">Last day to make most tax-affecting financial transactions for the current tax year</p>
+        <p class="deadline-detail">Includes establishing Keogh or solo 401(k) plans (though contributions can be made later)</p>
+    </div>
+
+    <h2>Tax Filing Preparation Timeline</h2>
+    <p>Follow this suggested timeline to make your tax filing process smoother:</p>
+
+    <div class="checklist">
+        <h3>December-January</h3>
+        <ul>
+            <li>Create a tax document checklist of forms you expect to receive</li>
+            <li>Set up a folder or digital storage location for incoming tax documents</li>
+            <li>Review prior year tax return to identify recurring items</li>
+            <li>Research potential new deductions or credits you might qualify for</li>
+        </ul>
+    </div>
+
+    <div class="checklist">
+        <h3>February</h3>
+        <ul>
+            <li>Collect all tax forms as they arrive (W-2s, 1099s, etc.)</li>
+            <li>Organize receipts for potential itemized deductions</li>
+            <li>Gather documentation for education expenses and student loan interest</li>
+            <li>Check for missing documents and follow up if needed</li>
+        </ul>
+    </div>
+
+    <div class="checklist">
+        <h3>March</h3>
+        <ul>
+            <li>Determine which filing method you'll use (tax software, professional, etc.)</li>
+            <li>Start preparing your return or schedule an appointment with a tax professional</li>
+            <li>Decide whether to take the standard deduction or itemize</li>
+            <li>Review your return for accuracy before filing</li>
+        </ul>
+    </div>
+
+    <div class="checklist">
+        <h3>April</h3>
+        <ul>
+            <li>File your return by April 15 or request an extension</li>
+            <li>If you owe taxes, pay by April 15 (even if you file an extension)</li>
+            <li>Make your first quarter estimated tax payment if applicable</li>
+            <li>Store a copy of your completed tax return and supporting documents</li>
+        </ul>
+    </div>
+
+    <h2>Consequences of Missing Deadlines</h2>
+    <p>Understanding the penalties for missing tax deadlines can help emphasize the importance of timely filing:</p>
+
+    <table>
+        <tr>
+            <th>Issue</th>
+            <th>Penalty</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>Failure to File</td>
+            <td>5% of unpaid taxes per month, up to 25%</td>
+            <td>Applies if you don't file by the deadline or request an extension</td>
+        </tr>
+        <tr>
+            <td>Failure to Pay</td>
+            <td>0.5% of unpaid taxes per month, up to 25%</td>
+            <td>Applies even if you file on time but don't pay the full amount owed</td>
+        </tr>
+        <tr>
+            <td>Late Estimated Tax Payments</td>
+            <td>Interest plus potential penalty</td>
+            <td>Calculated based on how much you should have paid and how late the payment was</td>
+        </tr>
+        <tr>
+            <td>Fraudulent Return</td>
+            <td>75% of unpaid tax</td>
+            <td>For returns filed with deliberate attempt to evade taxes</td>
+        </tr>
+    </table>
+
+    <div class="important-note">
+        <strong>Important:</strong> Interest also accrues on unpaid taxes and penalties, compounding the cost of missing deadlines. The interest rate is determined quarterly and is the federal short-term rate plus 3%.
+    </div>
+
+    <h2>Filing Extensions</h2>
+    <p>If you can't file by the April 15 deadline, you can request an automatic six-month extension:</p>
+    <ul>
+        <li><strong>How to request:</strong> File Form 4868 by April 15</li>
+        <li><strong>What it gives you:</strong> Six additional months to file (until October 15)</li>
+        <li><strong>What it doesn't do:</strong> Extend the time to pay any taxes due</li>
+        <li><strong>Payment requirement:</strong> You should estimate and pay any owed taxes by April 15 to avoid penalties and interest</li>
+    </ul>
+
+    <div class="important-note">
+        <strong>Extension Tips:</strong> When filing an extension, it's better to overestimate your tax liability slightly. If you overpay, you'll receive a refund when you file your complete return. If you underpay, you'll still face penalties and interest on the unpaid amount.
+    </div>
+
+    <h2>Resources for Additional Help</h2>
+    <ul>
+        <li><strong>IRS Tax Calendar:</strong> <a href="https://www.irs.gov/tax-calendar">www.irs.gov/tax-calendar</a></li>
+        <li><strong>IRS Free File:</strong> <a href="https://www.irs.gov/filing/free-file-do-your-federal-taxes-for-free">www.irs.gov/filing/free-file-do-your-federal-taxes-for-free</a></li>
+        <li><strong>VITA/TCE Free Tax Preparation:</strong> <a href="https://www.irs.gov/individuals/free-tax-return-preparation-for-qualifying-taxpayers">www.irs.gov/individuals/free-tax-return-preparation-for-qualifying-taxpayers</a></li>
+        <li><strong>IRS Withholding Estimator:</strong> <a href="https://www.irs.gov/individuals/tax-withholding-estimator">www.irs.gov/individuals/tax-withholding-estimator</a></li>
+    </ul>
+
+    <footer>
+        <p>PFL Academy - Chapter 2.3: Understanding Tax Filing Requirements</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not tax advice.</p>
+    </footer>
+</body>
+</html>

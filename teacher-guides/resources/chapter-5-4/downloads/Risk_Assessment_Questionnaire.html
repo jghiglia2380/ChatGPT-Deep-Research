@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Tolerance Assessment Questionnaire - Chapter 5.4</title>
+    <style>
+        @media print {
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4f46e5;
+        }
+        
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 5px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9fafb;
+            border-radius: 5px;
+        }
+        
+        .question p {
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .option {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option input {
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+        
+        .note {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-left: 4px solid #4f46e5;
+            margin: 20px 0;
+        }
+        
+        .profile {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .profile-conservative {
+            background-color: #dcfce7;
+            border-left: 4px solid #10b981;
+        }
+        
+        .profile-moderate {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .profile-aggressive {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .profile h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .score-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .score-table, .score-table th, .score-table td {
+            border: 1px solid #ddd;
+        }
+        
+        .score-table th {
+            background-color: #f3f4f6;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .score-table td {
+            padding: 10px;
+        }
+        
+        button {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        button:hover {
+            background-color: #4338ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Risk Tolerance Assessment Questionnaire</h1>
+        <p>Chapter 5.4: Time is Money – Developing a Savings and Investment Strategy</p>
+    </div>
+    
+    <div class="no-print">
+        <p>This questionnaire will help you assess your risk tolerance for investing. Answer each question honestly based on how you would actually feel and behave, not how you think you should respond. When you're finished, you can calculate your score to determine your risk profile.</p>
+        <button onclick="window.print()">Print/Save as PDF</button>
+    </div>
+    
+    <div class="note">
+        <p><strong>Note:</strong> This assessment is for educational purposes only and provides a general indication of risk tolerance. Personal investment decisions should be made in consultation with a financial professional who can consider your complete financial situation.</p>
+    </div>
+    
+    <h2>Understanding Risk Tolerance</h2>
+    
+    <p>Risk tolerance is your personal comfort level with financial uncertainty and potential losses. It's influenced by several factors:</p>
+    
+    <ul>
+        <li><strong>Time Horizon:</strong> How long until you need the money (longer horizons generally allow for more risk)</li>
+        <li><strong>Financial Capacity:</strong> Your ability to absorb losses without affecting your lifestyle</li>
+        <li><strong>Emotional Comfort:</strong> Your psychological reaction to market volatility and temporary losses</li>
+        <li><strong>Investment Knowledge:</strong> Your understanding of how markets and investments work</li>
+        <li><strong>Financial Goals:</strong> The returns needed to achieve your objectives</li>
+    </ul>
+    
+    <h2>Risk Tolerance Questionnaire</h2>
+    
+    <form id="risk-assessment">
+        <div class="question">
+            <p>1. What is your primary investment timeframe for the majority of your investments?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q1" id="q1a" value="1">
+                    <label for="q1a">Less than 3 years</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q1" id="q1b" value="2">
+                    <label for="q1b">3-5 years</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q1" id="q1c" value="3">
+                    <label for="q1c">5-10 years</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q1" id="q1d" value="4">
+                    <label for="q1d">10-20 years</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q1" id="q1e" value="5">
+                    <label for="q1e">More than 20 years</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>2. How would you respond if your investment portfolio suddenly decreased in value by 20%?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q2" id="q2a" value="1">
+                    <label for="q2a">I would sell all my investments immediately to prevent further losses</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q2" id="q2b" value="2">
+                    <label for="q2b">I would sell some of my investments to reduce risk</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q2" id="q2c" value="3">
+                    <label for="q2c">I would hold my investments and wait for recovery</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q2" id="q2d" value="4">
+                    <label for="q2d">I would hold my investments and perhaps buy more at lower prices</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q2" id="q2e" value="5">
+                    <label for="q2e">I would definitely invest more to take advantage of the lower prices</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>3. Which statement best describes your attitude toward investment risk?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q3" id="q3a" value="1">
+                    <label for="q3a">I want to minimize risk and am willing to accept lower returns to do so</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q3" id="q3b" value="2">
+                    <label for="q3b">I am comfortable with a small amount of risk to achieve slightly better returns</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q3" id="q3c" value="3">
+                    <label for="q3c">I am willing to accept moderate risk for moderate returns</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q3" id="q3d" value="4">
+                    <label for="q3d">I am comfortable with substantial risk for the potential of higher returns</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q3" id="q3e" value="5">
+                    <label for="q3e">I seek maximum returns and am willing to accept significant risk to achieve them</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>4. How often do you check your investment performance?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q4" id="q4a" value="1">
+                    <label for="q4a">Daily</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q4" id="q4b" value="2">
+                    <label for="q4b">Weekly</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q4" id="q4c" value="3">
+                    <label for="q4c">Monthly</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q4" id="q4d" value="4">
+                    <label for="q4d">Quarterly</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q4" id="q4e" value="5">
+                    <label for="q4e">Annually or less frequently</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>5. Which of the following hypothetical investment portfolios would you be most comfortable with?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q5" id="q5a" value="1">
+                    <label for="q5a">Portfolio A: Has a 10% chance of losing money in any year, with average annual returns of 4-6%</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q5" id="q5b" value="2">
+                    <label for="q5b">Portfolio B: Has a 20% chance of losing money in any year, with average annual returns of 6-8%</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q5" id="q5c" value="3">
+                    <label for="q5c">Portfolio C: Has a 30% chance of losing money in any year, with average annual returns of 8-10%</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q5" id="q5d" value="4">
+                    <label for="q5d">Portfolio D: Has a 40% chance of losing money in any year, with average annual returns of 10-12%</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q5" id="q5e" value="5">
+                    <label for="q5e">Portfolio E: Has a 50% chance of losing money in any year, with average annual returns of 12-14%</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>6. You inherit a significant sum of money. How would you invest it?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q6" id="q6a" value="1">
+                    <label for="q6a">100% in safe, guaranteed investments like CDs or money market accounts</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q6" id="q6b" value="2">
+                    <label for="q6b">70% in safe investments, 30% in stocks or stock funds</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q6" id="q6c" value="3">
+                    <label for="q6c">50% in safe investments, 50% in stocks or stock funds</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q6" id="q6d" value="4">
+                    <label for="q6d">30% in safe investments, 70% in stocks or stock funds</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q6" id="q6e" value="5">
+                    <label for="q6e">100% in stocks or stock funds</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>7. Which statement best describes your investment knowledge and experience?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q7" id="q7a" value="1">
+                    <label for="q7a">I have very little knowledge about investing and have never invested before</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q7" id="q7b" value="2">
+                    <label for="q7b">I have some basic knowledge but limited experience with investments</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q7" id="q7c" value="3">
+                    <label for="q7c">I have moderate knowledge and some experience with different types of investments</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q7" id="q7d" value="4">
+                    <label for="q7d">I have good knowledge and significant experience with various investments</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q7" id="q7e" value="5">
+                    <label for="q7e">I have extensive knowledge and experience with a wide range of investment types</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>8. How important is it to you to preserve your initial investment amount (principal)?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q8" id="q8a" value="1">
+                    <label for="q8a">Extremely important - I cannot afford to lose any of my principal</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q8" id="q8b" value="2">
+                    <label for="q8b">Very important - I would be very concerned about any loss of principal</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q8" id="q8c" value="3">
+                    <label for="q8c">Moderately important - I can accept some temporary loss of principal</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q8" id="q8d" value="4">
+                    <label for="q8d">Somewhat important - I'm focused more on long-term growth than preserving principal</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q8" id="q8e" value="5">
+                    <label for="q8e">Not very important - I'm focused on maximum growth and understand principal may fluctuate significantly</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>9. How would you describe your financial situation?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q9" id="q9a" value="1">
+                    <label for="q9a">I have significant debt and/or minimal savings</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q9" id="q9b" value="2">
+                    <label for="q9b">I have some debt and limited savings</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q9" id="q9c" value="3">
+                    <label for="q9c">I have my debt under control and am building savings</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q9" id="q9d" value="4">
+                    <label for="q9d">I have minimal debt and good savings</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q9" id="q9e" value="5">
+                    <label for="q9e">I am financially secure with substantial savings and minimal or no debt</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>10. What is your primary investment goal?</p>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="q10" id="q10a" value="1">
+                    <label for="q10a">Preserve my capital (principal) and earn consistent income</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q10" id="q10b" value="2">
+                    <label for="q10b">Generate income with some growth potential</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q10" id="q10c" value="3">
+                    <label for="q10c">Balance between growth and income</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q10" id="q10d" value="4">
+                    <label for="q10d">Achieve growth with some income</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="q10" id="q10e" value="5">
+                    <label for="q10e">Maximize long-term growth</label>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    <div class="no-print">
+        <button onclick="calculateScore()">Calculate My Risk Profile</button>
+    </div>
+    
+    <h2>Scoring Guide</h2>
+    
+    <p>To calculate your risk tolerance score:</p>
+    <ol>
+        <li>Assign points for each question based on your answers (1-5 points per question)</li>
+        <li>Add up your total points across all 10 questions</li>
+        <li>Compare your total to the ranges below to identify your risk profile</li>
+    </ol>
+    
+    <table class="score-table">
+        <tr>
+            <th>Total Score</th>
+            <th>Risk Profile</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>10-20</td>
+            <td>Conservative</td>
+            <td>You prioritize capital preservation over growth and prefer low-risk investments</td>
+        </tr>
+        <tr>
+            <td>21-35</td>
+            <td>Moderate</td>
+            <td>You seek to balance growth and risk, accepting some market volatility for better returns</td>
+        </tr>
+        <tr>
+            <td>36-50</td>
+            <td>Aggressive</td>
+            <td>You prioritize growth and are willing to accept significant market volatility for the potential of higher returns</td>
+        </tr>
+    </table>
+    
+    <div id="result-container" style="display: none;">
+        <h2>Your Risk Tolerance Results</h2>
+        <p>Based on your answers, your total score is: <span id="total-score" style="font-weight: bold;"></span></p>
+        
+        <div id="profile-conservative" class="profile profile-conservative" style="display: none;">
+            <h3>Conservative Risk Profile</h3>
+            <p>You prioritize protecting your principal over growth potential. You're uncomfortable with significant market volatility and prefer stable, predictable investments even if they offer lower returns.</p>
+            <p><strong>Suggested Asset Allocation:</strong></p>
+            <ul>
+                <li>50-60% Bonds</li>
+                <li>20-30% Stocks</li>
+                <li>10-20% Cash/Short-term</li>
+                <li>0-10% Alternative investments</li>
+            </ul>
+            <p><strong>Appropriate Investment Vehicles:</strong> High-yield savings accounts, CDs, money market accounts, Treasury securities, short-term bond funds, conservative balanced funds</p>
+            <p><strong>Best For:</strong> Short to medium-term goals (1-5 years), emergency funds, or investors near or in retirement</p>
+        </div>
+        
+        <div id="profile-moderate" class="profile profile-moderate" style="display: none;">
+            <h3>Moderate Risk Profile</h3>
+            <p>You seek to balance growth potential with risk management. You can tolerate some market volatility for the opportunity to achieve better returns than purely conservative investments offer.</p>
+            <p><strong>Suggested Asset Allocation:</strong></p>
+            <ul>
+                <li>40-50% Stocks</li>
+                <li>40-50% Bonds</li>
+                <li>5-10% Cash/Short-term</li>
+                <li>0-10% Alternative investments</li>
+            </ul>
+            <p><strong>Appropriate Investment Vehicles:</strong> Balanced mutual funds, broad market index funds, blue-chip stocks, intermediate-term bonds, corporate bonds, REITs</p>
+            <p><strong>Best For:</strong> Medium-term goals (5-10 years), college funding, or investors in mid-career</p>
+        </div>
+        
+        <div id="profile-aggressive" class="profile profile-aggressive" style="display: none;">
+            <h3>Aggressive Risk Profile</h3>
+            <p>You prioritize maximizing growth potential and can withstand significant market volatility. You understand that pursuing higher returns comes with increased risk of short-term losses.</p>
+            <p><strong>Suggested Asset Allocation:</strong></p>
+            <ul>
+                <li>70-80% Stocks</li>
+                <li>10-20% Bonds</li>
+                <li>0-5% Cash/Short-term</li>
+                <li>5-15% Alternative investments</li>
+            </ul>
+            <p><strong>Appropriate Investment Vehicles:</strong> Growth stocks, small-cap stocks, international and emerging market funds, sector funds, long-term bonds, REITs</p>
+            <p><strong>Best For:</strong> Long-term goals (10+ years), retirement savings for younger investors, or wealth building</p>
+        </div>
+    </div>
+    
+    <div class="note">
+        <p><strong>Important Considerations:</strong> Risk tolerance is just one factor in developing an investment strategy. Your specific financial goals, time horizon, financial situation, and investment knowledge are also critical factors. Additionally, risk tolerance may change over time as your circumstances change. Reassess your risk tolerance periodically, especially after significant life changes.</p>
+    </div>
+    
+    <div class="no-print">
+        <button onclick="window.print()">Print/Save as PDF</button>
+    </div>
+    
+    <script>
+        function calculateScore() {
+            let score = 0;
+            const questionCount = 10;
+            let unanswered = [];
+            
+            // Check each question
+            for (let i = 1; i <= questionCount; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector('input[name="' + questionName + '"]:checked');
+                
+                if (selectedOption) {
+                    score += parseInt(selectedOption.value);
+                } else {
+                    unanswered.push(i);
+                }
+            }
+            
+            // If there are unanswered questions, alert the user
+            if (unanswered.length > 0) {
+                alert("Please answer all questions. You haven't answered question(s): " + unanswered.join(", "));
+                return;
+            }
+            
+            // Display the result
+            document.getElementById('total-score').textContent = score;
+            document.getElementById('result-container').style.display = 'block';
+            
+            // Show the appropriate risk profile
+            if (score >= 10 && score <= 20) {
+                document.getElementById('profile-conservative').style.display = 'block';
+                document.getElementById('profile-moderate').style.display = 'none';
+                document.getElementById('profile-aggressive').style.display = 'none';
+            } else if (score >= 21 && score <= 35) {
+                document.getElementById('profile-conservative').style.display = 'none';
+                document.getElementById('profile-moderate').style.display = 'block';
+                document.getElementById('profile-aggressive').style.display = 'none';
+            } else {
+                document.getElementById('profile-conservative').style.display = 'none';
+                document.getElementById('profile-moderate').style.display = 'none';
+                document.getElementById('profile-aggressive').style.display = 'block';
+            }
+            
+            // Scroll to results
+            document.getElementById('result-container').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1760 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 3.2: Choosing and Evaluating Financial Service Providers - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Table styles */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-table th {
+            background-color: #f3f4f6;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .comparison-table td {
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .comparison-table tbody tr:hover {
+            background-color: #f9fafb;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <\!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+    
+    <\!-- Spacer for fixed header -->
+    <div class="h-16"></div>
+    
+    <\!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-8 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <\!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 3: Financial Service Providers</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding different types of financial institutions and services.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <\!-- Previous chapter with checkmark -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 3.1: Understanding Financial Service Providers
+                                </a>
+                            </li>
+                            
+                            <\!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 3.2: Choosing and Evaluating Financial Service Providers
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <\!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 1: Financial Profile Builder
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 2: Decision-Making Simulation
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 3: Cost Calculator
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Station 4: Reflection and Planning
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <\!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+            <\!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 3.2: Choosing and Evaluating Financial Service Providers</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Financial Services Selection Project</p>
+                    
+                    <\!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Analyze and compare different types of financial service providers</li>
+                            <li>Evaluate factors like fees, interest rates, accessibility, and services when choosing providers</li>
+                            <li>Calculate the long-term impact of fees and rates on financial outcomes</li>
+                            <li>Create personalized plans for selecting financial service providers aligned with specific financial goals</li>
+                        </ul>
+                    </div>
+                    
+                    <\!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Financial Services Selection Project\! Today, you'll apply what you learned about financial service providers by creating personalized financial profiles, making informed recommendations based on specific scenarios, calculating long-term impacts of fees and rates, and developing a plan for your own financial service needs.
+                        </p>
+                        
+                        <\!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                Throughout this learning lab, you'll work through each station to build a comprehensive understanding of how to choose the right financial service providers for different situations. Save your work after completing each station to track your progress.
+                            </p>
+                        </div>
+                        
+                        <\!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                Yesterday, you learned about the factors to consider when evaluating financial service providers, including fees, interest rates, accessibility, and services offered. Today, you'll apply that knowledge by analyzing different providers, making recommendations, calculating costs, and creating personalized plans.
+                            </p>
+                        </div>
+                        
+                        <\!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Choosing and Evaluating Financial Service Providers</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts about evaluating and choosing financial service providers:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/3.2 - Choosing and Evaluating Financial Service Providers.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Evaluating financial providers, comparing rates and fees, assessing services against needs, and making informed choices.
+                            </p>
+                        </div>
+                    </div>
+                    <\!-- Learning Station 1: Financial Profile Builder -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 1: Financial Profile Builder</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <\!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this activity, you'll create personalized financial profiles for three different life stages and match them with appropriate financial service providers based on their unique needs and goals.</p>
+                            
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Instructions:</h3>
+                            <ol class="list-decimal list-inside mb-4 space-y-2">
+                                <li>Review the three profiles representing different life stages</li>
+                                <li>Identify their financial needs and priorities</li>
+                                <li>Select appropriate financial service providers for each</li>
+                                <li>Justify your recommendations based on their specific situations</li>
+                            </ol>
+                            
+                            <div class="space-y-6 mb-6">
+                                <\!-- Profile 1: Young Adult -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-gradient-to-r from-blue-50 to-indigo-50">
+                                    <h4 class="font-medium text-indigo-800 mb-3">Profile 1: Young Adult (Age 20-25)</h4>
+                                    
+                                    <div class="bg-white rounded-lg p-4 shadow-sm mb-4">
+                                        <h5 class="font-medium text-gray-800 mb-2">Key Characteristics:</h5>
+                                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                            <li>Recent college graduate with entry-level job</li>
+                                            <li>Has student loan debt (~$25,000)</li>
+                                            <li>Limited savings, building emergency fund</li>
+                                            <li>Renting apartment, no dependents</li>
+                                            <li>Needs to establish credit history</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Primary Financial Needs:</label>
+                                            <div class="bg-white rounded p-3 border border-gray-200">
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Low-fee checking/savings
+                                                </div>
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Student loan management
+                                                </div>
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Credit building tools
+                                                </div>
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Mobile banking options
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="checkbox" class="mr-2"> Begin retirement saving
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Priority Factors for Provider Selection:</label>
+                                            <div class="flex flex-col space-y-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Low Fees:</span>
+                                                    <input type="range" min="1" max="5" value="5" class="w-full">
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Digital Banking:</span>
+                                                    <input type="range" min="1" max="5" value="5" class="w-full">
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Branch Access:</span>
+                                                    <input type="range" min="1" max="5" value="2" class="w-full">
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Financial Guidance:</span>
+                                                    <input type="range" min="1" max="5" value="3" class="w-full">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Recommended Provider Type:</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded">
+                                            <option value="">Select a provider type...</option>
+                                            <option value="traditional-bank">Traditional Bank</option>
+                                            <option value="online-bank">Online Bank</option>
+                                            <option value="credit-union">Credit Union</option>
+                                            <option value="neobank">Neobank/Fintech Company</option>
+                                            <option value="investment-firm">Investment Firm</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Justification for Recommendation:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Explain why this provider type best meets the young adult's needs..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Profile 2: Mid-Career Professional -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-gradient-to-r from-purple-50 to-indigo-50">
+                                    <h4 class="font-medium text-indigo-800 mb-3">Profile 2: Mid-Career Professional (Age 35-45)</h4>
+                                    
+                                    <div class="bg-white rounded-lg p-4 shadow-sm mb-4">
+                                        <h5 class="font-medium text-gray-800 mb-2">Key Characteristics:</h5>
+                                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                            <li>Established career with steady income</li>
+                                            <li>Homeowner with mortgage</li>
+                                            <li>Married with two children (ages 5 and 8)</li>
+                                            <li>Has retirement accounts (401k, IRA)</li>
+                                            <li>Saving for children's education</li>
+                                            <li>Interested in additional investments</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Primary Financial Needs:</label>
+                                            <div class="bg-white rounded p-3 border border-gray-200">
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Family banking services
+                                                </div>
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Education savings plans
+                                                </div>
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Investment options
+                                                </div>
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Mortgage management
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="checkbox" class="mr-2"> Financial planning
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Priority Factors for Provider Selection:</label>
+                                            <div class="flex flex-col space-y-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Low Fees:</span>
+                                                    <input type="range" min="1" max="5" value="3" class="w-full">
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Digital Banking:</span>
+                                                    <input type="range" min="1" max="5" value="4" class="w-full">
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Branch Access:</span>
+                                                    <input type="range" min="1" max="5" value="3" class="w-full">
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Financial Guidance:</span>
+                                                    <input type="range" min="1" max="5" value="5" class="w-full">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Recommended Provider Type:</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded">
+                                            <option value="">Select a provider type...</option>
+                                            <option value="traditional-bank">Traditional Bank</option>
+                                            <option value="online-bank">Online Bank</option>
+                                            <option value="credit-union">Credit Union</option>
+                                            <option value="full-service">Full-Service Financial Institution</option>
+                                            <option value="investment-firm">Investment Firm</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Justification for Recommendation:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Explain why this provider type best meets the mid-career professional's needs..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Profile 3: Near Retirement -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-gradient-to-r from-green-50 to-teal-50">
+                                    <h4 class="font-medium text-indigo-800 mb-3">Profile 3: Near Retirement (Age 55-65)</h4>
+                                    
+                                    <div class="bg-white rounded-lg p-4 shadow-sm mb-4">
+                                        <h5 class="font-medium text-gray-800 mb-2">Key Characteristics:</h5>
+                                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                            <li>Planning to retire in 5-10 years</li>
+                                            <li>Substantial retirement savings</li>
+                                            <li>Home nearly paid off</li>
+                                            <li>Children are independent adults</li>
+                                            <li>Focused on preserving wealth</li>
+                                            <li>Interested in estate planning</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Primary Financial Needs:</label>
+                                            <div class="bg-white rounded p-3 border border-gray-200">
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Retirement planning
+                                                </div>
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Wealth management
+                                                </div>
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Estate planning
+                                                </div>
+                                                <div class="flex items-center mb-2">
+                                                    <input type="checkbox" class="mr-2"> Lower-risk investments
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="checkbox" class="mr-2"> Tax optimization
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Priority Factors for Provider Selection:</label>
+                                            <div class="flex flex-col space-y-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Low Fees:</span>
+                                                    <input type="range" min="1" max="5" value="3" class="w-full">
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Digital Banking:</span>
+                                                    <input type="range" min="1" max="5" value="2" class="w-full">
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Branch Access:</span>
+                                                    <input type="range" min="1" max="5" value="4" class="w-full">
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-sm text-gray-600 w-32">Financial Guidance:</span>
+                                                    <input type="range" min="1" max="5" value="5" class="w-full">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Recommended Provider Type:</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded">
+                                            <option value="">Select a provider type...</option>
+                                            <option value="traditional-bank">Traditional Bank</option>
+                                            <option value="wealth-management">Wealth Management Firm</option>
+                                            <option value="full-service">Full-Service Financial Institution</option>
+                                            <option value="retirement-specialist">Retirement Planning Specialist</option>
+                                            <option value="financial-advisor">Financial Advisory Firm</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Justification for Recommendation:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Explain why this provider type best meets the near-retirement individual's needs..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <\!-- Learning Station 2: Decision-Making Simulation -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Decision-Making Simulation</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                        </div>
+                        
+                        <\!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this activity, you'll analyze real-world financial scenarios and make recommendations about which specific financial service providers would best meet the needs presented in each situation.</p>
+                            
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Instructions:</h3>
+                            <ol class="list-decimal list-inside mb-4 space-y-2">
+                                <li>Review each of the scenarios below</li>
+                                <li>Analyze the financial needs and challenges in each situation</li>
+                                <li>Make specific recommendations (include actual provider names)</li>
+                                <li>Justify your recommendations based on the scenario details</li>
+                            </ol>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                                <h4 class="text-indigo-800 font-medium mb-2">Tip for Making Recommendations:</h4>
+                                <p class="text-sm text-indigo-700">
+                                    Think about specific financial institutions you're familiar with and recommend actual provider names based on their services, fees, and features that would best address the needs in each scenario.
+                                </p>
+                            </div>
+                            
+                            <div class="space-y-6 mb-6">
+                                <\!-- Scenario 1 -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
+                                    <h4 class="font-medium text-gray-900 mb-2">Scenario 1: The New Small Business Owner</h4>
+                                    <div class="mb-4 p-4 bg-gray-50 rounded-md">
+                                        <p class="text-gray-700">
+                                            Marcus recently launched his graphic design business after freelancing for several years. He now has three employees and is looking to formalize his business finances. He needs a business checking account, a business credit card, a payment processing solution for client invoices, and potentially a small business line of credit to manage cash flow between client projects. He values easy integration with his accounting software and low fees while he grows his business.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Key financial needs in this scenario:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" placeholder="List the key financial needs for this small business owner..."></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Specific provider recommendation:</label>
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded" placeholder="Name a specific provider that would be good for Marcus...">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Justification for recommendation:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Explain why this provider would be the best match for Marcus's business needs..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Scenario 2 -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
+                                    <h4 class="font-medium text-gray-900 mb-2">Scenario 2: The International Student</h4>
+                                    <div class="mb-4 p-4 bg-gray-50 rounded-md">
+                                        <p class="text-gray-700">
+                                            Sophia is an international student from Brazil who just arrived in the United States to start her four-year college program. She receives funds from her parents quarterly and needs a way to manage her money in the U.S. while minimizing international transfer fees. She needs a checking account, a way to pay her rent and other bills, and ideally a debit card that doesn't charge foreign transaction fees when she travels home during breaks. She has no U.S. credit history but will need to start building one.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Key financial needs in this scenario:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" placeholder="List the key financial needs for this international student..."></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Specific provider recommendation:</label>
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded" placeholder="Name a specific provider that would be good for Sophia...">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Justification for recommendation:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Explain why this provider would be the best match for Sophia's needs as an international student..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Scenario 3 -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
+                                    <h4 class="font-medium text-gray-900 mb-2">Scenario 3: The Newly Retired Couple</h4>
+                                    <div class="mb-4 p-4 bg-gray-50 rounded-md">
+                                        <p class="text-gray-700">
+                                            Robert and Linda just retired after successful careers in education. They have a combined retirement savings of approximately $1.2 million across various accounts (401(k)s, IRAs, and some individual stocks). They own their home outright and receive Social Security benefits. They want to ensure their money lasts throughout retirement, potentially leave some for their two adult children, and minimize tax implications. They're moderately conservative with investments but need to maintain some growth to counter inflation.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Key financial needs in this scenario:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" placeholder="List the key financial needs for this retired couple..."></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Specific provider recommendation:</label>
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded" placeholder="Name a specific provider that would be good for Robert and Linda...">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Justification for recommendation:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Explain why this provider would be the best match for the retired couple's needs..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <\!-- Learning Station 3: Cost Calculator -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: Cost Calculator</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <\!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this activity, you'll calculate and compare the long-term impact of fees and interest rates from different financial service providers to understand how these factors affect financial outcomes.</p>
+                            
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Instructions:</h3>
+                            <ol class="list-decimal list-inside mb-4 space-y-2">
+                                <li>Use the calculators below to compare how different fees and rates impact financial outcomes</li>
+                                <li>For each calculator, input the required information and analyze the results</li>
+                                <li>Draw conclusions about the importance of comparing providers' rates and fees</li>
+                            </ol>
+                            
+                            <div class="space-y-8 mb-6">
+                                <\!-- Calculator 1: Savings Account Comparison -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-gradient-to-r from-blue-50 to-cyan-50">
+                                    <h4 class="font-medium text-indigo-800 mb-3">Savings Account Comparison Calculator</h4>
+                                    <p class="text-gray-700 mb-4">Compare how different Annual Percentage Yields (APYs) affect your savings growth over time.</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <div class="mb-4">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Initial Deposit Amount:</label>
+                                                <div class="relative">
+                                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                        <span class="text-gray-500 sm:text-sm">$</span>
+                                                    </div>
+                                                    <input type="number" id="savings-initial" class="pl-7 w-full p-2 border border-gray-300 rounded" value="1000">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Monthly Contribution:</label>
+                                                <div class="relative">
+                                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                        <span class="text-gray-500 sm:text-sm">$</span>
+                                                    </div>
+                                                    <input type="number" id="savings-monthly" class="pl-7 w-full p-2 border border-gray-300 rounded" value="100">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Time Period (Years):</label>
+                                                <input type="number" id="savings-years" class="w-full p-2 border border-gray-300 rounded" value="5">
+                                            </div>
+                                            
+                                            <div class="grid grid-cols-2 gap-4">
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-1">Provider A APY (%):</label>
+                                                    <input type="number" id="savings-rate-a" class="w-full p-2 border border-gray-300 rounded" value="0.5" step="0.1">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-1">Provider B APY (%):</label>
+                                                    <input type="number" id="savings-rate-b" class="w-full p-2 border border-gray-300 rounded" value="2.0" step="0.1">
+                                                </div>
+                                            </div>
+                                            
+                                            <button id="calculate-savings" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md w-full">
+                                                Calculate Comparison
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <h5 class="font-medium text-gray-800 mb-3">Results Comparison</h5>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Provider A Final Balance:</span>
+                                                    <span id="savings-final-a">$7,108.23</span>
+                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                    <div class="bg-blue-600 h-2.5 rounded-full" id="savings-bar-a" style="width: 65%"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Provider B Final Balance:</span>
+                                                    <span id="savings-final-b">$7,431.29</span>
+                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                    <div class="bg-green-600 h-2.5 rounded-full" id="savings-bar-b" style="width: 75%"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Interest Earned Difference:</span>
+                                                    <span id="savings-diff">$323.06</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="p-3 bg-blue-50 rounded-md">
+                                                <h6 class="text-sm font-medium text-blue-800 mb-1">Analysis</h6>
+                                                <p class="text-sm text-blue-700" id="savings-analysis">
+                                                    By choosing Provider B with a 2.0% APY instead of Provider A with 0.5% APY, you would earn an additional $323.06 in interest over 5 years. This demonstrates how comparing APYs can significantly impact your savings growth over time.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Calculator 2: Fee Impact Calculator -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-gradient-to-r from-red-50 to-orange-50">
+                                    <h4 class="font-medium text-indigo-800 mb-3">Fee Impact Calculator</h4>
+                                    <p class="text-gray-700 mb-4">See how different account fees erode your savings over time.</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <div class="mb-4">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Initial Account Balance:</label>
+                                                <div class="relative">
+                                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                        <span class="text-gray-500 sm:text-sm">$</span>
+                                                    </div>
+                                                    <input type="number" id="fee-initial" class="pl-7 w-full p-2 border border-gray-300 rounded" value="5000">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Monthly Contribution:</label>
+                                                <div class="relative">
+                                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                        <span class="text-gray-500 sm:text-sm">$</span>
+                                                    </div>
+                                                    <input type="number" id="fee-monthly" class="pl-7 w-full p-2 border border-gray-300 rounded" value="200">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Annual Interest Rate (%):</label>
+                                                <input type="number" id="fee-interest" class="w-full p-2 border border-gray-300 rounded" value="1.5" step="0.1">
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Time Period (Years):</label>
+                                                <input type="number" id="fee-years" class="w-full p-2 border border-gray-300 rounded" value="10">
+                                            </div>
+                                            
+                                            <div class="grid grid-cols-2 gap-4">
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-1">Provider A Monthly Fee:</label>
+                                                    <div class="relative">
+                                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                            <span class="text-gray-500 sm:text-sm">$</span>
+                                                        </div>
+                                                        <input type="number" id="fee-a" class="pl-7 w-full p-2 border border-gray-300 rounded" value="0">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-1">Provider B Monthly Fee:</label>
+                                                    <div class="relative">
+                                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                            <span class="text-gray-500 sm:text-sm">$</span>
+                                                        </div>
+                                                        <input type="number" id="fee-b" class="pl-7 w-full p-2 border border-gray-300 rounded" value="12">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <button id="calculate-fees" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md w-full">
+                                                Calculate Fee Impact
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <h5 class="font-medium text-gray-800 mb-3">Results Comparison</h5>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Provider A Final Balance:</span>
+                                                    <span id="fee-final-a">$31,484.60</span>
+                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                    <div class="bg-blue-600 h-2.5 rounded-full" id="fee-bar-a" style="width: 100%"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Provider B Final Balance:</span>
+                                                    <span id="fee-final-b">$30,044.60</span>
+                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                    <div class="bg-red-600 h-2.5 rounded-full" id="fee-bar-b" style="width: 85%"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Total Fees Paid with Provider B:</span>
+                                                    <span id="fee-total">$1,440.00</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Difference Due to Fees:</span>
+                                                    <span id="fee-diff">$1,440.00</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="p-3 bg-blue-50 rounded-md">
+                                                <h6 class="text-sm font-medium text-blue-800 mb-1">Analysis</h6>
+                                                <p class="text-sm text-blue-700" id="fee-analysis">
+                                                    Provider B's $12 monthly fee costs you $1,440 over 10 years, reducing your final balance by 4.6%. This shows how even seemingly small monthly fees can significantly impact your long-term savings.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Calculator 3: Loan Comparison Tool -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-gradient-to-r from-green-50 to-emerald-50">
+                                    <h4 class="font-medium text-indigo-800 mb-3">Loan Comparison Tool</h4>
+                                    <p class="text-gray-700 mb-4">Compare how different interest rates affect your total loan costs.</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <div class="mb-4">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Loan Amount:</label>
+                                                <div class="relative">
+                                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                        <span class="text-gray-500 sm:text-sm">$</span>
+                                                    </div>
+                                                    <input type="number" id="loan-amount" class="pl-7 w-full p-2 border border-gray-300 rounded" value="20000">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Loan Term (Years):</label>
+                                                <input type="number" id="loan-term" class="w-full p-2 border border-gray-300 rounded" value="5">
+                                            </div>
+                                            
+                                            <div class="grid grid-cols-2 gap-4">
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-1">Provider A Interest Rate (%):</label>
+                                                    <input type="number" id="loan-rate-a" class="w-full p-2 border border-gray-300 rounded" value="4.5" step="0.1">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-1">Provider B Interest Rate (%):</label>
+                                                    <input type="number" id="loan-rate-b" class="w-full p-2 border border-gray-300 rounded" value="6.5" step="0.1">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="grid grid-cols-2 gap-4 mt-4">
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-1">Provider A Origination Fee:</label>
+                                                    <div class="relative">
+                                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                            <span class="text-gray-500 sm:text-sm">$</span>
+                                                        </div>
+                                                        <input type="number" id="loan-fee-a" class="pl-7 w-full p-2 border border-gray-300 rounded" value="400">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-1">Provider B Origination Fee:</label>
+                                                    <div class="relative">
+                                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                            <span class="text-gray-500 sm:text-sm">$</span>
+                                                        </div>
+                                                        <input type="number" id="loan-fee-b" class="pl-7 w-full p-2 border border-gray-300 rounded" value="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <button id="calculate-loan" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md w-full">
+                                                Compare Loan Costs
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <h5 class="font-medium text-gray-800 mb-3">Results Comparison</h5>
+                                            
+                                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                                <div>
+                                                    <p class="text-sm font-medium text-gray-700 mb-1">Provider A Monthly Payment:</p>
+                                                    <p id="loan-payment-a" class="text-lg font-semibold text-blue-700">$372.86</p>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm font-medium text-gray-700 mb-1">Provider B Monthly Payment:</p>
+                                                    <p id="loan-payment-b" class="text-lg font-semibold text-blue-700">$391.32</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Provider A Total Cost:</span>
+                                                    <span id="loan-total-a">$22,771.60</span>
+                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                    <div class="bg-blue-600 h-2.5 rounded-full" id="loan-bar-a" style="width: 90%"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Provider B Total Cost:</span>
+                                                    <span id="loan-total-b">$23,479.20</span>
+                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                    <div class="bg-red-600 h-2.5 rounded-full" id="loan-bar-b" style="width: 100%"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-4">
+                                                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                                                    <span>Cost Difference:</span>
+                                                    <span id="loan-diff">$707.60</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="p-3 bg-blue-50 rounded-md">
+                                                <h6 class="text-sm font-medium text-blue-800 mb-1">Analysis</h6>
+                                                <p class="text-sm text-blue-700" id="loan-analysis">
+                                                    Despite Provider A's $400 origination fee, its lower interest rate (4.5% vs. 6.5%) saves you $707.60 over the life of the loan. This demonstrates the importance of considering both upfront fees and interest rates when comparing loan providers.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Calculator Analysis -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-white">
+                                    <h4 class="font-medium text-gray-900 mb-3">Your Analysis</h4>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">What key insights did you gain from these calculators about the importance of comparing financial service providers?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="4" placeholder="Describe what you learned about how fees and rates impact financial outcomes..."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">How will this information influence your approach to selecting financial service providers in the future?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="4" placeholder="Explain how this knowledge will affect your financial decision-making..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <\!-- Learning Station 4: Reflection and Planning -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 4: Reflection and Planning</h2>
+                        </div>
+                        
+                        <\!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                        </div>
+                        
+                        <\!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this activity, you'll reflect on your own current and future financial needs and develop a personal plan for selecting financial service providers that align with your financial goals.</p>
+                            
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Instructions:</h3>
+                            <ol class="list-decimal list-inside mb-4 space-y-2">
+                                <li>Complete the personal financial needs assessment</li>
+                                <li>Identify your current and future financial priorities</li>
+                                <li>Create your personal financial service provider plan</li>
+                                <li>Establish criteria for evaluating providers in the future</li>
+                            </ol>
+                            
+                            <div class="space-y-6 mb-6">
+                                <\!-- Personal Needs Assessment -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-white">
+                                    <h4 class="font-medium text-gray-900 mb-3">Personal Financial Needs Assessment</h4>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="text-sm font-medium text-gray-700 mb-2">1. How would you describe your current stage of financial life?</h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                            <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                                <input type="radio" name="life-stage" class="mr-2">
+                                                <span>Starting Out (18-25)</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                                <input type="radio" name="life-stage" class="mr-2">
+                                                <span>Building (26-40)</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                                <input type="radio" name="life-stage" class="mr-2">
+                                                <span>Established (41+)</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="text-sm font-medium text-gray-700 mb-2">2. What financial services do you currently use? (Select all that apply)</h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                            <label class="flex items-center p-2 hover:bg-gray-50">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>Checking Account</span>
+                                            </label>
+                                            <label class="flex items-center p-2 hover:bg-gray-50">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>Savings Account</span>
+                                            </label>
+                                            <label class="flex items-center p-2 hover:bg-gray-50">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>Credit Card</span>
+                                            </label>
+                                            <label class="flex items-center p-2 hover:bg-gray-50">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>Student Loans</span>
+                                            </label>
+                                            <label class="flex items-center p-2 hover:bg-gray-50">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>Car Loan</span>
+                                            </label>
+                                            <label class="flex items-center p-2 hover:bg-gray-50">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>Mortgage</span>
+                                            </label>
+                                            <label class="flex items-center p-2 hover:bg-gray-50">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>Investment Account</span>
+                                            </label>
+                                            <label class="flex items-center p-2 hover:bg-gray-50">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>Retirement Account</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="text-sm font-medium text-gray-700 mb-2">3. What are your current top financial priorities? (Rank top 3)</h5>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <select class="w-16 p-1 border border-gray-300 rounded mr-3">
+                                                    <option value=""></option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                <span>Building an emergency fund</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <select class="w-16 p-1 border border-gray-300 rounded mr-3">
+                                                    <option value=""></option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                <span>Paying off debt</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <select class="w-16 p-1 border border-gray-300 rounded mr-3">
+                                                    <option value=""></option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                <span>Saving for a major purchase</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <select class="w-16 p-1 border border-gray-300 rounded mr-3">
+                                                    <option value=""></option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                <span>Saving for retirement</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <select class="w-16 p-1 border border-gray-300 rounded mr-3">
+                                                    <option value=""></option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                <span>Building credit history</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <select class="w-16 p-1 border border-gray-300 rounded mr-3">
+                                                    <option value=""></option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                <span>Investing for growth</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="text-sm font-medium text-gray-700 mb-2">4. What future financial needs do you anticipate in the next 5-10 years?</h5>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Describe your anticipated financial needs for the future..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Provider Selection Criteria -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-white">
+                                    <h4 class="font-medium text-gray-900 mb-3">Your Financial Provider Selection Criteria</h4>
+                                    
+                                    <p class="text-sm text-gray-700 mb-4">Based on your assessment, rate how important each factor is to you when selecting financial service providers:</p>
+                                    
+                                    <div class="space-y-4 mb-4">
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <label class="text-sm font-medium text-gray-700">Low Fees/Costs</label>
+                                                <span class="text-xs text-gray-500" id="fee-importance">Very Important</span>
+                                            </div>
+                                            <input type="range" min="1" max="5" value="5" class="w-full" id="fee-slider" oninput="document.getElementById('fee-importance').textContent = ['Not Important', 'Slightly Important', 'Moderately Important', 'Important', 'Very Important'][this.value-1]">
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <label class="text-sm font-medium text-gray-700">High Interest Rates (on savings/investments)</label>
+                                                <span class="text-xs text-gray-500" id="interest-importance">Very Important</span>
+                                            </div>
+                                            <input type="range" min="1" max="5" value="5" class="w-full" id="interest-slider" oninput="document.getElementById('interest-importance').textContent = ['Not Important', 'Slightly Important', 'Moderately Important', 'Important', 'Very Important'][this.value-1]">
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <label class="text-sm font-medium text-gray-700">Digital/Mobile Banking Features</label>
+                                                <span class="text-xs text-gray-500" id="digital-importance">Important</span>
+                                            </div>
+                                            <input type="range" min="1" max="5" value="4" class="w-full" id="digital-slider" oninput="document.getElementById('digital-importance').textContent = ['Not Important', 'Slightly Important', 'Moderately Important', 'Important', 'Very Important'][this.value-1]">
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <label class="text-sm font-medium text-gray-700">Physical Branch Access</label>
+                                                <span class="text-xs text-gray-500" id="branch-importance">Moderately Important</span>
+                                            </div>
+                                            <input type="range" min="1" max="5" value="3" class="w-full" id="branch-slider" oninput="document.getElementById('branch-importance').textContent = ['Not Important', 'Slightly Important', 'Moderately Important', 'Important', 'Very Important'][this.value-1]">
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <label class="text-sm font-medium text-gray-700">Financial Education Resources</label>
+                                                <span class="text-xs text-gray-500" id="education-importance">Important</span>
+                                            </div>
+                                            <input type="range" min="1" max="5" value="4" class="w-full" id="education-slider" oninput="document.getElementById('education-importance').textContent = ['Not Important', 'Slightly Important', 'Moderately Important', 'Important', 'Very Important'][this.value-1]">
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <label class="text-sm font-medium text-gray-700">Customer Service Quality</label>
+                                                <span class="text-xs text-gray-500" id="service-importance">Very Important</span>
+                                            </div>
+                                            <input type="range" min="1" max="5" value="5" class="w-full" id="service-slider" oninput="document.getElementById('service-importance').textContent = ['Not Important', 'Slightly Important', 'Moderately Important', 'Important', 'Very Important'][this.value-1]">
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Other important factors not listed above:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" placeholder="List any other factors that are important to you..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <\!-- Personal Financial Service Provider Plan -->
+                                <div class="border border-gray-200 rounded-lg p-5 bg-white">
+                                    <h4 class="font-medium text-gray-900 mb-3">Your Personal Financial Service Provider Plan</h4>
+                                    
+                                    <p class="text-sm text-gray-700 mb-4">Based on your current and anticipated needs, create a plan for selecting appropriate financial service providers:</p>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Current Financial Service Providers (if any):</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" placeholder="List your current financial service providers..."></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Providers I would consider using in the short-term (1-2 years):</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="List providers you would consider using in the next 1-2 years and why..."></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Providers I would consider using in the medium-term (3-5 years):</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="List providers you would consider using in 3-5 years and why..."></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Providers I would consider using in the long-term (5+ years):</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="List providers you would consider using in 5+ years and why..."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">My process for evaluating and selecting financial service providers:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="4" placeholder="Describe the steps you'll take when evaluating and selecting financial service providers in the future..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <\!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <\!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">
+                            Now, it's time to integrate what you've learned about financial service providers into your overall financial literacy portfolio. This will help you make informed decisions about financial service providers throughout your life.
+                        </p>
+                        
+                        <div class="bg-white rounded-lg p-5 shadow-sm mb-6">
+                            <h3 class="text-lg font-medium text-indigo-800 mb-3">Financial Services Selection Strategy</h3>
+                            <p class="text-gray-700 mb-4">This portfolio item combines key elements from each station into a comprehensive strategy:</p>
+                            
+                            <div class="space-y-4 mb-5">
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">My Financial Provider Selection Criteria</h4>
+                                    <p class="text-sm text-gray-600 mb-2">Based on your work in Station 4, summarize your key selection criteria:</p>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Summarize the factors that are most important to you when selecting financial service providers..."></textarea>
+                                </div>
+                                
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Long-Term Cost Analysis</h4>
+                                    <p class="text-sm text-gray-600 mb-2">Based on your work in Station 3, summarize your understanding of how fees and rates impact financial outcomes:</p>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Explain how you'll evaluate the long-term cost impact when choosing financial providers..."></textarea>
+                                </div>
+                                
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h4 class="font-medium text-gray-900 mb-2">Life Stage Provider Alignment</h4>
+                                    <p class="text-sm text-gray-600 mb-2">Based on your work in Stations 1 and 2, summarize how your financial provider needs will change across life stages:</p>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Describe how different types of providers will meet your needs at different life stages..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-5">
+                                <h4 class="font-medium text-gray-900 mb-2">Provider Research and Evaluation Process</h4>
+                                <p class="text-sm text-gray-600 mb-2">Document the steps you'll take to research and evaluate financial service providers before making a selection:</p>
+                                <ol class="list-decimal list-inside space-y-1 text-gray-700 ml-2 mb-3">
+                                    <li><input type="text" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Step 1..."></li>
+                                    <li><input type="text" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Step 2..."></li>
+                                    <li><input type="text" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Step 3..."></li>
+                                    <li><input type="text" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Step 4..."></li>
+                                    <li><input type="text" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Step 5..."></li>
+                                </ol>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-medium text-gray-900 mb-2">Portfolio Summary</h4>
+                                <p class="text-sm text-gray-600 mb-2">Provide a comprehensive summary of your approach to selecting and evaluating financial service providers:</p>
+                                <textarea class="w-full p-2 border border-gray-300 rounded" rows="4" placeholder="Summarize your overall approach to selecting financial service providers based on your work today..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <\!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Take some time to reflect on what you've learned about choosing and evaluating financial service providers and how this knowledge will impact your financial decisions.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <label class="block font-medium text-gray-800 mb-2">What was the most valuable insight you gained from today's learning lab about financial service providers?</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Share your most valuable insight..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block font-medium text-gray-800 mb-2">How has your perspective on financial service providers changed after completing these activities?</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Describe how your perspective has changed..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block font-medium text-gray-800 mb-2">How will you apply what you've learned when selecting financial service providers in your own life?</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Explain how you'll apply this knowledge..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        </div>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <a href="../Standard-4/chapter-4-1-day1.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <\!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully\!</span>
+        </div>
+    </div>
+    
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed\!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 4) {
+                // If completed station 4, scroll to portfolio
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio\!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionTexts = document.querySelectorAll('textarea[data-ai-check="true"]');
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            let combinedLength = 0;
+            reflectionTexts.forEach(textarea => {
+                combinedLength += textarea.value.length;
+            });
+            
+            if (combinedLength < 100) {
+                aiFeedback.textContent = "Your reflections are brief. Consider expanding your thoughts about how financial service providers impact your financial outcomes. Think about specific criteria you'll use to evaluate providers and how your needs will change over time.";
+            } else if (combinedLength < 250) {
+                aiFeedback.textContent = "Good start\! Your reflections show understanding of financial service provider selection. To improve, consider providing specific examples of how you might apply this knowledge when selecting providers for different financial needs.";
+            } else {
+                aiFeedback.textContent = "Excellent reflections\! You've demonstrated a thorough understanding of how to evaluate financial service providers and thoughtfully considered how this knowledge will impact your financial decisions. Your insights about comparing providers and considering long-term impacts show strong critical thinking.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href');
+                    if (href && href.substring(1) === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+            
+            // Calculator functionality for Station 3
+            
+            // Savings Account Calculator
+            document.getElementById('calculate-savings').addEventListener('click', function() {
+                const initialAmount = parseFloat(document.getElementById('savings-initial').value) || 0;
+                const monthlyContribution = parseFloat(document.getElementById('savings-monthly').value) || 0;
+                const years = parseFloat(document.getElementById('savings-years').value) || 0;
+                const rateA = parseFloat(document.getElementById('savings-rate-a').value) || 0;
+                const rateB = parseFloat(document.getElementById('savings-rate-b').value) || 0;
+                
+                // Calculate final balances
+                const finalA = calculateSavings(initialAmount, monthlyContribution, rateA/100, years);
+                const finalB = calculateSavings(initialAmount, monthlyContribution, rateB/100, years);
+                const difference = finalB - finalA;
+                
+                // Update UI with results
+                document.getElementById('savings-final-a').textContent = '$' + finalA.toFixed(2);
+                document.getElementById('savings-final-b').textContent = '$' + finalB.toFixed(2);
+                document.getElementById('savings-diff').textContent = '$' + difference.toFixed(2);
+                
+                // Update progress bars
+                const maxValue = Math.max(finalA, finalB);
+                document.getElementById('savings-bar-a').style.width = ((finalA / maxValue) * 100) + '%';
+                document.getElementById('savings-bar-b').style.width = ((finalB / maxValue) * 100) + '%';
+                
+                // Update analysis text
+                document.getElementById('savings-analysis').textContent = 
+                    `By choosing Provider B with a ${rateB}% APY instead of Provider A with ${rateA}% APY, you would earn an additional $${difference.toFixed(2)} in interest over ${years} years. This demonstrates how comparing APYs can significantly impact your savings growth over time.`;
+            });
+            
+            // Fee Impact Calculator
+            document.getElementById('calculate-fees').addEventListener('click', function() {
+                const initialAmount = parseFloat(document.getElementById('fee-initial').value) || 0;
+                const monthlyContribution = parseFloat(document.getElementById('fee-monthly').value) || 0;
+                const interestRate = parseFloat(document.getElementById('fee-interest').value) || 0;
+                const years = parseFloat(document.getElementById('fee-years').value) || 0;
+                const feeA = parseFloat(document.getElementById('fee-a').value) || 0;
+                const feeB = parseFloat(document.getElementById('fee-b').value) || 0;
+                
+                // Calculate final balances
+                const finalA = calculateSavingsWithFees(initialAmount, monthlyContribution, interestRate/100, feeA, years);
+                const finalB = calculateSavingsWithFees(initialAmount, monthlyContribution, interestRate/100, feeB, years);
+                const totalFeesB = feeB * 12 * years;
+                const difference = finalA - finalB;
+                
+                // Update UI with results
+                document.getElementById('fee-final-a').textContent = '$' + finalA.toFixed(2);
+                document.getElementById('fee-final-b').textContent = '$' + finalB.toFixed(2);
+                document.getElementById('fee-total').textContent = '$' + totalFeesB.toFixed(2);
+                document.getElementById('fee-diff').textContent = '$' + difference.toFixed(2);
+                
+                // Update progress bars
+                const maxValue = Math.max(finalA, finalB);
+                document.getElementById('fee-bar-a').style.width = ((finalA / maxValue) * 100) + '%';
+                document.getElementById('fee-bar-b').style.width = ((finalB / maxValue) * 100) + '%';
+                
+                // Update analysis text
+                const percentImpact = ((difference / finalA) * 100).toFixed(1);
+                document.getElementById('fee-analysis').textContent = 
+                    `Provider B's $${feeB} monthly fee costs you $${totalFeesB.toFixed(2)} over ${years} years, reducing your final balance by ${percentImpact}%. This shows how even seemingly small monthly fees can significantly impact your long-term savings.`;
+            });
+            
+            // Loan Comparison Calculator
+            document.getElementById('calculate-loan').addEventListener('click', function() {
+                const loanAmount = parseFloat(document.getElementById('loan-amount').value) || 0;
+                const loanTerm = parseFloat(document.getElementById('loan-term').value) || 0;
+                const rateA = parseFloat(document.getElementById('loan-rate-a').value) || 0;
+                const rateB = parseFloat(document.getElementById('loan-rate-b').value) || 0;
+                const feeA = parseFloat(document.getElementById('loan-fee-a').value) || 0;
+                const feeB = parseFloat(document.getElementById('loan-fee-b').value) || 0;
+                
+                // Calculate monthly payments
+                const paymentA = calculateLoanPayment(loanAmount, rateA/100, loanTerm);
+                const paymentB = calculateLoanPayment(loanAmount, rateB/100, loanTerm);
+                
+                // Calculate total costs
+                const totalA = (paymentA * loanTerm * 12) + feeA;
+                const totalB = (paymentB * loanTerm * 12) + feeB;
+                const difference = totalB - totalA;
+                
+                // Update UI with results
+                document.getElementById('loan-payment-a').textContent = '$' + paymentA.toFixed(2);
+                document.getElementById('loan-payment-b').textContent = '$' + paymentB.toFixed(2);
+                document.getElementById('loan-total-a').textContent = '$' + totalA.toFixed(2);
+                document.getElementById('loan-total-b').textContent = '$' + totalB.toFixed(2);
+                document.getElementById('loan-diff').textContent = '$' + Math.abs(difference).toFixed(2);
+                
+                // Update progress bars
+                const maxValue = Math.max(totalA, totalB);
+                document.getElementById('loan-bar-a').style.width = ((totalA / maxValue) * 100) + '%';
+                document.getElementById('loan-bar-b').style.width = ((totalB / maxValue) * 100) + '%';
+                
+                // Update analysis text
+                const betterProvider = difference > 0 ? "A" : "B";
+                const worseProvider = difference > 0 ? "B" : "A";
+                const absoluteDiff = Math.abs(difference);
+                
+                if (difference > 0) {
+                    document.getElementById('loan-analysis').textContent = 
+                        `Despite Provider A's $${feeA} origination fee, its lower interest rate (${rateA}% vs. ${rateB}%) saves you $${absoluteDiff.toFixed(2)} over the life of the loan. This demonstrates the importance of considering both upfront fees and interest rates when comparing loan providers.`;
+                } else {
+                    document.getElementById('loan-analysis').textContent = 
+                        `Provider B's $${feeB} origination fee is outweighed by its lower interest rate (${rateB}% vs. ${rateA}%), saving you $${absoluteDiff.toFixed(2)} over the life of the loan. This demonstrates the importance of considering both upfront fees and interest rates when comparing loan providers.`;
+                }
+            });
+        });
+        
+        // Helper functions for calculations
+        function calculateSavings(principal, monthlyContribution, rate, years) {
+            let balance = principal;
+            const months = years * 12;
+            const monthlyRate = rate / 12;
+            
+            for (let i = 0; i < months; i++) {
+                balance = balance * (1 + monthlyRate) + monthlyContribution;
+            }
+            
+            return balance;
+        }
+        
+        function calculateSavingsWithFees(principal, monthlyContribution, rate, monthlyFee, years) {
+            let balance = principal;
+            const months = years * 12;
+            const monthlyRate = rate / 12;
+            
+            for (let i = 0; i < months; i++) {
+                balance = balance * (1 + monthlyRate) + monthlyContribution - monthlyFee;
+            }
+            
+            return balance;
+        }
+        
+        function calculateLoanPayment(principal, annualRate, years) {
+            const monthlyRate = annualRate / 12;
+            const totalPayments = years * 12;
+            
+            if (monthlyRate === 0) {
+                return principal / totalPayments;
+            }
+            
+            return principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / (Math.pow(1 + monthlyRate, totalPayments) - 1);
+        }
+    </script>
+</body>
+</html>

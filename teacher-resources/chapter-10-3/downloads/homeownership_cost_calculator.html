@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeownership Cost Calculator</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .calculator-section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .upfront-section {
+            border-left: 5px solid #60a5fa;
+            background-color: #eff6ff;
+        }
+        
+        .monthly-section {
+            border-left: 5px solid #6366f1;
+            background-color: #eef2ff;
+        }
+        
+        .annual-section {
+            border-left: 5px solid #8b5cf6;
+            background-color: #f5f3ff;
+        }
+        
+        .occasional-section {
+            border-left: 5px solid #ec4899;
+            background-color: #fdf2f8;
+        }
+        
+        .summary-section {
+            border-left: 5px solid #10b981;
+            background-color: #ecfdf5;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+        
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+        
+        .input-box {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        
+        .subtotal {
+            background-color: #f3f4f6;
+            font-weight: bold;
+        }
+        
+        .total {
+            background-color: #e0e7ff;
+            font-weight: bold;
+        }
+        
+        .notes {
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        
+        .tip-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Homeownership Cost Calculator</h1>
+        <p>Chapter 10.3: Understanding Home Buying</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This calculator will help you understand and estimate the true cost of homeownership beyond just the mortgage payment. Enter your information in each section to calculate upfront costs, monthly expenses, annual expenses, and occasional costs associated with owning a home.</p>
+        <p class="no-print">To save this worksheet as a PDF: Click File → Print → Change destination to "Save as PDF" → Save</p>
+    </div>
+    
+    <div class="calculator-section upfront-section">
+        <h2>Section 1: Upfront Costs</h2>
+        <p>These are one-time costs paid when purchasing a home.</p>
+        
+        <table>
+            <tr>
+                <th width="60%">Cost Item</th>
+                <th width="40%">Amount</th>
+            </tr>
+            <tr>
+                <td>Down Payment (typically 3-20% of purchase price)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Loan Origination Fee (typically 0.5-1% of loan amount)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Application Fee</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Credit Report Fee</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Home Appraisal</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Home Inspection</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Title Search and Insurance</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Attorney Fees</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Recording Fees and Transfer Taxes</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Escrow/Closing Agent Fees</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Initial Mortgage Insurance Premium (if applicable)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Moving Costs</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Initial Renovations/Repairs</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Initial Furnishings/Appliances</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="subtotal">
+                <td>Total Upfront Costs</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+        
+        <div class="tip-box">
+            <p><strong>Tip:</strong> Total closing costs typically range from 2-5% of the home's purchase price. For a $300,000 home, expect $6,000-$15,000 in closing costs beyond your down payment.</p>
+        </div>
+    </div>
+    
+    <div class="calculator-section monthly-section">
+        <h2>Section 2: Monthly Expenses</h2>
+        <p>These are recurring monthly costs associated with homeownership.</p>
+        
+        <table>
+            <tr>
+                <th width="60%">Cost Item</th>
+                <th width="40%">Monthly Amount</th>
+            </tr>
+            <tr>
+                <td>Mortgage Principal and Interest Payment</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Property Taxes (annual amount ÷ 12)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Homeowners Insurance (annual amount ÷ 12)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Private Mortgage Insurance (PMI, if applicable)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Homeowners Association (HOA) Fees</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Utilities - Electricity</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Utilities - Gas/Oil</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Utilities - Water/Sewer</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Utilities - Trash Collection</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Internet/Cable</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Lawn Care/Landscaping</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Pest Control</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Security System</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Other Monthly Costs</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="subtotal">
+                <td>Total Monthly Expenses</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+        
+        <div class="tip-box">
+            <p><strong>Tip:</strong> Remember that your "PITI" payment (Principal, Interest, Taxes, Insurance) is the standard way lenders measure affordability, but the true monthly cost of homeownership includes many additional expenses.</p>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="calculator-section annual-section">
+        <h2>Section 3: Annual Expenses</h2>
+        <p>These are costs that typically occur yearly but aren't part of monthly expenses.</p>
+        
+        <table>
+            <tr>
+                <th width="60%">Cost Item</th>
+                <th width="40%">Annual Amount</th>
+            </tr>
+            <tr>
+                <td>HVAC Maintenance/Tune-ups</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Chimney Cleaning</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Gutter Cleaning</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Pressure Washing</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Tree/Shrub Maintenance</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Septic Service (if applicable)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Other Annual Maintenance</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="subtotal">
+                <td>Total Annual Expenses</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Monthly Equivalent (Annual Total ÷ 12)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="calculator-section occasional-section">
+        <h2>Section 4: Occasional Expenses and Major Repairs</h2>
+        <p>These are significant expenses that occur periodically throughout homeownership.</p>
+        
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Estimated Cost</th>
+                <th>Expected Frequency</th>
+                <th>Annual Reserve*</th>
+            </tr>
+            <tr>
+                <td>Roof Replacement</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Exterior Painting</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Furnace/HVAC Replacement</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Water Heater Replacement</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Appliance Replacements</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Flooring Replacement</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Window Replacements</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Plumbing Repairs</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Electrical Repairs</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Deck/Patio Maintenance</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Driveway Resurfacing</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"> years</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="subtotal">
+                <td colspan="3">Total Annual Reserve for Replacements and Repairs</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td colspan="3">Monthly Equivalent (Annual Reserve ÷ 12)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+        
+        <p class="notes">*Annual Reserve = Estimated Cost ÷ Expected Frequency (in years)</p>
+        
+        <div class="tip-box">
+            <p><strong>Tip:</strong> A common rule of thumb is to save 1-4% of your home's value annually for maintenance and repairs. For a $300,000 home, that's $3,000-$12,000 per year or $250-$1,000 per month.</p>
+        </div>
+    </div>
+    
+    <div class="calculator-section summary-section">
+        <h2>Section 5: Total Cost of Homeownership</h2>
+        <p>This summary combines all expenses to show your true cost of homeownership.</p>
+        
+        <table>
+            <tr>
+                <th width="60%">Expense Category</th>
+                <th width="40%">Amount</th>
+            </tr>
+            <tr>
+                <td>Total Monthly Expenses (from Section 2)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Monthly Equivalent of Annual Expenses (from Section 3)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Monthly Reserve for Major Repairs (from Section 4)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="total">
+                <td>Total Monthly Cost of Homeownership</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Total Annual Cost of Homeownership (Monthly Total × 12)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Upfront Costs (from Section 1)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="total">
+                <td>First Year Total Cost of Homeownership (Annual Cost + Upfront Costs)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+        
+        <h3>Affordability Analysis</h3>
+        <table>
+            <tr>
+                <td width="60%">Monthly Gross Household Income</td>
+                <td width="40%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Traditional Housing Ratio (Total Monthly Cost ÷ Monthly Gross Income)</td>
+                <td><input type="text" class="input-box">%</td>
+            </tr>
+            <tr>
+                <td>Recommended Maximum: 28-33%</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Monthly Net Household Income (After Taxes)</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Practical Housing Ratio (Total Monthly Cost ÷ Monthly Net Income)</td>
+                <td><input type="text" class="input-box">%</td>
+            </tr>
+            <tr>
+                <td>Recommended Maximum: 40-45%</td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h3>Notes and Key Takeaways</h3>
+        <textarea class="input-box" style="width: 100%; height: 100px;"></textarea>
+    </div>
+    
+    <div class="tip-box">
+        <h3>Understanding Your Results</h3>
+        <p>Use this calculator to compare the true cost of homeownership with renting or to ensure you're financially prepared for all aspects of owning a home. Remember that homeownership involves many expenses beyond the mortgage payment that renters don't face directly.</p>
+        <p>If your housing ratios exceed the recommended maximums, consider:</p>
+        <ul>
+            <li>Looking for a less expensive home</li>
+            <li>Saving for a larger down payment to reduce monthly mortgage costs</li>
+            <li>Increasing your income before purchasing</li>
+            <li>Reducing other debts to improve your overall financial position</li>
+            <li>Continuing to rent until your financial situation improves</li>
+        </ul>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 10.3: Understanding Home Buying</p>
+    </footer>
+</body>
+</html>

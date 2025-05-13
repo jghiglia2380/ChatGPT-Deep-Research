@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Cost of Renting Calculator Worksheet</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.3;
+                color: #000;
+                background: #fff;
+                margin: 0.5in;
+            }
+            
+            .scenario {
+                page-break-inside: avoid;
+            }
+            
+            .calculator-section {
+                page-break-inside: avoid;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        .scenario {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 25px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .scenario-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .calculator-section {
+            background-color: #eaf3fa;
+            border: 1px solid #bde0ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 8px 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .calculation-input {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .total-row {
+            font-weight: bold;
+            background-color: #d5f5e3;
+        }
+        
+        .scenario-details {
+            margin-bottom: 20px;
+        }
+        
+        .scenario-details ul {
+            padding-left: 20px;
+        }
+        
+        .analysis-question {
+            font-weight: bold;
+            color: #2980b9;
+            margin-top: 15px;
+        }
+        
+        .answer-space {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-height: 50px;
+            margin: 10px 0;
+        }
+        
+        .instruction {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .formula-guide {
+            background-color: #fcf3cf;
+            border-left: 4px solid #f1c40f;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #7f8c8d;
+            border-top: 1px solid #bdc3c7;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+        <div class="instruction">
+            <p><strong>Instructions for Teachers/Students:</strong> This worksheet helps calculate the true costs of renting across different scenarios. For each scenario, complete the upfront costs, monthly costs, annual costs, and scenario impact calculations. To save or print this resource, click the "Print / Save as PDF" button above and select "Save as PDF" from your print options.</p>
+        </div>
+    </div>
+
+    <h1>True Cost of Renting Calculator Worksheet</h1>
+    
+    <p>This worksheet will help you understand the full financial picture of renting by calculating upfront costs, monthly expenses, annual totals, and the impact of common scenarios like breaking a lease early or having a roommate move out.</p>
+    
+    <div class="formula-guide">
+        <h3>Calculation Formulas Guide</h3>
+        <ul>
+            <li><strong>Total Upfront Costs</strong> = Security Deposit + First Month's Rent + Last Month's Rent (if required) + Application Fee + Pet Deposit + Other Move-in Fees</li>
+            <li><strong>Total Monthly Costs</strong> = Rent + Utilities + Parking + Renter's Insurance + Other Monthly Fees</li>
+            <li><strong>Annual Housing Cost</strong> = (Monthly Costs × 12) + One-time Costs that occur in a year</li>
+            <li><strong>Required Income</strong> = (Monthly Costs × 12) ÷ 0.3 (using the 30% guideline)</li>
+            <li><strong>Monthly Income Needed</strong> = Required Annual Income ÷ 12</li>
+        </ul>
+    </div>
+    
+    <div class="scenario">
+        <div class="scenario-title">Scenario 1: Downtown Studio Apartment</div>
+        
+        <div class="scenario-details">
+            <ul>
+                <li>Monthly rent: $950</li>
+                <li>Security deposit: One month's rent</li>
+                <li>Application fee: $50</li>
+                <li>Utilities included: Water and trash</li>
+                <li>Additional utilities: Electricity ($60/month), Internet ($55/month)</li>
+                <li>Parking: Street parking only (free)</li>
+                <li>Laundry: Coin-operated in building ($30/month)</li>
+                <li>Lease term: 12 months with 60-day notice</li>
+                <li>Early termination fee: Two months' rent</li>
+                <li>Annual rent increase history: 3%</li>
+            </ul>
+        </div>
+        
+        <div class="calculator-section">
+            <h3>Upfront Costs Calculation</h3>
+            <table>
+                <tr>
+                    <th>Expense Type</th>
+                    <th>Amount ($)</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>Security Deposit</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>One month's rent</td>
+                </tr>
+                <tr>
+                    <td>First Month's Rent</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Regular monthly rent</td>
+                </tr>
+                <tr>
+                    <td>Last Month's Rent</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>If required (N/A for this scenario)</td>
+                </tr>
+                <tr>
+                    <td>Application Fee</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>One-time fee</td>
+                </tr>
+                <tr>
+                    <td>Utility Deposits/Setup</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estimate for electricity & internet setup</td>
+                </tr>
+                <tr>
+                    <td>Moving Costs</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estimate for truck rental, boxes, etc.</td>
+                </tr>
+                <tr>
+                    <td>Essential Purchases</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Furniture, kitchen items, etc.</td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL UPFRONT COSTS</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Sum of all upfront costs</td>
+                </tr>
+            </table>
+            
+            <h3>Monthly Costs Calculation</h3>
+            <table>
+                <tr>
+                    <th>Expense Type</th>
+                    <th>Amount ($)</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>Rent</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Base monthly rent</td>
+                </tr>
+                <tr>
+                    <td>Electricity</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Average monthly cost</td>
+                </tr>
+                <tr>
+                    <td>Water/Sewer</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Included in rent</td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Monthly service fee</td>
+                </tr>
+                <tr>
+                    <td>Parking</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Free street parking</td>
+                </tr>
+                <tr>
+                    <td>Laundry</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estimated monthly cost</td>
+                </tr>
+                <tr>
+                    <td>Renter's Insurance</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estimate if not already included</td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL MONTHLY COSTS</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Sum of all monthly costs</td>
+                </tr>
+            </table>
+            
+            <h3>Annual Cost Calculation</h3>
+            <table>
+                <tr>
+                    <th>Calculation</th>
+                    <th>Amount ($)</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>Monthly Costs × 12</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Annual recurring costs</td>
+                </tr>
+                <tr>
+                    <td>One-time Annual Costs</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Maintenance, fees, etc.</td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL ANNUAL COSTS</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Sum of all annual costs</td>
+                </tr>
+                <tr>
+                    <td>Required Annual Income (30% rule)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Annual costs ÷ 0.3</td>
+                </tr>
+                <tr>
+                    <td>Required Monthly Income</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Annual income ÷ 12</td>
+                </tr>
+            </table>
+            
+            <h3>Scenario Impact Calculation</h3>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Financial Impact ($)</th>
+                    <th>Calculation Method</th>
+                </tr>
+                <tr>
+                    <td>Breaking Lease Early (6 months in)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Early termination fee (2 months' rent)</td>
+                </tr>
+                <tr>
+                    <td>3% Rent Increase at Renewal</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>New monthly rent and annual difference</td>
+                </tr>
+                <tr>
+                    <td>Unexpected Maintenance Issue</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estimate cost of an unexpected repair</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="scenario">
+        <div class="scenario-title">Scenario 2: Suburban 2-Bedroom with Roommate</div>
+        
+        <div class="scenario-details">
+            <ul>
+                <li>Monthly rent: $1,400 ($700 per person)</li>
+                <li>Security deposit: $1,400</li>
+                <li>Application fee: $35 per person</li>
+                <li>Pet deposit: $300 (non-refundable)</li>
+                <li>Utilities included: None</li>
+                <li>Additional utilities: Electricity ($90/month), Water ($40/month), Gas ($50/month), Internet ($60/month)</li>
+                <li>Parking: One assigned space included, second space $50/month</li>
+                <li>Laundry: In-unit</li>
+                <li>Lease term: 12 months with 30-day notice</li>
+                <li>Early termination fee: Three months' rent</li>
+                <li>Annual rent increase history: 2%</li>
+            </ul>
+        </div>
+        
+        <div class="calculator-section">
+            <h3>Upfront Costs Calculation</h3>
+            <table>
+                <tr>
+                    <th>Expense Type</th>
+                    <th>Total Amount ($)</th>
+                    <th>Your Share ($)</th>
+                </tr>
+                <tr>
+                    <td>Security Deposit</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>First Month's Rent</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Application Fee</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Pet Deposit</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Utility Deposits/Setup</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Moving Costs</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL UPFRONT COSTS</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+            
+            <h3>Monthly Costs Calculation</h3>
+            <table>
+                <tr>
+                    <th>Expense Type</th>
+                    <th>Total Amount ($)</th>
+                    <th>Your Share ($)</th>
+                </tr>
+                <tr>
+                    <td>Rent</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Electricity</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Water</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Gas</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Parking (2nd space)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Renter's Insurance</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL MONTHLY COSTS</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+            
+            <h3>Annual Cost Calculation</h3>
+            <table>
+                <tr>
+                    <th>Calculation</th>
+                    <th>Total Amount ($)</th>
+                    <th>Your Share ($)</th>
+                </tr>
+                <tr>
+                    <td>Monthly Costs × 12</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>One-time Annual Costs</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL ANNUAL COSTS</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Required Annual Income (30% rule)</td>
+                    <td>N/A</td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Required Monthly Income</td>
+                    <td>N/A</td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+            
+            <h3>Scenario Impact Calculation</h3>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Financial Impact ($)</th>
+                    <th>Calculation Method</th>
+                </tr>
+                <tr>
+                    <td>Roommate Moves Out (no replacement)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Additional monthly costs × remaining months</td>
+                </tr>
+                <tr>
+                    <td>Breaking Lease Early (4 months in)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Early termination fee (3 months' rent)</td>
+                </tr>
+                <tr>
+                    <td>2% Rent Increase at Renewal</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>New monthly rent and annual difference</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="scenario">
+        <div class="scenario-title">Scenario 3: Campus-Adjacent 3-Bedroom Share</div>
+        
+        <div class="scenario-details">
+            <ul>
+                <li>Monthly rent: $2,100 ($700 per person for 3 people)</li>
+                <li>Security deposit: $700 per person</li>
+                <li>Application fee: $25 per person</li>
+                <li>Utilities included: Internet and trash</li>
+                <li>Additional utilities: Electricity ($120/month), Water ($60/month)</li>
+                <li>Parking: $75 per space per month</li>
+                <li>Laundry: In-unit</li>
+                <li>Lease term: 9 months (academic year)</li>
+                <li>Summer sublet allowed with landlord approval</li>
+                <li>Early termination fee: Responsible for rent until replacement found</li>
+                <li>Annual rent increase history: 4%</li>
+            </ul>
+        </div>
+        
+        <div class="calculator-section">
+            <h3>Upfront Costs Calculation</h3>
+            <table>
+                <tr>
+                    <th>Expense Type</th>
+                    <th>Total Amount ($)</th>
+                    <th>Your Share ($)</th>
+                </tr>
+                <tr>
+                    <td>Security Deposit</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>First Month's Rent</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Application Fee</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Utility Deposits/Setup</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Parking Deposit (if applicable)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Moving Costs</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL UPFRONT COSTS</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+            
+            <h3>Monthly Costs Calculation</h3>
+            <table>
+                <tr>
+                    <th>Expense Type</th>
+                    <th>Total Amount ($)</th>
+                    <th>Your Share ($)</th>
+                </tr>
+                <tr>
+                    <td>Rent</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Electricity</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Water</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Parking</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Renter's Insurance</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL MONTHLY COSTS</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+            
+            <h3>Academic Year Cost Calculation (9 months)</h3>
+            <table>
+                <tr>
+                    <th>Calculation</th>
+                    <th>Total Amount ($)</th>
+                    <th>Your Share ($)</th>
+                </tr>
+                <tr>
+                    <td>Monthly Costs × 9</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Upfront Costs</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL ACADEMIC YEAR COSTS</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Summer Housing Cost (3 months)</td>
+                    <td>N/A</td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Total Annual Housing Cost</td>
+                    <td>N/A</td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+            
+            <h3>Scenario Impact Calculation</h3>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Financial Impact ($)</th>
+                    <th>Calculation Method</th>
+                </tr>
+                <tr>
+                    <td>Roommate Leaves Mid-Semester</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Additional costs until replacement found</td>
+                </tr>
+                <tr>
+                    <td>Unable to Sublet for Summer</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Cost of rent during summer months</td>
+                </tr>
+                <tr>
+                    <td>4% Rent Increase Next Year</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>New monthly rent and annual difference</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="analysis-section">
+        <h3>Scenario Comparison and Analysis</h3>
+        
+        <div class="analysis-question">1. Which scenario has the highest upfront costs? The lowest monthly costs?</div>
+        <div class="answer-space"></div>
+        
+        <div class="analysis-question">2. How does having roommates affect the overall affordability?</div>
+        <div class="answer-space"></div>
+        
+        <div class="analysis-question">3. Which scenario would be most financially risky if your circumstances changed?</div>
+        <div class="answer-space"></div>
+        
+        <div class="analysis-question">4. How much money should someone have saved before moving into each option?</div>
+        <div class="answer-space"></div>
+        
+        <div class="analysis-question">5. What hidden or unexpected costs might not be reflected in these scenarios?</div>
+        <div class="answer-space"></div>
+        
+        <div class="analysis-question">6. For your current situation (or expected future situation), which scenario would be most appropriate and why?</div>
+        <div class="answer-space"></div>
+    </div>
+    
+    <footer>
+        <p>Chapter 10.2: Understanding the Costs and Responsibilities of Renting | PFL Academy</p>
+    </footer>
+</body>
+</html>

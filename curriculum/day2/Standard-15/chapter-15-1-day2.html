@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 15.1: Career Exploration and Goal Setting - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Timeline styles */
+        .timeline-container {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .timeline-period {
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-period:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        /* Table styles */
+        .obstacle-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .obstacle-table th,
+        .obstacle-table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+        }
+        
+        .obstacle-table th {
+            background-color: #f8fafc;
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 15: Career Readiness</h2>
+                        <p class="text-gray-600 text-sm mt-1">Developing knowledge and skills for effective transition from education to career.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 15.1: Career Exploration and Goal Setting
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Career Exploration Foundations
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Personal Career Path Planning
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Career Path Timeline
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Obstacle Analysis
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Accountability System
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Financial Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station5" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Peer Review
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Future chapters without checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 15.2: Resume Building and Personal Branding
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 15.3: Job Application Process
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 15.4: Interview Skills and Workplace Readiness
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 15.5: Entrepreneurship and Side Hustles
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-indigo-600" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station5-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 15.1: Career Exploration and Goal Setting</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Personal Career Path Planning</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Apply career exploration insights to personal career planning</li>
+                            <li>Develop a comprehensive career path plan with milestones</li>
+                            <li>Create strategies for overcoming potential career obstacles</li>
+                            <li>Design an accountability system for career goal progress</li>
+                            <li>Integrate financial considerations into career planning</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Learning Lab for Chapter 15.1! Today, we'll apply what we learned about career exploration to develop your personalized career path plan. Through hands-on activities, you'll create a comprehensive career timeline, identify potential obstacles, design an accountability system, and integrate financial considerations into your planning.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                Your career plan is a living document that will evolve over time. Be thoughtful but not rigid in your planning, as your interests, skills, and opportunities will change throughout your career journey. The goal today is to create a structured but flexible framework that can guide your decisions while adapting to new information.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, you explored the difference between jobs and careers, identified your interests, skills, and values, and learned about career research resources. Today, we'll use those insights to create a concrete career path plan. The self-assessments and research you conducted will form the foundation of your planning activities today.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Career Exploration and Goal Setting</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/15.1 - Career Exploration and Goal Setting.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Career vs. jobs, importance of values in career selection, SMART goal setting, career exploration resources, planning for career changes
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Stations -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Career Path Timeline Development</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-3">Creating a visual timeline helps you map out your career journey, identifying key milestones and ensuring your short-term actions align with your long-term goals.</p>
+                            
+                            <div class="timeline-container bg-gray-50">
+                                <h3 class="text-lg font-medium text-gray-800 mb-3">Career Path Timeline</h3>
+                                
+                                <div class="timeline-period">
+                                    <h4 class="font-medium text-indigo-700">Short-term (1-2 years)</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Education:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List degrees, certifications, courses, or training programs..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Experience:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List jobs, internships, volunteer positions, or projects..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Skills:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List technical or soft skills to develop..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Networking:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List professional relationships to establish..."></textarea>
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Personal:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" placeholder="List important life events or circumstances to consider..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-period">
+                                    <h4 class="font-medium text-indigo-700">Mid-term (3-5 years)</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Education:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List degrees, certifications, courses, or training programs..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Experience:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List jobs, internships, volunteer positions, or projects..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Skills:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List technical or soft skills to develop..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Networking:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List professional relationships to establish..."></textarea>
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Personal:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" placeholder="List important life events or circumstances to consider..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-period">
+                                    <h4 class="font-medium text-indigo-700">Long-term (5+ years)</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Education:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List degrees, certifications, courses, or training programs..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Experience:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List jobs, internships, volunteer positions, or projects..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Skills:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List technical or soft skills to develop..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Networking:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm h-20" placeholder="List professional relationships to establish..."></textarea>
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Personal:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" placeholder="List important life events or circumstances to consider..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Career Obstacle Analysis Station</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-3">Identifying potential obstacles in advance allows you to develop strategies to overcome them, increasing your chances of success.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                <h3 class="text-lg font-medium text-gray-800 mb-3">Obstacle Analysis</h3>
+                                
+                                <div class="mb-6">
+                                    <h4 class="font-medium text-indigo-700 mb-2">Obstacle 1</h4>
+                                    <div class="space-y-3">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Define the obstacle and its potential impact:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2" placeholder="Describe the obstacle in detail..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Potential solutions (list at least three):</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="3" placeholder="Solution 1:&#10;Solution 2:&#10;Solution 3:"></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Evaluation of solutions:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="3" placeholder="Evaluate each solution based on feasibility and effectiveness..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Selected approach and action plan:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2" placeholder="Describe your preferred solution and specific action steps..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-medium text-indigo-700 mb-2">Obstacle 2</h4>
+                                    <div class="space-y-3">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Define the obstacle and its potential impact:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2" placeholder="Describe the obstacle in detail..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Potential solutions (list at least three):</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="3" placeholder="Solution 1:&#10;Solution 2:&#10;Solution 3:"></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Evaluation of solutions:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="3" placeholder="Evaluate each solution based on feasibility and effectiveness..."></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Selected approach and action plan:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2" placeholder="Describe your preferred solution and specific action steps..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button class="mt-4 bg-indigo-100 text-indigo-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-200" id="add-obstacle-btn">
+                                    + Add Another Obstacle
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Accountability System Design</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-3">Creating an accountability system increases your likelihood of achieving your career goals by establishing regular check-ins, measurable milestones, and support structures.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-medium text-gray-800 mb-3">Accountability System</h3>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Progress Tracking Method:</label>
+                                        <textarea class="w-full border rounded-md p-2 text-sm" rows="4" placeholder="How will you monitor your advancement? (e.g., digital journal, spreadsheet, portfolio)"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Review Schedule:</label>
+                                        <textarea class="w-full border rounded-md p-2 text-sm" rows="4" placeholder="When will you assess your progress? (e.g., weekly check-ins, monthly reviews)"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Success Metrics:</label>
+                                        <textarea class="w-full border rounded-md p-2 text-sm" rows="4" placeholder="How will you measure achievement? (e.g., completion of educational milestones, skill assessments)"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Support Network:</label>
+                                        <textarea class="w-full border rounded-md p-2 text-sm" rows="4" placeholder="Who will help keep you accountable? (e.g., mentors, peers, family members)"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Reward System:</label>
+                                        <textarea class="w-full border rounded-md p-2 text-sm" rows="4" placeholder="How will you celebrate achievements? (e.g., small rewards for weekly goals, larger rewards for major milestones)"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Adjustment Process:</label>
+                                        <textarea class="w-full border rounded-md p-2 text-sm" rows="4" placeholder="How will you modify your plan if needed? (e.g., quarterly evaluations, annual comprehensive review)"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Accountability Partner Information:</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <input type="text" class="w-full border rounded-md p-2 text-sm" placeholder="Name of accountability partner">
+                                        </div>
+                                        <div>
+                                            <input type="text" class="w-full border rounded-md p-2 text-sm" placeholder="Contact method">
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2" placeholder="How and when will you check in with each other?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Financial Integration Planning</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-3">Integrating financial considerations into your career plan ensures that your professional choices support your financial goals and that you're prepared for the financial implications of your career path.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-medium text-gray-800 mb-3">Financial Integration</h3>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Education Costs:</label>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead>
+                                                <tr>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Education Item</th>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estimated Cost</th>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Timeframe</th>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Funding Source</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Associate Degree"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="$"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., 2 years"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Scholarships"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Certification"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="$"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., 6 months"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Personal savings"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Bachelor's Degree"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="$"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., 4 years"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Student loans"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Salary Progression:</label>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead>
+                                                <tr>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Career Stage</th>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Position</th>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estimated Salary</th>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Timeframe</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Entry-level"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Assistant"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="$"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., 1-2 years"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Mid-level"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Associate"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="$"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., 3-5 years"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Senior-level"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Manager"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="$"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., 5+ years"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Benefits Consideration:</label>
+                                        <textarea class="w-full border rounded-md p-2 text-sm" rows="4" placeholder="Identify valuable non-salary compensation (e.g., health insurance, retirement matching, tuition assistance)"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Cost-Benefit Analysis:</label>
+                                        <textarea class="w-full border rounded-md p-2 text-sm" rows="4" placeholder="Calculate the return on investment for education (e.g., cost of degree vs. increased lifetime earnings)"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Financial Goal Alignment:</label>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead>
+                                                <tr>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Financial Goal</th>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Target Age/Date</th>
+                                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Related Career Milestone</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Student loan repayment"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Age 30"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Promotion to mid-level position"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Home purchase"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Age 32"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Stable position with benefits"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Retirement savings"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., 15% by age 35"></td>
+                                                    <td class="px-4 py-2"><input type="text" class="w-full border-0 p-0 text-sm" placeholder="e.g., Senior-level position"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <div class="learning-station" id="station5">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">5</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Peer Review and Feedback</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-3">Receiving feedback on your career plan helps identify blind spots, consider alternative approaches, and strengthen your overall strategy.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-medium text-gray-800 mb-3">Peer Feedback Form</h3>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Feedback from Peer 1:</label>
+                                    <div class="space-y-2">
+                                        <div>
+                                            <label class="block text-xs text-gray-500 mb-1">One strength of your plan:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2"></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs text-gray-500 mb-1">One suggestion for improvement:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2"></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs text-gray-500 mb-1">One question to consider:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Feedback from Peer 2:</label>
+                                    <div class="space-y-2">
+                                        <div>
+                                            <label class="block text-xs text-gray-500 mb-1">One strength of your plan:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2"></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs text-gray-500 mb-1">One suggestion for improvement:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2"></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs text-gray-500 mb-1">One question to consider:</label>
+                                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Adjustments based on feedback:</label>
+                                    <textarea class="w-full border rounded-md p-2 text-sm" rows="4" placeholder="Note any changes you want to make to your career plan based on the feedback you received..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(5)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration: Comprehensive Career Development Plan</h2>
+                        <p class="text-gray-700 mb-4">
+                            Compile your work from today's activities into a comprehensive Career Development Plan for your financial literacy portfolio.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Career Path Summary</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Write a brief overview of your chosen career path and why it aligns with your interests, skills, and values..."></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Key Milestones (from your Career Timeline)</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Summarize the most important milestones from your career timeline..."></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Obstacle Mitigation Strategies</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Summarize your strategies for overcoming key obstacles..."></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Accountability Approach</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Describe how you'll track progress and stay accountable..."></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Financial-Career Integration</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Explain how your career choices and financial goals align..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button mt-4" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Take a few minutes to reflect on your career planning process by answering these questions:
+                        </p>
+                        
+                        <div class="space-y-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">What aspects of your career plan are you most confident about? What areas still need refinement?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">How has this planning process changed your thinking about your future career?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">What resources or support will you need to successfully implement your plan?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">How will you ensure your plan remains flexible enough to adapt to changing circumstances or opportunities?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            station5: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 5) {
+                // If this is the last station, scroll to portfolio integration
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Add another obstacle
+        document.getElementById('add-obstacle-btn').addEventListener('click', function() {
+            const obstacleCount = document.querySelectorAll('[id^="obstacle-"]').length + 3;
+            const obstacleHtml = `
+                <div class="mt-6">
+                    <h4 class="font-medium text-indigo-700 mb-2">Obstacle ${obstacleCount}</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Define the obstacle and its potential impact:</label>
+                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2" placeholder="Describe the obstacle in detail..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Potential solutions (list at least three):</label>
+                            <textarea class="w-full border rounded-md p-2 text-sm" rows="3" placeholder="Solution 1:&#10;Solution 2:&#10;Solution 3:"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Evaluation of solutions:</label>
+                            <textarea class="w-full border rounded-md p-2 text-sm" rows="3" placeholder="Evaluate each solution based on feasibility and effectiveness..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Selected approach and action plan:</label>
+                            <textarea class="w-full border rounded-md p-2 text-sm" rows="2" placeholder="Describe your preferred solution and specific action steps..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Insert before the "Add Another Obstacle" button
+            this.insertAdjacentHTML('beforebegin', obstacleHtml);
+        });
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionTexts = document.querySelectorAll('textarea[data-ai-check="true"]');
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            // Check if any reflection has enough content
+            let hasSubstantialContent = false;
+            let hasMinimalContent = true;
+            
+            reflectionTexts.forEach(textarea => {
+                if (textarea.value.length > 50) {
+                    hasSubstantialContent = true;
+                }
+                if (textarea.value.length < 10 && textarea.value.length > 0) {
+                    hasMinimalContent = false;
+                }
+            });
+            
+            // Generate appropriate feedback
+            if (!hasSubstantialContent && !hasMinimalContent) {
+                aiFeedback.textContent = "Your reflections are quite brief. To get the most value from this exercise, try expanding on your thoughts and connecting them to specific elements of your career plan.";
+            } else if (hasSubstantialContent && hasMinimalContent) {
+                aiFeedback.textContent = "You've provided thoughtful reflections on your career planning process. Your recognition of both strengths and areas needing refinement shows good self-awareness. Consider reviewing your plan periodically as you gain more experience and your goals evolve.";
+            } else {
+                aiFeedback.textContent = "You've made a good start with some of your reflections. Try to provide more specific examples or details in the shorter responses to deepen your understanding of your career planning process.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

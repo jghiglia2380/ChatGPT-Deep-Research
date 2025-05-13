@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Interest Calculator - Chapter 8.1</title>
+    <style>
+        @media print {
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+            }
+            
+            .header {
+                margin-bottom: 0.5in;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .print-instructions, .print-button {
+                display: none;
+            }
+            
+            .calculator-container input,
+            .calculator-container select {
+                border: 1px solid #ccc;
+            }
+            
+            .results-container {
+                border: 1px solid #000;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #1e40af;
+            padding-bottom: 15px;
+        }
+        
+        h1 {
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #3b82f6;
+            margin-top: 0;
+        }
+        
+        .print-instructions {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        h2 {
+            color: #1e40af;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        
+        h3 {
+            color: #3b82f6;
+            margin-top: 20px;
+        }
+        
+        .calculator-container {
+            background-color: #f0f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #bae6fd;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .calculate-btn {
+            background-color: #1e40af;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .calculate-btn:hover {
+            background-color: #1e3a8a;
+        }
+        
+        .results-container {
+            background-color: #ffffff;
+            border: 2px solid #bae6fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .result-label {
+            font-weight: bold;
+        }
+        
+        .result-value {
+            text-align: right;
+        }
+        
+        .highlight {
+            background-color: #dbeafe;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .comparison-container {
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f1f5f9;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .info-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .strategies-container {
+            background-color: #f0fff4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .strategy-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #bbf7d0;
+        }
+        
+        .strategy-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .strategy-item h4 {
+            color: #15803d;
+            margin-bottom: 5px;
+        }
+        
+        .glossary-container {
+            background-color: #faf5ff;
+            border: 1px solid #e9d5ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .term {
+            margin-bottom: 15px;
+        }
+        
+        .term-title {
+            font-weight: bold;
+            color: #7e22ce;
+            margin-bottom: 5px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        
+        .print-button {
+            background-color: #1e40af;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #1e3a8a;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Credit Card Interest Calculator</h1>
+        <p class="subtitle">Understanding the Real Cost of Credit Card Debt</p>
+    </div>
+    
+    <div class="print-instructions">
+        <strong>Print Instructions:</strong> Fill out the calculator, view your results, and then click the "Print or Save as PDF" button at the bottom of the page. Select "Save as PDF" as the destination to create a digital copy of your calculations.
+    </div>
+    
+    <p>This calculator helps you understand how credit card interest works and the real impact of making only minimum payments. Enter your current balance, interest rate, and payment information to see how long it will take to pay off your debt and how much interest you will pay over time.</p>
+    
+    <div class="calculator-container">
+        <h2>Credit Card Debt Calculator</h2>
+        
+        <div class="form-group">
+            <label for="balance">Current Credit Card Balance ($):</label>
+            <input type="number" id="balance" min="0" step="10" value="1000">
+        </div>
+        
+        <div class="form-group">
+            <label for="interest-rate">Annual Interest Rate (APR %):</label>
+            <input type="number" id="interest-rate" min="0" max="100" step="0.1" value="18.9">
+        </div>
+        
+        <div class="form-group">
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method">
+                <option value="minimum">Minimum Payment (approx. 2% of balance)</option>
+                <option value="fixed">Fixed Monthly Payment</option>
+            </select>
+        </div>
+        
+        <div class="form-group" id="fixed-payment-group" style="display: none;">
+            <label for="fixed-payment">Monthly Payment Amount ($):</label>
+            <input type="number" id="fixed-payment" min="0" step="5" value="50">
+        </div>
+        
+        <button class="calculate-btn" onclick="calculatePayoff()">Calculate</button>
+        
+        <div class="results-container" id="results">
+            <h3>Calculation Results</h3>
+            
+            <div class="result-row">
+                <span class="result-label">Time to Pay Off Debt:</span>
+                <span class="result-value" id="payoff-time">-</span>
+            </div>
+            
+            <div class="result-row">
+                <span class="result-label">Total Interest Paid:</span>
+                <span class="result-value" id="total-interest">-</span>
+            </div>
+            
+            <div class="result-row">
+                <span class="result-label">Total Amount Paid:</span>
+                <span class="result-value" id="total-paid">-</span>
+            </div>
+            
+            <div class="result-row">
+                <span class="result-label">Interest as % of Original Balance:</span>
+                <span class="result-value" id="interest-percentage">-</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="comparison-container" id="comparison-section" style="display:none;">
+        <h2>Payment Strategy Comparison</h2>
+        <p>See how different payment strategies affect your total cost and time to pay off debt:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Payment Strategy</th>
+                    <th>Monthly Payment</th>
+                    <th>Payoff Time</th>
+                    <th>Total Interest</th>
+                    <th>Total Paid</th>
+                </tr>
+            </thead>
+            <tbody id="comparison-table">
+                <!-- Data will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="info-box">
+        <h3>How Credit Card Interest Works</h3>
+        <p>Credit card interest is typically calculated using a daily periodic rate, which is the annual percentage rate (APR) divided by 365 or 360 days. This rate is then multiplied by your average daily balance to determine your interest charge for the month.</p>
+        <p>Most credit cards compound interest daily, meaning interest is calculated on both your principal balance and previously accrued interest. This compounding effect can cause your debt to grow quickly if you only make minimum payments.</p>
+        <p>Understanding this calculation helps explain why making only minimum payments can lead to years of debt and significant interest costs.</p>
+    </div>
+    
+    <div class="strategies-container">
+        <h2>Strategies to Reduce Credit Card Interest</h2>
+        
+        <div class="strategy-item">
+            <h4>Pay More Than the Minimum</h4>
+            <p>Paying even a little more than the minimum payment can significantly reduce your total interest and payoff time. Try to pay as much as you can afford each month above the minimum requirement.</p>
+        </div>
+        
+        <div class="strategy-item">
+            <h4>Pay Twice a Month</h4>
+            <p>Making payments twice a month can reduce your average daily balance, which reduces the interest charged. This strategy is especially effective if you can time payments with your paychecks.</p>
+        </div>
+        
+        <div class="strategy-item">
+            <h4>Consider a Balance Transfer</h4>
+            <p>If you qualify, transferring your balance to a card with a 0% introductory APR offer can give you time to pay down the principal without accruing additional interest. Be aware of balance transfer fees and make a plan to pay off the balance before the promotional period ends.</p>
+        </div>
+        
+        <div class="strategy-item">
+            <h4>Debt Avalanche Method</h4>
+            <p>If you have multiple credit cards, pay the minimum on all cards but put extra money toward the card with the highest interest rate. Once that card is paid off, move to the next highest rate. This method minimizes total interest paid.</p>
+        </div>
+        
+        <div class="strategy-item">
+            <h4>Use the Grace Period</h4>
+            <p>Make purchases right after your billing cycle closes and pay the balance in full before the due date. This maximizes the time you have to pay without incurring interest (typically 21-25 days). Note that this only works if you're not carrying a balance.</p>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="glossary-container">
+        <h2>Credit Card Terms Glossary</h2>
+        
+        <div class="term">
+            <div class="term-title">Annual Percentage Rate (APR)</div>
+            <p>The yearly interest rate charged on credit card balances. This rate is used to calculate how much interest you'll pay on unpaid balances. Credit cards may have different APRs for purchases, balance transfers, and cash advances.</p>
+        </div>
+        
+        <div class="term">
+            <div class="term-title">Minimum Payment</div>
+            <p>The smallest amount you must pay by the due date to keep your account in good standing. This is typically calculated as a percentage of your balance (often 1-3%) or a flat amount (often $25-35), whichever is greater. Making only minimum payments will maximize the interest you pay and the time to pay off your debt.</p>
+        </div>
+        
+        <div class="term">
+            <div class="term-title">Grace Period</div>
+            <p>The time between the end of a billing cycle and your payment due date during which you can pay your balance in full without incurring interest charges. Grace periods typically range from 21 to 25 days and generally only apply if you paid your previous balance in full.</p>
+        </div>
+        
+        <div class="term">
+            <div class="term-title">Compound Interest</div>
+            <p>Interest calculated not only on the principal balance but also on previously accrued interest. Most credit cards compound interest daily, meaning interest is calculated each day based on that day's balance.</p>
+        </div>
+        
+        <div class="term">
+            <div class="term-title">Balance Transfer</div>
+            <p>Moving debt from one credit card to another, often to take advantage of a lower interest rate or promotional offer. Balance transfers typically incur a fee (usually 3-5% of the transferred amount).</p>
+        </div>
+        
+        <div class="term">
+            <div class="term-title">Cash Advance</div>
+            <p>Using your credit card to obtain cash, either through an ATM or bank teller. Cash advances typically have higher interest rates than purchases, begin accruing interest immediately (no grace period), and may include additional fees.</p>
+        </div>
+    </div>
+    
+    <div class="info-box">
+        <h3>Understanding Your Credit Card Statement</h3>
+        <p>Your monthly statement contains important information about your account. Key sections to review include:</p>
+        <ul>
+            <li><strong>Payment Information:</strong> Minimum payment due, payment due date, and late payment warnings</li>
+            <li><strong>Account Summary:</strong> Previous balance, payments, credits, purchases, fees, interest charged, and new balance</li>
+            <li><strong>Interest Charge Calculation:</strong> How interest was calculated, including APR and daily periodic rates</li>
+            <li><strong>Minimum Payment Warning:</strong> Required disclosure showing how long it will take to pay off your balance making only minimum payments</li>
+            <li><strong>Transactions:</strong> Detailed list of all account activity during the billing period</li>
+        </ul>
+        <p>Regularly reviewing your statement helps you understand your spending patterns, verify charges, and make informed decisions about your payments.</p>
+    </div>
+    
+    <button class="print-button" onclick="window.print();">Print or Save as PDF</button>
+    
+    <div class="footer">
+        <p>Chapter 8.1: Credit Card Use and Management | PFL Academy</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not financial advice.</p>
+    </div>
+    
+    <script>
+        document.getElementById('payment-method').addEventListener('change', function() {
+            const fixedPaymentGroup = document.getElementById('fixed-payment-group');
+            if (this.value === 'fixed') {
+                fixedPaymentGroup.style.display = 'block';
+            } else {
+                fixedPaymentGroup.style.display = 'none';
+            }
+        });
+        
+        function calculatePayoff() {
+            // Get input values
+            const balance = parseFloat(document.getElementById('balance').value);
+            const apr = parseFloat(document.getElementById('interest-rate').value);
+            const paymentMethod = document.getElementById('payment-method').value;
+            
+            // Validate inputs
+            if (isNaN(balance) || balance <= 0) {
+                alert('Please enter a valid balance amount.');
+                return;
+            }
+            
+            if (isNaN(apr) || apr < 0) {
+                alert('Please enter a valid interest rate.');
+                return;
+            }
+            
+            // Calculate monthly interest rate
+            const monthlyRate = apr / 100 / 12;
+            
+            // Determine monthly payment
+            let monthlyPayment;
+            if (paymentMethod === 'minimum') {
+                // Minimum payment is usually 2-3% of the balance or $25, whichever is greater
+                monthlyPayment = Math.max(balance * 0.02, 25);
+            } else {
+                monthlyPayment = parseFloat(document.getElementById('fixed-payment').value);
+                
+                if (isNaN(monthlyPayment) || monthlyPayment <= 0) {
+                    alert('Please enter a valid payment amount.');
+                    return;
+                }
+                
+                // Ensure payment is at least the minimum
+                const minimumPayment = Math.max(balance * 0.02, 25);
+                if (monthlyPayment < minimumPayment) {
+                    alert(`Your payment must be at least the minimum payment (${minimumPayment.toFixed(2)})`);
+                    return;
+                }
+            }
+            
+            // Calculate payoff time and total interest
+            let remainingBalance = balance;
+            let totalInterest = 0;
+            let months = 0;
+            
+            // If monthly payment is less than monthly interest, debt will never be paid off
+            if (monthlyPayment <= remainingBalance * monthlyRate) {
+                document.getElementById('payoff-time').textContent = "Never (payment too small)";
+                document.getElementById('total-interest').textContent = "∞";
+                document.getElementById('total-paid').textContent = "∞";
+                document.getElementById('interest-percentage').textContent = "∞";
+                document.getElementById('results').style.display = 'block';
+                return;
+            }
+            
+            while (remainingBalance > 0 && months < 1200) { // Cap at 100 years to prevent infinite loops
+                months++;
+                
+                // Calculate interest for this month
+                const interestThisMonth = remainingBalance * monthlyRate;
+                totalInterest += interestThisMonth;
+                
+                // Calculate new balance
+                remainingBalance += interestThisMonth;
+                
+                // Apply payment
+                const actualPayment = Math.min(monthlyPayment, remainingBalance);
+                remainingBalance -= actualPayment;
+                
+                // If minimum payment, recalculate for next month based on new balance
+                if (paymentMethod === 'minimum') {
+                    monthlyPayment = Math.max(remainingBalance * 0.02, 25);
+                }
+            }
+            
+            // Display results
+            const years = Math.floor(months / 12);
+            const remainingMonths = months % 12;
+            let timeText = '';
+            
+            if (years > 0) {
+                timeText += `${years} year${years !== 1 ? 's' : ''}`;
+            }
+            
+            if (remainingMonths > 0) {
+                timeText += `${years > 0 ? ' and ' : ''}${remainingMonths} month${remainingMonths !== 1 ? 's' : ''}`;
+            }
+            
+            document.getElementById('payoff-time').textContent = timeText;
+            document.getElementById('total-interest').textContent = `$${totalInterest.toFixed(2)}`;
+            document.getElementById('total-paid').textContent = `$${(balance + totalInterest).toFixed(2)}`;
+            document.getElementById('interest-percentage').textContent = `${((totalInterest / balance) * 100).toFixed(1)}%`;
+            document.getElementById('results').style.display = 'block';
+            
+            // Generate payment comparison table
+            generateComparisonTable(balance, apr);
+            document.getElementById('comparison-section').style.display = 'block';
+        }
+        
+        function generateComparisonTable(balance, apr) {
+            const monthlyRate = apr / 100 / 12;
+            const tableBody = document.getElementById('comparison-table');
+            tableBody.innerHTML = '';
+            
+            // Minimum payment calculation
+            let remainingBalance = balance;
+            let totalInterest = 0;
+            let months = 0;
+            let monthlyPayment = Math.max(remainingBalance * 0.02, 25);
+            
+            while (remainingBalance > 0 && months < 1200) {
+                months++;
+                const interestThisMonth = remainingBalance * monthlyRate;
+                totalInterest += interestThisMonth;
+                remainingBalance += interestThisMonth;
+                const actualPayment = Math.min(monthlyPayment, remainingBalance);
+                remainingBalance -= actualPayment;
+                monthlyPayment = Math.max(remainingBalance * 0.02, 25);
+            }
+            
+            const years = Math.floor(months / 12);
+            const remainingMonths = months % 12;
+            let timeText = '';
+            if (years > 0) timeText += `${years}y`;
+            if (remainingMonths > 0) timeText += ` ${remainingMonths}m`;
+            
+            // Add minimum payment row
+            addComparisonRow("Minimum Payment", "$" + Math.max(balance * 0.02, 25).toFixed(0) + "/mo (varies)", timeText, totalInterest.toFixed(2), (balance + totalInterest).toFixed(2));
+            
+            // Fixed payment options
+            const paymentOptions = [
+                {name: "Fixed $50/month", amount: 50},
+                {name: "Fixed $100/month", amount: 100},
+                {name: "Fixed $200/month", amount: 200},
+                {name: `10% of Balance ($${(balance * 0.1).toFixed(0)}/month)`, amount: balance * 0.1},
+                {name: `20% of Balance ($${(balance * 0.2).toFixed(0)}/month)`, amount: balance * 0.2}
+            ];
+            
+            for (const option of paymentOptions) {
+                if (option.amount <= Math.max(balance * 0.02, 25)) continue; // Skip if less than minimum
+                
+                remainingBalance = balance;
+                totalInterest = 0;
+                months = 0;
+                monthlyPayment = option.amount;
+                
+                // If payment is too small to cover interest
+                if (monthlyPayment <= remainingBalance * monthlyRate) {
+                    addComparisonRow(option.name, "$" + monthlyPayment.toFixed(2) + "/mo", "Never", "∞", "∞");
+                    continue;
+                }
+                
+                while (remainingBalance > 0 && months < 1200) {
+                    months++;
+                    const interestThisMonth = remainingBalance * monthlyRate;
+                    totalInterest += interestThisMonth;
+                    remainingBalance += interestThisMonth;
+                    const actualPayment = Math.min(monthlyPayment, remainingBalance);
+                    remainingBalance -= actualPayment;
+                }
+                
+                const years = Math.floor(months / 12);
+                const remainingMonths = months % 12;
+                let timeText = '';
+                if (years > 0) timeText += `${years}y`;
+                if (remainingMonths > 0) timeText += ` ${remainingMonths}m`;
+                
+                addComparisonRow(option.name, "$" + monthlyPayment.toFixed(2) + "/mo", timeText, totalInterest.toFixed(2), (balance + totalInterest).toFixed(2));
+            }
+        }
+        
+        function addComparisonRow(strategy, payment, time, interest, total) {
+            const tableBody = document.getElementById('comparison-table');
+            const row = document.createElement('tr');
+            
+            row.innerHTML = `
+                <td>${strategy}</td>
+                <td>${payment}</td>
+                <td>${time}</td>
+                <td>$${interest}</td>
+                <td>$${total}</td>
+            `;
+            
+            tableBody.appendChild(row);
+        }
+    </script>
+</body>
+</html>

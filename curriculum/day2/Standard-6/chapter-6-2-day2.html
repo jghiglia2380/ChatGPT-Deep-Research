@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 6.2: Longevity and Retirement Planning - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding: 1rem 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 4px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 2px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #6366f1;
+            border: 3px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        
+        .timeline-label {
+            position: absolute;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+        }
+        
+        .timeline-label.above {
+            bottom: calc(50% + 16px);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-label.below {
+            top: calc(50% + 16px);
+            transform: translateX(-50%);
+        }
+
+        /* Calculator input styles */
+        .slider-container {
+            margin-bottom: 1rem;
+        }
+        
+        .slider-container label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .slider-container label span {
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+        
+        .slider-container input[type="range"] {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        
+        .slider-container input[type="number"] {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            width: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 6: Retirement Planning</h2>
+                <p class="text-gray-600 mb-4">Strategies and considerations for planning a financially secure retirement</p>
+            </div>
+            
+            <!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-6-2-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Previous Chapter -->
+                <li>
+                    <a href="chapter-6-1-day2.html" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        6.1: Planning for Retirement
+                    </a>
+                </li>
+                
+                <!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">6.2: Longevity and Retirement Planning</span>
+                    </div>
+                    <!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Retirement Timeline
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Longevity Calculator
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Retirement Shortfall Strategies
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/3 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-6-2-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 6.2: Longevity and Retirement Planning - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Applying concepts about life expectancy and its impact on retirement planning</p>
+            
+            <!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Create a personalized retirement timeline that accounts for potential longevity</li>
+                    <li>Calculate how increased life expectancy affects retirement savings requirements</li>
+                    <li>Compare different retirement planning scenarios using simulation tools</li>
+                    <li>Develop strategies to address potential retirement shortfalls</li>
+                    <li>Evaluate how global longevity trends might impact personal retirement planning</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">In today's Learning Lab, you'll apply what you learned about longevity and retirement planning by creating a personalized timeline, using interactive calculators, and developing strategies to ensure financial security throughout your entire retirement. Understanding how your potential life expectancy impacts your retirement needs is crucial for effective financial planning.</p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700">The projections and calculations in today's activities are simplified for educational purposes. Real-world retirement planning should consider additional factors like healthcare costs, tax implications, inflation variations, and potential changes in government benefits. Consider consulting with a financial advisor for personalized retirement planning.</p>
+                </div>
+                
+                <!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">This Learning Lab builds directly on the concepts you learned in Day 1:</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>The relationship between life expectancy and retirement planning needs</li>
+                        <li>How the power of compounding impacts retirement savings over time</li>
+                        <li>Key factors that influence life expectancy and longevity</li>
+                        <li>Global trends in life expectancy and their financial implications</li>
+                        <li>The importance of starting retirement planning early</li>
+                    </ul>
+                </div>
+                
+                <!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Longevity and Retirement Planning</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="/finished LM recordings/6.2 - Longevity and Retirement Planning.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Life expectancy trends, longevity risk, retirement duration planning, global perspectives on retirement</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">Today you'll work through three interactive stations that will help you understand how longevity impacts retirement planning and develop strategies to ensure financial security throughout your entire lifespan. By the end of this Learning Lab, you'll have a personalized retirement plan that accounts for potential longevity.</p>
+            </section>
+            
+            <!-- Learning Stations -->
+            <div class="learning-station" id="station1">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Personal Retirement Timeline</h3>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Create a visual timeline of your life from your current age through retirement, including key milestones and your estimated life expectancy. This will help you visualize the potential duration of your retirement and understand how longevity impacts your financial planning needs.</p>
+                
+                <!-- Timeline Builder Interface -->
+                <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-medium text-gray-900 mb-3">Build Your Longevity Timeline</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-1">Your Current Age</label>
+                            <input type="number" id="current-age" class="w-full border border-gray-300 rounded-md px-3 py-2" value="17">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-1">Expected Education Completion Age</label>
+                            <input type="number" id="education-age" class="w-full border border-gray-300 rounded-md px-3 py-2" value="22">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-1">Expected Career Peak Age</label>
+                            <input type="number" id="career-peak-age" class="w-full border border-gray-300 rounded-md px-3 py-2" value="45">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-1">Expected Retirement Age</label>
+                            <input type="number" id="retirement-age" class="w-full border border-gray-300 rounded-md px-3 py-2" value="67">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-1">Estimated Life Expectancy</label>
+                            <input type="number" id="life-expectancy" class="w-full border border-gray-300 rounded-md px-3 py-2" value="85">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-1">Custom Milestone (optional)</label>
+                            <div class="flex space-x-2">
+                                <input type="text" id="custom-milestone-name" class="w-2/3 border border-gray-300 rounded-md px-3 py-2" placeholder="Milestone name">
+                                <input type="number" id="custom-milestone-age" class="w-1/3 border border-gray-300 rounded-md px-3 py-2" placeholder="Age">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="generate-timeline" class="pfl-button mt-2">Generate Timeline</button>
+                </div>
+                
+                <!-- Visual Timeline Display -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm mb-6 hidden" id="timeline-display">
+                    <h4 class="font-medium text-gray-900 mb-3">Your Retirement Timeline</h4>
+                    
+                    <div class="timeline relative h-24 mb-8" id="timeline-container">
+                        <div class="timeline-line"></div>
+                        <!-- Timeline markers will be added dynamically -->
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="bg-indigo-50 p-3 rounded-lg">
+                            <h5 class="font-medium text-indigo-800 mb-1">Working Years</h5>
+                            <p class="text-3xl font-bold text-indigo-900" id="working-years">45</p>
+                            <p class="text-sm text-indigo-700">Years from career start to retirement</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <h5 class="font-medium text-purple-800 mb-1">Retirement Duration</h5>
+                            <p class="text-3xl font-bold text-purple-900" id="retirement-duration">18</p>
+                            <p class="text-sm text-purple-700">Expected years in retirement</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-medium text-gray-900 mb-2">Reflection on Your Timeline</h4>
+                    <p class="text-sm text-gray-700 mb-2">Based on your timeline visualization, answer the following questions:</p>
+                    
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">1. What surprised you most about the potential length of your retirement?</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">2. How might living 5-10 years longer than your initial estimate impact your retirement needs?</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <div class="learning-station" id="station2">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Longevity Calculator</h3>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Use this interactive calculator to understand how different variables affect your retirement savings needs, with special attention to how longevity impacts your financial requirements. Experiment with different scenarios to see how changes in life expectancy, retirement age, and saving amounts affect your retirement outlook.</p>
+                
+                <!-- Retirement Calculator -->
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-900 mb-3">Retirement Calculator Inputs</h4>
+                        
+                        <div class="slider-container">
+                            <label>
+                                <span>Current Age</span>
+                                <input type="number" id="calc-current-age" min="16" max="70" value="17">
+                            </label>
+                            <input type="range" id="calc-current-age-slider" min="16" max="70" value="17">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label>
+                                <span>Retirement Age</span>
+                                <input type="number" id="calc-retirement-age" min="55" max="80" value="67">
+                            </label>
+                            <input type="range" id="calc-retirement-age-slider" min="55" max="80" value="67">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label>
+                                <span>Life Expectancy</span>
+                                <input type="number" id="calc-life-expectancy" min="70" max="100" value="85">
+                            </label>
+                            <input type="range" id="calc-life-expectancy-slider" min="70" max="100" value="85">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label>
+                                <span>Current Savings ($)</span>
+                                <input type="number" id="calc-current-savings" min="0" max="100000" value="1000">
+                            </label>
+                            <input type="range" id="calc-current-savings-slider" min="0" max="100000" step="1000" value="1000">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label>
+                                <span>Monthly Contribution ($)</span>
+                                <input type="number" id="calc-monthly-contribution" min="0" max="2000" value="200">
+                            </label>
+                            <input type="range" id="calc-monthly-contribution-slider" min="0" max="2000" step="50" value="200">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label>
+                                <span>Annual Return Rate (%)</span>
+                                <input type="number" id="calc-return-rate" min="1" max="12" step="0.5" value="7">
+                            </label>
+                            <input type="range" id="calc-return-rate-slider" min="1" max="12" step="0.5" value="7">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label>
+                                <span>Desired Annual Retirement Income ($)</span>
+                                <input type="number" id="calc-retirement-income" min="20000" max="200000" step="5000" value="60000">
+                            </label>
+                            <input type="range" id="calc-retirement-income-slider" min="20000" max="200000" step="5000" value="60000">
+                        </div>
+                        
+                        <button class="pfl-button mt-4 w-full" onclick="calculateRetirement()">Calculate</button>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-900 mb-3">Retirement Projections</h4>
+                        
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-sm text-gray-600 mb-1">Years until retirement:</p>
+                                    <p class="text-lg font-medium text-gray-900" id="years-to-retirement">50</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600 mb-1">Expected retirement duration:</p>
+                                    <p class="text-lg font-medium text-gray-900" id="expected-duration">18</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <p class="text-sm text-gray-600 mb-1">Projected savings at retirement:</p>
+                            <p class="text-xl font-bold text-green-600" id="projected-savings">$1,200,000</p>
+                            
+                            <p class="text-sm text-gray-600 mb-1 mt-3">Total retirement needs:</p>
+                            <p class="text-xl font-bold text-indigo-600" id="retirement-needs">$1,080,000</p>
+                            
+                            <div class="mt-3 pt-3 border-t border-gray-200">
+                                <p class="text-sm text-gray-600 mb-1">Retirement savings gap:</p>
+                                <p class="text-xl font-bold" id="retirement-gap">+$120,000</p>
+                                <p class="text-sm text-gray-500" id="gap-status">Your projected savings should cover your retirement needs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4">
+                            <h5 class="font-medium text-gray-900 mb-2">Longevity Impact</h5>
+                            <p class="text-sm text-gray-700 mb-2">If you live 5 years longer than expected:</p>
+                            <p class="text-lg font-medium text-red-600" id="longevity-impact">-$300,000</p>
+                            <p class="text-sm text-gray-600" id="longevity-explanation">Living 5 years longer would create a significant shortfall in your retirement savings.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+                    <h4 class="font-medium text-gray-900 mb-2">Savings Visualization</h4>
+                    <canvas id="retirement-chart" class="w-full h-64"></canvas>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-medium text-gray-900 mb-2">Your Findings</h4>
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">1. How would extending your retirement by 5-10 years affect your financial needs?</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">2. What combinations of variables create a secure retirement plan for you?</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                    </div>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <div class="learning-station" id="station3">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Retirement Shortfall Strategies</h3>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Based on the potential retirement shortfall identified in the previous station, develop a comprehensive strategy to address the gap between your projected savings and the amount needed for a potentially longer retirement.</p>
+                
+                <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-5 mb-6">
+                    <h4 class="font-medium text-indigo-900 mb-3">Addressing the Longevity Challenge</h4>
+                    
+                    <p class="text-gray-700 mb-4">For many people, living longer than expected can create a significant challenge in retirement planning. Select the strategies you would implement to address a potential retirement shortfall due to increased longevity:</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <!-- Strategy Column 1 -->
+                    <div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <div class="flex items-start mb-2">
+                                <input type="checkbox" id="strategy1" class="mt-1 mr-2">
+                                <div>
+                                    <label for="strategy1" class="block text-gray-900 font-medium">Increase Savings Rate</label>
+                                    <p class="text-sm text-gray-600">Boost your monthly contributions to retirement accounts.</p>
+                                    
+                                    <div class="mt-2" id="strategy1-details" style="display: none;">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">New monthly contribution ($):</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="400">
+                                        <p class="text-xs text-gray-500 mt-1">Impact: Increasing contributions has the greatest effect when done early.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <div class="flex items-start mb-2">
+                                <input type="checkbox" id="strategy2" class="mt-1 mr-2">
+                                <div>
+                                    <label for="strategy2" class="block text-gray-900 font-medium">Delay Retirement</label>
+                                    <p class="text-sm text-gray-600">Work longer to increase savings and reduce retirement duration.</p>
+                                    
+                                    <div class="mt-2" id="strategy2-details" style="display: none;">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">New retirement age:</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="70">
+                                        <p class="text-xs text-gray-500 mt-1">Impact: Each year of delayed retirement significantly reduces the savings gap.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-start mb-2">
+                                <input type="checkbox" id="strategy3" class="mt-1 mr-2">
+                                <div>
+                                    <label for="strategy3" class="block text-gray-900 font-medium">Diversify Investments</label>
+                                    <p class="text-sm text-gray-600">Optimize investment mix for potentially higher returns.</p>
+                                    
+                                    <div class="mt-2" id="strategy3-details" style="display: none;">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Target annual return (%):</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="8.5">
+                                        <p class="text-xs text-gray-500 mt-1">Impact: Higher returns improve outcomes but may involve more risk.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Strategy Column 2 -->
+                    <div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <div class="flex items-start mb-2">
+                                <input type="checkbox" id="strategy4" class="mt-1 mr-2">
+                                <div>
+                                    <label for="strategy4" class="block text-gray-900 font-medium">Reduce Retirement Expenses</label>
+                                    <p class="text-sm text-gray-600">Plan for lower annual income needs in retirement.</p>
+                                    
+                                    <div class="mt-2" id="strategy4-details" style="display: none;">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Revised annual income need ($):</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="50000">
+                                        <p class="text-xs text-gray-500 mt-1">Impact: Reducing expenses directly decreases the amount needed to save.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <div class="flex items-start mb-2">
+                                <input type="checkbox" id="strategy5" class="mt-1 mr-2">
+                                <div>
+                                    <label for="strategy5" class="block text-gray-900 font-medium">Part-Time Work in Retirement</label>
+                                    <p class="text-sm text-gray-600">Generate supplemental income during retirement years.</p>
+                                    
+                                    <div class="mt-2" id="strategy5-details" style="display: none;">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Expected annual income ($):</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="15000">
+                                        <p class="text-xs text-gray-500 mt-1">Impact: Part-time work reduces the amount needed from savings each year.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-start mb-2">
+                                <input type="checkbox" id="strategy6" class="mt-1 mr-2">
+                                <div>
+                                    <label for="strategy6" class="block text-gray-900 font-medium">Consider Longevity Insurance</label>
+                                    <p class="text-sm text-gray-600">Add financial products designed to provide income in later years.</p>
+                                    
+                                    <div class="mt-2" id="strategy6-details" style="display: none;">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Notes on this strategy:</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="e.g., Research annuities that begin payments at age 80+"></textarea>
+                                        <p class="text-xs text-gray-500 mt-1">Impact: Provides guaranteed income for advanced ages.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-medium text-gray-900 mb-2">Your Strategy Summary</h4>
+                    <p class="text-sm text-gray-700 mb-2">Prioritize and explain your chosen strategies for addressing potential longevity risk in your retirement planning:</p>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" id="strategy-summary" rows="4" placeholder="Describe your comprehensive strategy..."></textarea>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Portfolio Integration Section -->
+            <section id="portfolio" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive longevity-aware retirement plan for your financial literacy portfolio.</p>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-900 mb-4">Longevity-Aware Retirement Plan</h3>
+                    <p class="text-gray-700 mb-4">Your portfolio combines all elements from today's Learning Lab into a cohesive plan:</p>
+                    
+                    <ul class="list-disc list-inside mb-4 text-gray-700">
+                        <li>Your personalized retirement timeline with key milestones</li>
+                        <li>Detailed retirement calculations that account for potential longevity</li>
+                        <li>Strategies to address retirement shortfalls and longevity risk</li>
+                        <li>Insights on how global longevity trends might impact your planning</li>
+                    </ul>
+                    
+                    <p class="text-gray-700 mb-4">This plan will be a key component of your overall financial literacy portfolio.</p>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Your Personal Longevity Strategy Statement</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Write a personal statement about how you'll adapt your retirement planning to account for potential longevity..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Portfolio Summary (What have you learned from this Learning Lab?)</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize key insights from this learning lab and how they will guide your long-term financial planning..."></textarea>
+                        <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                    </div>
+                    
+                    <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1" onclick="savePortfolio()">Complete Portfolio</button>
+                </div>
+            </section>
+            
+            <!-- Reflection Section -->
+            <section id="reflection" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                    <p class="text-gray-700 mb-3">Reflect on how your understanding of longevity and retirement planning has evolved through this Learning Lab. Consider questions like: How has your perspective on retirement planning changed knowing you might live longer than previous generations? What factors might impact your own life expectancy, and how will you account for them in your financial planning? How will you balance enjoying life today with saving for a potentially longer retirement?</p>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <a href="#" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                        Continue to Next Chapter
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved!</span>
+        </div>
+    </div>
+    
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Timeline generation
+        document.getElementById('generate-timeline').addEventListener('click', function() {
+            const currentAge = parseInt(document.getElementById('current-age').value);
+            const educationAge = parseInt(document.getElementById('education-age').value);
+            const careerPeakAge = parseInt(document.getElementById('career-peak-age').value);
+            const retirementAge = parseInt(document.getElementById('retirement-age').value);
+            const lifeExpectancy = parseInt(document.getElementById('life-expectancy').value);
+            
+            // Calculate working years and retirement duration
+            const workingYears = retirementAge - educationAge;
+            const retirementDuration = lifeExpectancy - retirementAge;
+            
+            // Update the calculations
+            document.getElementById('working-years').textContent = workingYears;
+            document.getElementById('retirement-duration').textContent = retirementDuration;
+            
+            // Show the timeline display
+            document.getElementById('timeline-display').classList.remove('hidden');
+            
+            // Clear previous timeline
+            const timelineContainer = document.getElementById('timeline-container');
+            while (timelineContainer.childNodes.length > 1) {
+                if (timelineContainer.lastChild !== timelineContainer.firstChild) {
+                    timelineContainer.removeChild(timelineContainer.lastChild);
+                }
+            }
+            
+            // Create timeline markers
+            const lifespan = lifeExpectancy - currentAge;
+            const timelineWidth = timelineContainer.offsetWidth - 48; // Account for marker size
+            
+            // Current age marker
+            createTimelineMarker(timelineContainer, 0, "Current Age: " + currentAge, "above");
+            
+            // Education completion marker
+            const educationPosition = ((educationAge - currentAge) / lifespan) * timelineWidth;
+            createTimelineMarker(timelineContainer, educationPosition, "Education: " + educationAge, "below");
+            
+            // Career peak marker
+            const careerPeakPosition = ((careerPeakAge - currentAge) / lifespan) * timelineWidth;
+            createTimelineMarker(timelineContainer, careerPeakPosition, "Career Peak: " + careerPeakAge, "above");
+            
+            // Retirement marker
+            const retirementPosition = ((retirementAge - currentAge) / lifespan) * timelineWidth;
+            createTimelineMarker(timelineContainer, retirementPosition, "Retirement: " + retirementAge, "below");
+            
+            // Life expectancy marker
+            createTimelineMarker(timelineContainer, timelineWidth, "Life Expectancy: " + lifeExpectancy, "above");
+            
+            // Add custom milestone if provided
+            const customMilestoneName = document.getElementById('custom-milestone-name').value;
+            const customMilestoneAge = parseInt(document.getElementById('custom-milestone-age').value);
+            
+            if (customMilestoneName && !isNaN(customMilestoneAge)) {
+                const customPosition = ((customMilestoneAge - currentAge) / lifespan) * timelineWidth;
+                createTimelineMarker(timelineContainer, customPosition, customMilestoneName + ": " + customMilestoneAge, "below");
+            }
+        });
+        
+        function createTimelineMarker(container, position, label, position = "above") {
+            // Create marker
+            const marker = document.createElement('div');
+            marker.className = 'timeline-marker';
+            marker.style.left = position + 'px';
+            container.appendChild(marker);
+            
+            // Create label
+            const labelElement = document.createElement('div');
+            labelElement.className = 'timeline-label ' + position;
+            labelElement.textContent = label;
+            labelElement.style.left = position + 'px';
+            container.appendChild(labelElement);
+        }
+        
+        // Retirement Calculator
+        function calculateRetirement() {
+            const currentAge = parseInt(document.getElementById('calc-current-age').value);
+            const retirementAge = parseInt(document.getElementById('calc-retirement-age').value);
+            const lifeExpectancy = parseInt(document.getElementById('calc-life-expectancy').value);
+            const currentSavings = parseFloat(document.getElementById('calc-current-savings').value);
+            const monthlyContribution = parseFloat(document.getElementById('calc-monthly-contribution').value);
+            const returnRate = parseFloat(document.getElementById('calc-return-rate').value) / 100;
+            const desiredIncome = parseFloat(document.getElementById('calc-retirement-income').value);
+            
+            // Calculate key values
+            const yearsToRetirement = retirementAge - currentAge;
+            const retirementDuration = lifeExpectancy - retirementAge;
+            
+            // Calculate future value of current savings
+            let savingsFuture = currentSavings * Math.pow(1 + returnRate, yearsToRetirement);
+            
+            // Calculate future value of monthly contributions
+            const monthlyRate = returnRate / 12;
+            const numMonths = yearsToRetirement * 12;
+            let contributionsFuture = monthlyContribution * (Math.pow(1 + monthlyRate, numMonths) - 1) / monthlyRate * (1 + monthlyRate);
+            
+            // Total projected savings
+            const projectedSavings = savingsFuture + contributionsFuture;
+            
+            // Calculate retirement needs
+            const retirementNeeds = desiredIncome * retirementDuration;
+            
+            // Calculate gap
+            const gap = projectedSavings - retirementNeeds;
+            
+            // Calculate impact of living 5 years longer
+            const longerRetirementNeeds = desiredIncome * (retirementDuration + 5);
+            const longevityImpact = projectedSavings - longerRetirementNeeds;
+            
+            // Update UI
+            document.getElementById('years-to-retirement').textContent = yearsToRetirement;
+            document.getElementById('expected-duration').textContent = retirementDuration;
+            
+            document.getElementById('projected-savings').textContent = formatCurrency(projectedSavings);
+            document.getElementById('retirement-needs').textContent = formatCurrency(retirementNeeds);
+            document.getElementById('retirement-gap').textContent = formatCurrency(gap);
+            
+            // Set gap status
+            const gapStatus = document.getElementById('gap-status');
+            if (gap >= 0) {
+                document.getElementById('retirement-gap').className = 'text-xl font-bold text-green-600';
+                gapStatus.textContent = 'Your projected savings should cover your retirement needs.';
+                gapStatus.className = 'text-sm text-green-600';
+            } else {
+                document.getElementById('retirement-gap').className = 'text-xl font-bold text-red-600';
+                gapStatus.textContent = 'Your projected savings may not be sufficient for your retirement needs.';
+                gapStatus.className = 'text-sm text-red-600';
+            }
+            
+            // Set longevity impact
+            document.getElementById('longevity-impact').textContent = formatCurrency(longevityImpact);
+            const longevityExplanation = document.getElementById('longevity-explanation');
+            
+            if (longevityImpact >= 0) {
+                document.getElementById('longevity-impact').className = 'text-lg font-medium text-green-600';
+                longevityExplanation.textContent = 'Your savings should still cover expenses even if you live 5 years longer than expected.';
+                longevityExplanation.className = 'text-sm text-green-600';
+            } else {
+                document.getElementById('longevity-impact').className = 'text-lg font-medium text-red-600';
+                longevityExplanation.textContent = 'Living 5 years longer would create a shortfall in your retirement savings.';
+                longevityExplanation.className = 'text-sm text-red-600';
+            }
+            
+            // Create or update chart
+            createRetirementChart(projectedSavings, retirementNeeds, longerRetirementNeeds);
+        }
+        
+        function createRetirementChart(projectedSavings, retirementNeeds, longerRetirementNeeds) {
+            const ctx = document.getElementById('retirement-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.retirementChart) {
+                window.retirementChart.destroy();
+            }
+            
+            // Create labels and data
+            const labels = ['Your Projection', 'Expected Needs', 'With 5 Years Longer'];
+            const data = [projectedSavings, retirementNeeds, longerRetirementNeeds];
+            
+            // Create new chart
+            window.retirementChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Retirement Finances',
+                        data: data,
+                        backgroundColor: [
+                            '#4f46e5', // indigo for projection
+                            '#10b981', // green for expected needs
+                            '#ef4444'  // red for longer retirement
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw;
+                                    return formatCurrency(value);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Format currency
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+        
+        // Connect range sliders to number inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            // Connect each slider to its corresponding input
+            connectSliderToInput('calc-current-age');
+            connectSliderToInput('calc-retirement-age');
+            connectSliderToInput('calc-life-expectancy');
+            connectSliderToInput('calc-current-savings');
+            connectSliderToInput('calc-monthly-contribution');
+            connectSliderToInput('calc-return-rate');
+            connectSliderToInput('calc-retirement-income');
+            
+            // Set up checkbox handlers for strategy details
+            setupStrategyDetailToggles();
+            
+            // Initialize calculator with default values
+            calculateRetirement();
+        });
+        
+        function connectSliderToInput(baseId) {
+            const slider = document.getElementById(baseId + '-slider');
+            const input = document.getElementById(baseId);
+            
+            slider.addEventListener('input', function() {
+                input.value = slider.value;
+            });
+            
+            input.addEventListener('input', function() {
+                slider.value = input.value;
+            });
+        }
+        
+        // Toggle strategy details
+        function setupStrategyDetailToggles() {
+            for (let i = 1; i <= 6; i++) {
+                const checkbox = document.getElementById('strategy' + i);
+                const details = document.getElementById('strategy' + i + '-details');
+                
+                checkbox.addEventListener('change', function() {
+                    details.style.display = checkbox.checked ? 'block' : 'none';
+                });
+            }
+        }
+        
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' saved successfully!');
+            
+            // Update station indicator
+            const indicator = document.querySelectorAll('.station-indicator')[stationNumber - 1];
+            if (indicator) {
+                indicator.classList.add('active');
+            }
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 3) {
+                // Scroll to portfolio section after the last station
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Portfolio completed successfully!');
+            
+            // Update portfolio indicator
+            const indicator = document.querySelectorAll('.station-indicator')[3];
+            if (indicator) {
+                indicator.classList.add('active');
+            }
+            
+            // Scroll to reflection section
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // AI feedback system 
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+                element.addEventListener('blur', function() {
+                    if (this.value.length > 10) {
+                        const feedback = this.nextElementSibling;
+                        if (feedback && feedback.classList.contains('feedback-container')) {
+                            feedback.textContent = "Thank you for your thoughtful response! Your answer shows good understanding of how longevity impacts retirement planning.";
+                            feedback.classList.remove('hidden');
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            // Set message
+            toastMessage.textContent = message;
+            
+            // Set type-specific styling
+            if (type === 'warning') {
+                toast.style.backgroundColor = '#f59e0b';
+            } else {
+                toast.style.backgroundColor = '#4f46e5';
+            }
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide toast after delay
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length - 1; // Exclude portfolio
+            let completed = 0;
+            
+            for (let i = 1; i <= 3; i++) {
+                if (stationProgress['station' + i]) {
+                    completed++;
+                }
+            }
+            
+            // Update progress bar
+            const progressBar = document.querySelector('.bg-gradient-to-r.from-indigo-600.to-purple-600.h-2\\.5');
+            const progressText = document.querySelector('.font-medium');
+            
+            const percentage = Math.round((completed / totalStations) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${completed}/${totalStations} stations`;
+        }
+        
+        // Highlight active section in navigation based on scroll position
+        window.addEventListener('DOMContentLoaded', () => {
+            const objectives = document.querySelector('#learning-objectives');
+            const sections = document.querySelectorAll('section, .learning-station');
+            const navLinks = document.querySelectorAll('#section-navigation a');
+            
+            function updateActiveSection() {
+                const scrollPosition = window.scrollY;
+                
+                // First reset all links
+                navLinks.forEach(link => {
+                    link.classList.remove('text-indigo-700', 'font-medium');
+                    link.classList.add('text-gray-700');
+                });
+                
+                // Check Learning Objectives first
+                if (objectives) {
+                    const objectivesTop = objectives.offsetTop - 100;
+                    const objectivesBottom = objectivesTop + objectives.offsetHeight;
+                    
+                    if (scrollPosition >= objectivesTop && scrollPosition < objectivesBottom) {
+                        const objectivesLink = document.querySelector('#section-navigation a[href="#learning-objectives"]');
+                        if (objectivesLink) {
+                            objectivesLink.classList.remove('text-gray-700');
+                            objectivesLink.classList.add('text-indigo-700', 'font-medium');
+                        }
+                        return;
+                    }
+                }
+                
+                // Then check all other sections
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        // Add active class to corresponding link
+                        const correspondingLink = document.querySelector(`#section-navigation a[href="#${section.id}"]`);
+                        if (correspondingLink) {
+                            correspondingLink.classList.remove('text-gray-700');
+                            correspondingLink.classList.add('text-indigo-700', 'font-medium');
+                        }
+                    }
+                });
+            }
+            
+            // Update active section when scrolling
+            window.addEventListener('scroll', updateActiveSection);
+            
+            // Update active section on page load
+            updateActiveSection();
+        });
+    </script>
+</body>
+</html>

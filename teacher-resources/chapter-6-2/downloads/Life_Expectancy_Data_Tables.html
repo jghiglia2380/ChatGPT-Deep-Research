@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Expectancy Data Tables</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 28px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 25px;
+            font-size: 22px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .data-section {
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .chart {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .analysis {
+            background-color: #e8f4f8;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .factor-highlight {
+            background-color: #f0f7ff;
+            border: 1px solid #c5dbff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border: 1px solid #cce5ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        @media print {
+            .print-instructions {
+                display: none;
+            }
+            body {
+                font-size: 12pt;
+            }
+            h1 {
+                font-size: 18pt;
+            }
+            h2 {
+                font-size: 16pt;
+            }
+            h3 {
+                font-size: 14pt;
+            }
+            table {
+                font-size: 10pt;
+            }
+            .data-section {
+                page-break-inside: avoid;
+                border: 1px solid #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <strong>Printing Instructions:</strong>
+        <p>To save this document as a PDF or print it:</p>
+        <ol>
+            <li>Press Ctrl+P (Windows) or Cmd+P (Mac)</li>
+            <li>Select "Save as PDF" or your printer</li>
+            <li>Click "Save" or "Print"</li>
+        </ol>
+    </div>
+
+    <h1>Life Expectancy Data Tables</h1>
+    
+    <p>This resource provides comprehensive data on life expectancy trends and factors, essential for understanding longevity's impact on retirement planning. The tables and analysis help illustrate how various factors influence lifespan and retirement needs.</p>
+
+    <div class="data-section">
+        <h2>Historical Life Expectancy Trends</h2>
+        
+        <p>Life expectancy has increased significantly over the past century, extending the typical retirement period and changing financial planning needs.</p>
+        
+        <table>
+            <tr>
+                <th>Year</th>
+                <th>U.S. Life Expectancy at Birth</th>
+                <th>U.S. Life Expectancy at Age 65</th>
+                <th>Traditional Retirement Period</th>
+            </tr>
+            <tr>
+                <td>1900</td>
+                <td>47.3 years</td>
+                <td>11.9 years</td>
+                <td>~12 years</td>
+            </tr>
+            <tr>
+                <td>1950</td>
+                <td>68.2 years</td>
+                <td>13.9 years</td>
+                <td>~14 years</td>
+            </tr>
+            <tr>
+                <td>1980</td>
+                <td>73.7 years</td>
+                <td>16.4 years</td>
+                <td>~16 years</td>
+            </tr>
+            <tr>
+                <td>2000</td>
+                <td>76.8 years</td>
+                <td>17.6 years</td>
+                <td>~18 years</td>
+            </tr>
+            <tr>
+                <td>2020</td>
+                <td>77.0 years</td>
+                <td>19.0 years</td>
+                <td>~19 years</td>
+            </tr>
+            <tr>
+                <td>2023</td>
+                <td>79.1 years</td>
+                <td>19.6 years</td>
+                <td>~20 years</td>
+            </tr>
+            <tr>
+                <td>2050 (projected)</td>
+                <td>85.6 years</td>
+                <td>23.3 years</td>
+                <td>~23 years</td>
+            </tr>
+        </table>
+        
+        <div class="analysis">
+            <h3>Key Observations:</h3>
+            <ul>
+                <li>Life expectancy at age 65 has increased by over 7 years since 1900, extending the typical retirement period.</li>
+                <li>The gap between life expectancy at birth and at age 65 has narrowed, meaning more people are reaching retirement age.</li>
+                <li>Retirement periods have nearly doubled over the past century, creating significant financial planning implications.</li>
+                <li>Projections suggest continuing increases in longevity, potentially creating 25+ year retirements for today's young adults.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <h2>Current Life Expectancy by Country with Healthcare and Environmental Factors</h2>
+        
+        <p>Life expectancy varies significantly by country and correlates with multiple factors including healthcare spending, environmental quality, and socioeconomic conditions.</p>
+        
+        <table>
+            <tr>
+                <th>Country</th>
+                <th>Life Expectancy (2023)</th>
+                <th>Healthcare Spending (% of GDP)</th>
+                <th>Healthcare Spending (per capita)</th>
+                <th>Pollution Index</th>
+                <th>Obesity Rate (%)</th>
+            </tr>
+            <tr>
+                <td>Japan</td>
+                <td>84.3 years</td>
+                <td>10.7%</td>
+                <td>$4,267</td>
+                <td>42.3</td>
+                <td>4.3%</td>
+            </tr>
+            <tr>
+                <td>Switzerland</td>
+                <td>83.8 years</td>
+                <td>11.9%</td>
+                <td>$9,666</td>
+                <td>27.5</td>
+                <td>19.5%</td>
+            </tr>
+            <tr>
+                <td>Australia</td>
+                <td>83.4 years</td>
+                <td>9.3%</td>
+                <td>$5,187</td>
+                <td>24.9</td>
+                <td>29.0%</td>
+            </tr>
+            <tr>
+                <td>Italy</td>
+                <td>83.2 years</td>
+                <td>8.8%</td>
+                <td>$2,840</td>
+                <td>53.7</td>
+                <td>19.9%</td>
+            </tr>
+            <tr>
+                <td>Spain</td>
+                <td>83.1 years</td>
+                <td>9.1%</td>
+                <td>$2,736</td>
+                <td>40.1</td>
+                <td>23.8%</td>
+            </tr>
+            <tr>
+                <td>Norway</td>
+                <td>82.8 years</td>
+                <td>10.5%</td>
+                <td>$8,239</td>
+                <td>18.3</td>
+                <td>23.1%</td>
+            </tr>
+            <tr>
+                <td>France</td>
+                <td>82.5 years</td>
+                <td>11.3%</td>
+                <td>$4,690</td>
+                <td>44.9</td>
+                <td>21.6%</td>
+            </tr>
+            <tr>
+                <td>Canada</td>
+                <td>82.3 years</td>
+                <td>10.8%</td>
+                <td>$5,048</td>
+                <td>28.6</td>
+                <td>29.4%</td>
+            </tr>
+            <tr>
+                <td>United Kingdom</td>
+                <td>81.3 years</td>
+                <td>10.2%</td>
+                <td>$4,315</td>
+                <td>38.7</td>
+                <td>27.8%</td>
+            </tr>
+            <tr>
+                <td>Germany</td>
+                <td>81.2 years</td>
+                <td>11.7%</td>
+                <td>$5,986</td>
+                <td>35.2</td>
+                <td>22.3%</td>
+            </tr>
+            <tr>
+                <td>United States</td>
+                <td>79.1 years</td>
+                <td>17.1%</td>
+                <td>$10,921</td>
+                <td>36.8</td>
+                <td>36.2%</td>
+            </tr>
+            <tr>
+                <td>China</td>
+                <td>77.1 years</td>
+                <td>5.4%</td>
+                <td>$935</td>
+                <td>86.5</td>
+                <td>6.2%</td>
+            </tr>
+            <tr>
+                <td>Mexico</td>
+                <td>75.0 years</td>
+                <td>5.5%</td>
+                <td>$962</td>
+                <td>65.3</td>
+                <td>28.9%</td>
+            </tr>
+            <tr>
+                <td>Brazil</td>
+                <td>75.9 years</td>
+                <td>9.5%</td>
+                <td>$848</td>
+                <td>58.4</td>
+                <td>22.1%</td>
+            </tr>
+            <tr>
+                <td>Russia</td>
+                <td>72.6 years</td>
+                <td>5.3%</td>
+                <td>$524</td>
+                <td>62.8</td>
+                <td>23.1%</td>
+            </tr>
+            <tr>
+                <td>India</td>
+                <td>69.7 years</td>
+                <td>3.5%</td>
+                <td>$73</td>
+                <td>88.9</td>
+                <td>3.9%</td>
+            </tr>
+            <tr>
+                <td>South Africa</td>
+                <td>64.9 years</td>
+                <td>8.3%</td>
+                <td>$499</td>
+                <td>54.7</td>
+                <td>28.3%</td>
+            </tr>
+            <tr>
+                <td>Nigeria</td>
+                <td>54.7 years</td>
+                <td>3.9%</td>
+                <td>$71</td>
+                <td>79.4</td>
+                <td>8.9%</td>
+            </tr>
+        </table>
+        
+        <div class="analysis">
+            <h3>Key Observations:</h3>
+            <ul>
+                <li>Higher healthcare spending generally correlates with longer life expectancy, but the U.S. is an outlier with high spending but relatively lower life expectancy.</li>
+                <li>Environmental factors like pollution show significant negative correlation with life expectancy.</li>
+                <li>Countries with the highest life expectancies typically have moderate-to-high healthcare spending, low pollution, and moderate obesity rates.</li>
+                <li>The gap between highest and lowest life expectancies in developed countries is about 5 years, highlighting the impact of systemic and lifestyle factors.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <h2>Life Expectancy at Age 65 by Gender (U.S. Data)</h2>
+        
+        <p>Gender differences in life expectancy are substantial and impact retirement planning needs.</p>
+        
+        <table>
+            <tr>
+                <th rowspan="2">Year</th>
+                <th colspan="2">Life Expectancy at Age 65</th>
+                <th rowspan="2">Gender Gap</th>
+                <th colspan="2">Probability of Living to Age 90</th>
+            </tr>
+            <tr>
+                <th>Male</th>
+                <th>Female</th>
+                <th>Male</th>
+                <th>Female</th>
+            </tr>
+            <tr>
+                <td>1950</td>
+                <td>12.8 years</td>
+                <td>15.0 years</td>
+                <td>2.2 years</td>
+                <td>7%</td>
+                <td>12%</td>
+            </tr>
+            <tr>
+                <td>1980</td>
+                <td>14.1 years</td>
+                <td>18.3 years</td>
+                <td>4.2 years</td>
+                <td>11%</td>
+                <td>24%</td>
+            </tr>
+            <tr>
+                <td>2000</td>
+                <td>15.9 years</td>
+                <td>19.0 years</td>
+                <td>3.1 years</td>
+                <td>16%</td>
+                <td>28%</td>
+            </tr>
+            <tr>
+                <td>2023</td>
+                <td>18.2 years</td>
+                <td>20.8 years</td>
+                <td>2.6 years</td>
+                <td>22%</td>
+                <td>34%</td>
+            </tr>
+            <tr>
+                <td>2050 (projected)</td>
+                <td>21.4 years</td>
+                <td>24.1 years</td>
+                <td>2.7 years</td>
+                <td>30%</td>
+                <td>42%</td>
+            </tr>
+        </table>
+        
+        <div class="analysis">
+            <h3>Key Observations:</h3>
+            <ul>
+                <li>Women consistently live longer than men, though the gap has narrowed somewhat over time.</li>
+                <li>The probability of living to age 90 has increased dramatically and is projected to continue rising.</li>
+                <li>For retirement planning, women need to prepare for potentially longer retirement periods.</li>
+                <li>Couples should consider the financial impact of the surviving spouse (typically the woman) living several years longer.</li>
+                <li>By 2050, nearly half of all women reaching age 65 are projected to live to at least age 90.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <h2>Life Expectancy Variation by Socioeconomic Status (U.S. Data)</h2>
+        
+        <p>Socioeconomic factors significantly impact life expectancy and should inform personalized retirement planning.</p>
+        
+        <table>
+            <tr>
+                <th>Income Percentile</th>
+                <th>Life Expectancy at Age 40 (Male)</th>
+                <th>Life Expectancy at Age 40 (Female)</th>
+                <th>Gap from Highest Percentile</th>
+            </tr>
+            <tr>
+                <td>Top 1%</td>
+                <td>87.3 years</td>
+                <td>89.0 years</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Top 5%</td>
+                <td>85.7 years</td>
+                <td>87.6 years</td>
+                <td>~1.5 years</td>
+            </tr>
+            <tr>
+                <td>Top 25%</td>
+                <td>83.4 years</td>
+                <td>85.3 years</td>
+                <td>~3.8 years</td>
+            </tr>
+            <tr>
+                <td>Middle 50%</td>
+                <td>78.9 years</td>
+                <td>81.8 years</td>
+                <td>~7.8 years</td>
+            </tr>
+            <tr>
+                <td>Bottom 25%</td>
+                <td>76.1 years</td>
+                <td>78.3 years</td>
+                <td>~11.0 years</td>
+            </tr>
+            <tr>
+                <td>Bottom 5%</td>
+                <td>72.7 years</td>
+                <td>76.2 years</td>
+                <td>~13.7 years</td>
+            </tr>
+        </table>
+        
+        <div class="analysis">
+            <h3>Key Observations:</h3>
+            <ul>
+                <li>The gap in life expectancy between the highest and lowest income groups is nearly 15 years.</li>
+                <li>Higher income correlates strongly with longer life expectancy, likely due to better healthcare access, education, living conditions, and health behaviors.</li>
+                <li>The socioeconomic gradient in life expectancy creates a planning paradox: those with fewer resources may need to plan for shorter retirements on average, but still face significant longevity risk as individuals.</li>
+                <li>Educational attainment (not shown in table) is also strongly correlated with life expectancy, independent of income.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <h2>Lifestyle Factors and Life Expectancy</h2>
+        
+        <p>Individual lifestyle choices significantly impact life expectancy and can be more influential than genetic factors.</p>
+        
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>Potential Impact on Life Expectancy</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Smoking</td>
+                <td>-10 to -12 years</td>
+                <td>Heavy smokers may lose up to 15 years; quitting can restore some but not all life expectancy</td>
+            </tr>
+            <tr>
+                <td>Regular Physical Activity</td>
+                <td>+3 to +7 years</td>
+                <td>Just 150 minutes of moderate activity weekly significantly increases longevity</td>
+            </tr>
+            <tr>
+                <td>Healthy Diet</td>
+                <td>+2 to +5 years</td>
+                <td>Mediterranean and plant-rich diets show strongest association with longevity</td>
+            </tr>
+            <tr>
+                <td>Obesity (BMI >30)</td>
+                <td>-3 to -8 years</td>
+                <td>Severe obesity (BMI >40) can reduce life expectancy by up to 14 years</td>
+            </tr>
+            <tr>
+                <td>Heavy Alcohol Consumption</td>
+                <td>-4 to -5 years</td>
+                <td>Moderate consumption may have neutral or slightly positive effects in some studies</td>
+            </tr>
+            <tr>
+                <td>Sleep (7-8 hours regularly)</td>
+                <td>+2 to +3 years</td>
+                <td>Both chronic undersleeping (<6 hours) and oversleeping (>9 hours) correlate with reduced longevity</td>
+            </tr>
+            <tr>
+                <td>Chronic Stress</td>
+                <td>-2 to -4 years</td>
+                <td>Affects multiple biological systems and increases risk for various diseases</td>
+            </tr>
+            <tr>
+                <td>Strong Social Connections</td>
+                <td>+3 to +5 years</td>
+                <td>Social isolation has mortality risk comparable to smoking</td>
+            </tr>
+            <tr>
+                <td>Combination of Positive Factors</td>
+                <td>+10 to +14 years</td>
+                <td>The combined effect of multiple healthy behaviors is greater than the sum of individual effects</td>
+            </tr>
+        </table>
+        
+        <div class="factor-highlight">
+            <h3>The Power of Combined Factors</h3>
+            <p>A landmark study published in the journal Circulation found that individuals who adopted five healthy habits—never smoking, maintaining healthy body weight, regular physical activity, healthy diet, and moderate alcohol consumption—lived an average of 14 years longer for women and 12 years longer for men compared to those who adopted none of these habits.</p>
+            <p>This demonstrates that while individual factors matter, the combination of multiple positive lifestyle choices has the greatest impact on longevity.</p>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <h2>Retirement Period Planning by Life Expectancy Percentiles</h2>
+        
+        <p>Planning for average life expectancy leaves substantial longevity risk. This table shows different planning horizons based on statistical probability.</p>
+        
+        <table>
+            <tr>
+                <th>Current Age</th>
+                <th>Median Life Expectancy (50th percentile)</th>
+                <th>75th Percentile (25% will live longer)</th>
+                <th>90th Percentile (10% will live longer)</th>
+                <th>95th Percentile (5% will live longer)</th>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>To age 84</td>
+                <td>To age 92</td>
+                <td>To age 97</td>
+                <td>To age 99</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>To age 84</td>
+                <td>To age 91</td>
+                <td>To age 96</td>
+                <td>To age 99</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>To age 84</td>
+                <td>To age 91</td>
+                <td>To age 96</td>
+                <td>To age 98</td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>To age 85</td>
+                <td>To age 91</td>
+                <td>To age 95</td>
+                <td>To age 97</td>
+            </tr>
+            <tr>
+                <td>65</td>
+                <td>To age 86</td>
+                <td>To age 91</td>
+                <td>To age 95</td>
+                <td>To age 97</td>
+            </tr>
+            <tr>
+                <td>75</td>
+                <td>To age 88</td>
+                <td>To age 92</td>
+                <td>To age 95</td>
+                <td>To age 97</td>
+            </tr>
+        </table>
+        
+        <div class="note">
+            <h3>Retirement Planning Implications:</h3>
+            <p>While the median life expectancy provides a baseline, prudent retirement planning should consider higher percentiles to reduce longevity risk.</p>
+            <p>Recommendations based on risk tolerance:</p>
+            <ul>
+                <li><strong>Conservative Planning:</strong> Use the 90th percentile (planning to age 95-97)</li>
+                <li><strong>Moderate Planning:</strong> Use the 75th percentile (planning to age 91-92)</li>
+                <li><strong>Minimum Planning:</strong> Use the median plus 3-5 years (planning to age 87-89)</li>
+            </ul>
+            <p>Even healthy individuals with longevity in their family should consider the statistical reality that planning only to median life expectancy means approximately 50% chance of outliving resources.</p>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <h2>Healthcare Costs in Retirement by Age Group</h2>
+        
+        <p>Healthcare costs increase significantly with age and are a major component of retirement expenses, especially with increased longevity.</p>
+        
+        <table>
+            <tr>
+                <th>Age Group</th>
+                <th>Average Annual Healthcare Costs (2023)</th>
+                <th>Average Monthly Cost</th>
+                <th>% of Total Retirement Spending</th>
+                <th>Long-term Care Risk</th>
+            </tr>
+            <tr>
+                <td>65-69</td>
+                <td>$7,100</td>
+                <td>$592</td>
+                <td>12-15%</td>
+                <td>5%</td>
+            </tr>
+            <tr>
+                <td>70-74</td>
+                <td>$9,400</td>
+                <td>$783</td>
+                <td>15-20%</td>
+                <td>10%</td>
+            </tr>
+            <tr>
+                <td>75-79</td>
+                <td>$13,500</td>
+                <td>$1,125</td>
+                <td>20-25%</td>
+                <td>20%</td>
+            </tr>
+            <tr>
+                <td>80-84</td>
+                <td>$17,800</td>
+                <td>$1,483</td>
+                <td>25-30%</td>
+                <td>30%</td>
+            </tr>
+            <tr>
+                <td>85-89</td>
+                <td>$24,600</td>
+                <td>$2,050</td>
+                <td>30-40%</td>
+                <td>45%</td>
+            </tr>
+            <tr>
+                <td>90+</td>
+                <td>$33,200</td>
+                <td>$2,767</td>
+                <td>35-50%</td>
+                <td>55%</td>
+            </tr>
+        </table>
+        
+        <div class="factor-highlight">
+            <h3>Long-term Care Impact:</h3>
+            <p>The figures above include average long-term care costs, but individual experiences vary widely:</p>
+            <ul>
+                <li>Approximately 70% of people over 65 will need some form of long-term care during their lifetime</li>
+                <li>The average duration of long-term care needs is 3 years</li>
+                <li>Annual nursing home costs average $108,405 for a private room (2023)</li>
+                <li>Annual assisted living facility costs average $54,000 (2023)</li>
+                <li>Home health aide services average $27 per hour ($62,640 annually for 40 hours/week)</li>
+            </ul>
+            <p>These costs dramatically increase overall healthcare expenses if needed and represent one of the largest financial risks in extended longevity scenarios.</p>
+        </div>
+    </div>
+
+    <div class="data-section">
+        <h2>Reflection and Planning Questions</h2>
+        
+        <p>Use the data in this resource to reflect on the following questions for your personal retirement planning:</p>
+        
+        <ol>
+            <li>Based on family history, lifestyle factors, and socioeconomic status, how might your life expectancy compare to the statistical averages?</li>
+            <li>What is the appropriate planning horizon for your retirement, considering your personal risk tolerance?</li>
+            <li>How might healthcare costs impact your retirement expenses, especially if you live into your 90s?</li>
+            <li>Which lifestyle factors could you modify now to potentially increase your life expectancy?</li>
+            <li>If your retirement might last 30+ years, how does that change your investment strategy and withdrawal approach?</li>
+            <li>What strategies could you implement to address potential longevity risk?</li>
+        </ol>
+        
+        <div class="note">
+            <p><strong>Educational Purpose:</strong> This resource is designed for educational purposes to help understand the relationship between longevity factors and retirement planning. The data presented represents statistical averages and projections, not individual predictions. For personalized retirement and longevity planning, consult with financial professionals who can provide guidance specific to your circumstances.</p>
+        </div>
+    </div>
+
+</body>
+</html>

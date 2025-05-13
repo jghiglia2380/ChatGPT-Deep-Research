@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Types Comparison Chart - Chapter 11.2</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .comparison-card {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c5282;
+            border-bottom: 2px solid #2c5282;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2c5282;
+            border-bottom: 1px solid #2c5282;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #3182ce;
+        }
+        
+        .print-instructions {
+            background-color: #fffaf0;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #ed8936;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background-color: #ebf4ff;
+            color: #2c5282;
+            text-align: left;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+        
+        .comparison-card {
+            background-color: #f0f4f8;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background-color: #2c5282;
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 15px -20px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .card-title {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li strong {
+            color: #2c5282;
+        }
+        
+        .example-box {
+            background-color: #ebf8ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4299e1;
+            border-radius: 4px;
+        }
+        
+        .pros-cons {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .pros, .cons {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        .pros h4, .cons h4 {
+            margin-top: 0;
+        }
+        
+        .pros h4 {
+            color: #2f855a;
+        }
+        
+        .cons h4 {
+            color: #c53030;
+        }
+        
+        .pros ul, .cons ul {
+            padding-left: 20px;
+        }
+        
+        .pros ul li, .cons ul li {
+            margin-bottom: 5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3182ce;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #2c5282;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .pros-cons {
+                flex-direction: column;
+            }
+            
+            .pros, .cons {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <h1>Insurance Types Comparison Chart</h1>
+    <p>This document provides a detailed comparison of major insurance types, their key features, and when each type is most appropriate. Use this as a reference when evaluating your insurance needs and making coverage decisions.</p>
+
+    <h2>Key Insurance Comparison</h2>
+    
+    <table>
+        <tr>
+            <th>Insurance Type</th>
+            <th>Primary Purpose</th>
+            <th>Key Features</th>
+            <th>Required vs. Optional</th>
+            <th>Typical Cost Factors</th>
+        </tr>
+        <tr>
+            <td>Health Insurance</td>
+            <td>Cover medical expenses and reduce healthcare costs</td>
+            <td>Deductibles, co-pays, co-insurance, networks, prescription coverage</td>
+            <td>Generally required by law, with some exceptions</td>
+            <td>Age, location, plan type, tobacco use, number of people covered</td>
+        </tr>
+        <tr>
+            <td>Auto Insurance</td>
+            <td>Protect against vehicle damage and accident liability</td>
+            <td>Liability, collision, comprehensive, uninsured motorist coverage</td>
+            <td>Liability coverage required in most states</td>
+            <td>Driving record, age, vehicle type, location, credit score</td>
+        </tr>
+        <tr>
+            <td>Homeowner's Insurance</td>
+            <td>Protect dwelling, possessions, and provide liability coverage</td>
+            <td>Dwelling, personal property, liability, additional living expenses</td>
+            <td>Required by mortgage lenders; optional if home owned outright</td>
+            <td>Home value, location, construction, claim history, coverage limits</td>
+        </tr>
+        <tr>
+            <td>Renter's Insurance</td>
+            <td>Protect personal belongings and provide liability coverage</td>
+            <td>Personal property, liability, additional living expenses</td>
+            <td>Optional (sometimes required by landlords)</td>
+            <td>Coverage amount, location, claim history, security features</td>
+        </tr>
+        <tr>
+            <td>Life Insurance</td>
+            <td>Provide financial support to beneficiaries after death</td>
+            <td>Term vs. permanent coverage, death benefit, cash value (in some policies)</td>
+            <td>Optional</td>
+            <td>Age, health, gender, lifestyle, coverage amount, policy type</td>
+        </tr>
+        <tr>
+            <td>Disability Insurance</td>
+            <td>Replace income if unable to work due to illness/injury</td>
+            <td>Short-term vs. long-term, elimination period, benefit amount</td>
+            <td>Optional</td>
+            <td>Age, occupation, health, benefit amount, elimination period</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2>Detailed Insurance Comparisons</h2>
+    
+    <div class="comparison-card">
+        <div class="card-header">
+            <h3 class="card-title">Health Insurance</h3>
+        </div>
+        
+        <ul class="feature-list">
+            <li><strong>Purpose:</strong> Covers medical expenses and reduces the financial burden of healthcare</li>
+            <li><strong>Key Coverage Components:</strong> Doctor visits, hospital stays, emergency care, preventive services, prescription drugs</li>
+            <li><strong>Cost Structure:</strong> Monthly premiums, annual deductible, co-payments/co-insurance, out-of-pocket maximum</li>
+            <li><strong>Common Types:</strong> 
+                <ul>
+                    <li>Health Maintenance Organization (HMO) - More restrictive provider network, lower cost, requires PCP referrals</li>
+                    <li>Preferred Provider Organization (PPO) - Larger provider network, higher cost, more flexibility</li>
+                    <li>High-Deductible Health Plan (HDHP) - Lower premiums, higher deductibles, eligible for HSA</li>
+                    <li>Exclusive Provider Organization (EPO) - Mid-range cost, in-network only coverage, no PCP requirement</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div class="example-box">
+            <strong>Example Scenario:</strong> Sophia has a PPO health insurance plan with a $1,500 deductible, 20% co-insurance, and $4,000 out-of-pocket maximum. When she needs an appendectomy costing $20,000, she pays the first $1,500 (deductible), plus 20% of the remaining $18,500 ($3,700), but since that exceeds her out-of-pocket maximum, she only pays $4,000 total. Her insurance covers the remaining $16,000.
+        </div>
+        
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Advantages</h4>
+                <ul>
+                    <li>Protection against potentially catastrophic medical expenses</li>
+                    <li>Access to preventive care at no additional cost</li>
+                    <li>Network negotiated rates significantly lower than paying directly</li>
+                    <li>Predictable costs through out-of-pocket maximums</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Monthly premiums can be expensive</li>
+                    <li>Network restrictions may limit provider choices</li>
+                    <li>Not all treatments and medications may be covered</li>
+                    <li>Pre-authorization requirements for certain procedures</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="comparison-card">
+        <div class="card-header">
+            <h3 class="card-title">Auto Insurance</h3>
+        </div>
+        
+        <ul class="feature-list">
+            <li><strong>Purpose:</strong> Protects against financial losses from vehicle accidents, theft, and other car-related incidents</li>
+            <li><strong>Key Coverage Components:</strong>
+                <ul>
+                    <li>Liability - Covers damage/injuries you cause to others (bodily injury and property damage)</li>
+                    <li>Collision - Covers damage to your vehicle from accidents regardless of fault</li>
+                    <li>Comprehensive - Covers non-collision damage (theft, vandalism, weather, animals)</li>
+                    <li>Personal Injury Protection - Covers medical expenses regardless of fault</li>
+                    <li>Uninsured/Underinsured Motorist - Protects you if the at-fault driver lacks adequate coverage</li>
+                </ul>
+            </li>
+            <li><strong>Cost Structure:</strong> Monthly/semi-annual/annual premiums, deductibles for collision and comprehensive</li>
+            <li><strong>Coverage Limits:</strong> Often expressed as three numbers (e.g., 100/300/50), representing thousands of dollars of coverage for bodily injury per person, bodily injury per accident, and property damage</li>
+        </ul>
+        
+        <div class="example-box">
+            <strong>Example Scenario:</strong> Miguel causes an accident that damages another driver's car and injures the driver. With liability limits of 100/300/50, his insurance covers up to $100,000 for the other driver's injuries, and up to $50,000 for their vehicle damage. His collision coverage with a $500 deductible also pays for his own vehicle damage minus the deductible.
+        </div>
+        
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Advantages</h4>
+                <ul>
+                    <li>Protection against potentially major liability costs</li>
+                    <li>Coverage for your vehicle regardless of fault (with collision/comprehensive)</li>
+                    <li>Legal requirement fulfilled with liability coverage</li>
+                    <li>Additional coverages available for specific needs</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Minimum liability requirements often insufficient for serious accidents</li>
+                    <li>Deductibles must be paid before collision/comprehensive benefits apply</li>
+                    <li>Older vehicles may not warrant comprehensive/collision coverage</li>
+                    <li>Premiums can increase after accidents or violations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="comparison-card">
+        <div class="card-header">
+            <h3 class="card-title">Homeowner's Insurance</h3>
+        </div>
+        
+        <ul class="feature-list">
+            <li><strong>Purpose:</strong> Provides financial protection for your dwelling, personal belongings, and liability</li>
+            <li><strong>Key Coverage Components:</strong>
+                <ul>
+                    <li>Dwelling Coverage - Protects the structure of your home</li>
+                    <li>Personal Property - Covers your belongings</li>
+                    <li>Liability Protection - Covers injuries or property damage you cause to others</li>
+                    <li>Additional Living Expenses - Covers costs if your home becomes uninhabitable</li>
+                    <li>Other Structures - Covers detached garages, sheds, fences</li>
+                </ul>
+            </li>
+            <li><strong>Cost Structure:</strong> Annual premium, deductible applied per claim</li>
+            <li><strong>Common Exclusions:</strong> Floods, earthquakes, normal wear and tear, intentional damage</li>
+        </ul>
+        
+        <div class="example-box">
+            <strong>Example Scenario:</strong> A fire damages Aisha's home and destroys many of her belongings. Her homeowner's insurance covers $180,000 for structural repairs, $60,000 for personal property replacement, and $15,000 for temporary housing while repairs are completed, minus her $1,000 deductible.
+        </div>
+        
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Advantages</h4>
+                <ul>
+                    <li>Comprehensive protection for your home and belongings</li>
+                    <li>Liability coverage extends beyond your property</li>
+                    <li>Additional living expenses provide crucial support during displacement</li>
+                    <li>Required by mortgage lenders, protecting their investment</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Standard policies exclude flood and earthquake damage</li>
+                    <li>High-value items may need additional coverage</li>
+                    <li>Replacement cost vs. actual cash value distinction affects payouts</li>
+                    <li>Premiums affected by claim history and location risks</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="comparison-card">
+        <div class="card-header">
+            <h3 class="card-title">Renter's Insurance</h3>
+        </div>
+        
+        <ul class="feature-list">
+            <li><strong>Purpose:</strong> Protects personal belongings and provides liability coverage for renters</li>
+            <li><strong>Key Coverage Components:</strong>
+                <ul>
+                    <li>Personal Property - Covers your belongings against covered perils</li>
+                    <li>Liability Protection - Covers injuries or damage you cause to others</li>
+                    <li>Additional Living Expenses - Covers costs if your rental becomes uninhabitable</li>
+                    <li>Medical Payments - Covers minor injuries to guests regardless of fault</li>
+                </ul>
+            </li>
+            <li><strong>Cost Structure:</strong> Annual premium (typically very affordable), deductible applied per claim</li>
+            <li><strong>Important Note:</strong> Landlord's insurance covers the building structure but NOT tenants' belongings</li>
+        </ul>
+        
+        <div class="example-box">
+            <strong>Example Scenario:</strong> David's apartment is broken into and several items are stolen, including his laptop, television, and bicycle. His renter's insurance covers the replacement cost of these items, minus his $500 deductible, up to his personal property coverage limit.
+        </div>
+        
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Advantages</h4>
+                <ul>
+                    <li>Affordable premiums (often $15-30 per month)</li>
+                    <li>Protection for belongings against multiple perils</li>
+                    <li>Liability coverage for accidents both at home and away</li>
+                    <li>Coverage during temporary displacement</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Requires accurate inventory of belongings</li>
+                    <li>Actual cash value policies may provide insufficient replacement funds</li>
+                    <li>High-value items may need scheduled personal property coverage</li>
+                    <li>Excludes certain perils like floods and earthquakes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="comparison-card">
+        <div class="card-header">
+            <h3 class="card-title">Life Insurance</h3>
+        </div>
+        
+        <ul class="feature-list">
+            <li><strong>Purpose:</strong> Provides financial support to dependents or beneficiaries after the policyholder's death</li>
+            <li><strong>Key Types:</strong>
+                <ul>
+                    <li>Term Life - Provides coverage for a specific period (e.g., 10, 20, or 30 years)</li>
+                    <li>Whole Life - Provides lifetime coverage with a cash value component</li>
+                    <li>Universal Life - Offers flexible premiums and death benefits with a cash value component</li>
+                </ul>
+            </li>
+            <li><strong>Cost Structure:</strong> Regular premiums based on age, health, coverage amount, and policy type</li>
+            <li><strong>Tax Benefits:</strong> Death benefits generally paid tax-free to beneficiaries</li>
+        </ul>
+        
+        <div class="example-box">
+            <strong>Example Scenario:</strong> Carlos has a $500,000 20-year term life insurance policy to protect his family during their most financially vulnerable years. If he passes away during the 20-year term, his beneficiaries receive $500,000 tax-free, which can be used to replace his income, pay off the mortgage, fund college educations, and cover final expenses.
+        </div>
+        
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Advantages</h4>
+                <ul>
+                    <li>Term Life: Affordable, simple, high coverage amounts</li>
+                    <li>Whole/Universal Life: Lifetime coverage, cash value accumulation</li>
+                    <li>Tax-free death benefit for beneficiaries</li>
+                    <li>Protection during prime earning and family-raising years</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Term Life: No coverage after term expires, no cash value</li>
+                    <li>Whole/Universal Life: Higher premiums, complex structures</li>
+                    <li>Medical underwriting may result in higher premiums or denials</li>
+                    <li>Determining appropriate coverage amount can be challenging</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="comparison-card">
+        <div class="card-header">
+            <h3 class="card-title">Disability Insurance</h3>
+        </div>
+        
+        <ul class="feature-list">
+            <li><strong>Purpose:</strong> Replaces a portion of income if you become unable to work due to illness or injury</li>
+            <li><strong>Key Types:</strong>
+                <ul>
+                    <li>Short-term disability - Typically covers 3-6 months</li>
+                    <li>Long-term disability - Covers extended periods, potentially until retirement</li>
+                </ul>
+            </li>
+            <li><strong>Key Features:</strong>
+                <ul>
+                    <li>Elimination Period - Waiting period before benefits begin (e.g., 30, 90, 180 days)</li>
+                    <li>Benefit Period - How long benefits will be paid (e.g., 2 years, 5 years, until age 65)</li>
+                    <li>Definition of Disability - Own occupation vs. any occupation</li>
+                    <li>Benefit Amount - Typically 60-70% of pre-disability income</li>
+                </ul>
+            </li>
+            <li><strong>Cost Structure:</strong> Regular premiums based on age, occupation, health, coverage amount, and features</li>
+        </ul>
+        
+        <div class="example-box">
+            <strong>Example Scenario:</strong> Elena, a dental hygienist, develops severe carpal tunnel syndrome that prevents her from working. Her long-term disability insurance replaces 65% of her pre-disability income after a 90-day elimination period. The benefits continue until she can return to work or reaches age 65.
+        </div>
+        
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Advantages</h4>
+                <ul>
+                    <li>Protects your most valuable asset: your earning ability</li>
+                    <li>Provides income during recovery or permanent disability</li>
+                    <li>More likely to be needed than life insurance for many people</li>
+                    <li>Customizable features to match specific needs</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Often overlooked in insurance planning</li>
+                    <li>Definition of disability affects when benefits are paid</li>
+                    <li>Elimination period requires financial reserves or short-term coverage</li>
+                    <li>High-risk occupations face higher premiums or limitations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h2>When Each Insurance Type is Most Important</h2>
+    
+    <table>
+        <tr>
+            <th>Life Stage</th>
+            <th>High Priority</th>
+            <th>Medium Priority</th>
+            <th>Consider Based on Circumstances</th>
+        </tr>
+        <tr>
+            <td>Young Adult (20s)</td>
+            <td>
+                - Health insurance<br>
+                - Auto insurance (if driving)<br>
+                - Renter's insurance
+            </td>
+            <td>
+                - Disability insurance<br>
+                - Liability protection
+            </td>
+            <td>
+                - Life insurance (if have dependents)<br>
+                - Umbrella insurance (if high assets)
+            </td>
+        </tr>
+        <tr>
+            <td>Starting Family (30s)</td>
+            <td>
+                - Health insurance<br>
+                - Life insurance<br>
+                - Disability insurance<br>
+                - Auto insurance<br>
+                - Home/renter's insurance
+            </td>
+            <td>
+                - Umbrella liability<br>
+                - Childcare coverage
+            </td>
+            <td>
+                - Long-term care (if family history)<br>
+                - Business insurance (if self-employed)
+            </td>
+        </tr>
+        <tr>
+            <td>Mid-Career (40s-50s)</td>
+            <td>
+                - Health insurance<br>
+                - Life insurance<br>
+                - Disability insurance<br>
+                - Homeowner's insurance<br>
+                - Auto insurance
+            </td>
+            <td>
+                - Umbrella liability<br>
+                - Identity theft protection
+            </td>
+            <td>
+                - Long-term care insurance<br>
+                - Critical illness insurance
+            </td>
+        </tr>
+        <tr>
+            <td>Pre-Retirement (50s-60s)</td>
+            <td>
+                - Health insurance<br>
+                - Homeowner's insurance<br>
+                - Auto insurance<br>
+                - Long-term care insurance
+            </td>
+            <td>
+                - Life insurance (reassess needs)<br>
+                - Umbrella liability
+            </td>
+            <td>
+                - Disability insurance (until retirement)<br>
+                - Travel insurance
+            </td>
+        </tr>
+        <tr>
+            <td>Retirement (65+)</td>
+            <td>
+                - Health insurance/Medicare<br>
+                - Medicare supplement<br>
+                - Homeowner's insurance<br>
+                - Auto insurance
+            </td>
+            <td>
+                - Long-term care insurance<br>
+                - Final expense insurance
+            </td>
+            <td>
+                - Life insurance (for estate planning)<br>
+                - Travel insurance<br>
+                - Umbrella liability
+            </td>
+        </tr>
+    </table>
+
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+</body>
+</html>

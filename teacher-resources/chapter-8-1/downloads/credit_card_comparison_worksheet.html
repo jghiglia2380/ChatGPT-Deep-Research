@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Comparison Worksheet - Chapter 8.1</title>
+    <style>
+        @media print {
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+            }
+            
+            .header {
+                margin-bottom: 0.5in;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .print-instructions, .print-button {
+                display: none;
+            }
+            
+            table {
+                break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #1e40af;
+            padding-bottom: 15px;
+        }
+        
+        h1 {
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #3b82f6;
+            margin-top: 0;
+        }
+        
+        .print-instructions {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .introduction {
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #1e40af;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        
+        h3 {
+            color: #3b82f6;
+            margin-top: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px 8px;
+        }
+        
+        th {
+            background-color: #f1f5f9;
+            font-weight: bold;
+            color: #1e40af;
+            text-align: left;
+        }
+        
+        .feature-cell {
+            font-weight: bold;
+            background-color: #f8fafc;
+            width: 25%;
+        }
+        
+        .card-column {
+            width: 25%;
+        }
+        
+        .notes-area {
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #f9fafb;
+        }
+        
+        .features-list {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-category {
+            margin-bottom: 20px;
+        }
+        
+        .feature-category h3 {
+            color: #0369a1;
+            margin-bottom: 10px;
+        }
+        
+        .decision-matrix {
+            background-color: #f0fff4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .matrix-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #d1fae5;
+        }
+        
+        .matrix-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .matrix-item h4 {
+            color: #059669;
+            margin-bottom: 5px;
+        }
+        
+        .tips-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        
+        .print-button {
+            background-color: #1e40af;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #1e3a8a;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Credit Card Comparison Worksheet</h1>
+        <p class="subtitle">Evaluating and Selecting the Right Credit Card for Your Needs</p>
+    </div>
+    
+    <div class="print-instructions">
+        <strong>Print Instructions:</strong> Fill out this worksheet to compare credit card options, then click the "Print or Save as PDF" button at the bottom of the page. Select "Save as PDF" as the destination to create a digital copy of your comparison.
+    </div>
+    
+    <div class="introduction">
+        <p>This worksheet will help you systematically compare credit card options based on your specific needs and financial goals. By evaluating key features side-by-side, you can make an informed decision about which card best matches your spending habits and priorities.</p>
+    </div>
+    
+    <h2>Step 1: Identify Your Credit Card Goals</h2>
+    
+    <p>Before comparing specific cards, clarify what you want to achieve with a credit card:</p>
+    
+    <div class="notes-area">
+        <strong>My primary goals for this credit card are:</strong> (check all that apply)
+        <ul>
+            <li>□ Build credit history</li>
+            <li>□ Earn rewards on everyday purchases</li>
+            <li>□ Finance a large purchase</li>
+            <li>□ Consolidate debt with a balance transfer</li>
+            <li>□ Save on travel expenses</li>
+            <li>□ Business expenses</li>
+            <li>□ Other: _______________________________</li>
+        </ul>
+        
+        <strong>My typical monthly spending in key categories:</strong>
+        <ul>
+            <li>Groceries: $________</li>
+            <li>Gas/Transportation: $________</li>
+            <li>Dining/Restaurants: $________</li>
+            <li>Travel: $________</li>
+            <li>Online Shopping: $________</li>
+            <li>Other major category: _____________ $________</li>
+        </ul>
+    </div>
+    
+    <h2>Step 2: Credit Card Comparison Table</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Features</th>
+                <th class="card-column">Card Option 1</th>
+                <th class="card-column">Card Option 2</th>
+                <th class="card-column">Card Option 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="feature-cell">Card Name</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Card Issuer</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Annual Fee</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Regular APR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Intro APR Offer (if any)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Rewards Type<br>(cash back, points, miles)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Reward Rates<br>(for key categories)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Sign-up Bonus<br>(requirements & value)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Foreign Transaction Fee</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Balance Transfer Fee</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Late Payment Fee</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Credit Score Needed</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Other Notable Benefits<br>(insurance, extended warranty, etc.)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Major Drawbacks</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="page-break"></div>
+    
+    <h2>Step 3: Evaluate Total Value for Your Spending</h2>
+    
+    <p>Calculate the annual value of each card based on your spending patterns and the card's rewards structure:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Value Calculation</th>
+                <th class="card-column">Card Option 1</th>
+                <th class="card-column">Card Option 2</th>
+                <th class="card-column">Card Option 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="feature-cell">Estimated Annual Rewards</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Sign-up Bonus Value (Year 1)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Value of Other Benefits</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Annual Fee (subtract)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell">Est. Interest Costs (subtract)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="feature-cell"><strong>Net Annual Value</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="tips-box">
+        <h3>How to Calculate Annual Rewards</h3>
+        <p>For each card, multiply your monthly spending in each category by the corresponding reward rate, then multiply by 12 months. For example:</p>
+        <ul>
+            <li>If you spend $300/month on groceries with a card that earns 3% cash back on groceries: $300 × 0.03 × 12 = $108/year</li>
+            <li>If you spend $150/month on gas with a card that earns 2% cash back on gas: $150 × 0.02 × 12 = $36/year</li>
+        </ul>
+        <p>Add up all category rewards to find your total estimated annual rewards.</p>
+    </div>
+    
+    <h2>Step 4: Consider Qualitative Factors</h2>
+    
+    <div class="decision-matrix">
+        <p>Rate each card on these qualitative factors on a scale of 1-5 (5 being best):</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Qualitative Factor</th>
+                    <th class="card-column">Card Option 1</th>
+                    <th class="card-column">Card Option 2</th>
+                    <th class="card-column">Card Option 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="feature-cell">Ease of reward redemption</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="feature-cell">Customer service reputation</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="feature-cell">Mobile app usability</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="feature-cell">Alignment with my spending habits</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="feature-cell">Flexibility of rewards</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="feature-cell">Long-term value</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <h2>Step 5: Decision and Rationale</h2>
+    
+    <div class="notes-area">
+        <p><strong>Based on my comparison, the best card for my needs is:</strong></p>
+        <p style="height: 30px; border-bottom: 1px solid #ccc;"></p>
+        
+        <p><strong>I selected this card because:</strong></p>
+        <p style="height: 100px; border-bottom: 1px solid #ccc;"></p>
+    </div>
+    
+    <div class="features-list">
+        <h2>Key Credit Card Features to Consider</h2>
+        
+        <div class="feature-category">
+            <h3>Fees and Costs</h3>
+            <ul>
+                <li><strong>Annual Fee:</strong> Yearly charge for card membership, ranging from $0 to $500+</li>
+                <li><strong>Foreign Transaction Fees:</strong> Additional charges (typically 3%) on purchases made outside the U.S.</li>
+                <li><strong>Balance Transfer Fee:</strong> Charge for transferring balances from another card (typically 3-5% of the amount)</li>
+                <li><strong>Cash Advance Fee:</strong> Fee for using your credit card to get cash (typically 5% or $10, whichever is greater)</li>
+                <li><strong>Late Payment Fee:</strong> Charge for missing payment deadlines (typically $25-$40)</li>
+            </ul>
+        </div>
+        
+        <div class="feature-category">
+            <h3>Reward Structures</h3>
+            <ul>
+                <li><strong>Cash Back:</strong> Returns a percentage of your spending as cash rewards</li>
+                <li><strong>Points:</strong> Earn points per dollar spent that can be redeemed for various options (travel, merchandise, gift cards)</li>
+                <li><strong>Miles:</strong> Similar to points but typically focused on travel redemptions</li>
+                <li><strong>Flat-Rate Rewards:</strong> Same reward rate on all purchases (e.g., 2% on everything)</li>
+                <li><strong>Tiered Rewards:</strong> Different rates for different categories (e.g., 3% on dining, 2% on gas, 1% on everything else)</li>
+                <li><strong>Rotating Categories:</strong> Higher rewards in categories that change quarterly (requiring activation)</li>
+            </ul>
+        </div>
+        
+        <div class="feature-category">
+            <h3>Interest Rates (APRs)</h3>
+            <ul>
+                <li><strong>Purchase APR:</strong> Interest rate on purchases if you carry a balance</li>
+                <li><strong>Introductory APR:</strong> Promotional rate for new cardholders (often 0% for 12-18 months)</li>
+                <li><strong>Balance Transfer APR:</strong> Rate applied to balances transferred from other cards</li>
+                <li><strong>Cash Advance APR:</strong> Usually higher rate applied to cash advances</li>
+                <li><strong>Penalty APR:</strong> Higher rate that may apply if you miss payments</li>
+            </ul>
+        </div>
+        
+        <div class="feature-category">
+            <h3>Additional Benefits</h3>
+            <ul>
+                <li><strong>Purchase Protection:</strong> Covers items against damage or theft for a limited period</li>
+                <li><strong>Extended Warranty:</strong> Additional warranty coverage beyond manufacturer's warranty</li>
+                <li><strong>Rental Car Insurance:</strong> Coverage for rental vehicles when you pay with your card</li>
+                <li><strong>Travel Insurance:</strong> Various protections like trip cancellation, lost luggage, or travel accident insurance</li>
+                <li><strong>Cell Phone Protection:</strong> Coverage for damaged or stolen phones when you pay your bill with the card</li>
+                <li><strong>Free Credit Score Access:</strong> Regular updates of your credit score</li>
+            </ul>
+        </div>
+    </div>
+    
+    <button class="print-button" onclick="window.print();">Print or Save as PDF</button>
+    
+    <div class="footer">
+        <p>Chapter 8.1: Credit Card Use and Management | PFL Academy</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not financial advice.</p>
+    </div>
+</body>
+</html>

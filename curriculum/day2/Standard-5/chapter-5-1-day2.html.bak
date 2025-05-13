@@ -1,0 +1,1474 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 5.1: Saving and Investing - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        /* Calculator styles */
+        .calculator-input {
+            @apply border border-gray-300 rounded-md p-2 w-full focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all;
+        }
+        
+        .calculator-label {
+            @apply block text-gray-700 font-medium mb-1;
+        }
+        
+        .calculator-slider {
+            @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
+        }
+        
+        .calculator-slider::-webkit-slider-thumb {
+            @apply appearance-none w-6 h-6 rounded-full bg-indigo-600 cursor-pointer;
+        }
+        
+        .chart-container {
+            @apply border border-gray-200 rounded-lg p-4 bg-white shadow-sm;
+        }
+        
+        /* Investment card styles */
+        .investment-card {
+            @apply border border-gray-200 rounded-lg p-4 bg-white shadow-sm hover:shadow-md transition-all flex flex-col;
+        }
+        
+        .risk-meter {
+            @apply h-2 bg-gray-200 rounded-full overflow-hidden mt-2;
+        }
+        
+        .risk-level-low {
+            @apply bg-green-500 h-full;
+        }
+        
+        .risk-level-medium {
+            @apply bg-yellow-500 h-full;
+        }
+        
+        .risk-level-high {
+            @apply bg-red-500 h-full;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <\!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <\!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 5: Saving and Investing</h2>
+                <p class="text-gray-600 mb-4">Understanding the strategies and principles of saving and investing money for different financial goals.</p>
+            </div>
+            
+            <\!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-5-1-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <\!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">5.1: Saving and Investing</span>
+                    </div>
+                    <\!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Power of Compounding
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Risk vs. Reward Analysis
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Investment Strategy Simulator
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station4" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Opportunity Cost Challenge
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <\!-- Other Chapters (Future Chapters) -->
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+                        5.2: Understanding Compound Interest
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+                        5.3: Evaluating Saving and Investment Strategies
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+                        5.4: Time is Money
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+                        5.5: Understanding Monetary Risk
+                    </a>
+                </li>
+            </ul>
+            
+            <\!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/4 stations</span></p>
+                
+                <\!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator" id="station1-indicator"></div>
+                    <div class="station-indicator" id="station2-indicator"></div>
+                    <div class="station-indicator" id="station3-indicator"></div>
+                    <div class="station-indicator" id="station4-indicator"></div>
+                    <div class="station-indicator" id="portfolio-indicator"></div>
+                </div>
+            </div>
+            
+            <\!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-5-1-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+        <\!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 5.1: Saving and Investing - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Apply and practice saving and investing principles through interactive activities</p>
+            
+            <\!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Differentiate between saving and investing</li>
+                    <li>Apply the SMART framework to set effective financial goals</li>
+                    <li>Understand how compounding works to grow money over time</li>
+                    <li>Evaluate risk and reward in financial decisions</li>
+                    <li>Analyze opportunity costs when making financial choices</li>
+                </ul>
+            </div>
+            
+            <\!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">Welcome to the Saving and Investing Learning Lab\! Today, you'll apply the concepts you learned in Day 1 through a series of interactive activities. You'll explore the power of compounding, analyze risk and reward relationships, create investment strategies, and evaluate opportunity costs in financial decisions.</p>
+                
+                <\!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700">Each activity in this Learning Lab builds on concepts from Day 1. Complete the activities in order for the best learning experience. Be sure to save your work at each station to track your progress.</p>
+                </div>
+                
+                <\!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">In Day 1, you learned about several important concepts related to saving and investing:</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>The fundamental differences between saving and investing</li>
+                        <li>How to create SMART financial goals</li>
+                        <li>The concept of compounding and how it grows your money</li>
+                        <li>How to evaluate risk tolerance and reward potential</li>
+                        <li>The importance of understanding opportunity costs</li>
+                    </ul>
+                </div>
+                
+                <\!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Saving and Investing Fundamentals</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="/Users/justin/pfl-academy/finished LM recordings/5.1 - Saving and Investing.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Saving vs. investing, financial goal setting, compounding, risk assessment, and opportunity cost</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">Now that you've reviewed the key concepts, you're ready to begin the hands-on activities. Work through each station at your own pace, making sure to complete the activities thoroughly and save your progress before moving on.</p>
+            </section>
+            <\!-- Station 1: Compounding Calculator -->
+            <div class="learning-station" id="station1">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h3 class="text-xl font-semibold text-gray-900">The Power of Compounding Calculator</h3>
+                </div>
+                
+                <\!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Use this interactive calculator to explore how your money can grow through compound interest. Experiment with different initial amounts, interest rates, time periods, and contribution frequencies to see the dramatic difference compounding makes over time.</p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-3">Compounding Calculator</h4>
+                        
+                        <div class="mb-3">
+                            <label for="initial-amount" class="calculator-label">Initial Investment ($)</label>
+                            <input type="number" id="initial-amount" class="calculator-input" value="1000" min="1" max="100000">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="interest-rate" class="calculator-label">Annual Interest Rate (%)</label>
+                            <input type="range" id="interest-rate" class="calculator-slider mb-1" min="1" max="15" value="7">
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>1%</span>
+                                <span>5%</span>
+                                <span>10%</span>
+                                <span>15%</span>
+                            </div>
+                            <div class="text-center text-indigo-700 font-medium mt-1" id="interest-rate-value">7%</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="time-period" class="calculator-label">Time Period (Years)</label>
+                            <input type="range" id="time-period" class="calculator-slider mb-1" min="1" max="50" value="10">
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>1</span>
+                                <span>15</span>
+                                <span>30</span>
+                                <span>50</span>
+                            </div>
+                            <div class="text-center text-indigo-700 font-medium mt-1" id="time-period-value">10 years</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="monthly-contribution" class="calculator-label">Monthly Contribution ($)</label>
+                            <input type="number" id="monthly-contribution" class="calculator-input" value="100" min="0" max="10000">
+                        </div>
+                        
+                        <button id="calculate-btn" class="pfl-button w-full mt-2">Calculate Growth</button>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-3">Results</h4>
+                        <div class="flex justify-between">
+                            <div>
+                                <p class="text-sm text-gray-500">Final Balance:</p>
+                                <p class="text-xl font-bold text-indigo-700" id="final-balance">$0</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Total Contributions:</p>
+                                <p class="text-lg font-medium text-gray-700" id="total-contributions">$0</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Interest Earned:</p>
+                                <p class="text-lg font-medium text-green-600" id="interest-earned">$0</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <canvas id="growth-chart" height="200"></canvas>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5 class="font-medium text-gray-900 mb-2">Key Insights:</h5>
+                            <textarea id="compounding-insights" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Note your observations about how compounding affects your money over time..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-2 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="text-md font-semibold text-blue-800 mb-2">Compare Scenarios</h4>
+                    <p class="text-sm text-gray-700 mb-3">Try these different scenarios to see the impact of compounding:</p>
+                    <ol class="list-decimal list-inside text-sm text-gray-700 space-y-1">
+                        <li>Same initial amount with different interest rates (3% vs. 7% vs. 10%)</li>
+                        <li>Same interest rate over different time periods (10 vs. 20 vs. 30 years)</li>
+                        <li>One-time investment vs. regular monthly contributions</li>
+                    </ol>
+                </div>
+                
+                <button class="pfl-button mt-4" onclick="saveStation(1)">Save and Continue</button>
+            </div>
+            
+            <\!-- Station 2: Risk vs. Reward Analysis -->
+            <div class="learning-station" id="station2">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Risk vs. Reward Analysis</h3>
+                </div>
+                
+                <\!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">In this activity, you'll analyze different investment options along the risk-reward spectrum. For each investment type, evaluate the potential returns and associated risks to understand how risk and reward are generally related.</p>
+                
+                <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">The Risk-Reward Spectrum</h4>
+                    <p class="text-gray-700 mb-3">Generally, investments with higher potential returns come with higher risks. This risk-reward tradeoff is fundamental to investing.</p>
+                    <div class="h-10 bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded-lg mb-2"></div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-green-700">Low Risk, Low Return</span>
+                        <span class="text-yellow-700">Medium Risk, Medium Return</span>
+                        <span class="text-red-700">High Risk, High Return</span>
+                    </div>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-900 mb-3">Investment Options Analysis</h4>
+                
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <div class="investment-card">
+                        <h5 class="font-semibold text-gray-900">Savings Account</h5>
+                        <p class="text-sm text-gray-600 mb-2">FDIC insured account at a bank</p>
+                        <div class="mt-auto">
+                            <p class="text-xs text-gray-500">Potential Return: 0.5-1% annually</p>
+                            <p class="text-xs text-gray-500 mb-1">Risk Level:</p>
+                            <div class="risk-meter">
+                                <div class="risk-level-low" style="width: 10%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="investment-card">
+                        <h5 class="font-semibold text-gray-900">Certificate of Deposit (CD)</h5>
+                        <p class="text-sm text-gray-600 mb-2">Fixed-term deposit with a bank</p>
+                        <div class="mt-auto">
+                            <p class="text-xs text-gray-500">Potential Return: 1-3% annually</p>
+                            <p class="text-xs text-gray-500 mb-1">Risk Level:</p>
+                            <div class="risk-meter">
+                                <div class="risk-level-low" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="investment-card">
+                        <h5 class="font-semibold text-gray-900">Government Bonds</h5>
+                        <p class="text-sm text-gray-600 mb-2">Loans to the government</p>
+                        <div class="mt-auto">
+                            <p class="text-xs text-gray-500">Potential Return: 2-5% annually</p>
+                            <p class="text-xs text-gray-500 mb-1">Risk Level:</p>
+                            <div class="risk-meter">
+                                <div class="risk-level-low" style="width: 20%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="investment-card">
+                        <h5 class="font-semibold text-gray-900">Corporate Bonds</h5>
+                        <p class="text-sm text-gray-600 mb-2">Loans to corporations</p>
+                        <div class="mt-auto">
+                            <p class="text-xs text-gray-500">Potential Return: 3-6% annually</p>
+                            <p class="text-xs text-gray-500 mb-1">Risk Level:</p>
+                            <div class="risk-meter">
+                                <div class="risk-level-medium" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="investment-card">
+                        <h5 class="font-semibold text-gray-900">Blue-Chip Stocks</h5>
+                        <p class="text-sm text-gray-600 mb-2">Shares in large, established companies</p>
+                        <div class="mt-auto">
+                            <p class="text-xs text-gray-500">Potential Return: 7-10% annually</p>
+                            <p class="text-xs text-gray-500 mb-1">Risk Level:</p>
+                            <div class="risk-meter">
+                                <div class="risk-level-medium" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="investment-card">
+                        <h5 class="font-semibold text-gray-900">Growth Stocks</h5>
+                        <p class="text-sm text-gray-600 mb-2">Shares in fast-growing companies</p>
+                        <div class="mt-auto">
+                            <p class="text-xs text-gray-500">Potential Return: 10-15%+ annually</p>
+                            <p class="text-xs text-gray-500 mb-1">Risk Level:</p>
+                            <div class="risk-meter">
+                                <div class="risk-level-high" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Risk Tolerance Assessment</h4>
+                    <p class="text-gray-700 mb-3">Based on your personal circumstances and financial goals, which investment options align with your risk tolerance?</p>
+                    
+                    <label class="block text-gray-700 font-medium mb-2">Your Current Risk Tolerance</label>
+                    <select id="risk-tolerance" class="w-full p-2 border border-gray-300 rounded-md mb-3">
+                        <option value="conservative">Conservative (Low Risk)</option>
+                        <option value="moderate">Moderate (Medium Risk)</option>
+                        <option value="aggressive">Aggressive (High Risk)</option>
+                    </select>
+                    
+                    <label class="block text-gray-700 font-medium mb-2">Suitable Investments for Your Risk Tolerance</label>
+                    <textarea id="suitable-investments" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List the investment types that match your risk tolerance and explain why..."></textarea>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Risk-Reward Reflection</h4>
+                    <p class="text-gray-700 mb-3">How might your risk tolerance change based on different financial goals and time horizons?</p>
+                    
+                    <table class="w-full border-collapse mb-3">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 p-2 text-left">Financial Goal</th>
+                                <th class="border border-gray-300 p-2 text-left">Time Horizon</th>
+                                <th class="border border-gray-300 p-2 text-left">Appropriate Risk Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 p-2">Emergency Fund</td>
+                                <td class="border border-gray-300 p-2">0-1 years</td>
+                                <td class="border border-gray-300 p-2">
+                                    <select class="w-full p-1 border border-gray-200 rounded">
+                                        <option value="low">Low Risk</option>
+                                        <option value="medium">Medium Risk</option>
+                                        <option value="high">High Risk</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 p-2">Car Purchase</td>
+                                <td class="border border-gray-300 p-2">2-3 years</td>
+                                <td class="border border-gray-300 p-2">
+                                    <select class="w-full p-1 border border-gray-200 rounded">
+                                        <option value="low">Low Risk</option>
+                                        <option value="medium">Medium Risk</option>
+                                        <option value="high">High Risk</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 p-2">Home Down Payment</td>
+                                <td class="border border-gray-300 p-2">5-7 years</td>
+                                <td class="border border-gray-300 p-2">
+                                    <select class="w-full p-1 border border-gray-200 rounded">
+                                        <option value="low">Low Risk</option>
+                                        <option value="medium">Medium Risk</option>
+                                        <option value="high">High Risk</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 p-2">College Fund</td>
+                                <td class="border border-gray-300 p-2">10-15 years</td>
+                                <td class="border border-gray-300 p-2">
+                                    <select class="w-full p-1 border border-gray-200 rounded">
+                                        <option value="low">Low Risk</option>
+                                        <option value="medium">Medium Risk</option>
+                                        <option value="high">High Risk</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 p-2">Retirement</td>
+                                <td class="border border-gray-300 p-2">30+ years</td>
+                                <td class="border border-gray-300 p-2">
+                                    <select class="w-full p-1 border border-gray-200 rounded">
+                                        <option value="low">Low Risk</option>
+                                        <option value="medium">Medium Risk</option>
+                                        <option value="high">High Risk</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <button class="pfl-button mt-2" onclick="saveStation(2)">Save and Continue</button>
+            </div>
+            <\!-- Station 3: Investment Strategy Simulator -->
+            <div class="learning-station" id="station3">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Investment Strategy Simulator</h3>
+                </div>
+                
+                <\!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Build a sample investment portfolio based on different financial goals and time horizons. In this activity, you'll create diversified portfolios for three common financial goals and see how your investment choices might perform over time.</p>
+                
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Portfolio Scenarios</h4>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="border-b border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h5 class="font-semibold text-indigo-800">Scenario 1: College Savings</h5>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded">5-10 Year Horizon</span>
+                            </div>
+                            
+                            <p class="text-gray-700 text-sm mb-3">You're planning to save for a child's college education, which will begin in 7 years. Create a portfolio that balances growth with moderate risk.</p>
+                            
+                            <h6 class="font-medium text-gray-900 mb-2">Asset Allocation:</h6>
+                            <div class="grid grid-cols-2 gap-4 mb-3">
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Cash/Savings (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="20" id="college-cash">
+                                    <div class="text-right text-xs text-gray-600" id="college-cash-value">20%</div>
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Bonds (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="30" id="college-bonds">
+                                    <div class="text-right text-xs text-gray-600" id="college-bonds-value">30%</div>
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Stocks (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="50" id="college-stocks">
+                                    <div class="text-right text-xs text-gray-600" id="college-stocks-value">50%</div>
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Alternative Investments (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="0" id="college-alt">
+                                    <div class="text-right text-xs text-gray-600" id="college-alt-value">0%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-sm text-gray-700">Total:</span>
+                                    <span class="font-medium text-indigo-700" id="college-total">100%</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Projected Average Annual Return: <span class="font-medium text-indigo-700" id="college-return">0%</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="border-b border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h5 class="font-semibold text-indigo-800">Scenario 2: Retirement Savings</h5>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2 py-1 rounded">30+ Year Horizon</span>
+                            </div>
+                            
+                            <p class="text-gray-700 text-sm mb-3">You're 25 years old and starting to save for retirement. Create a long-term growth portfolio that takes advantage of the long time horizon.</p>
+                            
+                            <h6 class="font-medium text-gray-900 mb-2">Asset Allocation:</h6>
+                            <div class="grid grid-cols-2 gap-4 mb-3">
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Cash/Savings (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="5" id="retirement-cash">
+                                    <div class="text-right text-xs text-gray-600" id="retirement-cash-value">5%</div>
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Bonds (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="15" id="retirement-bonds">
+                                    <div class="text-right text-xs text-gray-600" id="retirement-bonds-value">15%</div>
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Stocks (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="75" id="retirement-stocks">
+                                    <div class="text-right text-xs text-gray-600" id="retirement-stocks-value">75%</div>
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Alternative Investments (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="5" id="retirement-alt">
+                                    <div class="text-right text-xs text-gray-600" id="retirement-alt-value">5%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-sm text-gray-700">Total:</span>
+                                    <span class="font-medium text-indigo-700" id="retirement-total">100%</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Projected Average Annual Return: <span class="font-medium text-indigo-700" id="retirement-return">0%</span></p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <h5 class="font-semibold text-indigo-800">Scenario 3: Home Down Payment</h5>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">3-5 Year Horizon</span>
+                            </div>
+                            
+                            <p class="text-gray-700 text-sm mb-3">You're planning to buy a home in 4 years and need to save for a 20% down payment. Create a relatively safe portfolio that still offers some growth potential.</p>
+                            
+                            <h6 class="font-medium text-gray-900 mb-2">Asset Allocation:</h6>
+                            <div class="grid grid-cols-2 gap-4 mb-3">
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Cash/Savings (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="40" id="home-cash">
+                                    <div class="text-right text-xs text-gray-600" id="home-cash-value">40%</div>
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Bonds (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="40" id="home-bonds">
+                                    <div class="text-right text-xs text-gray-600" id="home-bonds-value">40%</div>
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Stocks (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="20" id="home-stocks">
+                                    <div class="text-right text-xs text-gray-600" id="home-stocks-value">20%</div>
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-700 block mb-1">Alternative Investments (%)</label>
+                                    <input type="range" class="w-full" min="0" max="100" value="0" id="home-alt">
+                                    <div class="text-right text-xs text-gray-600" id="home-alt-value">0%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-sm text-gray-700">Total:</span>
+                                    <span class="font-medium text-indigo-700" id="home-total">100%</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Projected Average Annual Return: <span class="font-medium text-indigo-700" id="home-return">0%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Diversification Analysis</h4>
+                    <p class="text-gray-700 mb-3">Consider how diversification affects the risk and potential return of each portfolio.</p>
+                    
+                    <label class="block text-gray-700 font-medium mb-2">How does your asset allocation change based on the time horizon?</label>
+                    <textarea id="diversification-analysis" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain how your asset allocation changes as the time horizon lengthens..."></textarea>
+                </div>
+                
+                <button class="pfl-button mt-2" onclick="saveStation(3)">Save and Continue</button>
+            </div>
+            
+            <\!-- Station 4: Opportunity Cost Challenge -->
+            <div class="learning-station" id="station4">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">4</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Opportunity Cost Challenge</h3>
+                </div>
+                
+                <\!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">5-10 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Opportunity cost is what you give up when choosing one option over another. In this activity, you'll identify and calculate opportunity costs for different financial decisions to better understand how present choices impact future financial growth.</p>
+                
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Opportunity Cost Scenarios</h4>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <h5 class="font-medium text-gray-900 mb-2">Scenario 1: Vacation vs. Investment</h5>
+                        <p class="text-gray-700 mb-3">You have $2,000 and are deciding between taking a vacation now or investing the money for 10 years at 7% annual return.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-3">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h6 class="font-medium text-indigo-700 mb-2">Option A: Vacation Now</h6>
+                                <p class="text-sm text-gray-700 mb-2">Immediate enjoyment and relaxation from a $2,000 vacation.</p>
+                                <p class="text-sm text-gray-700">Future Value: $0</p>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h6 class="font-medium text-indigo-700 mb-2">Option B: Invest for 10 Years</h6>
+                                <p class="text-sm text-gray-700 mb-2">$2,000 invested at 7% annual return for 10 years.</p>
+                                <p class="text-sm text-gray-700">Future Value: <span class="font-medium" id="vacation-future-value">$3,934</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="block text-gray-700 font-medium mb-2">What is the opportunity cost of taking the vacation?</label>
+                            <input type="text" id="vacation-opportunity-cost" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter the dollar amount">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Beyond the numbers, what are other factors to consider in this decision?</label>
+                            <textarea id="vacation-factors" class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Describe non-financial factors to consider..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <h5 class="font-medium text-gray-900 mb-2">Scenario 2: New Car vs. Used Car</h5>
+                        <p class="text-gray-700 mb-3">You need a car and are deciding between a new car for $30,000 or a reliable used car for $15,000. You could invest the $15,000 difference at 6% annual return for 5 years.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-3">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h6 class="font-medium text-indigo-700 mb-2">Option A: New Car</h6>
+                                <p class="text-sm text-gray-700 mb-2">$30,000 new car with warranty and latest features.</p>
+                                <p class="text-sm text-gray-700">Investment: $0</p>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h6 class="font-medium text-indigo-700 mb-2">Option B: Used Car + Investment</h6>
+                                <p class="text-sm text-gray-700 mb-2">$15,000 used car plus $15,000 invested at 6% for 5 years.</p>
+                                <p class="text-sm text-gray-700">Investment Future Value: <span class="font-medium" id="car-future-value">$20,076</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="block text-gray-700 font-medium mb-2">What is the opportunity cost of buying the new car?</label>
+                            <input type="text" id="car-opportunity-cost" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter the dollar amount">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">What other factors might influence this decision?</label>
+                            <textarea id="car-factors" class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Describe other factors to consider..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <h5 class="font-medium text-gray-900 mb-2">Scenario 3: Daily Coffee Purchase</h5>
+                        <p class="text-gray-700 mb-3">You spend $4 daily on coffee (about $120/month). If you made coffee at home for $0.50 per day and invested the savings at 7% annual return, how much would you have after 30 years?</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-3">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h6 class="font-medium text-indigo-700 mb-2">Option A: Daily Coffee Purchase</h6>
+                                <p class="text-sm text-gray-700 mb-2">$4 × 30 days = $120/month for 30 years.</p>
+                                <p class="text-sm text-gray-700">Total Spent: <span class="font-medium">$43,200</span></p>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h6 class="font-medium text-indigo-700 mb-2">Option B: Home Coffee + Investment</h6>
+                                <p class="text-sm text-gray-700 mb-2">Saving $3.50/day ($105/month) and investing at 7% for 30 years.</p>
+                                <p class="text-sm text-gray-700">Future Value: <span class="font-medium" id="coffee-future-value">$118,590</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="block text-gray-700 font-medium mb-2">What is the opportunity cost of buying coffee daily for 30 years?</label>
+                            <input type="text" id="coffee-opportunity-cost" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter the dollar amount">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Opportunity Cost Reflection</h4>
+                    <label class="block text-gray-700 font-medium mb-2">How does understanding opportunity cost change your perspective on financial decisions?</label>
+                    <textarea id="opportunity-cost-reflection" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Reflect on how opportunity cost affects your financial decision-making..."></textarea>
+                </div>
+                
+                <button class="pfl-button mt-2" onclick="saveStation(4)">Save and Continue</button>
+            </div>
+            <\!-- Portfolio Integration Section -->
+            <section id="portfolio" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive saving and investing strategy plan.</p>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-900 mb-4">Your Saving and Investing Strategy</h3>
+                    <p class="text-gray-700 mb-4">Combine the insights from today's Learning Lab to create your personal plan:</p>
+                    
+                    <ul class="list-disc list-inside mb-4 text-gray-700">
+                        <li>Insights from the compounding calculator</li>
+                        <li>Risk-reward analysis for your investment choices</li>
+                        <li>Portfolio strategies for your financial goals</li>
+                        <li>Opportunity cost considerations</li>
+                    </ul>
+                    
+                    <div class="bg-white rounded-lg p-5 mb-4">
+                        <h4 class="font-medium text-gray-900 mb-3">Financial Goals</h4>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <h5 class="text-sm font-medium text-indigo-800 mb-2">Short-Term Goals (0-2 years)</h5>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List your short-term financial goals..."></textarea>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-medium text-indigo-800 mb-2">Mid-Term Goals (2-10 years)</h5>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List your mid-term financial goals..."></textarea>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-medium text-indigo-800 mb-2">Long-Term Goals (10+ years)</h5>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List your long-term financial goals..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-5 mb-4">
+                        <h4 class="font-medium text-gray-900 mb-3">Saving and Investing Approach</h4>
+                        <div class="mb-3">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Saving Strategy:</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Describe your approach to saving (emergency fund, short-term goals, etc.)..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Investment Strategy:</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Describe your approach to investing (asset allocation, risk tolerance, etc.)..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Opportunity Cost Considerations:</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="How will you consider opportunity costs in your financial decisions?"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Portfolio Summary (What have you learned from this Learning Lab?)</label>
+                        <textarea id="portfolio-summary" class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize key insights and how this plan will guide your decisions..."></textarea>
+                        <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                    </div>
+                    
+                    <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1" onclick="savePortfolio()">Complete Portfolio</button>
+                </div>
+            </section>
+            
+            <\!-- Reflection Section -->
+            <section id="reflection" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                    <p class="text-gray-700 mb-3">How has your understanding of saving and investing changed after completing today's Learning Lab? Which concept was most impactful to you personally, and how do you plan to apply it in your own financial life?</p>
+                    <textarea id="final-reflection" class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                    <h4 class="font-medium text-gray-900 mb-2">Exit Assessment</h4>
+                    <p class="text-gray-700 mb-3">Select the best answer for each question based on what you've learned.</p>
+                    
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-800 mb-2">1. What is the primary difference between saving and investing?</p>
+                        <div class="space-y-1 ml-6">
+                            <div class="flex items-center">
+                                <input type="radio" id="q1_a" name="q1" class="mr-2">
+                                <label for="q1_a" class="text-gray-700">A) Saving is for short-term goals, investing is for long-term goals</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q1_b" name="q1" class="mr-2">
+                                <label for="q1_b" class="text-gray-700">B) Saving always earns less than investing</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q1_c" name="q1" class="mr-2">
+                                <label for="q1_c" class="text-gray-700">C) Saving has minimal risk with limited growth, investing involves risk for potential higher returns</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q1_d" name="q1" class="mr-2">
+                                <label for="q1_d" class="text-gray-700">D) Saving is only for emergency funds</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-800 mb-2">2. Which investment would typically have the HIGHEST risk?</p>
+                        <div class="space-y-1 ml-6">
+                            <div class="flex items-center">
+                                <input type="radio" id="q2_a" name="q2" class="mr-2">
+                                <label for="q2_a" class="text-gray-700">A) Savings account</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q2_b" name="q2" class="mr-2">
+                                <label for="q2_b" class="text-gray-700">B) Government bonds</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q2_c" name="q2" class="mr-2">
+                                <label for="q2_c" class="text-gray-700">C) Blue-chip stocks</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q2_d" name="q2" class="mr-2">
+                                <label for="q2_d" class="text-gray-700">D) Growth stocks of newer companies</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p class="font-medium text-gray-800 mb-2">3. Why is compound interest described as "the eighth wonder of the world"?</p>
+                        <div class="space-y-1 ml-6">
+                            <div class="flex items-center">
+                                <input type="radio" id="q3_a" name="q3" class="mr-2">
+                                <label for="q3_a" class="text-gray-700">A) It allows you to double your money every day</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q3_b" name="q3" class="mr-2">
+                                <label for="q3_b" class="text-gray-700">B) It's a guaranteed way to get rich quickly</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q3_c" name="q3" class="mr-2">
+                                <label for="q3_c" class="text-gray-700">C) It creates exponential growth as you earn returns on both principal and previously earned interest</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q3_d" name="q3" class="mr-2">
+                                <label for="q3_d" class="text-gray-700">D) It was discovered by Albert Einstein</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <a href="#" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                        Continue to Chapter 5.2
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <\!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved\!</span>
+        </div>
+    </div>
+    
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Station navigation and tracking
+        let currentStation = 0;
+        const stations = document.querySelectorAll('.learning-station');
+        const stationIndicators = document.querySelectorAll('.station-indicator');
+        
+        // Initialize interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up compounding calculator
+            initializeCompoundingCalculator();
+            
+            // Set up investment portfolio simulator
+            initializePortfolioSimulator();
+            
+            // Set up opportunity cost calculator
+            initializeOpportunityCostCalculator();
+            
+            // Add smooth transitions between stations
+            stations.forEach((station, index) => {
+                station.style.opacity = '0';
+                station.style.transform = 'translateY(20px)';
+                
+                // Use setTimeout to create a staggered animation effect
+                setTimeout(() => {
+                    station.style.opacity = '1';
+                    station.style.transform = 'translateY(0)';
+                    station.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                }, 100 * (index + 1));
+            });
+            
+            updateStationIndicators();
+        });
+        // Compounding Calculator
+        function initializeCompoundingCalculator() {
+            const initialAmount = document.getElementById('initial-amount');
+            const interestRate = document.getElementById('interest-rate');
+            const timePeriod = document.getElementById('time-period');
+            const monthlyContribution = document.getElementById('monthly-contribution');
+            const calculateBtn = document.getElementById('calculate-btn');
+            
+            // Update displayed values for sliders
+            interestRate.addEventListener('input', () => {
+                document.getElementById('interest-rate-value').textContent = interestRate.value + '%';
+            });
+            
+            timePeriod.addEventListener('input', () => {
+                document.getElementById('time-period-value').textContent = timePeriod.value + ' years';
+            });
+            
+            // Calculate button click handler
+            calculateBtn.addEventListener('click', () => {
+                const principal = parseFloat(initialAmount.value);
+                const rate = parseFloat(interestRate.value) / 100;
+                const years = parseInt(timePeriod.value);
+                const monthly = parseFloat(monthlyContribution.value);
+                
+                // Calculate future value
+                let futureValue = principal * Math.pow(1 + rate, years);
+                
+                // Add monthly contributions
+                if (monthly > 0) {
+                    // Future value of a regular payment series
+                    const monthlyFuture = monthly * ((Math.pow(1 + (rate/12), years * 12) - 1) / (rate/12));
+                    futureValue += monthlyFuture;
+                }
+                
+                // Calculate total contributions
+                const totalContributions = principal + (monthly * 12 * years);
+                
+                // Calculate interest earned
+                const interestEarned = futureValue - totalContributions;
+                
+                // Update results
+                document.getElementById('final-balance').textContent = '$' + futureValue.toFixed(2).replace(/\B(?=(\d{3})+(?\!\d))/g, ",");
+                document.getElementById('total-contributions').textContent = '$' + totalContributions.toFixed(2).replace(/\B(?=(\d{3})+(?\!\d))/g, ",");
+                document.getElementById('interest-earned').textContent = '$' + interestEarned.toFixed(2).replace(/\B(?=(\d{3})+(?\!\d))/g, ",");
+                
+                // Create chart data
+                createGrowthChart(principal, rate, years, monthly);
+                
+                showToast('Calculation complete\!');
+            });
+        }
+        
+        // Create growth chart for compound interest calculator
+        function createGrowthChart(principal, rate, years, monthly) {
+            const ctx = document.getElementById('growth-chart').getContext('2d');
+            let labels = [];
+            let principalData = [];
+            let contributionsData = [];
+            let interestData = [];
+            
+            // Calculate data points for each year
+            for (let year = 0; year <= years; year++) {
+                labels.push('Year ' + year);
+                
+                let totalContributions = principal + (monthly * 12 * year);
+                
+                // Year 0 has no interest
+                if (year === 0) {
+                    principalData.push(principal);
+                    contributionsData.push(0);
+                    interestData.push(0);
+                    continue;
+                }
+                
+                // Calculate future value at this year
+                let futureValue = principal * Math.pow(1 + rate, year);
+                
+                // Add monthly contributions
+                if (monthly > 0) {
+                    // Future value of a regular payment series
+                    const monthlyFuture = monthly * ((Math.pow(1 + (rate/12), year * 12) - 1) / (rate/12));
+                    futureValue += monthlyFuture;
+                }
+                
+                // Calculate interest earned
+                const interestEarned = futureValue - totalContributions;
+                
+                principalData.push(principal);
+                contributionsData.push(totalContributions - principal);
+                interestData.push(interestEarned);
+            }
+            
+            // Destroy existing chart if it exists
+            if (window.growthChart) {
+                window.growthChart.destroy();
+            }
+            
+            // Create new chart
+            window.growthChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Initial Investment',
+                            data: principalData,
+                            backgroundColor: 'rgba(79, 70, 229, 0.7)',
+                            borderColor: 'rgba(79, 70, 229, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Additional Contributions',
+                            data: contributionsData,
+                            backgroundColor: 'rgba(99, 102, 241, 0.5)',
+                            borderColor: 'rgba(99, 102, 241, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Interest Earned',
+                            data: interestData,
+                            backgroundColor: 'rgba(52, 211, 153, 0.7)',
+                            borderColor: 'rgba(52, 211, 153, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            stacked: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': $' + context.raw.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        // Investment Portfolio Simulator
+        function initializePortfolioSimulator() {
+            // College savings portfolio
+            const collegeInputs = ['college-cash', 'college-bonds', 'college-stocks', 'college-alt'];
+            collegeInputs.forEach(id => {
+                document.getElementById(id).addEventListener('input', () => updatePortfolio('college'));
+            });
+            
+            // Retirement savings portfolio
+            const retirementInputs = ['retirement-cash', 'retirement-bonds', 'retirement-stocks', 'retirement-alt'];
+            retirementInputs.forEach(id => {
+                document.getElementById(id).addEventListener('input', () => updatePortfolio('retirement'));
+            });
+            
+            // Home down payment portfolio
+            const homeInputs = ['home-cash', 'home-bonds', 'home-stocks', 'home-alt'];
+            homeInputs.forEach(id => {
+                document.getElementById(id).addEventListener('input', () => updatePortfolio('home'));
+            });
+            
+            // Initialize portfolios
+            updatePortfolio('college');
+            updatePortfolio('retirement');
+            updatePortfolio('home');
+        }
+        // Basic functions
+        function saveStation(stationNumber) {
+            document.getElementById(`station${stationNumber}-indicator`).classList.add('active');
+            updateProgress();
+            showToast(`Station ${stationNumber} completed\!`);
+        }
+        
+        function savePortfolio() {
+            document.getElementById('portfolio-indicator').classList.add('active');
+            updateProgress();
+            showToast('Portfolio saved\!');
+        }
+        
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {toast.classList.remove('show');}, 3000);
+        }
+        
+        function updateProgress() {
+            const completed = document.querySelectorAll('.station-indicator.active').length;
+            const total = document.querySelectorAll('.station-indicator').length;
+            const percentage = Math.round((completed / total) * 100);
+            document.querySelector('.from-indigo-600.to-purple-600.h-2\\.5').style.width = `${percentage}%`;
+            document.querySelector('.font-medium').textContent = `${completed}/${total} stations`;
+        }
+        
+        function updateStationIndicators() {
+            updateProgress();
+        }
+    </script>
+</body>
+</html>

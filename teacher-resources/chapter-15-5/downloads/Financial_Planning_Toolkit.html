@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Planning Toolkit - PFL Academy</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Headers */
+        h1 {
+            color: #4F46E5;
+            border-bottom: 2px solid #4F46E5;
+            padding-bottom: 10px;
+            margin-top: 20px;
+        }
+        
+        h2 {
+            color: #7C3AED;
+            margin-top: 25px;
+            border-left: 4px solid #7C3AED;
+            padding-left: 10px;
+        }
+        
+        h3 {
+            color: #6D28D9;
+            margin-top: 20px;
+        }
+        
+        /* Content styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #D1D5DB;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #F3F4F6;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .empty-cell {
+            background-color: #F3F4F6;
+        }
+        
+        .worksheet {
+            background-color: #F9FAFB;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .worksheet-header {
+            background-color: #E0E7FF;
+            padding: 10px 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 20px;
+        }
+        
+        .worksheet-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4338CA;
+            margin: 0;
+        }
+        
+        .note {
+            background-color: #ECFDF5;
+            border-left: 4px solid #10B981;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .warning {
+            background-color: #FEF2F2;
+            border-left: 4px solid #EF4444;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .formula {
+            background-color: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            border-radius: 5px;
+        }
+        
+        .example {
+            background-color: #F0F9FF;
+            border-left: 4px solid #0EA5E9;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        /* Form elements */
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #D1D5DB;
+            border-radius: 4px;
+        }
+        
+        .calculation-field {
+            background-color: #F3F4F6;
+            color: #4B5563;
+            font-weight: bold;
+        }
+        
+        /* Print-specific styling */
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+            
+            h1 {
+                font-size: 18pt;
+            }
+            
+            h2 {
+                font-size: 16pt;
+            }
+            
+            h3 {
+                font-size: 14pt;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            a {
+                text-decoration: none;
+                color: #333;
+            }
+            
+            .page-break {
+                page-break-after: always;
+            }
+            
+            input[type="text"], input[type="number"] {
+                border: 1px solid #D1D5DB;
+                padding: 4px;
+                font-size: 12pt;
+            }
+            
+            .worksheet {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="background-color: #EEF2FF; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+        <strong>Teacher Note:</strong> This resource is designed to be printed or saved as a PDF for student use. To save as PDF, use your browser's print function (Ctrl+P or Cmd+P) and select "Save as PDF" as the destination.
+    </div>
+
+    <h1>Financial Planning Toolkit for Entrepreneurs</h1>
+    <p>This toolkit provides essential financial planning resources for entrepreneurs, focusing on startup financial projections, expense planning, revenue forecasting, break-even analysis, and pricing strategies. Use these worksheets to develop a solid financial foundation for your business venture.</p>
+
+    <div class="note">
+        <strong>Note:</strong> The worksheets in this document are designed to be filled out either digitally (before saving as PDF) or by hand after printing. They provide a foundational framework for financial planning that can be customized for your specific business concept.
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Startup Costs Calculator</h2>
+        </div>
+        <p>Use this worksheet to identify and estimate all the initial costs required to start your business. This will help you determine how much funding you need before launching.</p>
+        
+        <h3>One-Time Startup Expenses</h3>
+        <table>
+            <tr>
+                <th width="70%">Expense Item</th>
+                <th width="30%">Estimated Cost</th>
+            </tr>
+            <tr>
+                <td>Business registration/licensing fees</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Equipment and tools</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Initial inventory</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Website setup/development</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Logo and branding design</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Professional services (legal, accounting setup)</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Initial marketing materials</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Deposits and down payments</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Software/app purchases</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Educational materials/training</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <th>TOTAL ONE-TIME EXPENSES</th>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Initial Operating Expenses (First 3 Months)</h3>
+        <table>
+            <tr>
+                <th width="50%">Monthly Expense</th>
+                <th width="20%">Monthly Cost</th>
+                <th width="30%">3-Month Total</th>
+            </tr>
+            <tr>
+                <td>Rent/workspace costs</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Utilities (electricity, internet, phone)</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Ongoing inventory/materials</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Software subscriptions</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Marketing and advertising</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Insurance</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Professional services (ongoing)</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Transportation/shipping</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Payment processing fees</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Your salary/personal draw</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>TOTAL MONTHLY EXPENSES</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td class="empty-cell"></td>
+            </tr>
+            <tr>
+                <th>TOTAL 3-MONTH OPERATING EXPENSES</th>
+                <td class="empty-cell"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Total Startup Funding Required</h3>
+        <table>
+            <tr>
+                <th width="70%">Category</th>
+                <th width="30%">Amount</th>
+            </tr>
+            <tr>
+                <td>Total One-Time Expenses</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Total 3-Month Operating Expenses</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Emergency Fund (10-20% of above total)</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>TOTAL STARTUP FUNDING REQUIRED</th>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+        
+        <div class="note">
+            <strong>Tip:</strong> Be realistic and thorough when estimating costs. It's better to overestimate slightly than to run out of funds unexpectedly. Research actual costs for your industry and location whenever possible.
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Revenue Projection Worksheet</h2>
+        </div>
+        <p>Use this worksheet to estimate potential revenue for your business. Start with conservative estimates and then create scenarios for different levels of growth.</p>
+        
+        <h3>Product/Service Pricing Strategy</h3>
+        <table>
+            <tr>
+                <th width="40%">Product/Service</th>
+                <th width="20%">Cost to Provide</th>
+                <th width="20%">Selling Price</th>
+                <th width="20%">Profit Margin</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+        </table>
+        
+        <div class="formula">
+            <strong>Profit Margin Calculation:</strong> (Selling Price - Cost to Provide) ÷ Selling Price × 100 = Profit Margin %
+        </div>
+        
+        <h3>Monthly Sales Projection (First 6 Months)</h3>
+        <table>
+            <tr>
+                <th>Product/Service</th>
+                <th>Month 1</th>
+                <th>Month 2</th>
+                <th>Month 3</th>
+                <th>Month 4</th>
+                <th>Month 5</th>
+                <th>Month 6</th>
+            </tr>
+            <tr>
+                <td>Product/Service 1<br>Units Sold</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Product/Service 1<br>Revenue</td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Product/Service 2<br>Units Sold</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Product/Service 2<br>Revenue</td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Product/Service 3<br>Units Sold</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Product/Service 3<br>Revenue</td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>TOTAL MONTHLY REVENUE</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Assumptions and Growth Factors</h3>
+        <p>Document the key assumptions behind your revenue projections:</p>
+        <table>
+            <tr>
+                <th width="30%">Factor</th>
+                <th width="70%">Assumptions</th>
+            </tr>
+            <tr>
+                <td>Customer Acquisition</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Seasonal Factors</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Market Growth</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Competitive Response</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Other Factors</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+        </table>
+        
+        <div class="note">
+            <strong>Tip:</strong> Start with conservative projections for Month 1, then model modest growth each month. Base your initial projections on market research and comparable businesses whenever possible.
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Break-Even Analysis Worksheet</h2>
+        </div>
+        <p>Use this worksheet to determine your break-even point—the level of sales required to cover all your costs before generating profit.</p>
+        
+        <h3>Fixed Monthly Costs</h3>
+        <p>These costs remain relatively constant regardless of sales volume.</p>
+        <table>
+            <tr>
+                <th width="70%">Fixed Cost Item</th>
+                <th width="30%">Monthly Amount</th>
+            </tr>
+            <tr>
+                <td>Rent/workspace</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Insurance</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Utilities (baseline)</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Loan/equipment payments</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Subscriptions/software</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Website/hosting</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Phone/internet</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Basic marketing costs</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <th>TOTAL FIXED COSTS (FC)</th>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Variable Costs</h3>
+        <p>These costs change directly with sales volume (per unit sold or service provided).</p>
+        <table>
+            <tr>
+                <th>Product/Service</th>
+                <th>Selling Price<br>(SP) per Unit</th>
+                <th>Variable Cost<br>(VC) per Unit</th>
+                <th>Contribution Margin<br>(SP - VC) per Unit</th>
+                <th>Contribution Margin<br>Percentage</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text" class="calculation-field">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text" class="calculation-field">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text" class="calculation-field">%</td>
+            </tr>
+            <tr>
+                <th>WEIGHTED AVERAGE</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text" class="calculation-field">%</td>
+            </tr>
+        </table>
+        
+        <div class="formula">
+            <strong>Contribution Margin:</strong> Selling Price per Unit - Variable Cost per Unit<br>
+            <strong>Contribution Margin Percentage:</strong> (Contribution Margin per Unit ÷ Selling Price per Unit) × 100
+        </div>
+        
+        <h3>Break-Even Calculations</h3>
+        <table>
+            <tr>
+                <th width="70%">Calculation</th>
+                <th width="30%">Result</th>
+            </tr>
+            <tr>
+                <td>Break-Even Sales (units) = Total Fixed Costs ÷ Contribution Margin per Unit</td>
+                <td><input type="text" class="calculation-field"> units</td>
+            </tr>
+            <tr>
+                <td>Break-Even Revenue = Break-Even Units × Average Selling Price</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Break-Even Revenue = Total Fixed Costs ÷ Contribution Margin Percentage</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Break-Even Timeline</h3>
+        <p>Based on your monthly revenue projections, when will you reach your break-even point?</p>
+        <table>
+            <tr>
+                <th>Month</th>
+                <th>Projected Sales (Units)</th>
+                <th>Projected Revenue</th>
+                <th>Total Costs</th>
+                <th>Profit/Loss</th>
+                <th>Cumulative Profit/Loss</th>
+            </tr>
+            <tr>
+                <td>Month 1</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Month 2</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Month 3</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Month 4</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Month 5</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Month 6</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+        
+        <p><strong>Estimated Break-Even Point:</strong> Month <input type="text" style="width:50px"></p>
+        
+        <div class="example">
+            <strong>Break-Even Example:</strong> A freelance graphic designer has $1,500 in fixed monthly costs and an average contribution margin of 80% on design services priced at $75/hour. The break-even calculation would be: $1,500 ÷ 0.8 = $1,875 in monthly revenue, or 25 billable hours ($1,875 ÷ $75).
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Pricing Strategy Worksheet</h2>
+        </div>
+        <p>Use this worksheet to develop a strategic pricing approach for your products or services that considers costs, competition, value perception, and your business goals.</p>
+        
+        <h3>Cost-Based Pricing Analysis</h3>
+        <p>Calculate your floor price based on costs and desired profit margin.</p>
+        <table>
+            <tr>
+                <th>Product/Service</th>
+                <th>Direct Costs</th>
+                <th>Overhead Allocation</th>
+                <th>Total Cost</th>
+                <th>Target Profit Margin</th>
+                <th>Minimum Price</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text">%</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text">%</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text">%</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+        
+        <div class="formula">
+            <strong>Minimum Price Calculation:</strong> Total Cost ÷ (1 - Target Profit Margin as decimal)<br>
+            <strong>Example:</strong> $40 cost with 30% target margin: $40 ÷ (1 - 0.3) = $40 ÷ 0.7 = $57.14
+        </div>
+        
+        <h3>Competitive Pricing Analysis</h3>
+        <p>Research competitors' pricing to understand the market range.</p>
+        <table>
+            <tr>
+                <th>Competitor</th>
+                <th>Similar Product/Service</th>
+                <th>Their Price</th>
+                <th>Quality Comparison</th>
+                <th>Feature Comparison</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Lower than ours</option>
+                        <option>Similar to ours</option>
+                        <option>Higher than ours</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Fewer features</option>
+                        <option>Similar features</option>
+                        <option>More features</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Lower than ours</option>
+                        <option>Similar to ours</option>
+                        <option>Higher than ours</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Fewer features</option>
+                        <option>Similar features</option>
+                        <option>More features</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Lower than ours</option>
+                        <option>Similar to ours</option>
+                        <option>Higher than ours</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Fewer features</option>
+                        <option>Similar features</option>
+                        <option>More features</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        
+        <p><strong>Market Price Range:</strong> $<input type="text" style="width:60px"> to $<input type="text" style="width:60px"></p>
+        
+        <h3>Value-Based Pricing Factors</h3>
+        <p>Identify the unique value your product/service offers that may justify premium pricing.</p>
+        <table>
+            <tr>
+                <th>Value Factor</th>
+                <th>How Your Product/Service Delivers This</th>
+                <th>Estimated Value to Customer</th>
+            </tr>
+            <tr>
+                <td>Time savings</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Problem solving</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Convenience</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Quality/durability</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Status/prestige</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text"></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+        </table>
+        
+        <h3>Pricing Strategy Decision</h3>
+        <table>
+            <tr>
+                <th>Product/Service</th>
+                <th>Cost-Based Price</th>
+                <th>Market Range</th>
+                <th>Value-Based Estimate</th>
+                <th>Strategic Price Point</th>
+                <th>Pricing Strategy</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"> - $<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Economy (below market)</option>
+                        <option>Market match (match competitors)</option>
+                        <option>Premium (above market)</option>
+                        <option>Skimming (high initial price)</option>
+                        <option>Penetration (low initial price)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"> - $<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Economy (below market)</option>
+                        <option>Market match (match competitors)</option>
+                        <option>Premium (above market)</option>
+                        <option>Skimming (high initial price)</option>
+                        <option>Penetration (low initial price)</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        
+        <h3>Pricing Model Options</h3>
+        <p>Consider alternative pricing models that might work for your business:</p>
+        <table>
+            <tr>
+                <th>Pricing Model</th>
+                <th>Applicability to Your Business</th>
+                <th>Pros</th>
+                <th>Cons</th>
+            </tr>
+            <tr>
+                <td>Hourly/Time-Based</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Very applicable</option>
+                        <option>Somewhat applicable</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Project/Package-Based</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Very applicable</option>
+                        <option>Somewhat applicable</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Subscription/Recurring</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Very applicable</option>
+                        <option>Somewhat applicable</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Tiered Pricing</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Very applicable</option>
+                        <option>Somewhat applicable</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Freemium Model</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Very applicable</option>
+                        <option>Somewhat applicable</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+        </table>
+        
+        <h3>Final Pricing Strategy Summary</h3>
+        <textarea rows="5" style="width:100%" placeholder="Summarize your pricing strategy, including your chosen price points, pricing model, and rationale based on the analyses above."></textarea>
+        
+        <div class="note">
+            <strong>Remember:</strong> Pricing is not permanent—it can and should be adjusted as you learn more about your market, costs, and customer value perception. Plan to review your pricing strategy after your first few months in business.
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Cash Flow Planning Tool</h2>
+        </div>
+        <p>Use this worksheet to project and manage your business cash flow on a month-to-month basis. This will help you anticipate and plan for potential cash shortages before they become problems.</p>
+        
+        <h3>Monthly Cash Flow Projection (First 6 Months)</h3>
+        <table>
+            <tr>
+                <th></th>
+                <th>Month 1</th>
+                <th>Month 2</th>
+                <th>Month 3</th>
+                <th>Month 4</th>
+                <th>Month 5</th>
+                <th>Month 6</th>
+            </tr>
+            <tr>
+                <th colspan="7">CASH INFLOWS</th>
+            </tr>
+            <tr>
+                <td>Beginning Cash Balance</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Cash Sales</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Receivables Collected</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Other Income</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <th>TOTAL CASH INFLOWS</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th colspan="7">CASH OUTFLOWS</th>
+            </tr>
+            <tr>
+                <td>Inventory/Materials</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Rent/Workspace</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Utilities</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Marketing/Advertising</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Insurance</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Subscriptions/Software</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Transportation/Shipping</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Professional Services</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Loan/Equipment Payments</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Taxes</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Owner's Draw/Salary</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <th>TOTAL CASH OUTFLOWS</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>NET CASH FLOW</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>ENDING CASH BALANCE</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Cash Flow Risk Assessment</h3>
+        <p>Identify months with potential cash shortages and develop contingency plans:</p>
+        <table>
+            <tr>
+                <th>Month</th>
+                <th>Cash Status</th>
+                <th>Contingency Plan (if needed)</th>
+            </tr>
+            <tr>
+                <td>Month 1</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Strong (>$1,000 buffer)</option>
+                        <option>Adequate ($500-1,000 buffer)</option>
+                        <option>Tight ($0-500 buffer)</option>
+                        <option>Shortage (negative balance)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Month 2</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Strong (>$1,000 buffer)</option>
+                        <option>Adequate ($500-1,000 buffer)</option>
+                        <option>Tight ($0-500 buffer)</option>
+                        <option>Shortage (negative balance)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Month 3</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Strong (>$1,000 buffer)</option>
+                        <option>Adequate ($500-1,000 buffer)</option>
+                        <option>Tight ($0-500 buffer)</option>
+                        <option>Shortage (negative balance)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Month 4</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Strong (>$1,000 buffer)</option>
+                        <option>Adequate ($500-1,000 buffer)</option>
+                        <option>Tight ($0-500 buffer)</option>
+                        <option>Shortage (negative balance)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Month 5</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Strong (>$1,000 buffer)</option>
+                        <option>Adequate ($500-1,000 buffer)</option>
+                        <option>Tight ($0-500 buffer)</option>
+                        <option>Shortage (negative balance)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Month 6</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>Strong (>$1,000 buffer)</option>
+                        <option>Adequate ($500-1,000 buffer)</option>
+                        <option>Tight ($0-500 buffer)</option>
+                        <option>Shortage (negative balance)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+        </table>
+        
+        <h3>Cash Flow Improvement Strategies</h3>
+        <p>Based on your cash flow projections, which of these strategies would be most beneficial for your business?</p>
+        <table>
+            <tr>
+                <th>Strategy</th>
+                <th>Applicability</th>
+                <th>Implementation Plan</th>
+            </tr>
+            <tr>
+                <td>Adjust payment terms (require deposits, shorten payment windows)</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>High potential impact</option>
+                        <option>Medium potential impact</option>
+                        <option>Low potential impact</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Negotiate supplier terms (extend payment timeframes)</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>High potential impact</option>
+                        <option>Medium potential impact</option>
+                        <option>Low potential impact</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Implement minimum order quantities</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>High potential impact</option>
+                        <option>Medium potential impact</option>
+                        <option>Low potential impact</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Create seasonal offers or promotions</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>High potential impact</option>
+                        <option>Medium potential impact</option>
+                        <option>Low potential impact</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Implement subscription or recurring payment models</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>High potential impact</option>
+                        <option>Medium potential impact</option>
+                        <option>Low potential impact</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Reduce optional expenses during lean periods</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Select...</option>
+                        <option>High potential impact</option>
+                        <option>Medium potential impact</option>
+                        <option>Low potential impact</option>
+                        <option>Not applicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+        </table>
+        
+        <div class="warning">
+            <strong>Important:</strong> Cash flow management is critical for business survival. Many profitable businesses fail due to cash flow problems. Update this projection regularly as your business operates, and maintain a cash buffer for unexpected expenses or revenue delays.
+        </div>
+    </div>
+
+</body>
+</html>

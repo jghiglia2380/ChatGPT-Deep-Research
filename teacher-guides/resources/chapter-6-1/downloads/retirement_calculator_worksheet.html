@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Calculator Worksheet</title>
+    <style>
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+                background-color: white;
+                color: black;
+            }
+            .print-instruction {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .no-break {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            color: #3498db;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        th {
+            background-color: #f2f6f9;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .print-instruction {
+            background-color: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #f1c40f;
+        }
+        
+        .info-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        
+        .scenario-box {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .input-area {
+            border: 1px dashed #aaa;
+            padding: 10px;
+            min-height: 60px;
+            margin: 10px 0;
+        }
+        
+        .short-input {
+            min-height: 30px;
+        }
+        
+        .formula-box {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: "Courier New", monospace;
+        }
+        
+        .highlight {
+            background-color: #fffde7;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        
+        .footnote {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instruction">
+        <p><strong>Printing Instructions:</strong> To save or print this document, use your browser's print function (Ctrl+P or Cmd+P) and select "Save as PDF" as the destination.</p>
+    </div>
+
+    <h1>Retirement Calculator Worksheet</h1>
+    
+    <div class="info-box">
+        <p><strong>Student Instructions:</strong> This worksheet will help you understand how different variables affect retirement outcomes. You'll explore multiple scenarios, perform calculations, and analyze the results to better understand the factors that influence retirement planning.</p>
+    </div>
+    
+    <h2>Part 1: Understanding Key Retirement Variables</h2>
+    
+    <p>Before creating your retirement scenarios, review these key variables that impact retirement calculations:</p>
+    
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Description</th>
+            <th>Impact on Retirement Outcomes</th>
+        </tr>
+        <tr>
+            <td><strong>Current Age</strong></td>
+            <td>Your age today</td>
+            <td>Determines length of time for investments to grow; younger starters benefit more from compound growth</td>
+        </tr>
+        <tr>
+            <td><strong>Retirement Age</strong></td>
+            <td>Age you plan to stop working full-time</td>
+            <td>Affects both contribution period and withdrawal period; retiring later means more time to save and fewer years to fund</td>
+        </tr>
+        <tr>
+            <td><strong>Life Expectancy</strong></td>
+            <td>Age to which you plan financially</td>
+            <td>Determines how long your savings need to last; planning to age 90-95 is often recommended</td>
+        </tr>
+        <tr>
+            <td><strong>Current Savings</strong></td>
+            <td>Amount already saved for retirement</td>
+            <td>Starting point for future growth; more initial savings means more potential compounding</td>
+        </tr>
+        <tr>
+            <td><strong>Monthly Contribution</strong></td>
+            <td>Amount added to retirement accounts monthly</td>
+            <td>Directly impacts accumulation; higher contributions lead to larger retirement funds</td>
+        </tr>
+        <tr>
+            <td><strong>Rate of Return</strong></td>
+            <td>Expected annual investment return percentage</td>
+            <td>Significantly impacts growth; higher returns compound more dramatically over time</td>
+        </tr>
+        <tr>
+            <td><strong>Inflation Rate</strong></td>
+            <td>Expected annual increase in prices</td>
+            <td>Reduces purchasing power; retirement needs must account for inflation</td>
+        </tr>
+    </table>
+    
+    <div class="formula-box">
+        <p><strong>Common Retirement Formulas:</strong></p>
+        <p>1. <strong>Rule of 72</strong> (approximate time to double money): 72 ÷ Rate of Return = Years to Double</p>
+        <p>2. <strong>25X Rule</strong> (retirement savings target): Annual Expenses × 25 = Retirement Savings Goal</p>
+        <p>3. <strong>4% Rule</strong> (sustainable withdrawal): Retirement Savings × 0.04 = Annual Withdrawal Amount</p>
+    </div>
+    
+    <h2>Part 2: Multiple Scenario Analysis</h2>
+    
+    <p>Create three different retirement scenarios by changing key variables. First, complete the baseline scenario, then create two variations.</p>
+    
+    <div class="scenario-box no-break">
+        <h3>Scenario 1: Baseline Retirement Plan</h3>
+        
+        <div class="grid-2">
+            <div>
+                <p><strong>Input Variables:</strong></p>
+                <p>Current Age: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Retirement Age: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Life Expectancy: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Current Savings: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Monthly Contribution: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Rate of Return: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+                <p>Inflation Rate: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+            </div>
+            
+            <div>
+                <p><strong>Calculation Results:</strong></p>
+                <p>Years Until Retirement: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Years in Retirement: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Total Contributions: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Projected Retirement Savings: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Monthly Income (4% Rule): $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Inflation-Adjusted Monthly Income: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scenario-box no-break">
+        <h3>Scenario 2: Earlier Retirement</h3>
+        <p>Adjust your retirement age to be 5 years earlier than your baseline. Keep other variables the same or adjust as needed.</p>
+        
+        <div class="grid-2">
+            <div>
+                <p><strong>Input Variables:</strong></p>
+                <p>Current Age: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Retirement Age: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Life Expectancy: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Current Savings: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Monthly Contribution: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Rate of Return: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+                <p>Inflation Rate: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+            </div>
+            
+            <div>
+                <p><strong>Calculation Results:</strong></p>
+                <p>Years Until Retirement: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Years in Retirement: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Total Contributions: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Projected Retirement Savings: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Monthly Income (4% Rule): $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Inflation-Adjusted Monthly Income: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+            </div>
+        </div>
+        
+        <p><strong>To maintain the same retirement income, what monthly contribution would be needed?</strong></p>
+        <div class="input-area short-input"></div>
+    </div>
+    
+    <div class="scenario-box no-break">
+        <h3>Scenario 3: Higher Return Rate</h3>
+        <p>Adjust your rate of return to be 2% higher than your baseline scenario. Keep other variables the same as your baseline.</p>
+        
+        <div class="grid-2">
+            <div>
+                <p><strong>Input Variables:</strong></p>
+                <p>Current Age: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Retirement Age: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Life Expectancy: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Current Savings: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Monthly Contribution: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Rate of Return: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+                <p>Inflation Rate: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+            </div>
+            
+            <div>
+                <p><strong>Calculation Results:</strong></p>
+                <p>Years Until Retirement: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Years in Retirement: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Total Contributions: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Projected Retirement Savings: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Monthly Income (4% Rule): $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Inflation-Adjusted Monthly Income: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+            </div>
+        </div>
+        
+        <p><strong>How much additional retirement savings do you achieve with the higher return rate?</strong></p>
+        <div class="input-area short-input"></div>
+    </div>
+    
+    <h2>Part 3: Impact of Starting Early</h2>
+    
+    <p>This exercise demonstrates the powerful impact of starting retirement savings early.</p>
+    
+    <div class="scenario-box no-break">
+        <h3>The Cost of Waiting Calculation</h3>
+        
+        <p>Compare two savers with identical retirement ages and contribution amounts, but different starting ages:</p>
+        
+        <table>
+            <tr>
+                <th></th>
+                <th>Early Starter</th>
+                <th>Late Starter</th>
+            </tr>
+            <tr>
+                <td>Starting Age</td>
+                <td>20</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Retirement Age</td>
+                <td>65</td>
+                <td>65</td>
+            </tr>
+            <tr>
+                <td>Monthly Contribution</td>
+                <td>$200</td>
+                <td>$200</td>
+            </tr>
+            <tr>
+                <td>Annual Return Rate</td>
+                <td>7%</td>
+                <td>7%</td>
+            </tr>
+            <tr>
+                <td>Years Contributing</td>
+                <td>45</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Total Amount Contributed</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Final Account Balance at Retirement</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+        </table>
+        
+        <p><strong>Difference in final balance:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        <p><strong>How much more would the late starter need to contribute monthly to reach the same balance as the early starter?</strong></p>
+        <div class="input-area short-input"></div>
+    </div>
+    
+    <h2>Part 4: Analysis and Reflection</h2>
+    
+    <p><strong>1. Which variable had the biggest impact on your retirement outcomes? Why?</strong></p>
+    <div class="input-area"></div>
+    
+    <p><strong>2. What surprised you most when comparing your different scenarios?</strong></p>
+    <div class="input-area"></div>
+    
+    <p><strong>3. How did the "cost of waiting" calculation affect your perspective on retirement planning?</strong></p>
+    <div class="input-area"></div>
+    
+    <p><strong>4. Based on these calculations, what changes might you make to your retirement strategy?</strong></p>
+    <div class="input-area"></div>
+    
+    <div class="footnote">
+        <p>Note: This worksheet is for educational purposes only and does not constitute financial advice. For specific financial guidance, consult with a qualified financial professional.</p>
+        <p>PFL Academy - Chapter 6.1: Planning for Retirement</p>
+    </div>
+</body>
+</html>

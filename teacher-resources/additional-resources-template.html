@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional Resources - Chapter {{CHAPTER_NUMBER}}: {{CHAPTER_TITLE}}</title>
+    <style>
+        :root {
+            --primary-color: #5849da;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-color: #333;
+            --text-light: #6b7280;
+            --background-light: #f9fafb;
+            --border-color: #e5e7eb;
+            
+            /* Resource type colors */
+            --tool-color: #3b82f6;
+            --tool-bg: #dbeafe;
+            --guide-color: #10b981;
+            --guide-bg: #d1fae5;
+            --article-color: #f59e0b;
+            --article-bg: #fef3c7;
+            --video-color: #ef4444;
+            --video-bg: #fee2e2;
+            --calculator-color: #8b5cf6;
+            --calculator-bg: #ede9fe;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s, transform 0.2s;
+        }
+        
+        .back-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(-3px);
+        }
+        
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+            vertical-align: -2px;
+            margin-right: 4px;
+        }
+        
+        .header {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 16px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        p {
+            margin-bottom: 16px;
+        }
+        
+        .resource-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-intro {
+            margin-bottom: 20px;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        .resource-description {
+            color: var(--text-color);
+            flex-grow: 1;
+            margin-bottom: 16px;
+        }
+        
+        .resource-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        
+        .resource-tag {
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .tag-tool {
+            background-color: var(--tool-bg);
+            color: var(--tool-color);
+        }
+        
+        .tag-guide {
+            background-color: var(--guide-bg);
+            color: var(--guide-color);
+        }
+        
+        .tag-article {
+            background-color: var(--article-bg);
+            color: var(--article-color);
+        }
+        
+        .tag-video {
+            background-color: var(--video-bg);
+            color: var(--video-color);
+        }
+        
+        .tag-calculator {
+            background-color: var(--calculator-bg);
+            color: var(--calculator-color);
+        }
+        
+        .resource-link {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: auto;
+            transition: color 0.2s;
+        }
+        
+        .resource-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        .resource-link svg {
+            width: 14px;
+            height: 14px;
+            margin-left: 4px;
+            vertical-align: -1px;
+        }
+        
+        .note-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .note-box .title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 14px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 26px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            .resource-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding-bottom: 12px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../../chapter-{{CHAPTER_NUMBER}}-day2.html" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Chapter
+    </a>
+
+    <div class="header">
+        <h1>Additional Resources</h1>
+        <p>Chapter {{CHAPTER_NUMBER}}: {{CHAPTER_TITLE}}</p>
+    </div>
+    
+    <div class="note-box">
+        <span class="title">Note to Educators and Students</span>
+        <p>This curated collection of resources supplements Chapter {{CHAPTER_NUMBER}}: {{CHAPTER_TITLE}}. All resources have been vetted for accuracy, reliability, and educational value.</p>
+    </div>
+
+    <!-- RESOURCE SECTION TEMPLATE
+    <div class="resource-section">
+        <h2>Section Title</h2>
+        <p class="section-intro">Brief description of this resource category and why it's valuable for this chapter.</p>
+        
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="resource-title">Resource Title</div>
+                <p class="resource-description">Description of this resource explaining what it offers and why it's valuable.</p>
+                <div class="resource-tags">
+                    <span class="resource-tag tag-tool">Tool</span>
+                    <span class="resource-tag tag-guide">Guide</span>
+                    <span class="resource-tag tag-article">Article</span>
+                    <span class="resource-tag tag-video">Video</span>
+                    <span class="resource-tag tag-calculator">Calculator</span>
+                </div>
+                <a href="#" class="resource-link" target="_blank">Visit Resource
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    -->
+    
+    <!-- Insert resource sections here -->
+    {{RESOURCE_SECTIONS}}
+    
+    <div class="footer">
+        <p>These resources are provided for educational purposes. PFL Academy does not endorse or receive compensation from any of the listed organizations or products.</p>
+        <p>PFL Academy © 2025 | Chapter {{CHAPTER_NUMBER}}: {{CHAPTER_TITLE}}</p>
+    </div>
+</body>
+</html>

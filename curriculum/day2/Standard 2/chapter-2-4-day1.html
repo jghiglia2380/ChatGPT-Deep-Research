@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Golden Standard Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .real-world-example {
+            background-color: #f0f9ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .skill-builder {
+            background-color: #f3e8ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .key-concept {
+            background-color: #e0f2fe;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0284c7;
+        }
+        
+        .important-note {
+            background-color: #fef9c3;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ca8a04;
+        }
+        
+        .practical-application {
+            background-color: #dcfce7;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #16a34a;
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-indigo-600 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">PFL Academy</h1>
+            <nav>
+                <a href="#" class="text-white px-3">Home</a>
+                <a href="#" class="text-white px-3">Curriculum</a>
+                <a href="#" class="text-white px-3">Resources</a>
+                <a href="#" class="text-white px-3">Profile</a>
+            </nav>
+        </div>
+    </header>
+    <div class="h-16"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation - FIXED ON SCROLL -->
+        <div class="lg:col-span-3 bg-white rounded-lg shadow p-6 sticky top-16 h-screen overflow-y-auto">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 1: Financial Psychology</h2>
+            <ul class="space-y-2">
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">1.1: Jobs vs. Careers</span>
+                    </div>
+                    <ul class="ml-6 mt-2 space-y-1">
+                        <li>
+                            <a href="#intro" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#section1" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                                <span class="mr-2">•</span> What is a Job?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#section2" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                                <span class="mr-2">•</span> What is a Career?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#key-concepts" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                                <span class="mr-2">•</span> Factors to Consider
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#real-world" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                                <span class="mr-2">•</span> Real-World Examples
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#skill-builder" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                                <span class="mr-2">•</span> Career Path Skill Builder
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#summary" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                                <span class="mr-2">•</span> Summary
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="text-gray-700 hover:text-indigo-700">1.2: Post-Secondary Education Financing</a>
+                </li>
+                <li>
+                    <a href="#" class="text-gray-700 hover:text-indigo-700">1.3: Income and Taxes</a>
+                </li>
+                <li>
+                    <a href="#" class="text-gray-700 hover:text-indigo-700">1.4: Financial Goal Setting</a>
+                </li>
+                <li>
+                    <a href="#" class="text-gray-700 hover:text-indigo-700">1.5: Managing Income Effectively</a>
+                </li>
+            </ul>
+            
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-indigo-200 rounded-lg p-4">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                    <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 30%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">3/10 activities</span></p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-lg shadow p-6">
+            <h1 id="intro" class="text-3xl font-bold text-gray-900 mb-6">Chapter 2.4: Understanding Tax Deductions and Credits</h1>
+            
+            <div class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this lesson, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Define the key differences between a job and a career</li>
+                    <li>Identify factors to consider when selecting a career path</li>
+                    <li>Understand the importance of gaining relevant skills and experience</li>
+                    <li>Evaluate different career paths based on personal goals and values</li>
+                </ul>
+            </div>
+            
+            <section>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
+                <p class="text-gray-700 mb-4">When it comes to earning money and building a professional life, it's important to understand the distinction between having a job and pursuing a career. This understanding can help you make better decisions about your education, training, and work experiences. In this chapter, we'll explore the key differences and factors to consider as you plan for your future.</p>
+                <p class="text-gray-700 mb-4">Many students enter the workforce through part-time jobs, but eventually, you'll need to consider your long-term career aspirations. The choices you make now—from courses you take to skills you develop—can impact your career journey for years to come.</p>
+            </section>
+            
+            <section id="section1">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">What is a Job?</h2>
+                <p class="text-gray-700 mb-4">A job is a paid position of regular employment. It can be part-time or full-time and may or may not be related to your long-term career goals. Jobs are often a means to earn money to support yourself financially.</p>
+                
+                <div class="key-concept">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-3">Key Characteristics of Jobs</h3>
+                    <ul class="list-disc pl-5 text-gray-700">
+                        <li>Primarily focused on earning income</li>
+                        <li>May be temporary or short-term</li>
+                        <li>Typically requires less specialized education</li>
+                        <li>Often has limited advancement opportunities</li>
+                        <li>May not align with your personal interests or values</li>
+                    </ul>
+                </div>
+                
+                <p class="text-gray-700 mt-4">Examples of jobs include retail sales associate, restaurant server, babysitter, landscaper, or delivery driver. These positions provide valuable work experience and income but may not be what you want to do long-term.</p>
+            </section>
+            
+            <section id="section2">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">What is a Career?</h2>
+                <p class="text-gray-700 mb-4">A career is a long-term professional journey that typically involves advancing your skills, taking on more responsibilities, and working towards specific goals within your field of interest. Building a career requires planning, commitment, and ongoing growth and development.</p>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Discussion Question</h3>
+                    <p class="text-gray-700 mb-3">What careers interest you most? What does a typical career path look like in that field?</p>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Enter your response here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="key-concept mt-6">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-3">Key Characteristics of Careers</h3>
+                    <ul class="list-disc pl-5 text-gray-700">
+                        <li>Long-term focus with progression path</li>
+                        <li>Often requires specialized education or training</li>
+                        <li>Provides opportunities for advancement and growth</li>
+                        <li>Generally aligns with personal interests, skills, and values</li>
+                        <li>May include multiple positions across different organizations</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="key-concepts">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Factors to Consider When Choosing a Career Path</h2>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-gray-900">Personal Interests and Strengths</h3>
+                        <p class="text-gray-700">Choose a career that aligns with what you enjoy doing and what you're naturally good at. This increases your chances of long-term satisfaction.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-gray-900">Education and Training Requirements</h3>
+                        <p class="text-gray-700">Research the education, certifications, or training needed for your desired career. Consider the time, cost, and commitment required.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-gray-900">Job Market and Growth Potential</h3>
+                        <p class="text-gray-700">Investigate whether jobs in your chosen field are in demand and expected to grow in the future.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-gray-900">Earning Potential</h3>
+                        <p class="text-gray-700">While money shouldn't be the only factor, understanding the typical salary range is important for financial planning.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-gray-900">Work-Life Balance</h3>
+                        <p class="text-gray-700">Different careers offer varying schedules, flexibility, and demands on your time. Consider how this fits with your desired lifestyle.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="real-world">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Real-World Examples</h2>
+                
+                <div class="real-world-example">
+                    <h3 class="text-xl font-semibold mb-3">Jasmine's Journey</h3>
+                    <p class="text-gray-700 mb-3">Jasmine has always loved working with animals. In high school, she volunteered at a local animal shelter and had a part-time job as a dog walker. After researching potential career paths, Jasmine decided to pursue a degree in veterinary medicine to become a veterinarian.</p>
+                    <div class="bg-white p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-900 mb-2">Analysis:</h4>
+                        <p class="text-gray-700">Jasmine's dog walking position was a job that aligned with her interests, but becoming a veterinarian is her career goal. She's taking deliberate steps toward that career by pursuing relevant education and gaining experience in the field.</p>
+                    </div>
+                </div>
+                
+                <div class="real-world-example mt-6">
+                    <h3 class="text-xl font-semibold mb-3">Marcus's Path</h3>
+                    <p class="text-gray-700 mb-3">Marcus works at a technology retail store helping customers with their purchases. He enjoys technology and is good at explaining complex concepts to others. While working there, he decided to take online courses in computer programming and web development. His goal is to transition from retail sales to a career as a software developer.</p>
+                    <div class="bg-white p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-900 mb-2">Analysis:</h4>
+                        <p class="text-gray-700">Marcus is using his current job to support himself while building skills for his desired career. He's identified a field that matches his interests and is taking concrete steps to acquire the necessary skills and credentials.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="skill-builder">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Career Path Skill Builder</h2>
+                <div class="skill-builder">
+                    <h3 class="text-xl font-semibold mb-3">Exploring Career Paths Activity</h3>
+                    <p class="mb-4"><strong>Objective</strong>: Identify and research potential career paths that align with your interests, skills, and values.</p>
+                    
+                    <p class="mb-3"><strong>Instructions</strong>:</p>
+                    <ol class="list-decimal ml-6 mb-4">
+                        <li class="mb-2">Reflect on your interests, skills, and values</li>
+                        <li class="mb-2">Identify 2-3 potential career paths that interest you</li>
+                        <li class="mb-2">Research each career path using the provided questions</li>
+                    </ol>
+                    
+                    <div class="bg-white p-6 border border-purple-200 rounded-lg">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">What are your top 3 interests or activities you enjoy?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List activities, subjects, or hobbies you enjoy..."></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">What skills or abilities do others say you're good at?</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List skills or talents others have noticed..."></textarea>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">What values are most important to you in a career? (e.g., helping others, creativity, stability)</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="List values that matter to you..."></textarea>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Based on your responses above, list 2-3 careers you'd like to explore:</label>
+                            <div class="mb-3">
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Career Option 1">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Career Option 2">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Career Option 3">
+                            </div>
+                        </div>
+                        
+                        <p class="font-medium text-gray-800 mb-3">For each career option, answer the following questions:</p>
+                        
+                        <table class="w-full border-collapse mb-6">
+                            <thead>
+                                <tr class="bg-purple-50">
+                                    <th class="border border-purple-200 p-3 text-left">Questions</th>
+                                    <th class="border border-purple-200 p-3 text-left">Career 1 Answers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="even:bg-gray-100">
+                                    <td class="border border-purple-200 p-3">What education or training is required?</td>
+                                    <td class="border border-purple-200 p-3"><textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea></td>
+                                </tr>
+                                <tr class="even:bg-gray-100">
+                                    <td class="border border-purple-200 p-3">What is the average starting salary?</td>
+                                    <td class="border border-purple-200 p-3"><input type="text" class="w-full p-2 border border-gray-300 rounded-md"></td>
+                                </tr>
+                                <tr class="even:bg-gray-100">
+                                    <td class="border border-purple-200 p-3">Is the job market growing or shrinking?</td>
+                                    <td class="border border-purple-200 p-3"><input type="text" class="w-full p-2 border border-gray-300 rounded-md"></td>
+                                </tr>
+                                <tr class="even:bg-gray-100">
+                                    <td class="border border-purple-200 p-3">What aspects of this career align with your interests and values?</td>
+                                    <td class="border border-purple-200 p-3"><textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p class="mb-3 text-gray-700">In Day 2, we'll explore career planning in more depth with our Career Path Implementation Workshop!</p>
+                        
+                        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg mt-4 transition duration-200">Save My Career Research</button>
+                        <p class="text-sm text-indigo-600 mt-2">Your answers will be saved. AI-powered feedback will help analyze your career alignment.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="summary">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Summary</h2>
+                <div class="bg-blue-50 p-5 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">Key Takeaways</h3>
+                    <ul class="list-disc ml-6 text-gray-700 space-y-2">
+                        <li>Jobs are primarily for earning income and may be temporary, while careers are long-term professional paths within a field</li>
+                        <li>A thoughtful career choice considers your interests, skills, values, and various practical factors like education requirements and job market demand</li>
+                        <li>Building a successful career requires planning, relevant education, gaining experience, and developing both technical and soft skills</li>
+                        <li>Early career exploration and planning increases your chances of finding fulfilling work</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <div class="flex justify-end mt-8">
+                <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-lg text-lg shadow transition duration-200">Continue to Day 2 Learning Lab</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">PFL Academy</h3>
+                    <p class="text-gray-400">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Curriculum</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Resources</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-gray-400">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Submit button functionality
+        document.querySelectorAll('button[type="submit"], button.bg-indigo-600').forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real implementation, this would save to an API/database
+                alert('Your answers have been submitted successfully!');
+            });
+        });
+        
+        // AI feedback system (simplified for demo)
+        document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+            element.addEventListener('blur', function() {
+                if (this.value.length > 10) {
+                    const feedback = this.nextElementSibling;
+                    if (feedback && feedback.classList.contains('feedback-container')) {
+                        feedback.textContent = "Thank you for your thoughtful response! Your answer shows good understanding of the concepts.";
+                        feedback.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

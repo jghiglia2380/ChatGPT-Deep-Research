@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 1.5: Managing Your Income Effectively - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        /* Budget-specific styles */
+        .budget-category {
+            border-left: 4px solid;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .budget-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .needs-category {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        
+        .wants-category {
+            border-color: #22c55e;
+            background-color: #f0fdf4;
+        }
+        
+        .savings-category {
+            border-color: #8b5cf6;
+            background-color: #f5f3ff;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 1: Income and Money Management</h2>
+                <p class="text-gray-600 mb-4">Understanding income sources, budgeting strategies and effective money management techniques.</p>
+            </div>
+            
+            <!-- Chapter Navigation Title -->
+            <div class="mb-4 font-semibold text-gray-500 text-sm px-1">
+                CHAPTER NAVIGATION
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Chapters in Order -->
+                <li>
+                    <a href="chapter-1-1-day2.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </span>
+                        <span class="text-left">1.1: Jobs vs. Careers</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="chapter-1-2-day2.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </span>
+                        <span class="text-left">1.2: Paying for Post-Secondary Education</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="chapter-1-3-day2.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </span>
+                        <span class="text-left">1.3: Income and Taxes</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="chapter-1-4-day2.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </span>
+                        <span class="text-left">1.4: Financial Goal Setting</span>
+                    </a>
+                </li>
+                
+                <!-- Chapter 1.5 (Current Chapter) -->
+                <li class="mb-1">
+                    <div class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-t-lg bg-indigo-50 text-indigo-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                        </span>
+                        <span class="text-left">1.5: Managing Your Income Effectively</span>
+                    </div>
+                </li>
+                
+                <!-- Chapter 1.5 Day 1 (collapsed) -->
+                <li class="ml-6 mb-1">
+                    <a href="chapter-1-5-day1.html" class="w-full flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-50 hover:text-indigo-700 transition-colors">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </span>
+                        <span>Day 1: Content Guide</span>
+                    </a>
+                </li>
+                
+                <!-- Chapter 1.5 Day 2 (expanded, current) -->
+                <li class="ml-6">
+                    <div class="w-full flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-indigo-50 text-indigo-700 border-l-4 border-indigo-700">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                        <span>Day 2: Learning Lab</span>
+                    </div>
+                    
+                    <!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center text-xs">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors text-xs">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors text-xs">
+                                <span class="mr-2">•</span> Station 1: Budget Builder
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors text-xs">
+                                <span class="mr-2">•</span> Station 2: Financial Decision Making
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors text-xs">
+                                <span class="mr-2">•</span> Station 3: Budgeting Challenge Solver
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station4" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors text-xs">
+                                <span class="mr-2">•</span> Station 4: Personal Action Plan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors text-xs">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors text-xs">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/4 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-1-5-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 1.5: Managing Your Income Effectively - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Practical application of budgeting strategies and income management techniques</p>
+            
+            <!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Apply the 50/30/20 rule to real-world financial scenarios</li>
+                    <li>Create a personalized action plan for managing your income</li>
+                    <li>Analyze different financial approaches and their long-term impacts</li>
+                    <li>Develop strategies for overcoming common budgeting challenges</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">Today, we'll build on the budgeting skills you developed in Day 1. You'll have the opportunity to apply these concepts to different financial scenarios, troubleshoot common budgeting challenges, and create a personalized plan for managing your income effectively.</p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700 mb-2">Listen to the podcast recap for a review of:</p>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>The 50/30/20 budgeting rule</li>
+                        <li>Needs vs. wants categorization</li>
+                        <li>Emergency fund importance</li>
+                        <li>Saving and investment strategies</li>
+                        <li>Proactive vs. reactive financial management</li>
+                    </ul>
+                </div>
+                
+                <!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">In Day 1, you learned the fundamentals of income management and budgeting. Today, we'll apply these skills and develop a practical approach to managing your finances:</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>The 50/30/20 budgeting rule that you learned will be applied to real-world scenarios</li>
+                        <li>The needs vs. wants analysis you practiced will help you make spending decisions</li>
+                        <li>Your understanding of proactive income management will guide your financial action plan</li>
+                        <li>Income management principles will be integrated into a comprehensive financial strategy</li>
+                    </ul>
+                </div>
+                
+                <!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Managing Your Income Effectively</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="../finished LM recordings/1.5 - Managing Your Income Effectively.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Budgeting principles, needs vs. wants, emergency funds, saving strategies, proactive financial management</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">Today's Learning Lab contains four stations that will help you develop practical skills for managing your income. Each station builds on concepts from Day 1 and provides hands-on activities to strengthen your financial management capabilities.</p>
+            </section>
+            
+            <!-- Learning Station 1 -->
+            <div id="station1" class="learning-station">
+                <h3 class="text-xl font-bold flex items-center">
+                    <span class="station-number">1</span>
+                    Budget Builder
+                </h3>
+                
+                <div class="activity-timer mb-4">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-sm font-medium">Estimated time: 15 minutes</span>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Apply your budgeting knowledge to different financial scenarios and see how your decisions impact long-term financial health.</p>
+                
+                <div class="bg-white rounded-lg p-4 border border-gray-200 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                        <h4 class="font-bold text-blue-800 mb-2">Your Budget from Day 1:</h4>
+                        
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Monthly Income:</span>
+                                <span class="font-bold text-gray-900" id="review-income">$3,000.00</span>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-3 gap-4 mb-2">
+                                <div class="budget-category needs-category">
+                                    <h4 class="font-bold text-blue-700">Needs</h4>
+                                    <div class="flex justify-between">
+                                        <span>Target:</span>
+                                        <span>$1,500.00 (50%)</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Actual:</span>
+                                        <span id="review-needs">$1,450.00 (48%)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="budget-category wants-category">
+                                    <h4 class="font-bold text-green-700">Wants</h4>
+                                    <div class="flex justify-between">
+                                        <span>Target:</span>
+                                        <span>$900.00 (30%)</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Actual:</span>
+                                        <span id="review-wants">$950.00 (32%)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="budget-category savings-category">
+                                    <h4 class="font-bold text-purple-700">Savings</h4>
+                                    <div class="flex justify-between">
+                                        <span>Target:</span>
+                                        <span>$600.00 (20%)</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Actual:</span>
+                                        <span id="review-savings">$600.00 (20%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="h-64 relative mt-4">
+                                <canvas id="budget-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-900 mb-3">Financial Scenario Simulation</h4>
+                        <p class="text-gray-700 mb-4">Choose a scenario below and make decisions about how to adjust your budget.</p>
+                        
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg mb-4">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Select a Scenario:</label>
+                                <select id="scenario-selector" class="w-full p-2 border border-gray-300 rounded-md">
+                                    <option value="scenario1">Scenario 1: Unexpected Car Repair ($800)</option>
+                                    <option value="scenario2">Scenario 2: 10% Increase in Rent ($80/month)</option>
+                                    <option value="scenario3">Scenario 3: 15% Salary Increase ($450/month)</option>
+                                    <option value="scenario4">Scenario 4: Medical Bill ($1,200)</option>
+                                </select>
+                            </div>
+                            
+                            <div id="scenario-description" class="p-3 bg-yellow-50 rounded-lg mb-4">
+                                <h4 class="font-bold text-gray-900 mb-2">Scenario 1: Unexpected Car Repair</h4>
+                                <p class="text-gray-700">Your car needs an $800 repair that wasn't part of your budget. How will you adjust your finances to cover this unexpected expense?</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medium text-gray-900 mb-2">How will you handle this situation?</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <input type="radio" id="option1" name="scenario-response" class="mt-1 mr-2">
+                                        <label for="option1" class="text-gray-700">Use emergency fund</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="radio" id="option2" name="scenario-response" class="mt-1 mr-2">
+                                        <label for="option2" class="text-gray-700">Reduce spending in "wants" category for next 2 months</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="radio" id="option3" name="scenario-response" class="mt-1 mr-2">
+                                        <label for="option3" class="text-gray-700">Put the expense on a credit card and pay minimum payments</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="radio" id="option4" name="scenario-response" class="mt-1 mr-2">
+                                        <label for="option4" class="text-gray-700">Borrow money from family/friends</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Explain your reasoning:</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Why did you choose this option? How will it affect your budget?"></textarea>
+                            </div>
+                            
+                            <button id="simulate-scenario" class="pfl-button">
+                                Simulate Impact
+                            </button>
+                        </div>
+                        
+                        <div id="simulation-results" class="hidden bg-white p-4 border border-gray-200 rounded-lg">
+                            <h4 class="font-bold text-gray-900 mb-2">Simulation Results</h4>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <h5 class="font-medium text-gray-800 mb-2">Short-Term Impact (1-3 months):</h5>
+                                    <div id="short-term-impact" class="p-3 bg-gray-50 rounded-lg">
+                                        <p class="text-gray-700">Using your emergency fund prevents debt accumulation but reduces your safety net. You should prioritize rebuilding your emergency fund over the next few months.</p>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="font-medium text-gray-800 mb-2">Long-Term Impact (1+ years):</h5>
+                                    <div id="long-term-impact" class="p-3 bg-gray-50 rounded-lg">
+                                        <p class="text-gray-700">Minimal long-term impact if you rebuild your emergency fund. This experience demonstrates the importance of maintaining an emergency fund for unexpected expenses.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 bg-green-50 rounded-lg mb-4">
+                                <h5 class="font-medium text-green-800 mb-1">Financial Health Analysis:</h5>
+                                <p class="text-gray-700" id="financial-health-analysis">Your decision to use your emergency fund for its intended purpose shows good financial planning. This approach avoids debt and minimizes long-term financial impact.</p>
+                            </div>
+                            
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <h5 class="font-medium text-blue-800 mb-1">Recommended Next Steps:</h5>
+                                <ul class="list-disc list-inside text-gray-700" id="recommended-steps">
+                                    <li>Set a goal to rebuild your emergency fund within 3-4 months</li>
+                                    <li>Temporarily reduce some "wants" spending to accelerate emergency fund rebuilding</li>
+                                    <li>Review your budget to see if you need to allocate more to vehicle maintenance</li>
+                                    <li>Consider setting up a separate sinking fund for future car repairs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-right">
+                    <button class="pfl-button">
+                        Save & Continue
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Learning Station 2 -->
+            <div id="station2" class="learning-station">
+                <h3 class="text-xl font-bold flex items-center">
+                    <span class="station-number">2</span>
+                    Financial Decision Making
+                </h3>
+                
+                <div class="activity-timer mb-4">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-sm font-medium">Estimated time: 15 minutes</span>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Identify and overcome common budgeting obstacles through collaborative problem-solving exercises.</p>
+                
+                <div class="bg-white rounded-lg p-4 border border-gray-200 mb-6">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg">
+                            <h3 class="font-bold text-gray-900 mb-3">Challenge 1: Inconsistent Income</h3>
+                            <p class="text-gray-700 mb-3">You have a job with variable income that changes month to month (gig work, commission-based, or seasonal work).</p>
+                            
+                            <div class="p-3 bg-yellow-50 rounded-lg mb-3">
+                                <h4 class="font-medium text-yellow-800 mb-1">Challenge Details:</h4>
+                                <ul class="list-disc list-inside text-gray-700">
+                                    <li>Income varies from $2,000-$4,000 per month</li>
+                                    <li>Essential expenses total $1,800 monthly</li>
+                                    <li>Need to maintain consistent savings</li>
+                                    <li>Difficult to plan for variable income</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 font-medium mb-1">Your Strategy:</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="How would you create a budget with variable income?"></textarea>
+                            </div>
+                            
+                            <button class="show-solution-btn pfl-button text-sm py-1 px-3">
+                                Show Recommended Strategy
+                            </button>
+                            
+                            <div class="solution-box hidden mt-3 p-3 bg-green-50 rounded-lg">
+                                <h4 class="font-medium text-green-800 mb-1">Recommended Approach:</h4>
+                                <ul class="list-disc list-inside text-gray-700">
+                                    <li>Budget based on your lowest expected monthly income ($2,000)</li>
+                                    <li>Create a buffer fund with extra income from high-earning months</li>
+                                    <li>Use the buffer to supplement income in lower-earning months</li>
+                                    <li>Prioritize essential expenses and savings in your baseline budget</li>
+                                    <li>Create spending rules for extra income (e.g., 50% to buffer, 30% to long-term savings, 20% discretionary)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg">
+                            <h3 class="font-bold text-gray-900 mb-3">Challenge 2: Budget Accountability</h3>
+                            <p class="text-gray-700 mb-3">You create budgets but struggle to stick with them, especially for discretionary spending categories.</p>
+                            
+                            <div class="p-3 bg-yellow-50 rounded-lg mb-3">
+                                <h4 class="font-medium text-yellow-800 mb-1">Challenge Details:</h4>
+                                <ul class="list-disc list-inside text-gray-700">
+                                    <li>Often exceed dining out and entertainment budgets</li>
+                                    <li>Impulse purchases are common</li>
+                                    <li>Tracking expenses feels tedious</li>
+                                    <li>Budget feels restrictive and demotivating</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 font-medium mb-1">Your Strategy:</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="What accountability systems would help you stick to your budget?"></textarea>
+                            </div>
+                            
+                            <button class="show-solution-btn pfl-button text-sm py-1 px-3">
+                                Show Recommended Strategy
+                            </button>
+                            
+                            <div class="solution-box hidden mt-3 p-3 bg-green-50 rounded-lg">
+                                <h4 class="font-medium text-green-800 mb-1">Recommended Approach:</h4>
+                                <ul class="list-disc list-inside text-gray-700">
+                                    <li>Use a budgeting app that automatically categorizes expenses and sends alerts</li>
+                                    <li>Implement a "cash envelope" or prepaid card system for problem spending categories</li>
+                                    <li>Build small rewards into your budget for staying on track</li>
+                                    <li>Find an accountability partner for regular budget check-ins</li>
+                                    <li>Focus on "spending well" rather than "not spending" to reduce feeling of deprivation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-right">
+                    <button class="pfl-button">
+                        Save & Continue
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Learning Station 3 -->
+            <div id="station3" class="learning-station">
+                <h3 class="text-xl font-bold flex items-center">
+                    <span class="station-number">3</span>
+                    Budgeting Challenge Solver
+                </h3>
+                
+                <div class="activity-timer mb-4">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-sm font-medium">Estimated time: 20 minutes</span>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Create effective solutions for specific budgeting challenges and develop your problem-solving skills.</p>
+                
+                <div class="bg-white rounded-lg p-4 border border-gray-200 mb-6">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg">
+                            <h3 class="font-bold text-gray-900 mb-3">Challenge 3: Balancing Multiple Goals</h3>
+                            <p class="text-gray-700 mb-3">You have several financial goals competing for limited resources in your budget.</p>
+                            
+                            <div class="p-3 bg-yellow-50 rounded-lg mb-3">
+                                <h4 class="font-medium text-yellow-800 mb-1">Challenge Details:</h4>
+                                <ul class="list-disc list-inside text-gray-700">
+                                    <li>Want to build emergency fund ($5,000 goal)</li>
+                                    <li>Need to save for college tuition ($2,500 due in 9 months)</li>
+                                    <li>Want to save for a car down payment ($3,000 in 18 months)</li>
+                                    <li>Have $400/month available for all savings goals</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 font-medium mb-1">Your Strategy:</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="How would you prioritize these goals and allocate your savings?"></textarea>
+                            </div>
+                            
+                            <button class="show-solution-btn pfl-button text-sm py-1 px-3">
+                                Show Recommended Strategy
+                            </button>
+                            
+                            <div class="solution-box hidden mt-3 p-3 bg-green-50 rounded-lg">
+                                <h4 class="font-medium text-green-800 mb-1">Recommended Approach:</h4>
+                                <ul class="list-disc list-inside text-gray-700">
+                                    <li>First build a mini emergency fund ($1,000) for immediate emergencies</li>
+                                    <li>Prioritize college tuition ($2,500 / 9 months = ~$280/month)</li>
+                                    <li>Allocate remaining $120/month to car down payment</li>
+                                    <li>After tuition is saved, redirect that $280/month to emergency fund</li>
+                                    <li>Consider temporary income increases (side gigs, selling items) to accelerate progress</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg">
+                            <h3 class="font-bold text-gray-900 mb-3">Challenge 4: "Budget-Busting" Expenses</h3>
+                            <p class="text-gray-700 mb-3">Large irregular expenses frequently derail your budget and financial progress.</p>
+                            
+                            <div class="p-3 bg-yellow-50 rounded-lg mb-3">
+                                <h4 class="font-medium text-yellow-800 mb-1">Challenge Details:</h4>
+                                <ul class="list-disc list-inside text-gray-700">
+                                    <li>Car registration and insurance due annually</li>
+                                    <li>Holiday and birthday gifts throughout the year</li>
+                                    <li>Technology replacements every few years</li>
+                                    <li>Recurring subscriptions renewing at different times</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 font-medium mb-1">Your Strategy:</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="How would you handle these irregular expenses in your budget?"></textarea>
+                            </div>
+                            
+                            <button class="show-solution-btn pfl-button text-sm py-1 px-3">
+                                Show Recommended Strategy
+                            </button>
+                            
+                            <div class="solution-box hidden mt-3 p-3 bg-green-50 rounded-lg">
+                                <h4 class="font-medium text-green-800 mb-1">Recommended Approach:</h4>
+                                <ul class="list-disc list-inside text-gray-700">
+                                    <li>Create dedicated "sinking funds" for each irregular expense category</li>
+                                    <li>Calculate annual total for each category and divide by 12</li>
+                                    <li>Set up separate savings accounts or "buckets" within one account</li>
+                                    <li>Automate monthly transfers to each sinking fund</li>
+                                    <li>Review and adjust contribution amounts annually as expenses change</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-right">
+                    <button class="pfl-button">
+                        Save & Continue
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Learning Station 4 -->
+            <div id="station4" class="learning-station">
+                <h3 class="text-xl font-bold flex items-center">
+                    <span class="station-number">4</span>
+                    Personal Action Plan
+                </h3>
+                
+                <div class="activity-timer mb-4">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-sm font-medium">Estimated time: 20 minutes</span>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 mb-4">Create your personalized action plan for effectively managing your income based on the 50/30/20 rule and other budgeting strategies.</p>
+                
+                <div class="bg-white rounded-lg p-4 border border-gray-200 mb-6">
+                    <h4 class="font-bold text-gray-900 mb-3">Your Personal Income Management Plan</h4>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">1. My Financial Goals:</label>
+                        <p class="text-sm text-gray-600 mb-2">List 3 financial goals - at least one short-term (within 1 year) and one long-term (5+ years).</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Example: Short-term: Build $2,000 emergency fund by December..."></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">2. My Budgeting Strategy:</label>
+                        <p class="text-sm text-gray-600 mb-2">How will you implement the 50/30/20 rule or a similar framework for your specific situation?</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Example: I'll allocate 55% to needs due to high rent costs in my area, 25% to wants, and 20% to savings..."></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">3. My Savings Plan:</label>
+                        <p class="text-sm text-gray-600 mb-2">How will you prioritize different savings goals? What specific strategies will you use?</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Example: I'll set up automatic transfers of $200/month to my emergency fund until I reach $3,000..."></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">4. My Spending Management Strategies:</label>
+                        <p class="text-sm text-gray-600 mb-2">What specific tools, techniques, or habits will you use to manage spending in various categories?</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Example: I'll use a budgeting app to track all expenses, implement a 24-hour rule for purchases over $50..."></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">5. My Potential Challenges:</label>
+                        <p class="text-sm text-gray-600 mb-2">Identify 2-3 challenges you might face in sticking to your income management plan.</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Example: Social pressure to spend money when out with friends..."></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">6. My Solutions to Potential Challenges:</label>
+                        <p class="text-sm text-gray-600 mb-2">For each challenge above, what specific strategy will you use to overcome it?</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Example: I'll suggest free activities or set a specific 'social budget' each month..."></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">7. My Accountability System:</label>
+                        <p class="text-sm text-gray-600 mb-2">How will you hold yourself accountable to your income management plan?</p>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Example: Monthly review of my budget with specific metrics for success..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="text-right">
+                    <button class="pfl-button">
+                        Save & Continue
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Portfolio Integration Section -->
+            <section id="portfolio" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive income management portfolio.</p>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-900 mb-4">Comprehensive Income Management Strategy</h3>
+                    <p class="text-gray-700 mb-4">Your portfolio combines all elements from today's Learning Lab into a cohesive plan:</p>
+                    
+                    <ul class="list-disc list-inside mb-4 text-gray-700">
+                        <li>Scenario analysis from Station 1</li>
+                        <li>Budgeting challenge solutions from Stations 2 and 3</li>
+                        <li>Personal action plan from Station 4</li>
+                    </ul>
+                    
+                    <p class="text-gray-700 mb-4">Review each section to ensure alignment across your entire income management strategy.</p>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Portfolio Summary (What have you learned from this Learning Lab?)</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize key insights and how this plan will guide your financial decisions..."></textarea>
+                        <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                    </div>
+                    
+                    <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1">Complete Portfolio</button>
+                </div>
+            </section>
+            
+            <!-- Reflection Section -->
+            <section id="reflection" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                    <p class="text-gray-700 mb-3">Reflect on how the budgeting and income management strategies you've learned will impact your financial decisions going forward. What specific changes will you make to your financial habits?</p>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <button class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                        Complete Learning Lab
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved!</span>
+        </div>
+    </div>
+    
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Station navigation
+        let currentStation = 0;
+        const stations = document.querySelectorAll('.learning-station');
+        const stationIndicators = document.querySelectorAll('.station-indicator');
+        
+        // Initialize interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up chart if there's a chart in this chapter
+            // Initialize budget chart
+            const ctx = document.getElementById('budget-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Needs', 'Wants', 'Savings'],
+                    datasets: [{
+                        label: 'Target',
+                        data: [50, 30, 20],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.3)',
+                            'rgba(34, 197, 94, 0.3)',
+                            'rgba(139, 92, 246, 0.3)'
+                        ],
+                        borderColor: [
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(34, 197, 94, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Actual',
+                        data: [48, 32, 20],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.7)',
+                            'rgba(34, 197, 94, 0.7)',
+                            'rgba(139, 92, 246, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(34, 197, 94, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+            
+            // Add smooth transitions between stations
+            stations.forEach((station, index) => {
+                station.style.opacity = '0';
+                station.style.transform = 'translateY(20px)';
+                
+                // Use setTimeout to create a staggered animation effect
+                setTimeout(() => {
+                    station.style.opacity = '1';
+                    station.style.transform = 'translateY(0)';
+                    station.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                }, 100 * (index + 1));
+            });
+            
+            updateStationIndicators();
+        });
+        
+        // Save button functionality with toast notifications
+        document.querySelectorAll('.pfl-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Get the parent station if this is a station save button
+                const parentStation = this.closest('.learning-station');
+                
+                if (parentStation) {
+                    // Check if any inputs in this station have content
+                    const inputs = parentStation.querySelectorAll('input, textarea');
+                    let hasContent = false;
+                    
+                    inputs.forEach(input => {
+                        if (input.value.trim().length > 0) {
+                            hasContent = true;
+                        }
+                    });
+                    
+                    if (hasContent) {
+                        // Find station number
+                        const stationIndex = Array.from(stations).indexOf(parentStation);
+                        showToast(`Station ${stationIndex + 1} saved successfully!`);
+                        updateProgress();
+                    } else {
+                        showToast('Please complete the station before saving.', 'warning');
+                    }
+                } else {
+                    // Handle non-station buttons (e.g., portfolio complete button)
+                    showToast('Your portfolio has been saved!');
+                    updateProgress();
+                }
+            });
+        });
+        
+        // AI feedback system 
+        document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+            element.addEventListener('blur', function() {
+                if (this.value.length > 10) {
+                    const feedback = this.nextElementSibling;
+                    if (feedback && feedback.classList.contains('feedback-container')) {
+                        feedback.textContent = "Thank you for your thoughtful response! Your answer shows good understanding of the concepts.";
+                        feedback.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            // Set message
+            toastMessage.textContent = message;
+            
+            // Set type-specific styling
+            if (type === 'warning') {
+                toast.style.backgroundColor = '#f59e0b';
+            } else {
+                toast.style.backgroundColor = '#4f46e5';
+            }
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide toast after delay
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Track progress for the sidebar
+        function updateProgress() {
+            const stations = document.querySelectorAll('.learning-station');
+            let completed = 0;
+            
+            stations.forEach(station => {
+                // Check if any inputs or textareas in this station have content
+                const inputs = station.querySelectorAll('input, textarea');
+                let hasContent = false;
+                
+                inputs.forEach(input => {
+                    if (input.value.trim().length > 0) {
+                        hasContent = true;
+                    }
+                });
+                
+                if (hasContent) {
+                    completed++;
+                }
+            });
+            
+            // Update progress bar
+            const progressBar = document.querySelector('.from-indigo-600.to-purple-600.h-2\\.5');
+            const progressText = document.querySelector('.font-medium');
+            
+            const percentage = Math.round((completed / stations.length) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${completed}/${stations.length} stations`;
+            
+            updateStationIndicators();
+        }
+        
+        // Update station indicators
+        function updateStationIndicators() {
+            const stations = document.querySelectorAll('.learning-station');
+            const stationIndicators = document.querySelectorAll('.station-indicator');
+            
+            stations.forEach((station, index) => {
+                // Check if this station has content
+                const inputs = station.querySelectorAll('input, textarea');
+                let hasContent = false;
+                
+                inputs.forEach(input => {
+                    if (input.value.trim().length > 0) {
+                        hasContent = true;
+                    }
+                });
+                
+                // Update the corresponding indicator
+                if (hasContent && stationIndicators[index]) {
+                    stationIndicators[index].classList.add('active');
+                }
+            });
+            
+            // Determine current station based on scroll position
+            updateCurrentStationByScroll();
+        }
+        
+        // Update current station based on scroll position
+        function updateCurrentStationByScroll() {
+            const scrollPosition = window.scrollY;
+            const stations = document.querySelectorAll('.learning-station');
+            const stationIndicators = document.querySelectorAll('.station-indicator');
+            
+            let foundCurrent = false;
+            
+            stations.forEach((station, index) => {
+                const stationTop = station.offsetTop - 150;
+                const stationBottom = stationTop + station.offsetHeight;
+                
+                if (scrollPosition >= stationTop && scrollPosition < stationBottom && !foundCurrent) {
+                    // This is the current visible station
+                    currentStation = index;
+                    foundCurrent = true;
+                    
+                    // Update the indicators to show which one is current
+                    stationIndicators.forEach((indicator, i) => {
+                        if (i === index) {
+                            indicator.classList.add('active');
+                            indicator.style.transform = 'scale(1.3)';
+                        } else if (indicator.classList.contains('active')) {
+                            indicator.style.transform = 'scale(1.0)';
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Highlight active section in navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            // Update station indicators based on scroll
+            updateCurrentStationByScroll();
+            
+            // Update section navigation
+            const sections = ['learning-objectives', 'intro', 'station1', 'station2', 'station3', 'station4', 'portfolio', 'reflection'];
+            
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const sectionTop = element.offsetTop - 150;
+                    const sectionBottom = sectionTop + element.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        // Remove active class from all links
+                        document.querySelectorAll('#section-navigation a').forEach(link => {
+                            link.classList.remove('text-indigo-700', 'font-medium');
+                            link.classList.add('text-gray-700');
+                        });
+                        
+                        // Add active class to corresponding link
+                        const link = document.querySelector(`#section-navigation a[href="#${section}"]`);
+                        if (link) {
+                            link.classList.remove('text-gray-700');
+                            link.classList.add('text-indigo-700', 'font-medium');
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Initialize any scenario functionality
+        document.getElementById('simulate-scenario')?.addEventListener('click', function() {
+            document.getElementById('simulation-results').classList.remove('hidden');
+        });
+        
+        // Show solution buttons
+        document.querySelectorAll('.show-solution-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const solutionBox = this.nextElementSibling;
+                solutionBox.classList.toggle('hidden');
+                
+                if (solutionBox.classList.contains('hidden')) {
+                    this.textContent = 'Show Recommended Strategy';
+                } else {
+                    this.textContent = 'Hide Recommended Strategy';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

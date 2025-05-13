@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 11.2: Insurance as a Risk Management Tool - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Insurance-specific styling */
+        .policy-comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .policy-comparison-table th {
+            background-color: #e0e7ff;
+            text-align: left;
+            padding: 0.75rem;
+        }
+        
+        .policy-comparison-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .life-stage-card {
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .life-stage-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .recent-grad {
+            background-color: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .young-family {
+            background-color: #dcfce7;
+            border-left: 4px solid #10b981;
+        }
+
+        .pre-retirement {
+            background-color: #f3e8ff;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .cost-benefit-slider {
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .insurance-risk-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .risk-high {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .risk-medium {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+        
+        .risk-low {
+            background-color: #d1fae5;
+            color: #059669;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 11: Risk Management</h2>
+                <p class="text-gray-600 mb-4">Understanding risk and using insurance as a strategy to protect against potential financial losses.</p>
+            </div>
+            
+            <!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-11-2-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Previous Chapter -->
+                <li>
+                    <a href="chapter-11-1-day2.html" class="flex items-center p-2 rounded-lg hover:bg-gray-100 text-gray-700 transition">
+                        <span class="text-green-600 mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        11.1: Understanding and Managing Risk
+                    </a>
+                </li>
+                
+                <!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">11.2: Insurance as a Risk Management Tool</span>
+                    </div>
+                    <!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">"</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">"</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">"</span> Policy Comparison Analysis
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">"</span> Insurance Needs Throughout Life Stages
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">"</span> Insurance Cost-Benefit Analysis
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station4" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">"</span> Insurance Strategy Development
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">"</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">"</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Next Chapter -->
+                <li>
+                    <a href="chapter-11-3-day1.html" class="flex items-center p-2 rounded-lg hover:bg-gray-100 text-gray-700 transition">
+                        11.3: Insurance Costs
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/5 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-11-2-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ê Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 11.2: Insurance as a Risk Management Tool - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Applying insurance concepts to make informed financial protection decisions</p>
+            
+            <!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Compare different insurance policies and identify their strengths and limitations</li>
+                    <li>Calculate the financial impact of insurance choices using real-world scenarios</li>
+                    <li>Evaluate insurance needs across different life stages</li>
+                    <li>Apply cost-benefit analysis to insurance decision-making</li>
+                    <li>Develop strategies for selecting appropriate coverage while managing costs</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">Welcome to the Chapter 11.2 Learning Lab! Today, we'll take the insurance concepts you learned in Day 1 and apply them to practical scenarios. You'll analyze different insurance policies, calculate costs and benefits, evaluate insurance needs across life stages, and develop comprehensive insurance strategies.</p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700">The insurance coverage needs discussed in this Learning Lab are simulations for educational purposes. When making actual insurance decisions, always consult with licensed insurance professionals who can provide personalized advice based on your specific situation.</p>
+                </div>
+                
+                <!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">In Day 1, we explored the fundamental concepts of insurance as a risk management tool. Today's Learning Lab builds on those concepts by applying them to practical decision-making:</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>We'll analyze different types of insurance policies covered in Day 1</li>
+                        <li>We'll apply the concept of risk transfer through insurance to real-world scenarios</li>
+                        <li>We'll evaluate insurance deductibles, premiums, and coverage limits</li>
+                        <li>We'll apply the policy evaluation criteria we learned to compare insurance options</li>
+                        <li>We'll incorporate all these elements into a comprehensive insurance strategy</li>
+                    </ul>
+                </div>
+                
+                <!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Insurance as a Risk Management Tool</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="/finished LM recordings/11.2 - Insurance as a Risk Management Tool.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Types of insurance, insurance terminology, policy components, evaluating coverage needs, and using insurance to manage risk effectively</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">In this Learning Lab, you'll work through four interactive stations, each focused on a different aspect of insurance decision-making. Begin with the first station and progress through each one sequentially, saving your work as you go. By the end, you'll develop a comprehensive personal insurance strategy that you can add to your financial portfolio.</p>
+            </section>
+            
+            <!-- Learning Stations -->
+            <!-- Station 1: Policy Comparison Analysis -->
+            <div class="learning-station" id="station1">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Station 1: Policy Comparison Analysis</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">12-15 minutes</span></span>
+                </div>
+                
+                <!-- Station Content -->
+                <div class="prose max-w-none text-gray-700 mb-4">
+                    <p>In this station, you'll compare different insurance policies to identify their strengths and limitations. You'll analyze policy features, coverage limits, deductibles, and premiums to make informed recommendations.</p>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Health Insurance Comparison</h3>
+                    <p>Review these three health insurance options and compare their features:</p>
+                    
+                    <table class="policy-comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Bronze Plan</th>
+                                <th>Silver Plan</th>
+                                <th>Gold Plan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monthly Premium</td>
+                                <td>$250</td>
+                                <td>$350</td>
+                                <td>$450</td>
+                            </tr>
+                            <tr>
+                                <td>Annual Deductible</td>
+                                <td>$5,000</td>
+                                <td>$2,500</td>
+                                <td>$1,000</td>
+                            </tr>
+                            <tr>
+                                <td>Coinsurance</td>
+                                <td>40%</td>
+                                <td>20%</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>Out-of-Pocket Maximum</td>
+                                <td>$8,500</td>
+                                <td>$5,000</td>
+                                <td>$3,500</td>
+                            </tr>
+                            <tr>
+                                <td>Primary Care Visit</td>
+                                <td>$45 copay</td>
+                                <td>$30 copay</td>
+                                <td>$20 copay</td>
+                            </tr>
+                            <tr>
+                                <td>Specialist Visit</td>
+                                <td>$85 copay</td>
+                                <td>$60 copay</td>
+                                <td>$40 copay</td>
+                            </tr>
+                            <tr>
+                                <td>Emergency Room</td>
+                                <td>40% after deductible</td>
+                                <td>20% after deductible</td>
+                                <td>$250 copay</td>
+                            </tr>
+                            <tr>
+                                <td>Prescription Drugs</td>
+                                <td>40% after deductible</td>
+                                <td>$15/$50/$75 copay</td>
+                                <td>$10/$30/$50 copay</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Auto Insurance Comparison</h3>
+                    <p>Now compare these auto insurance policies:</p>
+                    
+                    <table class="policy-comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Basic Coverage</th>
+                                <th>Standard Coverage</th>
+                                <th>Premium Coverage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monthly Premium</td>
+                                <td>$85</td>
+                                <td>$110</td>
+                                <td>$150</td>
+                            </tr>
+                            <tr>
+                                <td>Bodily Injury Liability</td>
+                                <td>$25,000/$50,000</td>
+                                <td>$50,000/$100,000</td>
+                                <td>$100,000/$300,000</td>
+                            </tr>
+                            <tr>
+                                <td>Property Damage Liability</td>
+                                <td>$10,000</td>
+                                <td>$25,000</td>
+                                <td>$50,000</td>
+                            </tr>
+                            <tr>
+                                <td>Collision Deductible</td>
+                                <td>$1,000</td>
+                                <td>$500</td>
+                                <td>$250</td>
+                            </tr>
+                            <tr>
+                                <td>Comprehensive Deductible</td>
+                                <td>$1,000</td>
+                                <td>$500</td>
+                                <td>$250</td>
+                            </tr>
+                            <tr>
+                                <td>Uninsured Motorist</td>
+                                <td>Not included</td>
+                                <td>$50,000/$100,000</td>
+                                <td>$100,000/$300,000</td>
+                            </tr>
+                            <tr>
+                                <td>Rental Car Coverage</td>
+                                <td>Not included</td>
+                                <td>$30/day, 30 days max</td>
+                                <td>$50/day, 30 days max</td>
+                            </tr>
+                            <tr>
+                                <td>Roadside Assistance</td>
+                                <td>Not included</td>
+                                <td>Basic</td>
+                                <td>Premium</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Analysis Questions</h3>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">1. For a healthy 25-year-old with no chronic conditions, which health insurance plan would you recommend and why?</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Consider monthly costs vs. potential healthcare needs..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">2. For a 40-year-old with a chronic condition requiring regular specialist visits and prescription medications, which health plan offers the best value? Explain your reasoning.</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Consider ongoing healthcare needs and total costs..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">3. For a new driver with a 10-year-old sedan valued at $5,000, which auto insurance plan is most appropriate? Why?</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Consider risk factors and vehicle value..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">4. For a family with two drivers and a new SUV valued at $35,000, which auto insurance plan would you recommend? Explain your choice.</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Consider asset protection and potential liabilities..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 2: Insurance Needs Throughout Life Stages -->
+            <div class="learning-station" id="station2">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Station 2: Insurance Needs Throughout Life Stages</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-12 minutes</span></span>
+                </div>
+                
+                <!-- Station Content -->
+                <div class="prose max-w-none text-gray-700 mb-4">
+                    <p>In this station, you'll analyze how insurance needs change throughout different life stages. Insurance needs evolve as individuals acquire assets, have dependents, and face different risks.</p>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Life Stage Profiles</h3>
+                    <p>Review the following profiles and determine their insurance needs:</p>
+                    
+                    <div class="life-stage-card recent-grad">
+                        <h4 class="font-bold">Profile 1: Recent College Graduate</h4>
+                        <ul class="list-disc list-inside mt-2">
+                            <li>Age: 22</li>
+                            <li>Income: $42,000/year</li>
+                            <li>Assets: Used car worth $6,000, $5,000 in savings</li>
+                            <li>Debt: $25,000 in student loans</li>
+                            <li>Living situation: Renting an apartment with a roommate</li>
+                            <li>Dependents: None</li>
+                            <li>Employer benefits: Basic health insurance with high deductible</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="life-stage-card young-family">
+                        <h4 class="font-bold">Profile 2: Young Family</h4>
+                        <ul class="list-disc list-inside mt-2">
+                            <li>Ages: 32 and 34</li>
+                            <li>Income: $92,000 combined</li>
+                            <li>Assets: Home worth $280,000 (mortgage of $240,000), two vehicles, $30,000 in retirement accounts</li>
+                            <li>Debt: Mortgage, $8,000 in credit cards, $12,000 auto loan</li>
+                            <li>Living situation: Own a 3-bedroom house</li>
+                            <li>Dependents: Two children, ages 3 and 5</li>
+                            <li>Employer benefits: Health insurance for family, basic life insurance (1x salary)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="life-stage-card pre-retirement">
+                        <h4 class="font-bold">Profile 3: Pre-Retirement Couple</h4>
+                        <ul class="list-disc list-inside mt-2">
+                            <li>Ages: 58 and 57</li>
+                            <li>Income: $135,000 combined</li>
+                            <li>Assets: Home worth $425,000 (mortgage of $150,000), vacation property worth $180,000, two vehicles, $850,000 in retirement accounts</li>
+                            <li>Debt: Mortgage, $15,000 home equity line of credit</li>
+                            <li>Living situation: Own a 4-bedroom house</li>
+                            <li>Dependents: One child in college, parents may need future care</li>
+                            <li>Employer benefits: Comprehensive health insurance, life insurance (2x salary)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Insurance Recommendations</h3>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">1. For Profile 1 (Recent Graduate), recommend appropriate insurance types and coverage levels:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Consider auto, renters, health, disability, and life insurance needs..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">2. For Profile 2 (Young Family), recommend appropriate insurance types and coverage levels:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Consider homeowners, auto, health, life, disability insurance needs..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">3. For Profile 3 (Pre-Retirement Couple), recommend appropriate insurance types and coverage levels:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Consider homeowners, auto, umbrella, long-term care, health, life insurance needs..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">4. How do insurance priorities shift from one life stage to the next? Identify the key transitions.</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain how insurance needs evolve as life circumstances change..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 3: Insurance Cost-Benefit Analysis -->
+            <div class="learning-station" id="station3">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Station 3: Insurance Cost-Benefit Analysis</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">12-15 minutes</span></span>
+                </div>
+                
+                <!-- Station Content -->
+                <div class="prose max-w-none text-gray-700 mb-4">
+                    <p>In this station, you'll perform cost-benefit analyses on different insurance decisions. You'll calculate the financial impacts of deductible choices, coverage limits, and premium costs to find the optimal balance between protection and cost.</p>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Homeowner's Insurance Deductible Analysis</h3>
+                    <p>Analyze these homeowner's insurance deductible options for a home valued at $350,000:</p>
+                    
+                    <table class="policy-comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Deductible Option</th>
+                                <th>Annual Premium</th>
+                                <th>Savings vs. $500 Deductible</th>
+                                <th>Years to Break Even</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>$500</td>
+                                <td>$1,450</td>
+                                <td>$0</td>
+                                <td>N/A</td>
+                            </tr>
+                            <tr>
+                                <td>$1,000</td>
+                                <td>$1,325</td>
+                                <td>$125</td>
+                                <td>4 years</td>
+                            </tr>
+                            <tr>
+                                <td>$2,500</td>
+                                <td>$1,150</td>
+                                <td>$300</td>
+                                <td>6.67 years</td>
+                            </tr>
+                            <tr>
+                                <td>$5,000</td>
+                                <td>$950</td>
+                                <td>$500</td>
+                                <td>9 years</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="mb-4 mt-4">
+                        <label class="block text-gray-700 font-medium mb-2">1. If you anticipate filing a claim once every 10 years, which deductible option provides the best value? Show your calculations.</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Calculate total costs over 10 years for each option..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">2. How would your recommendation change if you had a limited emergency fund of only $1,500? Explain.</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Consider how emergency funds impact deductible decisions..."></textarea>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Term Life Insurance Analysis</h3>
+                    <p>A 35-year-old parent is considering these term life insurance options:</p>
+                    
+                    <table class="policy-comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Coverage Amount</th>
+                                <th>Term Length</th>
+                                <th>Monthly Premium</th>
+                                <th>Total Cost Over Term</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>$250,000</td>
+                                <td>20 years</td>
+                                <td>$18</td>
+                                <td>$4,320</td>
+                            </tr>
+                            <tr>
+                                <td>$500,000</td>
+                                <td>20 years</td>
+                                <td>$28</td>
+                                <td>$6,720</td>
+                            </tr>
+                            <tr>
+                                <td>$750,000</td>
+                                <td>20 years</td>
+                                <td>$39</td>
+                                <td>$9,360</td>
+                            </tr>
+                            <tr>
+                                <td>$1,000,000</td>
+                                <td>20 years</td>
+                                <td>$48</td>
+                                <td>$11,520</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="mb-4 mt-4">
+                        <label class="block text-gray-700 font-medium mb-2">3. The parent has a mortgage of $280,000, expected college costs of $120,000 per child (2 children), and wants to replace 5 years of income ($65,000/year). Calculate the recommended coverage amount.</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Calculate the total financial needs..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">4. Compare the cost difference between the $500,000 and $1,000,000 policies. Is doubling the coverage worth the additional premium? Explain your reasoning.</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Analyze the marginal cost of additional coverage..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 4: Insurance Strategy Development -->
+            <div class="learning-station" id="station4">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">4</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Station 4: Insurance Strategy Development</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-18 minutes</span></span>
+                </div>
+                
+                <!-- Station Content -->
+                <div class="prose max-w-none text-gray-700 mb-4">
+                    <p>In this station, you'll develop a comprehensive insurance strategy for a family, incorporating risk assessment, cost-benefit analysis, and appropriate coverage selection.</p>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Case Study: The Rodriguez Family</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+                        <h4 class="font-bold mb-2">Family Profile:</h4>
+                        <ul class="list-disc list-inside">
+                            <li>Carlos (42) and Elena (40) Rodriguez with children Miguel (14) and Sofia (10)</li>
+                            <li>Combined income: $110,000 ($65,000 Carlos, $45,000 Elena)</li>
+                            <li>Home value: $320,000 with $250,000 mortgage balance</li>
+                            <li>Vehicles: 2018 SUV worth $22,000 and 2015 sedan worth $10,000</li>
+                            <li>Savings: $35,000 emergency fund, $110,000 in retirement accounts</li>
+                            <li>Debt: $250,000 mortgage, $8,000 auto loan, $5,000 credit cards</li>
+                            <li>Carlos's employer offers: Health insurance (family coverage with $2,500 deductible), basic life insurance (1x salary), disability insurance (60% income replacement)</li>
+                            <li>Elena's employer offers: Health insurance (individual only), basic life insurance (1x salary), no disability coverage</li>
+                            <li>Additional considerations: Carlos's mother (72) may need financial assistance within 5 years; both children plan to attend college</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Risk Assessment</h3>
+                    <p>Identify the Rodriguez family's top risks and categorize them:</p>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">1. List the major financial risks facing the Rodriguez family, and categorize each as high, medium, or low priority:</label>
+                        <div class="bg-gray-50 p-4 rounded-lg mb-3">
+                            <p class="font-medium mb-2">Examples of risks to consider:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="insurance-risk-badge risk-high">Premature death</span>
+                                <span class="insurance-risk-badge risk-medium">Disability</span>
+                                <span class="insurance-risk-badge risk-medium">Home damage</span>
+                                <span class="insurance-risk-badge risk-low">Auto accident</span>
+                                <span class="insurance-risk-badge risk-medium">Medical expenses</span>
+                                <span class="insurance-risk-badge risk-low">Liability claims</span>
+                            </div>
+                        </div>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="List financial risks and their priority levels..."></textarea>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-indigo-700 mt-4 mb-2">Comprehensive Insurance Plan</h3>
+                    <p>Develop a complete insurance strategy for the Rodriguez family:</p>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">2. Health Insurance Recommendations:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Evaluate current coverage and recommend adjustments..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">3. Life Insurance Recommendations:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Calculate needs and recommend coverage for each spouse..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">4. Disability Insurance Recommendations:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Evaluate current coverage and recommend adjustments..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">5. Property & Casualty Insurance Recommendations (Home & Auto):</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Recommend appropriate coverage levels and deductibles..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">6. Additional Coverage Recommendations (umbrella liability, long-term care, etc.):</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Consider any additional protection needs..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">7. Implementation Strategy & Budget:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Outline implementation priorities within a realistic budget..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Portfolio Integration Section -->
+            <section id="portfolio" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive personal insurance plan for your financial portfolio.</p>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-900 mb-4">Personal Insurance Strategy</h3>
+                    <p class="text-gray-700 mb-4">Your portfolio combines all elements from today's Learning Lab into a cohesive plan:</p>
+                    
+                    <ul class="list-disc list-inside mb-4 text-gray-700">
+                        <li>Policy evaluation techniques from Station 1</li>
+                        <li>Life stage insurance needs assessment from Station 2</li>
+                        <li>Cost-benefit analysis methods from Station 3</li>
+                        <li>Comprehensive strategy development from Station 4</li>
+                    </ul>
+                    
+                    <p class="text-gray-700 mb-4">Using what you've learned, develop a personal insurance strategy appropriate for your current life stage.</p>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">My Current Life Stage and Risk Profile:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Describe your current situation and primary financial risks..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">My Comprehensive Insurance Strategy:</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="6" placeholder="Outline your recommended insurance coverage in each category..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Portfolio Summary (What have you learned from this Learning Lab?)</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize key insights about insurance as a risk management tool..."></textarea>
+                        <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                    </div>
+                    
+                    <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1" onclick="savePortfolio()">Complete Portfolio</button>
+                </div>
+            </section>
+            
+            <!-- Reflection Section -->
+            <section id="reflection" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                    <p class="text-gray-700 mb-3">Consider how your understanding of insurance has changed after completing this Learning Lab. How will you apply these insurance decision-making skills in your own life? What strategies did you find most valuable for balancing appropriate protection with manageable costs?</p>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <a href="chapter-11-3-day1.html" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                        Continue to Chapter 11.3: Insurance Costs
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved!</span>
+        </div>
+    </div>
+    
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Station navigation
+        let currentStation = 0;
+        const stations = document.querySelectorAll('.learning-station');
+        const stationIndicators = document.querySelectorAll('.station-indicator');
+        
+        // Initialize interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add smooth transitions between stations
+            stations.forEach((station, index) => {
+                station.style.opacity = '0';
+                station.style.transform = 'translateY(20px)';
+                
+                // Use setTimeout to create a staggered animation effect
+                setTimeout(() => {
+                    station.style.opacity = '1';
+                    station.style.transform = 'translateY(0)';
+                    station.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                }, 100 * (index + 1));
+            });
+            
+            updateStationIndicators();
+        });
+        
+        // Save button functionality with toast notifications
+        document.querySelectorAll('.pfl-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Get the parent station if this is a station save button
+                const parentStation = this.closest('.learning-station');
+                
+                if (parentStation) {
+                    // Check if any inputs in this station have content
+                    const inputs = parentStation.querySelectorAll('input, textarea');
+                    let hasContent = false;
+                    
+                    inputs.forEach(input => {
+                        if (input.value.trim().length > 0) {
+                            hasContent = true;
+                        }
+                    });
+                    
+                    if (hasContent) {
+                        // Find station number
+                        const stationIndex = Array.from(stations).indexOf(parentStation);
+                        showToast(`Station ${stationIndex + 1} saved successfully!`);
+                        updateProgress();
+                    } else {
+                        showToast('Please complete the station before saving.', 'warning');
+                    }
+                } else {
+                    // Handle non-station buttons (e.g., portfolio complete button)
+                    showToast('Your insurance strategy has been saved to your portfolio!');
+                    updateProgress();
+                }
+            });
+        });
+        
+        // AI feedback system 
+        document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+            element.addEventListener('blur', function() {
+                if (this.value.length > 10) {
+                    const feedback = this.nextElementSibling;
+                    if (feedback && feedback.classList.contains('feedback-container')) {
+                        feedback.textContent = "Great job analyzing insurance needs and strategies! Your response shows thoughtful consideration of risk management principles.";
+                        feedback.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            // Set message
+            toastMessage.textContent = message;
+            
+            // Set type-specific styling
+            if (type === 'warning') {
+                toast.style.backgroundColor = '#f59e0b';
+            } else {
+                toast.style.backgroundColor = '#4f46e5';
+            }
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide toast after delay
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Track progress for the sidebar
+        function updateProgress() {
+            const stations = document.querySelectorAll('.learning-station');
+            let completed = 0;
+            
+            stations.forEach(station => {
+                // Check if any inputs or textareas in this station have content
+                const inputs = station.querySelectorAll('input, textarea');
+                let hasContent = false;
+                
+                inputs.forEach(input => {
+                    if (input.value.trim().length > 0) {
+                        hasContent = true;
+                    }
+                });
+                
+                if (hasContent) {
+                    completed++;
+                }
+            });
+            
+            // Update progress bar
+            const progressBar = document.querySelector('.from-indigo-600.to-purple-600.h-2\\.5');
+            const progressText = document.querySelector('.font-medium');
+            
+            const percentage = Math.round((completed / stations.length) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${completed}/${stations.length} stations`;
+            
+            updateStationIndicators();
+        }
+        
+        // Update station indicators
+        function updateStationIndicators() {
+            const stations = document.querySelectorAll('.learning-station');
+            const stationIndicators = document.querySelectorAll('.station-indicator');
+            
+            stations.forEach((station, index) => {
+                // Check if this station has content
+                const inputs = station.querySelectorAll('input, textarea');
+                let hasContent = false;
+                
+                inputs.forEach(input => {
+                    if (input.value.trim().length > 0) {
+                        hasContent = true;
+                    }
+                });
+                
+                // Update the corresponding indicator
+                if (hasContent && stationIndicators[index]) {
+                    stationIndicators[index].classList.add('active');
+                }
+            });
+            
+            // Determine current station based on scroll position
+            updateCurrentStationByScroll();
+        }
+        
+        // Update current station based on scroll position
+        function updateCurrentStationByScroll() {
+            const scrollPosition = window.scrollY;
+            const stations = document.querySelectorAll('.learning-station');
+            const stationIndicators = document.querySelectorAll('.station-indicator');
+            
+            let foundCurrent = false;
+            
+            stations.forEach((station, index) => {
+                const stationTop = station.offsetTop - 150;
+                const stationBottom = stationTop + station.offsetHeight;
+                
+                if (scrollPosition >= stationTop && scrollPosition < stationBottom && !foundCurrent) {
+                    // This is the current visible station
+                    currentStation = index;
+                    foundCurrent = true;
+                    
+                    // Update the indicators to show which one is current
+                    stationIndicators.forEach((indicator, i) => {
+                        if (i === index) {
+                            indicator.classList.add('active');
+                            indicator.style.transform = 'scale(1.3)';
+                        } else if (indicator.classList.contains('active')) {
+                            indicator.style.transform = 'scale(1.0)';
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Highlight active section in navigation based on scroll position
+        window.addEventListener('DOMContentLoaded', () => {
+            const objectives = document.querySelector('#learning-objectives');
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#section-navigation a');
+            
+            function updateActiveSection() {
+                const scrollPosition = window.scrollY;
+                
+                // First reset all links
+                navLinks.forEach(link => {
+                    link.classList.remove('text-indigo-700', 'font-medium');
+                    link.classList.add('text-gray-700');
+                });
+                
+                // Check Learning Objectives first
+                if (objectives) {
+                    const objectivesTop = objectives.offsetTop - 100;
+                    const objectivesBottom = objectivesTop + objectives.offsetHeight;
+                    
+                    if (scrollPosition >= objectivesTop && scrollPosition < objectivesBottom) {
+                        const objectivesLink = document.querySelector('#section-navigation a[href="#learning-objectives"]');
+                        if (objectivesLink) {
+                            objectivesLink.classList.remove('text-gray-700');
+                            objectivesLink.classList.add('text-indigo-700', 'font-medium');
+                        }
+                        return;
+                    }
+                }
+                
+                // Then check all other sections
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        // Add active class to corresponding link
+                        const correspondingLink = document.querySelector(`#section-navigation a[href="#${section.id}"]`);
+                        if (correspondingLink) {
+                            correspondingLink.classList.remove('text-gray-700');
+                            correspondingLink.classList.add('text-indigo-700', 'font-medium');
+                        }
+                    }
+                });
+                
+                // Also update station indicators based on scroll
+                updateCurrentStationByScroll();
+            }
+            
+            // Update active section when scrolling
+            window.addEventListener('scroll', updateActiveSection);
+            
+            // Update active section on page load
+            updateActiveSection();
+        });
+
+        // Function to save station progress
+        function saveStation(stationNumber) {
+            const stationElement = document.getElementById(`station${stationNumber}`);
+            
+            // Check if any inputs in this station have content
+            const inputs = stationElement.querySelectorAll('input, textarea');
+            let hasContent = false;
+            
+            inputs.forEach(input => {
+                if (input.value.trim().length > 0) {
+                    hasContent = true;
+                }
+            });
+            
+            if (hasContent) {
+                showToast(`Station ${stationNumber} completed!`);
+                
+                // Update progress
+                updateProgress();
+                
+                // Update station indicator
+                const indicator = document.querySelectorAll('.station-indicator')[stationNumber - 1];
+                if (indicator) {
+                    indicator.classList.add('active');
+                }
+                
+                // Scroll to next station if available
+                if (stationNumber < 4) {
+                    const nextStation = document.getElementById(`station${stationNumber + 1}`);
+                    if (nextStation) {
+                        setTimeout(() => {
+                            nextStation.scrollIntoView({ behavior: 'smooth' });
+                        }, 1000);
+                    }
+                } else {
+                    // If this is the last station, scroll to portfolio section
+                    const portfolio = document.getElementById('portfolio');
+                    if (portfolio) {
+                        setTimeout(() => {
+                            portfolio.scrollIntoView({ behavior: 'smooth' });
+                        }, 1000);
+                    }
+                }
+            } else {
+                showToast('Please complete the station before saving.', 'warning');
+            }
+        }
+        
+        // Function to save portfolio
+        function savePortfolio() {
+            const portfolioSection = document.getElementById('portfolio');
+            const portfolioTextarea = portfolioSection.querySelector('textarea[data-ai-check="true"]');
+            
+            if (portfolioTextarea && portfolioTextarea.value.trim().length > 0) {
+                showToast('Your insurance strategy has been added to your portfolio!');
+                
+                // Update progress
+                const indicator = document.querySelectorAll('.station-indicator')[4];
+                if (indicator) {
+                    indicator.classList.add('active');
+                }
+                
+                // Scroll to reflection section
+                const reflection = document.getElementById('reflection');
+                if (reflection) {
+                    setTimeout(() => {
+                        reflection.scrollIntoView({ behavior: 'smooth' });
+                    }, 1000);
+                }
+            } else {
+                showToast('Please complete your portfolio summary before saving.', 'warning');
+            }
+        }
+    </script>
+</body>
+</html>

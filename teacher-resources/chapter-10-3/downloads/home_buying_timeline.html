@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Buying Timeline and Savings Plan</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #6366f1;
+        }
+        
+        .goals-section {
+            border-left: 5px solid #60a5fa;
+        }
+        
+        .savings-section {
+            border-left: 5px solid #10b981;
+        }
+        
+        .action-section {
+            border-left: 5px solid #f59e0b;
+        }
+        
+        .preparation-section {
+            border-left: 5px solid #ec4899;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+        
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+        
+        .input-box {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        
+        .icon-cell {
+            text-align: center;
+        }
+        
+        .icon {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .tip-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .timeline-visual {
+            width: 100%;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .timeline-milestones {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .milestone {
+            width: 100px;
+            text-align: center;
+        }
+        
+        .milestone-year {
+            font-weight: bold;
+            padding: 5px;
+            background-color: #e0e7ff;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .milestone-track {
+            height: 4px;
+            background-color: #d1d5db;
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        .timeline-progress {
+            height: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            width: 0%;
+        }
+        
+        .calculator-section {
+            background-color: #eef2ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 12px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Home Buying Timeline and Savings Plan</h1>
+        <p>Chapter 10.3: Understanding Home Buying</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This worksheet will help you create a personalized timeline and savings plan for purchasing a home. Work through each section to set your goals, determine your financial needs, create a savings strategy, and develop an action plan for becoming a homeowner.</p>
+        <p class="no-print">To save this worksheet as a PDF: Click File → Print → Change destination to "Save as PDF" → Save</p>
+    </div>
+    
+    <div class="timeline-section goals-section">
+        <h2>Section 1: Homeownership Goals</h2>
+        
+        <h3>Target Home Purchase Timeline</h3>
+        <p>When do you aim to purchase a home?</p>
+        
+        <table>
+            <tr>
+                <th width="50%">Timeline Option</th>
+                <th width="50%">Select One</th>
+            </tr>
+            <tr>
+                <td>Short-term (1-2 years)</td>
+                <td><input type="checkbox" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Mid-term (3-5 years)</td>
+                <td><input type="checkbox" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Long-term (6+ years)</td>
+                <td><input type="checkbox" class="input-box"></td>
+            </tr>
+        </table>
+        
+        <p>Target purchase date (month/year): <input type="text" class="input-box" style="width: 200px;"></p>
+        
+        <h3>Home Preferences</h3>
+        <p>Describe your ideal future home:</p>
+        <table>
+            <tr>
+                <td width="50%">Location/Area:</td>
+                <td width="50%"><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Home Type (single-family, condo, townhouse, etc.):</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Desired Size (square footage):</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Number of Bedrooms:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Number of Bathrooms:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Must-Have Features:</td>
+                <td><textarea class="input-box" rows="3"></textarea></td>
+            </tr>
+            <tr>
+                <td>Nice-to-Have Features:</td>
+                <td><textarea class="input-box" rows="3"></textarea></td>
+            </tr>
+        </table>
+        
+        <div class="tip-box">
+            <p><strong>Tip:</strong> Be realistic about your first home. Many first-time buyers use their initial home as a stepping stone to their dream home later in life.</p>
+        </div>
+        
+        <h3>Target Price Range</h3>
+        <p>Based on your research of homes in your desired area that meet your preferences:</p>
+        <table>
+            <tr>
+                <td width="50%">Estimated Home Purchase Price:</td>
+                <td width="50%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Price Range Minimum:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Price Range Maximum:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="timeline-section savings-section">
+        <h2>Section 2: Financial Requirements</h2>
+        
+        <h3>Down Payment Calculation</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Target Home Purchase Price:</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Desired Down Payment Percentage:</td>
+                    <td><input type="text" class="input-box">%</td>
+                </tr>
+                <tr>
+                    <td><strong>Required Down Payment Amount:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+            
+            <p class="note">Common down payment percentages: 3-5% (FHA, some conventional loans), 10% (lower PMI), 20% (no PMI required)</p>
+        </div>
+        
+        <h3>Closing Costs Estimate</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Target Home Purchase Price:</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Estimated Closing Cost Percentage:</td>
+                    <td><input type="text" class="input-box">%</td>
+                </tr>
+                <tr>
+                    <td><strong>Estimated Closing Costs:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+            
+            <p class="note">Closing costs typically range from 2-5% of the purchase price.</p>
+        </div>
+        
+        <h3>Move-in Expenses</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Moving Costs:</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Initial Repairs/Improvements:</td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Furniture/Appliances:</td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Other Move-in Expenses:</td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td><strong>Total Move-in Expenses:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <h3>Emergency Fund</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Monthly Housing Payment (PITI) Estimate:</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Number of Months of Housing Payments (recommended: 3-6):</td>
+                    <td><input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td><strong>Housing Emergency Fund:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <h3>Total Savings Needed</h3>
+        <table>
+            <tr>
+                <td width="60%">Down Payment:</td>
+                <td width="40%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Closing Costs:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Move-in Expenses:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Housing Emergency Fund:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL SAVINGS NEEDED:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="timeline-section preparation-section">
+        <h2>Section 3: Savings Plan</h2>
+        
+        <h3>Current Savings Assessment</h3>
+        <table>
+            <tr>
+                <td width="60%">Current Savings Available for Home Purchase:</td>
+                <td width="40%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Additional Funds Expected (gifts, bonuses, etc.):</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Current Funds:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>Additional Amount Needed:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+        
+        <h3>Monthly Savings Plan</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Additional Amount Needed:</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Months Until Target Purchase Date:</td>
+                    <td><input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td><strong>Required Monthly Savings:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <h3>Savings Strategies</h3>
+        <table>
+            <tr>
+                <th>Strategy</th>
+                <th>Monthly Amount</th>
+                <th>Implementation Plan</th>
+            </tr>
+            <tr>
+                <td>Reduce Current Expenses</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td>Increase Income</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td>Automate Savings Transfers</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td>Redirect Windfalls (tax refunds, bonuses)</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td>Other Strategy: <input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><strong>Total Monthly Savings:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <div class="tip-box">
+            <p><strong>Tip:</strong> Consider setting up a dedicated high-yield savings account specifically for your home purchase fund to keep it separate from your other savings and to earn more interest.</p>
+        </div>
+        
+        <h3>Savings Progress Tracker</h3>
+        <table>
+            <tr>
+                <td width="40%">Total Savings Needed:</td>
+                <td width="60%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Current Amount Saved:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Savings Progress Percentage:</td>
+                <td><input type="text" class="input-box">%</td>
+            </tr>
+        </table>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%;"></div>
+        </div>
+        
+        <p class="note">Update this tracker regularly to monitor your progress toward your savings goal.</p>
+    </div>
+    
+    <div class="timeline-section action-section">
+        <h2>Section 4: Credit Preparation Plan</h2>
+        
+        <h3>Current Credit Status</h3>
+        <table>
+            <tr>
+                <td width="60%">Current Credit Score:</td>
+                <td width="40%"><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Target Credit Score for Optimal Mortgage Terms:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Current Debt-to-Income Ratio:</td>
+                <td><input type="text" class="input-box">%</td>
+            </tr>
+            <tr>
+                <td>Target Debt-to-Income Ratio:</td>
+                <td><input type="text" class="input-box">%</td>
+            </tr>
+        </table>
+        
+        <h3>Credit Improvement Plan</h3>
+        <table>
+            <tr>
+                <th>Action Item</th>
+                <th>Target Completion Date</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Review credit reports for errors</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Dispute any inaccuracies found</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Pay down credit card balances</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Pay off specific debts: <input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Maintain on-time payment history</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Avoid opening new credit accounts</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Additional action: <input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+        </table>
+        
+        <div class="tip-box">
+            <p><strong>Tip:</strong> Most mortgage lenders look for credit scores of 740+ for the best rates, though you can qualify for many loan programs with scores of 620 or higher.</p>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="timeline-section">
+        <h2>Section 5: Home Buying Timeline</h2>
+        
+        <h3>Timeline Milestones</h3>
+        <p>Create a detailed timeline with key milestones on your journey to homeownership:</p>
+        
+        <table>
+            <tr>
+                <th width="20%">Target Date</th>
+                <th width="30%">Milestone</th>
+                <th width="50%">Action Steps</th>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Start saving for down payment</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Pull credit reports and begin credit improvement</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Research first-time homebuyer programs</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Pay off targeted debts</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Reach 50% of savings goal</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Research preferred neighborhoods</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Begin mortgage pre-qualification research</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Reach 100% of savings goal</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Get pre-approved for mortgage</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Begin house hunting</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Make offer on home</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Close on home</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+        </table>
+        
+        <h3>Accountability System</h3>
+        <p>Create a system to keep yourself accountable to your timeline:</p>
+        <textarea class="input-box" style="width: 100%; height: 100px;"></textarea>
+        
+        <h3>Potential Obstacles and Solutions</h3>
+        <table>
+            <tr>
+                <th>Potential Obstacle</th>
+                <th>Solution Strategy</th>
+            </tr>
+            <tr>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="timeline-section">
+        <h2>Section 6: Resources and Support</h2>
+        
+        <h3>First-Time Homebuyer Programs</h3>
+        <p>Research and list programs you may be eligible for:</p>
+        <table>
+            <tr>
+                <th>Program Name</th>
+                <th>Benefits</th>
+                <th>Eligibility Requirements</th>
+                <th>Application Process</th>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+        </table>
+        
+        <h3>Professional Support Team</h3>
+        <p>Identify professionals you'll want to work with during your home buying process:</p>
+        <table>
+            <tr>
+                <th>Professional Role</th>
+                <th>Name/Company</th>
+                <th>Contact Information</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Mortgage Lender/Broker</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Real Estate Agent</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Home Inspector</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Real Estate Attorney</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Home Insurance Agent</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+        </table>
+        
+        <h3>Educational Resources</h3>
+        <p>List resources you can use to learn more about the home buying process:</p>
+        <textarea class="input-box" style="width: 100%; height: 100px;"></textarea>
+    </div>
+    
+    <div class="timeline-section">
+        <h2>Home Buying Plan Summary</h2>
+        
+        <table>
+            <tr>
+                <td width="50%">Target Home Purchase Date:</td>
+                <td width="50%"><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Target Home Price Range:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Total Savings Needed:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Monthly Savings Target:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Credit Score Goal:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Next Major Milestone:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Target Date for Next Milestone:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+        </table>
+        
+        <h3>Commitment Statement</h3>
+        <p>I commit to following this home buying plan by taking consistent action toward my homeownership goals:</p>
+        <textarea class="input-box" style="width: 100%; height: 100px;"></textarea>
+        
+        <p>Signature: _________________________________ Date: _________________</p>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 10.3: Understanding Home Buying</p>
+    </footer>
+</body>
+</html>

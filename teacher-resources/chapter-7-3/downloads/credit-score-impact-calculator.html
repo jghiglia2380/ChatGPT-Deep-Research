@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Impact Calculator - Chapter 7.3</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .calculator-controls {
+                display: none;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #1E3A8A;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            color: #1E3A8A;
+            margin: 0;
+            font-size: 24pt;
+        }
+        
+        h2 {
+            color: #1E3A8A;
+            border-bottom: 1px solid #1E3A8A;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        
+        h3 {
+            color: #2563EB;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background-color: #F3F4F6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .calculator-container {
+            background-color: #F0F9FF;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .calculator-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .control-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        select, input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #D1D5DB;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #1E40AF;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background-color: #E0E7FF;
+            border: 1px solid #BFDBFE;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        td {
+            border: 1px solid #BFDBFE;
+            padding: 10px;
+        }
+        
+        .score-cell {
+            font-weight: bold;
+        }
+        
+        .excellent-score {
+            background-color: #D1FAE5;
+        }
+        
+        .good-score {
+            background-color: #E0F2FE;
+        }
+        
+        .fair-score {
+            background-color: #FEF3C7;
+        }
+        
+        .poor-score {
+            background-color: #FEE2E2;
+        }
+        
+        .calculation-notes {
+            font-size: 0.9em;
+            margin-top: 10px;
+            color: #6B7280;
+        }
+        
+        .comparison-table {
+            margin-top: 30px;
+        }
+        
+        .savings-highlight {
+            font-weight: bold;
+            color: #047857;
+        }
+        
+        .print-button {
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14pt;
+            margin-top: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #1E40AF;
+        }
+        
+        .reflection-area {
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            min-height: 100px;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 10pt;
+            color: #6B7280;
+            border-top: 1px solid #D1D5DB;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Credit Score Impact Calculator</h1>
+        <p>Chapter 7.3: Understanding Credit Scores</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This worksheet demonstrates how credit scores affect the cost of borrowing money. Use it to calculate and compare the financial impact of different credit score ranges on various types of loans.</p>
+        <ol>
+            <li>Select a loan type, amount, and term</li>
+            <li>Review the calculated interest rates for different credit score ranges</li>
+            <li>Compare monthly payments and total costs</li>
+            <li>Calculate the potential lifetime savings from having excellent credit</li>
+            <li>Complete the reflection questions</li>
+        </ol>
+    </div>
+    
+    <div class="calculator-container">
+        <h2>Credit Score Impact Calculator</h2>
+        
+        <div class="calculator-controls no-print">
+            <div class="control-group">
+                <label for="loan-type">Loan Type:</label>
+                <select id="loan-type">
+                    <option value="auto">Auto Loan</option>
+                    <option value="mortgage">Mortgage</option>
+                    <option value="personal">Personal Loan</option>
+                    <option value="credit-card">Credit Card</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="loan-amount">Loan Amount ($):</label>
+                <input type="number" id="loan-amount" value="25000" min="1000" max="1000000">
+            </div>
+            
+            <div class="control-group">
+                <label for="loan-term">Loan Term (months):</label>
+                <input type="number" id="loan-term" value="60" min="12" max="360">
+            </div>
+        </div>
+        
+        <button class="no-print" onclick="calculateImpact()">Calculate Impact</button>
+        
+        <!-- Pre-calculated example for printing -->
+        <h3>Auto Loan: $25,000 for 60 months</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Credit Score Range</th>
+                    <th>Credit Rating</th>
+                    <th>Interest Rate</th>
+                    <th>Monthly Payment</th>
+                    <th>Total Interest Paid</th>
+                    <th>Total Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="excellent-score">
+                    <td class="score-cell">760-850</td>
+                    <td>Excellent</td>
+                    <td>3.9%</td>
+                    <td>$460.59</td>
+                    <td>$2,635.40</td>
+                    <td>$27,635.40</td>
+                </tr>
+                <tr class="good-score">
+                    <td class="score-cell">700-759</td>
+                    <td>Good</td>
+                    <td>5.2%</td>
+                    <td>$474.77</td>
+                    <td>$3,486.20</td>
+                    <td>$28,486.20</td>
+                </tr>
+                <tr class="fair-score">
+                    <td class="score-cell">660-699</td>
+                    <td>Fair</td>
+                    <td>7.4%</td>
+                    <td>$498.75</td>
+                    <td>$4,925.00</td>
+                    <td>$29,925.00</td>
+                </tr>
+                <tr class="poor-score">
+                    <td class="score-cell">560-659</td>
+                    <td>Poor</td>
+                    <td>11.9%</td>
+                    <td>$553.12</td>
+                    <td>$8,187.20</td>
+                    <td>$33,187.20</td>
+                </tr>
+                <tr class="poor-score">
+                    <td class="score-cell">300-559</td>
+                    <td>Very Poor</td>
+                    <td>15.2%</td>
+                    <td>$595.25</td>
+                    <td>$10,715.00</td>
+                    <td>$35,715.00</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="calculation-notes">
+            Note: These figures are approximations based on average interest rates as of 2025. Actual rates may vary by lender, location, and specific financial circumstances.
+        </p>
+        
+        <h3>Potential Lifetime Savings</h3>
+        <p>If you maintain excellent credit (760-850) instead of poor credit (560-659), you would save:</p>
+        <ul>
+            <li><strong>On this auto loan:</strong> <span class="savings-highlight">$5,551.80</span> in interest</li>
+            <li><strong>On a $250,000 30-year mortgage:</strong> <span class="savings-highlight">$96,820</span> in interest</li>
+            <li><strong>On $15,000 in credit card debt:</strong> <span class="savings-highlight">$8,705</span> in interest (assuming minimum payments)</li>
+        </ul>
+        
+        <p class="savings-highlight">Total potential lifetime savings: $111,076.80</p>
+    </div>
+    
+    <h2>Compare Another Common Scenario</h2>
+    
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Loan Type</th>
+                <th>Loan Amount</th>
+                <th>Term</th>
+                <th>Excellent Credit (760+)</th>
+                <th>Poor Credit (580)</th>
+                <th>Difference</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mortgage</td>
+                <td>$350,000</td>
+                <td>30 years</td>
+                <td>$1,650/month @ 4.8%<br>Total: $594,000</td>
+                <td>$2,187/month @ 7.2%<br>Total: $787,320</td>
+                <td class="savings-highlight">$193,320</td>
+            </tr>
+            <tr>
+                <td>Car Loan</td>
+                <td>$35,000</td>
+                <td>72 months</td>
+                <td>$562/month @ 4.1%<br>Total: $40,464</td>
+                <td>$754/month @ 12.9%<br>Total: $54,288</td>
+                <td class="savings-highlight">$13,824</td>
+            </tr>
+            <tr>
+                <td>Personal Loan</td>
+                <td>$10,000</td>
+                <td>36 months</td>
+                <td>$299/month @ 7.5%<br>Total: $10,764</td>
+                <td>$370/month @ 18.0%<br>Total: $13,320</td>
+                <td class="savings-highlight">$2,556</td>
+            </tr>
+            <tr>
+                <td>Credit Card</td>
+                <td>$5,000</td>
+                <td>Revolving</td>
+                <td>APR: 14.9%</td>
+                <td>APR: 24.9%</td>
+                <td class="savings-highlight">10% lower APR</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>Reflection Questions</h2>
+    
+    <h3>1. What surprises you most about the financial impact of different credit scores?</h3>
+    <div class="reflection-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h3>2. How might these potential savings affect your financial decisions in the future?</h3>
+    <div class="reflection-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <h3>3. In addition to loan costs, what other financial impacts might your credit score have?</h3>
+    <div class="reflection-area">
+        <!-- Space for handwritten or typed response -->
+    </div>
+    
+    <div class="no-print">
+        <button class="print-button" onclick="window.print();">Print or Save as PDF</button>
+        <p><small>Click the button above to print this worksheet or save it as a PDF file.</small></p>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 7.3: Understanding Credit Scores</p>
+    </footer>
+    
+    <script>
+        // This is a simplified version for the printable worksheet
+        // In a real interactive calculator, this would connect to the form inputs
+        function calculateImpact() {
+            // This function would normally update the table based on form inputs
+            alert("In the online version, this would calculate new values based on your inputs.");
+        }
+    </script>
+</body>
+</html>

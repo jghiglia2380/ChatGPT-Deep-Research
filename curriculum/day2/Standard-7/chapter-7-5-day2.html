@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 7.5: Understanding Student Loans - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Custom styles for student loan simulator */
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: #d7dce4;
+            outline: none;
+            margin: 10px 0;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4f46e5;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: #6366f1;
+        }
+        
+        /* Debt-to-income color indicators */
+        .safe-ratio {
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        .caution-ratio {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+        
+        .danger-ratio {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        /* Tabbed content styling */
+        .tab-button {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .tab-button.active {
+            background-color: #fff;
+            color: #4f46e5;
+            border-top: 2px solid #4f46e5;
+            border-left: 1px solid #e5e7eb;
+            border-right: 1px solid #e5e7eb;
+            border-bottom: none;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0 0.5rem 0.5rem 0.5rem;
+            background-color: #fff;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 7: Understanding Credit</h2>
+                <p class="text-gray-600 mb-4">This standard explores the fundamentals of credit, including borrowing, debt management, and responsible use of credit products.</p>
+            </div>
+            
+            <!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-7-5-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Previous Chapters -->
+                <li>
+                    <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        7.1: Understanding the Cost of Borrowing
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        7.2: Choosing the Right Source of Credit
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        7.3: Understanding Credit Score
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        7.4: Consumer Credit Legislation
+                    </a>
+                </li>
+                
+                <!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">7.5: Understanding Student Loans</span>
+                    </div>
+                    <!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Student Loan Simulator
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Career Earnings Research
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Repayment Strategy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station4" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Financial Impact Analysis
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/4 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div>
+                    <div class="station-indicator"></div> <!-- Portfolio -->
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-7-5-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 7.5: Understanding Student Loans - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Student Loan Repayment Planning Lab</p>
+            
+            <!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Research and compare the costs of different educational pathways</li>
+                    <li>Calculate potential student loan debt based on educational choices</li>
+                    <li>Develop a personalized post-graduation repayment strategy</li>
+                    <li>Evaluate the financial impact of student loans on future lifestyle and financial goals</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">
+                    Welcome to Day 2 of Understanding Student Loans! Today we'll build on what we learned about federal and private student loans by developing a personalized student loan repayment plan. You'll research educational costs, analyze potential career earnings, and create a realistic strategy for managing student loan debt after graduation.
+                </p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700">
+                        The decisions you make about financing your education can impact your financial situation for many years after graduation. The goal of this Learning Lab is to help you create a strategic approach to student loans that balances educational opportunities with long-term financial health.
+                    </p>
+                </div>
+                
+                <!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">
+                        In Day 1, we explored the different types of student loans and their key features. Today, we'll apply that knowledge to create a personalized student loan repayment plan. We'll build on these concepts from yesterday:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>The differences between federal and private student loans</li>
+                        <li>How interest rates and loan terms affect total repayment</li>
+                        <li>Various repayment plans and their advantages/disadvantages</li>
+                        <li>Strategies for responsible borrowing and debt management</li>
+                    </ul>
+                </div>
+                
+                <!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Understanding Student Loans</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="/finished LM recordings/7.5 - Understanding Student Loans.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Federal vs. private student loans, interest rates, repayment options, loan forgiveness, and responsible borrowing strategies.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">
+                    Today's Learning Lab consists of four stations where you'll build your complete student loan strategy. You'll start by simulating different loan scenarios, then research potential career earnings, develop a personalized repayment strategy, and analyze the long-term financial impact of your student loan choices.
+                </p>
+            </section>
+            
+            <!-- Station 1: Student Loan Simulator -->
+            <div class="learning-station" id="station1">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Student Loan Repayment Simulator</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    In this station, you'll explore how different loan variables affect your repayment journey. Use the interactive simulator below to see how changes to loan amount, interest rate, repayment period, and monthly payment affect the total cost of your education.
+                </p>
+                
+                <!-- Interactive Loan Simulator -->
+                <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Interactive Student Loan Simulator</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Input Controls -->
+                        <div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Loan Amount</label>
+                                <div class="flex items-center">
+                                    <span class="text-gray-500 mr-2">$</span>
+                                    <input type="number" id="loan-amount" class="w-full border-gray-300 rounded-md p-2 border" value="30000" min="1000" max="200000" step="1000">
+                                </div>
+                                <input type="range" id="loan-amount-slider" class="slider w-full mt-2" min="1000" max="200000" step="1000" value="30000">
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>$1,000</span>
+                                    <span>$200,000</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Interest Rate (%)</label>
+                                <input type="number" id="interest-rate" class="w-full border-gray-300 rounded-md p-2 border" value="5.0" min="1.0" max="15.0" step="0.1">
+                                <input type="range" id="interest-rate-slider" class="slider w-full mt-2" min="1.0" max="15.0" step="0.1" value="5.0">
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>1.0%</span>
+                                    <span>15.0%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Loan Term (years)</label>
+                                <input type="number" id="loan-term" class="w-full border-gray-300 rounded-md p-2 border" value="10" min="5" max="30" step="1">
+                                <input type="range" id="loan-term-slider" class="slider w-full mt-2" min="5" max="30" step="1" value="10">
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>5 years</span>
+                                    <span>30 years</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Loan Type</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center mb-2">
+                                        <input type="radio" id="federal-loan" name="loan-type" value="federal" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300" checked>
+                                        <label for="federal-loan" class="ml-2 block text-sm text-gray-700">Federal Loan</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="private-loan" name="loan-type" value="private" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300">
+                                        <label for="private-loan" class="ml-2 block text-sm text-gray-700">Private Loan</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Results -->
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+                            <h4 class="font-semibold text-gray-900 mb-3">Loan Repayment Simulation Results</h4>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <p class="text-sm text-gray-500">Monthly Payment</p>
+                                    <p class="text-2xl font-bold text-indigo-700" id="monthly-payment">$318</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Total Repayment</p>
+                                    <p class="text-2xl font-bold text-indigo-700" id="total-repayment">$38,160</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Total Interest</p>
+                                    <p class="text-2xl font-bold text-indigo-700" id="total-interest">$8,160</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Interest % of Total</p>
+                                    <p class="text-2xl font-bold text-indigo-700" id="interest-percentage">27.2%</p>
+                                </div>
+                            </div>
+                            
+                            <hr class="my-4">
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium text-gray-900 mb-2">Payment Breakdown</h5>
+                                <div class="bg-gray-100 h-8 rounded-full overflow-hidden">
+                                    <div class="bg-indigo-600 h-full" id="principal-bar" style="width: 72.8%;">
+                                        <span class="sr-only">Principal</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between mt-1 text-sm">
+                                    <span class="text-indigo-700">Principal: <span id="principal-percent">72.8%</span></span>
+                                    <span class="text-orange-600">Interest: <span id="interest-bar-percent">27.2%</span></span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h5 class="font-medium text-gray-900 mb-2">Monthly Payment Impact</h5>
+                                <p class="text-sm text-gray-700 mb-1">
+                                    A <span class="font-semibold">$318</span> monthly payment is 
+                                    <span class="text-green-600 font-semibold">15.9%</span> of a <span class="font-semibold">$2,000</span> monthly income.
+                                </p>
+                                <div class="mb-2">
+                                    <label class="block text-xs text-gray-500 mb-1">Monthly Income Estimate</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-1">$</span>
+                                        <input type="number" id="monthly-income" class="border-gray-300 rounded-md p-1 border text-sm w-28" value="2000" min="0" max="20000" step="100">
+                                    </div>
+                                </div>
+                                <div id="payment-impact" class="payment-scale h-4 bg-gray-200 rounded-full mt-1 overflow-hidden">
+                                    <div id="payment-impact-bar" class="h-full bg-green-500" style="width: 15.9%;"></div>
+                                </div>
+                                <div class="flex justify-between mt-1 text-xs text-gray-500">
+                                    <span>0%</span>
+                                    <span>10%</span>
+                                    <span>20%</span>
+                                    <span>30%</span>
+                                    <span>40%</span>
+                                    <span>50%</span>
+                                </div>
+                                <p class="mt-2 text-sm" id="debt-to-income-message">
+                                    <span class="safe-ratio">Good debt-to-income ratio</span>: Financial experts recommend keeping student loan payments below 20% of your monthly income.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Scenario Comparison -->
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Save Scenarios for Comparison</h3>
+                        <p class="text-gray-700 mb-4">Compare different scenarios to find the best option for your situation.</p>
+                        
+                        <div class="flex items-center mb-3">
+                            <input type="text" id="scenario-name" class="border-gray-300 rounded-md p-2 border" placeholder="Scenario name">
+                            <button id="save-scenario" class="ml-3 bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Save Scenario</button>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Scenario</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Loan Amount</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Interest Rate</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Term</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monthly Payment</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Interest</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="scenario-table">
+                                    <!-- Saved scenarios will appear here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-medium text-indigo-800 mb-2">Key Insights from Simulation:</h4>
+                    <textarea id="loan-insights" class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Note your observations about how different variables affect your loan repayment..."></textarea>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 2: Career Earnings Research -->
+            <div class="learning-station" id="station2">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Career Earnings Research</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    In this station, you'll research potential earnings for careers you're interested in pursuing. Your projected income is a crucial factor in determining how much student debt is reasonable for your situation.
+                </p>
+                
+                <!-- Career Research Tool -->
+                <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Career Earnings Research Tool</h3>
+                    
+                    <p class="text-gray-700 mb-4">
+                        Use these resources to research salary information for careers you're considering:
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <a href="https://www.bls.gov/ooh/" target="_blank" class="block p-4 border border-gray-200 rounded-lg hover:bg-indigo-50 transition hover:border-indigo-300">
+                            <h4 class="font-semibold text-gray-900 mb-1">Bureau of Labor Statistics</h4>
+                            <p class="text-sm text-gray-600">Occupational Outlook Handbook with detailed career information and salary data</p>
+                        </a>
+                        
+                        <a href="https://www.payscale.com/" target="_blank" class="block p-4 border border-gray-200 rounded-lg hover:bg-indigo-50 transition hover:border-indigo-300">
+                            <h4 class="font-semibold text-gray-900 mb-1">PayScale</h4>
+                            <p class="text-sm text-gray-600">Personalized salary research based on location, experience, and education</p>
+                        </a>
+                        
+                        <a href="https://www.glassdoor.com/Salaries/index.htm" target="_blank" class="block p-4 border border-gray-200 rounded-lg hover:bg-indigo-50 transition hover:border-indigo-300">
+                            <h4 class="font-semibold text-gray-900 mb-1">Glassdoor</h4>
+                            <p class="text-sm text-gray-600">Salary information submitted by employees at specific companies</p>
+                        </a>
+                        
+                        <a href="https://collegescorecard.ed.gov/" target="_blank" class="block p-4 border border-gray-200 rounded-lg hover:bg-indigo-50 transition hover:border-indigo-300">
+                            <h4 class="font-semibold text-gray-900 mb-1">College Scorecard</h4>
+                            <p class="text-sm text-gray-600">Data on graduates' earnings by institution and field of study</p>
+                        </a>
+                    </div>
+                    
+                    <!-- Career Earnings Documentation -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden mb-6">
+                        <div class="bg-indigo-50 p-3">
+                            <h4 class="font-semibold text-indigo-900">Document Your Career Earnings Research</h4>
+                        </div>
+                        <div class="p-4">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Career/Degree Path #1</label>
+                                <input type="text" id="career-1" class="w-full border-gray-300 rounded-md p-2 border" placeholder="Example: Computer Science Degree, Software Developer">
+                                
+                                <div class="grid grid-cols-3 gap-3 mt-2">
+                                    <div>
+                                        <label class="block text-xs text-gray-500 mb-1">Starting Salary</label>
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 mr-1">$</span>
+                                            <input type="number" id="career-1-starting" class="w-full border-gray-300 rounded-md p-2 border" placeholder="60,000">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-gray-500 mb-1">Mid-Career Salary</label>
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 mr-1">$</span>
+                                            <input type="number" id="career-1-mid" class="w-full border-gray-300 rounded-md p-2 border" placeholder="90,000">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-gray-500 mb-1">Education Cost</label>
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 mr-1">$</span>
+                                            <input type="number" id="career-1-cost" class="w-full border-gray-300 rounded-md p-2 border" placeholder="80,000">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Career/Degree Path #2</label>
+                                <input type="text" id="career-2" class="w-full border-gray-300 rounded-md p-2 border" placeholder="Example: Business Degree, Marketing Manager">
+                                
+                                <div class="grid grid-cols-3 gap-3 mt-2">
+                                    <div>
+                                        <label class="block text-xs text-gray-500 mb-1">Starting Salary</label>
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 mr-1">$</span>
+                                            <input type="number" id="career-2-starting" class="w-full border-gray-300 rounded-md p-2 border" placeholder="45,000">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-gray-500 mb-1">Mid-Career Salary</label>
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 mr-1">$</span>
+                                            <input type="number" id="career-2-mid" class="w-full border-gray-300 rounded-md p-2 border" placeholder="85,000">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-gray-500 mb-1">Education Cost</label>
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 mr-1">$</span>
+                                            <input type="number" id="career-2-cost" class="w-full border-gray-300 rounded-md p-2 border" placeholder="65,000">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- ROI Analysis Section -->
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <h5 class="font-medium text-gray-900 mb-3">Education Return on Investment (ROI) Analysis</h5>
+                                
+                                <div class="grid grid-cols-2 gap-4 mb-4 bg-indigo-50 p-3 rounded-lg">
+                                    <div>
+                                        <label class="block text-xs font-medium text-indigo-800 mb-1">Years to Recover Education Costs</label>
+                                        <div class="flex items-center">
+                                            <select id="roi-career-select" class="border-gray-300 rounded-md py-1 px-2 border text-sm">
+                                                <option value="1">Career Path #1</option>
+                                                <option value="2">Career Path #2</option>
+                                            </select>
+                                            <button id="calculate-roi" class="ml-2 bg-indigo-600 text-white text-xs px-2 py-1 rounded hover:bg-indigo-700 transition">Calculate</button>
+                                        </div>
+                                        <div class="mt-2 text-lg font-bold text-indigo-700" id="years-to-recover">--</div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-indigo-800 mb-1">Recommended Max Loan Amount (8% of Starting Salary)</label>
+                                        <div class="mt-2 text-lg font-bold text-indigo-700" id="recommended-loan">--</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Career 10-Year Earnings Chart -->
+                                <div>
+                                    <h5 class="font-medium text-gray-900 mb-2">10-Year Earnings Projection</h5>
+                                    <div class="bg-white p-2 rounded border border-gray-200">
+                                        <canvas id="earnings-chart" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-indigo-800 mb-2">Research Notes:</h4>
+                        <textarea id="career-research-notes" class="w-full p-3 border border-gray-300 rounded-md" rows="3" placeholder="Note your observations about career options, salary projections, and how they relate to your education costs..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 3: Repayment Strategy Development -->
+            <div class="learning-station" id="station3">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Repayment Strategy Development</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    Now that you've explored loan variables and researched potential career earnings, it's time to develop a personalized repayment strategy that aligns with your educational and career goals.
+                </p>
+                
+                <!-- Repayment Strategy Builder -->
+                <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Repayment Strategy Builder</h3>
+                    
+                    <!-- Tabs -->
+                    <div class="border-b border-gray-200">
+                        <ul class="flex flex-wrap -mb-px" role="tablist">
+                            <li class="mr-2">
+                                <button class="tab-button active" id="fed-tab-btn" type="button" role="tab">Federal Loan Plans</button>
+                            </li>
+                            <li class="mr-2">
+                                <button class="tab-button" id="private-tab-btn" type="button" role="tab">Private Loan Options</button>
+                            </li>
+                            <li>
+                                <button class="tab-button" id="strategy-tab-btn" type="button" role="tab">My Strategy</button>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Tab Content -->
+                    <div class="py-4">
+                        <!-- Federal Loans Tab -->
+                        <div id="fed-tab" class="tab-content active">
+                            <h4 class="font-medium text-gray-900 mb-3">Federal Student Loan Repayment Plans</h4>
+                            <p class="text-gray-700 mb-4">Compare the different federal repayment plans to find one that might work for your situation.</p>
+                            
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Repayment Plan</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Best For</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Standard Repayment</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Fixed payments over 10 years</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Those who can afford higher monthly payments and want to pay less interest overall</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Graduated Repayment</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Payments start low and increase every 2 years over 10 years</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Those who expect their income to increase steadily over time</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Extended Repayment</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Fixed or graduated payments over 25 years</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Those with large loan balances who need lower monthly payments</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Income-Based Repayment (IBR)</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Payments based on income and family size, capped at 10-15% of discretionary income</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Those with high debt relative to income who qualify for partial financial hardship</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Pay As You Earn (PAYE)</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Payments capped at 10% of discretionary income, forgiveness after 20 years</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Recent borrowers with high debt relative to income</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Public Service Loan Forgiveness</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Forgiveness after 10 years of qualifying payments while working for eligible employers</td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">Those planning careers in government or non-profit organizations</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Private Loans Tab -->
+                        <div id="private-tab" class="tab-content">
+                            <h4 class="font-medium text-gray-900 mb-3">Private Student Loan Options</h4>
+                            <p class="text-gray-700 mb-4">Private student loans typically offer fewer repayment options than federal loans. Here are some common features:</p>
+                            
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-indigo-500 pl-4 py-2">
+                                    <h5 class="font-medium text-gray-900">Fixed vs. Variable Interest Rates</h5>
+                                    <p class="text-sm text-gray-700">
+                                        Fixed rates remain the same for the life of the loan, while variable rates can change based on market conditions. Fixed rates are typically higher initially but provide more stability and predictability.
+                                    </p>
+                                </div>
+                                
+                                <div class="border-l-4 border-indigo-500 pl-4 py-2">
+                                    <h5 class="font-medium text-gray-900">Repayment Terms</h5>
+                                    <p class="text-sm text-gray-700">
+                                        Private loans typically offer terms from 5-20 years. Shorter terms mean higher monthly payments but less interest paid overall, while longer terms reduce monthly payments but increase total interest costs.
+                                    </p>
+                                </div>
+                                
+                                <div class="border-l-4 border-indigo-500 pl-4 py-2">
+                                    <h5 class="font-medium text-gray-900">Cosigner Requirements</h5>
+                                    <p class="text-sm text-gray-700">
+                                        Many private loans require a cosigner with good credit, especially for students with limited credit history. Some lenders offer cosigner release after a certain number of on-time payments.
+                                    </p>
+                                </div>
+                                
+                                <div class="border-l-4 border-indigo-500 pl-4 py-2">
+                                    <h5 class="font-medium text-gray-900">Refinancing Options</h5>
+                                    <p class="text-sm text-gray-700">
+                                        After graduation and establishing a good credit history, you may be able to refinance private loans to secure a lower interest rate, which can significantly reduce overall costs.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                                <h5 class="font-medium text-yellow-800">Important Considerations</h5>
+                                <p class="text-sm text-gray-700">
+                                    Private loans lack many of the borrower protections of federal loans, such as income-driven repayment plans, loan forgiveness options, and deferment/forbearance options. Exhaust federal loan options before considering private loans.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Strategy Tab -->
+                        <div id="strategy-tab" class="tab-content">
+                            <h4 class="font-medium text-gray-900 mb-3">Develop Your Personalized Repayment Strategy</h4>
+                            <p class="text-gray-700 mb-4">
+                                Based on your loan simulations, career research, and the repayment options you've reviewed, develop your personalized repayment strategy below.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">1. Selected Education Pathway</label>
+                                    <input type="text" id="education-path" class="w-full border-gray-300 rounded-md p-2 border" placeholder="Example: 4-year university for Computer Science degree">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">2. Estimated Total Education Cost</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="total-education-cost" class="w-full border-gray-300 rounded-md p-2 border" placeholder="80,000">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">3. Amount Covered by Savings, Scholarships, Grants</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="non-loan-amount" class="w-full border-gray-300 rounded-md p-2 border" placeholder="30,000">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">4. Amount Needed in Loans</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="loan-amount-needed" class="w-full border-gray-300 rounded-md p-2 border" placeholder="50,000">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">5. Expected Starting Salary</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="expected-salary" class="w-full border-gray-300 rounded-md p-2 border" placeholder="60,000">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">6. Selected Federal Repayment Plan</label>
+                                    <select id="federal-plan" class="w-full border-gray-300 rounded-md p-2 border">
+                                        <option value="">Select a plan...</option>
+                                        <option value="standard">Standard Repayment</option>
+                                        <option value="graduated">Graduated Repayment</option>
+                                        <option value="extended">Extended Repayment</option>
+                                        <option value="ibr">Income-Based Repayment (IBR)</option>
+                                        <option value="paye">Pay As You Earn (PAYE)</option>
+                                        <option value="pslf">Public Service Loan Forgiveness</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">7. Will you use private loans? If so, describe your approach:</label>
+                                    <textarea id="private-loans-approach" class="w-full border-gray-300 rounded-md p-2 border" rows="2" placeholder="Example: I'll use federal loans first, then take out a fixed-rate private loan for the remaining amount..."></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">8. Strategies to minimize borrowing and accelerate repayment:</label>
+                                    <textarea id="minimizing-strategy" class="w-full border-gray-300 rounded-md p-2 border" rows="3" placeholder="Example: Working part-time during school, using summer income to make interest payments while in school, maintaining a strict budget after graduation..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-medium text-indigo-800 mb-2">Repayment Strategy Summary:</h4>
+                    <textarea id="repayment-strategy-summary" class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Summarize your repayment strategy, including your selected education pathway, loan amounts, repayment plan, and strategies to minimize debt..."></textarea>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Station 4: Financial Impact Analysis -->
+            <div class="learning-station" id="station4">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">4</span>
+                    <h2 class="text-xl font-semibold text-gray-900">Financial Impact Analysis</h2>
+                </div>
+                
+                <!-- Activity Timer -->
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                    In this final station, you'll analyze how your student loan payments will affect your ability to meet other financial goals after graduation, such as renting an apartment, saving for retirement, or handling emergency expenses.
+                </p>
+                
+                <!-- Financial Impact Calculator -->
+                <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Financial Impact Calculator</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Input Section -->
+                        <div>
+                            <h4 class="font-medium text-gray-900 mb-3">Post-Graduation Budget</h4>
+                            <p class="text-gray-700 mb-4">
+                                Enter your expected post-graduation monthly income and expenses to see how student loan payments will impact your budget.
+                            </p>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Monthly Take-Home Pay</label>
+                                <div class="flex items-center">
+                                    <span class="text-gray-500 mr-2">$</span>
+                                    <input type="number" id="monthly-take-home" class="w-full border-gray-300 rounded-md p-2 border" value="3500">
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    This is your salary after taxes and deductions
+                                </p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Monthly Student Loan Payment</label>
+                                <div class="flex items-center">
+                                    <span class="text-gray-500 mr-2">$</span>
+                                    <input type="number" id="loan-payment" class="w-full border-gray-300 rounded-md p-2 border" value="350">
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <h5 class="text-sm font-medium text-gray-700">Other Monthly Expenses</h5>
+                                
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Housing (Rent/Mortgage)</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="housing-expense" class="w-full border-gray-300 rounded-md p-2 border" value="1200">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Utilities & Internet</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="utilities-expense" class="w-full border-gray-300 rounded-md p-2 border" value="200">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Food & Groceries</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="food-expense" class="w-full border-gray-300 rounded-md p-2 border" value="400">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Transportation</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="transportation-expense" class="w-full border-gray-300 rounded-md p-2 border" value="250">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Insurance (Health, Car, etc.)</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="insurance-expense" class="w-full border-gray-300 rounded-md p-2 border" value="200">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Entertainment & Personal</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="entertainment-expense" class="w-full border-gray-300 rounded-md p-2 border" value="300">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Other Expenses</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="other-expense" class="w-full border-gray-300 rounded-md p-2 border" value="100">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button id="calculate-budget" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Calculate Budget Impact</button>
+                        </div>
+                        
+                        <!-- Results Section -->
+                        <div>
+                            <h4 class="font-medium text-gray-900 mb-3">Financial Impact Analysis</h4>
+                            
+                            <!-- Budget Breakdown -->
+                            <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-4">
+                                <h5 class="font-medium text-gray-900 mb-2">Monthly Budget Breakdown</h5>
+                                <div>
+                                    <canvas id="budget-chart" height="220"></canvas>
+                                </div>
+                                
+                                <div class="mt-3 flex justify-between">
+                                    <div>
+                                        <p class="text-sm text-gray-500">Total Expenses</p>
+                                        <p class="text-xl font-bold text-indigo-700" id="total-expenses">$3,000</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Remaining for Savings</p>
+                                        <p class="text-xl font-bold text-green-600" id="remaining-amount">$500</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Loan-to-Income Analysis -->
+                            <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-4">
+                                <h5 class="font-medium text-gray-900 mb-2">Student Loan-to-Income Ratio</h5>
+                                <div class="relative pt-1">
+                                    <div class="overflow-hidden h-4 text-xs flex rounded bg-gray-200">
+                                        <div id="loan-ratio-bar" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500" style="width: 10%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between mt-1 text-xs text-gray-500">
+                                    <span>0%</span>
+                                    <span>5%</span>
+                                    <span>10%</span>
+                                    <span>15%</span>
+                                    <span>20%</span>
+                                    <span>25%</span>
+                                </div>
+                                <p class="mt-2 text-sm" id="loan-ratio-message">
+                                    Your student loan payment is <span class="text-green-600 font-semibold" id="loan-ratio-percent">10%</span> of your monthly take-home pay. Financial experts recommend keeping this ratio below 15%.
+                                </p>
+                            </div>
+                            
+                            <!-- Long-term Impact -->
+                            <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+                                <h5 class="font-medium text-gray-900 mb-2">Long-term Financial Impact</h5>
+                                
+                                <div class="space-y-3">
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-700">Retirement Savings</p>
+                                        <p class="text-sm text-gray-600" id="retirement-impact">
+                                            If you invested your $350 monthly loan payment in retirement instead (with an average 7% return), you would have approximately <span class="font-semibold text-indigo-700">$175,400</span> after 20 years.
+                                        </p>
+                                    </div>
+                                    
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-700">Home Purchase</p>
+                                        <p class="text-sm text-gray-600" id="home-purchase-impact">
+                                            Your student loan debt may reduce your home buying power by approximately <span class="font-semibold text-indigo-700">$50,000</span> in mortgage amount due to debt-to-income ratio constraints.
+                                        </p>
+                                    </div>
+                                    
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-700">Emergency Fund</p>
+                                        <p class="text-sm text-gray-600" id="emergency-fund-impact">
+                                            With $500 leftover each month, you could build a 3-month emergency fund of $10,500 in <span class="font-semibold text-indigo-700">21 months</span>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-medium text-indigo-800 mb-2">Financial Impact Analysis:</h4>
+                    <textarea id="financial-impact-analysis" class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Based on your budget analysis, describe how your student loans will impact your financial goals and what adjustments you might need to make..."></textarea>
+                </div>
+                
+                <!-- Save Button -->
+                <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Portfolio Integration Section -->
+            <section id="portfolio" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive student loan strategy for your portfolio.</p>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-900 mb-4">Student Loan Strategy Portfolio</h3>
+                    <p class="text-gray-700 mb-4">Your portfolio combines all elements from today's Learning Lab into a cohesive plan:</p>
+                    
+                    <ul class="list-disc list-inside mb-4 text-gray-700">
+                        <li>Loan simulation scenarios and analysis</li>
+                        <li>Career earnings research and education ROI calculations</li>
+                        <li>Personalized loan repayment strategy</li>
+                        <li>Financial impact analysis and budget adjustments</li>
+                    </ul>
+                    
+                    <p class="text-gray-700 mb-4">Review each section to ensure alignment across your entire plan.</p>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Portfolio Summary (What have you learned from this Learning Lab?)</label>
+                        <textarea id="portfolio-summary" class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize key insights and how this plan will guide your education financing decisions..."></textarea>
+                        <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                    </div>
+                    
+                    <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1" onclick="savePortfolio()">Complete Portfolio</button>
+                </div>
+            </section>
+            
+            <!-- Reflection Section -->
+            <section id="reflection" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                    <p class="text-gray-700 mb-3">
+                        Reflect on how the information and strategies you've learned in this chapter will influence your approach to financing your education. How has your perspective on student loans changed? What specific actions will you take to ensure responsible borrowing and repayment?
+                    </p>
+                    <textarea id="final-reflection" class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <a href="#" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                        Continue to Next Chapter
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Your progress has been saved!</span>
+        </div>
+    </div>
+    
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Track completed stations
+        let completedStations = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        // Set up chart objects
+        let budgetChart = null;
+        let earningsChart = null;
+        
+        // Initialize interactive elements when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize charts
+            initializeBudgetChart();
+            initializeEarningsChart();
+            
+            // Set up tab functionality
+            setupTabs();
+            
+            // Set up slider synchronization for station 1
+            syncSliders();
+            
+            // Set up interactive budget calculator for station 4
+            initializeBudgetCalculator();
+            
+            // Initialize loan calculator
+            calculateLoanPayments();
+            
+            // Initialize ROI calculator
+            setupROICalculator();
+        });
+        
+        // Station progress tracking
+        function saveStation(stationNumber) {
+            completedStations['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update indicator in sidebar
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('active');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 4) {
+                // If this is the last station, scroll to portfolio
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Portfolio completion
+        function savePortfolio() {
+            completedStations.portfolio = true;
+            updateProgress();
+            showToast('Portfolio completed!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.add('active');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress tracking
+        function updateProgress() {
+            const totalStations = Object.keys(completedStations).length;
+            const completedCount = Object.values(completedStations).filter(Boolean).length;
+            const percentage = Math.round((completedCount / totalStations) * 100);
+            
+            // Update progress bar
+            document.querySelector('.bg-gradient-to-r.from-indigo-600.to-purple-600').style.width = percentage + '%';
+            
+            // Update text
+            document.querySelector('.font-medium').textContent = completedCount + '/' + (totalStations - 1) + ' stations';
+        }
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Tab functionality
+        function setupTabs() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = button.id.replace('-btn', '');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+        
+        // Synchronize sliders and inputs in station 1
+        function syncSliders() {
+            // Loan amount
+            const loanAmountSlider = document.getElementById('loan-amount-slider');
+            const loanAmountInput = document.getElementById('loan-amount');
+            
+            if (loanAmountSlider && loanAmountInput) {
+                loanAmountSlider.addEventListener('input', () => {
+                    loanAmountInput.value = loanAmountSlider.value;
+                    calculateLoanPayments();
+                });
+                
+                loanAmountInput.addEventListener('input', () => {
+                    loanAmountSlider.value = loanAmountInput.value;
+                    calculateLoanPayments();
+                });
+            }
+            
+            // Interest rate
+            const interestRateSlider = document.getElementById('interest-rate-slider');
+            const interestRateInput = document.getElementById('interest-rate');
+            
+            if (interestRateSlider && interestRateInput) {
+                interestRateSlider.addEventListener('input', () => {
+                    interestRateInput.value = interestRateSlider.value;
+                    calculateLoanPayments();
+                });
+                
+                interestRateInput.addEventListener('input', () => {
+                    interestRateSlider.value = interestRateInput.value;
+                    calculateLoanPayments();
+                });
+            }
+            
+            // Loan term
+            const loanTermSlider = document.getElementById('loan-term-slider');
+            const loanTermInput = document.getElementById('loan-term');
+            
+            if (loanTermSlider && loanTermInput) {
+                loanTermSlider.addEventListener('input', () => {
+                    loanTermInput.value = loanTermSlider.value;
+                    calculateLoanPayments();
+                });
+                
+                loanTermInput.addEventListener('input', () => {
+                    loanTermSlider.value = loanTermInput.value;
+                    calculateLoanPayments();
+                });
+            }
+            
+            // Monthly income for debt-to-income ratio
+            const monthlyIncomeInput = document.getElementById('monthly-income');
+            if (monthlyIncomeInput) {
+                monthlyIncomeInput.addEventListener('input', updateDebtToIncomeRatio);
+            }
+            
+            // Save scenario button
+            const saveScenarioButton = document.getElementById('save-scenario');
+            if (saveScenarioButton) {
+                saveScenarioButton.addEventListener('click', saveScenario);
+            }
+        }
+        
+        // Calculate loan payments based on inputs
+        function calculateLoanPayments() {
+            const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100; // Convert to decimal
+            const loanTermYears = parseInt(document.getElementById('loan-term').value);
+            
+            // Convert term to months and interest rate to monthly
+            const loanTermMonths = loanTermYears * 12;
+            const monthlyInterestRate = interestRate / 12;
+            
+            // Calculate monthly payment using formula: P = L[c(1 + c)^n]/[(1 + c)^n - 1]
+            // Where P = payment, L = loan amount, c = monthly interest rate, n = number of payments
+            const monthlyPayment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTermMonths)) / 
+                                  (Math.pow(1 + monthlyInterestRate, loanTermMonths) - 1);
+            
+            // Calculate total repayment and interest
+            const totalRepayment = monthlyPayment * loanTermMonths;
+            const totalInterest = totalRepayment - loanAmount;
+            
+            // Update the display
+            document.getElementById('monthly-payment').textContent = '$' + monthlyPayment.toFixed(0);
+            document.getElementById('total-repayment').textContent = '$' + totalRepayment.toFixed(0);
+            document.getElementById('total-interest').textContent = '$' + totalInterest.toFixed(0);
+            
+            // Calculate interest percentage of total
+            const interestPercentage = (totalInterest / totalRepayment) * 100;
+            document.getElementById('interest-percentage').textContent = interestPercentage.toFixed(1) + '%';
+            
+            // Update principal percentage and bars
+            const principalPercentage = 100 - interestPercentage;
+            document.getElementById('principal-percent').textContent = principalPercentage.toFixed(1) + '%';
+            document.getElementById('interest-bar-percent').textContent = interestPercentage.toFixed(1) + '%';
+            document.getElementById('principal-bar').style.width = principalPercentage + '%';
+            
+            // Update debt-to-income ratio analysis
+            updateDebtToIncomeRatio();
+        }
+        
+        // Update debt-to-income ratio analysis
+        function updateDebtToIncomeRatio() {
+            const monthlyPayment = parseFloat(document.getElementById('monthly-payment').textContent.replace('$', ''));
+            const monthlyIncome = parseFloat(document.getElementById('monthly-income').value);
+            
+            // Calculate ratio
+            const ratio = (monthlyPayment / monthlyIncome) * 100;
+            
+            // Update display
+            document.getElementById('payment-impact-bar').style.width = ratio + '%';
+            
+            const messageElement = document.getElementById('debt-to-income-message');
+            const ratioElement = document.getElementById('loan-ratio-percent');
+            ratioElement.textContent = ratio.toFixed(1) + '%';
+            
+            // Color coding based on ratio
+            if (ratio < 10) {
+                document.getElementById('payment-impact-bar').className = 'h-full bg-green-500';
+                ratioElement.className = 'safe-ratio';
+                messageElement.innerHTML = '<span class="safe-ratio">Good debt-to-income ratio</span>: Financial experts recommend keeping student loan payments below 20% of your monthly income.';
+            } else if (ratio < 15) {
+                document.getElementById('payment-impact-bar').className = 'h-full bg-green-400';
+                ratioElement.className = 'safe-ratio';
+                messageElement.innerHTML = '<span class="safe-ratio">Manageable debt-to-income ratio</span>: Your ratio is within recommended guidelines.';
+            } else if (ratio < 20) {
+                document.getElementById('payment-impact-bar').className = 'h-full bg-yellow-500';
+                ratioElement.className = 'caution-ratio';
+                messageElement.innerHTML = '<span class="caution-ratio">Approaching high debt-to-income ratio</span>: Your ratio is nearing the upper limit of recommendations.';
+            } else {
+                document.getElementById('payment-impact-bar').className = 'h-full bg-red-500';
+                ratioElement.className = 'danger-ratio';
+                messageElement.innerHTML = '<span class="danger-ratio">High debt-to-income ratio</span>: Your ratio exceeds recommendations. Consider ways to reduce loan amounts or increase income.';
+            }
+        }
+        
+        // Save a loan scenario for comparison
+        function saveScenario() {
+            const scenarioName = document.getElementById('scenario-name').value;
+            if (!scenarioName) {
+                showToast('Please enter a name for your scenario', 'warning');
+                return;
+            }
+            
+            const loanAmount = document.getElementById('loan-amount').value;
+            const interestRate = document.getElementById('interest-rate').value;
+            const loanTerm = document.getElementById('loan-term').value;
+            const monthlyPayment = document.getElementById('monthly-payment').textContent;
+            const totalInterest = document.getElementById('total-interest').textContent;
+            
+            // Create a new row in the table
+            const table = document.getElementById('scenario-table');
+            const newRow = document.createElement('tr');
+            
+            newRow.innerHTML = `
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${scenarioName}</td>
+                <td class="px-6 py-4 text-sm text-gray-500">$${loanAmount}</td>
+                <td class="px-6 py-4 text-sm text-gray-500">${interestRate}%</td>
+                <td class="px-6 py-4 text-sm text-gray-500">${loanTerm} years</td>
+                <td class="px-6 py-4 text-sm text-gray-500">${monthlyPayment}</td>
+                <td class="px-6 py-4 text-sm text-gray-500">${totalInterest}</td>
+            `;
+            
+            table.appendChild(newRow);
+            
+            // Clear the scenario name field
+            document.getElementById('scenario-name').value = '';
+            
+            showToast('Scenario saved!');
+        }
+        
+        // Initialize budget chart
+        function initializeBudgetChart() {
+            const ctx = document.getElementById('budget-chart');
+            if (ctx) {
+                budgetChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Student Loans', 'Housing', 'Utilities', 'Food', 'Transportation', 'Insurance', 'Entertainment', 'Other'],
+                        datasets: [{
+                            data: [350, 1200, 200, 400, 250, 200, 300, 100],
+                            backgroundColor: [
+                                '#4f46e5', // Indigo (Student Loans)
+                                '#0ea5e9', // Sky blue (Housing)
+                                '#06b6d4', // Cyan (Utilities)
+                                '#10b981', // Emerald (Food)
+                                '#84cc16', // Lime (Transportation)
+                                '#eab308', // Yellow (Insurance)
+                                '#f59e0b', // Amber (Entertainment)
+                                '#9ca3af'  // Gray (Other)
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    boxWidth: 12
+                                }
+                            }
+                        },
+                        cutout: '60%'
+                    }
+                });
+            }
+        }
+        
+        // Initialize earnings chart
+        function initializeEarningsChart() {
+            const ctx = document.getElementById('earnings-chart');
+            if (ctx) {
+                earningsChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5', 'Year 6', 'Year 7', 'Year 8', 'Year 9', 'Year 10'],
+                        datasets: [{
+                            label: 'Career Path #1',
+                            data: [60000, 63000, 66150, 69458, 73280, 77310, 81562, 86048, 90781, 95774],
+                            borderColor: '#4f46e5',
+                            backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                            tension: 0.1,
+                            fill: true
+                        }, {
+                            label: 'Career Path #2',
+                            data: [45000, 48375, 51947, 55740, 59743, 68205, 73125, 78365, 84044, 90147],
+                            borderColor: '#0ea5e9',
+                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                            tension: 0.1,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Annual Salary ($)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Initialize budget calculator in station 4
+        function initializeBudgetCalculator() {
+            const calculateButton = document.getElementById('calculate-budget');
+            if (calculateButton) {
+                calculateButton.addEventListener('click', () => {
+                    // Get all expense inputs
+                    const loanPayment = parseFloat(document.getElementById('loan-payment').value) || 0;
+                    const housingExpense = parseFloat(document.getElementById('housing-expense').value) || 0;
+                    const utilitiesExpense = parseFloat(document.getElementById('utilities-expense').value) || 0;
+                    const foodExpense = parseFloat(document.getElementById('food-expense').value) || 0;
+                    const transportationExpense = parseFloat(document.getElementById('transportation-expense').value) || 0;
+                    const insuranceExpense = parseFloat(document.getElementById('insurance-expense').value) || 0;
+                    const entertainmentExpense = parseFloat(document.getElementById('entertainment-expense').value) || 0;
+                    const otherExpense = parseFloat(document.getElementById('other-expense').value) || 0;
+                    
+                    // Get income
+                    const monthlyIncome = parseFloat(document.getElementById('monthly-take-home').value) || 0;
+                    
+                    // Calculate total expenses
+                    const totalExpenses = loanPayment + housingExpense + utilitiesExpense + foodExpense + 
+                                         transportationExpense + insuranceExpense + entertainmentExpense + otherExpense;
+                    
+                    // Calculate remaining for savings
+                    const remaining = monthlyIncome - totalExpenses;
+                    
+                    // Update display
+                    document.getElementById('total-expenses').textContent = '$' + totalExpenses.toFixed(0);
+                    document.getElementById('remaining-amount').textContent = '$' + remaining.toFixed(0);
+                    
+                    // Update chart data
+                    budgetChart.data.datasets[0].data = [
+                        loanPayment, housingExpense, utilitiesExpense, foodExpense, 
+                        transportationExpense, insuranceExpense, entertainmentExpense, otherExpense
+                    ];
+                    budgetChart.update();
+                    
+                    // Update loan-to-income ratio
+                    const loanRatio = (loanPayment / monthlyIncome) * 100;
+                    document.getElementById('loan-ratio-bar').style.width = loanRatio + '%';
+                    document.getElementById('loan-ratio-percent').textContent = loanRatio.toFixed(1) + '%';
+                    
+                    // Update long-term impact calculations
+                    updateLongTermImpacts(loanPayment, remaining);
+                    
+                    showToast('Budget calculation complete!');
+                });
+            }
+        }
+        
+        // Update long-term financial impacts
+        function updateLongTermImpacts(loanPayment, monthlySavings) {
+            // Retirement impact (loan payment invested monthly at 7% for 20 years)
+            const monthlyInvestment = loanPayment;
+            const annualReturn = 0.07;
+            const years = 20;
+            const futureValue = monthlyInvestment * (((Math.pow(1 + annualReturn / 12, 12 * years)) - 1) / (annualReturn / 12)) * (1 + annualReturn / 12);
+            
+            document.getElementById('retirement-impact').innerHTML = 
+                `If you invested your $${loanPayment} monthly loan payment in retirement instead (with an average 7% return), you would have approximately <span class="font-semibold text-indigo-700">$${Math.round(futureValue).toLocaleString()}</span> after 20 years.`;
+            
+            // Home purchase impact (reduced buying power due to debt-to-income ratio)
+            const reducedMortgageAmount = loanPayment * 200; // Rough estimate: $1 in monthly payment reduces mortgage by ~$200
+            
+            document.getElementById('home-purchase-impact').innerHTML = 
+                `Your student loan debt may reduce your home buying power by approximately <span class="font-semibold text-indigo-700">$${reducedMortgageAmount.toLocaleString()}</span> in mortgage amount due to debt-to-income ratio constraints.`;
+            
+            // Emergency fund impact (months to build 3-month fund)
+            const monthsNeeded = (monthlySavings > 0) ? Math.ceil((3 * (loanPayment + 2500)) / monthlySavings) : 0;
+            const emergencyAmount = 3 * (loanPayment + 2500);
+            
+            let emergencyMessage;
+            if (monthlySavings <= 0) {
+                emergencyMessage = `With no money left for savings, you'll struggle to build an emergency fund. Consider reducing expenses or increasing income.`;
+            } else {
+                emergencyMessage = `With $${monthlySavings} leftover each month, you could build a 3-month emergency fund of $${emergencyAmount.toLocaleString()} in <span class="font-semibold text-indigo-700">${monthsNeeded} months</span>.`;
+            }
+            
+            document.getElementById('emergency-fund-impact').innerHTML = emergencyMessage;
+        }
+        
+        // Set up ROI calculator
+        function setupROICalculator() {
+            const calculateROIButton = document.getElementById('calculate-roi');
+            if (calculateROIButton) {
+                calculateROIButton.addEventListener('click', () => {
+                    const careerPath = document.getElementById('roi-career-select').value;
+                    
+                    let startingSalary, educationCost;
+                    
+                    if (careerPath === '1') {
+                        startingSalary = parseFloat(document.getElementById('career-1-starting').value) || 60000;
+                        educationCost = parseFloat(document.getElementById('career-1-cost').value) || 80000;
+                    } else {
+                        startingSalary = parseFloat(document.getElementById('career-2-starting').value) || 45000;
+                        educationCost = parseFloat(document.getElementById('career-2-cost').value) || 65000;
+                    }
+                    
+                    // Calculate years to recover education costs (simplified)
+                    const yearsToRecover = Math.round((educationCost / startingSalary) * 10) / 10;
+                    
+                    // Calculate recommended max loan (8% of starting salary as annual payment)
+                    const recommendedMaxLoan = Math.round((startingSalary * 0.08) * 10) / 10;
+                    
+                    // Update display
+                    document.getElementById('years-to-recover').textContent = yearsToRecover + ' years';
+                    document.getElementById('recommended-loan').textContent = '$' + recommendedMaxLoan.toLocaleString() + '/year';
+                    
+                    showToast('ROI calculation complete!');
+                });
+            }
+        }
+        
+        // Add event listeners for AI feedback on textareas with data-ai-check
+        document.querySelectorAll('textarea[data-ai-check="true"]').forEach(textarea => {
+            textarea.addEventListener('blur', function() {
+                if (this.value.length > 20) {
+                    const feedbackContainer = this.nextElementSibling;
+                    if (feedbackContainer && feedbackContainer.classList.contains('feedback-container')) {
+                        // Show random feedback based on assessment weight
+                        const weight = parseInt(this.getAttribute('data-assessment-weight')) || 3;
+                        const feedback = getAIFeedback(weight);
+                        
+                        feedbackContainer.textContent = feedback;
+                        feedbackContainer.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Generate appropriate AI feedback based on weight
+        function getAIFeedback(weight) {
+            const feedbackOptions = [
+                [
+                    "Good start! Consider expanding your thoughts with specific details.",
+                    "Thanks for sharing your thoughts. Try connecting them more explicitly to the concepts from this chapter.",
+                    "You've made some good points. Can you expand on how this relates to your own situation?"
+                ],
+                [
+                    "Great work! Your reflection shows good understanding of the key concepts.",
+                    "Excellent points about how student loans impact financial planning. Your insights are well-articulated.",
+                    "Well done on connecting these concepts to real-life scenarios. Your analysis is thoughtful and thorough."
+                ],
+                [
+                    "Outstanding work! Your reflection demonstrates deep understanding and personal application.",
+                    "Exceptional analysis that shows sophisticated understanding of how student loans fit into broader financial planning.",
+                    "Impressive work connecting the concepts to your own situation. Your strategy shows careful consideration of long-term impacts."
+                ]
+            ];
+            
+            // Adjust weight to be within range (0-2)
+            const adjustedWeight = Math.min(Math.max(Math.floor(weight / 2) - 1, 0), 2);
+            
+            // Select random feedback from appropriate category
+            const options = feedbackOptions[adjustedWeight];
+            return options[Math.floor(Math.random() * options.length)];
+        }
+        
+        // Highlight active section based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('#learning-objectives, #intro, .learning-station, #portfolio, #reflection');
+            const navLinks = document.querySelectorAll('#section-navigation a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-indigo-700', 'font-medium');
+                link.classList.add('text-gray-700');
+                
+                const href = link.getAttribute('href').substring(1);
+                if (href === current) {
+                    link.classList.remove('text-gray-700');
+                    link.classList.add('text-indigo-700', 'font-medium');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

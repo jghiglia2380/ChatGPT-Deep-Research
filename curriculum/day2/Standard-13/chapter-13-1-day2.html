@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 13.1: Strategies for Managing High Levels of Debt - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, A, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        .case-study {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .debt-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        .debt-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar-bg {
+            background-color: #e5e7eb;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 13: Debt Management</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding debt management strategies and solutions for high debt levels</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 13.1: Strategies for Managing High Levels of Debt
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-13-1-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Debt Analysis
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Debt Reduction Planning
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Consolidation Calculator
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Credit Rebuilding
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-indigo-600" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-13-1-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 13.1: Strategies for Managing High Levels of Debt</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Creating a Personal Debt Management Plan</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Create a personalized debt reduction plan using appropriate debt repayment strategies</li>
+                            <li>Calculate and compare the financial impact of various debt consolidation options</li>
+                            <li>Evaluate appropriate debt management alternatives for different financial situations</li>
+                            <li>Develop a timeline for credit score rebuilding after debt issues</li>
+                            <li>Design a comprehensive approach to managing high levels of debt</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Debt Management Learning Lab! Today, you'll put your knowledge into practice by working through a series of activities designed to help you develop practical skills for managing high levels of debt. You'll analyze debt situations, create personalized debt reduction plans, explore consolidation options, and develop credit rebuilding strategies.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                The strategies you'll work with today are used by professional financial counselors, but remember that real-world debt management often requires personalized advice. These activities will give you foundational knowledge, but individuals facing serious debt challenges should consult with certified financial professionals.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                Yesterday, we explored the concepts of debt management strategies, including snowball and avalanche methods, debt consolidation, settlement, bankruptcy options, and credit rebuilding. Today, you'll apply these concepts by working with real scenarios and creating actionable plans to manage and reduce debt while rebuilding credit.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Strategies for Managing High Levels of Debt</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/Users/justin/pfl-academy/finished LM recordings/13.1 - Strategies for Managing High Levels of Debt.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Debt repayment strategies, consolidation options, bankruptcy alternatives, credit rebuilding, and long-term financial planning
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Station 1: Debt Analysis -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 1: Debt Situation Analysis</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-12 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this station, you'll analyze a debt situation and identify key financial indicators that help determine appropriate debt management strategies.</p>
+                            
+                            <div class="case-study mb-6">
+                                <h3 class="font-semibold text-blue-800 mb-2">The Rodriguez Family Case</h3>
+                                <p class="text-blue-700 mb-2">Michael and Sofia Rodriguez are facing significant debt challenges:</p>
+                                <ul class="list-disc list-inside text-blue-700 mb-3">
+                                    <li>Combined annual income: $72,000 ($6,000/month)</li>
+                                    <li>Monthly expenses (excluding debt payments): $4,200</li>
+                                    <li>Credit card debt: $18,500 (average 22% APR)</li>
+                                    <li>Medical debt: $7,200 (0% interest but in collections)</li>
+                                    <li>Car loan: $12,000 (6% APR, $320/month)</li>
+                                    <li>Student loans: $32,000 (5.5% APR, $350/month)</li>
+                                    <li>Current FICO credit score: 580</li>
+                                </ul>
+                            </div>
+                            
+                            <h4 class="font-semibold text-gray-800 mb-2">Debt Analysis Indicators</h4>
+                            <p class="mb-3">Calculate the following financial indicators for the Rodriguez family:</p>
+                            
+                            <div class="mb-4 bg-gray-50 p-4 rounded-md">
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">1. Total Debt Amount:</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="total-debt" class="border-gray-300 border rounded px-3 py-2 w-48" placeholder="Calculate total debt">
+                                        <button class="ml-2 text-xs text-indigo-600" id="hint-total-debt">Need help?</button>
+                                    </div>
+                                    <div id="hint-total-debt-text" class="hidden mt-1 text-xs text-gray-600 bg-indigo-50 p-2 rounded">
+                                        Add all debts: $18,500 (credit cards) + $7,200 (medical) + $12,000 (car loan) + $32,000 (student loans) = $69,700
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">2. Debt-to-Income Ratio:</label>
+                                    <div class="flex items-center">
+                                        <input type="number" id="dti-ratio" class="border-gray-300 border rounded px-3 py-2 w-32" placeholder="Calculate DTI">
+                                        <span class="text-gray-500 ml-2">%</span>
+                                        <button class="ml-2 text-xs text-indigo-600" id="hint-dti">Need help?</button>
+                                    </div>
+                                    <div id="hint-dti-text" class="hidden mt-1 text-xs text-gray-600 bg-indigo-50 p-2 rounded">
+                                        <p>To calculate DTI:</p>
+                                        <ol class="list-decimal list-inside">
+                                            <li>Add up all monthly debt payments: $320 (car) + $350 (student loans) + minimal payments on credit cards (~$370) and medical debt (~$200) = $1,240</li>
+                                            <li>Divide by monthly income: $1,240 ÷ $6,000 = 0.2067</li>
+                                            <li>Multiply by 100: 0.2067 × 100 = 20.67%</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">3. Monthly Cash Available for Debt Repayment:</label>
+                                    <div class="flex items-center">
+                                        <span class="text-gray-500 mr-2">$</span>
+                                        <input type="number" id="available-cash" class="border-gray-300 border rounded px-3 py-2 w-48" placeholder="Calculate amount">
+                                        <button class="ml-2 text-xs text-indigo-600" id="hint-cash">Need help?</button>
+                                    </div>
+                                    <div id="hint-cash-text" class="hidden mt-1 text-xs text-gray-600 bg-indigo-50 p-2 rounded">
+                                        <p>Monthly income ($6,000) - Monthly expenses excluding debt ($4,200) = $1,800 available for debt repayment</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-2">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">4. Evaluate the Situation:</label>
+                                    <select id="situation-severity" class="border-gray-300 border rounded px-3 py-2 w-full">
+                                        <option value="">-- Select assessment --</option>
+                                        <option value="manageable">Manageable with budgeting adjustments</option>
+                                        <option value="moderate">Moderate: Needs structured repayment plan</option>
+                                        <option value="severe">Severe: May need debt consolidation or settlement</option>
+                                        <option value="critical">Critical: May need to consider bankruptcy options</option>
+                                    </select>
+                                    <div class="mt-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                                        <p class="font-medium">Assessment guidelines:</p>
+                                        <ul class="list-disc list-inside">
+                                            <li><b>Manageable:</b> DTI ratio < 15%, no collections, sufficient income for payments</li>
+                                            <li><b>Moderate:</b> DTI ratio 15-30%, may have some high interest debt, income allows for payments</li>
+                                            <li><b>Severe:</b> DTI ratio 30-50%, collection accounts, high interest debt, limited payment capacity</li>
+                                            <li><b>Critical:</b> DTI ratio > 50%, multiple collections, unsustainable debt load</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="font-semibold text-gray-800 mb-2">Suitable Debt Management Approaches</h4>
+                            <p class="mb-3">Based on your analysis, select which approaches might be appropriate for the Rodriguez family:</p>
+                            
+                            <div class="mb-3 bg-gray-100 p-3 rounded text-sm">
+                                <p class="font-medium mb-2">Debt Management Approaches at a Glance:</p>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li><b>Stricter budgeting:</b> Reducing expenses to allocate more money to debt repayment</li>
+                                    <li><b>Debt snowball method:</b> Paying smallest debts first for psychological wins (regardless of interest rate)</li>
+                                    <li><b>Debt avalanche method:</b> Paying highest interest debts first to minimize total interest paid</li>
+                                    <li><b>Debt consolidation:</b> Combining multiple debts into one loan, ideally at a lower interest rate</li>
+                                    <li><b>Debt settlement:</b> Negotiating with creditors to accept less than full payment (damages credit, usually for severe situations)</li>
+                                    <li><b>Credit counseling:</b> Working with a nonprofit agency for budget guidance and possibly a debt management plan</li>
+                                    <li><b>Bankruptcy:</b> Legal process for discharging debts; significant credit impact, last resort for critical situations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 mb-4">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="approach-budget" class="mr-2">
+                                    <label for="approach-budget" class="text-sm">Stricter budgeting</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="approach-snowball" class="mr-2">
+                                    <label for="approach-snowball" class="text-sm">Debt snowball method</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="approach-avalanche" class="mr-2">
+                                    <label for="approach-avalanche" class="text-sm">Debt avalanche method</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="approach-consolidation" class="mr-2">
+                                    <label for="approach-consolidation" class="text-sm">Debt consolidation</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="approach-settlement" class="mr-2">
+                                    <label for="approach-settlement" class="text-sm">Debt settlement</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="approach-management" class="mr-2">
+                                    <label for="approach-management" class="text-sm">Credit counseling</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="approach-bankruptcy" class="mr-2">
+                                    <label for="approach-bankruptcy" class="text-sm">Bankruptcy</label>
+                                </div>
+                            </div>
+                            
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Justify your selections:</label>
+                            <textarea id="approach-justification" class="border-gray-300 border rounded px-3 py-2 w-full h-24" placeholder="Explain why you selected these approaches..."></textarea>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 2: Debt Reduction Planning -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Debt Reduction Planning Workshop</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">Now that you've analyzed the Rodriguez family's situation, it's time to create a debt reduction plan. You'll compare two popular strategies: the Debt Snowball (paying smallest debts first for psychological wins) and the Debt Avalanche (paying highest interest debts first for maximum financial benefit).</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-md mb-5">
+                                <h4 class="font-semibold text-gray-800 mb-3">Debt Prioritization Plan</h4>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Step 1: Select a Repayment Strategy:</label>
+                                    <div class="flex flex-col space-y-2">
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" name="repayment-strategy" value="snowball" class="form-radio">
+                                            <span class="ml-2">Debt Snowball Method (smallest balance first)</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" name="repayment-strategy" value="avalanche" class="form-radio">
+                                            <span class="ml-2">Debt Avalanche Method (highest interest first)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Step 2: Prioritize the Debts:</label>
+                                    <p class="text-sm text-gray-600 mb-2">Drag and drop the debts in the order you'll pay them off based on your selected strategy:</p>
+                                    
+                                    <div id="debt-priority-container" class="space-y-2">
+                                        <div class="debt-card bg-white flex justify-between items-center" draggable="true" id="debt-cc">
+                                            <div>
+                                                <span class="font-medium">Credit Card Debt</span>
+                                                <p class="text-sm text-gray-600">$18,500 (22% APR)</p>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-white bg-gray-400 rounded-full h-5 w-5 flex items-center justify-center text-xs mr-2 debt-priority-number">?</span>
+                                                <span class="text-gray-400 cursor-move">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="debt-card bg-white flex justify-between items-center" draggable="true" id="debt-med">
+                                            <div>
+                                                <span class="font-medium">Medical Debt</span>
+                                                <p class="text-sm text-gray-600">$7,200 (0% interest, in collections)</p>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-white bg-gray-400 rounded-full h-5 w-5 flex items-center justify-center text-xs mr-2 debt-priority-number">?</span>
+                                                <span class="text-gray-400 cursor-move">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="debt-card bg-white flex justify-between items-center" draggable="true" id="debt-car">
+                                            <div>
+                                                <span class="font-medium">Car Loan</span>
+                                                <p class="text-sm text-gray-600">$12,000 (6% APR)</p>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-white bg-gray-400 rounded-full h-5 w-5 flex items-center justify-center text-xs mr-2 debt-priority-number">?</span>
+                                                <span class="text-gray-400 cursor-move">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="debt-card bg-white flex justify-between items-center" draggable="true" id="debt-student">
+                                            <div>
+                                                <span class="font-medium">Student Loans</span>
+                                                <p class="text-sm text-gray-600">$32,000 (5.5% APR)</p>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-white bg-gray-400 rounded-full h-5 w-5 flex items-center justify-center text-xs mr-2 debt-priority-number">?</span>
+                                                <span class="text-gray-400 cursor-move">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Step 3: Monthly Payment Allocation:</label>
+                                    <p class="text-sm text-gray-600 mb-2">The Rodriguez family has $1,800/month for debt payments. Allocate amounts to each debt:</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="space-y-3">
+                                            <div class="flex items-center justify-between">
+                                                <label class="text-sm text-gray-700">Credit Card Minimum:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-gray-500 mr-1">$</span>
+                                                    <input type="number" id="cc-payment" class="border-gray-300 border rounded px-2 py-1 w-24" value="370" min="370" max="1800" onchange="updateAllocationChart()">
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <label class="text-sm text-gray-700">Medical Debt Payment:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-gray-500 mr-1">$</span>
+                                                    <input type="number" id="med-payment" class="border-gray-300 border rounded px-2 py-1 w-24" value="200" min="200" max="1800" onchange="updateAllocationChart()">
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <label class="text-sm text-gray-700">Car Loan Payment:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-gray-500 mr-1">$</span>
+                                                    <input type="number" id="car-payment" class="border-gray-300 border rounded px-2 py-1 w-24" value="320" min="320" max="1800" onchange="updateAllocationChart()">
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <label class="text-sm text-gray-700">Student Loan Payment:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-gray-500 mr-1">$</span>
+                                                    <input type="number" id="student-payment" class="border-gray-300 border rounded px-2 py-1 w-24" value="350" min="350" max="1800" onchange="updateAllocationChart()">
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <label class="text-sm text-gray-700">Extra Payment to Priority Debt:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-gray-500 mr-1">$</span>
+                                                    <input type="number" id="extra-payment" class="border-gray-300 border rounded px-2 py-1 w-24" value="560" min="0" max="1800" onchange="updateAllocationChart()">
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center justify-between font-medium">
+                                                <label class="text-sm text-gray-700">Total Monthly Payments:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-gray-500 mr-1">$</span>
+                                                    <span id="total-payment">1,800</span>
+                                                </div>
+                                            </div>
+                                            <div id="payment-warning" class="hidden text-red-600 text-sm">
+                                                Total payments cannot exceed $1,800. Please adjust your allocations.
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="bg-white p-3 rounded shadow-sm">
+                                            <h5 class="text-sm font-medium text-gray-700 mb-2">Payment Allocation</h5>
+                                            <div class="h-60">
+                                                <canvas id="payment-allocation-chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Step 4: Projected Payoff Timeline:</label>
+                                    <div id="payoff-timeline" class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm">Credit Card Debt ($18,500)</span>
+                                                <span class="text-sm font-medium" id="cc-months">24 months</span>
+                                            </div>
+                                            <div class="progress-bar-bg">
+                                                <div class="progress-bar-fill" id="cc-progress" style="width: 60%;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm">Medical Debt ($7,200)</span>
+                                                <span class="text-sm font-medium" id="med-months">36 months</span>
+                                            </div>
+                                            <div class="progress-bar-bg">
+                                                <div class="progress-bar-fill" id="med-progress" style="width: 80%;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm">Car Loan ($12,000)</span>
+                                                <span class="text-sm font-medium" id="car-months">42 months</span>
+                                            </div>
+                                            <div class="progress-bar-bg">
+                                                <div class="progress-bar-fill" id="car-progress" style="width: 70%;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm">Student Loans ($32,000)</span>
+                                                <span class="text-sm font-medium" id="student-months">120 months</span>
+                                            </div>
+                                            <div class="progress-bar-bg">
+                                                <div class="progress-bar-fill" id="student-progress" style="width: 40%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="pt-2 border-t border-gray-200">
+                                            <div class="flex justify-between">
+                                                <span class="text-sm font-medium">Total Debt-Free Timeline:</span>
+                                                <span class="text-sm font-medium text-indigo-700" id="total-months">120 months</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-sm font-medium">Total Interest Paid:</span>
+                                                <span class="text-sm font-medium text-indigo-700" id="total-interest">$12,840</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Debt Repayment Strategy Rationale:</label>
+                                <textarea class="border-gray-300 border rounded px-3 py-2 w-full h-24" placeholder="Explain why you chose this repayment strategy and how it benefits the Rodriguez family..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 3: Consolidation Calculator -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: Debt Consolidation Calculator</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">12 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">Debt consolidation can sometimes offer advantages by combining multiple debts into a single loan with a lower interest rate. In this station, you'll evaluate whether consolidation makes financial sense for the Rodriguez family.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-md mb-5">
+                                <h4 class="font-semibold text-gray-800 mb-3">Consolidation Options Calculator</h4>
+                                
+                                <div class="mb-4">
+                                    <p class="text-sm text-gray-600 mb-3">Select which debts to consolidate:</p>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" id="consolidate-cc" class="form-checkbox mr-2" checked onchange="calculateConsolidation()">
+                                            <span>Credit Card Debt: $18,500 (22% APR)</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" id="consolidate-med" class="form-checkbox mr-2" checked onchange="calculateConsolidation()">
+                                            <span>Medical Debt: $7,200 (0% interest, in collections)</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" id="consolidate-car" class="form-checkbox mr-2" onchange="calculateConsolidation()">
+                                            <span>Car Loan: $12,000 (6% APR)</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" id="consolidate-student" class="form-checkbox mr-2" onchange="calculateConsolidation()">
+                                            <span>Student Loans: $32,000 (5.5% APR)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <h5 class="font-medium text-gray-800 mb-2">Current Debt Situation</h5>
+                                        <div class="bg-white p-3 rounded border border-gray-200">
+                                            <div class="mb-2">
+                                                <span class="text-sm text-gray-600">Total Selected Debt:</span>
+                                                <span class="float-right font-medium" id="current-total-debt">$25,700</span>
+                                            </div>
+                                            <div class="mb-2">
+                                                <span class="text-sm text-gray-600">Weighted Avg. Interest Rate:</span>
+                                                <span class="float-right font-medium" id="current-avg-rate">16.1%</span>
+                                            </div>
+                                            <div class="mb-2">
+                                                <span class="text-sm text-gray-600">Monthly Payment:</span>
+                                                <span class="float-right font-medium" id="current-monthly-payment">$570</span>
+                                            </div>
+                                            <div class="pt-2 border-t border-gray-200 mt-2">
+                                                <span class="text-sm text-gray-600">Payoff Timeline:</span>
+                                                <span class="float-right font-medium" id="current-payoff-time">7.2 years</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-sm text-gray-600">Total Interest Paid:</span>
+                                                <span class="float-right font-medium" id="current-total-interest">$11,782</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-medium text-gray-800 mb-2">Consolidation Option</h5>
+                                        <div class="bg-white p-3 rounded border border-gray-200">
+                                            <div class="mb-3">
+                                                <label class="block text-sm text-gray-600 mb-1">Consolidation Loan APR: <span id="rate-display">10%</span></label>
+                                                <input type="range" min="5" max="20" value="10" step="0.5" class="w-full" id="consolidation-rate" oninput="updateRateDisplay(); calculateConsolidation();">
+                                                <div class="flex justify-between">
+                                                    <span class="text-xs text-gray-500">5%</span>
+                                                    <span class="text-xs text-gray-500">12.5%</span>
+                                                    <span class="text-xs text-gray-500">20%</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="block text-sm text-gray-600 mb-1">Loan Term (years):</label>
+                                                <select class="border-gray-300 border rounded px-2 py-1 w-full" id="consolidation-term" onchange="calculateConsolidation()">
+                                                    <option value="3">3 years</option>
+                                                    <option value="5" selected>5 years</option>
+                                                    <option value="7">7 years</option>
+                                                    <option value="10">10 years</option>
+                                                </select>
+                                            </div>
+                                            <div class="pt-2 mt-2">
+                                                <span class="text-sm text-gray-600">New Monthly Payment:</span>
+                                                <span class="float-right font-medium" id="new-monthly-payment">$545</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-sm text-gray-600">New Total Interest:</span>
+                                                <span class="float-right font-medium" id="new-total-interest">$6,968</span>
+                                            </div>
+                                            <div class="mt-2 pt-2 border-t border-gray-200">
+                                                <span class="text-sm">Potential Savings:</span>
+                                                <span id="savings-amount" class="float-right font-medium text-green-600">$4,814</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <canvas id="consolidation-comparison-chart" height="200"></canvas>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded border border-gray-200 mb-4">
+                                    <h5 class="font-medium text-gray-800 mb-2">Consolidation Analysis</h5>
+                                    <div class="mb-3">
+                                        <label class="block text-sm text-gray-600 mb-1">Would consolidation benefit the Rodriguez family?</label>
+                                        <select class="border-gray-300 border rounded px-2 py-1 w-full" id="consolidation-benefit">
+                                            <option value="">-- Select your answer --</option>
+                                            <option value="yes">Yes, consolidation would provide significant benefits</option>
+                                            <option value="limited">Limited benefits, might be worth considering</option>
+                                            <option value="no">No, the current debt repayment plan is better</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-600 mb-1">Consolidation Considerations:</label>
+                                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                            <li>Qualifying for the consolidation loan might be difficult with a 580 credit score</li>
+                                            <li>Some debts (like medical debt at 0%) may not benefit from consolidation</li>
+                                            <li>Consolidation fees or origination charges might offset some savings</li>
+                                            <li>Secured consolidation loans (like home equity) carry additional risks</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Your Recommendation:</label>
+                                    <textarea class="border-gray-300 border rounded px-3 py-2 w-full h-24" placeholder="Based on these calculations, what would you recommend for the Rodriguez family regarding debt consolidation?"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 4: Credit Rebuilding -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 4: Credit Rebuilding Simulation</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">12 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">An important part of debt management is rebuilding credit after implementing your debt reduction strategy. In this station, you'll develop a credit rebuilding plan and timeline for the Rodriguez family.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-md mb-5">
+                                <h4 class="font-semibold text-gray-800 mb-3">Credit Rebuilding Timeline</h4>
+                                
+                                <div class="mb-3">
+                                    <p class="text-sm text-gray-700 mb-2">The Rodriguez family currently has a credit score of 580 (Fair). Create a credit rebuilding timeline with specific actions at each stage:</p>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div class="bg-white p-3 rounded border border-gray-200">
+                                        <h5 class="font-medium text-gray-800 mb-2">Short-Term (0-6 months)</h5>
+                                        <div class="mb-2">
+                                            <span class="text-sm text-gray-600">Target Credit Score Range:</span>
+                                            <select class="border-gray-300 border rounded px-2 py-1 ml-2">
+                                                <option value="580-620">580-620</option>
+                                                <option value="620-660" selected>620-660</option>
+                                                <option value="660-700">660-700</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Actions to Take:</label>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2" checked>
+                                                    <span class="text-sm">Ensure all bills and debt payments are made on time</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2" checked>
+                                                    <span class="text-sm">Request credit reports and dispute any errors</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2" checked>
+                                                    <span class="text-sm">Negotiate settlement or payment plan for medical collections</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2">
+                                                    <span class="text-sm">Apply for a secured credit card with $500 deposit</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2">
+                                                    <span class="text-sm">Become an authorized user on a family member's card</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white p-3 rounded border border-gray-200">
+                                        <h5 class="font-medium text-gray-800 mb-2">Medium-Term (6-18 months)</h5>
+                                        <div class="mb-2">
+                                            <span class="text-sm text-gray-600">Target Credit Score Range:</span>
+                                            <select class="border-gray-300 border rounded px-2 py-1 ml-2">
+                                                <option value="620-660">620-660</option>
+                                                <option value="660-700" selected>660-700</option>
+                                                <option value="700-740">700-740</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Actions to Take:</label>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2" checked>
+                                                    <span class="text-sm">Keep credit utilization below 30% on all cards</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2" checked>
+                                                    <span class="text-sm">Continue to make all payments on time</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2">
+                                                    <span class="text-sm">Apply for a credit-builder loan through a credit union</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2">
+                                                    <span class="text-sm">Convert secured credit card to unsecured if offered</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2">
+                                                    <span class="text-sm">Avoid applying for multiple new credit accounts</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white p-3 rounded border border-gray-200">
+                                        <h5 class="font-medium text-gray-800 mb-2">Long-Term (18-36+ months)</h5>
+                                        <div class="mb-2">
+                                            <span class="text-sm text-gray-600">Target Credit Score Range:</span>
+                                            <select class="border-gray-300 border rounded px-2 py-1 ml-2">
+                                                <option value="660-700">660-700</option>
+                                                <option value="700-740" selected>700-740</option>
+                                                <option value="740+">740+</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Actions to Take:</label>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2" checked>
+                                                    <span class="text-sm">Maintain diversified credit mix with different types of accounts</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2" checked>
+                                                    <span class="text-sm">Keep oldest credit accounts open to maintain credit history</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2">
+                                                    <span class="text-sm">Request credit limit increases on existing cards</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2">
+                                                    <span class="text-sm">Refinance remaining loans at lower interest rates</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" class="form-checkbox mr-2">
+                                                    <span class="text-sm">Set up autopay for all accounts to prevent missed payments</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4 mb-2">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Credit Rebuilding Challenges:</label>
+                                    <p class="text-sm text-gray-600 mb-2">Select the challenges the Rodriguez family might face in rebuilding their credit:</p>
+                                    
+                                    <div class="space-y-1">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="form-checkbox mr-2">
+                                            <span class="text-sm">Limited income for making payments</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="form-checkbox mr-2">
+                                            <span class="text-sm">Collections accounts creating long-term negative impact</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="form-checkbox mr-2">
+                                            <span class="text-sm">Limited access to new credit with current score</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="form-checkbox mr-2">
+                                            <span class="text-sm">High debt-to-income ratio limiting new credit options</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="form-checkbox mr-2">
+                                            <span class="text-sm">Potential for emergency expenses causing setbacks</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Credit Rebuilding Strategy Summary:</label>
+                                    <textarea class="border-gray-300 border rounded px-3 py-2 w-full h-24" placeholder="Summarize your credit rebuilding strategy and how it will help the Rodriguez family recover financially over time..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration: Comprehensive Debt Management Guide</h2>
+                        <p class="text-gray-700 mb-4">
+                            Now that you've worked through each station, it's time to combine your learnings into a comprehensive debt management guide for the Rodriguez family. This will become part of your financial literacy portfolio.
+                        </p>
+                        
+                        <div class="bg-white p-4 rounded-md shadow-sm mb-4">
+                            <h3 class="font-semibold text-gray-800 mb-2">Debt Management Guide Components</h3>
+                            <p class="text-sm text-gray-600 mb-3">Your guide should include the following components from the stations you've completed:</p>
+                            
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="component-1" class="mr-2">
+                                    <label for="component-1" class="text-sm">Debt Analysis Summary (Station 1)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="component-2" class="mr-2">
+                                    <label for="component-2" class="text-sm">Debt Reduction Plan & Timeline (Station 2)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="component-3" class="mr-2">
+                                    <label for="component-3" class="text-sm">Consolidation Analysis & Recommendations (Station 3)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="component-4" class="mr-2">
+                                    <label for="component-4" class="text-sm">Credit Rebuilding Timeline (Station 4)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="component-5" class="mr-2">
+                                    <label for="component-5" class="text-sm">Financial Emergency Contingency Plan</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Comprehensive Debt Management Guide</label>
+                            <div class="bg-white p-4 rounded-md border border-gray-300">
+                                <p class="text-gray-700 text-sm mb-3">Your guide should provide a clear, step-by-step approach for the Rodriguez family to manage their debt situation. Include your recommendations from each station.</p>
+                                
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md mb-3" rows="8" placeholder="Create your comprehensive debt management guide here..."></textarea>
+                                
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>This guide will be added to your financial literacy portfolio for future reference.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button mt-2" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Reflect on what you've learned about managing high levels of debt. Consider how different debt management strategies might be appropriate in different situations, and how you might apply these concepts to real-world financial decisions.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <p class="font-medium text-gray-700 mb-2">Reflection Questions:</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
+                                <li>How does a person's specific financial situation impact which debt management strategy is most appropriate?</li>
+                                <li>What are the psychological factors that might affect someone's ability to follow through with a debt management plan?</li>
+                                <li>How would you approach helping a friend or family member who is struggling with high levels of debt?</li>
+                            </ul>
+                        </div>
+                        
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="Share your reflections here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        let paymentAllocationChart;
+        let consolidationComparisonChart;
+        
+        // Initialize on document load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show calculation hints
+            document.getElementById('hint-total-debt').addEventListener('click', function() {
+                document.getElementById('hint-total-debt-text').classList.toggle('hidden');
+            });
+            
+            document.getElementById('hint-dti').addEventListener('click', function() {
+                document.getElementById('hint-dti-text').classList.toggle('hidden');
+            });
+            
+            document.getElementById('hint-cash').addEventListener('click', function() {
+                document.getElementById('hint-cash-text').classList.toggle('hidden');
+            });
+            
+            // Initialize drag and drop functionality
+            initializeDragAndDrop();
+            
+            // Initialize payment allocation chart
+            initializePaymentAllocationChart();
+            
+            // Initialize consolidation chart
+            initializeConsolidationChart();
+            
+            // Calculate initial consolidation
+            calculateConsolidation();
+            
+            // Highlight active section based on scroll
+            initializeScrollHighlighting();
+        });
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 4) {
+                // If last station, scroll to portfolio section
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection section
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Initialize drag and drop functionality
+        function initializeDragAndDrop() {
+            const container = document.getElementById('debt-priority-container');
+            const items = container.querySelectorAll('.debt-card');
+            
+            let draggedItem = null;
+            
+            items.forEach((item, index) => {
+                // Make items draggable
+                item.addEventListener('dragstart', function() {
+                    draggedItem = item;
+                    setTimeout(() => {
+                        item.style.opacity = '0.5';
+                    }, 0);
+                });
+                
+                item.addEventListener('dragend', function() {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        draggedItem = null;
+                    }, 0);
+                });
+                
+                // Handle drag over
+                item.addEventListener('dragover', e => {
+                    e.preventDefault();
+                });
+                
+                item.addEventListener('dragenter', function(e) {
+                    e.preventDefault();
+                    if (item !== draggedItem) {
+                        this.style.borderTop = '2px solid #4f46e5';
+                    }
+                });
+                
+                item.addEventListener('dragleave', function() {
+                    this.style.borderTop = '';
+                });
+                
+                item.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    if (this !== draggedItem) {
+                        // If dropping on a different item than the dragged one
+                        const allItems = Array.from(container.querySelectorAll('.debt-card'));
+                        const draggedIndex = allItems.indexOf(draggedItem);
+                        const droppedIndex = allItems.indexOf(this);
+                        
+                        if (draggedIndex < droppedIndex) {
+                            this.parentNode.insertBefore(draggedItem, this.nextSibling);
+                        } else {
+                            this.parentNode.insertBefore(draggedItem, this);
+                        }
+                        
+                        // Update priority numbers
+                        updatePriorityNumbers();
+                    }
+                    this.style.borderTop = '';
+                });
+            });
+            
+            // Initial priority numbers
+            updatePriorityNumbers();
+        }
+        
+        // Update debt priority numbers
+        function updatePriorityNumbers() {
+            const items = document.querySelectorAll('.debt-card');
+            items.forEach((item, index) => {
+                const priorityNumber = item.querySelector('.debt-priority-number');
+                priorityNumber.textContent = index + 1;
+                priorityNumber.classList.remove('bg-gray-400');
+                priorityNumber.classList.add('bg-indigo-600');
+            });
+        }
+        
+        // Initialize payment allocation chart
+        function initializePaymentAllocationChart() {
+            const ctx = document.getElementById('payment-allocation-chart').getContext('2d');
+            
+            // Initial data
+            const data = {
+                labels: ['Credit Card', 'Medical', 'Car Loan', 'Student Loans', 'Extra Payment'],
+                datasets: [{
+                    data: [370, 200, 320, 350, 560],
+                    backgroundColor: [
+                        '#4f46e5', // Indigo
+                        '#ec4899', // Pink
+                        '#10b981', // Green
+                        '#f59e0b', // Amber
+                        '#8b5cf6'  // Purple
+                    ],
+                    borderColor: 'white',
+                    borderWidth: 2
+                }]
+            };
+            
+            // Chart configuration
+            const config = {
+                type: 'pie',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw;
+                                    const percentage = Math.round((value / 1800) * 100);
+                                    return `$${value} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            // Create chart
+            paymentAllocationChart = new Chart(ctx, config);
+            
+            // Set up event listeners for payment inputs
+            document.getElementById('cc-payment').addEventListener('change', updateAllocationChart);
+            document.getElementById('med-payment').addEventListener('change', updateAllocationChart);
+            document.getElementById('car-payment').addEventListener('change', updateAllocationChart);
+            document.getElementById('student-payment').addEventListener('change', updateAllocationChart);
+            document.getElementById('extra-payment').addEventListener('change', updateAllocationChart);
+            
+            // Initial update
+            updateAllocationChart();
+        }
+        
+        // Update payment allocation chart
+        function updateAllocationChart() {
+            // Get payment values
+            const ccPayment = parseInt(document.getElementById('cc-payment').value) || 370;
+            const medPayment = parseInt(document.getElementById('med-payment').value) || 200;
+            const carPayment = parseInt(document.getElementById('car-payment').value) || 320;
+            const studentPayment = parseInt(document.getElementById('student-payment').value) || 350;
+            const extraPayment = parseInt(document.getElementById('extra-payment').value) || 560;
+            
+            // Calculate total
+            const totalPayment = ccPayment + medPayment + carPayment + studentPayment + extraPayment;
+            
+            // Update total display
+            document.getElementById('total-payment').textContent = totalPayment.toLocaleString();
+            
+            // Check if total exceeds $1,800
+            if (totalPayment > 1800) {
+                document.getElementById('payment-warning').classList.remove('hidden');
+                document.getElementById('total-payment').classList.add('text-red-600');
+            } else {
+                document.getElementById('payment-warning').classList.add('hidden');
+                document.getElementById('total-payment').classList.remove('text-red-600');
+            }
+            
+            // Update chart data
+            paymentAllocationChart.data.datasets[0].data = [ccPayment, medPayment, carPayment, studentPayment, extraPayment];
+            paymentAllocationChart.update();
+            
+            // Update payoff timelines
+            updatePayoffTimelines(ccPayment, medPayment, carPayment, studentPayment, extraPayment);
+        }
+        
+        // Update payoff timelines based on payment allocations
+        function updatePayoffTimelines(ccPayment, medPayment, carPayment, studentPayment, extraPayment) {
+            // Simple formulas for demonstration - in a real app these would be more accurate
+            const ccMonths = Math.round(18500 / (ccPayment + extraPayment * 0.5));
+            const medMonths = Math.round(7200 / medPayment);
+            const carMonths = Math.round(12000 / carPayment);
+            const studentMonths = Math.round(32000 / studentPayment);
+            
+            // Update month displays
+            document.getElementById('cc-months').textContent = `${ccMonths} months`;
+            document.getElementById('med-months').textContent = `${medMonths} months`;
+            document.getElementById('car-months').textContent = `${carMonths} months`;
+            document.getElementById('student-months').textContent = `${studentMonths} months`;
+            
+            // Find the longest timeline
+            const maxMonths = Math.max(ccMonths, medMonths, carMonths, studentMonths);
+            document.getElementById('total-months').textContent = `${maxMonths} months`;
+            
+            // Calculate rough interest paid
+            const totalInterest = Math.round(
+                (ccPayment * ccMonths * 0.22) + 
+                (carPayment * carMonths * 0.06) + 
+                (studentPayment * studentMonths * 0.055)
+            );
+            document.getElementById('total-interest').textContent = `$${totalInterest.toLocaleString()}`;
+            
+            // Update progress bars
+            document.getElementById('cc-progress').style.width = `${Math.min(100, 100 - (ccMonths / maxMonths) * 100)}%`;
+            document.getElementById('med-progress').style.width = `${Math.min(100, 100 - (medMonths / maxMonths) * 100)}%`;
+            document.getElementById('car-progress').style.width = `${Math.min(100, 100 - (carMonths / maxMonths) * 100)}%`;
+            document.getElementById('student-progress').style.width = `${Math.min(100, 100 - (studentMonths / maxMonths) * 100)}%`;
+        }
+        
+        // Initialize consolidation comparison chart
+        function initializeConsolidationChart() {
+            const ctx = document.getElementById('consolidation-comparison-chart').getContext('2d');
+            
+            // Initial data
+            const data = {
+                labels: ['Current Plan', 'Consolidation Plan'],
+                datasets: [{
+                    label: 'Total Payments',
+                    data: [37000, 33000],
+                    backgroundColor: ['#4f46e5', '#10b981'],
+                    borderColor: ['#4338ca', '#059669'],
+                    borderWidth: 1
+                }]
+            };
+            
+            // Chart configuration
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Total Amount Paid ($)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw;
+                                    return `Total: $${value.toLocaleString()}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            // Create chart
+            consolidationComparisonChart = new Chart(ctx, config);
+        }
+        
+        // Update rate display
+        function updateRateDisplay() {
+            const rate = document.getElementById('consolidation-rate').value;
+            document.getElementById('rate-display').textContent = rate + '%';
+        }
+        
+        // Calculate consolidation
+        function calculateConsolidation() {
+            // Get selected debts
+            const includeCreditCard = document.getElementById('consolidate-cc').checked;
+            const includeMedical = document.getElementById('consolidate-med').checked;
+            const includeCar = document.getElementById('consolidate-car').checked;
+            const includeStudent = document.getElementById('consolidate-student').checked;
+            
+            // Debt amounts and rates
+            const creditCardDebt = includeCreditCard ? 18500 : 0;
+            const medicalDebt = includeMedical ? 7200 : 0;
+            const carDebt = includeCar ? 12000 : 0;
+            const studentDebt = includeStudent ? 32000 : 0;
+            
+            // Total selected debt
+            const totalDebt = creditCardDebt + medicalDebt + carDebt + studentDebt;
+            
+            // If no debt selected
+            if (totalDebt === 0) {
+                document.getElementById('current-total-debt').textContent = '$0';
+                document.getElementById('current-avg-rate').textContent = '0%';
+                document.getElementById('current-monthly-payment').textContent = '$0';
+                document.getElementById('current-payoff-time').textContent = '0 years';
+                document.getElementById('current-total-interest').textContent = '$0';
+                
+                document.getElementById('new-monthly-payment').textContent = '$0';
+                document.getElementById('new-total-interest').textContent = '$0';
+                document.getElementById('savings-amount').textContent = '$0';
+                
+                // Update chart
+                updateConsolidationChart(0, 0);
+                
+                return;
+            }
+            
+            // Calculate weighted average interest rate
+            const weightedRate = (
+                (creditCardDebt * 22) + 
+                (medicalDebt * 0) + 
+                (carDebt * 6) + 
+                (studentDebt * 5.5)
+            ) / totalDebt;
+            
+            // Calculate current monthly payments
+            const creditCardPayment = creditCardDebt > 0 ? 370 : 0;
+            const medicalPayment = medicalDebt > 0 ? 200 : 0;
+            const carPayment = carDebt > 0 ? 320 : 0;
+            const studentPayment = studentDebt > 0 ? 350 : 0;
+            const totalMonthlyPayment = creditCardPayment + medicalPayment + carPayment + studentPayment;
+            
+            // Rough payoff time calculation
+            const roughPayoffMonths = Math.round(totalDebt / totalMonthlyPayment);
+            const roughPayoffYears = (roughPayoffMonths / 12).toFixed(1);
+            
+            // Rough interest paid calculation
+            const roughInterestPaid = Math.round(
+                (creditCardDebt * 0.22 * (roughPayoffMonths / 12)) + 
+                (carDebt * 0.06 * (roughPayoffMonths / 12)) + 
+                (studentDebt * 0.055 * (roughPayoffMonths / 12))
+            );
+            
+            // Update current debt displays
+            document.getElementById('current-total-debt').textContent = '$' + totalDebt.toLocaleString();
+            document.getElementById('current-avg-rate').textContent = weightedRate.toFixed(1) + '%';
+            document.getElementById('current-monthly-payment').textContent = '$' + totalMonthlyPayment.toLocaleString();
+            document.getElementById('current-payoff-time').textContent = roughPayoffYears + ' years';
+            document.getElementById('current-total-interest').textContent = '$' + roughInterestPaid.toLocaleString();
+            
+            // Calculate consolidation
+            const consolidationRate = parseFloat(document.getElementById('consolidation-rate').value) / 100;
+            const consolidationTerm = parseInt(document.getElementById('consolidation-term').value);
+            
+            // Monthly payment calculation (simplified)
+            // P = A / ((1 - (1 + r)^(-n)) / r)
+            // where P = payment, A = loan amount, r = rate/12, n = term in months
+            const monthlyRate = consolidationRate / 12;
+            const termMonths = consolidationTerm * 12;
+            const newMonthlyPayment = totalDebt * (monthlyRate / (1 - Math.pow(1 + monthlyRate, -termMonths)));
+            
+            // Total interest paid
+            const totalPayments = newMonthlyPayment * termMonths;
+            const newTotalInterest = totalPayments - totalDebt;
+            
+            // Update consolidation displays
+            document.getElementById('new-monthly-payment').textContent = '$' + Math.round(newMonthlyPayment).toLocaleString();
+            document.getElementById('new-total-interest').textContent = '$' + Math.round(newTotalInterest).toLocaleString();
+            
+            // Calculate savings
+            const savings = roughInterestPaid - newTotalInterest;
+            const savingsElement = document.getElementById('savings-amount');
+            savingsElement.textContent = '$' + Math.round(Math.abs(savings)).toLocaleString();
+            
+            // Update savings color based on positive or negative
+            if (savings > 0) {
+                savingsElement.classList.remove('text-red-600');
+                savingsElement.classList.add('text-green-600');
+            } else {
+                savingsElement.classList.remove('text-green-600');
+                savingsElement.classList.add('text-red-600');
+            }
+            
+            // Update chart
+            updateConsolidationChart(totalDebt + roughInterestPaid, totalDebt + newTotalInterest);
+        }
+        
+        // Update consolidation comparison chart
+        function updateConsolidationChart(currentTotal, newTotal) {
+            consolidationComparisonChart.data.datasets[0].data = [currentTotal, newTotal];
+            consolidationComparisonChart.update();
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionText = document.querySelector('textarea[data-ai-check="true"]').value;
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            if (reflectionText.length < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider expanding on how different debt management strategies might be more appropriate in various situations, and how psychological factors play a role in debt management.";
+            } else if (reflectionText.length < 150) {
+                aiFeedback.textContent = "Good start! Your reflection shows understanding of debt management strategies. Consider further exploring how you might apply these concepts when helping others with debt issues, and the importance of considering both financial and psychological factors.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection! You've demonstrated a thorough understanding of how debt management strategies must be tailored to individual situations, and considered both financial and psychological aspects of debt management. Your insights about helping others with debt problems show strong application of the concepts.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Initialize scroll highlighting
+        function initializeScrollHighlighting() {
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href');
+                    if (href && href.substring(1) === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        }
+    </script>
+</body>
+</html>

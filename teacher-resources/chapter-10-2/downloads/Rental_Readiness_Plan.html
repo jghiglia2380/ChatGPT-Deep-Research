@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Readiness Plan</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.3;
+                color: #000;
+                background: #fff;
+                margin: 0.5in;
+            }
+            
+            .plan-section {
+                page-break-inside: avoid;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        .plan-section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 8px 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .input-field {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        
+        .checkbox-label {
+            margin-left: 10px;
+        }
+        
+        .note-box {
+            background-color: #fcf3cf;
+            border-left: 4px solid #f1c40f;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .tip-box {
+            background-color: #d5f5e3;
+            border-left: 4px solid #2ecc71;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .instruction {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .priority-select {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        
+        .priority-label {
+            margin-right: 10px;
+            min-width: 200px;
+        }
+        
+        .timeline-container {
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #7f8c8d;
+            border-top: 1px solid #bdc3c7;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+        <div class="instruction">
+            <p><strong>Instructions for Teachers/Students:</strong> This worksheet will help you create a personalized plan to prepare for your first or next rental experience. Complete each section with your current status, goals, and action steps. To save or print this resource, click the "Print / Save as PDF" button above and select "Save as PDF" from your print options.</p>
+        </div>
+    </div>
+
+    <h1>Personal Rental Readiness Plan</h1>
+    
+    <p>This planning tool will help you prepare for your next rental experience by assessing your current situation, identifying your priorities, developing a financial plan, and creating a strategy for finding and securing appropriate housing.</p>
+    
+    <div class="plan-section">
+        <div class="section-title">1. Rental Readiness Assessment</div>
+        
+        <p>Begin by honestly assessing your current situation and readiness for renting.</p>
+        
+        <h3>Financial Status</h3>
+        <p><strong>Current savings available for rental expenses:</strong></p>
+        <input type="text" class="input-field" placeholder="$">
+        
+        <p><strong>Monthly income (after taxes):</strong></p>
+        <input type="text" class="input-field" placeholder="$">
+        
+        <p><strong>Monthly budget for housing (30% of monthly income recommended):</strong></p>
+        <input type="text" class="input-field" placeholder="$">
+        
+        <p><strong>Estimated credit score range:</strong></p>
+        <select class="input-field">
+            <option>Select one</option>
+            <option>Excellent (740+)</option>
+            <option>Good (670-739)</option>
+            <option>Fair (580-669)</option>
+            <option>Poor (Below 580)</option>
+            <option>I don't know my credit score</option>
+        </select>
+        
+        <h3>Rental History</h3>
+        <p><strong>Previous rental experience:</strong></p>
+        <select class="input-field">
+            <option>Select one</option>
+            <option>None (first-time renter)</option>
+            <option>Limited (college housing or with roommates)</option>
+            <option>Moderate (1-2 years of rental history)</option>
+            <option>Extensive (3+ years of rental history)</option>
+        </select>
+        
+        <p><strong>References available:</strong></p>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ref-prev-landlord">
+            <label class="checkbox-label" for="ref-prev-landlord">Previous landlord(s)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ref-employer">
+            <label class="checkbox-label" for="ref-employer">Employer</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ref-personal">
+            <label class="checkbox-label" for="ref-personal">Personal references</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ref-professional">
+            <label class="checkbox-label" for="ref-professional">Professional references</label>
+        </div>
+        
+        <h3>Housing Needs Assessment</h3>
+        <p><strong>Number of bedrooms needed:</strong></p>
+        <select class="input-field">
+            <option>Select one</option>
+            <option>Studio</option>
+            <option>1 Bedroom</option>
+            <option>2 Bedrooms</option>
+            <option>3+ Bedrooms</option>
+        </select>
+        
+        <p><strong>Transportation considerations:</strong></p>
+        <div class="checkbox-container">
+            <input type="checkbox" id="trans-car">
+            <label class="checkbox-label" for="trans-car">Need parking for vehicle(s)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="trans-public">
+            <label class="checkbox-label" for="trans-public">Need access to public transportation</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="trans-walk">
+            <label class="checkbox-label" for="trans-walk">Prefer walkable neighborhood</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="trans-bike">
+            <label class="checkbox-label" for="trans-bike">Need bike storage/bike-friendly area</label>
+        </div>
+        
+        <p><strong>Pet considerations:</strong></p>
+        <div class="checkbox-container">
+            <input type="checkbox" id="pet-none">
+            <label class="checkbox-label" for="pet-none">No pets</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="pet-dog">
+            <label class="checkbox-label" for="pet-dog">Dog(s)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="pet-cat">
+            <label class="checkbox-label" for="pet-cat">Cat(s)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="pet-other">
+            <label class="checkbox-label" for="pet-other">Other pets</label>
+        </div>
+        
+        <h3>Timeline</h3>
+        <p><strong>When do you plan to move?</strong></p>
+        <select class="input-field">
+            <option>Select one</option>
+            <option>Within 1 month</option>
+            <option>Within 3 months</option>
+            <option>Within 6 months</option>
+            <option>Within 1 year</option>
+            <option>More than 1 year from now</option>
+        </select>
+    </div>
+    
+    <div class="plan-section">
+        <div class="section-title">2. Financial Preparation Plan</div>
+        
+        <h3>Savings Goal</h3>
+        <p>Based on your rental research and current savings, set specific goals for upfront rental costs.</p>
+        
+        <table>
+            <tr>
+                <th>Expense</th>
+                <th>Estimated Amount</th>
+                <th>Current Savings</th>
+                <th>Amount Needed</th>
+            </tr>
+            <tr>
+                <td>Security deposit</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+            </tr>
+            <tr>
+                <td>First month's rent</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+            </tr>
+            <tr>
+                <td>Last month's rent (if required)</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+            </tr>
+            <tr>
+                <td>Application fees</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+            </tr>
+            <tr>
+                <td>Moving expenses</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+            </tr>
+            <tr>
+                <td>Utility deposits/setup</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+            </tr>
+            <tr>
+                <td>Essential furniture/supplies</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+            </tr>
+            <tr>
+                <td>Emergency fund (3 months' rent recommended)</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+            </tr>
+        </table>
+        
+        <h3>Monthly Housing Budget</h3>
+        <p>Plan your monthly housing budget, keeping total housing costs around 30% of your monthly income.</p>
+        
+        <table>
+            <tr>
+                <th>Expense</th>
+                <th>Estimated Amount</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Rent</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="Notes"></td>
+            </tr>
+            <tr>
+                <td>Electricity</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="Notes"></td>
+            </tr>
+            <tr>
+                <td>Gas/heating</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="Notes"></td>
+            </tr>
+            <tr>
+                <td>Water/sewer</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="Notes"></td>
+            </tr>
+            <tr>
+                <td>Internet</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="Notes"></td>
+            </tr>
+            <tr>
+                <td>Renter's insurance</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="Notes"></td>
+            </tr>
+            <tr>
+                <td>Parking</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="Notes"></td>
+            </tr>
+            <tr>
+                <td>Other (specify)</td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="Notes"></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL MONTHLY HOUSING COSTS</strong></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td><input type="text" class="input-field" placeholder="Notes"></td>
+            </tr>
+            <tr>
+                <td><strong>Monthly Income</strong></td>
+                <td><input type="text" class="input-field" placeholder="$"></td>
+                <td>After taxes</td>
+            </tr>
+            <tr>
+                <td><strong>Percentage of Income for Housing</strong></td>
+                <td><input type="text" class="input-field" placeholder="%"></td>
+                <td>Target: 30% or less</td>
+            </tr>
+        </table>
+        
+        <h3>Credit Improvement Plan</h3>
+        <p>If your credit needs improvement, outline specific steps to improve your score before applying for rentals.</p>
+        
+        <p><strong>Current credit issues to address:</strong></p>
+        <div class="checkbox-container">
+            <input type="checkbox" id="credit-none">
+            <label class="checkbox-label" for="credit-none">No known issues / Not applicable</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="credit-late">
+            <label class="checkbox-label" for="credit-late">Late payments</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="credit-high">
+            <label class="checkbox-label" for="credit-high">High credit utilization</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="credit-errors">
+            <label class="checkbox-label" for="credit-errors">Errors on credit report</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="credit-collections">
+            <label class="checkbox-label" for="credit-collections">Accounts in collections</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="credit-limited">
+            <label class="checkbox-label" for="credit-limited">Limited credit history</label>
+        </div>
+        
+        <p><strong>Action steps to improve credit:</strong></p>
+        <textarea class="input-field" style="height: 100px;" placeholder="List specific actions you'll take to improve your credit score before applying for rentals..."></textarea>
+        
+        <div class="tip-box">
+            <p><strong>Tip:</strong> Many landlords will accept cosigners, larger security deposits, or advance rent payments for applicants with limited credit history or credit issues.</p>
+        </div>
+    </div>
+    
+    <div class="plan-section">
+        <div class="section-title">3. Rental Search Strategy</div>
+        
+        <h3>Location Preferences</h3>
+        <p>Identify your preferred neighborhoods or areas and why they appeal to you.</p>
+        
+        <table>
+            <tr>
+                <th>Preferred Location</th>
+                <th>Reasons/Benefits</th>
+                <th>Potential Drawbacks</th>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-field" placeholder="Location 1"></td>
+                <td><input type="text" class="input-field" placeholder="Benefits"></td>
+                <td><input type="text" class="input-field" placeholder="Drawbacks"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-field" placeholder="Location 2"></td>
+                <td><input type="text" class="input-field" placeholder="Benefits"></td>
+                <td><input type="text" class="input-field" placeholder="Drawbacks"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-field" placeholder="Location 3"></td>
+                <td><input type="text" class="input-field" placeholder="Benefits"></td>
+                <td><input type="text" class="input-field" placeholder="Drawbacks"></td>
+            </tr>
+        </table>
+        
+        <h3>Property Feature Priorities</h3>
+        <p>Rate the importance of different property features to focus your search.</p>
+        
+        <div class="priority-select">
+            <label class="priority-label">In-unit laundry:</label>
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <div class="priority-select">
+            <label class="priority-label">Dishwasher:</label>
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <div class="priority-select">
+            <label class="priority-label">Central air conditioning:</label>
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <div class="priority-select">
+            <label class="priority-label">Private outdoor space:</label>
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <div class="priority-select">
+            <label class="priority-label">Dedicated parking space:</label>
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <div class="priority-select">
+            <label class="priority-label">Pet-friendly policy:</label>
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <div class="priority-select">
+            <label class="priority-label">Gym/fitness center:</label>
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <div class="priority-select">
+            <label class="priority-label">Security features:</label>
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <div class="priority-select">
+            <label class="priority-label">Storage space:</label>
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <div class="priority-select">
+            <label class="priority-label">Other feature:</label>
+            <input type="text" class="input-field" placeholder="Specify other feature" style="width: 200px;">
+            <select class="input-field">
+                <option>Select priority</option>
+                <option>Must-have</option>
+                <option>Very important</option>
+                <option>Somewhat important</option>
+                <option>Nice-to-have</option>
+                <option>Not important</option>
+            </select>
+        </div>
+        
+        <h3>Deal-Breakers</h3>
+        <p>List conditions or features that would immediately eliminate a rental property from consideration.</p>
+        <textarea class="input-field" style="height: 100px;" placeholder="List your absolute deal-breakers (e.g., no pets allowed, no parking, unsafe neighborhood, etc.)"></textarea>
+        
+        <h3>Research Resources</h3>
+        <p>Identify the resources you'll use to find and research rental properties.</p>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" id="res-apps">
+            <label class="checkbox-label" for="res-apps">Rental apps/websites (Zillow, Apartments.com, etc.)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="res-social">
+            <label class="checkbox-label" for="res-social">Social media groups</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="res-word">
+            <label class="checkbox-label" for="res-word">Word of mouth/personal connections</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="res-agency">
+            <label class="checkbox-label" for="res-agency">Rental agencies</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="res-newspaper">
+            <label class="checkbox-label" for="res-newspaper">Newspaper/local listings</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="res-drive">
+            <label class="checkbox-label" for="res-drive">Driving around preferred neighborhoods</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="res-school">
+            <label class="checkbox-label" for="res-school">School/work housing resources</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="res-other">
+            <label class="checkbox-label" for="res-other">Other: <input type="text" style="width: 200px;"></label>
+        </div>
+        
+        <h3>Search Timeline</h3>
+        <p>Create a timeline for your rental search based on your planned move date.</p>
+        
+        <div class="timeline-container">
+            <p><strong>Target move-in date:</strong> <input type="text" style="width: 200px;"></p>
+            
+            <table>
+                <tr>
+                    <th>Time Before Move-In</th>
+                    <th>Actions to Complete</th>
+                </tr>
+                <tr>
+                    <td>3-4 months before</td>
+                    <td><textarea class="input-field" style="height: 60px;" placeholder="Research areas, set budget, start saving, check credit..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>2 months before</td>
+                    <td><textarea class="input-field" style="height: 60px;" placeholder="Begin serious property search, schedule viewings..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>1 month before</td>
+                    <td><textarea class="input-field" style="height: 60px;" placeholder="Submit applications, secure property, arrange utilities..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>2 weeks before</td>
+                    <td><textarea class="input-field" style="height: 60px;" placeholder="Confirm move-in details, schedule moving logistics..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>Move-in day</td>
+                    <td><textarea class="input-field" style="height: 60px;" placeholder="Conduct move-in inspection, document condition, set up utilities..."></textarea></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="plan-section">
+        <div class="section-title">4. Move-In Preparation Checklist</div>
+        
+        <h3>Application Documents</h3>
+        <p>Prepare documents you'll need when applying for rental properties.</p>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-id">
+            <label class="checkbox-label" for="doc-id">Government-issued photo ID</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-proof">
+            <label class="checkbox-label" for="doc-proof">Proof of income (pay stubs, offer letter, tax returns)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-refs">
+            <label class="checkbox-label" for="doc-refs">Reference contact information (previous landlords, employers)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-credit">
+            <label class="checkbox-label" for="doc-credit">Credit report (optional, but helpful)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-bank">
+            <label class="checkbox-label" for="doc-bank">Bank statements</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-vehicle">
+            <label class="checkbox-label" for="doc-vehicle">Vehicle information (if parking needed)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-pet">
+            <label class="checkbox-label" for="doc-pet">Pet records (vaccine records, photos, etc.)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-cosigner">
+            <label class="checkbox-label" for="doc-cosigner">Cosigner information (if needed)</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-app">
+            <label class="checkbox-label" for="doc-app">Completed application forms</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="doc-other">
+            <label class="checkbox-label" for="doc-other">Other: <input type="text" style="width: 200px;"></label>
+        </div>
+        
+        <h3>Questions to Ask Before Signing</h3>
+        <p>Prepare a list of questions to ask landlords before signing a lease.</p>
+        <textarea class="input-field" style="height: 150px;" placeholder="List specific questions about the property, policies, lease terms, maintenance procedures, etc."></textarea>
+        
+        <h3>Move-In Inspection Process</h3>
+        <p>Plan how you'll document the property condition at move-in.</p>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" id="insp-form">
+            <label class="checkbox-label" for="insp-form">Use/request a detailed move-in inspection form</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="insp-photos">
+            <label class="checkbox-label" for="insp-photos">Take date-stamped photos of all rooms and existing damage</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="insp-video">
+            <label class="checkbox-label" for="insp-video">Record video walkthrough of the entire property</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="insp-landlord">
+            <label class="checkbox-label" for="insp-landlord">Request joint inspection with landlord</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="insp-notes">
+            <label class="checkbox-label" for="insp-notes">Take detailed notes of any issues</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="insp-confirm">
+            <label class="checkbox-label" for="insp-confirm">Get written confirmation of existing issues</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="insp-backup">
+            <label class="checkbox-label" for="insp-backup">Save all documentation in multiple locations</label>
+        </div>
+        
+        <h3>Essential Items Checklist</h3>
+        <p>Create a list of essential items needed for your new rental.</p>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" id="ess-clean">
+            <label class="checkbox-label" for="ess-clean">Cleaning supplies</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ess-bath">
+            <label class="checkbox-label" for="ess-bath">Bathroom essentials</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ess-kitchen">
+            <label class="checkbox-label" for="ess-kitchen">Basic kitchen items</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ess-bedroom">
+            <label class="checkbox-label" for="ess-bedroom">Bedroom essentials</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ess-furniture">
+            <label class="checkbox-label" for="ess-furniture">Basic furniture</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ess-tools">
+            <label class="checkbox-label" for="ess-tools">Basic tools and emergency supplies</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ess-first">
+            <label class="checkbox-label" for="ess-first">First aid kit</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="ess-other">
+            <label class="checkbox-label" for="ess-other">Other: <input type="text" style="width: 200px;"></label>
+        </div>
+        
+        <h3>Utility Setup Checklist</h3>
+        <p>List the utilities you'll need to set up before move-in.</p>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" id="util-electric">
+            <label class="checkbox-label" for="util-electric">Electricity</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="util-gas">
+            <label class="checkbox-label" for="util-gas">Gas/heating</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="util-water">
+            <label class="checkbox-label" for="util-water">Water/sewer</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="util-internet">
+            <label class="checkbox-label" for="util-internet">Internet</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="util-cable">
+            <label class="checkbox-label" for="util-cable">Cable/satellite TV</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="util-trash">
+            <label class="checkbox-label" for="util-trash">Trash/recycling</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="util-insurance">
+            <label class="checkbox-label" for="util-insurance">Renter's insurance</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="util-other">
+            <label class="checkbox-label" for="util-other">Other: <input type="text" style="width: 200px;"></label>
+        </div>
+    </div>
+    
+    <div class="plan-section">
+        <div class="section-title">Reflection and Action Plan</div>
+        
+        <h3>Areas of Strength</h3>
+        <p>What aspects of rental readiness do you feel most prepared for?</p>
+        <textarea class="input-field" style="height: 100px;"></textarea>
+        
+        <h3>Areas for Improvement</h3>
+        <p>What aspects require the most preparation or work?</p>
+        <textarea class="input-field" style="height: 100px;"></textarea>
+        
+        <h3>Key Action Steps</h3>
+        <p>List your top 3-5 priority action items to prepare for renting.</p>
+        <textarea class="input-field" style="height: 150px;" placeholder="Example: 1. Save $X for security deposit by [date]..."></textarea>
+    </div>
+    
+    <footer>
+        <p>Chapter 10.2: Understanding the Costs and Responsibilities of Renting | PFL Academy</p>
+    </footer>
+</body>
+</html>

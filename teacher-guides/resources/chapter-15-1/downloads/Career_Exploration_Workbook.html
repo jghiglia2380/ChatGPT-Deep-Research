@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Exploration Workbook - Chapter 15.1</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .assessment-section {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        
+        .assessment-section {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-box {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+        
+        .example-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tip-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-header {
+            display: none;
+        }
+        
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .checkbox-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .checkbox-list li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .checkbox-list li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #aaa;
+            background-color: #fff;
+        }
+        
+        .rating-scale {
+            display: flex;
+            margin: 5px 0;
+            justify-content: space-between;
+        }
+        
+        .rating-scale div {
+            text-align: center;
+            width: 40px;
+        }
+        
+        .rating-scale-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+        
+        .rating-scale-labels span:first-child {
+            text-align: left;
+        }
+        
+        .rating-scale-labels span:last-child {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Career Exploration Workbook</h1>
+        <p>Chapter 15.1: Career Exploration and Goal Setting</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+
+    <h1>Career Exploration Workbook</h1>
+    <p><strong>Chapter 15.1: Career Exploration and Goal Setting</strong></p>
+
+    <h2>Introduction</h2>
+    <p>This workbook will guide you through a comprehensive self-assessment and career exploration process. By completing these activities, you'll gain valuable insights into your interests, skills, and values that will help you make informed career decisions and set meaningful goals for your future.</p>
+
+    <div class="info-box">
+        <h3>How to Use This Workbook</h3>
+        <ol>
+            <li>Complete each section in order, as later sections build on earlier ones</li>
+            <li>Be honest in your responses—there are no right or wrong answers</li>
+            <li>Take your time with each activity to allow for thoughtful reflection</li>
+            <li>Keep this workbook as a reference for your career planning</li>
+            <li>Revisit and update your responses as you gain new experiences and insights</li>
+        </ol>
+    </div>
+
+    <div class="assessment-section">
+        <h2>Part 1: Understanding Jobs vs. Careers</h2>
+        <p>Before diving into self-assessment, it's important to understand the difference between a job and a career.</p>
+        
+        <div class="example-box">
+            <h4>Definitions</h4>
+            <ul>
+                <li><strong>Job:</strong> A specific position or role you hold to earn income, often focused on short-term needs</li>
+                <li><strong>Career:</strong> A long-term professional journey involving growth, development, and progression over time</li>
+            </ul>
+        </div>
+        
+        <h3>Reflection Questions</h3>
+        
+        <p>1. What experiences have you had with jobs so far (including part-time work, volunteering, etc.)?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>2. What careers have you found interesting or have considered pursuing? Why?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>3. How would you describe the difference between having a job and building a career?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <h3>Career vs. Job Analysis</h3>
+        <p>For each characteristic below, indicate whether it's more associated with a job, a career, or both:</p>
+        
+        <table>
+            <tr>
+                <th>Characteristic</th>
+                <th>Job</th>
+                <th>Career</th>
+                <th>Both</th>
+            </tr>
+            <tr>
+                <td>Primary focus is earning money</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Requires ongoing skill development</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Involves a sense of identity and purpose</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>May be temporary or short-term</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Includes advancement opportunities</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Requires specialized education or training</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Involves networking and professional relationships</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>May be unrelated to personal interests</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="assessment-section">
+        <h2>Part 2: Interests Assessment</h2>
+        <p>Your interests play a key role in career satisfaction. This section will help you identify patterns in what naturally engages and excites you.</p>
+        
+        <h3>Subjects & Topics</h3>
+        <p>Rate your level of interest in the following subjects on a scale of 1 (Not Interested) to 5 (Very Interested):</p>
+        
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Interest Level (1-5)</th>
+                <th>Why?</th>
+            </tr>
+            <tr>
+                <td>Mathematics</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Science</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Technology/Computing</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Engineering/Building</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Arts/Creative Expression</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Writing/Communication</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Business/Entrepreneurship</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>People/Relationships</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Education/Teaching</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Health/Medicine</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Law/Justice</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Nature/Environment</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Activities Analysis</h3>
+        <p>List activities that you enjoy and lose track of time doing:</p>
+        
+        <table>
+            <tr>
+                <th>Activity</th>
+                <th>What specifically do you enjoy about it?</th>
+                <th>Potential career connection</th>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Interest Patterns</h3>
+        <p>Based on your responses above, what patterns do you notice in your interests?</p>
+        <div class="input-field" style="min-height: 100px;"></div>
+    </div>
+
+    <div class="assessment-section">
+        <h2>Part 3: Skills Inventory</h2>
+        <p>Understanding your existing skills and those you'd like to develop is crucial for career planning.</p>
+        
+        <h3>Hard Skills Assessment</h3>
+        <p>Hard skills are specific, teachable abilities that can be defined and measured. Rate your current proficiency in the following areas:</p>
+        
+        <table>
+            <tr>
+                <th>Skill Area</th>
+                <th>Current Proficiency (1-5)</th>
+                <th>Interest in Developing (1-5)</th>
+                <th>Evidence/Example</th>
+            </tr>
+            <tr>
+                <td>Computer/Technology</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Mathematics/Calculations</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Writing/Communication</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Research/Analysis</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Design/Creativity</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Construction/Building</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Languages</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Financial/Budgeting</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <p>List any other specific hard skills you possess:</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <h3>Soft Skills Assessment</h3>
+        <p>Soft skills are interpersonal and transferable abilities that are valuable across many careers. Rate your current strengths in the following areas:</p>
+        
+        <table>
+            <tr>
+                <th>Skill Area</th>
+                <th>Current Strength (1-5)</th>
+                <th>Interest in Developing (1-5)</th>
+                <th>Evidence/Example</th>
+            </tr>
+            <tr>
+                <td>Communication</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Teamwork/Collaboration</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Leadership</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Problem-solving</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Critical thinking</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Adaptability/Flexibility</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Time management</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Emotional intelligence</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Skills Summary</h3>
+        <p>Based on your assessments above:</p>
+        
+        <p>Your top 3-5 current skills are:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+        
+        <p>Skills you most want to develop further are:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+        
+        <p>How might your skills align with potential career paths?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="assessment-section">
+        <h2>Part 4: Values Clarification</h2>
+        <p>Work values are aspects of work that are important to you and contribute to your satisfaction. Understanding your values helps you find careers that align with what matters most to you.</p>
+        
+        <h3>Work Values Ranking</h3>
+        <p>Rank the following work values from 1 (Most Important) to 15 (Least Important):</p>
+        
+        <table>
+            <tr>
+                <th>Value</th>
+                <th>Description</th>
+                <th>Rank (1-15)</th>
+            </tr>
+            <tr>
+                <td>Achievement</td>
+                <td>Sense of accomplishment and seeing results from your work</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Independence</td>
+                <td>Working with little supervision, making decisions on your own</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Recognition</td>
+                <td>Receiving acknowledgment for your contributions</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Relationships</td>
+                <td>Working with people and building connections</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Support</td>
+                <td>Having supportive management and colleagues</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Working Conditions</td>
+                <td>Comfortable environment and reasonable hours</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Security</td>
+                <td>Stable employment and steady income</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Compensation</td>
+                <td>High earnings and good benefits</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Advancement</td>
+                <td>Opportunities for promotion and growth</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Creativity</td>
+                <td>Ability to create or design new things</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Variety</td>
+                <td>Diverse tasks and responsibilities</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Helping Others</td>
+                <td>Positively impacting people's lives</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Moral Fulfillment</td>
+                <td>Work that aligns with your beliefs and values</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Knowledge</td>
+                <td>Intellectual stimulation and continuous learning</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Prestige</td>
+                <td>Work that gives you status and respect</td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Top Values Analysis</h3>
+        <p>Looking at your top 5 values:</p>
+        
+        <p>1. Why are these particular values important to you?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>2. What types of work environments or careers might align with these values?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>3. Are there any values that might conflict with each other? How might you balance them?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="assessment-section">
+        <h2>Part 5: Career Exploration Resources</h2>
+        <p>Now that you've completed your self-assessment, it's time to explore careers that might align with your interests, skills, and values.</p>
+        
+        <h3>Online Resources Guide</h3>
+        <p>Use these valuable online resources for your career exploration:</p>
+        
+        <div class="info-box">
+            <h4>Recommended Career Exploration Websites</h4>
+            <ul>
+                <li><strong>O*NET OnLine</strong> (onetonline.org): Comprehensive database of occupations with detailed information about skills, tasks, work environments, and more</li>
+                <li><strong>Bureau of Labor Statistics Occupational Outlook Handbook</strong> (bls.gov/ooh): Information on hundreds of occupations, including job duties, education requirements, pay, and outlook</li>
+                <li><strong>CareerOneStop</strong> (careeronestop.org): Videos, career assessments, salary data, and training information</li>
+                <li><strong>My Next Move</strong> (mynextmove.org): User-friendly tool to explore careers by keyword, industry, or interest</li>
+            </ul>
+        </div>
+        
+        <h3>Research Activity</h3>
+        <p>Based on your self-assessment results, identify 3-5 careers to research:</p>
+        
+        <table>
+            <tr>
+                <th>Career Title</th>
+                <th>Why I'm Interested</th>
+                <th>Key Information to Research</th>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Career Research Worksheet</h3>
+        <p>For each career you selected, complete the following research (use additional paper if needed):</p>
+        
+        <div class="example-box">
+            <h4>Career 1: <span class="input-field" style="display: inline-block; min-width: 200px;"></span></h4>
+            
+            <p><strong>Education/Training Required:</strong></p>
+            <div class="input-field"></div>
+            
+            <p><strong>Skills Needed:</strong></p>
+            <div class="input-field"></div>
+            
+            <p><strong>Typical Work Environment:</strong></p>
+            <div class="input-field"></div>
+            
+            <p><strong>Salary Range:</strong></p>
+            <div class="input-field"></div>
+            
+            <p><strong>Job Outlook:</strong></p>
+            <div class="input-field"></div>
+            
+            <p><strong>Aspects I Find Appealing:</strong></p>
+            <div class="input-field"></div>
+            
+            <p><strong>Potential Challenges or Concerns:</strong></p>
+            <div class="input-field"></div>
+            
+            <p><strong>Path to Enter This Career:</strong></p>
+            <div class="input-field"></div>
+        </div>
+    </div>
+
+    <div class="assessment-section">
+        <h2>Part 6: SMART Career Goals</h2>
+        <p>Now that you've explored potential careers, it's time to set SMART goals to help you move toward your career aspirations.</p>
+        
+        <div class="info-box">
+            <h4>SMART Goal Framework</h4>
+            <ul>
+                <li><strong>S</strong>pecific: Clearly defined and focused</li>
+                <li><strong>M</strong>easurable: Includes concrete criteria for measuring progress</li>
+                <li><strong>A</strong>chievable: Realistic and attainable</li>
+                <li><strong>R</strong>elevant: Aligned with your interests, skills, and values</li>
+                <li><strong>T</strong>ime-bound: Has a defined timeline with a deadline</li>
+            </ul>
+        </div>
+        
+        <div class="example-box">
+            <h4>Example SMART Goals</h4>
+            <p><strong>Non-SMART Goal:</strong> "Get better at public speaking."</p>
+            <p><strong>SMART Goal:</strong> "Complete a public speaking course by the end of the semester and deliver three practice presentations to my study group, receiving feedback to improve my skills for future career opportunities in marketing."</p>
+            <br>
+            <p><strong>Non-SMART Goal:</strong> "Find an internship in healthcare."</p>
+            <p><strong>SMART Goal:</strong> "Apply to at least five hospital administrative internships in the Chicago area by March 15, securing a summer position that provides at least 120 hours of experience to build my resume for nursing school applications."</p>
+        </div>
+        
+        <h3>Your SMART Career Goals</h3>
+        <p>Based on your career exploration, create SMART goals for the following timeframes:</p>
+        
+        <h4>Short-term Goal (next 6-12 months):</h4>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>How does this goal meet SMART criteria?</p>
+        <ul>
+            <li><strong>Specific:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Measurable:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Achievable:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Relevant:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Time-bound:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+        </ul>
+        
+        <h4>Mid-term Goal (1-3 years):</h4>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>How does this goal meet SMART criteria?</p>
+        <ul>
+            <li><strong>Specific:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Measurable:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Achievable:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Relevant:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Time-bound:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+        </ul>
+        
+        <h4>Long-term Goal (3-5+ years):</h4>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>How does this goal meet SMART criteria?</p>
+        <ul>
+            <li><strong>Specific:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Measurable:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Achievable:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Relevant:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+            <li><strong>Time-bound:</strong> <span class="input-field" style="display: inline-block; width: 80%;"></span></li>
+        </ul>
+    </div>
+
+    <div class="assessment-section">
+        <h2>Part 7: Career Development Plan Introduction</h2>
+        <p>A comprehensive career development plan includes multiple components to help you achieve your career goals.</p>
+        
+        <h3>Career Plan Components</h3>
+        <p>For each component, identify specific actions or steps you'll take:</p>
+        
+        <h4>Education/Training</h4>
+        <p>What education or training will you need to pursue your career goals?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <h4>Experience Building</h4>
+        <p>What experiences (internships, volunteer work, part-time jobs, etc.) will help you develop relevant skills and knowledge?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <h4>Skill Development</h4>
+        <p>What specific skills do you need to develop or improve for your target career?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <h4>Networking/Relationships</h4>
+        <p>How will you build professional connections in your field of interest?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <h3>Career Development Timeline</h3>
+        <p>Create a basic timeline for your career development activities:</p>
+        
+        <table>
+            <tr>
+                <th>Timeframe</th>
+                <th>Education/Training</th>
+                <th>Experience</th>
+                <th>Skills</th>
+                <th>Networking</th>
+            </tr>
+            <tr>
+                <td>Short-term<br>(0-1 year)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Mid-term<br>(1-3 years)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Long-term<br>(3-5+ years)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="assessment-section">
+        <h2>Part 8: Reflection and Next Steps</h2>
+        
+        <h3>Self-Assessment Summary</h3>
+        <p>Based on all the activities in this workbook:</p>
+        
+        <p>My top interests are:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+        
+        <p>My key skills (current and developing) are:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+        
+        <p>My core work values are:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+        
+        <p>Careers I'm most interested in exploring further:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+        
+        <h3>Career Exploration Reflection</h3>
+        <p>1. What has surprised you most about your career exploration so far?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>2. What additional information do you need to gather to further refine your career plans?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>3. What potential obstacles might you face in pursuing your career goals?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <p>4. What resources or support might help you overcome these obstacles?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+        
+        <h3>Next Steps Action Plan</h3>
+        <p>List 3-5 specific actions you'll take in the next month to move forward with your career exploration and planning:</p>
+        <ol>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+        </ol>
+    </div>
+
+    <div class="tip-box">
+        <h3>Final Tips</h3>
+        <ul>
+            <li>Keep this workbook as a living document and update it as you gain new experiences and insights</li>
+            <li>Review your SMART goals regularly to track progress and make adjustments as needed</li>
+            <li>Seek feedback from teachers, counselors, family members, and professionals in your fields of interest</li>
+            <li>Remember that career development is an ongoing process—it's normal for your plans to evolve over time</li>
+            <li>Use this self-assessment as a foundation for more detailed career planning in the future</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Chapter 15.1: Career Exploration and Goal Setting | Career Exploration Workbook</p>
+        <p>Page 1 of 1</p>
+    </div>
+    
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+</body>
+</html>

@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 15.4: Interview Skills and Workplace Readiness - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Case study specific styles for Chapter 15.4 */
+        .scenario-card {
+            background-color: #f0f9ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #0ea5e9;
+            transition: all 0.3s ease;
+        }
+        
+        .interview-simulator {
+            background-color: #f3e8ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid #d8b4fe;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-24 h-[calc(100vh-8rem)] overflow-y-auto border border-gray-200">
+            <div class="mb-6">
+                <h2 class="text-xl font-bold text-gray-800">Standard 15: Career Readiness</h2>
+                <p class="text-gray-600 text-sm mt-1">Developing essential skills and strategies for career success.</p>
+            </div>
+            
+            <div class="mb-4">
+                <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                <ul class="space-y-1">
+                    <!-- Previous chapters with checkmarks -->
+                    <li>
+                        <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                            <span class="mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </span>
+                            Chapter 15.1: Career Exploration
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                            <span class="mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </span>
+                            Chapter 15.2: Resume Building
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                            <span class="mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </span>
+                            Chapter 15.3: Job Application Process
+                        </a>
+                    </li>
+                    
+                    <!-- Current chapter expanded -->
+                    <li>
+                        <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                            <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                            Chapter 15.4: Interview Skills
+                        </a>
+                        <ul class="ml-6 mt-1 space-y-1">
+                            <li>
+                                <a href="chapter-15.4-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                    <span class="mr-2">→</span>
+                                    Day 1: Interview Preparation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                    <span class="mr-2">↓</span>
+                                    Day 2: Workplace Readiness
+                                </a>
+                                <!-- Section Navigation -->
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                            <span class="mr-2">•</span>
+                                            Learning Objectives
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                            <span class="mr-2">•</span>
+                                            Introduction
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                            <span class="mr-2">•</span>
+                                            Mock Interview Practice
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                            <span class="mr-2">•</span>
+                                            Workplace Professionalism
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                            <span class="mr-2">•</span>
+                                            Professional Communication
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                            <span class="mr-2">•</span>
+                                            Workplace Transition
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#station5" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                            <span class="mr-2">•</span>
+                                            Interview Simulator
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                            <span class="mr-2">•</span>
+                                            Portfolio Integration
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                            <span class="mr-2">•</span>
+                                            Reflection
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Future chapters without checkmarks -->
+                    <li>
+                        <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                            Chapter 15.5: Entrepreneurship
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Progress Tracker -->
+            <div class="mb-4">
+                <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                <div class="flex justify-between items-center">
+                    <div class="space-x-1 flex">
+                        <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                        <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                        <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                        <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                        <div class="h-2 w-2 rounded-full bg-gray-300" id="station5-indicator"></div>
+                        <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                    </div>
+                    <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <a href="chapter-15.4-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                Return to Day 1 Content
+            </a>
+        </div>
+        <!-- Main Content Area -->
+        <div class="lg:col-span-7">
+            <div class="bg-white rounded-xl shadow-xl p-8 border border-gray-200">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 15.4: Interview Skills and Workplace Readiness</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Applying professional skills in workplace contexts</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Demonstrate effective interview skills through mock interview practice</li>
+                            <li>Apply appropriate workplace etiquette in various professional scenarios</li>
+                            <li>Identify expectations for professional communication and behavior</li>
+                            <li>Develop strategies for successful workplace transitions</li>
+                            <li>Create a personal plan for ongoing professional development</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <section id="introduction" class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                        
+                        <p class="text-gray-700 mb-4">Welcome to the Workplace Readiness Learning Lab! Today, we'll build on the interview techniques and workplace expectations you learned in Day 1 by applying them to realistic scenarios. Through hands-on activities, you'll practice interviewing, professional communication, and workplace etiquette.</p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note">
+                            <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                            <p class="text-gray-700">This Learning Lab is designed to be interactive and collaborative. For the best experience, work with a partner for the mock interview activities, and approach each scenario as if it were a real workplace situation. The skills you practice today are directly transferable to your future career.</p>
+                        </div>
+                        
+                        <!-- Day 1 Connection -->
+                        <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                            <p class="text-gray-700 mb-3">In Day 1, you learned about interview preparation, common questions, and workplace professionalism fundamentals. Today's activities will help you:</p>
+                            <ul class="list-disc list-inside text-gray-700 ml-2">
+                                <li>Practice the STAR method for answering behavioral questions</li>
+                                <li>Apply professional communication techniques in various workplace contexts</li>
+                                <li>Implement workplace etiquette rules in realistic scenarios</li>
+                                <li>Create an actionable plan for your first days in a new position</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Podcast Review Section -->
+                        <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                            <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Interview Skills and Workplace Readiness</h3>
+                            <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                            
+                            <div class="bg-white rounded-lg p-4">
+                                <audio controls class="w-full mb-2">
+                                    <source src="/finished LM recordings/15.4 - Interview Skills and Workplace Readiness.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                <div class="text-sm text-gray-500">
+                                    <p>Topics covered: Interview preparation strategies, the STAR method, workplace etiquette, professional communication, and first impressions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 my-4">Complete all five learning stations to develop a comprehensive set of workplace readiness skills. Each station builds upon the previous one to create a complete professional development toolkit.</p>
+                    </section>
+            
+            <!-- Activity 1: Mock Interview Practice -->
+            <div id="station1" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h2 class="text-2xl font-bold text-gray-900">Mock Interview Practice</h2>
+                </div>
+                
+                <div class="activity-timer mb-4">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="font-medium text-indigo-700">Estimated time: 15 minutes</span>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 mb-4">In this station, you'll partner with a classmate to practice your interview skills. Take turns being the interviewer and interviewee, using the question bank and feedback rubric provided.</p>
+                
+                <div class="bg-indigo-50 p-5 rounded-lg mb-5">
+                    <h3 class="font-bold text-indigo-700 mb-2">Interview Question Bank</h3>
+                    <p class="text-gray-700 mb-2">Select from these common interview questions:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-medium text-indigo-800 mb-2">Behavioral Questions</h4>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>Tell me about a time you faced a challenge at work or school. How did you handle it?</li>
+                                <li>Describe a situation where you had to work as part of a team.</li>
+                                <li>Give an example of a time you showed leadership.</li>
+                                <li>Tell me about a time you had to learn something quickly.</li>
+                                <li>Describe how you handled a conflict with a colleague.</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium text-indigo-800 mb-2">Standard Questions</h4>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>What are your greatest strengths and weaknesses?</li>
+                                <li>Why are you interested in this position/company?</li>
+                                <li>Where do you see yourself in five years?</li>
+                                <li>Why should we hire you?</li>
+                                <li>Do you have any questions for me?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-5">
+                    <h3 class="font-bold text-gray-900 mb-3">STAR Method Reminder</h3>
+                    <div class="bg-white p-5 rounded-lg border border-gray-200">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100 shadow-sm">
+                                <h4 class="font-medium text-indigo-800 mb-2">Situation</h4>
+                                <p class="text-sm text-gray-700">Describe the context and background</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100 shadow-sm">
+                                <h4 class="font-medium text-indigo-800 mb-2">Task</h4>
+                                <p class="text-sm text-gray-700">Explain your responsibility or challenge</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100 shadow-sm">
+                                <h4 class="font-medium text-indigo-800 mb-2">Action</h4>
+                                <p class="text-sm text-gray-700">Describe what you did to address it</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100 shadow-sm">
+                                <h4 class="font-medium text-indigo-800 mb-2">Result</h4>
+                                <p class="text-sm text-gray-700">Share the outcomes and what you learned</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-5">
+                    <h3 class="font-bold text-gray-900 mb-3">Interview Feedback Form</h3>
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <p class="mb-3">After each practice interview, provide feedback using this form:</p>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Interviewee Name:</label>
+                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter name">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-medium text-gray-700 mb-3">Content</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Relevance of examples</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Needs improvement</option>
+                                            <option value="2">2 - Satisfactory</option>
+                                            <option value="3">3 - Good</option>
+                                            <option value="4">4 - Excellent</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Use of STAR method</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Needs improvement</option>
+                                            <option value="2">2 - Satisfactory</option>
+                                            <option value="3">3 - Good</option>
+                                            <option value="4">4 - Excellent</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-medium text-gray-700 mb-3">Delivery</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Eye contact</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Needs improvement</option>
+                                            <option value="2">2 - Satisfactory</option>
+                                            <option value="3">3 - Good</option>
+                                            <option value="4">4 - Excellent</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Voice clarity and pace</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Needs improvement</option>
+                                            <option value="2">2 - Satisfactory</option>
+                                            <option value="3">3 - Good</option>
+                                            <option value="4">4 - Excellent</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-medium text-gray-700 mb-3">Professionalism</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Overall demeanor</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Needs improvement</option>
+                                            <option value="2">2 - Satisfactory</option>
+                                            <option value="3">3 - Good</option>
+                                            <option value="4">4 - Excellent</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Professional language</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Needs improvement</option>
+                                            <option value="2">2 - Satisfactory</option>
+                                            <option value="3">3 - Good</option>
+                                            <option value="4">4 - Excellent</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="block text-gray-700 font-medium mb-1">Strengths:</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="What did the interviewee do well?"></textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="block text-gray-700 font-medium mb-1">Areas for Improvement:</label>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="What could be improved?"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-right">
+                    <button class="pfl-button" onclick="saveStation(1)">
+                        Save and Continue
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Station 2: Workplace Professionalism Scenarios begins -->
+                    
+                    <!-- Station 2: Workplace Professionalism Scenarios -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Workplace Professionalism Scenarios</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-3">This activity helps you recognize and respond appropriately to common workplace situations that require professional judgment.</p>
+                            
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Instructions:</h3>
+                            <ol class="list-decimal list-inside space-y-2 mb-4">
+                                <li>Form small groups of 3-4 students.</li>
+                                <li>Review the workplace scenario cards below.</li>
+                                <li>For each scenario, discuss the questions provided.</li>
+                                <li>Select one scenario to role-play, demonstrating both professional and unprofessional approaches.</li>
+                                <li>Identify the key principles of workplace professionalism reflected in each scenario.</li>
+                            </ol>
+                            
+                            <div class="mb-6">
+                                <h4 class="font-semibold text-gray-800 mb-3">Professional Workplace Expectations Framework</h4>
+                                <p class="text-gray-700 mb-3">The following six professional expectations create a framework for evaluating workplace scenarios. As you analyze each scenario, consider which of these expectations are most relevant and how they apply.</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm mb-4">
+                                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-blue-800 block mb-1">Reliability</span>
+                                        <span class="text-gray-700 text-sm">Consistently meeting deadlines and commitments; being dependable and trustworthy in your work.</span>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-blue-800 block mb-1">Accountability</span>
+                                        <span class="text-gray-700 text-sm">Taking responsibility for your work and actions; owning mistakes and learning from them.</span>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-blue-800 block mb-1">Adaptability</span>
+                                        <span class="text-gray-700 text-sm">Responding positively to changing circumstances; being flexible and open to new approaches.</span>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-blue-800 block mb-1">Collaboration</span>
+                                        <span class="text-gray-700 text-sm">Working effectively with diverse colleagues; contributing to team success and supporting others.</span>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-blue-800 block mb-1">Initiative</span>
+                                        <span class="text-gray-700 text-sm">Identifying and acting on opportunities to contribute; being proactive rather than reactive.</span>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-blue-800 block mb-1">Ethical Behavior</span>
+                                        <span class="text-gray-700 text-sm">Maintaining integrity and honesty in all situations; adhering to professional and organizational values.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-200 mb-4">
+                                    <h5 class="font-medium text-indigo-800 mb-2">Analysis Instructions</h5>
+                                    <p class="text-gray-700 mb-2">For each workplace scenario:</p>
+                                    <ol class="list-decimal list-inside text-gray-700 space-y-1">
+                                        <li>Identify the <strong>2-3 most relevant expectations</strong> from the framework above</li>
+                                        <li>Explain how each expectation applies to the specific situation</li>
+                                        <li>Discuss how balancing multiple expectations might create challenges</li>
+                                        <li>Propose a professional response that demonstrates these expectations</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <!-- Scenario Cards -->
+                            <div class="space-y-4 mb-4">
+                                <!-- Scenario 1 -->
+                                <div class="scenario-card">
+                                    <h4 class="font-semibold text-blue-800 mb-2">Scenario 1: Handling Constructive Criticism</h4>
+                                    <p class="text-gray-700 mb-3">Your supervisor reviews your first major project and provides constructive criticism about several aspects that need improvement. You spent many hours on this project and were proud of the result.</p>
+                                    
+                                    <div class="bg-white p-4 rounded-lg border border-blue-100 shadow-sm">
+                                        <h5 class="font-medium text-blue-700 mb-2">Relevant Workplace Expectations:</h5>
+                                        <div class="flex flex-wrap gap-2 mb-3">
+                                            <span class="bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-blue-200">Accountability</span>
+                                            <span class="bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-blue-200">Adaptability</span>
+                                            <span class="bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-blue-200">Initiative</span>
+                                        </div>
+                                        
+                                        <h5 class="font-medium text-blue-700 mb-2">Discussion Questions:</h5>
+                                        <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                            <li>How does <strong>accountability</strong> apply when receiving constructive criticism?</li>
+                                            <li>What aspects of <strong>adaptability</strong> are important in this situation?</li>
+                                            <li>How could you demonstrate <strong>initiative</strong> in your response?</li>
+                                            <li>What potential consequences might result from handling the situation poorly?</li>
+                                        </ul>
+                                        
+                                        <div class="mt-4 space-y-2">
+                                            <h5 class="font-medium text-blue-700">Your Response Plan:</h5>
+                                            <textarea class="w-full p-2 border border-blue-200 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="3" placeholder="How would you professionally handle this situation, demonstrating the relevant workplace expectations?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Scenario 2 -->
+                                <div class="scenario-card">
+                                    <h4 class="font-semibold text-blue-800 mb-2">Scenario 2: Meeting a Challenging Deadline</h4>
+                                    <p class="text-gray-700 mb-3">Your team has been assigned an important project with a tight deadline. As you progress, it becomes clear that completing everything to a high standard within the timeframe will be difficult. It's now three days before the deadline.</p>
+                                    
+                                    <div class="bg-white p-4 rounded-lg border border-blue-100 shadow-sm">
+                                        <h5 class="font-medium text-blue-700 mb-2">Relevant Workplace Expectations:</h5>
+                                        <div class="flex flex-wrap gap-2 mb-3">
+                                            <span class="bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-blue-200">Reliability</span>
+                                            <span class="bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-blue-200">Collaboration</span>
+                                            <span class="bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-blue-200">Initiative</span>
+                                        </div>
+                                        
+                                        <h5 class="font-medium text-blue-700 mb-2">Discussion Questions:</h5>
+                                        <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                            <li>How can you demonstrate <strong>reliability</strong> when facing an impossible deadline?</li>
+                                            <li>What aspects of <strong>collaboration</strong> are critical in this time-sensitive situation?</li>
+                                            <li>How might <strong>initiative</strong> help resolve the deadline problem?</li>
+                                            <li>How do you balance quality work with meeting the deadline?</li>
+                                        </ul>
+                                        
+                                        <div class="mt-4 space-y-2">
+                                            <h5 class="font-medium text-blue-700">Your Response Plan:</h5>
+                                            <textarea class="w-full p-2 border border-blue-200 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="3" placeholder="How would you professionally handle this situation, demonstrating the relevant workplace expectations?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Scenario 3 -->
+                                <div class="scenario-card">
+                                    <h4 class="font-semibold text-blue-800 mb-2">Scenario 3: Navigating Office Politics</h4>
+                                    <p class="text-gray-700 mb-3">You've noticed two colleagues in your department are having a personal conflict that is affecting team dynamics. In a meeting, one makes a subtle negative comment about the other's work. You can see the tension rising, and other team members look uncomfortable.</p>
+                                    
+                                    <div class="bg-white p-4 rounded-lg border border-blue-100 shadow-sm">
+                                        <h5 class="font-medium text-blue-700 mb-2">Relevant Workplace Expectations:</h5>
+                                        <div class="flex flex-wrap gap-2 mb-3">
+                                            <span class="bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-blue-200">Collaboration</span>
+                                            <span class="bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-blue-200">Ethical Behavior</span>
+                                            <span class="bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-blue-200">Adaptability</span>
+                                        </div>
+                                        
+                                        <h5 class="font-medium text-blue-700 mb-2">Discussion Questions:</h5>
+                                        <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                            <li>How is <strong>collaboration</strong> impacted by interpersonal conflicts?</li>
+                                            <li>What <strong>ethical considerations</strong> come into play in this situation?</li>
+                                            <li>What aspects of <strong>adaptability</strong> are needed in navigating workplace tension?</li>
+                                            <li>What are the potential long-term impacts on team dynamics if this situation isn't addressed?</li>
+                                        </ul>
+                                        
+                                        <div class="mt-4 space-y-2">
+                                            <h5 class="font-medium text-blue-700">Your Response Plan:</h5>
+                                            <textarea class="w-full p-2 border border-blue-200 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="3" placeholder="How would you professionally handle this situation, demonstrating the relevant workplace expectations?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-5 rounded-lg border border-indigo-200 mb-6 shadow-sm">
+                                <h4 class="font-semibold text-indigo-800 mb-3">Role-Play Application Exercise</h4>
+                                <p class="text-gray-700 mb-4">Select one scenario to role-play with your group. Prepare a short performance that demonstrates how the workplace expectations apply in a real situation.</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-4">
+                                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
+                                        <h5 class="font-medium text-indigo-700 mb-2">Professional Approach:</h5>
+                                        <p class="text-sm text-gray-600 mb-2">Script a response that demonstrates the relevant workplace expectations in action.</p>
+                                        <textarea class="w-full p-3 border border-indigo-200 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" rows="4" placeholder="Script your professional approach..."></textarea>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
+                                        <h5 class="font-medium text-indigo-700 mb-2">Unprofessional Approach:</h5>
+                                        <p class="text-sm text-gray-600 mb-2">Script a response that fails to demonstrate these workplace expectations.</p>
+                                        <textarea class="w-full p-3 border border-indigo-200 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" rows="4" placeholder="Script your unprofessional approach..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
+                                    <h5 class="font-medium text-indigo-700 mb-2">Expectations Analysis:</h5>
+                                    <p class="text-sm text-gray-600 mb-3">For each workplace expectation that applies to your scenario, explain how it's demonstrated (or violated) in your role-play:</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Expectation 1:</label>
+                                            <select class="w-full p-2 border border-indigo-200 rounded-md shadow-sm">
+                                                <option value="">Select an expectation</option>
+                                                <option value="reliability">Reliability</option>
+                                                <option value="accountability">Accountability</option>
+                                                <option value="adaptability">Adaptability</option>
+                                                <option value="collaboration">Collaboration</option>
+                                                <option value="initiative">Initiative</option>
+                                                <option value="ethical">Ethical Behavior</option>
+                                            </select>
+                                            <textarea class="w-full mt-2 p-2 border border-indigo-200 rounded-md text-sm" rows="2" placeholder="How is this demonstrated or violated?"></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Expectation 2:</label>
+                                            <select class="w-full p-2 border border-indigo-200 rounded-md shadow-sm">
+                                                <option value="">Select an expectation</option>
+                                                <option value="reliability">Reliability</option>
+                                                <option value="accountability">Accountability</option>
+                                                <option value="adaptability">Adaptability</option>
+                                                <option value="collaboration">Collaboration</option>
+                                                <option value="initiative">Initiative</option>
+                                                <option value="ethical">Ethical Behavior</option>
+                                            </select>
+                                            <textarea class="w-full mt-2 p-2 border border-indigo-200 rounded-md text-sm" rows="2" placeholder="How is this demonstrated or violated?"></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Expectation 3:</label>
+                                            <select class="w-full p-2 border border-indigo-200 rounded-md shadow-sm">
+                                                <option value="">Select an expectation</option>
+                                                <option value="reliability">Reliability</option>
+                                                <option value="accountability">Accountability</option>
+                                                <option value="adaptability">Adaptability</option>
+                                                <option value="collaboration">Collaboration</option>
+                                                <option value="initiative">Initiative</option>
+                                                <option value="ethical">Ethical Behavior</option>
+                                            </select>
+                                            <textarea class="w-full mt-2 p-2 border border-indigo-200 rounded-md text-sm" rows="2" placeholder="How is this demonstrated or violated?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 3: Professional Communication Workshop -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: Professional Communication Workshop</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-3">Effective communication is essential in the workplace. This workshop helps you develop appropriate communication skills for different professional channels and contexts.</p>
+                            
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Instructions:</h3>
+                            <p class="mb-3">In this activity, you'll rotate through four communication stations, each focusing on a different aspect of professional communication. Spend 4-5 minutes at each station before moving to the next.</p>
+                            
+                            <div class="bg-indigo-50 p-5 rounded-lg mb-6 border border-indigo-200 shadow-sm">
+                                <h4 class="font-semibold text-indigo-800 mb-3">Professional Communication Guidelines</h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                                    <div class="bg-white p-3 rounded-lg border border-indigo-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-indigo-700 block mb-1">Clarity</span>
+                                        <span class="text-gray-600 text-xs">Clear, concise messaging</span>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-indigo-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-indigo-700 block mb-1">Tone</span>
+                                        <span class="text-gray-600 text-xs">Respectful, appropriate language</span>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-indigo-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-indigo-700 block mb-1">Timeliness</span>
+                                        <span class="text-gray-600 text-xs">Prompt responses</span>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-indigo-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-indigo-700 block mb-1">Completeness</span>
+                                        <span class="text-gray-600 text-xs">Necessary information included</span>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-indigo-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-indigo-700 block mb-1">Audience Awareness</span>
+                                        <span class="text-gray-600 text-xs">Adjusted for recipients</span>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-indigo-200 shadow-sm hover:shadow-md transition-all">
+                                        <span class="font-medium text-indigo-700 block mb-1">Channel Appropriateness</span>
+                                        <span class="text-gray-600 text-xs">Right medium for message</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Communication Stations -->
+                            <div class="space-y-6">
+                                <!-- Email Station -->
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <h4 class="font-semibold text-indigo-700 flex items-center mb-3">
+                                        <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs mr-2">Station A</span>
+                                        Email Communication
+                                    </h4>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="font-medium text-gray-700 mb-2">Professional vs. Unprofessional Examples</h5>
+                                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                            <div class="bg-green-50 p-3 rounded border border-green-200">
+                                                <h6 class="font-medium text-green-800 mb-1">Professional Example</h6>
+                                                <div class="bg-white p-2 rounded text-gray-700">
+                                                    <p><strong>Subject:</strong> Project Timeline Update - Action Required</p>
+                                                    <p><strong>Dear Team,</strong></p>
+                                                    <p>I'm writing to inform you that the deadline for the Williams project has been moved forward to April 15. Please review your assigned tasks and adjust your schedules accordingly.</p>
+                                                    <p>If this change creates any conflicts with your existing commitments, please let me know by Friday so we can discuss potential solutions.</p>
+                                                    <p>Thank you for your flexibility,<br>Sarah</p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-red-50 p-3 rounded border border-red-200">
+                                                <h6 class="font-medium text-red-800 mb-1">Unprofessional Example</h6>
+                                                <div class="bg-white p-2 rounded text-gray-700">
+                                                    <p><strong>Subject:</strong> URGENT!!! Timeline CHANGED!!!</p>
+                                                    <p><strong>Hey everyone,</strong></p>
+                                                    <p>FYI - they moved up our deadline AGAIN!!! Now everything is due 4/15. Not sure why management keeps doing this to us. 🙄</p>
+                                                    <p>You'll need to work faster I guess. Let me know if you can't handle it.</p>
+                                                    <p>S</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="font-medium text-gray-700 mb-2">Your Turn: Compose a Professional Email</h5>
+                                        <p class="text-sm text-gray-600 mb-2">Scenario: You need to inform your supervisor that you'll miss tomorrow morning's team meeting due to a scheduled doctor's appointment. You'll be available in the afternoon and would like to receive any important updates.</p>
+                                        
+                                        <div class="space-y-2">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Subject Line:</label>
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded text-sm" placeholder="Enter an appropriate subject...">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Body:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded text-sm" rows="4" placeholder="Compose your email..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Virtual Meeting Station -->
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <h4 class="font-semibold text-indigo-700 flex items-center mb-3">
+                                        <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs mr-2">Station B</span>
+                                        Virtual Meeting Etiquette
+                                    </h4>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="font-medium text-gray-700 mb-2">Best Practices Checklist</h5>
+                                        <div class="grid md:grid-cols-2 gap-3 text-sm">
+                                            <div>
+                                                <h6 class="font-medium text-indigo-700 mb-1">Before the Meeting</h6>
+                                                <div class="space-y-1">
+                                                    <div class="flex items-start">
+                                                        <input type="checkbox" class="mt-1 mr-2">
+                                                        <span class="text-gray-700">Test your technology in advance</span>
+                                                    </div>
+                                                    <div class="flex items-start">
+                                                        <input type="checkbox" class="mt-1 mr-2">
+                                                        <span class="text-gray-700">Find a quiet location with minimal distractions</span>
+                                                    </div>
+                                                    <div class="flex items-start">
+                                                        <input type="checkbox" class="mt-1 mr-2">
+                                                        <span class="text-gray-700">Prepare materials and agenda items</span>
+                                                    </div>
+                                                    <div class="flex items-start">
+                                                        <input type="checkbox" class="mt-1 mr-2">
+                                                        <span class="text-gray-700">Set up proper lighting and camera position</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-medium text-indigo-700 mb-1">During the Meeting</h6>
+                                                <div class="space-y-1">
+                                                    <div class="flex items-start">
+                                                        <input type="checkbox" class="mt-1 mr-2">
+                                                        <span class="text-gray-700">Mute when not speaking</span>
+                                                    </div>
+                                                    <div class="flex items-start">
+                                                        <input type="checkbox" class="mt-1 mr-2">
+                                                        <span class="text-gray-700">Use chat appropriately for questions/comments</span>
+                                                    </div>
+                                                    <div class="flex items-start">
+                                                        <input type="checkbox" class="mt-1 mr-2">
+                                                        <span class="text-gray-700">Minimize multitasking and distractions</span>
+                                                    </div>
+                                                    <div class="flex items-start">
+                                                        <input type="checkbox" class="mt-1 mr-2">
+                                                        <span class="text-gray-700">Practice active listening and engagement</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="font-medium text-gray-700 mb-2">Virtual Background and Setup Guidance</h5>
+                                        <p class="text-sm text-gray-600 mb-2">Evaluate the following virtual meeting setups for professionalism:</p>
+                                        
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                            <div>
+                                                <div class="bg-gray-100 p-2 rounded mb-1 h-24 flex items-center justify-center">
+                                                    <span class="text-gray-500 text-xs">[Image: Person with messy background]</span>
+                                                </div>
+                                                <div class="flex items-center space-x-2">
+                                                    <select class="w-full text-xs border border-gray-300 rounded p-1">
+                                                        <option>Rate professionalism</option>
+                                                        <option>Very professional</option>
+                                                        <option>Somewhat professional</option>
+                                                        <option>Needs improvement</option>
+                                                        <option>Unprofessional</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="bg-gray-100 p-2 rounded mb-1 h-24 flex items-center justify-center">
+                                                    <span class="text-gray-500 text-xs">[Image: Person with neat neutral background]</span>
+                                                </div>
+                                                <div class="flex items-center space-x-2">
+                                                    <select class="w-full text-xs border border-gray-300 rounded p-1">
+                                                        <option>Rate professionalism</option>
+                                                        <option>Very professional</option>
+                                                        <option>Somewhat professional</option>
+                                                        <option>Needs improvement</option>
+                                                        <option>Unprofessional</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Conflict Resolution Station -->
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <h4 class="font-semibold text-indigo-700 flex items-center mb-3">
+                                        <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs mr-2">Station C</span>
+                                        Conflict Resolution Communication
+                                    </h4>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="font-medium text-gray-700 mb-2">Using "I" Statements</h5>
+                                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                            <div class="bg-green-50 p-3 rounded border border-green-200">
+                                                <h6 class="font-medium text-green-800 mb-1">Effective "I" Statement Format</h6>
+                                                <div class="bg-white p-2 rounded text-gray-700 space-y-1">
+                                                    <p><strong>1. State your feelings:</strong> "I feel..."</p>
+                                                    <p><strong>2. Describe the situation:</strong> "when..."</p>
+                                                    <p><strong>3. Explain the impact:</strong> "because..."</p>
+                                                    <p><strong>4. Make a request:</strong> "I would prefer..."</p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white p-3 rounded border border-gray-200">
+                                                <h6 class="font-medium text-gray-800 mb-1">Example</h6>
+                                                <p class="text-red-600 mb-1">Instead of: "You always interrupt me in meetings!"</p>
+                                                <p class="text-green-600">Try: "I feel frustrated when I'm interrupted during presentations because I lose my train of thought. I would prefer if we could establish a system for questions at the end."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="font-medium text-gray-700 mb-2">Your Turn: Convert These Statements</h5>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <p class="text-sm text-red-600 mb-1">"You never respond to my emails on time."</p>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded text-sm" rows="2" placeholder="Rewrite using 'I' statements..."></textarea>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm text-red-600 mb-1">"Your constant last-minute changes are making this project impossible."</p>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded text-sm" rows="2" placeholder="Rewrite using 'I' statements..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Professional Introduction Station -->
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <h4 class="font-semibold text-indigo-700 flex items-center mb-3">
+                                        <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs mr-2">Station D</span>
+                                        Professional Introduction
+                                    </h4>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="font-medium text-gray-700 mb-2">Elements of an Effective Introduction</h5>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-sm mb-3">
+                                            <div class="bg-indigo-50 p-2 rounded text-center">
+                                                <span class="font-medium text-indigo-800 block">Name</span>
+                                            </div>
+                                            <div class="bg-indigo-50 p-2 rounded text-center">
+                                                <span class="font-medium text-indigo-800 block">Role/Background</span>
+                                            </div>
+                                            <div class="bg-indigo-50 p-2 rounded text-center">
+                                                <span class="font-medium text-indigo-800 block">Relevant Experience</span>
+                                            </div>
+                                            <div class="bg-indigo-50 p-2 rounded text-center">
+                                                <span class="font-medium text-indigo-800 block">Connection Point</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="bg-gray-50 p-3 rounded border border-gray-200 mb-3">
+                                            <h6 class="font-medium text-gray-800 mb-1">Example</h6>
+                                            <p class="text-sm text-gray-700">"Hi, I'm Sarah Johnson, a marketing specialist with five years of experience in digital campaign management. I've worked extensively with social media analytics and recently completed a project similar to what your team is working on. I'm particularly interested in learning more about your approach to audience segmentation."</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h5 class="font-medium text-gray-700 mb-2">Craft Your Professional Introduction</h5>
+                                        <p class="text-sm text-gray-600 mb-2">Create a 30-second professional introduction for a networking event in your field of interest:</p>
+                                        
+                                        <div class="space-y-2">
+                                            <div>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded text-sm" rows="4" placeholder="Write your professional introduction..."></textarea>
+                                            </div>
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                <div>
+                                                    <label class="block text-xs font-medium text-gray-700 mb-1">Approximate word count:</label>
+                                                    <input type="number" class="w-full p-1 border border-gray-300 rounded text-sm" placeholder="Words">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-medium text-gray-700 mb-1">Approximate delivery time:</label>
+                                                    <input type="number" class="w-full p-1 border border-gray-300 rounded text-sm" placeholder="Seconds">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-200 mt-6 mb-4">
+                                <h4 class="font-semibold text-indigo-800 mb-2">Communication Self-Assessment</h4>
+                                <p class="text-sm text-indigo-700 mb-3">After completing all four stations, assess your communication strengths and areas for development:</p>
+                                
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-indigo-700 mb-1">My communication strengths:</label>
+                                        <textarea class="w-full p-2 border border-indigo-300 rounded text-sm" rows="2"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-indigo-700 mb-1">Areas I'd like to develop:</label>
+                                        <textarea class="w-full p-2 border border-indigo-300 rounded text-sm" rows="2"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-indigo-700 mb-1">Specific actions I can take to improve:</label>
+                                        <textarea class="w-full p-2 border border-indigo-300 rounded text-sm" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 4: Workplace Transition Planning -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 4: Workplace Transition Planning</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-3">This activity helps you prepare for the transition from education to the workplace by anticipating challenges and developing strategies for success.</p>
+                            
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Instructions:</h3>
+                            <p class="mb-4">Complete the Workplace Transition Worksheet below and create a "First 90 Days" plan to set yourself up for success in a new position.</p>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                                <h4 class="font-semibold text-indigo-800 mb-3">Workplace Transition Worksheet</h4>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="font-medium text-indigo-700 mb-2">1. Anticipated Challenges</h5>
+                                        <p class="text-sm text-indigo-900 mb-2">What challenges do you anticipate when transitioning from education to the workplace?</p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-start">
+                                                <input type="checkbox" class="mt-1 mr-2">
+                                                <span class="text-gray-700 text-sm">Adapting to workplace culture and norms</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <input type="checkbox" class="mt-1 mr-2">
+                                                <span class="text-gray-700 text-sm">Meeting performance expectations</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <input type="checkbox" class="mt-1 mr-2">
+                                                <span class="text-gray-700 text-sm">Navigating workplace relationships</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <input type="checkbox" class="mt-1 mr-2">
+                                                <span class="text-gray-700 text-sm">Managing work-life balance</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <input type="checkbox" class="mt-1 mr-2">
+                                                <span class="text-gray-700 text-sm">Learning new systems and processes</span>
+                                            </div>
+                                            <div class="mt-2">
+                                                <label class="block text-sm font-medium text-indigo-700 mb-1">Other challenges:</label>
+                                                <textarea class="w-full p-2 border border-indigo-300 rounded text-sm" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-medium text-indigo-700 mb-2">2. Relationship Building Strategy</h5>
+                                        <p class="text-sm text-indigo-900 mb-2">How will you build professional relationships in your new workplace?</p>
+                                        <textarea class="w-full p-2 border border-indigo-300 rounded text-sm" rows="3" placeholder="Outline your approach to building relationships with colleagues, supervisors, and other departments..."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-medium text-indigo-700 mb-2">3. Work-Life Balance Plan</h5>
+                                        <p class="text-sm text-indigo-900 mb-2">How will you maintain a healthy work-life balance?</p>
+                                        <textarea class="w-full p-2 border border-indigo-300 rounded text-sm" rows="3" placeholder="Describe your strategies for maintaining boundaries, managing stress, and prioritizing self-care..."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-medium text-indigo-700 mb-2">4. Feedback and Mentorship Approach</h5>
+                                        <p class="text-sm text-indigo-900 mb-2">How will you seek feedback and mentorship to support your professional growth?</p>
+                                        <textarea class="w-full p-2 border border-indigo-300 rounded text-sm" rows="3" placeholder="Outline your plan for soliciting feedback, finding mentors, and responding to guidance..."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-medium text-indigo-700 mb-2">5. Tracking Accomplishments</h5>
+                                        <p class="text-sm text-indigo-900 mb-2">How will you document your contributions and achievements?</p>
+                                        <textarea class="w-full p-2 border border-indigo-300 rounded text-sm" rows="3" placeholder="Describe your system for tracking accomplishments, project outcomes, and professional development..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border border-gray-200 rounded-lg p-6 mb-6 shadow-sm">
+                                <h4 class="font-semibold text-gray-800 mb-3">First 90 Days Plan</h4>
+                                <p class="text-sm text-gray-600 mb-5">Create a strategic plan for your first 90 days in a new position. Research shows that the first three months are critical for establishing yourself in a new workplace.</p>
+                                
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                    <!-- First 30 Days -->
+                                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-all">
+                                        <h5 class="font-medium text-blue-800 mb-3 text-center border-b border-blue-200 pb-2">Days 1-30: Learning Phase</h5>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Learning objectives:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="3" placeholder="What do you need to learn?"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Relationship priorities:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="2" placeholder="Key relationships to establish"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Early wins:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="2" placeholder="Quick, achievable successes"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Days 31-60 -->
+                                    <div class="bg-purple-50 border border-purple-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-all">
+                                        <h5 class="font-medium text-purple-800 mb-3 text-center border-b border-purple-200 pb-2">Days 31-60: Contributing Phase</h5>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Implementation goals:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500" rows="3" placeholder="What will you implement?"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Feedback check-in:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500" rows="2" placeholder="Plan for seeking feedback"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Process improvements:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500" rows="2" placeholder="Areas for potential enhancement"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Days 61-90 -->
+                                    <div class="bg-green-50 border border-green-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-all">
+                                        <h5 class="font-medium text-green-800 mb-3 text-center border-b border-green-200 pb-2">Days 61-90: Value Creation Phase</h5>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Strategic contributions:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" rows="3" placeholder="How will you add unique value?"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Performance review prep:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" rows="2" placeholder="Documentation and preparation"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Future development:</label>
+                                                <textarea class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" rows="2" placeholder="Next growth opportunities"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200 mb-4">
+                                <h4 class="font-semibold text-yellow-800 mb-2">First 90 Days Success Strategies</h4>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-yellow-700">
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Listen and observe before suggesting major changes</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Build relationships across departments</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Clarify expectations with your supervisor</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Identify a mentor for guidance</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Document your learning and questions</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Meet all deadlines and commitments</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Seek feedback regularly</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Track accomplishments from day one</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 5: Interview Simulator Practice -->
+                    <div class="learning-station" id="station5">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">5</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 5: Interview Simulator Practice</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-3">The Interview Simulator provides personalized practice with different interview formats and question types, helping you refine your approach and build confidence.</p>
+                            
+                            <div class="interview-simulator mb-6">
+                                <h3 class="text-lg font-semibold text-purple-800 mb-3">Interview Simulator</h3>
+                                <p class="text-sm text-gray-600 mb-4">Select a career field and position type to begin a simulated interview with questions tailored to your selection.</p>
+                                
+                                <div class="bg-white border border-purple-200 rounded-lg p-5">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Career Field:</label>
+                                            <select class="w-full p-2 border border-gray-300 rounded text-sm">
+                                                <option>Select a career field</option>
+                                                <option>Business & Finance</option>
+                                                <option>Technology & IT</option>
+                                                <option>Healthcare</option>
+                                                <option>Education</option>
+                                                <option>Marketing & Communications</option>
+                                                <option>Hospitality & Service</option>
+                                                <option>Skilled Trades</option>
+                                                <option>Creative Arts</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Position Type:</label>
+                                            <select class="w-full p-2 border border-gray-300 rounded text-sm">
+                                                <option>Select a position type</option>
+                                                <option>Entry-Level</option>
+                                                <option>Internship</option>
+                                                <option>Mid-Level</option>
+                                                <option>Management</option>
+                                                <option>Remote/Hybrid</option>
+                                                <option>Part-Time</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Interview Format:</label>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
+                                            <div class="flex items-center">
+                                                <input type="radio" name="interview-format" id="format-1" class="mr-2">
+                                                <label for="format-1" class="text-sm">One-on-One</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="radio" name="interview-format" id="format-2" class="mr-2">
+                                                <label for="format-2" class="text-sm">Panel</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="radio" name="interview-format" id="format-3" class="mr-2">
+                                                <label for="format-3" class="text-sm">Behavioral</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="radio" name="interview-format" id="format-4" class="mr-2">
+                                                <label for="format-4" class="text-sm">Technical</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-center">
+                                        <button class="pfl-button">
+                                            Start Interview Simulation
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Simulated Interview Interface (Initially Hidden) -->
+                                <div class="hidden mt-5 bg-white border border-purple-200 rounded-lg p-5" id="interview-simulation">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="font-semibold text-purple-800">Active Interview: Business Analyst</h4>
+                                        <span class="text-sm text-gray-500">Question 1 of 5</span>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                        <p class="text-gray-700 mb-2 font-medium">Tell me about a time when you had to analyze complex data to make a recommendation.</p>
+                                        <p class="text-sm text-gray-500">This is a behavioral question. Use the STAR method (Situation, Task, Action, Result) to structure your response.</p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <textarea class="w-full p-2 border border-gray-300 rounded" rows="5" placeholder="Record your response here..."></textarea>
+                                    </div>
+                                    
+                                    <div class="flex justify-between">
+                                        <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200">
+                                            Record Audio Response
+                                        </button>
+                                        <button class="pfl-button">
+                                            Next Question
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border border-gray-200 rounded-lg p-4 mb-6">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-3">Interview Skills Self-Assessment</h3>
+                                <p class="text-sm text-gray-600 mb-4">Compare your current interview skills to where you were at the beginning of this chapter.</p>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-medium text-gray-700 mb-2">Rate your confidence with these interview skills:</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <label class="block text-sm text-gray-700 mb-1">Responding to behavioral questions using the STAR method:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-xs text-gray-500 mr-2">Not confident</span>
+                                                    <input type="range" min="1" max="10" value="5" class="w-full mx-2">
+                                                    <span class="text-xs text-gray-500 ml-2">Very confident</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm text-gray-700 mb-1">Discussing your qualifications and experience:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-xs text-gray-500 mr-2">Not confident</span>
+                                                    <input type="range" min="1" max="10" value="6" class="w-full mx-2">
+                                                    <span class="text-xs text-gray-500 ml-2">Very confident</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm text-gray-700 mb-1">Asking thoughtful questions to interviewers:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-xs text-gray-500 mr-2">Not confident</span>
+                                                    <input type="range" min="1" max="10" value="4" class="w-full mx-2">
+                                                    <span class="text-xs text-gray-500 ml-2">Very confident</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm text-gray-700 mb-1">Managing interview anxiety:</label>
+                                                <div class="flex items-center">
+                                                    <span class="text-xs text-gray-500 mr-2">Not confident</span>
+                                                    <input type="range" min="1" max="10" value="3" class="w-full mx-2">
+                                                    <span class="text-xs text-gray-500 ml-2">Very confident</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">What has been your biggest improvement in interview skills?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded text-sm" rows="2"></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">What interview skill would you like to continue developing?</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded text-sm" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                                <h4 class="font-semibold text-green-800 mb-2">Interview Simulator Benefits</h4>
+                                <ul class="grid md:grid-cols-2 gap-2 text-sm text-green-700">
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Practice in a low-stakes environment</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Exposure to diverse question types</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Immediate feedback on responses</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Refine answers through repetition</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Reduce anxiety through familiarity</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Build industry-specific knowledge</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(5)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration Section -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration: Professional Development Plan</h2>
+                        <p class="text-gray-700 mb-4">
+                            Create a comprehensive Professional Development Plan for your financial literacy portfolio that demonstrates your readiness for workplace success.
+                        </p>
+                        
+                        <div class="bg-white rounded-lg border border-indigo-200 p-5 mb-4">
+                            <div class="space-y-4">
+                                <div>
+                                    <h3 class="font-semibold text-indigo-700 mb-2">1. Interview Preparation Strategy</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Summarize your approach to interview preparation, including STAR method examples and anxiety management techniques.</p>
+                                    <textarea class="w-full p-2 border border-indigo-300 rounded" rows="3"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="font-semibold text-indigo-700 mb-2">2. Workplace Professionalism Guide</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Create a personal reference guide outlining professional expectations and approaches to common workplace scenarios.</p>
+                                    <textarea class="w-full p-2 border border-indigo-300 rounded" rows="3"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="font-semibold text-indigo-700 mb-2">3. Communication Toolkit</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Provide examples of professional communication for different contexts, including email templates and meeting participation strategies.</p>
+                                    <textarea class="w-full p-2 border border-indigo-300 rounded" rows="3"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="font-semibold text-indigo-700 mb-2">4. First 90 Days Plan</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Outline your detailed strategy for success in your initial transition to a new position.</p>
+                                    <textarea class="w-full p-2 border border-indigo-300 rounded" rows="3"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="font-semibold text-indigo-700 mb-2">5. Professional Development Goals</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Identify short-term and long-term objectives for continued skill development and career advancement.</p>
+                                    <textarea class="w-full p-2 border border-indigo-300 rounded" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-sm text-gray-600 italic">
+                            This plan will serve as both a demonstration of your understanding of workplace expectations and a practical resource as you begin your career.
+                        </p>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button mt-4" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Reflection Section -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Take some time to reflect on your professional readiness and the skills you've developed in this chapter.
+                        </p>
+                        
+                        <div class="space-y-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">1. What aspects of workplace professionalism do you feel most confident about? Which areas might present challenges?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">2. How have your interview skills developed through these activities? What specific improvements have you noticed?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">3. What strategies will you use to continue developing professional skills beyond the classroom?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">4. What resources or support might you need during your transition from education to the workplace?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-6">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Chapter 15.5
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Toast Notification -->
+                    <div class="toast" id="toast">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span id="toast-message">Progress saved successfully!</span>
+                        </div>
+                    </div>
+                    
+                    <!-- JavaScript Functionality -->
+                    <script>
+                        // Station progress tracking
+                        let stationProgress = {
+                            station1: false,
+                            station2: false,
+                            station3: false,
+                            station4: false,
+                            station5: false,
+                            portfolio: false
+                        };
+                        
+                        // Save station progress
+                        function saveStation(stationNumber) {
+                            stationProgress['station' + stationNumber] = true;
+                            updateProgress();
+                            showToast('Station ' + stationNumber + ' completed!');
+                            
+                            // Update station indicator
+                            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+                            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+                            
+                            // Scroll to next station if available
+                            const nextStation = document.getElementById('station' + (stationNumber + 1));
+                            if (nextStation) {
+                                setTimeout(() => {
+                                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                                }, 1000);
+                            } else if (stationNumber === 5) {
+                                // If it's the last station, scroll to portfolio section
+                                setTimeout(() => {
+                                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                                }, 1000);
+                            }
+                        }
+                        
+                        // Save portfolio
+                        function savePortfolio() {
+                            stationProgress.portfolio = true;
+                            updateProgress();
+                            showToast('Added to portfolio!');
+                            
+                            // Update portfolio indicator
+                            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+                            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+                            
+                            // Scroll to reflection section
+                            setTimeout(() => {
+                                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+                            }, 1000);
+                        }
+                        
+                        // Update progress bar and percentage
+                        function updateProgress() {
+                            const totalStations = Object.keys(stationProgress).length;
+                            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+                            const percentage = Math.round((completedStations / totalStations) * 100);
+                            
+                            document.getElementById('progress-bar').style.width = percentage + '%';
+                            document.getElementById('progress-percentage').textContent = percentage + '%';
+                        }
+                        
+                        // Show toast notification
+                        function showToast(message) {
+                            const toast = document.getElementById('toast');
+                            document.getElementById('toast-message').textContent = message;
+                            toast.classList.add('show');
+                            
+                            setTimeout(() => {
+                                toast.classList.remove('show');
+                            }, 3000);
+                        }
+                        
+                        // AI feedback system simulation
+                        function checkReflection() {
+                            const reflectionTextareas = document.querySelectorAll('textarea[data-ai-check="true"]');
+                            const feedbackContainer = document.getElementById('feedback-container');
+                            const aiFeedback = document.getElementById('ai-feedback');
+                            
+                            // Check if all reflection questions have been answered
+                            let allAnswered = true;
+                            let totalLength = 0;
+                            
+                            reflectionTextareas.forEach(textarea => {
+                                if (textarea.value.trim().length < 10) {
+                                    allAnswered = false;
+                                }
+                                totalLength += textarea.value.length;
+                            });
+                            
+                            if (!allAnswered) {
+                                aiFeedback.textContent = "Please provide thoughtful responses to all reflection questions before requesting feedback.";
+                            } else if (totalLength < 200) {
+                                aiFeedback.textContent = "Your reflections are a good start but could benefit from more depth. Consider providing specific examples from your experience with these activities and how they relate to your future career goals.";
+                            } else if (totalLength < 400) {
+                                aiFeedback.textContent = "Good reflections! You've demonstrated an understanding of workplace professionalism and interview skills. To enhance your responses further, consider making more connections between different aspects of workplace readiness and how they complement each other.";
+                            } else {
+                                aiFeedback.textContent = "Excellent reflections! You've demonstrated thoughtful consideration of your professional development needs and growth. Your self-awareness regarding both strengths and areas for improvement will serve you well in your career journey. You've made meaningful connections between the activities in this chapter and your future workplace success.";
+                            }
+                            
+                            feedbackContainer.classList.remove('hidden');
+                            
+                            // Scroll to feedback
+                            setTimeout(() => {
+                                feedbackContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }, 200);
+                        }
+                        
+                        // Highlight active section based on scroll position
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const sections = document.querySelectorAll('#learning-objectives, #introduction, #station1, #station2, #station3, #station4, #station5, #portfolio-integration, #reflection');
+                            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+                            
+                            function highlightActiveSection() {
+                                let currentSection = '';
+                                
+                                sections.forEach(section => {
+                                    const sectionTop = section.offsetTop;
+                                    const sectionHeight = section.clientHeight;
+                                    if (window.scrollY >= (sectionTop - 200)) {
+                                        currentSection = section.getAttribute('id');
+                                    }
+                                });
+                                
+                                navItems.forEach(item => {
+                                    item.classList.remove('text-indigo-700', 'font-medium');
+                                    item.classList.add('text-gray-700');
+                                    
+                                    const href = item.getAttribute('href').substring(1);
+                                    if (href === currentSection) {
+                                        item.classList.remove('text-gray-700');
+                                        item.classList.add('text-indigo-700', 'font-medium');
+                                    }
+                                });
+                            }
+                            
+                            window.addEventListener('scroll', highlightActiveSection);
+                            highlightActiveSection();
+                        });
+                    </script>
+</body>
+</html>

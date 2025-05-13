@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART Financial Goal Worksheet - Chapter 5.1</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+            .form-field {
+                border: 1px solid #000;
+                padding: 5px;
+                margin-bottom: 10px;
+                min-height: 20px;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        .goal-worksheet {
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .form-section {
+            margin-bottom: 20px;
+        }
+        
+        .form-field {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            margin-bottom: 15px;
+            min-height: 25px;
+            background-color: white;
+        }
+        
+        .large-field {
+            min-height: 80px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+        
+        th, td {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #F3F4F6;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .example {
+            background-color: #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .timeframe {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .timeframe label {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #E5E7EB;
+            margin-right: 5px;
+            display: inline-block;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend portrait orientation)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>SMART Financial Goal Worksheet</h1>
+        <p class="subtitle">Chapter 5.1: Saving and Investing</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>This worksheet will help you create effective financial goals using the SMART framework. SMART goals are Specific, Measurable, Achievable, Relevant, and Time-bound. By structuring your financial goals this way, you increase your chances of success and can better determine whether saving or investing is the appropriate strategy.</p>
+
+    <div class="important-note">
+        <strong>Why SMART Goals Matter for Financial Planning:</strong> The SMART framework helps you transform vague financial aspirations into concrete, actionable plans. When your goals have specific metrics and deadlines, you can better determine which financial strategies are most appropriate (saving vs. investing) and track your progress effectively.
+    </div>
+
+    <h2>Understanding the SMART Framework</h2>
+    <table>
+        <tr>
+            <th>SMART Component</th>
+            <th>Description</th>
+            <th>Financial Example</th>
+        </tr>
+        <tr>
+            <td><strong>S</strong>pecific</td>
+            <td>Clear and precise about what you want to accomplish</td>
+            <td>"Save $3,000 for a used car" instead of "Save for a car"</td>
+        </tr>
+        <tr>
+            <td><strong>M</strong>easurable</td>
+            <td>Includes concrete criteria to measure progress</td>
+            <td>"Save $250 monthly" instead of "Save regularly"</td>
+        </tr>
+        <tr>
+            <td><strong>A</strong>chievable</td>
+            <td>Realistic and attainable given your resources</td>
+            <td>Based on your income and expenses, is saving $250 monthly realistic?</td>
+        </tr>
+        <tr>
+            <td><strong>R</strong>elevant</td>
+            <td>Aligned with your values and broader life goals</td>
+            <td>How does this financial goal support your larger plans and priorities?</td>
+        </tr>
+        <tr>
+            <td><strong>T</strong>ime-bound</td>
+            <td>Has a specific deadline or timeframe</td>
+            <td>"Within 12 months" instead of "Eventually"</td>
+        </tr>
+    </table>
+
+    <h2>Example SMART Financial Goal</h2>
+    <div class="example">
+        <h3>Non-SMART Goal</h3>
+        <p>"I want to save for college."</p>
+        
+        <h3>SMART Version</h3>
+        <p>"I will save $10,000 for college expenses by August 2027 by depositing $200 monthly into a 529 college savings plan, which aligns with my value of graduating debt-free."</p>
+        
+        <p><strong>Specific:</strong> $10,000 for college expenses<br>
+        <strong>Measurable:</strong> $200 monthly deposits<br>
+        <strong>Achievable:</strong> Based on my part-time job income<br>
+        <strong>Relevant:</strong> Aligns with my goal of graduating debt-free<br>
+        <strong>Time-bound:</strong> By August 2027</p>
+    </div>
+
+    <h2>Your SMART Financial Goals</h2>
+    <p>Now it's your turn to create your own SMART financial goals. Complete the worksheet for each goal, then determine whether saving or investing is more appropriate based on your timeframe and purpose.</p>
+
+    <div class="goal-worksheet">
+        <h3>Goal #1</h3>
+        
+        <div class="form-section">
+            <label>Timeframe:</label>
+            <div class="timeframe">
+                <label><div class="checkbox"></div> Short-term (under 2 years)</label>
+                <label><div class="checkbox"></div> Medium-term (2-5 years)</label>
+                <label><div class="checkbox"></div> Long-term (5+ years)</label>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <label>What do you want to accomplish? (Be specific about what, how much, and why)</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>How will you measure your progress? (What metrics will you track?)</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Is this achievable? (Consider your current resources and constraints)</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Why is this goal relevant to your life and values?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>When will you complete this goal? (Specific date or timeframe)</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Rewrite your goal in complete SMART format:</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Financial Strategy: Based on the timeframe and purpose of this goal, which approach is more appropriate?</label>
+            <div class="timeframe">
+                <label><div class="checkbox"></div> Saving</label>
+                <label><div class="checkbox"></div> Investing</label>
+                <label><div class="checkbox"></div> Combination approach</label>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <label>Explain why you chose this financial strategy:</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>What specific accounts or financial vehicles will you use?</label>
+            <div class="form-field"></div>
+        </div>
+    </div>
+
+    <div class="goal-worksheet">
+        <h3>Goal #2</h3>
+        
+        <div class="form-section">
+            <label>Timeframe:</label>
+            <div class="timeframe">
+                <label><div class="checkbox"></div> Short-term (under 2 years)</label>
+                <label><div class="checkbox"></div> Medium-term (2-5 years)</label>
+                <label><div class="checkbox"></div> Long-term (5+ years)</label>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <label>What do you want to accomplish? (Be specific about what, how much, and why)</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>How will you measure your progress? (What metrics will you track?)</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Is this achievable? (Consider your current resources and constraints)</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Why is this goal relevant to your life and values?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>When will you complete this goal? (Specific date or timeframe)</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Rewrite your goal in complete SMART format:</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Financial Strategy: Based on the timeframe and purpose of this goal, which approach is more appropriate?</label>
+            <div class="timeframe">
+                <label><div class="checkbox"></div> Saving</label>
+                <label><div class="checkbox"></div> Investing</label>
+                <label><div class="checkbox"></div> Combination approach</label>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <label>Explain why you chose this financial strategy:</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>What specific accounts or financial vehicles will you use?</label>
+            <div class="form-field"></div>
+        </div>
+    </div>
+
+    <div class="goal-worksheet">
+        <h3>Goal #3</h3>
+        
+        <div class="form-section">
+            <label>Timeframe:</label>
+            <div class="timeframe">
+                <label><div class="checkbox"></div> Short-term (under 2 years)</label>
+                <label><div class="checkbox"></div> Medium-term (2-5 years)</label>
+                <label><div class="checkbox"></div> Long-term (5+ years)</label>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <label>What do you want to accomplish? (Be specific about what, how much, and why)</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>How will you measure your progress? (What metrics will you track?)</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Is this achievable? (Consider your current resources and constraints)</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Why is this goal relevant to your life and values?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>When will you complete this goal? (Specific date or timeframe)</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Rewrite your goal in complete SMART format:</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>Financial Strategy: Based on the timeframe and purpose of this goal, which approach is more appropriate?</label>
+            <div class="timeframe">
+                <label><div class="checkbox"></div> Saving</label>
+                <label><div class="checkbox"></div> Investing</label>
+                <label><div class="checkbox"></div> Combination approach</label>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <label>Explain why you chose this financial strategy:</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>What specific accounts or financial vehicles will you use?</label>
+            <div class="form-field"></div>
+        </div>
+    </div>
+
+    <h2>Reflection and Action Plan</h2>
+    <div class="goal-worksheet">
+        <div class="form-section">
+            <label>What did you notice about the relationship between your timeframes and your chosen financial strategies?</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>What specific actions will you take in the next 30 days to begin working toward your goals?</label>
+            <div class="form-field large-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>How will you track your progress toward these goals?</label>
+            <div class="form-field"></div>
+        </div>
+        
+        <div class="form-section">
+            <label>What obstacles might you face, and how will you overcome them?</label>
+            <div class="form-field large-field"></div>
+        </div>
+    </div>
+
+    <div class="important-note">
+        <strong>Remember:</strong> Your financial goals may change over time as your life circumstances evolve. Review and update your SMART goals regularly to ensure they remain relevant and achievable. The most effective financial plan is one that adapts to your changing needs while maintaining focus on your core priorities.
+    </div>
+
+    <footer>
+        <p>PFL Academy - Chapter 5.1: Saving and Investing</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not financial advice.</p>
+    </footer>
+</body>
+</html>

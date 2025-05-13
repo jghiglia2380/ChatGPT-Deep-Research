@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 5.3: Evaluating Saving and Investment Strategies - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Risk tolerance gauge */
+        .gauge-container {
+            width: 300px;
+            margin: 0 auto;
+        }
+        
+        .gauge {
+            height: 20px;
+            background: linear-gradient(to right, #22c55e, #eab308, #ef4444);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .gauge-marker {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 40px;
+            background-color: #4f46e5;
+            border-radius: 5px;
+            transition: left 0.5s ease;
+        }
+        
+        .gauge-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="h-16"></div>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-8 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 5: Saving and Investing</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding how to build wealth through saving and investing.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Previous chapters with checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 5.1: Saving and Investing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 5.2: Understanding Compound Interest
+                                </a>
+                            </li>
+                            
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 5.3: Evaluating Saving and Investment Strategies
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-5-3-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Goal Identification
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Risk Tolerance Assessment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Strategy Development
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Analysis Dashboard
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Future chapters without checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 5.4: Time is Money
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 5.5: Understanding Monetary Risk
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-5-3-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 5.3: Evaluating Saving and Investment Strategies</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Creating Your Personal Investment Strategy</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Compare the risks and returns of various saving and investment options</li>
+                            <li>Evaluate which financial strategies align with different time horizons and goals</li>
+                            <li>Apply decision-making criteria to select appropriate saving and investment vehicles</li>
+                            <li>Create a personalized investment strategy based on financial goals and risk tolerance</li>
+                            <li>Analyze how different strategies balance risk and potential returns</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <section id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Today, you'll apply the knowledge from Day 1 about different saving and investment options by creating your own personalized investment strategy. You'll learn how to match specific financial goals with appropriate saving and investment vehicles based on time horizons and risk tolerance.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                This Learning Lab provides a simplified framework for developing an investment strategy for educational purposes. Real-world investment decisions should involve careful research, consideration of personal circumstances, and potentially consultation with financial professionals.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm mb-2">
+                                In Day 1, we explored various saving and investment options and the relationship between risk and return. Today, we'll build on that knowledge by:
+                            </p>
+                            <ul class="list-disc list-inside text-indigo-800 text-sm">
+                                <li>Applying the risk-return relationship to specific financial goals</li>
+                                <li>Matching appropriate vehicles (savings accounts, CDs, bonds, stocks, mutual funds) to different time horizons</li>
+                                <li>Considering personal risk tolerance in investment decisions</li>
+                                <li>Creating a balanced strategy that addresses multiple financial goals</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Podcast Review Section -->
+                        <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                            <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Evaluating Saving and Investment Strategies</h3>
+                            <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                            
+                            <div class="bg-white rounded-lg p-4">
+                                <audio controls class="w-full mb-2">
+                                    <source src="/finished LM recordings/5.3 - Evaluating Saving and Investment Strategies.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                <div class="text-sm text-gray-500">
+                                    <p>Topics covered: Saving vs. investing, risk-return relationship, comparing investment options, matching strategies to goals, and diversification.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 my-4">
+                            Today's Learning Lab will guide you through creating a personalized investment strategy based on your financial goals and risk tolerance. You'll work through four stations: identifying your goals, assessing your risk tolerance, developing appropriate strategies, and analyzing your overall approach.
+                        </p>
+                    </section>
+                    
+                    <!-- Learning Station 1: Goal Identification -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Financial Goal Identification</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-5">
+                            <p>The first step in developing an effective investment strategy is identifying your financial goals. Different goals have different time horizons, which impact which saving and investment vehicles are most appropriate.</p>
+                            <p class="mb-4">Think about your financial goals in these three categories:</p>
+                            
+                            <div class="grid md:grid-cols-3 gap-4 mb-6">
+                                <!-- Short-term goals -->
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h3 class="font-semibold text-blue-800 mb-2">Short-term Goals (0-3 years)</h3>
+                                    <p class="text-sm text-gray-700 mb-3">Goals you want to achieve within the next 3 years.</p>
+                                    <p class="text-sm text-gray-700 mb-3"><strong>Examples:</strong> Emergency fund, vacation, new electronics, vehicle down payment</p>
+                                    <p class="text-sm text-gray-700"><strong>Focus:</strong> Liquidity and stability</p>
+                                </div>
+                                
+                                <!-- Medium-term goals -->
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h3 class="font-semibold text-purple-800 mb-2">Medium-term Goals (3-10 years)</h3>
+                                    <p class="text-sm text-gray-700 mb-3">Goals you want to achieve within 3-10 years.</p>
+                                    <p class="text-sm text-gray-700 mb-3"><strong>Examples:</strong> Home down payment, education expenses, starting a business</p>
+                                    <p class="text-sm text-gray-700"><strong>Focus:</strong> Balance between growth and stability</p>
+                                </div>
+                                
+                                <!-- Long-term goals -->
+                                <div class="bg-indigo-50 p-4 rounded-lg">
+                                    <h3 class="font-semibold text-indigo-800 mb-2">Long-term Goals (10+ years)</h3>
+                                    <p class="text-sm text-gray-700 mb-3">Goals you want to achieve in 10 or more years.</p>
+                                    <p class="text-sm text-gray-700 mb-3"><strong>Examples:</strong> Retirement, child's college fund, major wealth building</p>
+                                    <p class="text-sm text-gray-700"><strong>Focus:</strong> Long-term growth and appreciation</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-5">
+                                <h3 class="font-semibold text-gray-800 mb-3">Your Financial Goals</h3>
+                                <p class="mb-3">Identify at least one goal for each time horizon and specify the approximate amount needed:</p>
+                                
+                                <!-- Short-term goals input -->
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-blue-800">Short-term Goals (0-3 years)</h4>
+                                    <div class="bg-white border border-gray-300 rounded-md p-3 mt-2">
+                                        <div class="mb-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Goal 1:</label>
+                                            <div class="grid grid-cols-5 gap-2">
+                                                <input type="text" class="col-span-3 p-2 border border-gray-300 rounded-md" placeholder="Goal description (e.g., Emergency fund)">
+                                                <input type="text" class="col-span-2 p-2 border border-gray-300 rounded-md" placeholder="Amount ($)">
+                                            </div>
+                                        </div>
+                                        <div class="mb-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Goal 2: (optional)</label>
+                                            <div class="grid grid-cols-5 gap-2">
+                                                <input type="text" class="col-span-3 p-2 border border-gray-300 rounded-md" placeholder="Goal description">
+                                                <input type="text" class="col-span-2 p-2 border border-gray-300 rounded-md" placeholder="Amount ($)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Medium-term goals input -->
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-purple-800">Medium-term Goals (3-10 years)</h4>
+                                    <div class="bg-white border border-gray-300 rounded-md p-3 mt-2">
+                                        <div class="mb-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Goal 1:</label>
+                                            <div class="grid grid-cols-5 gap-2">
+                                                <input type="text" class="col-span-3 p-2 border border-gray-300 rounded-md" placeholder="Goal description (e.g., Home down payment)">
+                                                <input type="text" class="col-span-2 p-2 border border-gray-300 rounded-md" placeholder="Amount ($)">
+                                            </div>
+                                        </div>
+                                        <div class="mb-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Goal 2: (optional)</label>
+                                            <div class="grid grid-cols-5 gap-2">
+                                                <input type="text" class="col-span-3 p-2 border border-gray-300 rounded-md" placeholder="Goal description">
+                                                <input type="text" class="col-span-2 p-2 border border-gray-300 rounded-md" placeholder="Amount ($)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Long-term goals input -->
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-indigo-800">Long-term Goals (10+ years)</h4>
+                                    <div class="bg-white border border-gray-300 rounded-md p-3 mt-2">
+                                        <div class="mb-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Goal 1:</label>
+                                            <div class="grid grid-cols-5 gap-2">
+                                                <input type="text" class="col-span-3 p-2 border border-gray-300 rounded-md" placeholder="Goal description (e.g., Retirement)">
+                                                <input type="text" class="col-span-2 p-2 border border-gray-300 rounded-md" placeholder="Amount ($)">
+                                            </div>
+                                        </div>
+                                        <div class="mb-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Goal 2: (optional)</label>
+                                            <div class="grid grid-cols-5 gap-2">
+                                                <input type="text" class="col-span-3 p-2 border border-gray-300 rounded-md" placeholder="Goal description">
+                                                <input type="text" class="col-span-2 p-2 border border-gray-300 rounded-md" placeholder="Amount ($)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <!-- Learning Station 2: Risk Tolerance Assessment -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Risk Tolerance Assessment</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">5-10 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-5">
+                            <p class="mb-4">Understanding your risk tolerance is crucial for developing an appropriate investment strategy. Risk tolerance varies from person to person and can be influenced by factors such as age, financial situation, investment timeline, and personal comfort with market fluctuations.</p>
+                            
+                            <p class="mb-5">Answer the following questions to assess your general risk tolerance:</p>
+                            
+                            <div class="bg-white border border-gray-300 rounded-lg p-5 mb-6">
+                                <h3 class="font-semibold text-gray-800 mb-4">Risk Tolerance Questionnaire</h3>
+                                
+                                <!-- Question 1 -->
+                                <div class="mb-4">
+                                    <p class="font-medium text-gray-700 mb-2">1. If your investment lost 20% of its value in one month, what would you do?</p>
+                                    <div class="space-y-2 mt-1">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q1" value="1" class="mr-2">
+                                            <span>Sell all remaining investments to prevent further losses</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q1" value="2" class="mr-2">
+                                            <span>Sell a portion of the remaining investments</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q1" value="3" class="mr-2">
+                                            <span>Hold onto the investments and wait for a recovery</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q1" value="4" class="mr-2">
+                                            <span>Buy more of the same investment at the lower price</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <!-- Question 2 -->
+                                <div class="mb-4">
+                                    <p class="font-medium text-gray-700 mb-2">2. Which statement best describes your investment approach?</p>
+                                    <div class="space-y-2 mt-1">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q2" value="1" class="mr-2">
+                                            <span>I prefer guaranteed returns, even if they're relatively small</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q2" value="2" class="mr-2">
+                                            <span>I prefer mostly stable investments with some higher-risk options</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q2" value="3" class="mr-2">
+                                            <span>I'm comfortable with moderate fluctuations for better long-term returns</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q2" value="4" class="mr-2">
+                                            <span>I seek maximum long-term growth and can tolerate significant fluctuations</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <!-- Question 3 -->
+                                <div class="mb-4">
+                                    <p class="font-medium text-gray-700 mb-2">3. When making a long-term investment, I am:</p>
+                                    <div class="space-y-2 mt-1">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q3" value="1" class="mr-2">
+                                            <span>Primarily concerned with preserving my original investment</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q3" value="2" class="mr-2">
+                                            <span>Willing to accept small losses for potentially more growth</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q3" value="3" class="mr-2">
+                                            <span>Willing to accept moderate losses for potentially higher returns</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q3" value="4" class="mr-2">
+                                            <span>Focused on maximum growth, even with significant fluctuations</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <!-- Question 4 -->
+                                <div class="mb-4">
+                                    <p class="font-medium text-gray-700 mb-2">4. Which portfolio would you be most comfortable with?</p>
+                                    <div class="space-y-2 mt-1">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q4" value="1" class="mr-2">
+                                            <span>100% low-risk investments with 2-4% expected returns</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q4" value="2" class="mr-2">
+                                            <span>70% low-risk, 30% medium-risk with 4-6% expected returns</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q4" value="3" class="mr-2">
+                                            <span>40% low-risk, 40% medium-risk, 20% high-risk with 6-8% expected returns</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q4" value="4" class="mr-2">
+                                            <span>20% low-risk, 30% medium-risk, 50% high-risk with 8-10+% expected returns</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <!-- Question 5 -->
+                                <div class="mb-5">
+                                    <p class="font-medium text-gray-700 mb-2">5. How would you react to frequent market volatility?</p>
+                                    <div class="space-y-2 mt-1">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q5" value="1" class="mr-2">
+                                            <span>It would make me extremely uncomfortable and anxious</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q5" value="2" class="mr-2">
+                                            <span>I would be somewhat concerned but understand it's part of investing</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q5" value="3" class="mr-2">
+                                            <span>I would be comfortable as long as the long-term prospects are good</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="q5" value="4" class="mr-2">
+                                            <span>I view volatility as an opportunity and remain focused on long-term goals</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <button class="pfl-button" onclick="calculateRiskTolerance()">Calculate Risk Tolerance</button>
+                            </div>
+                            
+                            <!-- Risk Tolerance Result -->
+                            <div class="bg-indigo-50 rounded-lg p-5 mb-5 hidden" id="risk-tolerance-result">
+                                <h3 class="font-semibold text-gray-800 mb-3">Your Risk Tolerance Profile</h3>
+                                <p class="mb-4">Based on your answers, your risk tolerance level is: <span id="risk-tolerance-level" class="font-bold text-indigo-700">Not calculated</span></p>
+                                
+                                <div class="gauge-container mb-4">
+                                    <div class="gauge">
+                                        <div class="gauge-marker" id="risk-marker" style="left: 0%;"></div>
+                                    </div>
+                                    <div class="gauge-labels">
+                                        <span>Conservative</span>
+                                        <span>Moderate</span>
+                                        <span>Aggressive</span>
+                                    </div>
+                                </div>
+                                
+                                <div id="conservative-profile" class="hidden">
+                                    <h4 class="font-medium text-gray-800 mb-2">Conservative Profile:</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 mb-3">
+                                        <li>You prioritize preserving your capital over growth potential</li>
+                                        <li>You prefer stable, predictable returns with minimal fluctuations</li>
+                                        <li>You're uncomfortable with losses, even temporary ones</li>
+                                        <li>Best suited for shorter-term goals or situations where capital preservation is essential</li>
+                                    </ul>
+                                </div>
+                                
+                                <div id="moderately-conservative-profile" class="hidden">
+                                    <h4 class="font-medium text-gray-800 mb-2">Moderately Conservative Profile:</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 mb-3">
+                                        <li>You prioritize stability but are willing to accept some fluctuations</li>
+                                        <li>You seek some growth while still protecting your principal</li>
+                                        <li>You can tolerate mild market fluctuations for potentially better returns</li>
+                                        <li>Suitable for medium-term goals with some flexibility in timing</li>
+                                    </ul>
+                                </div>
+                                
+                                <div id="moderate-profile" class="hidden">
+                                    <h4 class="font-medium text-gray-800 mb-2">Moderate Profile:</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 mb-3">
+                                        <li>You seek a balance between capital growth and capital preservation</li>
+                                        <li>You're comfortable with moderate market fluctuations</li>
+                                        <li>You have a longer time horizon for your investments</li>
+                                        <li>Suitable for medium to long-term goals with balanced growth expectations</li>
+                                    </ul>
+                                </div>
+                                
+                                <div id="moderately-aggressive-profile" class="hidden">
+                                    <h4 class="font-medium text-gray-800 mb-2">Moderately Aggressive Profile:</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 mb-3">
+                                        <li>You prioritize growth and can accept significant fluctuations</li>
+                                        <li>You're comfortable with temporary losses for better long-term results</li>
+                                        <li>You have a long-term investment perspective</li>
+                                        <li>Suitable for long-term goals where growth is the primary objective</li>
+                                    </ul>
+                                </div>
+                                
+                                <div id="aggressive-profile" class="hidden">
+                                    <h4 class="font-medium text-gray-800 mb-2">Aggressive Profile:</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 mb-3">
+                                        <li>You seek maximum growth potential and accept significant volatility</li>
+                                        <li>You view market declines as buying opportunities</li>
+                                        <li>You're comfortable with large fluctuations and potential temporary losses</li>
+                                        <li>Best suited for very long-term goals when growth is the only priority</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 3: Strategy Development -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Strategy Development</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-5">
+                            <p class="mb-4">Now that you've identified your financial goals and risk tolerance, it's time to develop specific strategies for each goal. Different saving and investment vehicles are appropriate for different goals based on time horizon, liquidity needs, and risk tolerance.</p>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                                <h3 class="font-semibold text-indigo-800 mb-2">Investment Options Reference Guide</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full bg-white border border-gray-300 text-sm">
+                                        <thead>
+                                            <tr class="bg-indigo-100">
+                                                <th class="py-2 px-4 border-b text-left">Vehicle</th>
+                                                <th class="py-2 px-4 border-b text-left">Risk Level</th>
+                                                <th class="py-2 px-4 border-b text-left">Potential Return</th>
+                                                <th class="py-2 px-4 border-b text-left">Liquidity</th>
+                                                <th class="py-2 px-4 border-b text-left">Best Time Horizon</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Savings Account</td>
+                                                <td class="py-2 px-4 border-b">Very Low</td>
+                                                <td class="py-2 px-4 border-b">0.5-1%</td>
+                                                <td class="py-2 px-4 border-b">Very High</td>
+                                                <td class="py-2 px-4 border-b">Short-term</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Certificate of Deposit (CD)</td>
+                                                <td class="py-2 px-4 border-b">Low</td>
+                                                <td class="py-2 px-4 border-b">1-3%</td>
+                                                <td class="py-2 px-4 border-b">Low (penalty for early withdrawal)</td>
+                                                <td class="py-2 px-4 border-b">Short to Medium-term</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Money Market Fund</td>
+                                                <td class="py-2 px-4 border-b">Low</td>
+                                                <td class="py-2 px-4 border-b">1-2%</td>
+                                                <td class="py-2 px-4 border-b">High</td>
+                                                <td class="py-2 px-4 border-b">Short-term</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Government Bonds</td>
+                                                <td class="py-2 px-4 border-b">Low to Moderate</td>
+                                                <td class="py-2 px-4 border-b">2-4%</td>
+                                                <td class="py-2 px-4 border-b">Moderate</td>
+                                                <td class="py-2 px-4 border-b">Medium-term</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Corporate Bonds</td>
+                                                <td class="py-2 px-4 border-b">Moderate</td>
+                                                <td class="py-2 px-4 border-b">3-6%</td>
+                                                <td class="py-2 px-4 border-b">Moderate</td>
+                                                <td class="py-2 px-4 border-b">Medium-term</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Balanced Mutual Funds</td>
+                                                <td class="py-2 px-4 border-b">Moderate</td>
+                                                <td class="py-2 px-4 border-b">4-7%</td>
+                                                <td class="py-2 px-4 border-b">Moderate to High</td>
+                                                <td class="py-2 px-4 border-b">Medium to Long-term</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Index Funds</td>
+                                                <td class="py-2 px-4 border-b">Moderate to High</td>
+                                                <td class="py-2 px-4 border-b">7-10%</td>
+                                                <td class="py-2 px-4 border-b">High</td>
+                                                <td class="py-2 px-4 border-b">Long-term</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Stocks (Individual)</td>
+                                                <td class="py-2 px-4 border-b">High</td>
+                                                <td class="py-2 px-4 border-b">Varies widely (potential for 10%+)</td>
+                                                <td class="py-2 px-4 border-b">High</td>
+                                                <td class="py-2 px-4 border-b">Long-term</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Growth Mutual Funds</td>
+                                                <td class="py-2 px-4 border-b">High</td>
+                                                <td class="py-2 px-4 border-b">8-12%</td>
+                                                <td class="py-2 px-4 border-b">Moderate to High</td>
+                                                <td class="py-2 px-4 border-b">Long-term</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-2">Note: These figures are approximations and historical averages. Actual returns may vary and are not guaranteed.</p>
+                            </div>
+                            
+                            <div class="mb-5">
+                                <h3 class="font-semibold text-gray-800 mb-3">Your Investment Strategy Plan</h3>
+                                <p class="mb-4">Now, develop your strategy for each goal using the reference guide above. Based on your time horizon and risk tolerance, select the most appropriate investment vehicles for each goal:</p>
+                                
+                                <!-- Short-term goals strategy -->
+                                <div class="mb-5">
+                                    <h4 class="font-medium text-blue-800 mb-2">Short-term Goals Strategy</h4>
+                                    <div class="bg-white border border-gray-300 rounded-lg p-4">
+                                        <div class="mb-4">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">For Goal 1:</label>
+                                            <div class="grid grid-cols-6 gap-4 mb-2">
+                                                <div class="col-span-3">
+                                                    <label class="block text-xs text-gray-600 mb-1">Primary Investment Vehicle</label>
+                                                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                                                        <option value="">Select...</option>
+                                                        <option value="savings">Savings Account</option>
+                                                        <option value="cd">Certificate of Deposit (CD)</option>
+                                                        <option value="money_market">Money Market Fund</option>
+                                                        <option value="govt_bonds">Government Bonds</option>
+                                                        <option value="corp_bonds">Corporate Bonds</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <label class="block text-xs text-gray-600 mb-1">Allocation %</label>
+                                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 70">
+                                                </div>
+                                            </div>
+                                            <div class="grid grid-cols-6 gap-4">
+                                                <div class="col-span-3">
+                                                    <label class="block text-xs text-gray-600 mb-1">Secondary Investment Vehicle (optional)</label>
+                                                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                                                        <option value="">Select...</option>
+                                                        <option value="savings">Savings Account</option>
+                                                        <option value="cd">Certificate of Deposit (CD)</option>
+                                                        <option value="money_market">Money Market Fund</option>
+                                                        <option value="govt_bonds">Government Bonds</option>
+                                                        <option value="corp_bonds">Corporate Bonds</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <label class="block text-xs text-gray-600 mb-1">Allocation %</label>
+                                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 30">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Rationale:</label>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain why you chose these vehicles for your short-term goals..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Medium-term goals strategy -->
+                                <div class="mb-5">
+                                    <h4 class="font-medium text-purple-800 mb-2">Medium-term Goals Strategy</h4>
+                                    <div class="bg-white border border-gray-300 rounded-lg p-4">
+                                        <div class="mb-4">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">For Goal 1:</label>
+                                            <div class="grid grid-cols-6 gap-4 mb-2">
+                                                <div class="col-span-3">
+                                                    <label class="block text-xs text-gray-600 mb-1">Primary Investment Vehicle</label>
+                                                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                                                        <option value="">Select...</option>
+                                                        <option value="cd">Certificate of Deposit (CD)</option>
+                                                        <option value="govt_bonds">Government Bonds</option>
+                                                        <option value="corp_bonds">Corporate Bonds</option>
+                                                        <option value="balanced_funds">Balanced Mutual Funds</option>
+                                                        <option value="index_funds">Index Funds</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <label class="block text-xs text-gray-600 mb-1">Allocation %</label>
+                                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 60">
+                                                </div>
+                                            </div>
+                                            <div class="grid grid-cols-6 gap-4">
+                                                <div class="col-span-3">
+                                                    <label class="block text-xs text-gray-600 mb-1">Secondary Investment Vehicle</label>
+                                                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                                                        <option value="">Select...</option>
+                                                        <option value="cd">Certificate of Deposit (CD)</option>
+                                                        <option value="govt_bonds">Government Bonds</option>
+                                                        <option value="corp_bonds">Corporate Bonds</option>
+                                                        <option value="balanced_funds">Balanced Mutual Funds</option>
+                                                        <option value="index_funds">Index Funds</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <label class="block text-xs text-gray-600 mb-1">Allocation %</label>
+                                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 40">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Rationale:</label>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain why you chose these vehicles for your medium-term goals..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Long-term goals strategy -->
+                                <div class="mb-5">
+                                    <h4 class="font-medium text-indigo-800 mb-2">Long-term Goals Strategy</h4>
+                                    <div class="bg-white border border-gray-300 rounded-lg p-4">
+                                        <div class="mb-4">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">For Goal 1:</label>
+                                            <div class="grid grid-cols-6 gap-4 mb-2">
+                                                <div class="col-span-3">
+                                                    <label class="block text-xs text-gray-600 mb-1">Primary Investment Vehicle</label>
+                                                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                                                        <option value="">Select...</option>
+                                                        <option value="balanced_funds">Balanced Mutual Funds</option>
+                                                        <option value="index_funds">Index Funds</option>
+                                                        <option value="stocks">Stocks (Individual)</option>
+                                                        <option value="growth_funds">Growth Mutual Funds</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <label class="block text-xs text-gray-600 mb-1">Allocation %</label>
+                                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 70">
+                                                </div>
+                                            </div>
+                                            <div class="grid grid-cols-6 gap-4">
+                                                <div class="col-span-3">
+                                                    <label class="block text-xs text-gray-600 mb-1">Secondary Investment Vehicle</label>
+                                                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                                                        <option value="">Select...</option>
+                                                        <option value="balanced_funds">Balanced Mutual Funds</option>
+                                                        <option value="index_funds">Index Funds</option>
+                                                        <option value="stocks">Stocks (Individual)</option>
+                                                        <option value="growth_funds">Growth Mutual Funds</option>
+                                                        <option value="corp_bonds">Corporate Bonds</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <label class="block text-xs text-gray-600 mb-1">Allocation %</label>
+                                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 30">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Rationale:</label>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain why you chose these vehicles for your long-term goals..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    <!-- Learning Station 4: Analysis Dashboard -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Analysis Dashboard</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">5-10 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-5">
+                            <p class="mb-4">Now it's time to visualize and analyze your investment strategy. This dashboard will help you get a clear picture of your overall approach and ensure it aligns with your goals and risk tolerance.</p>
+                            
+                            <div class="bg-white rounded-lg border border-gray-300 p-5 mb-6">
+                                <h3 class="font-semibold text-gray-800 mb-4">Investment Strategy Dashboard</h3>
+                                
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <!-- Visualization: Asset Allocation -->
+                                    <div>
+                                        <h4 class="font-medium text-gray-700 mb-3">Asset Allocation by Time Horizon</h4>
+                                        <div class="aspect-square">
+                                            <canvas id="allocationChart"></canvas>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Visualization: Risk-Return Profile -->
+                                    <div>
+                                        <h4 class="font-medium text-gray-700 mb-3">Risk-Return Profile</h4>
+                                        <div class="aspect-square">
+                                            <canvas id="riskReturnChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6">
+                                    <button class="pfl-button" onclick="updateCharts()">Generate Charts</button>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-5 mb-5">
+                                <h3 class="font-semibold text-gray-800 mb-3">Strategy Analysis</h3>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Does your strategy properly align with your time horizons?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Evaluate how well your investment choices match each goal's timeline..."></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Is your strategy consistent with your risk tolerance?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Analyze whether your investment choices reflect your risk tolerance..."></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">How does your strategy balance risk and potential returns?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Discuss how your strategy balances risk and return considerations..."></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">What adjustments might you make to improve your strategy?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Identify potential improvements to your investment strategy..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration Section -->
+                    <section id="portfolio-integration" class="mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive portfolio.</p>
+                        
+                        <div class="bg-indigo-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-indigo-900 mb-4">Your Investment Strategy Portfolio</h3>
+                            <p class="text-gray-700 mb-4">Your portfolio combines all elements from today's Learning Lab into a cohesive plan:</p>
+                            
+                            <ul class="list-disc list-inside mb-4 text-gray-700">
+                                <li>Financial goals with specific time horizons</li>
+                                <li>Risk tolerance assessment</li>
+                                <li>Investment vehicle selections aligned with your goals</li>
+                                <li>Asset allocation strategy across different time horizons</li>
+                                <li>Analysis of your strategy's strengths and potential improvements</li>
+                            </ul>
+                            
+                            <p class="text-gray-700 mb-4">Review each section to ensure alignment across your entire plan.</p>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Portfolio Summary</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize your investment strategy and how it will help you achieve your financial goals..."></textarea>
+                                <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                            </div>
+                            
+                            <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1" onclick="savePortfolio()">Complete Portfolio</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Reflection Section -->
+                    <section id="reflection" class="mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                        
+                        <div class="discussion-prompt">
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                            <p class="text-gray-700 mb-3">Consider how your understanding of saving and investment strategies has evolved through this Learning Lab. How will you apply these concepts to your actual financial decision-making in the future?</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                            <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                        </div>
+                        
+                        <div class="flex justify-end mt-8">
+                            <a href="chapter-5-4-day1.html" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                                Continue to Chapter 5.4: Time is Money
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved\!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed\!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 4) {
+                // If this is the last station, scroll to portfolio integration
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio\!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection section
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Calculate risk tolerance from questionnaire
+        function calculateRiskTolerance() {
+            // Get all question answers
+            let score = 0;
+            let questions = 5;
+            let answeredAll = true;
+            
+            for (let i = 1; i <= questions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption) {
+                    score += parseInt(selectedOption.value);
+                } else {
+                    answeredAll = false;
+                }
+            }
+            
+            if (\!answeredAll) {
+                showToast('Please answer all questions', 'warning');
+                return;
+            }
+            
+            // Calculate risk score (out of 20)
+            const riskPercentage = (score / (questions * 4)) * 100;
+            
+            // Show results
+            const resultDiv = document.getElementById('risk-tolerance-result');
+            const riskLevel = document.getElementById('risk-tolerance-level');
+            const riskMarker = document.getElementById('risk-marker');
+            
+            resultDiv.classList.remove('hidden');
+            
+            // Hide all profiles first
+            document.querySelectorAll('[id$="-profile"]').forEach(el => el.classList.add('hidden'));
+            
+            // Set position of marker (0-100%)
+            riskMarker.style.left = `${riskPercentage}%`;
+            
+            // Determine risk profile
+            if (score <= 7) {
+                riskLevel.textContent = 'Conservative';
+                document.getElementById('conservative-profile').classList.remove('hidden');
+            } else if (score <= 10) {
+                riskLevel.textContent = 'Moderately Conservative';
+                document.getElementById('moderately-conservative-profile').classList.remove('hidden');
+            } else if (score <= 14) {
+                riskLevel.textContent = 'Moderate';
+                document.getElementById('moderate-profile').classList.remove('hidden');
+            } else if (score <= 17) {
+                riskLevel.textContent = 'Moderately Aggressive';
+                document.getElementById('moderately-aggressive-profile').classList.remove('hidden');
+            } else {
+                riskLevel.textContent = 'Aggressive';
+                document.getElementById('aggressive-profile').classList.remove('hidden');
+            }
+            
+            // Scroll to result
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // Update charts for the dashboard
+        function updateCharts() {
+            // Sample data for demonstration purposes
+            const allocationData = {
+                labels: ['Short-term', 'Medium-term', 'Long-term'],
+                datasets: [
+                    {
+                        label: 'Asset Allocation',
+                        data: [25, 35, 40],
+                        backgroundColor: ['#60a5fa', '#c084fc', '#818cf8'],
+                        borderWidth: 0
+                    }
+                ]
+            };
+            
+            const riskReturnData = {
+                datasets: [{
+                    label: 'Investment Options',
+                    data: [
+                        { x: 1, y: 1, r: 10, label: 'Savings' },
+                        { x: 2, y: 2, r: 15, label: 'CDs' },
+                        { x: 3, y: 3.5, r: 15, label: 'Gov Bonds' },
+                        { x: 5, y: 5, r: 20, label: 'Corp Bonds' },
+                        { x: 7, y: 7, r: 25, label: 'Balanced Funds' },
+                        { x: 8, y: 9, r: 30, label: 'Index Funds' },
+                        { x: 10, y: 11, r: 20, label: 'Stocks' }
+                    ],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(100, 99, 255, 0.6)',
+                        'rgba(255, 99, 100, 0.6)'
+                    ]
+                }]
+            };
+            
+            // Create allocation chart
+            const allocationCtx = document.getElementById('allocationChart').getContext('2d');
+            new Chart(allocationCtx, {
+                type: 'pie',
+                data: allocationData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Create risk-return chart
+            const riskReturnCtx = document.getElementById('riskReturnChart').getContext('2d');
+            new Chart(riskReturnCtx, {
+                type: 'bubble',
+                data: riskReturnData,
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Risk (Low to High)'
+                            },
+                            min: 0,
+                            max: 12
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Potential Return (%)'
+                            },
+                            min: 0,
+                            max: 12
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw.label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            showToast('Charts generated\!');
+        }
+        
+        // AI feedback system for reflections
+        document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+            element.addEventListener('blur', function() {
+                if (this.value.length > 10) {
+                    const feedback = this.nextElementSibling;
+                    if (feedback && feedback.classList.contains('feedback-container')) {
+                        feedback.textContent = "Thank you for your thoughtful response\! Your answer shows good understanding of the concepts.";
+                        feedback.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Highlight active section in navigation based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('#learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navLinks = document.querySelectorAll('#section-navigation a');
+            
+            function updateActiveSection() {
+                const scrollPosition = window.scrollY;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        const id = section.getAttribute('id');
+                        
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-indigo-700', 'font-medium');
+                            link.classList.add('text-gray-700');
+                            
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-gray-700');
+                                link.classList.add('text-indigo-700', 'font-medium');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveSection);
+            updateActiveSection();
+        });
+    </script>
+</body>
+</html>

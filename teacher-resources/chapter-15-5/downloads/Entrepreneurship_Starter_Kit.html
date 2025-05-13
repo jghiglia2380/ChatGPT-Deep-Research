@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurship Starter Kit</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header img {
+            max-width: 200px;
+        }
+        
+        .header h1 {
+            margin-top: 10px;
+        }
+        
+        .resource-meta {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .section h2 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .subsection {
+            margin-bottom: 20px;
+        }
+        
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .assessment-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        
+        .assessment-item h4 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f9ff;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .checklist {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .checklist h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .checklist ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .checklist li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        .note {
+            background-color: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tips {
+            background-color: #e8f8f5;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background-color: #fdedec;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .resource-list {
+            background-color: #eef7fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .resource-list h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #d1e0e0;
+            padding-bottom: 10px;
+        }
+        
+        .resource-list ul {
+            padding-left: 25px;
+        }
+        
+        .resource-list li {
+            margin-bottom: 10px;
+        }
+        
+        .print-instructions {
+            text-align: center;
+            margin: 30px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border: 1px dashed #ccc;
+        }
+        
+        @media print {
+            .print-instructions {
+                display: none;
+            }
+            
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                border: none;
+                padding: 0;
+                background: none;
+            }
+            
+            .checklist li:before {
+                content: "□";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Entrepreneurship Starter Kit</h1>
+    </div>
+    
+    <div class="resource-meta">
+        <p>Chapter 15.5: Entrepreneurship and Side Hustles | PFL Academy</p>
+    </div>
+    
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this resource as a PDF or print it:</p>
+        <ol>
+            <li>Press Ctrl+P (Windows) or Cmd+P (Mac) to open the print dialog</li>
+            <li>Choose "Save as PDF" from the printer options (or print directly)</li>
+            <li>Click "Save" or "Print" to complete</li>
+        </ol>
+    </div>
+    
+    <div class="section">
+        <h2>1. Entrepreneurial Self-Assessment</h2>
+        
+        <p>Complete this assessment to identify your entrepreneurial strengths and areas for development. Rate yourself on a scale of 1-5 for each trait (1 = Not at all like me, 5 = Very much like me).</p>
+        
+        <div class="assessment-grid">
+            <div class="assessment-item">
+                <h4>Opportunity Recognition</h4>
+                <p>I regularly notice problems or needs that could be addressed with new solutions.</p>
+                <p>Rating: _____</p>
+            </div>
+            
+            <div class="assessment-item">
+                <h4>Calculated Risk-Taking</h4>
+                <p>I'm comfortable with uncertainty and willing to take calculated risks to achieve goals.</p>
+                <p>Rating: _____</p>
+            </div>
+            
+            <div class="assessment-item">
+                <h4>Resilience</h4>
+                <p>I bounce back quickly from setbacks and view failures as learning opportunities.</p>
+                <p>Rating: _____</p>
+            </div>
+            
+            <div class="assessment-item">
+                <h4>Adaptability</h4>
+                <p>I can adjust my approach when circumstances change or new information emerges.</p>
+                <p>Rating: _____</p>
+            </div>
+            
+            <div class="assessment-item">
+                <h4>Resourcefulness</h4>
+                <p>I find creative ways to accomplish goals with limited resources.</p>
+                <p>Rating: _____</p>
+            </div>
+            
+            <div class="assessment-item">
+                <h4>Action Orientation</h4>
+                <p>I move quickly from idea to implementation rather than overthinking or procrastinating.</p>
+                <p>Rating: _____</p>
+            </div>
+            
+            <div class="assessment-item">
+                <h4>Continuous Learning</h4>
+                <p>I actively seek new knowledge and skills to improve myself and my ventures.</p>
+                <p>Rating: _____</p>
+            </div>
+            
+            <div class="assessment-item">
+                <h4>Self-Motivation</h4>
+                <p>I can stay motivated and productive without external direction or supervision.</p>
+                <p>Rating: _____</p>
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <h3>Interpreting Your Results</h3>
+            <p>Add up your scores to determine your overall entrepreneurial tendency:</p>
+            <ul>
+                <li><strong>32-40:</strong> Strong entrepreneurial mindset - You demonstrate many key traits for entrepreneurial success.</li>
+                <li><strong>24-31:</strong> Moderate entrepreneurial mindset - You have a good foundation but may want to develop certain areas further.</li>
+                <li><strong>16-23:</strong> Developing entrepreneurial mindset - You have some entrepreneurial tendencies that can be strengthened.</li>
+                <li><strong>8-15:</strong> Limited entrepreneurial mindset - You may find entrepreneurship challenging but can develop necessary traits with effort.</li>
+            </ul>
+            
+            <p>Regardless of your score, entrepreneurial skills can be developed with practice and experience. Focus on improving areas with lower scores while leveraging your strengths.</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>2. Business Idea Development Framework</h2>
+        
+        <div class="subsection">
+            <h3>Sources of Business Ideas</h3>
+            <p>Great business ideas often come from these sources. Check all that apply to you:</p>
+            
+            <div class="checklist">
+                <ul>
+                    <li>Personal problems you've experienced that need better solutions</li>
+                    <li>Specialized skills or expertise you possess</li>
+                    <li>Hobbies and interests you're passionate about</li>
+                    <li>Industry inefficiencies you've observed</li>
+                    <li>Technological changes creating new opportunities</li>
+                    <li>Market trends and changing consumer preferences</li>
+                    <li>Existing products or services that could be improved</li>
+                    <li>Underserved customer groups with unmet needs</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <h3>Business Idea Generation Table</h3>
+            <p>Complete this table to generate potential business ideas:</p>
+            
+            <table>
+                <tr>
+                    <th>My Skills & Knowledge</th>
+                    <th>My Interests & Passions</th>
+                    <th>Problems I've Noticed</th>
+                    <th>Potential Business Ideas</th>
+                </tr>
+                <tr>
+                    <td style="height: 100px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="height: 100px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="height: 100px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="subsection">
+            <h3>Idea Evaluation Framework</h3>
+            <p>Score your top business ideas using this evaluation framework (1-5 scale, where 5 is highest):</p>
+            
+            <table>
+                <tr>
+                    <th>Evaluation Criteria</th>
+                    <th>Business Idea #1</th>
+                    <th>Business Idea #2</th>
+                    <th>Business Idea #3</th>
+                </tr>
+                <tr>
+                    <td>Problem Importance (How painful is this problem?)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Market Size (How many people have this problem?)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Competitive Advantage (What makes your solution unique?)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Feasibility (Can you execute with available resources?)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Profitability (Can you make money solving this problem?)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Personal Passion (How interested are you in this idea?)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Scalability (Can it grow beyond your personal capacity?)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL SCORE</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            
+            <div class="tips">
+                <h4>Evaluation Tips</h4>
+                <ul>
+                    <li>Focus on ideas scoring 25 or higher for further development</li>
+                    <li>Pay special attention to Problem Importance and Feasibility scores</li>
+                    <li>Consider starting with ideas that require minimal resources to validate</li>
+                    <li>Sometimes combining elements from different ideas creates a stronger concept</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>3. Business Model Options</h2>
+        
+        <div class="subsection">
+            <h3>Types of Business Models</h3>
+            <p>Different business models have varying requirements, risk levels, and growth potential. Review these options:</p>
+            
+            <table>
+                <tr>
+                    <th>Business Model</th>
+                    <th>Description</th>
+                    <th>Startup Requirements</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td><strong>Service-Based</strong></td>
+                    <td>Providing services using your skills and time (e.g., tutoring, design, consulting)</td>
+                    <td>
+                        - Low startup costs<br>
+                        - Skills in specific area<br>
+                        - Basic marketing materials
+                    </td>
+                    <td>
+                        - Those with specialized skills<br>
+                        - People seeking quick startup<br>
+                        - Testing market before scaling
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Product-Based</strong></td>
+                    <td>Creating or sourcing physical products to sell (e.g., handcrafts, retail items)</td>
+                    <td>
+                        - Production capabilities<br>
+                        - Inventory management<br>
+                        - Storage space<br>
+                        - Product development
+                    </td>
+                    <td>
+                        - Creative makers<br>
+                        - Those with access to unique products<br>
+                        - People able to manage inventory
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Digital Products</strong></td>
+                    <td>Creating information products or content sold repeatedly (e.g., courses, e-books)</td>
+                    <td>
+                        - Knowledge in specific area<br>
+                        - Content creation skills<br>
+                        - Digital platforms<br>
+                        - No inventory needed
+                    </td>
+                    <td>
+                        - Subject matter experts<br>
+                        - Those seeking passive income<br>
+                        - Digital content creators
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Platform-Based</strong></td>
+                    <td>Leveraging existing platforms to provide services (e.g., rideshare, online marketplaces)</td>
+                    <td>
+                        - Platform account setup<br>
+                        - Understanding platform rules<br>
+                        - Meeting platform requirements
+                    </td>
+                    <td>
+                        - Those seeking established customer base<br>
+                        - People with limited marketing budget<br>
+                        - Testing business concepts
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Subscription</strong></td>
+                    <td>Providing recurring products or services for regular fees (e.g., monthly boxes, memberships)</td>
+                    <td>
+                        - Recurring value creation<br>
+                        - Customer retention strategy<br>
+                        - Fulfillment system
+                    </td>
+                    <td>
+                        - Those seeking predictable revenue<br>
+                        - Businesses with loyal customers<br>
+                        - Continuous service providers
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="subsection">
+            <h3>Business Model Selection</h3>
+            <p>For your top business idea, identify which model(s) might work best and why:</p>
+            
+            <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-top: 10px;">
+                <p><strong>My Business Idea:</strong> ___________________________________________________</p>
+                <p><strong>Best Business Model(s):</strong> ___________________________________________</p>
+                <p><strong>Reasons for Selection:</strong></p>
+                <p style="height: 80px; border-bottom: 1px dashed #ccc;"></p>
+                <p><strong>Key Requirements for This Model:</strong></p>
+                <p style="height: 80px; border-bottom: 1px dashed #ccc;"></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>4. Startup Roadmap</h2>
+        
+        <div class="subsection">
+            <h3>From Idea to Implementation</h3>
+            <p>Use this roadmap to guide your journey from concept to launch:</p>
+            
+            <div class="checklist">
+                <h3>Phase 1: Idea Validation</h3>
+                <ul>
+                    <li>Define the problem your business will solve</li>
+                    <li>Identify your target customers</li>
+                    <li>Research competitors and alternatives</li>
+                    <li>Conduct at least 5 interviews with potential customers</li>
+                    <li>Verify there's sufficient demand for your solution</li>
+                    <li>Develop a simple value proposition</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Phase 2: Minimum Viable Product (MVP)</h3>
+                <ul>
+                    <li>Define the core features/offerings needed to solve the main problem</li>
+                    <li>Create a basic version of your product or service</li>
+                    <li>Test your MVP with a small group of potential customers</li>
+                    <li>Gather feedback and refine your offering</li>
+                    <li>Determine how to measure success (metrics)</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Phase 3: Basic Business Planning</h3>
+                <ul>
+                    <li>Create a one-page business plan</li>
+                    <li>Determine pricing strategy</li>
+                    <li>Calculate startup costs and monthly expenses</li>
+                    <li>Identify necessary resources and equipment</li>
+                    <li>Develop a simple marketing strategy</li>
+                    <li>Research legal requirements (permits, licenses, etc.)</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Phase 4: Launch Preparation</h3>
+                <ul>
+                    <li>Set up basic business operations (payment processing, communication systems)</li>
+                    <li>Create essential marketing materials</li>
+                    <li>Establish online presence (website, social media)</li>
+                    <li>Set up financial tracking systems</li>
+                    <li>Acquire necessary equipment and supplies</li>
+                    <li>Develop customer service procedures</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Phase 5: Soft Launch and Growth</h3>
+                <ul>
+                    <li>Launch to a limited audience</li>
+                    <li>Collect and implement customer feedback</li>
+                    <li>Refine operations and offerings</li>
+                    <li>Implement marketing plan</li>
+                    <li>Track key metrics and adjust strategy as needed</li>
+                    <li>Begin scaling efforts based on results</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <h3>Timeline Planning</h3>
+            <p>Create a realistic timeline for your venture by estimating completion dates for key milestones:</p>
+            
+            <table>
+                <tr>
+                    <th>Milestone</th>
+                    <th>Target Completion Date</th>
+                </tr>
+                <tr>
+                    <td>Complete idea validation</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Develop minimum viable product</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Finalize one-page business plan</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Set up basic business operations</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Create marketing materials</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Establish online presence</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Soft launch date</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>First customer/sale</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Marketing campaign launch</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Review and refine after initial launch</td>
+                    <td></td>
+                </tr>
+            </table>
+            
+            <div class="note">
+                <h4>Timeline Considerations</h4>
+                <ul>
+                    <li>Be realistic about timeframes, especially if balancing with school or other commitments</li>
+                    <li>Build in buffer time for unexpected challenges</li>
+                    <li>Start with a manageable scope and expand as you gain experience</li>
+                    <li>Consider seasonal factors that might affect your business</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>5. Common Challenges and Solutions</h2>
+        
+        <div class="subsection">
+            <table>
+                <tr>
+                    <th>Common Challenge</th>
+                    <th>Potential Solutions</th>
+                </tr>
+                <tr>
+                    <td><strong>Limited startup funds</strong></td>
+                    <td>
+                        - Start with a minimal viable product<br>
+                        - Use free or low-cost tools and platforms<br>
+                        - Barter services with other entrepreneurs<br>
+                        - Seek pre-orders or crowdfunding<br>
+                        - Start as a side hustle while maintaining other income
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Finding customers</strong></td>
+                    <td>
+                        - Leverage personal networks for initial sales<br>
+                        - Offer introductory promotions or free trials<br>
+                        - Partner with complementary businesses<br>
+                        - Use targeted social media marketing<br>
+                        - Attend local events or markets
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Time management</strong></td>
+                    <td>
+                        - Set specific time blocks for business activities<br>
+                        - Use task batching to improve efficiency<br>
+                        - Prioritize high-impact activities<br>
+                        - Automate repetitive tasks<br>
+                        - Consider what can be delegated or outsourced
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Self-doubt and fear</strong></td>
+                    <td>
+                        - Start small to build confidence<br>
+                        - Find a mentor or support group<br>
+                        - Focus on learning rather than perfection<br>
+                        - Celebrate small wins and milestones<br>
+                        - Remember that all entrepreneurs face challenges
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Legal requirements</strong></td>
+                    <td>
+                        - Research specific requirements for your business type<br>
+                        - Consult with parents, teachers, or mentors<br>
+                        - Consider starting as a sole proprietorship for simplicity<br>
+                        - Understand age-related restrictions in your area<br>
+                        - Maintain good records for tax purposes
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Competition</strong></td>
+                    <td>
+                        - Focus on a specific niche or underserved market<br>
+                        - Differentiate through superior service or unique features<br>
+                        - Build strong customer relationships<br>
+                        - Create a compelling brand story<br>
+                        - Learn from competitors rather than just competing
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="warning">
+            <h4>Important Cautions for Young Entrepreneurs</h4>
+            <ul>
+                <li><strong>Age Restrictions:</strong> Some business activities have age requirements. Research legal constraints in your area.</li>
+                <li><strong>Financial Protection:</strong> Limit personal financial risk, especially if under 18. Avoid taking on debt or significant financial obligations.</li>
+                <li><strong>Online Safety:</strong> Be cautious with personal information when conducting business online. Consider parental oversight for online transactions.</li>
+                <li><strong>Academic Balance:</strong> Ensure your business doesn't negatively impact your education and other commitments.</li>
+                <li><strong>Parental/Guardian Support:</strong> Involve trusted adults in your business planning and operations, especially for legal and financial matters.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>6. Recommended Resources</h2>
+        
+        <div class="resource-list">
+            <h3>Business Planning Resources</h3>
+            <ul>
+                <li><a href="https://www.sba.gov/business-guide/plan-your-business/write-your-business-plan">Small Business Administration Business Plan Guide</a></li>
+                <li><a href="https://leanstack.com/lean-canvas">Lean Canvas - Simplified Business Plan Template</a></li>
+                <li><a href="https://www.score.org/resource/business-plan-template-startup-business">SCORE Business Plan Templates</a></li>
+            </ul>
+        </div>
+        
+        <div class="resource-list">
+            <h3>Legal and Financial Resources</h3>
+            <ul>
+                <li><a href="https://www.sba.gov/business-guide/launch-your-business/choose-business-structure">SBA Guide to Business Structures</a></li>
+                <li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center">IRS Self-Employed Tax Center</a></li>
+                <li><a href="https://www.legalzoom.com/articles/teen-entrepreneurs-what-you-need-to-know-to-get-started">Legal Considerations for Teen Entrepreneurs</a></li>
+            </ul>
+        </div>
+        
+        <div class="resource-list">
+            <h3>Young Entrepreneur Organizations</h3>
+            <ul>
+                <li><a href="https://yeausa.org/">Young Entrepreneurs Academy (YEA!)</a></li>
+                <li><a href="https://www.nfte.com/">Network for Teaching Entrepreneurship (NFTE)</a></li>
+                <li><a href="https://www.deca.org/">DECA</a></li>
+                <li><a href="https://www.juniorachievement.org/">Junior Achievement</a></li>
+            </ul>
+        </div>
+        
+        <div class="resource-list">
+            <h3>Books for Young Entrepreneurs</h3>
+            <ul>
+                <li>"How to Start a Business as a Kid" by Mark Cuban and Shaan Patel</li>
+                <li>"Kid Start-Up: How YOU Can Become an Entrepreneur" by Mark Cuban</li>
+                <li>"The Young Entrepreneur's Guide to Starting and Running a Business" by Steve Mariotti</li>
+                <li>"Teen Entrepreneur Success Secrets" by Jennifer Kushell</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>7. Next Steps Action Plan</h2>
+        
+        <div class="subsection">
+            <p>Complete this action plan to outline your immediate next steps:</p>
+            
+            <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-top: 10px;">
+                <p><strong>My Top Business Idea:</strong> ___________________________________________________</p>
+                <p><strong>Business Model Type:</strong> ___________________________________________________</p>
+                <p><strong>Three People I Can Talk to for Feedback:</strong></p>
+                <ol>
+                    <li>_____________________________________________________________________</li>
+                    <li>_____________________________________________________________________</li>
+                    <li>_____________________________________________________________________</li>
+                </ol>
+                <p><strong>Three Immediate Actions I Can Take in the Next Week:</strong></p>
+                <ol>
+                    <li>_____________________________________________________________________</li>
+                    <li>_____________________________________________________________________</li>
+                    <li>_____________________________________________________________________</li>
+                </ol>
+                <p><strong>Resources I Need to Get Started:</strong></p>
+                <p style="height: 80px; border-bottom: 1px dashed #ccc;"></p>
+                <p><strong>Potential Challenges and How I'll Address Them:</strong></p>
+                <p style="height: 80px; border-bottom: 1px dashed #ccc;"></p>
+                <p><strong>My Definition of Initial Success:</strong></p>
+                <p style="height: 80px; border-bottom: 1px dashed #ccc;"></p>
+            </div>
+        </div>
+        
+        <div class="tips">
+            <h4>Final Entrepreneurship Tips</h4>
+            <ul>
+                <li><strong>Start Small:</strong> Test ideas with minimal investment before scaling up.</li>
+                <li><strong>Embrace Feedback:</strong> Actively seek and implement customer input to improve.</li>
+                <li><strong>Focus on Learning:</strong> View each step as a learning opportunity, regardless of outcome.</li>
+                <li><strong>Build Networks:</strong> Connect with other entrepreneurs, mentors, and potential customers.</li>
+                <li><strong>Stay Adaptable:</strong> Be willing to pivot when necessary based on market feedback.</li>
+                <li><strong>Document Everything:</strong> Keep detailed records of your business journey for learning and taxes.</li>
+                <li><strong>Balance Passion with Practicality:</strong> Love what you do, but ensure it meets a real market need.</li>
+                <li><strong>Protect Your Time:</strong> Set clear boundaries to prevent burnout while building your business.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html></content>

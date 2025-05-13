@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Policy Evaluation Checklist - Chapter 11.2</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            .checklist-section {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c5282;
+            border-bottom: 2px solid #2c5282;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2c5282;
+            border-bottom: 1px solid #2c5282;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #3182ce;
+            margin-top: 25px;
+        }
+        
+        .print-instructions {
+            background-color: #fffaf0;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #ed8936;
+            border-radius: 4px;
+        }
+        
+        .intro {
+            background-color: #ebf8ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .checklist-section {
+            background-color: #f0f4f8;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .checklist-header {
+            background-color: #2c5282;
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 15px -20px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .checklist-title {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        
+        .checklist-items {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .checklist-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .checklist-question {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #2c5282;
+        }
+        
+        .checklist-explanation {
+            font-size: 0.9em;
+            color: #4a5568;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .red-flag-section {
+            background-color: #fff5f5;
+            border-left: 4px solid #c53030;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .red-flag-title {
+            color: #c53030;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        
+        .red-flag-list {
+            padding-left: 20px;
+        }
+        
+        .red-flag-list li {
+            margin-bottom: 10px;
+        }
+        
+        .tip-box {
+            background-color: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .tip-title {
+            color: #38b2ac;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        
+        .checkbox {
+            margin-right: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .form-group label {
+            flex: 1;
+            padding-top: 2px;
+        }
+        
+        .notes-space {
+            margin-top: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 10px;
+            min-height: 60px;
+            background-color: #f8fafc;
+        }
+        
+        .notes-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #4a5568;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3182ce;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #2c5282;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <h1>Insurance Policy Evaluation Checklist</h1>
+    
+    <div class="intro">
+        <p>Use this checklist when evaluating insurance policies to ensure you understand the coverage, identify potential gaps, and make informed decisions. The checklist includes sections for different insurance types and general evaluation criteria that apply to all policies.</p>
+        <p>For each question, check the box if the answer is "Yes" or the information is available and satisfactory. Use the notes sections to record important details for future reference.</p>
+    </div>
+    
+    <h2>General Policy Evaluation</h2>
+    <p>These questions apply to all types of insurance policies and should be considered regardless of the specific coverage type.</p>
+    
+    <div class="checklist-section">
+        <div class="checklist-header">
+            <h3 class="checklist-title">Insurance Provider Assessment</h3>
+        </div>
+        
+        <ul class="checklist-items">
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Have you verified the insurance company's financial strength rating?</span>
+                        <span class="checklist-explanation">Check ratings from agencies like A.M. Best, Standard & Poor's, or Moody's to ensure the company is financially stable and likely to pay claims.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Have you researched the company's customer service reputation and claims handling process?</span>
+                        <span class="checklist-explanation">Check consumer reviews, complaint ratios from state insurance departments, and satisfaction ratings.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is the insurance company licensed in your state?</span>
+                        <span class="checklist-explanation">This ensures they're regulated by your state insurance department and you have recourse if there are problems.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Have you compared quotes from at least three different providers?</span>
+                        <span class="checklist-explanation">Premiums can vary significantly between insurers for the same coverage.</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="notes-space">
+            <span class="notes-label">Provider Notes:</span>
+        </div>
+    </div>
+    
+    <div class="checklist-section">
+        <div class="checklist-header">
+            <h3 class="checklist-title">Coverage Fundamentals</h3>
+        </div>
+        
+        <ul class="checklist-items">
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Have you identified all the risks you need to protect against?</span>
+                        <span class="checklist-explanation">Consider your specific circumstances, assets, liabilities, and potential vulnerabilities.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Does the policy cover all these identified risks?</span>
+                        <span class="checklist-explanation">Check for gaps in coverage that might leave you exposed to significant financial losses.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Are the coverage limits adequate for your potential losses?</span>
+                        <span class="checklist-explanation">Consider worst-case scenarios and ensure limits would cover those costs.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Have you identified and understood all policy exclusions?</span>
+                        <span class="checklist-explanation">Know what isn't covered and determine if you need additional protection for those exclusions.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you understand how deductibles work and the amounts?</span>
+                        <span class="checklist-explanation">Higher deductibles lower premiums but increase your out-of-pocket costs when filing a claim.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you understand the claim filing process and requirements?</span>
+                        <span class="checklist-explanation">Know the steps, timeframes, and documentation needed to file a claim successfully.</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="notes-space">
+            <span class="notes-label">Coverage Notes:</span>
+        </div>
+    </div>
+    
+    <div class="checklist-section">
+        <div class="checklist-header">
+            <h3 class="checklist-title">Cost Analysis</h3>
+        </div>
+        
+        <ul class="checklist-items">
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is the premium affordable within your budget?</span>
+                        <span class="checklist-explanation">Insurance should be sustainable long-term without creating financial strain.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Have you identified all available discounts you qualify for?</span>
+                        <span class="checklist-explanation">Ask about multi-policy, professional, safety feature, good student, or other discounts.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Have you evaluated the cost-benefit of different deductible options?</span>
+                        <span class="checklist-explanation">Calculate premium savings versus potential out-of-pocket costs under different scenarios.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you understand how premium payments are structured?</span>
+                        <span class="checklist-explanation">Monthly, quarterly, semi-annual, or annual payments, and any fees or discounts associated with each option.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you understand how and when premiums might increase?</span>
+                        <span class="checklist-explanation">Factors might include claims history, policy renewals, age changes, or market conditions.</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="notes-space">
+            <span class="notes-label">Cost Notes:</span>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+    
+    <h2>Specific Insurance Type Evaluation</h2>
+    <p>These sections include questions specific to each type of insurance. Use the relevant section(s) for the policy you're evaluating.</p>
+    
+    <div class="checklist-section">
+        <div class="checklist-header">
+            <h3 class="checklist-title">Health Insurance</h3>
+        </div>
+        
+        <ul class="checklist-items">
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Are your preferred doctors and hospitals in-network?</span>
+                        <span class="checklist-explanation">Check the provider directory to ensure access to healthcare providers you trust.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Are your current medications covered by the formulary?</span>
+                        <span class="checklist-explanation">Check the prescription drug formulary and tier levels to understand coverage and costs.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you understand the deductible, co-insurance, co-payments, and out-of-pocket maximum?</span>
+                        <span class="checklist-explanation">These determine your cost-sharing responsibilities and financial exposure.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Are the specific services you need covered (e.g., mental health, maternity, specialized treatments)?</span>
+                        <span class="checklist-explanation">Check for limitations or exclusions on services you anticipate needing.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is referral approval required to see specialists?</span>
+                        <span class="checklist-explanation">Some plans (especially HMOs) require primary care physician referrals for specialist visits.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Are preventive services covered at 100%?</span>
+                        <span class="checklist-explanation">Most plans must cover certain preventive services without cost-sharing.</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="notes-space">
+            <span class="notes-label">Health Insurance Notes:</span>
+        </div>
+    </div>
+    
+    <div class="checklist-section">
+        <div class="checklist-header">
+            <h3 class="checklist-title">Auto Insurance</h3>
+        </div>
+        
+        <ul class="checklist-items">
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Are your liability limits adequate for a serious accident?</span>
+                        <span class="checklist-explanation">State minimums are often too low to cover a serious accident. Consider limits that protect your assets.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Does the policy include uninsured/underinsured motorist coverage?</span>
+                        <span class="checklist-explanation">This protects you if the at-fault driver has insufficient or no insurance.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is comprehensive and collision coverage appropriate for your vehicle's value?</span>
+                        <span class="checklist-explanation">For older vehicles, the premium cost might exceed the potential payout.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Are all regular drivers of your vehicle listed on the policy?</span>
+                        <span class="checklist-explanation">Unlisted regular drivers might not be covered in an accident.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you have rental car coverage if your vehicle is disabled?</span>
+                        <span class="checklist-explanation">This covers rental costs while your car is being repaired after a covered claim.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Does the policy include roadside assistance if needed?</span>
+                        <span class="checklist-explanation">This covers towing, lockout service, flat tire change, etc.</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="notes-space">
+            <span class="notes-label">Auto Insurance Notes:</span>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+    
+    <div class="checklist-section">
+        <div class="checklist-header">
+            <h3 class="checklist-title">Homeowner's/Renter's Insurance</h3>
+        </div>
+        
+        <ul class="checklist-items">
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is the dwelling coverage sufficient to rebuild your home at current construction costs?</span>
+                        <span class="checklist-explanation">Replacement cost often differs from market value or purchase price. (Applies to homeowner's insurance)</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is personal property coverage adequate for your belongings?</span>
+                        <span class="checklist-explanation">Create a home inventory to determine appropriate coverage amounts.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you need additional coverage for high-value items (jewelry, art, electronics)?</span>
+                        <span class="checklist-explanation">Standard policies have sub-limits for certain categories of valuables.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is personal liability coverage sufficient to protect your assets?</span>
+                        <span class="checklist-explanation">This covers injuries to others or damage to their property for which you're responsible.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you need flood, earthquake, or other specialized coverage not included in standard policies?</span>
+                        <span class="checklist-explanation">Standard policies typically exclude flood and earthquake damage, requiring separate policies.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Does the policy include adequate additional living expenses coverage?</span>
+                        <span class="checklist-explanation">This covers costs if your home becomes uninhabitable due to a covered loss.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is replacement cost coverage included for both dwelling and personal property?</span>
+                        <span class="checklist-explanation">Replacement cost pays to replace items at current prices, while actual cash value deducts for depreciation.</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="notes-space">
+            <span class="notes-label">Homeowner's/Renter's Insurance Notes:</span>
+        </div>
+    </div>
+    
+    <div class="checklist-section">
+        <div class="checklist-header">
+            <h3 class="checklist-title">Life Insurance</h3>
+        </div>
+        
+        <ul class="checklist-items">
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is the death benefit amount sufficient for your beneficiaries' needs?</span>
+                        <span class="checklist-explanation">Consider income replacement, debt payoff, future expenses, and final expenses.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">For term life: Is the term length appropriate for your needs?</span>
+                        <span class="checklist-explanation">Consider your children's ages, years until retirement, mortgage payoff timeline, etc.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Are your beneficiary designations correct and up-to-date?</span>
+                        <span class="checklist-explanation">Review regularly, especially after major life events like marriage, divorce, or childbirth.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">For permanent life insurance: Do you understand the cash value component and how it works?</span>
+                        <span class="checklist-explanation">Understand growth, access options, and implications for the death benefit.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you understand any policy riders and their costs/benefits?</span>
+                        <span class="checklist-explanation">Common riders include waiver of premium, accelerated death benefit, and guaranteed insurability.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is the policy convertible (for term life) if your needs change?</span>
+                        <span class="checklist-explanation">Conversion options allow you to switch to permanent coverage without medical underwriting.</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="notes-space">
+            <span class="notes-label">Life Insurance Notes:</span>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+    
+    <div class="checklist-section">
+        <div class="checklist-header">
+            <h3 class="checklist-title">Disability Insurance</h3>
+        </div>
+        
+        <ul class="checklist-items">
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is the benefit amount sufficient to cover essential expenses if you can't work?</span>
+                        <span class="checklist-explanation">Typically 60-70% of pre-disability income is recommended.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Do you understand the definition of disability used in the policy?</span>
+                        <span class="checklist-explanation">"Own occupation" covers inability to perform your specific job, while "any occupation" only covers inability to work in any suitable job.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is the elimination period (waiting period) appropriate for your financial situation?</span>
+                        <span class="checklist-explanation">Longer elimination periods reduce premiums but require more emergency savings.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is the benefit period sufficient for a long-term disability?</span>
+                        <span class="checklist-explanation">Options typically range from 2 years to retirement age. Longer periods provide more protection but cost more.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Does the policy include residual/partial disability benefits?</span>
+                        <span class="checklist-explanation">This provides partial benefits if you can work but with reduced hours or capacity.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Is the policy non-cancelable and guaranteed renewable?</span>
+                        <span class="checklist-explanation">These features ensure the insurer can't cancel your policy or raise rates as long as you pay premiums.</span>
+                    </label>
+                </div>
+            </li>
+            
+            <li class="checklist-item">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox">
+                    <label>
+                        <span class="checklist-question">Does the policy include cost-of-living adjustments (COLA) for benefits?</span>
+                        <span class="checklist-explanation">This increases benefit amounts during long-term claims to account for inflation.</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="notes-space">
+            <span class="notes-label">Disability Insurance Notes:</span>
+        </div>
+    </div>
+    
+    <div class="red-flag-section">
+        <h3 class="red-flag-title">Red Flags to Watch For</h3>
+        <p>Be cautious if you encounter any of these warning signs when evaluating an insurance policy:</p>
+        
+        <ul class="red-flag-list">
+            <li>Unusually low premiums compared to similar coverage from other insurers</li>
+            <li>Pressure tactics or limited-time offers requiring immediate decisions</li>
+            <li>Vague or confusing policy language about coverage and exclusions</li>
+            <li>Difficulty getting clear answers to your questions</li>
+            <li>Poor financial strength ratings or consumer satisfaction scores</li>
+            <li>Excessive limitations, exclusions, or waiting periods</li>
+            <li>Complaints about claims handling or payment delays</li>
+            <li>Unlicensed agents or companies not regulated by your state insurance department</li>
+            <li>Missing or incomplete policy documents</li>
+        </ul>
+    </div>
+    
+    <div class="tip-box">
+        <h3 class="tip-title">Tips for Effective Policy Evaluation</h3>
+        <ul>
+            <li><strong>Read the actual policy document</strong>, not just marketing materials or summaries</li>
+            <li><strong>Take your time</strong> and avoid rushing into decisions</li>
+            <li><strong>Ask questions</strong> about anything you don't understand</li>
+            <li><strong>Document conversations</strong> with insurance representatives</li>
+            <li><strong>Consider working with an independent agent</strong> who can compare options from multiple insurers</li>
+            <li><strong>Review your policies annually</strong> and after major life events</li>
+            <li><strong>Keep an inventory</strong> of insured property with photos and documentation</li>
+            <li><strong>Store policy documents</strong> in a secure, accessible location</li>
+        </ul>
+    </div>
+
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+</body>
+</html>

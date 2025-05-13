@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Impact Project Planner</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .field {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        textarea {
+            min-height: 100px;
+        }
+        .guidance {
+            font-style: italic;
+            color: #666;
+            margin-top: 5px;
+        }
+        .tips {
+            background-color: #f8f9d7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 3px solid #3498db;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+            .print-button {
+                display: none;
+            }
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+    
+    <h1>Community Impact Project Planner</h1>
+    
+    <div class="section">
+        <h2>Project Overview</h2>
+        
+        <div class="field">
+            <label for="project-title">Project Title:</label>
+            <input type="text" id="project-title" name="project-title">
+            <div class="guidance">Create a clear, descriptive title that communicates the essence of your project.</div>
+        </div>
+        
+        <div class="field">
+            <label for="team-members">Team Members:</label>
+            <textarea id="team-members" name="team-members" placeholder="Name - Role/Responsibilities"></textarea>
+            <div class="guidance">List all team members and their specific roles or areas of responsibility.</div>
+        </div>
+        
+        <div class="field">
+            <label for="problem-statement">Problem Statement:</label>
+            <textarea id="problem-statement" name="problem-statement"></textarea>
+            <div class="guidance">Clearly describe the specific community need or problem your project will address. Include relevant statistics or evidence if available.</div>
+        </div>
+        
+        <div class="field">
+            <label for="project-goal">Project Goal:</label>
+            <textarea id="project-goal" name="project-goal"></textarea>
+            <div class="guidance">What does success look like? Describe the desired outcome of your project in specific, measurable terms.</div>
+        </div>
+        
+        <div class="field">
+            <label for="target-population">Target Population/Beneficiaries:</label>
+            <textarea id="target-population" name="target-population"></textarea>
+            <div class="guidance">Who will directly benefit from your project? How many people do you hope to reach or impact?</div>
+        </div>
+        
+        <div class="field">
+            <label for="project-scope">Project Scope:</label>
+            <select id="project-scope" name="project-scope">
+                <option value="">Select scope</option>
+                <option value="one-time">One-time event</option>
+                <option value="short-term">Short-term project (1-3 months)</option>
+                <option value="long-term">Long-term initiative (3+ months)</option>
+                <option value="ongoing">Ongoing program</option>
+            </select>
+            <div class="guidance">Select the time frame and scope that best describes your project.</div>
+        </div>
+        
+        <div class="example">
+            <strong>Example:</strong> "Community Garden Accessibility Project" aims to convert an existing community garden to make it fully accessible for individuals with mobility limitations. The project will address the lack of accessible gardening spaces in our community, which prevents approximately 15% of our residents from participating in community gardening programs. Our goal is to create an inclusive gardening space with 10 raised accessible garden beds that will serve at least 20 individuals with mobility challenges by the end of the growing season. This is a short-term project that will be completed within 2 months.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Community Need Assessment</h2>
+        
+        <div class="field">
+            <label for="need-evidence">Evidence of Need:</label>
+            <textarea id="need-evidence" name="need-evidence"></textarea>
+            <div class="guidance">Describe how you identified this need. Include any research, conversations with community members, surveys, or observations that support your assessment.</div>
+        </div>
+        
+        <div class="field">
+            <label for="existing-efforts">Existing Efforts:</label>
+            <textarea id="existing-efforts" name="existing-efforts"></textarea>
+            <div class="guidance">What is already being done to address this need? Are there other organizations or individuals working on this issue? How will your project complement or enhance existing efforts?</div>
+        </div>
+        
+        <div class="field">
+            <label for="community-involvement">Community Involvement:</label>
+            <textarea id="community-involvement" name="community-involvement"></textarea>
+            <div class="guidance">How have you involved or consulted with the community that will benefit from this project? How will they participate in planning or implementation?</div>
+        </div>
+        
+        <div class="tips">
+            <strong>Tip:</strong> A strong community impact project addresses a genuine need identified through community input rather than imposing an outside solution. Consider how to meaningfully involve those who will benefit from your project in its design and implementation.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Project Implementation Plan</h2>
+        
+        <div class="field">
+            <label for="key-activities">Key Activities:</label>
+            <textarea id="key-activities" name="key-activities"></textarea>
+            <div class="guidance">List the main activities or components of your project. What specific actions will you take to achieve your goal?</div>
+        </div>
+        
+        <h3>Timeline</h3>
+        <table>
+            <tr>
+                <th>Activity/Task</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Person Responsible</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="task-1"></td>
+                <td><input type="text" name="start-1"></td>
+                <td><input type="text" name="end-1"></td>
+                <td><input type="text" name="responsible-1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="task-2"></td>
+                <td><input type="text" name="start-2"></td>
+                <td><input type="text" name="end-2"></td>
+                <td><input type="text" name="responsible-2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="task-3"></td>
+                <td><input type="text" name="start-3"></td>
+                <td><input type="text" name="end-3"></td>
+                <td><input type="text" name="responsible-3"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="task-4"></td>
+                <td><input type="text" name="start-4"></td>
+                <td><input type="text" name="end-4"></td>
+                <td><input type="text" name="responsible-4"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="task-5"></td>
+                <td><input type="text" name="start-5"></td>
+                <td><input type="text" name="end-5"></td>
+                <td><input type="text" name="responsible-5"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="task-6"></td>
+                <td><input type="text" name="start-6"></td>
+                <td><input type="text" name="end-6"></td>
+                <td><input type="text" name="responsible-6"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="task-7"></td>
+                <td><input type="text" name="start-7"></td>
+                <td><input type="text" name="end-7"></td>
+                <td><input type="text" name="responsible-7"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="task-8"></td>
+                <td><input type="text" name="start-8"></td>
+                <td><input type="text" name="end-8"></td>
+                <td><input type="text" name="responsible-8"></td>
+            </tr>
+        </table>
+        
+        <div class="field">
+            <label for="milestones">Key Milestones:</label>
+            <textarea id="milestones" name="milestones"></textarea>
+            <div class="guidance">Identify critical checkpoints that mark significant progress in your project.</div>
+        </div>
+        
+        <div class="example">
+            <strong>Example Timeline for Community Garden Accessibility Project:</strong>
+            <ol>
+                <li>Community input gathering - May 1-15 - Raja & Tomas</li>
+                <li>Design finalization - May 15-20 - Kim</li>
+                <li>Materials procurement - May 21-30 - Devon</li>
+                <li>Volunteer recruitment - May 21-30 - Tomas</li>
+                <li>Site preparation - June 1-5 - Entire team</li>
+                <li>Construction of raised beds - June 6-15 - Entire team with volunteers</li>
+                <li>Pathway installation - June 16-20 - Raja & volunteers</li>
+                <li>Final touches and planting - June 21-25 - Kim & Devon</li>
+                <li>Grand opening event - June 30 - Entire team</li>
+            </ol>
+            <p><strong>Key Milestones:</strong> Design approval (May 20), Materials delivery (May 30), Raised beds complete (June 15), Project completion (June 25), Community celebration (June 30)</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Resource Requirements</h2>
+        
+        <div class="field">
+            <label for="supplies-materials">Supplies & Materials:</label>
+            <textarea id="supplies-materials" name="supplies-materials" placeholder="Item - Quantity - Estimated Cost - Source"></textarea>
+            <div class="guidance">List all physical items needed for your project, including quantities, estimated costs, and potential sources.</div>
+        </div>
+        
+        <div class="field">
+            <label for="services-expertise">Services & Expertise:</label>
+            <textarea id="services-expertise" name="services-expertise" placeholder="Service/Expertise - Estimated Hours/Cost - Potential Source"></textarea>
+            <div class="guidance">List any professional services or specialized expertise needed for your project.</div>
+        </div>
+        
+        <div class="field">
+            <label for="volunteer-needs">Volunteer Needs:</label>
+            <textarea id="volunteer-needs" name="volunteer-needs" placeholder="Role - Number Needed - Skills Required - Time Commitment"></textarea>
+            <div class="guidance">Describe the volunteer roles needed for your project, including the number of volunteers, required skills, and estimated time commitment.</div>
+        </div>
+        
+        <div class="field">
+            <label for="space-facilities">Space & Facilities:</label>
+            <textarea id="space-facilities" name="space-facilities"></textarea>
+            <div class="guidance">Describe any space or facility requirements for your project, including location, size, features needed, and potential sources.</div>
+        </div>
+        
+        <div class="field">
+            <label for="transportation">Transportation Needs:</label>
+            <textarea id="transportation" name="transportation"></textarea>
+            <div class="guidance">Describe any transportation requirements for people, supplies, or equipment.</div>
+        </div>
+        
+        <div class="field">
+            <label for="funding">Funding Needs & Sources:</label>
+            <textarea id="funding" name="funding"></textarea>
+            <div class="guidance">Summarize total estimated costs and identify potential funding sources (grants, donations, in-kind contributions, etc.).</div>
+        </div>
+        
+        <div class="tips">
+            <strong>Tip:</strong> Be thorough in identifying all required resources. Consider creative ways to minimize costs through donations, borrowed equipment, or in-kind contributions. Think about both what is absolutely necessary and what would enhance the project if available.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Collaboration & Partnerships</h2>
+        
+        <div class="field">
+            <label for="collaborators">Potential Collaborators/Partners:</label>
+            <textarea id="collaborators" name="collaborators" placeholder="Organization/Individual - Role - Contact Information - Status"></textarea>
+            <div class="guidance">List organizations or individuals you plan to collaborate with, including their role in the project, contact information, and current status of the partnership.</div>
+        </div>
+        
+        <div class="field">
+            <label for="outreach-strategy">Partnership Outreach Strategy:</label>
+            <textarea id="outreach-strategy" name="outreach-strategy"></textarea>
+            <div class="guidance">How will you approach potential partners? What benefits can you offer them? What specific assistance will you request?</div>
+        </div>
+        
+        <div class="tips">
+            <strong>Tip:</strong> Strong collaborations can significantly enhance your project's impact and sustainability. Look for partners whose missions align with your project goals, and be clear about expectations and benefits for all parties involved.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Impact Measurement</h2>
+        
+        <div class="field">
+            <label for="success-metrics">Success Metrics:</label>
+            <textarea id="success-metrics" name="success-metrics"></textarea>
+            <div class="guidance">List specific, measurable indicators that will show whether your project has achieved its goals. Include both quantitative metrics (numbers) and qualitative metrics (stories, feedback).</div>
+        </div>
+        
+        <div class="field">
+            <label for="data-collection">Data Collection Methods:</label>
+            <textarea id="data-collection" name="data-collection"></textarea>
+            <div class="guidance">How will you gather information to measure your success metrics? (Surveys, interviews, observation, counts, etc.)</div>
+        </div>
+        
+        <div class="field">
+            <label for="evaluation-plan">Evaluation Plan:</label>
+            <textarea id="evaluation-plan" name="evaluation-plan"></textarea>
+            <div class="guidance">When and how will you analyze the data collected? Who will be involved in evaluating the project's success?</div>
+        </div>
+        
+        <div class="example">
+            <strong>Example Metrics for Community Garden Accessibility Project:</strong>
+            <ul>
+                <li><strong>Quantitative:</strong> Number of accessible beds created, number of individuals with mobility challenges using the garden, percentage increase in garden participation by people with disabilities, pounds of produce harvested from accessible beds</li>
+                <li><strong>Qualitative:</strong> Satisfaction surveys from users, testimonials about impact, observable changes in community connection for participants</li>
+                <li><strong>Data Collection:</strong> Registration forms, garden usage log, harvest records, pre/post surveys, mid-season check-in interviews, photos documenting progress</li>
+                <li><strong>Evaluation:</strong> Monthly team review of metrics, end-of-season comprehensive evaluation with community input, report to community garden board</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Risk Assessment & Mitigation</h2>
+        
+        <table>
+            <tr>
+                <th>Potential Risk/Challenge</th>
+                <th>Likelihood (Low/Med/High)</th>
+                <th>Impact (Low/Med/High)</th>
+                <th>Mitigation Strategy</th>
+            </tr>
+            <tr>
+                <td><textarea name="risk-1"></textarea></td>
+                <td>
+                    <select name="likelihood-1">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="impact-1">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </td>
+                <td><textarea name="mitigation-1"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea name="risk-2"></textarea></td>
+                <td>
+                    <select name="likelihood-2">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="impact-2">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </td>
+                <td><textarea name="mitigation-2"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea name="risk-3"></textarea></td>
+                <td>
+                    <select name="likelihood-3">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="impact-3">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </td>
+                <td><textarea name="mitigation-3"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea name="risk-4"></textarea></td>
+                <td>
+                    <select name="likelihood-4">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="impact-4">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </td>
+                <td><textarea name="mitigation-4"></textarea></td>
+            </tr>
+        </table>
+        
+        <div class="tips">
+            <strong>Tip:</strong> Identifying potential risks in advance allows you to develop strategies to prevent problems or respond effectively if they occur. Focus particular attention on high-likelihood, high-impact risks.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Sustainability Plan</h2>
+        
+        <div class="field">
+            <label for="long-term-vision">Long-Term Vision:</label>
+            <textarea id="long-term-vision" name="long-term-vision"></textarea>
+            <div class="guidance">How do you envision this project continuing or evolving beyond the initial implementation? What lasting impact do you hope to create?</div>
+        </div>
+        
+        <div class="field">
+            <label for="maintenance-needs">Ongoing Maintenance Needs:</label>
+            <textarea id="maintenance-needs" name="maintenance-needs"></textarea>
+            <div class="guidance">What ongoing resources, support, or activities will be needed to sustain the project? Who will be responsible?</div>
+        </div>
+        
+        <div class="field">
+            <label for="handoff-plan">Transition/Handoff Plan:</label>
+            <textarea id="handoff-plan" name="handoff-plan"></textarea>
+            <div class="guidance">If your team will not be managing the project long-term, describe how you will transition responsibility to others.</div>
+        </div>
+        
+        <div class="tips">
+            <strong>Tip:</strong> Consider sustainability from the beginning of your planning process. Projects with clear plans for continuation or that create systems for lasting change generally have greater long-term impact than one-time events.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Communication Plan</h2>
+        
+        <div class="field">
+            <label for="target-audiences">Target Audiences:</label>
+            <textarea id="target-audiences" name="target-audiences"></textarea>
+            <div class="guidance">Identify all groups you need to communicate with about your project (participants, partners, donors, community members, etc.).</div>
+        </div>
+        
+        <div class="field">
+            <label for="key-messages">Key Messages:</label>
+            <textarea id="key-messages" name="key-messages"></textarea>
+            <div class="guidance">What are the most important points you want to communicate about your project?</div>
+        </div>
+        
+        <div class="field">
+            <label for="communication-channels">Communication Channels:</label>
+            <textarea id="communication-channels" name="communication-channels"></textarea>
+            <div class="guidance">How will you reach your target audiences? (Social media, email, flyers, presentations, local media, etc.)</div>
+        </div>
+        
+        <div class="field">
+            <label for="documentation">Project Documentation:</label>
+            <textarea id="documentation" name="documentation"></textarea>
+            <div class="guidance">How will you document your project? (Photos, videos, written reports, testimonials, etc.)</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Project Pitch</h2>
+        
+        <div class="field">
+            <label for="elevator-pitch">Elevator Pitch (30-second summary):</label>
+            <textarea id="elevator-pitch" name="elevator-pitch"></textarea>
+            <div class="guidance">Create a brief, compelling description of your project that covers the need, your solution, and the anticipated impact.</div>
+        </div>
+        
+        <div class="field">
+            <label for="pitch-points">Key Points for Detailed Pitch:</label>
+            <textarea id="pitch-points" name="pitch-points"></textarea>
+            <div class="guidance">List the main points you want to emphasize when presenting your project in more detail.</div>
+        </div>
+        
+        <div class="field">
+            <label for="visual-aids">Visual Aids/Supporting Materials:</label>
+            <textarea id="visual-aids" name="visual-aids"></textarea>
+            <div class="guidance">Describe any visual elements or materials you'll use to enhance your presentation (diagrams, photos, handouts, etc.).</div>
+        </div>
+        
+        <div class="tips">
+            <strong>Tip:</strong> A clear, compelling pitch is essential for recruiting partners, volunteers, and supporters. Focus on the why (the need and impact) as much as the what (the activities) of your project.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Reflection & Learning</h2>
+        
+        <div class="field">
+            <label for="team-strengths">Team Strengths & Assets:</label>
+            <textarea id="team-strengths" name="team-strengths"></textarea>
+            <div class="guidance">What skills, experiences, connections, or resources does your team bring to this project?</div>
+        </div>
+        
+        <div class="field">
+            <label for="growth-areas">Team Growth Areas:</label>
+            <textarea id="growth-areas" name="growth-areas"></textarea>
+            <div class="guidance">What skills or knowledge might your team need to develop to implement this project effectively?</div>
+        </div>
+        
+        <div class="field">
+            <label for="learning-goals">Learning Goals:</label>
+            <textarea id="learning-goals" name="learning-goals"></textarea>
+            <div class="guidance">What do you and your team hope to learn through this project? How will you capture and share your learnings?</div>
+        </div>
+    </div>
+    
+    <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+
+</body>
+</html>

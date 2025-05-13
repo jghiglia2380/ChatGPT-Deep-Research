@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Evaluation Matrix</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .matrix-section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #6366f1;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+        
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+        
+        .category-heading {
+            background-color: #eef2ff;
+            font-weight: bold;
+        }
+        
+        .property-column {
+            width: 18%;
+        }
+        
+        .factor-column {
+            width: 28%;
+        }
+        
+        .financial-section {
+            border-left: 5px solid #60a5fa;
+        }
+        
+        .location-section {
+            border-left: 5px solid #34d399;
+        }
+        
+        .property-section {
+            border-left: 5px solid #f59e0b;
+        }
+        
+        .lifestyle-section {
+            border-left: 5px solid #ec4899;
+        }
+        
+        .summary-section {
+            border-left: 5px solid #8b5cf6;
+        }
+        
+        .rating-guide {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .notes {
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        
+        .input-field {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Property Evaluation Matrix</h1>
+        <p>Chapter 10.3: Understanding Home Buying</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This evaluation matrix will help you systematically compare different properties based on financial, location, property, and lifestyle factors. For each property you're considering, assign a rating from 1-5 for each factor, where 1 is poor/unacceptable and 5 is excellent/ideal. You can also adjust the weight of each factor to match your personal priorities.</p>
+        <p class="no-print">To save this worksheet as a PDF: Click File → Print → Change destination to "Save as PDF" → Save</p>
+    </div>
+    
+    <div class="rating-guide">
+        <h3>Rating Scale Guide</h3>
+        <ul>
+            <li><strong>5 - Excellent:</strong> Exceeds expectations, ideal situation</li>
+            <li><strong>4 - Good:</strong> Above average, meets needs well</li>
+            <li><strong>3 - Acceptable:</strong> Meets minimum requirements, average</li>
+            <li><strong>2 - Fair:</strong> Below average, has significant concerns</li>
+            <li><strong>1 - Poor:</strong> Does not meet needs, unacceptable</li>
+        </ul>
+        <p>For <strong>Weight</strong>, assign a number from 1-5 based on how important each factor is to you personally:</p>
+        <ul>
+            <li><strong>5 - Critical:</strong> A must-have, deal-breaker factor</li>
+            <li><strong>3 - Important:</strong> Significantly influences decision</li>
+            <li><strong>1 - Minor:</strong> Nice to have but not essential</li>
+        </ul>
+    </div>
+    
+    <div class="matrix-section">
+        <h2>Property Information</h2>
+        
+        <table>
+            <tr>
+                <th class="factor-column">Property Detail</th>
+                <th class="property-column">Property A</th>
+                <th class="property-column">Property B</th>
+                <th class="property-column">Property C</th>
+                <th class="property-column">Property D</th>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Listing Price</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Square Footage</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Bedrooms/Bathrooms</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Year Built</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="matrix-section financial-section">
+        <h2>Financial Factors</h2>
+        
+        <table>
+            <tr>
+                <th class="factor-column">Factor</th>
+                <th>Weight<br>(1-5)</th>
+                <th class="property-column">Property A<br>Rating (1-5)</th>
+                <th class="property-column">Property B<br>Rating (1-5)</th>
+                <th class="property-column">Property C<br>Rating (1-5)</th>
+                <th class="property-column">Property D<br>Rating (1-5)</th>
+            </tr>
+            <tr>
+                <td>Purchase Price/Affordability</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Estimated Monthly Payment (PITI)</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Property Tax Rate</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>HOA Fees (if applicable)</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Estimated Utility Costs</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Expected Maintenance Costs</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Immediate Repairs Needed</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Potential for Appreciation</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Resale Potential</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr class="category-heading">
+                <td>Financial Factors Notes</td>
+                <td colspan="5"><textarea class="input-field" style="width: 100%; height: 60px;"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="matrix-section location-section">
+        <h2>Location Factors</h2>
+        
+        <table>
+            <tr>
+                <th class="factor-column">Factor</th>
+                <th>Weight<br>(1-5)</th>
+                <th class="property-column">Property A<br>Rating (1-5)</th>
+                <th class="property-column">Property B<br>Rating (1-5)</th>
+                <th class="property-column">Property C<br>Rating (1-5)</th>
+                <th class="property-column">Property D<br>Rating (1-5)</th>
+            </tr>
+            <tr>
+                <td>Commute Time to Work/School</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>School District Quality</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Proximity to Shopping/Groceries</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Access to Healthcare Facilities</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Public Transportation Access</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Parks and Recreation Facilities</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Neighborhood Safety/Crime Rate</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Neighborhood Character/Quality</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Future Development Plans</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr class="category-heading">
+                <td>Location Factors Notes</td>
+                <td colspan="5"><textarea class="input-field" style="width: 100%; height: 60px;"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="matrix-section property-section">
+        <h2>Property Factors</h2>
+        
+        <table>
+            <tr>
+                <th class="factor-column">Factor</th>
+                <th>Weight<br>(1-5)</th>
+                <th class="property-column">Property A<br>Rating (1-5)</th>
+                <th class="property-column">Property B<br>Rating (1-5)</th>
+                <th class="property-column">Property C<br>Rating (1-5)</th>
+                <th class="property-column">Property D<br>Rating (1-5)</th>
+            </tr>
+            <tr>
+                <td>Overall Size/Square Footage</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Number of Bedrooms</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Number of Bathrooms</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Kitchen Quality/Features</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Storage Space</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Floor Plan/Layout</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Yard Size/Outdoor Space</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Age and Condition of Systems (HVAC, Plumbing, Electrical)</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Roof Condition and Age</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Energy Efficiency</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Garage/Parking</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr class="category-heading">
+                <td>Property Factors Notes</td>
+                <td colspan="5"><textarea class="input-field" style="width: 100%; height: 60px;"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="matrix-section lifestyle-section">
+        <h2>Lifestyle Factors</h2>
+        
+        <table>
+            <tr>
+                <th class="factor-column">Factor</th>
+                <th>Weight<br>(1-5)</th>
+                <th class="property-column">Property A<br>Rating (1-5)</th>
+                <th class="property-column">Property B<br>Rating (1-5)</th>
+                <th class="property-column">Property C<br>Rating (1-5)</th>
+                <th class="property-column">Property D<br>Rating (1-5)</th>
+            </tr>
+            <tr>
+                <td>Suitability for Family Size/Structure</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Suitable for Pets/Animals</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Potential for Home Office/Workspace</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Entertainment/Hobby Space</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Maintenance Requirements (Yard, Pool, etc.)</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>HOA Rules and Restrictions</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Noise Level/Privacy</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Potential for Future Needs (Growing Family, Aging in Place)</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Access to Activities/Interests</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Personal "Wow Factor"/Emotional Appeal</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr class="category-heading">
+                <td>Lifestyle Factors Notes</td>
+                <td colspan="5"><textarea class="input-field" style="width: 100%; height: 60px;"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="matrix-section summary-section">
+        <h2>Evaluation Summary</h2>
+        
+        <h3>Weighted Score Calculation</h3>
+        
+        <p class="notes">For each factor, multiply your Weight (1-5) by your Rating (1-5) to get a weighted score. Then sum all weighted scores for each property and divide by the sum of all weights to get a final score out of 5.</p>
+        
+        <table>
+            <tr>
+                <th class="factor-column">Category</th>
+                <th class="property-column">Property A</th>
+                <th class="property-column">Property B</th>
+                <th class="property-column">Property C</th>
+                <th class="property-column">Property D</th>
+            </tr>
+            <tr>
+                <td>Financial Factors Score</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Location Factors Score</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Property Factors Score</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Lifestyle Factors Score</td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>OVERALL WEIGHTED SCORE (out of 5)</strong></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>RANKING</strong></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h3>Property Strengths and Weaknesses</h3>
+        
+        <table>
+            <tr>
+                <th>Property</th>
+                <th>Top 3 Strengths</th>
+                <th>Top 3 Weaknesses</th>
+            </tr>
+            <tr>
+                <td>Property A</td>
+                <td>
+                    <textarea class="input-field" style="width: 100%; height: 80px;"></textarea>
+                </td>
+                <td>
+                    <textarea class="input-field" style="width: 100%; height: 80px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Property B</td>
+                <td>
+                    <textarea class="input-field" style="width: 100%; height: 80px;"></textarea>
+                </td>
+                <td>
+                    <textarea class="input-field" style="width: 100%; height: 80px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Property C</td>
+                <td>
+                    <textarea class="input-field" style="width: 100%; height: 80px;"></textarea>
+                </td>
+                <td>
+                    <textarea class="input-field" style="width: 100%; height: 80px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Property D</td>
+                <td>
+                    <textarea class="input-field" style="width: 100%; height: 80px;"></textarea>
+                </td>
+                <td>
+                    <textarea class="input-field" style="width: 100%; height: 80px;"></textarea>
+                </td>
+            </tr>
+        </table>
+        
+        <h3>Final Decision and Rationale</h3>
+        
+        <p>After evaluating all properties, my top choice is:</p>
+        <input type="text" class="input-field" style="font-weight: bold; font-size: 1.1em; margin-bottom: 15px;">
+        
+        <p>Rationale for this decision:</p>
+        <textarea class="input-field" style="width: 100%; height: 100px;"></textarea>
+        
+        <h3>Next Steps</h3>
+        <textarea class="input-field" style="width: 100%; height: 100px;"></textarea>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 10.3: Understanding Home Buying</p>
+    </footer>
+</body>
+</html>

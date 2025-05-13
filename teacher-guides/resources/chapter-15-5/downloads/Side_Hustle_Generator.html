@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Hustle Idea Generator - PFL Academy</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.3;
+                color: #000;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            .print-section {
+                break-inside: avoid;
+            }
+            
+            .checkbox:before {
+                content: "□";
+                display: inline-block;
+                margin-right: 5px;
+            }
+            
+            button {
+                display: none;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Headers */
+        h1 {
+            color: #4F46E5;
+            border-bottom: 2px solid #4F46E5;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #6366F1;
+            border-left: 4px solid #6366F1;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #7C3AED;
+        }
+        
+        /* Containers */
+        .section {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .info-box {
+            background-color: #e0e7ff;
+            border-left: 4px solid #4F46E5;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .example-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .warning-box {
+            background-color: #fff7ed;
+            border-left: 4px solid #f97316;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f3f4f6;
+            font-weight: bold;
+        }
+        
+        /* Interactive elements */
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .worksheet {
+            border: 1px solid #e5e7eb;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #ffffff;
+        }
+        
+        .input-field {
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            width: 100%;
+            min-height: 24px;
+            background-color: #f9fafb;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+        .print-button:hover {
+            background-color: #4338ca;
+        }
+        
+        /* Idea generation matrix */
+        .matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .matrix-cell {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .matrix-cell:hover {
+            background-color: #e5e7eb;
+        }
+        
+        .generator-form {
+            margin: 20px 0;
+        }
+        
+        .generator-form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        .generator-form select, .generator-form input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+        }
+        
+        .result-container {
+            margin-top: 25px;
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .result-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .result-card h4 {
+            margin-top: 0;
+            color: #4F46E5;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: bold;
+            color: #4F46E5;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">PFL Academy</div>
+        <div>Chapter 15.5: Entrepreneurship and Side Hustles</div>
+    </div>
+
+    <h1>Side Hustle Idea Generator</h1>
+    
+    <div class="info-box">
+        <p><strong>Purpose:</strong> This tool helps you generate side hustle ideas by combining your skills, interests, and market needs. Use it to explore potential entrepreneurial opportunities that match your specific situation.</p>
+        <p><strong>How to use:</strong> Work through each section, filling in the worksheets and using the idea generation matrices. By the end, you'll have several potential side hustle ideas to evaluate further.</p>
+    </div>
+    
+    <div class="section print-section">
+        <h2>Step 1: Personal Skills and Strengths Assessment</h2>
+        
+        <p>List your skills, strengths, and areas of expertise in each category:</p>
+        
+        <div class="worksheet">
+            <h3>Professional Skills</h3>
+            <p>Skills gained through education, work experience, or professional training:</p>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h3>Creative Skills</h3>
+            <p>Artistic, design, writing, or other creative abilities:</p>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h3>Technical Skills</h3>
+            <p>Computer, digital, mechanical, or other technical capabilities:</p>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h3>Interpersonal Skills</h3>
+            <p>Communication, leadership, teaching, or other people-oriented abilities:</p>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h3>Physical Skills</h3>
+            <p>Athletic, manual, or other physical capabilities:</p>
+            <div class="input-field" contenteditable="true"></div>
+        </div>
+        
+        <p>Now circle or highlight your top 3-5 skills that you might leverage into a side hustle.</p>
+    </div>
+    
+    <div class="section print-section">
+        <h2>Step 2: Interests and Passions</h2>
+        
+        <p>What topics, activities, or fields do you genuinely enjoy?</p>
+        
+        <div class="worksheet">
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Technology and computers</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Arts and crafts</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Writing and communication</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Health and fitness</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Food and cooking</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Education and teaching</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Fashion and beauty</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Home improvement</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Entertainment and media</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Sports and recreation</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Animals and pets</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Travel and transportation</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Business and finance</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Social causes and community</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Other interests not listed:</div>
+            </div>
+            <div class="input-field" contenteditable="true"></div>
+        </div>
+    </div>
+    
+    <div class="section print-section">
+        <h2>Step 3: Time and Resource Assessment</h2>
+        
+        <p>Understanding your constraints will help identify viable side hustle options.</p>
+        
+        <div class="worksheet">
+            <h3>Time Availability</h3>
+            <p>How many hours per week can you realistically devote to a side hustle?</p>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h3>Schedule Flexibility</h3>
+            <p>When are you available? (Evenings, weekends, specific days, etc.)</p>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h3>Financial Resources</h3>
+            <p>What startup capital (if any) could you invest in a side hustle?</p>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h3>Available Assets</h3>
+            <p>What equipment, tools, space, or other resources do you already have access to?</p>
+            <div class="input-field" contenteditable="true"></div>
+        </div>
+    </div>
+    
+    <div class="section print-section">
+        <h2>Step 4: Side Hustle Type Preference</h2>
+        
+        <p>Consider which types of side hustles might be the best fit for your situation:</p>
+        
+        <table>
+            <tr>
+                <th>Side Hustle Type</th>
+                <th>Description</th>
+                <th>Best For</th>
+            </tr>
+            <tr>
+                <td>Service-Based</td>
+                <td>Providing services using your skills and time (tutoring, consulting, coaching, etc.)</td>
+                <td>People with specialized skills, low startup capital, preferring direct client work</td>
+            </tr>
+            <tr>
+                <td>Product-Based</td>
+                <td>Creating or selling physical products (crafts, food, retail arbitrage, etc.)</td>
+                <td>Creative people, those with making/building skills, inventory storage space</td>
+            </tr>
+            <tr>
+                <td>Digital Products</td>
+                <td>Creating information or digital assets (e-books, courses, software, etc.)</td>
+                <td>Knowledge experts, creative professionals, tech-savvy individuals</td>
+            </tr>
+            <tr>
+                <td>Content Creation</td>
+                <td>Producing videos, podcasts, blogs, or social media content</td>
+                <td>Good communicators, topic enthusiasts, consistent creators</td>
+            </tr>
+            <tr>
+                <td>Platform-Based</td>
+                <td>Using existing platforms (rideshare, delivery, rental, freelance marketplaces)</td>
+                <td>Those seeking flexible hours, immediate income, lower barriers to entry</td>
+            </tr>
+            <tr>
+                <td>Rental/Sharing</td>
+                <td>Monetizing assets you already own (space, equipment, vehicles)</td>
+                <td>People with valuable assets not being fully utilized</td>
+            </tr>
+        </table>
+        
+        <div class="worksheet">
+            <p>Based on the above, which side hustle types interest you most? (Check all that apply)</p>
+            
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Service-Based Side Hustle</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Product-Based Side Hustle</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Digital Products Side Hustle</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Content Creation Side Hustle</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Platform-Based Side Hustle</div>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div>Rental/Sharing Side Hustle</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section print-section">
+        <h2>Step 5: Side Hustle Idea Generator Matrix</h2>
+        
+        <p>Combine elements from different categories to generate unique side hustle ideas.</p>
+        
+        <div class="worksheet">
+            <h3>Skills + Interests + Market Needs Matrix</h3>
+            
+            <table>
+                <tr>
+                    <th>Your Top Skills (from Step 1)</th>
+                    <th>Your Key Interests (from Step 2)</th>
+                    <th>Potential Customer Groups</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-field" contenteditable="true">1.</div>
+                        <div class="input-field" contenteditable="true">2.</div>
+                        <div class="input-field" contenteditable="true">3.</div>
+                    </td>
+                    <td>
+                        <div class="input-field" contenteditable="true">1.</div>
+                        <div class="input-field" contenteditable="true">2.</div>
+                        <div class="input-field" contenteditable="true">3.</div>
+                    </td>
+                    <td>
+                        <div class="input-field" contenteditable="true">1. Busy professionals</div>
+                        <div class="input-field" contenteditable="true">2. Students</div>
+                        <div class="input-field" contenteditable="true">3. Parents</div>
+                        <div class="input-field" contenteditable="true">4. Small businesses</div>
+                        <div class="input-field" contenteditable="true">5. Retirees</div>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>Now combine one item from each column to create potential side hustle ideas. For example:</p>
+            <div class="example-box">
+                <p><strong>Skill:</strong> Graphic design</p>
+                <p><strong>Interest:</strong> Education</p>
+                <p><strong>Customer Group:</strong> Small businesses</p>
+                <p><strong>Potential Side Hustle:</strong> Creating educational infographics and presentation templates for small businesses</p>
+            </div>
+            
+            <h3>Your Generated Ideas</h3>
+            <p>Use the matrix combinations to develop 3-5 side hustle concepts:</p>
+            
+            <h4>Idea 1:</h4>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h4>Idea 2:</h4>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h4>Idea 3:</h4>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h4>Idea 4:</h4>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <h4>Idea 5:</h4>
+            <div class="input-field" contenteditable="true"></div>
+        </div>
+    </div>
+    
+    <div class="section print-section">
+        <h2>Step 6: 50 Proven Side Hustle Ideas</h2>
+        
+        <p>Below are 50 specific side hustle ideas organized by category. Circle or check any that interest you or spark new ideas:</p>
+        
+        <h3>Service-Based Side Hustles</h3>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Virtual assistant services</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Tutoring (academic subjects, test prep, languages)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Freelance writing or editing</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Social media management</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Web design or development</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Photography services (events, portraits, product)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Graphic design services</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Video editing</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Pet sitting or dog walking</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Personal training or fitness coaching</div>
+        </div>
+        
+        <h3>Product-Based Side Hustles</h3>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Handmade crafts or art (Etsy, craft fairs)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Print-on-demand products (t-shirts, mugs, etc.)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Homemade food products (baked goods, meal prep)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Candles, soaps, or bath products</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Vintage or thrifted item reselling</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Custom woodworking or furniture</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Retail arbitrage (buying low, selling higher)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Dropshipping products</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Custom gifts or gift baskets</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Specialty plants or gardening products</div>
+        </div>
+        
+        <h3>Digital Products Side Hustles</h3>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Online courses or tutorials</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>E-books or digital guides</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Stock photography or video</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Digital templates (resumes, planners, etc.)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Mobile app development</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Website themes or plugins</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Digital art or illustrations</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Music or sound effects production</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Subscription-based digital content</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Software as a Service (SaaS) products</div>
+        </div>
+        
+        <h3>Content Creation Side Hustles</h3>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>YouTube channel creation</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Blogging with affiliate marketing</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Podcast production</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Social media content creation</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Livestreaming on platforms like Twitch</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Newsletter writing</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Educational or how-to content</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Review writing or product testing</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Niche community building</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>AR/VR content creation</div>
+        </div>
+        
+        <h3>Platform-Based Side Hustles</h3>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Rideshare driving (Uber, Lyft)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Food or package delivery</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Freelancing on platforms (Fiverr, Upwork)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Task completion (TaskRabbit, Thumbtack)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Home or room rental (Airbnb, VRBO)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Car rental (Turo, Getaround)</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Peer-to-peer item rental</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Data entry or microtasks</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>User testing for websites or apps</div>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" class="checkbox">
+            <div>Selling on marketplaces (Amazon, eBay)</div>
+        </div>
+    </div>
+    
+    <div class="section print-section">
+        <h2>Step 7: Side Hustle Evaluation Matrix</h2>
+        
+        <p>Now that you have several potential ideas, evaluate them to identify the most promising options.</p>
+        
+        <div class="worksheet">
+            <p>Use the table below to evaluate your top 3 side hustle ideas:</p>
+            
+            <table>
+                <tr>
+                    <th>Evaluation Criteria</th>
+                    <th>Idea 1</th>
+                    <th>Idea 2</th>
+                    <th>Idea 3</th>
+                </tr>
+                <tr>
+                    <td>1. Specific idea description</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+                <tr>
+                    <td>2. Skill match (1-10)</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+                <tr>
+                    <td>3. Interest level (1-10)</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+                <tr>
+                    <td>4. Startup costs ($)</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+                <tr>
+                    <td>5. Time commitment (hrs/week)</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+                <tr>
+                    <td>6. Profit potential (1-10)</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+                <tr>
+                    <td>7. Market demand (1-10)</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+                <tr>
+                    <td>8. Scalability potential (1-10)</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+                <tr>
+                    <td>9. Barriers to entry</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+                <tr>
+                    <td>10. TOTAL SCORE (add items 2, 3, 6, 7, 8)</td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                    <td><div class="input-field" contenteditable="true"></div></td>
+                </tr>
+            </table>
+            
+            <p>Based on your evaluation, which side hustle idea shows the most promise?</p>
+            <div class="input-field" contenteditable="true"></div>
+            
+            <p>What are your next steps to begin exploring or implementing this idea?</p>
+            <div class="input-field" contenteditable="true"></div>
+        </div>
+    </div>
+    
+    <div class="warning-box">
+        <h3>Important Considerations</h3>
+        <p>Before launching your side hustle, research these key areas:</p>
+        <ul>
+            <li>Legal requirements (business registration, licenses, permits)</li>
+            <li>Tax implications and record-keeping needs</li>
+            <li>Insurance considerations</li>
+            <li>Intellectual property protection (if applicable)</li>
+            <li>Platform terms of service (if using third-party platforms)</li>
+        </ul>
+    </div>
+    
+    <div class="section print-section">
+        <h2>Next Steps: Moving from Idea to Implementation</h2>
+        
+        <p>Once you've identified a promising side hustle idea, consider these next steps:</p>
+        
+        <ol>
+            <li><strong>Market Research</strong>: Validate your idea by talking to potential customers and analyzing competitors.</li>
+            <li><strong>Minimum Viable Product (MVP)</strong>: Create the simplest version of your product or service to test with real customers.</li>
+            <li><strong>Business Plan Development</strong>: Use the Business Plan Builder tool to create a comprehensive plan for your side hustle.</li>
+            <li><strong>Legal and Financial Setup</strong>: Address business structure, banking, accounting, and legal requirements.</li>
+            <li><strong>Launch Strategy</strong>: Develop a plan for introducing your side hustle to the market.</li>
+        </ol>
+        
+        <div class="example-box">
+            <h3>Success Tip: Start Small</h3>
+            <p>Many successful businesses began as small side hustles. Test your idea with minimal investment, gather feedback, and iterate before scaling up. This approach reduces risk while allowing you to validate your concept.</p>
+        </div>
+    </div>
+    
+    <div class="no-print">
+        <button class="print-button" onclick="window.print()">Print Side Hustle Generator</button>
+        <p>Note: Use your browser's print function to save as PDF if you don't have a printer.</p>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy - Chapter 15.5: Entrepreneurship and Side Hustles</p>
+    </div>
+</body>
+</html>

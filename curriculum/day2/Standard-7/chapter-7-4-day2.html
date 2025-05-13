@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 7.4: Consumer Credit Legislation - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .learning-station h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+        }
+        
+        .station-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .important-note:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            background-color: #e0e7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section headers with decorative elements */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Day Toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+        
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 50;
+        }
+        
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            filter: brightness(110%);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Case study styling for case-study template format */
+        .case-study {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #f8fafc;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        /* Rights card styling */
+        .rights-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            background-color: #f0f9ff;
+            transition: all 0.3s ease;
+        }
+        
+        .rights-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Resource card styling */
+        .resource-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            background-color: #f0fdf4;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                    PFL
+                </div>
+                <span class="ml-3 text-xl font-bold">PFL Academy</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Home</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Curriculum</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Resources</a>
+                <a href="#" class="text-white hover:text-indigo-200 transition-colors nav-link">Profile</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:col-span-3 bg-white rounded-xl shadow-xl p-6 sticky top-20 h-screen overflow-y-auto border border-gray-200">
+            <div id="standard-info">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 7: Credit and Debt</h2>
+                <p class="text-gray-600 mb-4">Explores different types of credit, debt, and borrowing, including rights, responsibilities, and protections for consumers.</p>
+            </div>
+            
+            <!-- Day Toggle -->
+            <div class="day-toggle">
+                <a href="chapter-7-4-day1.html" class="day-toggle-option">Day 1</a>
+                <div class="day-toggle-option active">Day 2</div>
+            </div>
+            
+            <ul class="space-y-2" id="chapter-navigation">
+                <!-- Previous Chapters -->
+                <li>
+                    <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <span class="text-left">7.1 Understanding the Cost of Borrowing</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <span class="text-left">7.2 Choosing the Right Source of Credit</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <span class="text-left">7.3 Understanding Credit Score</span>
+                    </a>
+                </li>
+                
+                <!-- Current Chapter -->
+                <li>
+                    <div class="flex items-center bg-indigo-50 p-2 rounded-lg">
+                        <span class="border-l-4 border-indigo-700 pl-2 text-indigo-700 font-medium">7.4: Consumer Credit Legislation</span>
+                    </div>
+                    <!-- Section Navigation for Current Chapter -->
+                    <ul class="ml-6 mt-2 space-y-1" id="section-navigation">
+                        <li>
+                            <a href="#learning-objectives" class="text-indigo-700 font-medium flex items-center">
+                                <span class="mr-2">•</span> Learning Objectives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#intro" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Introduction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station1" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Consumer Credit Case Studies
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Consumer Rights Research
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Know Your Rights Guide
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Portfolio Integration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reflection" class="text-gray-700 hover:text-indigo-700 flex items-center transition-colors">
+                                <span class="mr-2">•</span> Reflection
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Future Chapters -->
+                <li>
+                    <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                        <span class="mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                        </span>
+                        <span class="text-left">7.5 Understanding Student Loans</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Progress Tracker -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-4 shadow-lg">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Your Progress</h3>
+                <div class="w-full bg-white/50 rounded-full h-2.5 mb-4">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-indigo-800">Completed: <span class="font-medium">0/3 stations</span></p>
+                
+                <!-- Station Indicators -->
+                <div class="station-indicators mt-3">
+                    <div class="station-indicator" id="station1-indicator"></div>
+                    <div class="station-indicator" id="station2-indicator"></div>
+                    <div class="station-indicator" id="station3-indicator"></div>
+                    <div class="station-indicator" id="portfolio-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Return to Day 1 button -->
+            <div class="mt-6">
+                <a href="chapter-7-4-day1.html" class="block w-full text-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-medium px-4 py-2 rounded-md transition hover:-translate-y-1 hover:shadow-md">
+                    ← Return to Day 1 Content
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Consumer Credit Legislation - Learning Lab</h1>
+            <p class="text-xl text-gray-600 mb-6">Applying your knowledge of consumer protection laws to real-world scenarios</p>
+            
+            <!-- Learning Objectives Section -->
+            <div id="learning-objectives" class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Apply your knowledge of consumer credit laws to real-world scenarios</li>
+                    <li>Identify potential violations of consumer protection laws</li>
+                    <li>Research consumer rights and resources provided by major credit protection laws</li>
+                    <li>Create a comprehensive guide to credit law protections</li>
+                    <li>Develop strategies for protecting your consumer rights</li>
+                    <li>Analyze how understanding these laws impacts your borrowing decisions</li>
+                </ul>
+            </div>
+            
+            <!-- Introduction Section -->
+            <section id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Introduction</h2>
+                <p class="text-gray-700 mb-4">In today's Learning Lab, you'll apply what you learned about consumer credit legislation to analyze real-world scenarios, research consumer rights, and develop a personal guide for protecting your rights as a borrower. These activities will help you recognize potential violations of consumer protection laws and know what actions to take if your rights are violated.</p>
+                
+                <!-- Important Note -->
+                <div class="important-note">
+                    <h3 class="font-semibold text-yellow-800">Important Note</h3>
+                    <p class="text-gray-700">The scenarios in this Learning Lab are simplified for educational purposes. Real-world consumer protection issues may be more complex and might require professional assistance. Consumer credit laws are updated regularly, so it's important to verify current regulations when facing actual credit issues.</p>
+                </div>
+                
+                <!-- Day 1 Connection -->
+                <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Connection to Day 1</h3>
+                    <p class="text-gray-700 mb-3">Today's Learning Lab builds on these key concepts from Day 1:</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-2">
+                        <li>The major consumer credit laws (TILA, FCRA, ECOA, FDCPA, CARD Act)</li>
+                        <li>Key protections provided by each law</li>
+                        <li>The purpose of consumer protection legislation</li>
+                        <li>Your rights as a borrower under these laws</li>
+                    </ul>
+                </div>
+                
+                <!-- Podcast Review Section -->
+                <div class="bg-indigo-50 p-5 rounded-lg my-5">
+                    <h3 class="font-bold text-gray-900 mb-2">Podcast Review: Consumer Credit Legislation</h3>
+                    <p class="text-gray-700 mb-4">Listen to this podcast to review key concepts from Day 1 before you begin today's activities.</p>
+                    
+                    <div class="bg-white rounded-lg p-4">
+                        <audio controls class="w-full mb-2">
+                            <source src="/finished LM recordings/7.4 - Consumer Credit Legislation.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="text-sm text-gray-500">
+                            <p>Topics covered: Major consumer credit laws, key protections, your rights as a borrower, steps to take if your rights are violated</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700 my-4">In today's Learning Lab, you'll analyze real-world scenarios where consumer credit laws apply, research specific consumer rights and resources, and create a comprehensive "Know Your Rights" guide for your financial portfolio. These activities will help you better understand how to protect yourself as a consumer in credit transactions.</p>
+            </section>
+            
+            <!-- Learning Station 1: Consumer Credit Case Studies -->
+            <div id="station1" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">1</span>
+                    <h3 class="text-xl font-semibold">Consumer Credit Case Studies</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">In this station, you'll analyze different case studies to identify which consumer credit laws might apply, what rights the consumer has, and what actions they should take.</p>
+                
+                <div class="mb-6">
+                    <div class="case-study mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-2">Case Study 1: The Misleading Credit Card Offer</h4>
+                        <p class="text-gray-700 mb-4">Javier received a credit card offer in the mail advertising a "0% APR" in large print. He applied for the card and was approved. When he received the card, the terms and conditions stated that the 0% APR was only for balance transfers, and the regular purchase APR was 24.99%. This information was in small print on the back of the original offer. After making several purchases with the card, Javier was surprised to see high interest charges on his first statement.</p>
+                        
+                        <div class="bg-white p-4 rounded-lg">
+                            <h5 class="font-medium text-gray-900 mb-2">Your Analysis</h5>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">Which consumer credit law(s) might apply to this situation?</label>
+                                <select id="case1-law" class="w-full p-2 border rounded" multiple size="3">
+                                    <option value="tila">Truth in Lending Act (TILA)</option>
+                                    <option value="fcra">Fair Credit Reporting Act (FCRA)</option>
+                                    <option value="ecoa">Equal Credit Opportunity Act (ECOA)</option>
+                                    <option value="fdcpa">Fair Debt Collection Practices Act (FDCPA)</option>
+                                    <option value="card">Credit CARD Act</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What rights does Javier have in this situation?</label>
+                                <textarea id="case1-rights" class="w-full p-2 border rounded" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What actions should Javier take?</label>
+                                <textarea id="case1-actions" class="w-full p-2 border rounded" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-2">Case Study 2: The Denied Loan Application</h4>
+                        <p class="text-gray-700 mb-4">Sophia applied for a car loan at a local dealership. Despite having a good credit score and stable income, her application was denied without explanation. Sophia suspects it might be due to her gender or ethnicity. The dealership did not provide any specific reason for the denial, simply telling her that she "didn't qualify."</p>
+                        
+                        <div class="bg-white p-4 rounded-lg">
+                            <h5 class="font-medium text-gray-900 mb-2">Your Analysis</h5>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">Which consumer credit law(s) might apply to this situation?</label>
+                                <select id="case2-law" class="w-full p-2 border rounded" multiple size="3">
+                                    <option value="tila">Truth in Lending Act (TILA)</option>
+                                    <option value="fcra">Fair Credit Reporting Act (FCRA)</option>
+                                    <option value="ecoa">Equal Credit Opportunity Act (ECOA)</option>
+                                    <option value="fdcpa">Fair Debt Collection Practices Act (FDCPA)</option>
+                                    <option value="card">Credit CARD Act</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What rights does Sophia have in this situation?</label>
+                                <textarea id="case2-rights" class="w-full p-2 border rounded" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What actions should Sophia take?</label>
+                                <textarea id="case2-actions" class="w-full p-2 border rounded" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-2">Case Study 3: The Mysterious Debt</h4>
+                        <p class="text-gray-700 mb-4">Marcus checked his credit report and discovered a $2,500 debt from a retail store credit card he never applied for. The account is showing as 90 days past due and has significantly lowered his credit score. Marcus has never shopped at this store and believes this could be a case of identity theft or a credit reporting error.</p>
+                        
+                        <div class="bg-white p-4 rounded-lg">
+                            <h5 class="font-medium text-gray-900 mb-2">Your Analysis</h5>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">Which consumer credit law(s) might apply to this situation?</label>
+                                <select id="case3-law" class="w-full p-2 border rounded" multiple size="3">
+                                    <option value="tila">Truth in Lending Act (TILA)</option>
+                                    <option value="fcra">Fair Credit Reporting Act (FCRA)</option>
+                                    <option value="ecoa">Equal Credit Opportunity Act (ECOA)</option>
+                                    <option value="fdcpa">Fair Debt Collection Practices Act (FDCPA)</option>
+                                    <option value="card">Credit CARD Act</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What rights does Marcus have in this situation?</label>
+                                <textarea id="case3-rights" class="w-full p-2 border rounded" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What actions should Marcus take?</label>
+                                <textarea id="case3-actions" class="w-full p-2 border rounded" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study">
+                        <h4 class="font-semibold text-gray-900 mb-2">Case Study 4: The Midnight Debt Collector</h4>
+                        <p class="text-gray-700 mb-4">Lena has been receiving phone calls from a debt collection agency at 11 PM and sometimes as late as midnight. The collector often uses threatening language, saying they will "take everything she owns" if she doesn't pay immediately. The debt is from a medical bill Lena disputes - she believes her insurance should have covered it. The collector also called Lena's employer and discussed her debt situation.</p>
+                        
+                        <div class="bg-white p-4 rounded-lg">
+                            <h5 class="font-medium text-gray-900 mb-2">Your Analysis</h5>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">Which consumer credit law(s) might apply to this situation?</label>
+                                <select id="case4-law" class="w-full p-2 border rounded" multiple size="3">
+                                    <option value="tila">Truth in Lending Act (TILA)</option>
+                                    <option value="fcra">Fair Credit Reporting Act (FCRA)</option>
+                                    <option value="ecoa">Equal Credit Opportunity Act (ECOA)</option>
+                                    <option value="fdcpa">Fair Debt Collection Practices Act (FDCPA)</option>
+                                    <option value="card">Credit CARD Act</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What rights does Lena have in this situation?</label>
+                                <textarea id="case4-rights" class="w-full p-2 border rounded" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What actions should Lena take?</label>
+                                <textarea id="case4-actions" class="w-full p-2 border rounded" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Learning Station 2: Consumer Rights Research -->
+            <div id="station2" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">2</span>
+                    <h3 class="text-xl font-semibold">Consumer Rights Research Activity</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">In this station, you'll research additional consumer rights provided by these laws, focusing on how to file complaints, available resources, and recent updates to these laws.</p>
+                
+                <div class="bg-blue-50 p-5 rounded-lg mb-5">
+                    <h4 class="font-semibold text-blue-800 mb-3">Consumer Rights Research Guide</h4>
+                    <p class="text-gray-700 mb-3">To gain a deeper understanding of consumer rights, explore these key areas for each major consumer protection law. Use the research worksheet below to organize your findings.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div class="bg-white p-3 rounded-lg shadow">
+                            <h5 class="font-medium text-blue-800 mb-2">Complaint Filing Process</h5>
+                            <ul class="text-sm text-gray-700 list-disc list-inside">
+                                <li>Which agency oversees each law?</li>
+                                <li>How to file complaints for violations</li>
+                                <li>Timeframes for filing complaints</li>
+                                <li>Required documentation</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow">
+                            <h5 class="font-medium text-blue-800 mb-2">Available Resources</h5>
+                            <ul class="text-sm text-gray-700 list-disc list-inside">
+                                <li>Consumer protection websites</li>
+                                <li>Sample complaint letters</li>
+                                <li>Free tools and resources</li>
+                                <li>Consumer rights publications</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow">
+                            <h5 class="font-medium text-blue-800 mb-2">Recent Updates</h5>
+                            <ul class="text-sm text-gray-700 list-disc list-inside">
+                                <li>Changes to laws in past 5 years</li>
+                                <li>Pending legislation</li>
+                                <li>Expanded or new protections</li>
+                                <li>Changes to enforcement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="bg-white p-4 border rounded-lg">
+                        <h4 class="font-semibold text-gray-900 mb-4">Consumer Rights Research Worksheet</h4>
+                        
+                        <div class="mb-5">
+                            <h5 class="font-medium text-gray-800 mb-3">Truth in Lending Act (TILA)</h5>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">How can consumers file complaints for TILA violations? Which agency oversees TILA?</label>
+                                <textarea id="tila-complaints" class="w-full p-2 border rounded" rows="2"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What resources are available to consumers regarding TILA rights?</label>
+                                <textarea id="tila-resources" class="w-full p-2 border rounded" rows="2"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">Have there been any recent updates or changes to TILA?</label>
+                                <textarea id="tila-updates" class="w-full p-2 border rounded" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h5 class="font-medium text-gray-800 mb-3">Fair Credit Reporting Act (FCRA)</h5>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">How can consumers file complaints for FCRA violations? Which agency oversees FCRA?</label>
+                                <textarea id="fcra-complaints" class="w-full p-2 border rounded" rows="2"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What resources are available to consumers regarding FCRA rights?</label>
+                                <textarea id="fcra-resources" class="w-full p-2 border rounded" rows="2"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">Have there been any recent updates or changes to FCRA?</label>
+                                <textarea id="fcra-updates" class="w-full p-2 border rounded" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h5 class="font-medium text-gray-800 mb-3">Fair Debt Collection Practices Act (FDCPA)</h5>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">How can consumers file complaints for FDCPA violations? Which agency oversees FDCPA?</label>
+                                <textarea id="fdcpa-complaints" class="w-full p-2 border rounded" rows="2"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">What resources are available to consumers regarding FDCPA rights?</label>
+                                <textarea id="fdcpa-resources" class="w-full p-2 border rounded" rows="2"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-gray-700 mb-1">Have there been any recent updates or changes to FDCPA?</label>
+                                <textarea id="fdcpa-updates" class="w-full p-2 border rounded" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Learning Station 3: Know Your Rights Guide -->
+            <div id="station3" class="learning-station">
+                <div class="flex items-center mb-3">
+                    <span class="station-number">3</span>
+                    <h3 class="text-xl font-semibold">Create a "Know Your Rights" Guide</h3>
+                </div>
+                
+                <div class="activity-timer flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                </div>
+                
+                <p class="text-gray-700 mb-4">In this station, you'll create a "Know Your Rights" guide for your financial portfolio that summarizes key protections, outlines steps to take if your rights are violated, and includes contact information for relevant consumer protection agencies.</p>
+                
+                <div class="bg-white p-5 border rounded-lg mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-4">"Know Your Rights" Guide Builder</h4>
+                    
+                    <div class="mb-5">
+                        <h5 class="font-medium text-gray-800 mb-3">Key Credit Law Protections</h5>
+                        <p class="text-sm text-gray-600 mb-3">Summarize the most important protections from each major consumer credit law:</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div class="rights-card">
+                                <h6 class="font-medium text-blue-800 mb-2">Truth in Lending Act (TILA)</h6>
+                                <textarea id="tila-summary" class="w-full p-2 border rounded" rows="3" placeholder="Summarize key TILA protections..."></textarea>
+                            </div>
+                            
+                            <div class="rights-card">
+                                <h6 class="font-medium text-blue-800 mb-2">Fair Credit Reporting Act (FCRA)</h6>
+                                <textarea id="fcra-summary" class="w-full p-2 border rounded" rows="3" placeholder="Summarize key FCRA protections..."></textarea>
+                            </div>
+                            
+                            <div class="rights-card">
+                                <h6 class="font-medium text-blue-800 mb-2">Equal Credit Opportunity Act (ECOA)</h6>
+                                <textarea id="ecoa-summary" class="w-full p-2 border rounded" rows="3" placeholder="Summarize key ECOA protections..."></textarea>
+                            </div>
+                            
+                            <div class="rights-card">
+                                <h6 class="font-medium text-blue-800 mb-2">Fair Debt Collection Practices Act (FDCPA)</h6>
+                                <textarea id="fdcpa-summary" class="w-full p-2 border rounded" rows="3" placeholder="Summarize key FDCPA protections..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-5">
+                        <h5 class="font-medium text-gray-800 mb-3">Steps to Take if Your Rights Are Violated</h5>
+                        <p class="text-sm text-gray-600 mb-3">Outline the general process to follow if you believe a lender or financial institution has violated your rights:</p>
+                        
+                        <ol class="space-y-3 mb-4">
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 text-blue-800 font-bold rounded-full h-6 w-6 flex items-center justify-center mt-1 mr-2 flex-shrink-0">1</span>
+                                <textarea class="w-full p-2 border rounded" rows="2" placeholder="Step 1: What to do first..."></textarea>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 text-blue-800 font-bold rounded-full h-6 w-6 flex items-center justify-center mt-1 mr-2 flex-shrink-0">2</span>
+                                <textarea class="w-full p-2 border rounded" rows="2" placeholder="Step 2: What to do next..."></textarea>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 text-blue-800 font-bold rounded-full h-6 w-6 flex items-center justify-center mt-1 mr-2 flex-shrink-0">3</span>
+                                <textarea class="w-full p-2 border rounded" rows="2" placeholder="Step 3: Further actions..."></textarea>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 text-blue-800 font-bold rounded-full h-6 w-6 flex items-center justify-center mt-1 mr-2 flex-shrink-0">4</span>
+                                <textarea class="w-full p-2 border rounded" rows="2" placeholder="Step 4: If problem persists..."></textarea>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-800 mb-3">Consumer Protection Resources</h5>
+                        <p class="text-sm text-gray-600 mb-3">List contact information for key consumer protection agencies and resources:</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="resource-card">
+                                <h6 class="font-medium text-green-800 mb-2">Consumer Financial Protection Bureau (CFPB)</h6>
+                                <textarea id="cfpb-info" class="w-full p-2 border rounded" rows="3" placeholder="Website, phone number, how to file complaints..."></textarea>
+                            </div>
+                            
+                            <div class="resource-card">
+                                <h6 class="font-medium text-green-800 mb-2">Federal Trade Commission (FTC)</h6>
+                                <textarea id="ftc-info" class="w-full p-2 border rounded" rows="3" placeholder="Website, phone number, how to file complaints..."></textarea>
+                            </div>
+                            
+                            <div class="resource-card">
+                                <h6 class="font-medium text-green-800 mb-2">Credit Bureau Contact Information</h6>
+                                <textarea id="bureau-info" class="w-full p-2 border rounded" rows="3" placeholder="Equifax, Experian, and TransUnion contact info..."></textarea>
+                            </div>
+                            
+                            <div class="resource-card">
+                                <h6 class="font-medium text-green-800 mb-2">Other Helpful Resources</h6>
+                                <textarea id="other-resources" class="w-full p-2 border rounded" rows="3" placeholder="Additional resources that may be helpful..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save and Continue
+                </button>
+            </div>
+            
+            <!-- Portfolio Integration Section -->
+            <section id="portfolio" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                <p class="text-gray-700 mb-4">Now that you've analyzed case studies, researched consumer rights, and created a "Know Your Rights" guide, it's time to integrate this knowledge into your financial portfolio.</p>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-900 mb-4">Credit Law Protections Portfolio Entry</h3>
+                    <p class="text-gray-700 mb-4">Your portfolio entry combines all elements from today's Learning Lab into a comprehensive resource:</p>
+                    
+                    <ul class="list-disc list-inside mb-4 text-gray-700">
+                        <li>Case study analysis highlighting common consumer protection issues</li>
+                        <li>Research on filing complaints and available resources</li>
+                        <li>A "Know Your Rights" guide for future reference</li>
+                        <li>Contact information for key consumer protection agencies</li>
+                    </ul>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Portfolio Reflection: How will understanding consumer credit laws impact your future financial decisions?</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Reflect on how this knowledge will influence your approach to credit and borrowing..."></textarea>
+                        <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                    </div>
+                    
+                    <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1" onclick="savePortfolio()">Add to Portfolio</button>
+                </div>
+            </section>
+            
+            <!-- Reflection Section -->
+            <section id="reflection" class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                    <p class="text-gray-700 mb-3">Consider how understanding consumer credit laws might impact your future financial decisions. How might these protections influence your approach to borrowing money or using credit? What steps will you take to ensure your consumer rights are protected?</p>
+                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                    <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <a href="#" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                        Continue to Chapter 7.5: Understanding Student Loans
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Your progress has been saved!</span>
+        </div>
+    </div>
+    
+    <footer class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-white/20 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold">PFL Academy</span>
+                    </div>
+                    <p class="text-indigo-200">Empowering students with financial literacy skills for life.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Curriculum</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-indigo-200">If you need assistance, please contact your instructor or email support.</p>
+                </div>
+            </div>
+            <div class="border-t border-indigo-800 mt-8 pt-6 text-center text-indigo-200">
+                <p>&copy; 2025 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600', 'active');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 3) {
+                // If this was the last station, scroll to portfolio
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600', 'active');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length - 1; // Exclude portfolio from station count
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const stationOnlyCompleted = stationProgress.station1 + stationProgress.station2 + stationProgress.station3;
+            const percentage = Math.round((completedStations / Object.keys(stationProgress).length) * 100);
+            
+            document.querySelector('.bg-gradient-to-r.from-indigo-600.to-purple-600.h-2\\.5').style.width = percentage + '%';
+            document.querySelector('.font-medium').textContent = stationOnlyCompleted + '/' + totalStations + ' stations';
+            
+            // Update station indicators
+            updateStationIndicators();
+        }
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            
+            // Set color based on type
+            if (type === 'warning') {
+                toast.style.backgroundColor = '#f59e0b';
+            } else {
+                toast.style.backgroundColor = '#4f46e5';
+            }
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+            element.addEventListener('blur', function() {
+                if (this.value.length > 50) {
+                    const feedbackContainer = this.nextElementSibling;
+                    if (feedbackContainer && feedbackContainer.classList.contains('feedback-container')) {
+                        feedbackContainer.textContent = "Great analysis! Your reflection shows a solid understanding of consumer credit laws and their practical applications.";
+                        feedbackContainer.classList.remove('hidden');
+                    }
+                } else if (this.value.length > 10) {
+                    const feedbackContainer = this.nextElementSibling;
+                    if (feedbackContainer && feedbackContainer.classList.contains('feedback-container')) {
+                        feedbackContainer.textContent = "Consider expanding your response with more specific examples of how these laws protect consumers.";
+                        feedbackContainer.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Update station indicators
+        function updateStationIndicators() {
+            // Update for completed stations
+            if (stationProgress.station1) {
+                document.getElementById('station1-indicator').classList.add('active');
+            }
+            if (stationProgress.station2) {
+                document.getElementById('station2-indicator').classList.add('active');
+            }
+            if (stationProgress.station3) {
+                document.getElementById('station3-indicator').classList.add('active');
+            }
+            if (stationProgress.portfolio) {
+                document.getElementById('portfolio-indicator').classList.add('active');
+            }
+        }
+        
+        // Highlight active section based on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.learning-objectives, #intro, .learning-station, #portfolio, #reflection');
+            const navItems = document.querySelectorAll('#section-navigation a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+            
+            // Initialize case studies with recommended answers on click
+            const caseLawSelects = document.querySelectorAll('select[id^="case"]');
+            
+            caseLawSelects.forEach(select => {
+                const caseId = select.id.split('-')[0];
+                
+                // Set up change handlers to provide guidance
+                select.addEventListener('change', function() {
+                    const rightsTextarea = document.getElementById(caseId + '-rights');
+                    const actionsTextarea = document.getElementById(caseId + '-actions');
+                    
+                    // Reset textareas when selection changes
+                    if (this.value === "") {
+                        rightsTextarea.value = "";
+                        actionsTextarea.value = "";
+                        return;
+                    }
+                    
+                    // Case-specific guidance based on selected law
+                    if (caseId === 'case1') {
+                        if (this.value.includes('tila') || this.value.includes('card')) {
+                            rightsTextarea.placeholder = "Think about disclosure requirements for APR...";
+                        }
+                    } else if (caseId === 'case2') {
+                        if (this.value.includes('ecoa')) {
+                            rightsTextarea.placeholder = "Consider protections against discrimination...";
+                        }
+                    } else if (caseId === 'case3') {
+                        if (this.value.includes('fcra')) {
+                            rightsTextarea.placeholder = "Consider credit reporting accuracy rights...";
+                        }
+                    } else if (caseId === 'case4') {
+                        if (this.value.includes('fdcpa')) {
+                            rightsTextarea.placeholder = "Think about restrictions on debt collection practices...";
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

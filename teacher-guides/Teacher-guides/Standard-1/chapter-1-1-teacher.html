@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Teacher Guide: Chapter 1.1: Jobs vs. Careers</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5849da; /* Royal purple */
+            --secondary-color: #374151; /* Dark gray */
+            --sidebar-bg: #f5f5f7; /* Light gray */
+            --text-color: #1F2937;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--text-color);
+            background-color: #f9fafb;
+        }
+        
+        /* Header styling */
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+        }
+        
+        /* Sidebar styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            padding: 1.5rem;
+            height: calc(100vh - 64px);
+            position: sticky;
+            top: 64px;
+            overflow-y: auto;
+            margin-top: 0;
+        }
+        
+        /* Sidebar section styling */
+        .sidebar-section {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .sidebar-section:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        
+        .sidebar-section h2 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar-section h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: linear-gradient(to bottom, #5849da, #8b5cf6);
+            margin-right: 0.75rem;
+            border-radius: 2px;
+        }
+        
+        .sidebar-section h3 {
+            color: var(--text-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Resources section */
+        .resources-sidebar {
+            background: linear-gradient(to bottom right, #e6f0ff, #f0f7ff);
+            border: 1px solid #bfdbfe;
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.1);
+        }
+        
+        .resources-sidebar h2::before {
+            background: linear-gradient(to bottom, #2563eb, #60a5fa);
+        }
+        
+        /* Standards section */
+        .standards-sidebar {
+            background: linear-gradient(to bottom right, #f3f0ff, #f5f3ff);
+            border: 1px solid #ddd6fe;
+            box-shadow: 0 2px 6px rgba(109, 40, 217, 0.1);
+        }
+        
+        .standards-sidebar h2::before {
+            background: linear-gradient(to bottom, #6d28d9, #a78bfa);
+        }
+        
+        /* Main content styling */
+        .main-content {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section headers */
+        .section-header {
+            color: var(--text-color);
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .section-header::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 24px;
+            background: linear-gradient(to bottom, #5849da, #8b5cf6);
+            margin-right: 0.75rem;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(88, 73, 218, 0.2);
+        }
+        
+        .section-header::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, #5849da, #8b5cf6);
+        }
+        
+        /* Section containers */
+        .section-container {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-container:hover {
+            box-shadow: 0 6px 12px -1px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+        
+        .section-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #5849da, #8b5cf6);
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .section-container h3 {
+            color: #4B5563;
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        /* Special section styles */
+        .materials-section {
+            background: linear-gradient(to bottom right, #ecf5ff, #f0f7ff);
+            border-color: #bfdbfe;
+        }
+        
+        .materials-section::before {
+            background: linear-gradient(to bottom, #2563eb, #60a5fa);
+        }
+        
+        .differentiation-section {
+            background: linear-gradient(to bottom right, #f3f0ff, #f5f3ff);
+            border-color: #ddd6fe;
+        }
+        
+        .differentiation-section::before {
+            background: linear-gradient(to bottom, #6d28d9, #a78bfa);
+        }
+        
+        .assessment-section {
+            background: linear-gradient(to bottom right, #ecfdf5, #f0fdf4);
+            border-color: #bbf7d0;
+        }
+        
+        .assessment-section::before {
+            background: linear-gradient(to bottom, #059669, #34d399);
+        }
+        
+        .resources-section {
+            background: linear-gradient(to bottom right, #fff7ed, #fffbeb);
+            border-color: #fed7aa;
+        }
+        
+        .resources-section::before {
+            background: linear-gradient(to bottom, #d97706, #fbbf24);
+        }
+        
+        /* Teacher tip boxes */
+        .teacher-tip {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .teacher-tip h4 {
+            color: #1e40af;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .teacher-tip h4::before {
+            content: "";
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%233b82f6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' /%3E%3C/svg%3E");
+            background-size: contain;
+            margin-right: 0.5rem;
+        }
+        
+        /* Button styling */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Navigation links */
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .nav-link svg {
+            margin-right: 0.5rem;
+        }
+        
+        /* Table styling */
+        .teacher-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .teacher-table th {
+            background-color: #f9fafb;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .teacher-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .teacher-table tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        /* Print button */
+        .print-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Tabs */
+        .tab-group {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 1rem;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Tab content */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header flex items-center justify-between fixed top-0 left-0 right-0 z-40">
+        <div class="flex items-center">
+            <h1 class="text-xl font-bold">PFL Academy | Teacher Guide</h1>
+            <nav class="ml-8 hidden md:block">
+                <a href="#" class="text-white mr-4">Standards</a>
+                <a href="#" class="text-white mr-4">Resources</a>
+                <a href="#" class="text-white">Help</a>
+            </nav>
+        </div>
+        <div class="flex items-center">
+            <button id="show-support-panel" class="text-white bg-white bg-opacity-20 hover:bg-opacity-30 rounded-md px-3 py-2 mr-3 flex items-center transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                </svg>
+                <span class="font-medium">Instructor Support</span>
+            </button>
+            <button class="text-white bg-white bg-opacity-20 hover:bg-opacity-30 rounded p-2 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Spacer to push content below fixed header -->
+    <div class="h-16"></div>
+
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside class="sidebar w-full md:w-1/4">
+            <div>
+                <!-- Standards Section -->
+                <div class="sidebar-section standards-sidebar">
+                    <h2>Standard 1: Income and Money Management</h2>
+                    <div class="bg-white p-3 rounded-lg border border-purple-100 shadow-sm mb-4 mt-2">
+                        <p class="text-sm text-gray-700 leading-relaxed">Understanding strategies for managing income effectively to achieve financial stability and meet long-term goals.</p>
+                    </div>
+                    
+                    <h3 class="text-md font-medium mb-3 text-purple-800 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                        </svg>
+                        Teacher Guides
+                    </h3>
+                    
+                    <div class="space-y-2 ml-1">
+                        <!-- Navigation links here -->
+                        <!-- Example: -->
+                        <a href="chapter-1-1-teacher.html" class="nav-link active bg-purple-50 rounded-md px-3 py-2 transition-colors hover:bg-purple-100 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-purple-700" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="font-medium">1.1 Jobs vs. Careers</span>
+                        </a>
+                        
+                        <!-- Additional chapter links -->
+                        <a href="chapter-1-2-teacher.html" class="nav-link rounded-md px-3 py-2 transition-colors hover:bg-purple-50 flex items-center text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>1.2 Paying for Post-Secondary Education</span>
+                        </a>
+                        
+                        <a href="chapter-1-3-teacher.html" class="nav-link rounded-md px-3 py-2 transition-colors hover:bg-purple-50 flex items-center text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>1.3 Income and Taxes</span>
+                        </a>
+                        
+                        <a href="chapter-1-4-teacher.html" class="nav-link rounded-md px-3 py-2 transition-colors hover:bg-purple-50 flex items-center text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>1.4 Financial Goal Setting</span>
+                        </a>
+                        
+                        <a href="chapter-1-5-teacher.html" class="nav-link rounded-md px-3 py-2 transition-colors hover:bg-purple-50 flex items-center text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>1.5 Managing Your Income Effectively</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Resources Section -->
+                <div class="sidebar-section resources-sidebar">
+                    <h2>Chapter Resources</h2>
+                    
+                    <div class="space-y-4">
+                        <a href="#" class="nav-link flex items-center py-3 px-4 bg-white rounded-lg hover:bg-blue-50 transition-colors shadow-sm border border-blue-50">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                            </svg>
+                            <span class="font-medium">View Student Content</span>
+                        </a>
+                        
+                        <div class="bg-white rounded-lg p-4 border border-blue-100 shadow-sm">
+                            <h3 class="font-medium text-blue-800 mb-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                                Downloadable Materials
+                            </h3>
+                            <div class="space-y-2 mt-2">
+                                <a href="#" onclick="alert('These materials can be printed directly from their HTML files. To save as PDF, use your browser\\'s print function and select \\'Save as PDF\\' as the printer.'); return false;" class="block px-3 py-2 text-sm text-blue-700 hover:bg-blue-50 rounded transition-colors" id="downloadAllBtn">
+                                    Print or Save Materials as PDF
+                                </a>
+                                <div class="text-xs text-gray-500 px-2">Individual files:</div>
+                                <ul class="text-sm space-y-1 pl-2">
+                                    <li>
+                                        <a href="/Sync-90/resources/chapter-1-1/downloads/Career_Path_Mapping_Worksheet.html" class="block px-2 py-1 text-blue-600 hover:underline">Career Path Mapping Worksheet (HTML)</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Sync-90/resources/chapter-1-1/downloads/Jobs_vs_Careers_Case_Studies.html" class="block px-2 py-1 text-blue-600 hover:underline">Jobs vs. Careers Case Studies (HTML)</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Sync-90/resources/chapter-1-1/downloads/Human_Capital_Investment_Guide.html" class="block px-2 py-1 text-blue-600 hover:underline">Human Capital Investment Guide (HTML)</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Sync-90/resources/chapter-1-1/downloads/Day_1_Assessment_Rubric.html" class="block px-2 py-1 text-blue-600 hover:underline">Assessment Rubric (HTML)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 border border-blue-100 shadow-sm">
+                            <h3 class="font-medium text-blue-800 mb-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M6.672 1.911a1 1 0 10-1.932.518l.259.966a1 1 0 001.932-.518l-.26-.966zM2.429 4.74a1 1 0 10-.517 1.932l.966.259a1 1 0 00.517-1.932l-.966-.26zm8.814-.569a1 1 0 00-1.415-1.414l-.707.707a1 1 0 101.415 1.415l.707-.708zm-7.071 7.072l.707-.707A1 1 0 003.465 9.12l-.708.707a1 1 0 001.415 1.415zm3.2-5.171a1 1 0 00-1.3 1.3l4 10a1 1 0 001.823.075l1.38-2.759 3.018 3.02a1 1 0 001.414-1.415l-3.019-3.02 2.76-1.379a1 1 0 00-.076-1.822l-10-4z" clip-rule="evenodd" />
+                                </svg>
+                                External Resources
+                            </h3>
+                            <div class="space-y-1 mt-2 text-sm">
+                                <p class="text-xs text-gray-600 px-2 mb-2">Curated educational resources from reputable sources that support this chapter's content:</p>
+                                <a href="/Sync-90/resources/chapter-1-1/additional-resources/index.html" class="block px-3 py-2 text-blue-700 hover:bg-blue-50 rounded transition-colors mb-2">
+                                    View All External Resources
+                                    <span class="text-xs text-gray-500 block">Comprehensive collection of curated external resources for this chapter</span>
+                                </a>
+                                
+                                <div class="text-xs text-gray-500 px-2 mb-1">Key external resources:</div>
+                                
+                                <a href="https://www.bls.gov/ooh/" class="block px-3 py-2 text-blue-700 hover:bg-blue-50 rounded transition-colors" target="_blank">
+                                    Bureau of Labor Statistics Occupational Outlook Handbook
+                                    <span class="text-xs text-gray-500 block">Comprehensive career information with salary data and growth projections</span>
+                                </a>
+                                <a href="https://www.mynextmove.org/" class="block px-3 py-2 text-blue-700 hover:bg-blue-50 rounded transition-colors" target="_blank">
+                                    My Next Move
+                                    <span class="text-xs text-gray-500 block">Career exploration tools with interest profiler assessment</span>
+                                </a>
+                                <a href="https://www.careeronestop.org/GetMyFuture/default.aspx" class="block px-3 py-2 text-blue-700 hover:bg-blue-50 rounded transition-colors" target="_blank">
+                                    Career One Stop's GetMyFuture
+                                    <span class="text-xs text-gray-500 block">Career resources specifically designed for young adults</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Assessment Summary -->
+                <div class="sidebar-section bg-gradient-to-br from-green-50 to-emerald-50 border-emerald-100">
+                    <h2 class="text-emerald-800">Assessment Information</h2>
+                    <div class="px-4 py-3 bg-white rounded-lg shadow-sm mb-4 border border-emerald-100">
+                        <h3 class="font-medium text-emerald-800 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Summative Assessment
+                        </h3>
+                        <p class="text-sm text-emerald-700 mt-1 ml-6">Details about the chapter assessment</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-white p-3 rounded-lg shadow-sm border border-emerald-100">
+                            <p class="text-sm mb-1 font-medium text-emerald-800">Assessment Type</p>
+                            <p class="text-gray-700">Portfolio submission</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow-sm border border-emerald-100">
+                            <p class="text-sm mb-1 font-medium text-emerald-800">Due Date</p>
+                            <p class="text-gray-700">End of standard</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-full md:w-3/4 p-6">
+            <div class="main-content">
+                <!-- Chapter Header -->
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h1 class="text-2xl font-bold">Teacher Guide: 1.1 Jobs vs. Careers</h1>
+                        <div class="flex items-center mt-2 text-sm text-gray-600">
+                            <div class="flex items-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                </svg>
+                                Duration: 55 minutes
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-group">
+                        <div class="tab active" onclick="switchTab('content-guide')">Content Guide</div>
+                        <div class="tab" onclick="switchTab('learning-lab')">Learning Lab</div>
+                    </div>
+                </div>
+                
+                <!-- Content Guide Tab (Day 1) -->
+                <div id="content-guide" class="tab-content active">
+                    <!-- Lesson Overview -->
+                    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-lg mb-6 border border-indigo-100 shadow-sm">
+                        <h2 class="text-lg font-semibold mb-3 text-indigo-900 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                            </svg>
+                            Lesson Overview
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="flex items-center mb-2">
+                                    <span class="font-bold text-indigo-800 w-24">Standard:</span>
+                                    <span class="text-gray-800">Standard 1: Income and Money Management</span>
+                                </p>
+                                <p class="flex items-center mb-2">
+                                    <span class="font-bold text-indigo-800 w-24">Chapter:</span>
+                                    <span class="text-gray-800">1.1: Jobs vs. Careers</span>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="flex items-center mb-2">
+                                    <span class="font-bold text-indigo-800 w-24">Duration:</span>
+                                    <span class="text-gray-800">55 minutes</span>
+                                </p>
+                                <p class="flex items-center mb-2">
+                                    <span class="font-bold text-indigo-800 w-24">Focus:</span>
+                                    <span class="text-gray-800">Exploring how strategic career planning impacts long-term financial outcomes compared to simply having jobs.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Materials Needed -->
+                    <h2 class="section-header text-xl">Materials Needed</h2>
+                    <div class="section-container materials-section mb-6">
+                        <h3 class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                            </svg>
+                            Preparation Checklist
+                        </h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Digital or printed career scenario cards</li>
+                            <li>Access to Career Path Planner tool</li>
+                            <li>Student devices with internet access</li>
+                            <li>Visual aids for career progression examples</li>
+                            <li>Career capital framework handouts</li>
+                            <li>Projector or interactive whiteboard for demonstrations</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Pre-Class Setup -->
+                    <h2 class="section-header text-xl">Pre-Class Setup</h2>
+                    <div class="section-container mb-6">
+                        <h3 class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Setup Steps
+                        </h3>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Review the student-facing content thoroughly</li>
+                            <li>Familiarize yourself with current labor market data and career progression examples</li>
+                            <li>Prepare supplementary examples relevant to your local job market</li>
+                            <li>Ensure Career Path Planner tool is accessible to all students</li>
+                            <li>Create student groups for discussion activities</li>
+                            <li>Prepare career scenario cards for group discussions</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Lesson Timeline -->
+                    <h2 class="section-header text-xl">Lesson Timeline</h2>
+                    <div class="mb-6">
+                        <table class="teacher-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Activity</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>5 min</td>
+                                    <td>Learning Objectives & Introduction</td>
+                                    <td>Review objectives and introduce the job vs. career distinction</td>
+                                </tr>
+                                <tr>
+                                    <td>8 min</td>
+                                    <td>Key Concepts</td>
+                                    <td>Explain core vocabulary and framework for understanding careers</td>
+                                </tr>
+                                <tr>
+                                    <td>12 min</td>
+                                    <td>Deeper Exploration</td>
+                                    <td>Explore detailed distinctions between jobs and careers and career capital</td>
+                                </tr>
+                                <tr>
+                                    <td>8 min</td>
+                                    <td>Real-World Examples</td>
+                                    <td>Analyze Maya and Carlos case studies with financial implications</td>
+                                </tr>
+                                <tr>
+                                    <td>5 min</td>
+                                    <td>Summary & Reflection</td>
+                                    <td>Consolidate learning and engage with reflection prompts</td>
+                                </tr>
+                                <tr>
+                                    <td>17 min</td>
+                                    <td>Career Path Plan Skill Builder</td>
+                                    <td>Guide students through the interactive career planning activity</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Section-by-Section Teaching Notes -->
+                    <h2 class="section-header text-xl">Section-by-Section Teaching Notes</h2>
+                    <p class="text-gray-700 mb-4">The following section provides specific guidance for teaching each component of the student-facing content, following the exact same structure as the student materials. This section-by-section approach allows you to quickly find teaching support for any part of the lesson.</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-lg mb-2 text-indigo-700 border-b border-indigo-100 pb-1">Learning Objectives</h3>
+                        <div class="ml-4">
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Teaching Notes</h4>
+                                <p class="text-gray-700">Begin by reviewing the learning objectives with students to set clear expectations. These objectives focus on the critical distinction between jobs and careers and how this understanding impacts financial planning. Consider asking students to restate the objectives in their own words to gauge initial understanding.</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Facilitation Tips</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Connect objectives to students' current work experiences or future plans</li>
+                                    <li>Emphasize the financial literacy component of career planning</li>
+                                    <li>Refer back to objectives during transitions between lesson sections</li>
+                                    <li>Display objectives visually throughout the lesson as reference points</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3 bg-blue-50 p-3 rounded-lg">
+                                <h4 class="font-medium text-blue-800">Objective Unpacking</h4>
+                                <div class="space-y-2 mt-2">
+                                    <div class="bg-white p-2 rounded border border-blue-100">
+                                        <p class="font-medium text-blue-700">Differentiate between a job and a career</p>
+                                        <p class="text-sm text-gray-700">Key points: Distinguish immediate income from growth path; explore temporal differences (short-term vs. long-term); consider skill development and advancement opportunities</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-blue-100">
+                                        <p class="font-medium text-blue-700">Identify how career paths affect long-term financial outcomes</p>
+                                        <p class="text-sm text-gray-700">Key points: Salary progression over time; benefits packages (retirement, insurance); connection between education investments and financial returns; quantitative examples of lifetime earnings differences</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-blue-100">
+                                        <p class="font-medium text-blue-700">Evaluate personal interests and skills in relation to potential career paths</p>
+                                        <p class="text-sm text-gray-700">Key points: Self-assessment of aptitudes and interests; alignment between personal strengths and career choices; research methods for career exploration</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-blue-100">
+                                        <p class="font-medium text-blue-700">Develop preliminary career path strategies for financial success</p>
+                                        <p class="text-sm text-gray-700">Key points: Strategic planning across different time horizons; education and training investments; skill development priorities; networking and experience building</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-lg mb-2 text-indigo-700 border-b border-indigo-100 pb-1">Introduction</h3>
+                        <div class="ml-4">
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Teaching Notes</h4>
+                                <p class="text-gray-700">The introduction establishes the critical distinction between jobs and careers and connects this to financial outcomes. Emphasize that strategic career decisions made during high school and early adulthood can significantly impact lifetime earnings. This framing helps students understand that career planning is a core financial literacy skill.</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Facilitation Tips</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Begin with a quick poll about students' current work experiences and future aspirations</li>
+                                    <li>Share a brief personal anecdote about job vs. career distinctions</li>
+                                    <li>Use visual aids showing income differences between job-focused and career-focused workers</li>
+                                    <li>Connect to students' lives by discussing common local employment options</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Potential Misconceptions</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>That all careers require college degrees (clarify that many career paths include skilled trades and certifications)</li>
+                                    <li>That income is the only difference between jobs and careers (address advancement, satisfaction, stability)</li>
+                                    <li>That career planning can wait until after high school (emphasize early decisions' impact)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Discussion Starters</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>"What is your understanding of the difference between a job and a career?"</li>
+                                    <li>"How might decisions you make now about work and education impact your finances in 10 years?"</li>
+                                    <li>"Do you know anyone who has built a successful career? What steps did they take?"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Concepts Section -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-lg mb-2 text-indigo-700 border-b border-indigo-100 pb-1">Key Concepts</h3>
+                        <div class="ml-4">
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Teaching Notes</h4>
+                                <p class="text-gray-700">The key concepts section introduces four critical definitions that serve as the foundation for the chapter. These terms (job, career, career path, career capital) provide the framework students need to approach career planning strategically. Take time to ensure students thoroughly understand these distinctions before moving forward.</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Facilitation Tips</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Use a visual diagram showing the relationship between these concepts</li>
+                                    <li>Have students work in pairs to create their own examples of each term</li>
+                                    <li>Create a T-chart comparing attributes of jobs versus careers</li>
+                                    <li>Connect the concept of "career capital" to financial capital/investment terminology</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3 bg-indigo-50 p-3 rounded-lg">
+                                <h4 class="font-medium text-indigo-800">Concept Deep Dives</h4>
+                                <div class="space-y-3 mt-2">
+                                    <div class="bg-white p-2 rounded border border-indigo-100">
+                                        <p class="font-medium text-indigo-700">Job</p>
+                                        <p class="text-sm text-gray-700">Elaboration: Emphasize the "means to an end" nature of jobs; discuss how many students' current employment likely falls in this category; explain how jobs fit into career paths as stepping stones.</p>
+                                        <p class="text-sm text-gray-700">Common confusion: Students often don't recognize that even entry-level positions in a career field differ from jobs that don't build toward specific professional goals.</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-indigo-100">
+                                        <p class="font-medium text-indigo-700">Career</p>
+                                        <p class="text-sm text-gray-700">Elaboration: Focus on the connected sequence and progression aspects; discuss how careers typically (but not always) relate to specific fields or industries; highlight the long-term perspective.</p>
+                                        <p class="text-sm text-gray-700">Common confusion: Students sometimes think careers are only for professionals with advanced degrees, rather than understanding that careers exist across education levels and sectors.</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-indigo-100">
+                                        <p class="font-medium text-indigo-700">Career Path</p>
+                                        <p class="text-sm text-gray-700">Elaboration: Emphasize the strategic and intentional nature of career paths; discuss how paths include education, skill development, and work experience; note that paths aren't always linear.</p>
+                                        <p class="text-sm text-gray-700">Common confusion: Students often think career paths are fixed and predetermined rather than flexible strategies that adapt to opportunities and changing circumstances.</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-indigo-100">
+                                        <p class="font-medium text-indigo-700">Career Capital</p>
+                                        <p class="text-sm text-gray-700">Elaboration: Draw parallels between investing money and investing in career development; discuss how different forms of capital (skills, experiences, connections) create value; emphasize the compounding nature of career capital.</p>
+                                        <p class="text-sm text-gray-700">Common confusion: Students often focus only on credentials or degrees rather than the full range of valuable career capital (especially soft skills and networks).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Comprehension Check Questions</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>"Give an example of how someone might move from having a job to developing a career in the same field."</li>
+                                    <li>"What types of career capital might be most valuable in fields you're interested in?"</li>
+                                    <li>"How would you explain the difference between a job and a career to a friend?"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Deeper Exploration Section -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-lg mb-2 text-indigo-700 border-b border-indigo-100 pb-1">Deeper Exploration</h3>
+                        <div class="ml-4">
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Teaching Notes</h4>
+                                <p class="text-gray-700">This section expands on the key concepts with a more nuanced explanation of job/career distinctions, financial implications, and career capital. The content emphasizes long-term financial planning through career development. This is the core conceptual material of the chapter, so ensure students grasp these ideas before moving to application exercises.</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Facilitation Tips</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Use a guided note-taking approach to help students capture key points</li>
+                                    <li>Pause after each major subsection to check for understanding</li>
+                                    <li>Incorporate relevant Bureau of Labor Statistics data to support key points</li>
+                                    <li>Use visual aids like career progression charts showing income growth over time</li>
+                                    <li>Encourage students to relate concepts to their own aspirations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Discussion Questions</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>"What surprised you most about the financial differences between job-focused and career-focused approaches?"</li>
+                                    <li>"What types of career capital do you think you've already begun to develop?"</li>
+                                    <li>"How might the career planning strategies discussed apply differently across various industries or fields?"</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Teaching Challenges & Solutions</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+                                    <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                                        <p class="font-medium text-red-700">Students may feel overwhelmed by career planning</p>
+                                        <p class="text-sm text-gray-700">Emphasize that career paths evolve over time and early decisions aren't permanent. Focus on first steps and building transferable skills.</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                                        <p class="font-medium text-red-700">Students may have limited exposure to career options</p>
+                                        <p class="text-sm text-gray-700">Supplement with relevant examples from your community. Consider inviting guest speakers or arranging virtual career exploration opportunities.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Building Career Capital Subsection -->
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Subsection: Building Career Capital</h4>
+                                <p class="text-gray-700">This subsection introduces the valuable concept of career capital—the accumulated skills, experiences, and connections that make someone valuable in the workplace. When teaching this section:</p>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                                    <li>Frame career capital as personal investments that yield returns over time</li>
+                                    <li>Have students brainstorm different forms of career capital relevant to their interests</li>
+                                    <li>Discuss how different career paths might prioritize different types of capital</li>
+                                    <li>Share examples of how career capital can be leveraged for advancement</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Implications & Importance Subsection -->
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Subsection: Implications & Importance</h4>
+                                <p class="text-gray-700">This subsection connects career development directly to financial literacy and overall well-being. When teaching this section:</p>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                                    <li>Emphasize that career planning is fundamental to financial planning</li>
+                                    <li>Discuss how career choices affect major financial milestones</li>
+                                    <li>Explore how traditional career paths are evolving in today's economy</li>
+                                    <li>Connect to other financial literacy topics that will be covered in future chapters</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Real-World Examples Section -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-lg mb-2 text-indigo-700 border-b border-indigo-100 pb-1">Real-World Examples</h3>
+                        <div class="ml-4">
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Teaching Notes</h4>
+                                <p class="text-gray-700">This section provides two concrete examples that illustrate the chapter's concepts. These examples—Maya's fast food job vs. healthcare career and Carlos's strategic career path—demonstrate how theoretical concepts play out in realistic scenarios. Use these examples to help students see practical applications of the principles discussed.</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Facilitation Tips</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Have students analyze each example using the key concepts as a framework</li>
+                                    <li>Ask students to identify specific decision points in each career path</li>
+                                    <li>Use a compare and contrast approach to highlight different strategies</li>
+                                    <li>Consider having students role-play making decisions at critical junctures</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3 bg-blue-50 p-3 rounded-lg">
+                                <h4 class="font-medium text-blue-800">Example Analysis</h4>
+                                <div class="space-y-3 mt-2">
+                                    <div class="bg-white p-2 rounded border border-blue-100">
+                                        <p class="font-medium text-blue-700">Maya's Fast Food Job vs. Healthcare Career</p>
+                                        <p class="text-sm text-gray-700">Key points to emphasize: The investment in education (community college) led to significantly higher earnings; benefits package improvements; career stability; strategic short-term sacrifice for long-term gain</p>
+                                        <p class="text-sm text-gray-700">Discussion questions: "What financial calculation did Maya make when choosing to invest in education?" "What could the lifetime earnings difference be between these two paths?"</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-blue-100">
+                                        <p class="font-medium text-blue-700">Carlos's Strategic Career Path</p>
+                                        <p class="text-sm text-gray-700">Key points to emphasize: Intentional skill building; career capital accumulation through volunteer projects; strategic job changes; negotiation leverage from built skills; aggressive salary growth through planning</p>
+                                        <p class="text-sm text-gray-700">Discussion questions: "What specific career capital did Carlos build?" "How did Carlos's strategic approach differ from someone who simply works at a technology company?"</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Extension Activity</h4>
+                                <p class="text-gray-700">Have students work in pairs to create a third example that illustrates the job vs. career distinction. Ask them to map out a five-year progression showing how strategic decisions lead to better financial outcomes compared to a non-strategic approach in the same field.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summary Section -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-lg mb-2 text-indigo-700 border-b border-indigo-100 pb-1">Summary</h3>
+                        <div class="ml-4">
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Teaching Notes</h4>
+                                <p class="text-gray-700">The summary consolidates key learning points about jobs versus careers and the financial implications of career planning. Use this section to reinforce central concepts before moving to reflection and application activities. This is an opportunity to check for understanding of the main ideas.</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Facilitation Tips</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Have students collaborate to create a concept map showing relationships between key ideas</li>
+                                    <li>Ask each student to identify their "top three takeaways" from the lesson</li>
+                                    <li>Conduct a quick formative assessment to gauge understanding</li>
+                                    <li>Connect summary points back to the original learning objectives</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Key Takeaways to Emphasize</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Strategic career planning is a fundamental financial literacy skill</li>
+                                    <li>Career capital accumulation leads to significantly better financial outcomes over time</li>
+                                    <li>Early career decisions establish the foundation for long-term financial stability</li>
+                                    <li>Career planning requires ongoing adaptation in today's changing economy</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Reflection Prompt Section -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-lg mb-2 text-indigo-700 border-b border-indigo-100 pb-1">Reflection Prompt</h3>
+                        <div class="ml-4">
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Teaching Notes</h4>
+                                <p class="text-gray-700">The reflection prompt asks students to consider their own interests, skills, and values in relation to potential career paths. This personalization is critical for moving from abstract concepts to practical application. Allow adequate time for thoughtful reflection before transitioning to the Skill Builder activity.</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Facilitation Tips</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Provide quiet reflection time for students to think and write</li>
+                                    <li>Offer sentence starters for students who struggle with open-ended prompts</li>
+                                    <li>Consider both individual written reflection and small group discussion</li>
+                                    <li>Circulate during reflection to provide guidance to students who need support</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Additional Reflection Prompts</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>"What aspects of a career do you value most—salary, work-life balance, purpose, or something else?"</li>
+                                    <li>"What types of career capital would be most valuable in fields that interest you?"</li>
+                                    <li>"What challenges might you face in building a career path, and how could you address them?"</li>
+                                    <li>"How do your current activities and choices connect to your long-term career aspirations?"</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3 bg-yellow-50 p-3 rounded-lg">
+                                <h4 class="font-medium text-yellow-800">Reflection-to-Skill Builder Connection</h4>
+                                <p class="text-sm text-yellow-800">Make sure students understand that their reflections will directly inform their approach to the upcoming Career Path Plan Skill Builder activity. Encourage them to use insights from their reflection to guide their choices in the Skill Builder.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill Builder Activity Section -->
+                    <div class="section-container bg-purple-50 border-purple-200 mb-6">
+                        <h3 class="font-semibold text-lg mb-2 text-purple-800 border-b border-purple-200 pb-1">Skill Builder Activity</h3>
+                        <div class="ml-4">
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Activity Overview</h4>
+                                <p class="text-gray-700">The Career Path Plan Skill Builder is an interactive React component where students create a comprehensive career development plan organized by time frames (short-term, mid-term, and long-term) with specific goals across multiple categories. The tool features a step-by-step interface that guides students through planning each time horizon.</p>
+                                <div class="bg-white p-3 rounded-lg mt-2 border border-purple-200">
+                                    <p class="text-sm text-purple-800"><strong>Key Connection:</strong> This Skill Builder directly connects to the Day 2 Learning Lab by establishing the foundation for the more detailed career planning activities in the Learning Lab. Students will expand on this initial plan during Day 2, particularly in Station 2 (Personal Career Path Mapping) and Station 3 (Financial Impact Analysis).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Activity Objectives</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Create a structured career development plan across three time horizons</li>
+                                    <li>Set specific goals for education, work experience, networking, skill development, and other areas</li>
+                                    <li>Practice using dropdown menus to select from pre-defined career development options</li>
+                                    <li>Complete a multi-step planning process that mirrors real career development planning</li>
+                                    <li>Generate a comprehensive summary of career development goals with clear progression</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Step-by-Step Facilitation</h4>
+                                <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                    <li><strong>Introduction (2-3 min):</strong> Explain that the Career Path Planner tool helps students create a structured development plan for their future careers. Connect this to the concepts of career path and career capital discussed earlier.</li>
+                                    <li><strong>Tool Overview (2-3 min):</strong> Demonstrate the Career Path Planner interface, explaining how it's structured around three time horizons (short-term, mid-term, long-term) with multiple goal categories in each.</li>
+                                    <li><strong>Navigating the Interface (2-3 min):</strong> Show students how to use the dropdown menus to select goals, complete each section, and advance through the steps. Explain that they must complete all categories before moving to the next time horizon.</li>
+                                    <li><strong>Individual Work (5-7 min):</strong> Have students work on their short-term and mid-term goals while you circulate to provide support. Encourage thoughtful selection rather than rushing through options.</li>
+                                    <li><strong>Progress Check (1-2 min):</strong> Check that all students have completed at least the first two time horizons (short-term and mid-term) and address any technical issues.</li>
+                                    <li><strong>Completing Long-Term Goals (3-4 min):</strong> Guide students to complete their long-term goals, emphasizing how these should align with earlier steps in their plan.</li>
+                                    <li><strong>Reviewing Completed Plans (2-3 min):</strong> After students complete all sections and see their summary screen, have them review the complete plan for coherence and alignment with their interests.</li>
+                                    <li><strong>Preview of Day 2 (1-2 min):</strong> Explain how their completed Career Path Plans will be expanded in the Day 2 Learning Lab, emphasizing that their work is automatically saved in the system.</li>
+                                </ol>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Common Challenges & Solutions</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
+                                    <div class="bg-white rounded-lg p-3 shadow-sm">
+                                        <p class="font-medium text-purple-700">Challenge: Students unsure which options to select</p>
+                                        <p class="text-sm text-gray-700">Solution: Encourage students to think about their personal interests and strengths, and select options that most closely align with their current thinking. Remind them this is a starting point that will be refined.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm">
+                                        <p class="font-medium text-purple-700">Challenge: Confusion about the time horizons</p>
+                                        <p class="text-sm text-gray-700">Solution: Clarify that short-term generally means 1-2 years, mid-term means 3-5 years, and long-term means 10+ years. Explain that goals should show progression across these periods.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm">
+                                        <p class="font-medium text-purple-700">Challenge: Technical issues with the interface</p>
+                                        <p class="text-sm text-gray-700">Solution: Verify students have selected at least one option from each dropdown menu before trying to proceed to the next step. If the system is slow, have students wait a moment after saving before continuing.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm">
+                                        <p class="font-medium text-purple-700">Challenge: Students not seeing alignment across time frames</p>
+                                        <p class="text-sm text-gray-700">Solution: Encourage students to review their plan after completion and check that shorter-term goals logically build toward longer-term ones (e.g., education in the short-term should support job positions in mid-term).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Differentiation Strategies</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
+                                    <div class="bg-white rounded-lg p-3 border border-purple-100">
+                                        <p class="font-medium text-purple-700">For Students Who Need Support</p>
+                                        <ul class="list-disc list-inside text-sm text-gray-700">
+                                            <p class="text-sm text-gray-700">Solution: Suggest exploring 2-3 different fields that align with general interests/strengths; encourage exploration rather than commitment.</p>
+                                            <li>Provide a partially completed example they can adapt</li>
+                                            <li>Offer a simplified template with more structured prompts</li>
+                                            <li>Focus on short-term planning if long-term seems overwhelming</li>
+                                            <li>Provide direct guidance on research resources</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 border border-purple-100">
+                                        <p class="font-medium text-purple-700">For Advanced Students</p>
+                                        <ul class="list-disc list-inside text-sm text-gray-700">
+                                            <li>Encourage development of alternative pathways and contingency plans</li>
+                                            <li>Suggest deeper financial analysis of education investments</li>
+                                            <li>Prompt consideration of entrepreneurial opportunities</li>
+                                            <li>Challenge them to include specific metrics for success</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Connection to Day 2</h4>
+                                <p class="text-gray-700">The Career Path Plan created in this Skill Builder serves as essential preparation for the Day 2 Learning Lab activities:</p>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                                    <li>Day 2, Station 1 (Career Path Exploration) will analyze how different decisions impact financial outcomes in career paths similar to those students selected</li>
+                                    <li>Day 2, Station 2 (Personal Career Path Mapping) will directly build on students' Career Path Plans by adding greater detail and research</li>
+                                    <li>Day 2, Station 3 (Financial Impact Analysis) will quantify the financial implications of students' career path choices</li>
+                                </ul>
+                                <div class="bg-white p-3 rounded-lg mt-2 border border-purple-200">
+                                    <p class="text-sm text-purple-800"><strong>Technical Note:</strong> Student responses to the Career Path Planner are automatically saved in the PFL Academy system. However, it's a good practice to have students take a screenshot or make notes about their key selections in case there are any technical issues between Day 1 and Day 2.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h4 class="font-medium text-gray-800">Assessment Guidance</h4>
+                                <p class="text-gray-700">When evaluating student work on the Career Path Plan, assess the following components:</p>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2">
+                                    <li><strong>Content Quality (40%)</strong>: Accuracy of career information, appropriate goals for each time frame, and thoroughness of planning across all categories</li>
+                                    <li><strong>Strategic Thinking (30%)</strong>: Logical progression from short-term to long-term goals, alignment between education/skills and career aspirations, and coherence across all plan elements</li>
+                                    <li><strong>Financial Awareness (20%)</strong>: Consideration of education costs, salary progression expectations, and financial implications of career choices</li>
+                                    <li><strong>Personalization (10%)</strong>: Evidence that career choices reflect student's own interests, strengths, and values rather than generic selections</li>
+                                </ul>
+                                <div class="bg-white p-3 rounded-lg mt-2 border border-purple-200 space-y-2">
+                                    <p class="text-sm text-purple-800"><strong>Assessment Note:</strong> While the Career Path Plan is primarily a formative assessment, students should receive specific feedback on each of the above components to guide their work in Day 2.</p>
+                                    <p class="text-sm text-purple-800"><strong>Feedback Structure:</strong> For each student, provide: (1) specific strengths across multiple components, (2) areas for development with actionable suggestions, and (3) questions to promote deeper thinking about their career plan during Day 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- End of Section-by-Section Teaching Notes -->
+                    
+                    <!-- Conclusion for Teaching Notes -->
+                    <div class="section-container mb-6 bg-indigo-50">
+                        <h3 class="font-semibold text-lg mb-2 text-indigo-700 border-b border-indigo-100 pb-1">Conclusion and Next Steps</h3>
+                        <div class="ml-4">
+                            <p class="text-gray-700 mb-3">As you conclude the lesson, emphasize to students the importance of saving their Career Path Plan work. This is critical as their plans will serve as the foundation for Day 2 Learning Lab activities.</p>
+                            
+                            <div class="bg-white p-3 rounded-lg border border-indigo-200 mb-3">
+                                <h4 class="font-medium text-indigo-800 mb-2">Ensuring Work is Saved</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Remind students that their Career Path Plan is automatically saved in the PFL Academy system</li>
+                                    <li>For additional security, have students take screenshots of their completed plans</li>
+                                    <li>Suggest students make notes of key decisions in their plan for quick reference in Day 2</li>
+                                    <li>Preview how they'll expand on this foundation during the Learning Lab</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded-lg border border-indigo-200">
+                                <h4 class="font-medium text-indigo-800 mb-2">Preview for Day 2</h4>
+                                <p class="text-gray-700">Let students know that in the Day 2 Learning Lab, they will:</p>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Analyze career pathways in greater detail</li>
+                                    <li>Create personalized career maps based on their Career Path Plans</li>
+                                    <li>Calculate the financial implications of their career choices</li>
+                                    <li>Develop a comprehensive Career Path Portfolio</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Discussion Prompts -->
+                    <h2 class="section-header text-xl">Discussion Prompts</h2>
+                    <div class="section-container mb-6">
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-semibold text-indigo-800 mb-2">For Introduction:</h3>
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <p class="text-gray-800">"How do you think the choices you make about education and careers in the next few years might affect your financial situation a decade from now?"</p>
+                                    <p class="mt-2 text-sm"><strong class="text-indigo-700">Expected responses:</strong> Student loan debt, salary potential, ability to purchase a home, preparing for retirement, lifestyle differences.</p>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="font-semibold text-indigo-800 mb-2">For Career Capital Discussion:</h3>
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <p class="text-gray-800">"What specific forms of career capital do you think will be most valuable in the career field you're interested in?"</p>
+                                    <p class="mt-2 text-sm"><strong class="text-indigo-700">Expected responses:</strong> Industry-specific technical skills, education requirements, certifications, internship experience, networking connections.</p>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="font-semibold text-indigo-800 mb-2">For Real-World Examples:</h3>
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <p class="text-gray-800">"What specific decision points can you identify in the examples where career choices led to significant financial differences?"</p>
+                                    <p class="mt-2 text-sm"><strong class="text-indigo-700">Expected responses:</strong> Education investments, taking entry-level positions with growth potential vs. higher initial pay, skill development choices, timing of career moves.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Differentiation Strategies -->
+                    <h2 class="section-header text-xl">Differentiation Strategies</h2>
+                    <div class="section-container differentiation-section mb-6">
+                        <h3 class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v1h-3zM4.75 12.094A5.973 5.973 0 004 15v1H1v-1a3 3 0 013.75-2.906z" />
+                            </svg>
+                            Inclusive Teaching Approaches
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                            <div>
+                                <h4 class="font-semibold text-purple-800 mb-2">For Advanced Students</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Encourage research into more complex career paths with multiple advancement options</li>
+                                    <li>Challenge them to calculate the ROI (Return on Investment) for different education/certification options</li>
+                                    <li>Assign additional analysis of how economic trends might impact career fields</li>
+                                    <li>Have them interview professionals in their field of interest and report findings</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-purple-800 mb-2">For Struggling Students</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Provide simplified career path templates with fewer variables</li>
+                                    <li>Focus on concrete examples rather than abstract concepts</li>
+                                    <li>Offer more structure in the research process with specific websites and search terms</li>
+                                    <li>Use more visuals to illustrate career progression concepts</li>
+                                    <li>Provide one-on-one coaching during independent work time</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-purple-800 mb-2">For ELL Students</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Pre-teach key vocabulary with visual supports</li>
+                                <li>Provide graphic organizers for note-taking</li>
+                                <li>Allow use of translation tools for research</li>
+                                <li>Pair with supportive peers for group activities</li>
+                                <li>Offer alternative ways to demonstrate understanding (diagrams, charts, etc.)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Assessment Opportunities -->
+                    <h2 class="section-header text-xl">Assessment Opportunities</h2>
+                    <div class="section-container assessment-section mb-6">
+                        <h3 class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Evaluation Strategies
+                        </h3>
+                        <div class="space-y-4 mt-3">
+                            <div>
+                                <h4 class="font-semibold text-green-800 mb-2">Formative Assessment</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Quality of participation in discussions</li>
+                                    <li>Accuracy of job vs. career distinctions in group work</li>
+                                    <li>Depth of analysis in real-world examples activity</li>
+                                    <li>Completeness of career capital inventory</li>
+                                    <li>Questions asked during activities (indicating engagement and understanding)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-green-800 mb-2">Summative Assessment</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Career Path Plan quality and thoroughness</li>
+                                    <li>Ability to articulate financial implications of career choices</li>
+                                    <li>Application of key concepts to personal planning</li>
+                                    <li>Integration of research into decision-making</li>
+                                    <li>Reflection responses depth and insight</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summative Assessment -->
+                    <h2 class="section-header text-xl">Summative Assessment Guide</h2>
+                    <div class="section-container assessment-section mb-6">
+                        <h3 class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Deliverable: Career Path Plan
+                        </h3>
+                        
+                        <div class="mt-4 space-y-5">
+                            <div>
+                                <h4 class="font-semibold text-green-800 mb-2">Assessment Criteria</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Thoroughness of concept understanding and application</li>
+                                    <li>Quality and appropriateness of applied strategies</li>
+                                    <li>Completeness of required elements</li>
+                                    <li>Integration of all components into a coherent submission</li>
+                                    <li>Evidence of critical thinking and creative problem-solving</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-4 border border-green-100 shadow-sm">
+                                <h4 class="font-semibold text-green-800 mb-3">Success Indicators</h4>
+                                
+                                <div class="space-y-3">
+                                    <div class="border-l-4 border-green-500 pl-3 py-1">
+                                        <h5 class="font-medium text-gray-800">Excellent Work</h5>
+                                        <p class="text-sm text-gray-700">Demonstrates thorough understanding, comprehensive application, detailed analysis, and creative integration of concepts with personal context.</p>
+                                    </div>
+                                    
+                                    <div class="border-l-4 border-yellow-500 pl-3 py-1">
+                                        <h5 class="font-medium text-gray-800">Proficient Work</h5>
+                                        <p class="text-sm text-gray-700">Shows adequate understanding, reasonable application, basic analysis, and functional integration of key concepts.</p>
+                                    </div>
+                                    
+                                    <div class="border-l-4 border-red-400 pl-3 py-1">
+                                        <h5 class="font-medium text-gray-800">Needs Improvement</h5>
+                                        <p class="text-sm text-gray-700">Exhibits minimal understanding, incomplete application, limited analysis, and fragmented integration of concepts.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <p class="text-sm text-green-800 mb-2">
+                                    <strong>Note:</strong> Customize these criteria based on chapter-specific content and deliverables. Provide constructive feedback that guides improvement while acknowledging strengths.
+                                </p>
+                                <div class="flex items-center text-xs text-gray-700 border-t border-green-200 pt-2 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-500 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>Formal assessments (quizzes, midterms, finals, projects) are configured in the Assessment Library in the Admin Dashboard.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Learning Lab Tab (Day 2) -->
+                <div id="learning-lab" class="tab-content">
+                    <!-- Learning Lab Overview -->
+                    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg mb-6 border border-purple-100 shadow-sm">
+                        <h2 class="text-lg font-semibold mb-3 text-purple-900 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                            </svg>
+                            Learning Lab Overview
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="flex items-center mb-2">
+                                    <span class="font-bold text-purple-800 w-24">Standard:</span>
+                                    <span class="text-gray-800">Standard 1: Income and Money Management</span>
+                                </p>
+                                <p class="flex items-center mb-2">
+                                    <span class="font-bold text-purple-800 w-24">Chapter:</span>
+                                    <span class="text-gray-800">1.1: Jobs vs. Careers</span>
+                                </p>
+                                <p class="flex items-center mb-2">
+                                    <span class="font-bold text-purple-800 w-24">Duration:</span>
+                                    <span class="text-gray-800">55 minutes</span>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="flex items-center mb-2">
+                                    <span class="font-bold text-purple-800 w-24">Focus:</span>
+                                    <span class="text-gray-800">Developing a strategic career plan aligned with financial goals</span>
+                                </p>
+                                <p class="flex items-center mb-2">
+                                    <span class="font-bold text-purple-800 w-24">Format:</span>
+                                    <span class="text-gray-800">Multiple activities with a culminating portfolio project</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-gray-700">Today's Learning Lab builds on the conceptual understanding of jobs versus careers from Day 1, transitioning to practical application through a series of structured activities. Students will analyze career pathways, create personalized career maps, and examine the financial implications of different career choices. The culminating Career Path Portfolio serves as both a learning tool and an assessment artifact that students can continue developing throughout the course.</p>
+                    </div>
+                    
+                    <!-- Learning Objectives -->
+                    <h2 class="section-header text-xl">Learning Objectives</h2>
+                    <div class="section-container mb-6">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Analyze how specific career path decisions impact long-term financial outcomes</li>
+                            <li>Create a personalized career path map with short, medium, and long-term goals</li>
+                            <li>Calculate the financial impact of different career choices on personal financial goals</li>
+                            <li>Develop an action plan for building career capital aligned with their interests and goals</li>
+                            <li>Synthesize their learning into a comprehensive Career Path Portfolio</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Materials Needed -->
+                    <h2 class="section-header text-xl">Materials Needed</h2>
+                    <div class="section-container materials-section mb-6">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Digital access to Career Path Planner tool</li>
+                            <li>Printed or digital career scenario cards (1 set per group)</li>
+                            <li>Financial Impact Calculator tool (web-based)</li>
+                            <li>Career Path Portfolio templates (digital or printed)</li>
+                            <li>Access to career research resources (websites, databases)</li>
+                            <li>Sticky notes or digital collaboration tools</li>
+                            <li>Access to podcast audio file: "1.1 - Jobs vs Careers.wav"</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Pre-Class Setup -->
+                    <h2 class="section-header text-xl">Pre-Class Setup</h2>
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold mb-3">Preparation Steps:</h3>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Verify all digital tools are functioning properly and accessible to students</li>
+                            <li>Organize students into predetermined groups of 3-4 for Activity 1</li>
+                            <li>Review career scenario cards to ensure they represent diverse pathways</li>
+                            <li>Test the Financial Impact Calculator with sample data</li>
+                            <li>Set up career research stations with bookmarked resources</li>
+                            <li>Print portfolio templates if using physical copies</li>
+                            <li>Prepare a completed example of a Career Path Portfolio for demonstration</li>
+                            <li>Ensure all students completed the career interest assessment pre-work</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Learning Lab Structure -->
+                    <h2 class="section-header text-xl">Learning Lab Structure</h2>
+                    <div class="mb-6">
+                        <p class="mb-2">Selected Format: Multiple activities with a culminating portfolio project</p>
+                        
+                        <table class="teacher-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Activity</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>5 min</td>
+                                    <td>Warm-up & Review</td>
+                                    <td>Brief review of Day 1 concepts and introduction to Learning Lab</td>
+                                </tr>
+                                <tr>
+                                    <td>15 min</td>
+                                    <td>Activity 1: Career Path Exploration</td>
+                                    <td>Group analysis of career scenarios and financial implications</td>
+                                </tr>
+                                <tr>
+                                    <td>20 min</td>
+                                    <td>Activity 2: Personal Career Path Mapping</td>
+                                    <td>Individual creation of career path maps with research</td>
+                                </tr>
+                                <tr>
+                                    <td>10 min</td>
+                                    <td>Activity 3: Financial Impact Analysis</td>
+                                    <td>Using calculator tools to connect career choices to financial goals</td>
+                                </tr>
+                                <tr>
+                                    <td>5 min</td>
+                                    <td>Reflection & Wrap-up</td>
+                                    <td>Portfolio completion and sharing of insights</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Detailed Facilitation Notes -->
+                    <h2 class="section-header text-xl">Detailed Facilitation Notes</h2>
+                    
+                    <!-- Warm-up & Review -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-indigo-700 border-b border-indigo-100 pb-1 mb-3">Warm-up & Review (5 minutes)</h3>
+                        <div class="space-y-3">
+                            <ul class="list-disc pl-6">
+                                <li>Begin by displaying key concepts from Day 1 (job, career, career path, career capital)</li>
+                                <li>Ask students to share one insight from Day 1 that resonated with them</li>
+                                <li>Introduce the Learning Lab goals and the Career Path Portfolio they'll be developing</li>
+                                <li>Outline the structure of the three activities and how they build upon each other</li>
+                                <li>Verify all students completed the career interest assessment pre-work</li>
+                            </ul>
+                            
+                            <div class="teacher-tip">
+                                <h4 class="font-semibold text-indigo-800">Facilitation Tip</h4>
+                                <p class="text-gray-700">Use this time to gauge student retention of Day 1 concepts and adjust your support during activities accordingly. If you notice significant misconceptions, address them before moving into the activities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity 1: Career Path Exploration -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-indigo-700 border-b border-indigo-100 pb-1 mb-3">Activity 1: Career Path Exploration (15 minutes)</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">Setup & Introduction</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Organize students into their pre-assigned groups</li>
+                                <li>Distribute one career scenario card to each group</li>
+                                <li>Review the analysis questions together, ensuring students understand the task</li>
+                                <li>Set a clear timeframe (10 minutes for analysis, 5 minutes for sharing)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">During the Activity</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Circulate among groups, listening for misconceptions to address</li>
+                                <li>Prompt groups to quantify financial outcomes when possible</li>
+                                <li>Ensure groups are identifying specific decision points in their scenarios</li>
+                                <li>Remind students to document their analysis for later reference</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">Group Sharing</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Have each group briefly share their scenario and key findings</li>
+                                <li>Focus the discussion on financial implications of career decisions</li>
+                                <li>Ask: "What patterns do you notice across different scenarios?"</li>
+                                <li>Document common themes on the board for reference during later activities</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-medium text-gray-800 mb-2">Key Questions to Pose:</h4>
+                            <ul class="list-disc pl-6">
+                                <li>"How did education or training investments pay off (or not) in this scenario?"</li>
+                                <li>"What skills became most valuable for advancement in this career path?"</li>
+                                <li>"What financial setbacks occurred and how might they have been avoided?"</li>
+                                <li>"How did benefits beyond salary impact the financial outcome?"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity 2: Personal Career Path Mapping -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-indigo-700 border-b border-indigo-100 pb-1 mb-3">Activity 2: Personal Career Path Mapping (20 minutes)</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">Setup & Introduction</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Transition students to individual work</li>
+                                <li>Demonstrate the Career Path Planner tool with a sample career</li>
+                                <li>Show students how to access career research resources</li>
+                                <li>Review the required components of their career path maps</li>
+                                <li>Set clear expectations for the depth of research required</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">During the Activity</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Provide more structured guidance for students who seem overwhelmed</li>
+                                <li>Challenge advanced students to explore multiple branching pathways</li>
+                                <li>Remind students halfway through to begin documenting financial implications</li>
+                                <li>Ensure students are considering both costs (education, certifications) and benefits</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">Support Strategies</h4>
+                            <ul class="list-disc pl-6">
+                                <li>For students uncertain about careers, suggest exploring broader career clusters first</li>
+                                <li>Provide research guidance for students struggling to find salary and requirement information</li>
+                                <li>Prompt students to consider geographic factors in their research</li>
+                                <li>Encourage peer support for navigating research tools</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-medium text-gray-800 mb-2">Monitoring Points:</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Are students finding realistic salary information?</li>
+                                <li>Are they considering the full range of education and training options?</li>
+                                <li>Are they documenting both short-term and long-term planning?</li>
+                                <li>Are they making connections between skill development and advancement opportunities?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity 3: Financial Impact Analysis -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-indigo-700 border-b border-indigo-100 pb-1 mb-3">Activity 3: Financial Impact Analysis (10 minutes)</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">Setup & Introduction</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Introduce the Financial Impact Calculator tool</li>
+                                <li>Demonstrate how to input career progression data</li>
+                                <li>Show how to set financial goals with realistic timeframes</li>
+                                <li>Explain how to interpret the calculator's projections</li>
+                                <li>Connect this analysis to their career path mapping from Activity 2</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">During the Activity</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Help students troubleshoot technical issues with the calculator</li>
+                                <li>Challenge students to try different scenarios (accelerated advancement, additional education)</li>
+                                <li>Encourage students to adjust their financial goals based on career realities</li>
+                                <li>Remind students to save their calculations for their portfolio</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-medium text-gray-800 mb-2">Discussion Prompts:</h4>
+                            <ul class="list-disc pl-6">
+                                <li>"Were you surprised by how long it might take to reach certain financial goals?"</li>
+                                <li>"What career advancement strategies could help you achieve goals faster?"</li>
+                                <li>"How might additional education or certification change your financial timeline?"</li>
+                                <li>"What sacrifices or trade-offs might be necessary to achieve your career and financial goals?"</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="teacher-tip">
+                            <h4 class="font-semibold text-indigo-800">Guidance Note</h4>
+                            <p class="text-gray-700">Help students be realistic without discouraging them. Emphasize that financial projections are estimates, not guarantees, and point out how small career advancement steps can have significant financial impacts over time.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Reflection & Wrap-up -->
+                    <div class="section-container mb-6">
+                        <h3 class="font-semibold text-indigo-700 border-b border-indigo-100 pb-1 mb-3">Reflection & Wrap-up (5 minutes)</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">Portfolio Completion</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Direct students to compile their work from all three activities</li>
+                                <li>Guide them through the reflection questions</li>
+                                <li>Emphasize the importance of actionable next steps in their portfolio</li>
+                                <li>Explain how this portfolio will connect to future chapters</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 mb-2">Sharing Insights</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Have students pair up to share one key insight from today's activities</li>
+                                <li>Ask for 2-3 volunteers to share insights with the whole class</li>
+                                <li>Preview how these insights connect to upcoming lessons</li>
+                                <li>Remind students of the portfolio submission deadline</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
+                            <h4 class="font-medium text-indigo-800 mb-2">Closing Message:</h4>
+                            <p class="text-gray-700">Emphasize that career planning is an ongoing process that will evolve throughout their lives, and that this portfolio provides a foundation they can continue to build upon as they learn more about themselves and the changing economy.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Differentiation Strategies -->
+                    <h2 class="section-header text-xl">Differentiation Strategies</h2>
+                    <div class="section-container differentiation-section mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                            <div>
+                                <h4 class="font-semibold text-purple-800 mb-2">For Advanced Students</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Encourage exploration of non-linear career paths with multiple specializations</li>
+                                    <li>Challenge them to include economic trend analysis in their planning</li>
+                                    <li>Suggest creating multiple scenarios with different risk/reward profiles</li>
+                                    <li>Assign additional research on emerging careers in their field of interest</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-purple-800 mb-2">For Struggling Students</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Provide partially completed career path templates they can customize</li>
+                                    <li>Offer a more structured research guide with specific websites to use</li>
+                                    <li>Allow audio recording of reflections instead of written responses</li>
+                                    <li>Give extra support during the Financial Impact Analysis with simplified goals</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-purple-800 mb-2">For ELL Students</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Provide key vocabulary list with definitions and visual supports</li>
+                                <li>Allow use of translation tools for research</li>
+                                <li>Pair with supportive peers during group work</li>
+                                <li>Offer graphic organizers for the career mapping activity</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Assessment Strategies -->
+                    <h2 class="section-header text-xl">Assessment Strategies</h2>
+                    <div class="section-container assessment-section mb-6">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold text-green-800 mb-2">Formative Assessment</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Observe group dynamics and individual contributions during Activity 1</li>
+                                    <li>Monitor research quality and depth during Activity 2</li>
+                                    <li>Check calculator inputs for accuracy and understanding during Activity 3</li>
+                                    <li>Listen for misconceptions during discussions to address immediately</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-green-800 mb-2">Portfolio Rubric Components</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li><strong>Career Research Quality</strong> (20%) - Uses reliable sources, includes accurate information on requirements and compensation, demonstrates thorough exploration of multiple aspects of careers</li>
+                                    <li><strong>Career Path Map</strong> (25%) - Shows clear progression from entry to advanced positions, includes realistic timeframes and advancement requirements, demonstrates understanding of skill development needs, incorporates both education/training and on-the-job experience</li>
+                                    <li><strong>Financial Analysis</strong> (25%) - Accurately connects career progression to financial outcomes, shows understanding of education investment and returns, includes realistic financial goals aligned with career path, demonstrates awareness of timeline implications</li>
+                                    <li><strong>Action Plan</strong> (15%) - Includes specific, achievable short-term steps, shows alignment between actions and career goals, demonstrates understanding of career capital building, includes contingency planning or alternative pathways</li>
+                                    <li><strong>Reflection Quality</strong> (15%) - Shows depth of thinking about career concepts, demonstrates personal application of learning, includes insights about financial implications, connects current decisions to future outcomes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summative Assessment -->
+                    <h2 class="section-header text-xl">Summative Assessment Guide</h2>
+                    <div class="section-container assessment-section mb-6">
+                        <h3 class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Learning Lab Deliverable: Career Path Portfolio
+                        </h3>
+                        
+                        <div class="mt-4 space-y-5">
+                            <div>
+                                <h4 class="font-semibold text-green-800 mb-2">Assessment Criteria</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Application of concepts from Day 1 and Lab activities</li>
+                                    <li>Completion of all learning stations</li>
+                                    <li>Quality of analysis and reflection</li>
+                                    <li>Practical relevance of solutions and strategies</li>
+                                    <li>Integration of feedback and iterative improvement</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-4 border border-green-100 shadow-sm">
+                                <h4 class="font-semibold text-green-800 mb-3">Success Indicators</h4>
+                                
+                                <div class="space-y-3">
+                                    <div class="border-l-4 border-green-500 pl-3 py-1">
+                                        <h5 class="font-medium text-gray-800">Excellent Work</h5>
+                                        <p class="text-sm text-gray-700">Complete engagement with all stations, thoughtful connections between activities, personalized application, and meaningful reflection demonstrating clear understanding.</p>
+                                    </div>
+                                    
+                                    <div class="border-l-4 border-yellow-500 pl-3 py-1">
+                                        <h5 class="font-medium text-gray-800">Proficient Work</h5>
+                                        <p class="text-sm text-gray-700">Adequate completion of all stations, basic connections between activities, general application, and basic reflection showing understanding of key concepts.</p>
+                                    </div>
+                                    
+                                    <div class="border-l-4 border-red-400 pl-3 py-1">
+                                        <h5 class="font-medium text-gray-800">Needs Improvement</h5>
+                                        <p class="text-sm text-gray-700">Partial completion of stations, minimal connections between activities, superficial application, and limited reflection with gaps in understanding.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <p class="text-sm text-green-800 mb-2">
+                                    <strong>Recommendation:</strong> Focus feedback on specific learning station components where students demonstrated strengths or need additional support.
+                                </p>
+                                <div class="flex items-center text-xs text-gray-700 border-t border-green-200 pt-2 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-500 mr-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>Formal assessments (quizzes, midterms, finals, projects) are configured in the Assessment Library in the Admin Dashboard.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Print Button -->
+            <button class="print-btn" id="printBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd" />
+                </svg>
+                Print / Save as PDF
+            </button>
+        </main>
+    </div>
+
+    <!-- Enhanced Instructor Support Panel -->
+    <div id="instructor-support-panel" class="fixed right-0 top-0 h-full w-0 bg-white shadow-xl transition-all duration-300 ease-in-out overflow-hidden z-50 flex flex-col">
+        <!-- Panel Header -->
+        <div class="bg-indigo-50 p-4 border-b border-gray-200 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-indigo-600 text-white p-2 rounded-full mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h2 class="text-lg font-semibold">Instructor Support</h2>
+            </div>
+            <button id="close-support-panel" class="text-gray-500 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Panel Content -->
+        <div class="flex-grow overflow-y-auto p-4">
+            <!-- Context Indicator -->
+            <div class="mb-4 bg-gray-50 p-3 rounded-lg text-sm">
+                <div class="font-medium text-gray-700">Currently viewing:</div>
+                <div class="flex items-center mt-1">
+                    <span class="text-indigo-600 font-semibold">Chapter 1.1:</span>
+                    <span class="ml-2">Jobs vs. Careers</span>
+                </div>
+                <div class="flex items-center mt-1">
+                    <span class="text-indigo-600 font-semibold">Section:</span>
+                    <span class="ml-2" id="current-section">Content Guide</span>
+                </div>
+            </div>
+            
+            <!-- Suggested Questions for Current Context -->
+            <div class="mb-6">
+                <h3 class="font-medium text-gray-800 mb-3">Suggested Questions</h3>
+                <div class="space-y-2" id="suggested-questions-container">
+                    <!-- Content Guide questions -->
+                    <div id="content-guide-questions">
+                        <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200 mb-2 hover:border-indigo-300 transition-colors cursor-pointer" onclick="presetQuestion('How can I help students understand the financial impact of the job vs. career distinction in Chapter 1.1?')">
+                            How can I help students understand the financial impact of the job vs. career distinction in Chapter 1.1?
+                        </div>
+                        <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200 mb-2 hover:border-indigo-300 transition-colors cursor-pointer" onclick="presetQuestion('What examples of career capital would be most relevant for high school students in Chapter 1.1?')">
+                            What examples of career capital would be most relevant for high school students in Chapter 1.1?
+                        </div>
+                        <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200 mb-2 hover:border-indigo-300 transition-colors cursor-pointer" onclick="presetQuestion('How should I explain the Career Path Planner tool to students with minimal career experience?')">
+                            How should I explain the Career Path Planner tool to students with minimal career experience?
+                        </div>
+                        <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200 mb-2 hover:border-indigo-300 transition-colors cursor-pointer" onclick="presetQuestion('What are good discussion questions for the Maya and Carlos case studies in Chapter 1.1?')">
+                            What are good discussion questions for the Maya and Carlos case studies in Chapter 1.1?
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Lab questions (hidden by default) -->
+                    <div id="learning-lab-questions" class="hidden">
+                        <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200 mb-2 hover:border-indigo-300 transition-colors cursor-pointer" onclick="presetQuestion('How can I help students connect their Day 1 Career Path Plan to the Day 2 Learning Lab activities?')">
+                            How can I help students connect their Day 1 Career Path Plan to the Day 2 Learning Lab activities?
+                        </div>
+                        <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200 mb-2 hover:border-indigo-300 transition-colors cursor-pointer" onclick="presetQuestion('What should I do if students are struggling with the Financial Impact Analysis station in Chapter 1.1?')">
+                            What should I do if students are struggling with the Financial Impact Analysis station in Chapter 1.1?
+                        </div>
+                        <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200 mb-2 hover:border-indigo-300 transition-colors cursor-pointer" onclick="presetQuestion('How can I guide students to create realistic career maps in Station 2 of Chapter 1.1?')">
+                            How can I guide students to create realistic career maps in Station 2 of Chapter 1.1?
+                        </div>
+                        <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200 mb-2 hover:border-indigo-300 transition-colors cursor-pointer" onclick="presetQuestion('What are the most important portfolio components to focus on in Chapter 1.1 Day 2?')">
+                            What are the most important portfolio components to focus on in Chapter 1.1 Day 2?
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Categories -->
+            <div class="mb-6">
+                <h3 class="font-medium text-gray-800 mb-3">Support Categories</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="text-left p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors border border-blue-100 cursor-pointer" 
+                         onclick="presetQuestion('What teaching strategies work best for teaching about jobs vs. careers in Chapter 1.1?')">
+                        <div class="font-semibold text-blue-700">Teaching Strategies</div>
+                        <div class="text-sm text-blue-600 mt-1">Effective methods for teaching Chapter 1.1 concepts</div>
+                    </div>
+                    <div class="text-left p-3 rounded-lg bg-green-50 hover:bg-green-100 transition-colors border border-green-100 cursor-pointer"
+                         onclick="presetQuestion('How can I explain this concept in simpler terms for struggling students?')">
+                        <div class="font-semibold text-green-700">Student Explanations</div>
+                        <div class="text-sm text-green-600 mt-1">Alternative ways to explain to students</div>
+                    </div>
+                    <div class="text-left p-3 rounded-lg bg-purple-50 hover:bg-purple-100 transition-colors border border-purple-100 cursor-pointer"
+                         onclick="presetQuestion('What extension activities can I provide for advanced students who finish early?')">
+                        <div class="font-semibold text-purple-700">Extension Ideas</div>
+                        <div class="text-sm text-purple-600 mt-1">Challenges for advanced learners</div>
+                    </div>
+                    <div class="text-left p-3 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition-colors border border-yellow-100 cursor-pointer"
+                         onclick="presetQuestion('What real-world examples or analogies can help explain this topic?')">
+                        <div class="font-semibold text-yellow-700">Examples & Analogies</div>
+                        <div class="text-sm text-yellow-600 mt-1">Real-world connections</div>
+                    </div>
+                    <div class="text-left p-3 rounded-lg bg-red-50 hover:bg-red-100 transition-colors border border-red-100 col-span-2 cursor-pointer"
+                         onclick="presetQuestion('What should I do if students are having trouble with this activity?')">
+                        <div class="font-semibold text-red-700">Troubleshooting</div>
+                        <div class="text-sm text-red-600 mt-1">Help with activities and tools</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ask a Question -->
+            <div class="mb-6">
+                <h3 class="font-medium text-gray-800 mb-3">Ask Your Own Question</h3>
+                <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+                    <textarea 
+                        id="instructor-question" 
+                        class="w-full p-3 text-gray-700 focus:outline-none" 
+                        rows="3" 
+                        placeholder="Type your teaching question here..."></textarea>
+                    <div class="bg-gray-50 px-3 py-2 border-t border-gray-200 flex justify-between">
+                        <div class="text-sm text-gray-500">Context-aware assistance</div>
+                        <button id="get-support-help" class="bg-indigo-600 text-white px-4 py-1 rounded text-sm font-medium">
+                            Get Help
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Response Container -->
+            <div id="response-container" class="hidden">
+                <h3 class="font-medium text-gray-800 mb-3">Response</h3>
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-6">
+                    <div class="text-sm text-gray-500 mb-1">Your question:</div>
+                    <div id="question-display" class="font-medium mb-3"></div>
+                    <div class="text-sm text-gray-500 mb-1">Response:</div>
+                    <div id="response-content" class="text-gray-700"></div>
+                </div>
+            </div>
+            
+            <!-- Recent History -->
+            <div id="recent-history-container" class="hidden">
+                <h3 class="font-medium text-gray-800 mb-3">Recent Questions</h3>
+                <div id="history-list" class="space-y-3">
+                    <!-- History items will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Actions Footer -->
+        <div class="p-3 border-t border-gray-200 bg-gray-50">
+            <div class="grid grid-cols-3 gap-2">
+                <button id="new-question-btn" class="text-center p-2 text-xs font-medium text-gray-700 bg-white rounded border border-gray-200 hover:bg-gray-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    New Question
+                </button>
+                <button id="show-history-btn" class="text-center p-2 text-xs font-medium text-gray-700 bg-white rounded border border-gray-200 hover:bg-gray-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    History
+                </button>
+                <button id="download-resources-btn" class="text-center p-2 text-xs font-medium text-gray-700 bg-white rounded border border-gray-200 hover:bg-gray-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Resources
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contextual Suggestion Bubble (initially hidden) -->
+    <div id="suggestion-bubble" class="fixed bottom-20 right-6 bg-white rounded-lg shadow-lg p-4 max-w-sm border border-indigo-100 flex items-start z-30 hidden">
+        <div class="bg-indigo-100 p-2 rounded-full mr-3 flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+        </div>
+        <div>
+            <h4 class="font-medium text-gray-800 mb-1">Teaching Tip</h4>
+            <p class="text-sm text-gray-600 mb-2" id="suggestion-bubble-text">Need help with this section? Get context-specific teaching strategies.</p>
+            <div class="flex justify-end">
+                <button id="dismiss-bubble" class="text-gray-500 text-sm mr-3">Dismiss</button>
+                <button id="show-tip" class="text-indigo-600 font-medium text-sm">Show Me</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update tab styling
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Find the clicked tab and activate it
+            const tabs = document.querySelectorAll('.tab');
+            for (let i = 0; i < tabs.length; i++) {
+                if (tabs[i].textContent === (tabId === 'content-guide' ? 'Content Guide' : 'Learning Lab')) {
+                    tabs[i].classList.add('active');
+                }
+            }
+            
+            // Update the Instructor Support Panel with relevant questions
+            updateSupportPanel(tabId);
+        }
+        
+        // Update Instructor Support Panel based on current tab
+        function updateSupportPanel(tabId) {
+            // Update current section display
+            document.getElementById('current-section').textContent = tabId === 'content-guide' ? 'Content Guide' : 'Learning Lab';
+            
+            // Show appropriate question set
+            if (tabId === 'content-guide') {
+                document.getElementById('content-guide-questions').classList.remove('hidden');
+                document.getElementById('learning-lab-questions').classList.add('hidden');
+            } else {
+                document.getElementById('content-guide-questions').classList.add('hidden');
+                document.getElementById('learning-lab-questions').classList.remove('hidden');
+            }
+        }
+        
+        // Instructor Support Panel functionality
+        // Remove hover effect handler since we're now showing the text permanently
+        
+        document.getElementById('show-support-panel').addEventListener('click', function() {
+            document.getElementById('instructor-support-panel').style.width = '400px';
+        });
+        
+        document.getElementById('close-support-panel').addEventListener('click', function() {
+            document.getElementById('instructor-support-panel').style.width = '0';
+        });
+        
+        // Function to preset a question from a category
+        function presetQuestion(question) {
+            document.getElementById('instructor-question').value = question;
+            document.getElementById('instructor-question').focus();
+        }
+        
+        // Get help button functionality
+        document.getElementById('get-support-help').addEventListener('click', function() {
+            const question = document.getElementById('instructor-question').value.trim();
+            if (question) {
+                // Display the question and a simulated response
+                document.getElementById('question-display').textContent = question;
+                
+                // Generate response based on context and question
+                let response = "Here are some teaching strategies for this topic:<ul class='list-disc pl-5 my-2'><li>Connect to students' existing experiences</li><li>Use visual aids and concrete examples</li><li>Provide opportunities for hands-on practice</li><li>Facilitate guided discussion to explore concepts deeply</li></ul>Need more specific strategies for your classroom context?";
+                document.getElementById('response-content').innerHTML = response;
+                
+                // Show the response container
+                document.getElementById('response-container').classList.remove('hidden');
+                
+                // Add to history
+                addToHistory(question, response);
+                
+                // Clear the input
+                document.getElementById('instructor-question').value = '';
+            }
+        });
+        
+        // Add question and response to history
+        function addToHistory(question, response) {
+            const historyList = document.getElementById('history-list');
+            const truncatedResponse = response.length > 100 ? response.substring(0, 100) + '...' : response;
+            
+            // Create a history item
+            const historyItem = document.createElement('div');
+            historyItem.className = 'bg-white p-3 rounded-lg border border-gray-200';
+            historyItem.innerHTML = `
+                <div class="text-sm text-gray-500 mb-1">Your question:</div>
+                <div class="font-medium mb-2">${question}</div>
+                <div class="text-sm text-gray-500 mb-1">Response:</div>
+                <div class="text-gray-700 text-sm history-response">${truncatedResponse}</div>
+                <button class="text-indigo-600 font-medium text-sm mt-1 show-full-response">Show more</button>
+            `;
+            
+            // Add to history container
+            historyList.prepend(historyItem);
+            
+            // Show history container if it was hidden
+            document.getElementById('recent-history-container').classList.remove('hidden');
+            
+            // Add event listener to 'Show more' button
+            historyItem.querySelector('.show-full-response').addEventListener('click', function() {
+                const responseDisplay = document.getElementById('response-content');
+                const questionDisplay = document.getElementById('question-display');
+                
+                questionDisplay.textContent = question;
+                responseDisplay.innerHTML = response;
+                
+                document.getElementById('response-container').classList.remove('hidden');
+            });
+        }
+        
+        // New question button functionality
+        document.getElementById('new-question-btn').addEventListener('click', function() {
+            document.getElementById('instructor-question').value = '';
+            document.getElementById('response-container').classList.add('hidden');
+            document.getElementById('instructor-question').focus();
+        });
+        
+        // Show/hide history
+        document.getElementById('show-history-btn').addEventListener('click', function() {
+            const historyContainer = document.getElementById('recent-history-container');
+            historyContainer.classList.toggle('hidden');
+        });
+        
+        // Download resources button
+        document.getElementById('download-resources-btn').addEventListener('click', function() {
+            alert('Teaching resources would be downloaded here. This would include additional examples, worksheets, and presentation materials.');
+        });
+        
+        // Suggestion bubble functionality
+        window.addEventListener('load', function() {
+            // Show suggestion bubble after a delay
+            setTimeout(function() {
+                document.getElementById('suggestion-bubble').classList.remove('hidden');
+            }, 45000); // Show after 45 seconds
+        });
+        
+        document.getElementById('dismiss-bubble').addEventListener('click', function() {
+            document.getElementById('suggestion-bubble').classList.add('hidden');
+        });
+        
+        document.getElementById('show-tip').addEventListener('click', function() {
+            // Hide the bubble
+            document.getElementById('suggestion-bubble').classList.add('hidden');
+            
+            // Open the support panel
+            document.getElementById('instructor-support-panel').style.width = '400px';
+            
+            // Pre-fill and submit a question about the current topic
+            document.getElementById('instructor-question').value = 'I need help with teaching strategies for this section';
+            document.getElementById('get-support-help').click();
+        });
+        
+        // Print functionality
+        document.getElementById('printBtn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Download functionality
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            alert('Materials would be downloaded here. In a production environment, this would provide lesson resources as a ZIP file.');
+        });
+    </script>
+</body>
+</html>

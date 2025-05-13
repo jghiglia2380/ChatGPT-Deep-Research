@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 11.3: Managing Insurance Costs - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Custom styles for insurance comparison table */
+        .insurance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        
+        .insurance-table th, .insurance-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+        }
+        
+        .insurance-table th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .insurance-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        /* Styles for the cost-saving strategy cards */
+        .strategy-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .strategy-card.selected {
+            border-color: #4f46e5;
+            background-color: #eef2ff;
+        }
+
+        /* Decision framework builder styles */
+        .framework-step {
+            background-color: #f3f4f6;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .framework-step-number {
+            background-color: #4f46e5;
+            color: white;
+            border-radius: 9999px;
+            height: 24px;
+            width: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 11: Managing Risk</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding insurance and strategies for managing financial risk.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Previous chapters with checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 11.1: Understanding and Managing Risk
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 11.2: Insurance as a Risk Management Tool
+                                </a>
+                            </li>
+                            
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 11.3: Managing Insurance Costs
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-11-3-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Plan Comparison
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Cost-Saving Strategies
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Decision Framework
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Cost Management Plan
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-indigo-600" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-11-3-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 11.3: Managing Insurance Costs</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Applying cost management strategies to insurance decisions</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Understand the basic components of insurance policies, including deductibles, co-payments, and co-insurance</li>
+                            <li>Recognize how different insurance terms impact out-of-pocket costs and financial stability</li>
+                            <li>Learn strategies for selecting insurance policies that balance premium costs with coverage needs</li>
+                            <li>Analyze real-world scenarios to apply these concepts in a practical context</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            In today's Learning Lab, you'll apply your knowledge of insurance components to make informed decisions about managing insurance costs. You'll compare different insurance plans, evaluate cost-saving strategies, develop a decision-making framework, and create a personalized insurance cost management plan. These practical exercises will help you understand how to balance coverage needs with cost considerations in real-world scenarios.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                The activities in this Learning Lab build upon each other. Each station provides tools and insights that will help you complete the final portfolio project. Be sure to save your work at each station to reference later!
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, we explored the key components of insurance policies, including premiums, deductibles, co-payments, co-insurance, and out-of-pocket maximums. Today, we'll apply these concepts to make practical decisions about managing insurance costs while maintaining appropriate coverage for different needs and situations.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Insurance Costs</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts about managing insurance costs:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/11.3 - Insurance Costs.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Insurance components, cost management strategies, balancing coverage with costs, evaluating insurance needs
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Station 1: Insurance Plan Comparison -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 1: Comprehensive Insurance Plan Comparison</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this station, you'll compare different insurance plans to determine which offers the best value based on your specific needs and circumstances. You'll analyze key components of each plan and calculate total costs under different usage scenarios.</p>
+                            
+                            <h3 class="text-lg font-semibold mb-2">Health Insurance Plan Comparison</h3>
+                            <p class="mb-2">Compare the three health insurance plans below by analyzing their features and calculating costs under different scenarios:</p>
+                            
+                            <table class="insurance-table mb-6">
+                                <thead>
+                                    <tr>
+                                        <th>Plan Feature</th>
+                                        <th>Bronze Plan</th>
+                                        <th>Silver Plan</th>
+                                        <th>Gold Plan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Monthly Premium</td>
+                                        <td>$250</td>
+                                        <td>$350</td>
+                                        <td>$450</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annual Deductible</td>
+                                        <td>$3,000</td>
+                                        <td>$1,500</td>
+                                        <td>$500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Co-Insurance</td>
+                                        <td>30% after deductible</td>
+                                        <td>20% after deductible</td>
+                                        <td>10% after deductible</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doctor Visit Co-pay</td>
+                                        <td>$30</td>
+                                        <td>$25</td>
+                                        <td>$15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Out-of-Pocket Maximum</td>
+                                        <td>$8,000</td>
+                                        <td>$5,000</td>
+                                        <td>$3,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <p class="font-semibold mb-2">Calculate total annual costs under the following scenarios:</p>
+                            
+                            <div class="mb-4 p-4 bg-gray-50 rounded-lg">
+                                <h4 class="font-semibold mb-2">Scenario 1: Minimal Usage</h4>
+                                <p class="mb-2">You visit the doctor twice during the year and have no other medical expenses.</p>
+                                
+                                <div class="grid grid-cols-3 gap-4 mt-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Bronze Plan Total Cost</label>
+                                        <input type="number" id="bronze-scenario1" class="w-full p-2 border border-gray-300 rounded" placeholder="Calculate total cost">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Silver Plan Total Cost</label>
+                                        <input type="number" id="silver-scenario1" class="w-full p-2 border border-gray-300 rounded" placeholder="Calculate total cost">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Gold Plan Total Cost</label>
+                                        <input type="number" id="gold-scenario1" class="w-full p-2 border border-gray-300 rounded" placeholder="Calculate total cost">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4 p-4 bg-gray-50 rounded-lg">
+                                <h4 class="font-semibold mb-2">Scenario 2: Moderate Usage</h4>
+                                <p class="mb-2">You visit the doctor four times during the year and have a procedure that costs $2,500.</p>
+                                
+                                <div class="grid grid-cols-3 gap-4 mt-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Bronze Plan Total Cost</label>
+                                        <input type="number" id="bronze-scenario2" class="w-full p-2 border border-gray-300 rounded" placeholder="Calculate total cost">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Silver Plan Total Cost</label>
+                                        <input type="number" id="silver-scenario2" class="w-full p-2 border border-gray-300 rounded" placeholder="Calculate total cost">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Gold Plan Total Cost</label>
+                                        <input type="number" id="gold-scenario2" class="w-full p-2 border border-gray-300 rounded" placeholder="Calculate total cost">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+                                <h4 class="font-semibold mb-2">Scenario 3: High Usage</h4>
+                                <p class="mb-2">You have a major health event with $20,000 in medical expenses.</p>
+                                
+                                <div class="grid grid-cols-3 gap-4 mt-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Bronze Plan Total Cost</label>
+                                        <input type="number" id="bronze-scenario3" class="w-full p-2 border border-gray-300 rounded" placeholder="Calculate total cost">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Silver Plan Total Cost</label>
+                                        <input type="number" id="silver-scenario3" class="w-full p-2 border border-gray-300 rounded" placeholder="Calculate total cost">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Gold Plan Total Cost</label>
+                                        <input type="number" id="gold-scenario3" class="w-full p-2 border border-gray-300 rounded" placeholder="Calculate total cost">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-lg font-semibold mb-2">Analysis and Conclusions</h3>
+                            <div class="mb-4">
+                                <label class="block font-medium mb-2">Based on your calculations, which plan offers the best value in each scenario?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="plan-analysis"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block font-medium mb-2">What factors besides cost should be considered when selecting a health insurance plan?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="other-factors"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 2: Cost-Saving Strategy Evaluation -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Cost-Saving Strategy Evaluation</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">12 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this station, you'll evaluate different strategies for reducing insurance costs while maintaining appropriate coverage. You'll analyze the potential benefits and drawbacks of each strategy and determine when each might be most appropriate.</p>
+                            
+                            <h3 class="text-lg font-semibold mb-3">Insurance Cost-Saving Strategies</h3>
+                            <p class="mb-4">Review each cost-saving strategy below. For each one, consider its benefits, potential drawbacks, and when it might be most appropriate to use:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                                <div class="strategy-card" data-strategy="higher-deductible">
+                                    <h4 class="font-semibold text-indigo-700">1. Increasing Deductibles</h4>
+                                    <p class="text-sm mb-2">Choosing a higher deductible typically lowers premium costs but increases out-of-pocket expenses when you need to use insurance.</p>
+                                    <div class="mt-3">
+                                        <label class="block text-sm font-medium mb-1">Appropriateness (1-5):</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded text-sm" id="deductible-rating">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Rarely appropriate</option>
+                                            <option value="2">2 - Sometimes appropriate</option>
+                                            <option value="3">3 - Moderately appropriate</option>
+                                            <option value="4">4 - Often appropriate</option>
+                                            <option value="5">5 - Highly appropriate</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card" data-strategy="hsa">
+                                    <h4 class="font-semibold text-indigo-700">2. Using HSA/FSA Accounts</h4>
+                                    <p class="text-sm mb-2">Health Savings Accounts and Flexible Spending Accounts allow you to set aside pre-tax money for healthcare expenses.</p>
+                                    <div class="mt-3">
+                                        <label class="block text-sm font-medium mb-1">Appropriateness (1-5):</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded text-sm" id="hsa-rating">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Rarely appropriate</option>
+                                            <option value="2">2 - Sometimes appropriate</option>
+                                            <option value="3">3 - Moderately appropriate</option>
+                                            <option value="4">4 - Often appropriate</option>
+                                            <option value="5">5 - Highly appropriate</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card" data-strategy="bundling">
+                                    <h4 class="font-semibold text-indigo-700">3. Bundling Policies</h4>
+                                    <p class="text-sm mb-2">Purchasing multiple insurance policies from the same provider often results in discounted rates.</p>
+                                    <div class="mt-3">
+                                        <label class="block text-sm font-medium mb-1">Appropriateness (1-5):</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded text-sm" id="bundling-rating">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Rarely appropriate</option>
+                                            <option value="2">2 - Sometimes appropriate</option>
+                                            <option value="3">3 - Moderately appropriate</option>
+                                            <option value="4">4 - Often appropriate</option>
+                                            <option value="5">5 - Highly appropriate</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card" data-strategy="credit">
+                                    <h4 class="font-semibold text-indigo-700">4. Improving Credit Score</h4>
+                                    <p class="text-sm mb-2">Many insurers use credit-based insurance scores to determine premiums, particularly for auto and homeowners insurance.</p>
+                                    <div class="mt-3">
+                                        <label class="block text-sm font-medium mb-1">Appropriateness (1-5):</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded text-sm" id="credit-rating">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Rarely appropriate</option>
+                                            <option value="2">2 - Sometimes appropriate</option>
+                                            <option value="3">3 - Moderately appropriate</option>
+                                            <option value="4">4 - Often appropriate</option>
+                                            <option value="5">5 - Highly appropriate</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card" data-strategy="employer">
+                                    <h4 class="font-semibold text-indigo-700">5. Utilizing Employer Benefits</h4>
+                                    <p class="text-sm mb-2">Taking advantage of employer-subsidized insurance options, wellness programs, and preventive care benefits.</p>
+                                    <div class="mt-3">
+                                        <label class="block text-sm font-medium mb-1">Appropriateness (1-5):</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded text-sm" id="employer-rating">
+                                            <option value="">Select rating</option>
+                                            <option value="1">1 - Rarely appropriate</option>
+                                            <option value="2">2 - Sometimes appropriate</option>
+                                            <option value="3">3 - Moderately appropriate</option>
+                                            <option value="4">4 - Often appropriate</option>
+                                            <option value="5">5 - Highly appropriate</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-lg font-semibold mb-3">Strategy Application for Different Personas</h3>
+                            <p class="mb-3">For each persona below, select which cost-saving strategies would be most appropriate and explain why:</p>
+                            
+                            <div class="p-4 bg-gray-50 rounded-lg mb-4">
+                                <h4 class="font-semibold mb-2">Persona 1: Recent College Graduate</h4>
+                                <p class="text-sm mb-3">Jordan is 22, has just started a full-time job with benefits, has student loans, and is generally healthy.</p>
+                                
+                                <div class="mb-3">
+                                    <label class="block font-medium mb-1">Top two recommended strategies:</label>
+                                    <select class="mb-2 w-full p-2 border border-gray-300 rounded" id="persona1-strategy1">
+                                        <option value="">Select first strategy</option>
+                                        <option value="higher-deductible">Increasing Deductibles</option>
+                                        <option value="hsa">Using HSA/FSA Accounts</option>
+                                        <option value="bundling">Bundling Policies</option>
+                                        <option value="credit">Improving Credit Score</option>
+                                        <option value="employer">Utilizing Employer Benefits</option>
+                                    </select>
+                                    <select class="w-full p-2 border border-gray-300 rounded" id="persona1-strategy2">
+                                        <option value="">Select second strategy</option>
+                                        <option value="higher-deductible">Increasing Deductibles</option>
+                                        <option value="hsa">Using HSA/FSA Accounts</option>
+                                        <option value="bundling">Bundling Policies</option>
+                                        <option value="credit">Improving Credit Score</option>
+                                        <option value="employer">Utilizing Employer Benefits</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block font-medium mb-1">Explanation:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="persona1-explanation"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-gray-50 rounded-lg mb-4">
+                                <h4 class="font-semibold mb-2">Persona 2: Family with Young Children</h4>
+                                <p class="text-sm mb-3">The Martinez family has two adults and two children under 10. Both parents work, and the children need regular medical check-ups.</p>
+                                
+                                <div class="mb-3">
+                                    <label class="block font-medium mb-1">Top two recommended strategies:</label>
+                                    <select class="mb-2 w-full p-2 border border-gray-300 rounded" id="persona2-strategy1">
+                                        <option value="">Select first strategy</option>
+                                        <option value="higher-deductible">Increasing Deductibles</option>
+                                        <option value="hsa">Using HSA/FSA Accounts</option>
+                                        <option value="bundling">Bundling Policies</option>
+                                        <option value="credit">Improving Credit Score</option>
+                                        <option value="employer">Utilizing Employer Benefits</option>
+                                    </select>
+                                    <select class="w-full p-2 border border-gray-300 rounded" id="persona2-strategy2">
+                                        <option value="">Select second strategy</option>
+                                        <option value="higher-deductible">Increasing Deductibles</option>
+                                        <option value="hsa">Using HSA/FSA Accounts</option>
+                                        <option value="bundling">Bundling Policies</option>
+                                        <option value="credit">Improving Credit Score</option>
+                                        <option value="employer">Utilizing Employer Benefits</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block font-medium mb-1">Explanation:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="persona2-explanation"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-gray-50 rounded-lg mb-4">
+                                <h4 class="font-semibold mb-2">Persona 3: Individual with Chronic Health Condition</h4>
+                                <p class="text-sm mb-3">Sam is 35 with diabetes that requires regular medication and doctor visits. Sam has a stable job with health benefits.</p>
+                                
+                                <div class="mb-3">
+                                    <label class="block font-medium mb-1">Top two recommended strategies:</label>
+                                    <select class="mb-2 w-full p-2 border border-gray-300 rounded" id="persona3-strategy1">
+                                        <option value="">Select first strategy</option>
+                                        <option value="higher-deductible">Increasing Deductibles</option>
+                                        <option value="hsa">Using HSA/FSA Accounts</option>
+                                        <option value="bundling">Bundling Policies</option>
+                                        <option value="credit">Improving Credit Score</option>
+                                        <option value="employer">Utilizing Employer Benefits</option>
+                                    </select>
+                                    <select class="w-full p-2 border border-gray-300 rounded" id="persona3-strategy2">
+                                        <option value="">Select second strategy</option>
+                                        <option value="higher-deductible">Increasing Deductibles</option>
+                                        <option value="hsa">Using HSA/FSA Accounts</option>
+                                        <option value="bundling">Bundling Policies</option>
+                                        <option value="credit">Improving Credit Score</option>
+                                        <option value="employer">Utilizing Employer Benefits</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block font-medium mb-1">Explanation:</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="2" id="persona3-explanation"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 3: Insurance Decision Framework -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: Insurance Decision Framework Development</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this station, you'll develop a structured framework for making insurance decisions that balance coverage needs with cost considerations. Your framework should include a step-by-step process, key questions to ask, and evaluation criteria to help guide insurance decisions.</p>
+                            
+                            <h3 class="text-lg font-semibold mb-3">Decision Framework Builder</h3>
+                            <p class="mb-4">Create a comprehensive framework by working through each step below:</p>
+                            
+                            <div class="framework-step mb-4">
+                                <div class="flex items-center mb-2">
+                                    <span class="framework-step-number">1</span>
+                                    <h4 class="font-semibold">Risk Assessment</h4>
+                                </div>
+                                <p class="text-sm mb-3">Define the key questions someone should ask to assess their insurance needs and potential risks.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="risk-assessment-questions"></textarea>
+                            </div>
+                            
+                            <div class="framework-step mb-4">
+                                <div class="flex items-center mb-2">
+                                    <span class="framework-step-number">2</span>
+                                    <h4 class="font-semibold">Coverage Evaluation</h4>
+                                </div>
+                                <p class="text-sm mb-3">List the criteria for evaluating whether a policy provides adequate coverage for identified risks.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="coverage-criteria"></textarea>
+                            </div>
+                            
+                            <div class="framework-step mb-4">
+                                <div class="flex items-center mb-2">
+                                    <span class="framework-step-number">3</span>
+                                    <h4 class="font-semibold">Cost Analysis</h4>
+                                </div>
+                                <p class="text-sm mb-3">Outline a method for analyzing the total cost of an insurance policy, including all components.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="cost-analysis-method"></textarea>
+                            </div>
+                            
+                            <div class="framework-step mb-4">
+                                <div class="flex items-center mb-2">
+                                    <span class="framework-step-number">4</span>
+                                    <h4 class="font-semibold">Financial Impact Assessment</h4>
+                                </div>
+                                <p class="text-sm mb-3">Describe how to evaluate the potential financial impact of different insurance scenarios (e.g., best case, likely case, worst case).</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="financial-impact-assessment"></textarea>
+                            </div>
+                            
+                            <div class="framework-step mb-4">
+                                <div class="flex items-center mb-2">
+                                    <span class="framework-step-number">5</span>
+                                    <h4 class="font-semibold">Decision-Making Criteria</h4>
+                                </div>
+                                <p class="text-sm mb-3">Create a prioritized list of criteria for making the final insurance decision.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="decision-criteria"></textarea>
+                            </div>
+                            
+                            <h3 class="text-lg font-semibold mb-3">Decision Framework Application</h3>
+                            <p class="mb-3">Apply your framework to the following scenario:</p>
+                            
+                            <div class="p-4 bg-gray-50 rounded-lg mb-4">
+                                <h4 class="font-semibold mb-2">Scenario: New Car Insurance Decision</h4>
+                                <p class="mb-3">Taylor just purchased a new car worth $25,000 and needs to decide on auto insurance coverage. Taylor has $5,000 in savings and a monthly budget of $2,500 with about $300 available for all types of insurance.</p>
+                                
+                                <div class="mb-4">
+                                    <label class="block font-medium mb-1">Using your framework, what insurance decisions would you recommend for Taylor?</label>
+                                    <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" id="framework-application"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block font-medium mb-1">How did your framework help you reach this recommendation?</label>
+                                    <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="framework-effectiveness"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 4: Insurance Cost Management Plan -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 4: Insurance Cost Management Plan</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p class="mb-4">In this final station, you'll develop a personalized plan for managing insurance costs while maintaining appropriate coverage. This plan will integrate concepts from previous stations to create a comprehensive approach to insurance cost management.</p>
+                            
+                            <h3 class="text-lg font-semibold mb-3">Insurance Cost Management Plan Builder</h3>
+                            <p class="mb-4">Create your personal insurance cost management plan by addressing each section below:</p>
+                            
+                            <div class="mb-4">
+                                <label class="block font-medium mb-2">Step 1: Needs Assessment</label>
+                                <p class="text-sm mb-2">Identify your current and anticipated insurance needs. Consider health, auto, renters/homeowners, and any other relevant insurance types.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="needs-assessment"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block font-medium mb-2">Step 2: Current Coverage Evaluation</label>
+                                <p class="text-sm mb-2">Evaluate your current insurance coverage (or the coverage you anticipate needing). Identify any gaps or potential areas of overinsurance.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="coverage-evaluation"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block font-medium mb-2">Step 3: Cost-Saving Opportunities</label>
+                                <p class="text-sm mb-2">Based on previous activities, identify at least three specific strategies you could implement to reduce your insurance costs while maintaining appropriate coverage.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" id="cost-saving-opportunities"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block font-medium mb-2">Step 4: Implementation Timeline</label>
+                                <p class="text-sm mb-2">Create a timeline for implementing your cost-saving strategies. Include specific actions and when you'll take them.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="implementation-timeline"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block font-medium mb-2">Step 5: Evaluation Metrics</label>
+                                <p class="text-sm mb-2">Define how you'll measure the success of your cost-management plan. Include both financial metrics and coverage adequacy.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="evaluation-metrics"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block font-medium mb-2">Step 6: Continuous Review Process</label>
+                                <p class="text-sm mb-2">Outline a process for regularly reviewing and updating your insurance coverage and cost-management strategies as your circumstances change.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="review-process"></textarea>
+                            </div>
+                            
+                            <div class="p-4 bg-indigo-50 rounded-lg mb-4">
+                                <h4 class="font-semibold text-indigo-900 mb-2">Plan Implementation Reflection</h4>
+                                <p class="text-sm text-indigo-800 mb-3">Reflect on potential challenges you might face when implementing your cost management plan and how you'll address them.</p>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="implementation-challenges"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">
+                            Now that you've completed all the learning stations, it's time to integrate what you've learned into your financial portfolio. In this section, you'll create a comprehensive insurance cost analysis and optimization strategy for one specific type of insurance.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Select an insurance type to focus on:</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-md" id="insurance-type">
+                                <option value="">Select insurance type</option>
+                                <option value="health">Health Insurance</option>
+                                <option value="auto">Auto Insurance</option>
+                                <option value="home">Homeowners/Renters Insurance</option>
+                                <option value="life">Life Insurance</option>
+                                <option value="disability">Disability Insurance</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Current Situation Analysis</label>
+                            <p class="text-sm text-gray-600 mb-2">Describe your current coverage (or future needs) for this insurance type and its costs.</p>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="current-situation"></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Cost Optimization Strategy</label>
+                            <p class="text-sm text-gray-600 mb-2">Based on what you've learned, outline a comprehensive strategy for optimizing costs while maintaining appropriate coverage.</p>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" id="optimization-strategy"></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Implementation Plan</label>
+                            <p class="text-sm text-gray-600 mb-2">Detail the specific steps, timeline, and resources needed to implement your optimization strategy.</p>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="implementation-plan"></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Expected Outcomes and Success Metrics</label>
+                            <p class="text-sm text-gray-600 mb-2">Identify the specific outcomes you expect from your strategy and how you'll measure success.</p>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" id="expected-outcomes"></textarea>
+                        </div>
+                        
+                        <button class="pfl-button mt-4" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Take a moment to reflect on what you've learned about managing insurance costs and how it applies to your personal financial situation. Consider the following questions:
+                        </p>
+                        
+                        <ul class="list-disc list-inside mb-4 text-gray-700">
+                            <li class="mb-2">How has your understanding of insurance costs and components changed as a result of this learning lab?</li>
+                            <li class="mb-2">Which cost-saving strategies do you think will be most beneficial for your current or future financial situation?</li>
+                            <li class="mb-2">What challenges do you anticipate in implementing effective insurance cost management in your life?</li>
+                        </ul>
+                        
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="5" placeholder="Share your reflections here..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 4) {
+                // If we've completed the last station, scroll to portfolio section
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection section
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Highlight selected strategy cards
+        document.querySelectorAll('.strategy-card select').forEach(select => {
+            select.addEventListener('change', function() {
+                const card = this.closest('.strategy-card');
+                if (this.value >= 4) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+        });
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionText = document.querySelector('textarea[data-ai-check="true"]').value;
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            if (reflectionText.length < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider expanding on how your understanding of insurance costs has changed and which specific strategies you plan to implement.";
+            } else if (reflectionText.length < 150) {
+                aiFeedback.textContent = "Good start! Try to provide more specific examples of how you'll apply these insurance cost management strategies in your personal financial situation.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection! You've demonstrated a strong understanding of insurance cost management concepts and thoughtfully applied them to your personal financial situation.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

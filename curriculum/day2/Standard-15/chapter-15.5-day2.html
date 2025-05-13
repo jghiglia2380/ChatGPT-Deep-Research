@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 15.5: Entrepreneurship and Side Hustles - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Business plan form styles */
+        .form-section {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Button styles */
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 15: Career Planning and Readiness</h2>
+                        <p class="text-gray-600 text-sm mt-1">Developing essential skills for career exploration, workplace readiness, and entrepreneurship.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Previous chapters with checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 15.1: Career Exploration & Goal Setting
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 15.2: Resume Building & Personal Branding
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 15.3: Job Application Process
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-green-700 bg-green-50 hover:bg-green-100">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
+                                    Chapter 15.4: Interview Skills & Workplace Readiness
+                                </a>
+                            </li>
+                            
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 15.5: Entrepreneurship & Side Hustles
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-15.5-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Entrepreneurial Mindset
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Business Plan Workshop
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1" id="section-navigation">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span> Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span> Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span> Business Concept Development
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span> Market Research
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span> Business Plan Development
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span> Financial Projections
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station5" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span> Business Pitch
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span> Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span> Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station5-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-15.5-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 15.5: Entrepreneurship and Side Hustles - Learning Lab</h1>
+                    <p class="text-lg text-gray-600 mb-6">Business Plan Development Workshop: Turning Ideas into Action</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <p class="mb-2">By the end of this Learning Lab, you will be able to:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Create a comprehensive business plan for a side hustle or small business</li>
+                            <li>Conduct basic market research to validate business ideas</li>
+                            <li>Develop financial projections for startup costs and potential revenue</li>
+                            <li>Identify resources needed to launch a small business or side hustle</li>
+                            <li>Present a concise business pitch highlighting key value propositions</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Business Plan Development Workshop! Today, we'll build on the entrepreneurial concepts from our previous session by developing practical business plans for side hustles or small businesses. Through hands-on activities and collaborative exercises, you'll work through the key components of a business plan, evaluate financial considerations, and refine your entrepreneurial ideas. By the end of this Learning Lab, you'll have a foundational business plan that could serve as a roadmap for a real venture.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                This Learning Lab is designed to be practical and applicable to your real-world interests. While developing your business plan, focus on a venture you're genuinely interested in pursuing, even if it's just hypothetical at this stage. The skills you develop today can be applied to any entrepreneurial opportunity you may encounter in the future.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm mb-2">
+                                In Day 1, you explored the entrepreneurial mindset and identified potential business opportunities aligned with your skills and interests. Today's activities build directly on that foundation by:
+                            </p>
+                            <ul class="list-disc list-inside text-sm text-indigo-800 ml-2">
+                                <li>Developing a complete business plan for your selected idea</li>
+                                <li>Applying market research techniques to validate customer needs</li>
+                                <li>Creating financial projections to assess viability</li>
+                                <li>Building a pitch to effectively communicate your business concept</li>
+                                <li>Identifying potential challenges and planning solutions</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Entrepreneurship and Side Hustles</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/15.5 - Entrepreneurship and Side Hustles.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Entrepreneurial mindset, types of ventures, side hustle considerations, business planning fundamentals, financial management, risk/reward balance
+                            </p>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-3">
+                            Before we begin, take a few minutes to reflect on potential business ideas based on your skills, interests, problems you've experienced, or unmet needs in your community. Select one idea you'd like to develop further today, considering your personal interest, initial viability, and feasibility given your current resources.
+                        </p>
+                    </div>
+                    
+                    <!-- Learning Station 1: Business Concept Development -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Business Concept Development</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            Clearly defining your business concept is the foundation of a successful venture. This activity helps you articulate what your business will offer, to whom, and why it will succeed.
+                        </p>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                            <h3 class="font-medium text-gray-900 mb-3">Business Concept Worksheet</h3>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">What product or service will you offer?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Describe your product or service in detail..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">What problem does it solve or need does it address?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain the specific problem your business solves..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Who is your target customer?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Describe your ideal customers in detail..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">What makes your offering unique or better than alternatives?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain your unique selling points..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Value Proposition (1-2 sentences)</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Create a concise statement that clearly communicates your business's unique benefits..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Business Name</label>
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Create a compelling business name...">
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium text-indigo-900 mb-2">Example Business Concept</h4>
+                            <p class="text-sm text-gray-700 mb-2"><strong>Business Description:</strong> Mobile pet grooming service that comes to customers' homes, eliminating the need to transport pets to a grooming facility.</p>
+                            <p class="text-sm text-gray-700 mb-2"><strong>Value Proposition:</strong> "Pampered Pets Mobile brings professional grooming services directly to your door, reducing stress for both pets and owners while saving you valuable time."</p>
+                            <p class="text-sm text-gray-700 mb-2"><strong>Target Customer:</strong> Busy pet owners who value convenience and care about minimizing their pets' anxiety.</p>
+                            <p class="text-sm text-gray-700"><strong>Unique Selling Point:</strong> Convenience of at-home service combined with specialized techniques for reducing pet anxiety during grooming.</p>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 2: Market Research and Customer Discovery -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Market Research and Customer Discovery</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            Understanding your target market and validating customer needs are crucial steps in developing a successful business plan. This activity helps you research your potential customers and competitors.
+                        </p>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                            <h3 class="font-medium text-gray-900 mb-3">Customer and Competitor Research</h3>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Ideal Customer Profile</label>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Demographics (age, location, income, etc.)</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Psychographics (values, interests, lifestyle)</label>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block text-gray-600 text-sm mb-1">Pain points related to your business solution</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Competitor Analysis</label>
+                                <table class="w-full border-collapse">
+                                    <thead>
+                                        <tr class="bg-gray-50">
+                                            <th class="border border-gray-300 px-4 py-2 text-left text-sm">Competitor Name</th>
+                                            <th class="border border-gray-300 px-4 py-2 text-left text-sm">Offerings & Pricing</th>
+                                            <th class="border border-gray-300 px-4 py-2 text-left text-sm">Strengths</th>
+                                            <th class="border border-gray-300 px-4 py-2 text-left text-sm">Weaknesses</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0" placeholder="Competitor 1"></td>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0"></td>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0"></td>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0" placeholder="Competitor 2"></td>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0"></td>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0"></td>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0" placeholder="Competitor 3"></td>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0"></td>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0"></td>
+                                            <td class="border border-gray-300 px-4 py-2"><input type="text" class="w-full p-1 border-0"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Customer Interview Questions</label>
+                                <p class="text-sm text-gray-600 mb-2">Develop 5-7 questions you would ask potential customers to validate your business idea:</p>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="5" placeholder="1. How do you currently solve this problem?
+2. What frustrations do you have with current solutions?
+3. How valuable would my solution be to you?
+4. What would you be willing to pay?
+5. What features would be most important to you?"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium text-indigo-900 mb-2">Market Research Methods</h4>
+                            <p class="text-sm text-gray-700 mb-2">When developing an actual business, consider these customer discovery approaches:</p>
+                            <ul class="list-disc list-inside text-sm text-gray-700">
+                                <li>Online surveys of potential customers</li>
+                                <li>In-person or virtual interviews</li>
+                                <li>Social media polls or questions</li>
+                                <li>Online forums where your target audience gathers</li>
+                                <li>Analysis of reviews for similar products or services</li>
+                                <li>Observation of customer behavior in relevant settings</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 3: Business Plan Development -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Business Plan Development</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15-20 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            A comprehensive business plan serves as a roadmap for your venture, addressing all key aspects of how your business will function and grow. This activity guides you through developing each essential component.
+                        </p>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="font-medium text-purple-900">Business Plan Builder Tool</h3>
+                                <a href="chapter-15.5-skill-builder.html" target="_blank" class="text-sm text-purple-700 hover:underline">Open full Business Plan Builder in new tab →</a>
+                            </div>
+                            <p class="text-sm text-purple-800 mb-3">The complete Business Plan Builder tool is available as a separate skill builder. For this Learning Lab, we'll focus on key sections below:</p>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                            <h3 class="font-medium text-gray-900 mb-3">Key Business Plan Components</h3>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Executive Summary</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Brief overview of your business concept, mission statement, and key objectives/goals..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Business Description</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Detailed explanation of your products/services, business model, and legal structure..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Marketing Strategy</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Plans for pricing, promotion, customer acquisition, and sales channels..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Operations Plan</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Required equipment and supplies, production or service delivery process, facility requirements, staffing needs..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium text-indigo-900 mb-2">Business Plan Tips</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-700">
+                                <li>Be specific and realistic rather than overly optimistic</li>
+                                <li>Include research and data to support your assertions</li>
+                                <li>Address potential challenges and how you'll overcome them</li>
+                                <li>Create financial projections based on reasonable assumptions</li>
+                                <li>Consider both best-case and worst-case scenarios</li>
+                                <li>Remember that a business plan is a living document that will evolve</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 4: Financial Projections Workshop -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Financial Projections Workshop</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            Understanding the financial aspects of your business is critical for success. This activity helps you create realistic projections for costs, revenue, and profitability.
+                        </p>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                            <h3 class="font-medium text-gray-900 mb-3">Financial Projections Worksheet</h3>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Startup Costs</label>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Equipment and Supplies</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Initial Inventory</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Legal/Professional Fees</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Permits or Licenses</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Website/Technology</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Initial Marketing</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block text-gray-600 text-sm mb-1">Total Startup Costs</label>
+                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md bg-gray-50 font-medium" placeholder="$0" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Monthly Operating Expenses</label>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Ongoing Supplies/Inventory</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Marketing and Advertising</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Subscriptions/Software</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Transportation Costs</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Your Time (hourly rate)</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Hours per month</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Hours">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block text-gray-600 text-sm mb-1">Total Monthly Expenses</label>
+                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md bg-gray-50 font-medium" placeholder="$0" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Projected Monthly Revenue</label>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Price per Product/Service</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="$">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-600 text-sm mb-1">Expected Units/Clients per Month</label>
+                                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="#">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block text-gray-600 text-sm mb-1">Estimated Monthly Revenue</label>
+                                    <input type="number" class="w-full p-2 border border-gray-300 rounded-md bg-gray-50 font-medium" placeholder="$0" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Break-even Analysis</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Based on your calculations, estimate when your business will become profitable. How many sales do you need to cover expenses?"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium text-indigo-900 mb-2">Financial Considerations for Side Hustles</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-700">
+                                <li>Start small to minimize initial investment</li>
+                                <li>Leverage existing assets when possible</li>
+                                <li>Consider a "minimum viable product" approach</li>
+                                <li>Reinvest early profits to fund growth</li>
+                                <li>Track all expenses for tax purposes</li>
+                                <li>Set aside a percentage of income for taxes</li>
+                                <li>Consider separate bank accounts for business transactions</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 5: Business Pitch Development -->
+                    <div class="learning-station" id="station5">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">5</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Business Pitch Development</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10-15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">
+                            Being able to concisely and persuasively explain your business is essential for attracting customers, partners, or investors. This activity helps you craft a compelling pitch for your business idea.
+                        </p>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                            <h3 class="font-medium text-gray-900 mb-3">60-Second Elevator Pitch</h3>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">The Problem</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Describe the problem your target customers face..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Your Solution</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain how your business addresses this problem..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Unique Benefits</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="What makes your solution better than alternatives?"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Target Customer</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Who will benefit most from your product/service?"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Your Qualifications</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Why are you the right person to provide this solution?"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Call to Action</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="What specific action do you want potential customers/investors to take?"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Complete Elevator Pitch</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" placeholder="Combine the above elements into a concise, compelling 60-second pitch..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium text-indigo-900 mb-2">Pitch Structure Example</h4>
+                            <p class="text-sm text-gray-700 mb-2"><strong>Problem:</strong> "Pet owners often struggle to find time to take their pets to grooming appointments, and many pets experience stress during transport and in unfamiliar environments."</p>
+                            <p class="text-sm text-gray-700 mb-2"><strong>Solution:</strong> "Pampered Pets Mobile brings professional grooming services directly to customers' homes."</p>
+                            <p class="text-sm text-gray-700 mb-2"><strong>Unique Benefits:</strong> "Our service saves pet owners time and reduces stress for both pets and their owners. Our specialized techniques and familiar environment approach results in a better experience for animals."</p>
+                            <p class="text-sm text-gray-700 mb-2"><strong>Target Customer:</strong> "We serve busy pet owners who prioritize their pets' comfort and their own convenience."</p>
+                            <p class="text-sm text-gray-700 mb-2"><strong>Qualifications:</strong> "As a certified pet groomer with five years of experience and a lifelong pet owner, I understand both the technical and emotional aspects of pet care."</p>
+                            <p class="text-sm text-gray-700"><strong>Call to Action:</strong> "Visit our website to schedule your first at-home grooming session and receive 20% off as a new customer."</p>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(5)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration Section -->
+                    <div class="mt-12 bg-indigo-50 p-6 rounded-lg" id="portfolio">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive business plan for your financial literacy portfolio.</p>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-indigo-900 mb-4">Complete Business Plan</h3>
+                            <p class="text-gray-700 mb-4">Your portfolio combines all elements from today's Learning Lab into a cohesive plan:</p>
+                            
+                            <ul class="list-disc list-inside mb-4 text-gray-700">
+                                <li>Executive Summary from your Business Concept Development</li>
+                                <li>Market Analysis from your Customer and Competitor Research</li>
+                                <li>Marketing and Sales Strategy from your Business Plan Development</li>
+                                <li>Operations Plan and implementation details</li>
+                                <li>Financial Projections from your calculations</li>
+                                <li>Your refined Elevator Pitch for communicating your business idea</li>
+                            </ul>
+                            
+                            <p class="text-gray-700 mb-4">Review each section to ensure alignment across your entire plan.</p>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Portfolio Summary</label>
+                                <p class="text-sm text-gray-600 mb-2">What have you learned from this business planning process? How might you apply these skills in the future?</p>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="4" placeholder="Summarize key insights and how this plan will guide your entrepreneurial decisions..."></textarea>
+                                <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                            </div>
+                            
+                            <button class="pfl-button px-6 py-2 rounded-lg mt-2 transition duration-200 hover:shadow-xl hover:-translate-y-1" onclick="savePortfolio()">Complete Portfolio</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Reflection Section -->
+                    <div class="mt-12" id="reflection">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                        
+                        <div class="discussion-prompt">
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                            <p class="text-gray-700 mb-3">Take a few minutes to reflect on your business planning experience:</p>
+                            <ol class="list-decimal list-inside text-gray-700 mb-3 space-y-1">
+                                <li>What aspects of business planning did you find most challenging? Most interesting?</li>
+                                <li>How viable do you think your business idea is? What additional information or resources would you need to move forward with it?</li>
+                                <li>What did you learn about yourself as a potential entrepreneur through this process?</li>
+                                <li>How might you apply the business planning skills from this activity to other aspects of your financial or career planning?</li>
+                            </ol>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" placeholder="Share your thoughts and reflections here..."></textarea>
+                            <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                            <h3 class="font-semibold text-gray-900 mb-2">Summary</h3>
+                            <p class="text-gray-700 mb-3">
+                                Today's Learning Lab has guided you through the process of developing a comprehensive business plan for a side hustle or small business. You've practiced essential entrepreneurial skills including:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                <li>Defining a clear business concept and value proposition</li>
+                                <li>Researching and understanding your target market</li>
+                                <li>Creating financial projections and pricing strategies</li>
+                                <li>Planning marketing and operations approaches</li>
+                                <li>Developing and delivering a business pitch</li>
+                            </ul>
+                            <p class="text-gray-700 mt-3">
+                                Whether you choose to pursue entrepreneurship immediately or in the future, these planning skills will help you evaluate opportunities and develop successful ventures. Remember that entrepreneurship is an iterative process—most successful businesses evolve significantly from their initial concepts based on market feedback and experience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            station5: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+            element.addEventListener('blur', function() {
+                if (this.value.length > 10) {
+                    const feedback = this.nextElementSibling;
+                    if (feedback && feedback.classList.contains('feedback-container')) {
+                        feedback.textContent = "Thank you for your thoughtful response! Your answer shows good understanding of the entrepreneurial concepts.";
+                        feedback.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Financial calculations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calculate startup costs
+            const startupCostInputs = document.querySelectorAll('#station4 input[type="number"]');
+            const totalStartupCost = document.querySelector('#station4 input[readonly]:nth-of-type(1)');
+            
+            if (startupCostInputs && totalStartupCost) {
+                startupCostInputs.forEach(input => {
+                    input.addEventListener('input', calculateTotals);
+                });
+            }
+            
+            function calculateTotals() {
+                // This is a simplified calculation - would be more robust in production
+                let startupCost = 0;
+                let monthlyExpenses = 0;
+                let monthlyRevenue = 0;
+                
+                // Calculate startup costs (first 6 inputs)
+                for (let i = 0; i < 6; i++) {
+                    startupCost += Number(startupCostInputs[i].value || 0);
+                }
+                
+                // Set the total
+                if (totalStartupCost) {
+                    totalStartupCost.value = startupCost;
+                }
+                
+                // Monthly expenses calculated similarly in production
+                const monthlyExpenseTotal = document.querySelector('#station4 input[readonly]:nth-of-type(2)');
+                if (monthlyExpenseTotal) {
+                    // Simple calculation for demo - would be more robust in production
+                    let monthlyExpense = 0;
+                    for (let i = 6; i < 12; i++) {
+                        if (i === 10 && startupCostInputs[11]) { // Hourly rate × hours
+                            monthlyExpense += (Number(startupCostInputs[10].value || 0) * Number(startupCostInputs[11].value || 0));
+                        } else if (i !== 11) { // Skip hours field in summation
+                            monthlyExpense += Number(startupCostInputs[i].value || 0);
+                        }
+                    }
+                    monthlyExpenseTotal.value = monthlyExpense;
+                }
+                
+                // Monthly revenue
+                const revenueTotal = document.querySelector('#station4 input[readonly]:nth-of-type(3)');
+                if (revenueTotal && startupCostInputs[12] && startupCostInputs[13]) {
+                    const price = Number(startupCostInputs[12].value || 0);
+                    const units = Number(startupCostInputs[13].value || 0);
+                    revenueTotal.value = price * units;
+                }
+            }
+        });
+        
+        // Add active section highlighting based on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('#learning-objectives, #introduction, .learning-station, #portfolio, #reflection');
+            const navLinks = document.querySelectorAll('#section-navigation a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('text-indigo-700', 'font-medium');
+                    
+                    const href = link.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        link.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

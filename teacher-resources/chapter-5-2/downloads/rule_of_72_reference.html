@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule of 72 Reference Card</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+                padding: 0;
+                margin: 0;
+            }
+            .no-print {
+                display: none;
+            }
+            @page {
+                margin: 0.5in;
+                size: portrait;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #6366F1;
+        }
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 8px;
+        }
+        h2 {
+            color: #4F46E5;
+            margin-top: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6366F1;
+            margin-top: 15px;
+        }
+        .card {
+            border: 2px solid #4F46E5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f9f9ff;
+        }
+        .formula-box {
+            background-color: #e8f4ff;
+            border-left: 4px solid #4F46E5;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .example {
+            background-color: #f0fff4;
+            padding: 15px;
+            border-left: 4px solid #4ADE80;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f4ff;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        .hint {
+            font-style: italic;
+            color: #6366F1;
+            margin: 10px 0;
+        }
+        .no-print {
+            background-color: #FFB62C;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .quick-ref {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .quick-box {
+            flex: 1;
+            min-width: 120px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .quick-box .rate {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        .quick-box .years {
+            font-size: 1.1em;
+        }
+        .warning {
+            background-color: #fff8e6;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <h3>How to Save/Print This Reference Card</h3>
+        <p>To save this reference card as a PDF or print a paper copy:</p>
+        <ol>
+            <li>Click the Print button below or press Ctrl+P (Cmd+P on Mac)</li>
+            <li>In the print dialog, choose "Save as PDF" from the destination/printer options</li>
+            <li>Click Save or Print</li>
+        </ol>
+        <button onclick="window.print()">Print Reference Card</button>
+    </div>
+
+    <div class="header">
+        <h1>Rule of 72 Reference Card</h1>
+        <p>Chapter 5.2: Understanding the Power of Compound Interest and the Rule of 72</p>
+    </div>
+
+    <div class="card">
+        <h2>What is the Rule of 72?</h2>
+        <p>The Rule of 72 is a simple mental math shortcut that helps you estimate how long it will take for an investment to double in value at a given compound interest rate.</p>
+        
+        <div class="formula-box">
+            <strong>Years to Double = 72 ÷ Interest Rate (%)</strong>
+        </div>
+        
+        <h3>How to Use the Rule of 72:</h3>
+        <ol>
+            <li>Take the number 72</li>
+            <li>Divide it by the annual interest rate (as a percentage)</li>
+            <li>The result is the approximate number of years it will take for your investment to double</li>
+        </ol>
+
+        <div class="example">
+            <h3>Example:</h3>
+            <p>If you invest money at 8% compound interest, how long will it take to double?</p>
+            <p>Years to double = 72 ÷ 8 = 9 years</p>
+            <p>So it would take approximately 9 years for your investment to double in value.</p>
+        </div>
+        
+        <div class="hint">Remember: The Rule of 72 gives you an estimate. For more precise calculations, you can use the compound interest formula.</div>
+    </div>
+
+    <h2>Quick Reference Table</h2>
+    <table>
+        <tr>
+            <th>Interest Rate</th>
+            <th>Years to Double</th>
+            <th>Interest Rate</th>
+            <th>Years to Double</th>
+        </tr>
+        <tr>
+            <td>1%</td>
+            <td>72.0 years</td>
+            <td>8%</td>
+            <td>9.0 years</td>
+        </tr>
+        <tr>
+            <td>2%</td>
+            <td>36.0 years</td>
+            <td>9%</td>
+            <td>8.0 years</td>
+        </tr>
+        <tr>
+            <td>3%</td>
+            <td>24.0 years</td>
+            <td>10%</td>
+            <td>7.2 years</td>
+        </tr>
+        <tr>
+            <td>4%</td>
+            <td>18.0 years</td>
+            <td>11%</td>
+            <td>6.5 years</td>
+        </tr>
+        <tr>
+            <td>5%</td>
+            <td>14.4 years</td>
+            <td>12%</td>
+            <td>6.0 years</td>
+        </tr>
+        <tr>
+            <td>6%</td>
+            <td>12.0 years</td>
+            <td>15%</td>
+            <td>4.8 years</td>
+        </tr>
+        <tr>
+            <td>7%</td>
+            <td>10.3 years</td>
+            <td>18%</td>
+            <td>4.0 years</td>
+        </tr>
+    </table>
+
+    <div class="quick-ref">
+        <div class="quick-box">
+            <div class="rate">2%</div>
+            <div class="years">36 years</div>
+        </div>
+        <div class="quick-box">
+            <div class="rate">4%</div>
+            <div class="years">18 years</div>
+        </div>
+        <div class="quick-box">
+            <div class="rate">6%</div>
+            <div class="years">12 years</div>
+        </div>
+        <div class="quick-box">
+            <div class="rate">8%</div>
+            <div class="years">9 years</div>
+        </div>
+        <div class="quick-box">
+            <div class="rate">9%</div>
+            <div class="years">8 years</div>
+        </div>
+        <div class="quick-box">
+            <div class="rate">12%</div>
+            <div class="years">6 years</div>
+        </div>
+    </div>
+
+    <h2>Reversing the Rule of 72</h2>
+    <p>You can also use the Rule of 72 to find the interest rate needed to double your money in a certain timeframe:</p>
+    
+    <div class="formula-box">
+        <strong>Interest Rate Needed (%) = 72 ÷ Years to Double</strong>
+    </div>
+    
+    <div class="example">
+        <h3>Example:</h3>
+        <p>If you want your investment to double in 6 years, what interest rate do you need?</p>
+        <p>Interest rate needed = 72 ÷ 6 = 12%</p>
+        <p>So you would need an investment with approximately 12% annual compound interest.</p>
+    </div>
+
+    <h2>Applications of the Rule of 72</h2>
+    <ul>
+        <li><strong>Investment Planning:</strong> Quickly estimate how different interest rates affect doubling time</li>
+        <li><strong>Retirement Planning:</strong> See how many times your money might double before retirement</li>
+        <li><strong>Comparing Investments:</strong> Easily compare the growth potential of different options</li>
+        <li><strong>Inflation Impact:</strong> Estimate how long it will take for prices to double at current inflation rates</li>
+        <li><strong>Goal Setting:</strong> Determine what interest rate you need to reach your financial goals</li>
+    </ul>
+
+    <div class="warning">
+        <h3>Important Notes:</h3>
+        <ul>
+            <li>The Rule of 72 is most accurate for interest rates between 6% and 10%</li>
+            <li>For very low interest rates (below 4%), the Rule of 69.3 is more accurate</li>
+            <li>For higher interest rates (above 10%), the Rule of 72 slightly underestimates doubling time</li>
+            <li>The rule assumes steady, unchanging interest rates over the entire period</li>
+        </ul>
+    </div>
+
+    <h2>Multiple Doublings</h2>
+    <p>Money that doubles once becomes 2× the original amount, but multiple doublings create dramatic growth:</p>
+    <ul>
+        <li>1 doubling = 2× your money</li>
+        <li>2 doublings = 4× your money</li>
+        <li>3 doublings = 8× your money</li>
+        <li>4 doublings = 16× your money</li>
+        <li>5 doublings = 32× your money</li>
+        <li>10 doublings = 1,024× your money</li>
+    </ul>
+
+    <div class="example">
+        <h3>Example of Multiple Doublings:</h3>
+        <p>With an 8% interest rate, your money doubles every 9 years:</p>
+        <ul>
+            <li>Initial investment: $1,000</li>
+            <li>After 9 years: ~$2,000 (1 doubling)</li>
+            <li>After 18 years: ~$4,000 (2 doublings)</li>
+            <li>After 27 years: ~$8,000 (3 doublings)</li>
+            <li>After 36 years: ~$16,000 (4 doublings)</li>
+            <li>After 45 years: ~$32,000 (5 doublings)</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>PFL Academy | Chapter 5.2: Understanding the Power of Compound Interest and the Rule of 72</p>
+    </footer>
+</body>
+</html>

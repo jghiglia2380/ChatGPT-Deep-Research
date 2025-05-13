@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Financial Service Provider Plan</title>
+    <style>
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+                background-color: white;
+                color: black;
+            }
+            .print-instruction {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .no-break {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            color: #3498db;
+        }
+        
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .input-field {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            min-height: 80px;
+        }
+        
+        .short-field {
+            min-height: 50px;
+        }
+        
+        .input-line {
+            border-bottom: 1px solid #ddd;
+            padding: 5px 0;
+            margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        th {
+            background-color: #f2f6f9;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .guidance {
+            font-style: italic;
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .print-instruction {
+            background-color: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #f1c40f;
+        }
+        
+        .matrix {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        
+        .matrix th {
+            background-color: #e6f3ff;
+        }
+        
+        .comparison-row td:first-child {
+            font-weight: bold;
+        }
+        
+        .comparison-row:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #aaa;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .rating-scale {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .rating-label {
+            width: 200px;
+        }
+        
+        .rating-boxes {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .rating-box {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #aaa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .footnote {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instruction">
+        <p><strong>Printing Instructions:</strong> To save or print this document, use your browser's print function (Ctrl+P or Cmd+P) and select "Save as PDF" as the destination.</p>
+    </div>
+
+    <h1>Personal Financial Service Provider Plan</h1>
+    
+    <div class="header-info">
+        <div>
+            <p><strong>Name:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+            <p><strong>Date Prepared:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        </div>
+        <div>
+            <p><strong>Last Updated:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        </div>
+    </div>
+    
+    <div class="section no-break">
+        <h2>1. Personal Financial Needs Assessment</h2>
+        <p class="guidance">Identify and prioritize your current and future financial service needs.</p>
+        
+        <h3>Primary Financial Goals</h3>
+        <p class="guidance">What are your most important financial goals for the next 1-5 years?</p>
+        <div class="input-field"></div>
+        
+        <h3>Financial Service Needs</h3>
+        <p class="guidance">Check all services you currently need or anticipate needing in the next 1-5 years:</p>
+        
+        <div class="checkbox-grid">
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Checking Account</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Savings Account</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Credit Card</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Debit Card</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Student Loan</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Auto Loan</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Mortgage</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Personal Loan</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Retirement Account</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Investment Account</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Financial Planning</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Insurance</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Mobile Banking</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Online Bill Pay</span>
+            </div>
+        </div>
+        
+        <p><strong>Other financial services needed:</strong></p>
+        <div class="input-field short-field"></div>
+        
+        <h3>Service Priority Ranking</h3>
+        <p class="guidance">Rank your top 5 financial service needs in order of importance to you (1 = most important):</p>
+        
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Financial Service</th>
+                <th>Why This Is Important to You</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="section no-break">
+        <h2>2. Personal Preferences and Values</h2>
+        <p class="guidance">Consider what matters most to you in a financial service provider.</p>
+        
+        <h3>Rate the Importance of Each Factor</h3>
+        <p class="guidance">For each factor below, rate its importance to you when selecting a financial service provider (1 = Not Important, 5 = Extremely Important):</p>
+        
+        <div class="rating-scale">
+            <div class="rating-label">Low Fees</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <div class="rating-scale">
+            <div class="rating-label">Convenient Locations</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <div class="rating-scale">
+            <div class="rating-label">Online/Mobile Services</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <div class="rating-scale">
+            <div class="rating-label">Customer Service</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <div class="rating-scale">
+            <div class="rating-label">Interest Rates</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <div class="rating-scale">
+            <div class="rating-label">Range of Services</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <div class="rating-scale">
+            <div class="rating-label">Reputation/Trustworthiness</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <div class="rating-scale">
+            <div class="rating-label">ATM Network</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <div class="rating-scale">
+            <div class="rating-label">Educational Resources</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <div class="rating-scale">
+            <div class="rating-label">Socially Responsible Practices</div>
+            <div class="rating-boxes">
+                <div class="rating-box">1</div>
+                <div class="rating-box">2</div>
+                <div class="rating-box">3</div>
+                <div class="rating-box">4</div>
+                <div class="rating-box">5</div>
+            </div>
+        </div>
+        
+        <h3>Deal Breakers</h3>
+        <p class="guidance">What factors would immediately eliminate a financial service provider from your consideration?</p>
+        <div class="input-field"></div>
+    </div>
+    
+    <div class="section no-break">
+        <h2>3. Financial Service Provider Options</h2>
+        <p class="guidance">Identify potential financial service providers that match your needs and preferences.</p>
+        
+        <h3>Provider Types to Consider</h3>
+        <p class="guidance">Based on your needs assessment, which types of providers should you research?</p>
+        
+        <div class="checkbox-grid">
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Traditional Bank</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Credit Union</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Online Bank</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Investment Firm</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Insurance Company</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Financial Advisor</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Fintech Company</span>
+            </div>
+            <div class="checkbox-item">
+                <div class="checkbox"></div>
+                <span>Other: _____________</span>
+            </div>
+        </div>
+        
+        <h3>Specific Providers to Research</h3>
+        <p class="guidance">List specific providers you plan to research further:</p>
+        
+        <table>
+            <tr>
+                <th>Provider Name</th>
+                <th>Provider Type</th>
+                <th>Why You're Considering Them</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="section no-break">
+        <h2>4. Provider Comparison Matrix</h2>
+        <p class="guidance">Use this matrix to directly compare financial service providers based on your priority factors.</p>
+        
+        <table class="matrix">
+            <tr>
+                <th>Comparison Factor</th>
+                <th>Provider 1: __________</th>
+                <th>Provider 2: __________</th>
+                <th>Provider 3: __________</th>
+            </tr>
+            <tr class="comparison-row">
+                <td>Account Fees</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Minimum Balance Requirements</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Interest Rates (Savings)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Interest Rates (Loans)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Location Convenience</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>ATM Network</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Mobile/Online Banking Features</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Customer Service Reputation</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Available Products/Services</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Special Features/Benefits</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Insurance/Security</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="comparison-row">
+                <td>Other: _______________</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h3>Pros and Cons Analysis</h3>
+        
+        <table>
+            <tr>
+                <th>Provider</th>
+                <th>Pros</th>
+                <th>Cons</th>
+            </tr>
+            <tr>
+                <td>Provider 1: <div class="input-line"></div></td>
+                <td>
+                    <div class="input-field"></div>
+                </td>
+                <td>
+                    <div class="input-field"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Provider 2: <div class="input-line"></div></td>
+                <td>
+                    <div class="input-field"></div>
+                </td>
+                <td>
+                    <div class="input-field"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Provider 3: <div class="input-line"></div></td>
+                <td>
+                    <div class="input-field"></div>
+                </td>
+                <td>
+                    <div class="input-field"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="section no-break">
+        <h2>5. Questions to Ask Providers</h2>
+        <p class="guidance">Prepare a list of specific questions to ask each provider you're considering.</p>
+        
+        <div class="input-field"></div>
+        
+        <h3>Required Documentation and Information</h3>
+        <p class="guidance">List any documentation or information you'll need to gather before opening accounts:</p>
+        
+        <div class="input-field"></div>
+    </div>
+    
+    <div class="section no-break">
+        <h2>6. Decision and Implementation Plan</h2>
+        <p class="guidance">Based on your research and comparison, outline your financial service provider decisions.</p>
+        
+        <h3>Selected Provider(s)</h3>
+        <p class="guidance">You may choose different providers for different needs.</p>
+        
+        <table>
+            <tr>
+                <th>Financial Service Need</th>
+                <th>Selected Provider</th>
+                <th>Specific Product/Account</th>
+                <th>Key Terms/Features</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <h3>Implementation Timeline</h3>
+        <p class="guidance">Outline the steps and timeline for setting up your accounts/services:</p>
+        
+        <table>
+            <tr>
+                <th>Action Step</th>
+                <th>Target Date</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="section no-break">
+        <h2>7. Relationship Management Plan</h2>
+        <p class="guidance">Outline how you will manage and evaluate your relationship with your financial service provider(s) over time.</p>
+        
+        <h3>Regular Review Schedule</h3>
+        <p class="guidance">How often will you review your financial services to ensure they still meet your needs?</p>
+        <div class="input-field short-field"></div>
+        
+        <h3>Success Metrics</h3>
+        <p class="guidance">How will you measure whether your financial service provider is meeting your needs?</p>
+        <div class="input-field"></div>
+        
+        <h3>Trigger Events for Re-evaluation</h3>
+        <p class="guidance">What life events or circumstances would cause you to re-evaluate your financial service providers?</p>
+        <div class="input-field"></div>
+    </div>
+    
+    <div class="footnote">
+        <p>Note: This plan is for educational purposes only and does not constitute financial advice. Your personal financial situation is unique, and you should consult with qualified financial professionals before making significant financial decisions.</p>
+        <p>PFL Academy - Chapter 3.1: Understanding Different Types of Financial Service Providers</p>
+    </div>
+</body>
+</html>

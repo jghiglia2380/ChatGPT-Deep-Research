@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50/30/20 Budget Worksheet - Chapter 1.5: Managing Your Income Effectively</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Budget-specific styles */
+        .budget-category {
+            background-color: #f5f5f7;
+            font-weight: bold;
+        }
+        .total-row {
+            font-weight: bold;
+            background-color: #e6f3ff;
+        }
+        .percentage {
+            background-color: #f0f7ff;
+        }
+        input[type="text"], input[type="number"] {
+            width: 95%;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .category-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .needs-section {
+            background-color: #f0f7ff;
+            border: 1px solid #d1e1ff;
+        }
+        .wants-section {
+            background-color: #f0fff7;
+            border: 1px solid #d1ffed;
+        }
+        .savings-section {
+            background-color: #f7f0ff;
+            border: 1px solid #edd1ff;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            input[type="text"], input[type="number"] {
+                border: none;
+                border-bottom: 1px solid #ddd;
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>To save as PDF:</strong> Open this page in Chrome, Edge, or Firefox. Click on Print (Ctrl+P or Cmd+P), 
+        then select "Save as PDF" as the destination. Click "Save" and choose where to save the file on your computer.</p>
+    </div>
+    
+    <div class="header">
+        <h1>50/30/20 Budget Worksheet</h1>
+        <p><strong>Chapter 1.5:</strong> Managing Your Income Effectively</p>
+    </div>
+    
+    <div>
+        <h2>Monthly Income</h2>
+        <table>
+            <tr>
+                <td>Monthly Take-Home Pay (After Taxes)</td>
+                <td>$<input type="number" id="income" placeholder="0.00"></td>
+            </tr>
+        </table>
+        
+        <h2>Recommended Budget Allocation</h2>
+        <table>
+            <tr class="budget-category">
+                <th>Category</th>
+                <th>Percentage</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>Needs</td>
+                <td class="percentage">50%</td>
+                <td id="needs-allocation">$0.00</td>
+            </tr>
+            <tr>
+                <td>Wants</td>
+                <td class="percentage">30%</td>
+                <td id="wants-allocation">$0.00</td>
+            </tr>
+            <tr>
+                <td>Savings/Debt Repayment</td>
+                <td class="percentage">20%</td>
+                <td id="savings-allocation">$0.00</td>
+            </tr>
+        </table>
+        
+        <div class="category-section needs-section">
+            <h2>Needs (50%)</h2>
+            <p>These are essential expenses you can't easily live without.</p>
+            
+            <table>
+                <tr class="budget-category">
+                    <th>Expense</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Housing (Rent/Mortgage)</td>
+                    <td>$<input type="number" class="needs-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Utilities (Electric, Water, Gas)</td>
+                    <td>$<input type="number" class="needs-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Groceries</td>
+                    <td>$<input type="number" class="needs-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Transportation (Basic Commuting Costs)</td>
+                    <td>$<input type="number" class="needs-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Healthcare</td>
+                    <td>$<input type="number" class="needs-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Minimum Debt Payments</td>
+                    <td>$<input type="number" class="needs-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Phone (Basic Plan)</td>
+                    <td>$<input type="number" class="needs-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Insurance</td>
+                    <td>$<input type="number" class="needs-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Other Needs:</td>
+                    <td>$<input type="number" class="needs-expense" placeholder="0.00"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total Needs</td>
+                    <td id="needs-total">$0.00</td>
+                </tr>
+                <tr>
+                    <td>Recommended Needs Budget</td>
+                    <td id="needs-recommended">$0.00</td>
+                </tr>
+                <tr>
+                    <td>Difference</td>
+                    <td id="needs-difference">$0.00</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="category-section wants-section">
+            <h2>Wants (30%)</h2>
+            <p>These are non-essential expenses that improve your quality of life.</p>
+            
+            <table>
+                <tr class="budget-category">
+                    <th>Expense</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Entertainment (Streaming Services, Movies)</td>
+                    <td>$<input type="number" class="wants-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Dining Out / Takeout</td>
+                    <td>$<input type="number" class="wants-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Hobbies and Recreation</td>
+                    <td>$<input type="number" class="wants-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Shopping (Non-Essential)</td>
+                    <td>$<input type="number" class="wants-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Vacations / Travel</td>
+                    <td>$<input type="number" class="wants-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Premium Subscriptions</td>
+                    <td>$<input type="number" class="wants-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Gifts</td>
+                    <td>$<input type="number" class="wants-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Other Wants:</td>
+                    <td>$<input type="number" class="wants-expense" placeholder="0.00"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total Wants</td>
+                    <td id="wants-total">$0.00</td>
+                </tr>
+                <tr>
+                    <td>Recommended Wants Budget</td>
+                    <td id="wants-recommended">$0.00</td>
+                </tr>
+                <tr>
+                    <td>Difference</td>
+                    <td id="wants-difference">$0.00</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="category-section savings-section">
+            <h2>Savings/Debt Repayment (20%)</h2>
+            <p>These are funds allocated to build financial security and reduce debt.</p>
+            
+            <table>
+                <tr class="budget-category">
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Emergency Fund</td>
+                    <td>$<input type="number" class="savings-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Retirement Savings</td>
+                    <td>$<input type="number" class="savings-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Additional Debt Payments</td>
+                    <td>$<input type="number" class="savings-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Short-Term Savings Goals</td>
+                    <td>$<input type="number" class="savings-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Long-Term Savings Goals</td>
+                    <td>$<input type="number" class="savings-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Investments</td>
+                    <td>$<input type="number" class="savings-expense" placeholder="0.00"></td>
+                </tr>
+                <tr>
+                    <td>Other Savings:</td>
+                    <td>$<input type="number" class="savings-expense" placeholder="0.00"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total Savings/Debt Repayment</td>
+                    <td id="savings-total">$0.00</td>
+                </tr>
+                <tr>
+                    <td>Recommended Savings Budget</td>
+                    <td id="savings-recommended">$0.00</td>
+                </tr>
+                <tr>
+                    <td>Difference</td>
+                    <td id="savings-difference">$0.00</td>
+                </tr>
+            </table>
+        </div>
+        
+        <h2>Budget Summary</h2>
+        <table>
+            <tr class="budget-category">
+                <th>Category</th>
+                <th>Actual Amount</th>
+                <th>Recommended</th>
+                <th>Actual %</th>
+            </tr>
+            <tr>
+                <td>Needs</td>
+                <td id="needs-actual">$0.00</td>
+                <td>50%</td>
+                <td id="needs-actual-percent">0%</td>
+            </tr>
+            <tr>
+                <td>Wants</td>
+                <td id="wants-actual">$0.00</td>
+                <td>30%</td>
+                <td id="wants-actual-percent">0%</td>
+            </tr>
+            <tr>
+                <td>Savings/Debt</td>
+                <td id="savings-actual">$0.00</td>
+                <td>20%</td>
+                <td id="savings-actual-percent">0%</td>
+            </tr>
+            <tr class="total-row">
+                <td>Total</td>
+                <td id="total-actual">$0.00</td>
+                <td>100%</td>
+                <td id="total-actual-percent">0%</td>
+            </tr>
+        </table>
+        
+        <h2>Reflection Questions</h2>
+        <p>1. How does your budget compare to the 50/30/20 recommendation?</p>
+        <textarea rows="2" style="width: 100%; padding: 8px;"></textarea>
+        
+        <p>2. What adjustments could you make to better align with the 50/30/20 rule?</p>
+        <textarea rows="2" style="width: 100%; padding: 8px;"></textarea>
+        
+        <p>3. What specific financial goals will this budget help you achieve?</p>
+        <textarea rows="2" style="width: 100%; padding: 8px;"></textarea>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy © 2025 | Chapter 1.5: Managing Your Income Effectively</p>
+    </div>
+    
+    <script>
+        // This script enables calculations in the printed worksheet but won't be visible in the PDF
+        document.getElementById('income').addEventListener('input', updateAllocations);
+        
+        document.querySelectorAll('.needs-expense').forEach(item => {
+            item.addEventListener('input', updateNeedsTotal);
+        });
+        
+        document.querySelectorAll('.wants-expense').forEach(item => {
+            item.addEventListener('input', updateWantsTotal);
+        });
+        
+        document.querySelectorAll('.savings-expense').forEach(item => {
+            item.addEventListener('input', updateSavingsTotal);
+        });
+        
+        function updateAllocations() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            
+            const needsAllocation = income * 0.5;
+            const wantsAllocation = income * 0.3;
+            const savingsAllocation = income * 0.2;
+            
+            document.getElementById('needs-allocation').textContent = '$' + needsAllocation.toFixed(2);
+            document.getElementById('wants-allocation').textContent = '$' + wantsAllocation.toFixed(2);
+            document.getElementById('savings-allocation').textContent = '$' + savingsAllocation.toFixed(2);
+            
+            document.getElementById('needs-recommended').textContent = '$' + needsAllocation.toFixed(2);
+            document.getElementById('wants-recommended').textContent = '$' + wantsAllocation.toFixed(2);
+            document.getElementById('savings-recommended').textContent = '$' + savingsAllocation.toFixed(2);
+            
+            updateNeedsTotal();
+            updateWantsTotal();
+            updateSavingsTotal();
+        }
+        
+        function updateNeedsTotal() {
+            let total = 0;
+            document.querySelectorAll('.needs-expense').forEach(item => {
+                total += parseFloat(item.value) || 0;
+            });
+            
+            document.getElementById('needs-total').textContent = '$' + total.toFixed(2);
+            document.getElementById('needs-actual').textContent = '$' + total.toFixed(2);
+            
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const needsRecommended = income * 0.5;
+            const difference = needsRecommended - total;
+            
+            document.getElementById('needs-difference').textContent = '$' + difference.toFixed(2);
+            
+            if (income > 0) {
+                const percent = (total / income) * 100;
+                document.getElementById('needs-actual-percent').textContent = percent.toFixed(1) + '%';
+            }
+            
+            updateTotalSummary();
+        }
+        
+        function updateWantsTotal() {
+            let total = 0;
+            document.querySelectorAll('.wants-expense').forEach(item => {
+                total += parseFloat(item.value) || 0;
+            });
+            
+            document.getElementById('wants-total').textContent = '$' + total.toFixed(2);
+            document.getElementById('wants-actual').textContent = '$' + total.toFixed(2);
+            
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const wantsRecommended = income * 0.3;
+            const difference = wantsRecommended - total;
+            
+            document.getElementById('wants-difference').textContent = '$' + difference.toFixed(2);
+            
+            if (income > 0) {
+                const percent = (total / income) * 100;
+                document.getElementById('wants-actual-percent').textContent = percent.toFixed(1) + '%';
+            }
+            
+            updateTotalSummary();
+        }
+        
+        function updateSavingsTotal() {
+            let total = 0;
+            document.querySelectorAll('.savings-expense').forEach(item => {
+                total += parseFloat(item.value) || 0;
+            });
+            
+            document.getElementById('savings-total').textContent = '$' + total.toFixed(2);
+            document.getElementById('savings-actual').textContent = '$' + total.toFixed(2);
+            
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const savingsRecommended = income * 0.2;
+            const difference = savingsRecommended - total;
+            
+            document.getElementById('savings-difference').textContent = '$' + difference.toFixed(2);
+            
+            if (income > 0) {
+                const percent = (total / income) * 100;
+                document.getElementById('savings-actual-percent').textContent = percent.toFixed(1) + '%';
+            }
+            
+            updateTotalSummary();
+        }
+        
+        function updateTotalSummary() {
+            const needsTotal = parseFloat(document.getElementById('needs-total').textContent.replace('$', '')) || 0;
+            const wantsTotal = parseFloat(document.getElementById('wants-total').textContent.replace('$', '')) || 0;
+            const savingsTotal = parseFloat(document.getElementById('savings-total').textContent.replace('$', '')) || 0;
+            
+            const totalActual = needsTotal + wantsTotal + savingsTotal;
+            document.getElementById('total-actual').textContent = '$' + totalActual.toFixed(2);
+            
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            if (income > 0) {
+                const percent = (totalActual / income) * 100;
+                document.getElementById('total-actual-percent').textContent = percent.toFixed(1) + '%';
+            }
+        }
+    </script>
+</body>
+</html>

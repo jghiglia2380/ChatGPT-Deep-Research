@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Filing Decision Worksheet - Chapter 2.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+            .form-field {
+                border: 1px solid #000;
+                padding: 5px;
+                margin-bottom: 10px;
+                min-height: 20px;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #F3F4F6;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .form-image {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        .form-section {
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .form-field {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            margin-bottom: 15px;
+            min-height: 25px;
+            background-color: white;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #E5E7EB;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .income-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .income-table th {
+            background-color: #EFF6FF;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend portrait orientation)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Tax Filing Decision Worksheet</h1>
+        <p class="subtitle">Chapter 2.3: Understanding Tax Filing Requirements</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>This worksheet helps you determine whether you need to file a federal income tax return based on your personal situation. By working through each section, you'll identify your filing status, income sources, and whether you meet the filing thresholds.</p>
+
+    <div class="important-note">
+        <strong>Important:</strong> This worksheet is based on general tax filing requirements and should be used for educational purposes only. Tax laws and filing thresholds change annually. Always verify current requirements on the official IRS website at <a href="https://www.irs.gov">www.irs.gov</a>.
+    </div>
+
+    <h2>Section 1: Personal Information</h2>
+    <div class="form-section">
+        <div class="form-group">
+            <label><strong>Name:</strong></label>
+            <div class="form-field"></div>
+        </div>
+        <div class="form-group">
+            <label><strong>Tax Year:</strong></label>
+            <div class="form-field"></div>
+        </div>
+        <div class="form-group">
+            <label><strong>Age as of December 31:</strong></label>
+            <div class="form-field"></div>
+        </div>
+        <div class="form-group">
+            <label><strong>Dependency Status:</strong></label>
+            <p>Can someone else claim you as a dependent?</p>
+            <div class="checkbox"></div> Yes
+            <div class="checkbox"></div> No
+            <div class="checkbox"></div> Not Sure
+        </div>
+    </div>
+
+    <h2>Section 2: Filing Status Determination</h2>
+    <div class="form-section">
+        <p><strong>Check the box that best describes your situation as of December 31:</strong></p>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Single:</strong> Unmarried, divorced, or legally separated
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Married:</strong> Legally married and living with spouse
+            <p>If married, do you plan to file:</p>
+            <div class="checkbox"></div> Jointly with your spouse
+            <div class="checkbox"></div> Separately from your spouse
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Head of Household Potential:</strong> Unmarried (or considered unmarried) AND paying more than half the cost of keeping up a home for yourself and a qualifying person
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Qualifying Widow(er) Potential:</strong> Spouse died within the last two years, you haven't remarried, and you have a dependent child
+        </div>
+        
+        <div class="form-group">
+            <label><strong>Based on selections above, my likely filing status is:</strong></label>
+            <div class="form-field"></div>
+        </div>
+    </div>
+
+    <h2>Section 3: Income Sources</h2>
+    <div class="form-section">
+        <p><strong>Check all income sources you had this year and provide estimated amounts:</strong></p>
+        
+        <table class="income-table">
+            <tr>
+                <th>Income Source</th>
+                <th>Check if Applies</th>
+                <th>Estimated Amount</th>
+                <th>Form Typically Received</th>
+            </tr>
+            <tr>
+                <td>Wages/Salary</td>
+                <td><div class="checkbox"></div></td>
+                <td class="form-field"></td>
+                <td>W-2</td>
+            </tr>
+            <tr>
+                <td>Self-Employment Income</td>
+                <td><div class="checkbox"></div></td>
+                <td class="form-field"></td>
+                <td>1099-NEC, 1099-MISC</td>
+            </tr>
+            <tr>
+                <td>Interest Income</td>
+                <td><div class="checkbox"></div></td>
+                <td class="form-field"></td>
+                <td>1099-INT</td>
+            </tr>
+            <tr>
+                <td>Dividend Income</td>
+                <td><div class="checkbox"></div></td>
+                <td class="form-field"></td>
+                <td>1099-DIV</td>
+            </tr>
+            <tr>
+                <td>Unemployment Compensation</td>
+                <td><div class="checkbox"></div></td>
+                <td class="form-field"></td>
+                <td>1099-G</td>
+            </tr>
+            <tr>
+                <td>Social Security Benefits</td>
+                <td><div class="checkbox"></div></td>
+                <td class="form-field"></td>
+                <td>SSA-1099</td>
+            </tr>
+            <tr>
+                <td>Scholarships/Grants</td>
+                <td><div class="checkbox"></div></td>
+                <td class="form-field"></td>
+                <td>1098-T</td>
+            </tr>
+            <tr>
+                <td>Other Income:</td>
+                <td><div class="checkbox"></div></td>
+                <td class="form-field"></td>
+                <td>Varies</td>
+            </tr>
+            <tr>
+                <td>Other Income:</td>
+                <td><div class="checkbox"></div></td>
+                <td class="form-field"></td>
+                <td>Varies</td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Total Estimated Gross Income:</strong></td>
+                <td class="form-field"></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <div class="form-group">
+            <label><strong>Do you have self-employment income of $400 or more?</strong></label>
+            <div class="checkbox"></div> Yes
+            <div class="checkbox"></div> No
+        </div>
+        
+        <div class="important-note">
+            <strong>Note:</strong> If you have self-employment income of $400 or more, you generally must file a tax return regardless of your total income.
+        </div>
+    </div>
+
+    <h2>Section 4: Filing Requirement Analysis</h2>
+    <div class="form-section">
+        <p><strong>Step 1:</strong> Enter the minimum filing threshold for your filing status and age:</p>
+        <div class="form-field"></div>
+        <p><em>(e.g., For 2024, Single under 65: $14,600; Married Filing Jointly both under 65: $29,200; etc.)</em></p>
+        
+        <p><strong>Step 2:</strong> Compare your Total Estimated Gross Income to the filing threshold:</p>
+        <div class="form-group">
+            <div class="checkbox"></div> My income is <strong>BELOW</strong> the filing threshold
+            <div class="checkbox"></div> My income is <strong>ABOVE</strong> the filing threshold
+        </div>
+        
+        <p><strong>Step 3:</strong> Check if any special situations apply:</p>
+        <div class="form-group">
+            <div class="checkbox"></div> I have self-employment income of $400 or more
+            <div class="checkbox"></div> I owe special taxes (alternative minimum tax, household employment taxes, etc.)
+            <div class="checkbox"></div> I received advance payments of premium tax credit
+            <div class="checkbox"></div> I have taxable scholarships/fellowships not reported on W-2
+        </div>
+        
+        <div class="form-group">
+            <label><strong>Based on the analysis above, do you need to file a federal tax return?</strong></label>
+            <div class="checkbox"></div> Yes, I am required to file
+            <div class="checkbox"></div> No, I am not required to file
+            <div class="checkbox"></div> Not required, but I should file to claim refunds or credits
+        </div>
+    </div>
+
+    <h2>Section 5: Reasons to File Even If Not Required</h2>
+    <div class="form-section">
+        <p>Check if any of these situations apply to you:</p>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Federal income tax was withheld from my pay</strong>
+            <p>You may be entitled to a refund of this withheld tax.</p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>You made estimated tax payments or had last year's refund applied to this year's taxes</strong>
+            <p>You should file to receive any excess payments back as a refund.</p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>You qualify for the Earned Income Tax Credit</strong>
+            <p>This is a refundable credit for low to moderate-income workers.</p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>You qualify for the Additional Child Tax Credit</strong>
+            <p>This refundable credit may be available if you have qualifying children.</p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>You qualify for the American Opportunity Education Credit</strong>
+            <p>This partially refundable credit is for eligible education expenses.</p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>You qualify for the Premium Tax Credit</strong>
+            <p>This credit helps eligible individuals and families cover the premiums for health insurance purchased through the Health Insurance Marketplace.</p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>You want to start the statute of limitations for a tax audit</strong>
+            <p>The IRS generally has three years from the filing date to audit your return.</p>
+        </div>
+        
+        <div class="form-group">
+            <label><strong>Based on checking the boxes above, should you file even if not required?</strong></label>
+            <div class="checkbox"></div> Yes, I should file to claim refunds or credits
+            <div class="checkbox"></div> No, I don't need to file
+        </div>
+    </div>
+
+    <h2>Section 6: Forms You May Need</h2>
+    <div class="form-section">
+        <p>Based on your situation, check the forms you may need to prepare your tax return:</p>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Form 1040</strong> - U.S. Individual Income Tax Return (required for all filers)
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Schedule 1</strong> - Additional Income and Adjustments to Income
+            <p><em>For reporting business income, unemployment compensation, student loan interest deduction, etc.</em></p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Schedule C</strong> - Profit or Loss From Business
+            <p><em>For reporting self-employment income and expenses</em></p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Schedule EIC</strong> - Earned Income Credit
+            <p><em>For claiming the Earned Income Credit with a qualifying child</em></p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Schedule SE</strong> - Self-Employment Tax
+            <p><em>For calculating self-employment tax if you have self-employment income</em></p>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox"></div> <strong>Form 8863</strong> - Education Credits
+            <p><em>For claiming education credits like the American Opportunity Credit and Lifetime Learning Credit</em></p>
+        </div>
+        
+        <div class="form-group">
+            <label><strong>Other forms you may need:</strong></label>
+            <div class="form-field"></div>
+        </div>
+    </div>
+
+    <h2>Section 7: Action Plan</h2>
+    <div class="form-section">
+        <p><strong>Based on your answers above, what is your plan for tax filing this year?</strong></p>
+        <div class="form-field" style="min-height: 100px;"></div>
+        
+        <p><strong>What documents do you need to collect?</strong></p>
+        <div class="form-field" style="min-height: 100px;"></div>
+        
+        <p><strong>Questions you still have about your tax filing requirements:</strong></p>
+        <div class="form-field" style="min-height: 100px;"></div>
+        
+        <div class="form-group">
+            <label><strong>Planned filing method:</strong></label>
+            <div class="checkbox"></div> File myself using tax software
+            <div class="checkbox"></div> File myself on paper forms
+            <div class="checkbox"></div> Use a tax professional
+            <div class="checkbox"></div> Use free filing assistance (VITA/TCE programs)
+            <div class="checkbox"></div> Other: <div class="form-field" style="display: inline-block; width: 60%; min-height: 20px;"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Chapter 2.3: Understanding Tax Filing Requirements</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not tax advice.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 8.1: Credit Card Use and Management - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-objectives:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            border-bottom: 1px dotted #4f46e5;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #24262d;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.75rem;
+        }
+        
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #24262d transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .cc-scenario {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .scenario-feedback {
+            background-color: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+            display: none;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition" id="help-button">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 8: Credit Cards</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding and responsibly using credit cards and other electronic payment options.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 8.1: Credit Card Use and Management
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Credit Card Interest Calculator
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Decision-Making Scenarios
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Credit Card Management Plan
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Future chapters without checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 8.2: Online Shopping
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 8.1: Credit Card Use and Management</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Applying concepts through interactive activities</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Understand key credit card terminology including APR, minimum payment, and grace period</li>
+                            <li>Compare different credit card features and determine which best match personal spending habits</li>
+                            <li>Calculate the true cost of carrying a credit card balance</li>
+                            <li>Analyze real-world examples of responsible and irresponsible credit card usage</li>
+                            <li>Develop strategies for responsible credit card management</li>
+                            <li>Create a personal credit card management plan</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Credit Card Learning Lab! Today, we'll build on what we learned about credit cards by exploring real-world scenarios, calculating interest costs, and developing personal credit card usage plans. Through interactive stations, you'll gain practical experience in making responsible credit card decisions and creating effective management strategies.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                This learning lab focuses on applying credit card knowledge to realistic situations. The calculations and scenarios are designed to demonstrate how credit cards work in practice, but actual credit card terms and conditions will vary. Always read the fine print carefully when considering real credit card applications.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, we explored key credit card terminology, different types of credit cards, and the importance of responsible credit card use. Today, we'll apply that knowledge through interactive activities that will help you understand the true cost of carrying a balance, make informed decisions about credit card usage, and develop your own credit card management strategy.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Credit Card Use and Management</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/8.1 - Credit Card Use and Management.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Credit card features, interest calculations, grace periods, responsible use strategies, and common pitfalls to avoid.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Station 1: Credit Card Interest Calculator -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 1: Credit Card Interest Calculator</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>This interactive calculator will help you understand the true cost of carrying a credit card balance. Input different scenarios to see how interest rates, payment amounts, and time frames interact.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1" for="balance">Starting Balance ($)</label>
+                                        <input type="number" id="balance" class="w-full p-2 border border-gray-300 rounded-md" value="1500" min="100" max="20000">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1" for="apr">
+                                            Annual Percentage Rate (APR %)
+                                            <span class="tooltip">ⓘ
+                                                <span class="tooltiptext">The yearly interest rate charged on a credit card balance.</span>
+                                            </span>
+                                        </label>
+                                        <input type="number" id="apr" class="w-full p-2 border border-gray-300 rounded-md" value="18" min="0" max="30" step="0.1">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1" for="payment">
+                                            Monthly Payment ($)
+                                            <span class="tooltip">ⓘ
+                                                <span class="tooltiptext">The amount you'll pay each month. Must be greater than the minimum payment.</span>
+                                            </span>
+                                        </label>
+                                        <input type="number" id="payment" class="w-full p-2 border border-gray-300 rounded-md" value="50" min="10">
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between items-center mb-4">
+                                    <button class="pfl-button" id="calculate-btn">Calculate</button>
+                                    <div class="text-sm text-gray-500">
+                                        <span>Minimum payment: $<span id="min-payment">45</span></span>
+                                    </div>
+                                </div>
+                                
+                                <div id="calculator-error" class="text-red-600 text-sm mb-4 hidden"></div>
+                                
+                                <div id="calculation-results" class="hidden">
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-indigo-50 p-3 rounded-lg mb-4">
+                                        <div>
+                                            <p class="text-sm text-gray-500">Time to pay off</p>
+                                            <p class="text-xl font-bold text-indigo-800"><span id="months-to-payoff">0</span> months</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-500">Total interest paid</p>
+                                            <p class="text-xl font-bold text-indigo-800">$<span id="total-interest">0</span></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-500">Total amount paid</p>
+                                            <p class="text-xl font-bold text-indigo-800">$<span id="total-paid">0</span></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="h-60 mb-4">
+                                        <canvas id="payment-chart"></canvas>
+                                    </div>
+                                    
+                                    <div class="p-3 bg-blue-50 rounded-lg">
+                                        <p class="text-sm text-blue-800"><strong>Try this:</strong> Increase your monthly payment and see how it affects the time to pay off the balance and the total interest paid.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-lg font-semibold mt-4">Scenario Examples</h3>
+                            <p>Try these common scenarios to see real-world impacts:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-2">
+                                <button class="border border-gray-300 rounded-md p-2 text-sm hover:bg-gray-50" onclick="loadScenario(1500, 15, 75)">
+                                    $1,500 at 15% APR with $75 monthly payment
+                                </button>
+                                <button class="border border-gray-300 rounded-md p-2 text-sm hover:bg-gray-50" onclick="loadScenario(3000, 20, 250)">
+                                    $3,000 at 20% APR with $250 monthly payment
+                                </button>
+                                <button class="border border-gray-300 rounded-md p-2 text-sm hover:bg-gray-50" onclick="loadScenario(5000, 18, 100)">
+                                    $5,000 at 18% APR with $100 monthly payment
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center mt-4" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 2: Credit Card Decision-Making Scenarios -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Credit Card Decision-Making Scenarios</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>Apply your knowledge to real-life situations and decide how to handle credit card decisions responsibly. Read each scenario carefully, select the best option, and explain your reasoning.</p>
+                            
+                            <!-- Scenario 1 -->
+                            <div class="cc-scenario mt-4" id="scenario-1">
+                                <h3 class="font-semibold text-gray-900">Scenario 1: The Store Credit Card Offer</h3>
+                                <p class="mb-2">You're buying a new laptop that costs $800. At checkout, the cashier offers you a store credit card with 15% off your purchase today if you open an account. The card has a 24.99% APR and no annual fee.</p>
+                                
+                                <div class="ml-4 mt-3">
+                                    <div class="flex items-start mb-2">
+                                        <input type="radio" name="scenario1-option" id="s1-option1" value="1" class="mt-1 mr-2">
+                                        <label for="s1-option1" class="text-sm">Accept the offer to save $120 on your purchase, and then close the card once you've paid off the balance.</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="radio" name="scenario1-option" id="s1-option2" value="2" class="mt-1 mr-2">
+                                        <label for="s1-option2" class="text-sm">Accept the offer to save $120, but keep the card for future purchases at this store.</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="radio" name="scenario1-option" id="s1-option3" value="3" class="mt-1 mr-2">
+                                        <label for="s1-option3" class="text-sm">Decline the offer and use a credit card you already have with a lower APR.</label>
+                                    </div>
+                                    <div class="flex items-start mb-4">
+                                        <input type="radio" name="scenario1-option" id="s1-option4" value="4" class="mt-1 mr-2">
+                                        <label for="s1-option4" class="text-sm">Ask for more information about the card's terms and conditions before deciding.</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Explain your reasoning:</label>
+                                    <textarea id="scenario1-explanation" class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                                </div>
+                                
+                                <button class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-md text-sm" onclick="evaluateScenario(1)">Submit</button>
+                                
+                                <div class="scenario-feedback" id="scenario1-feedback"></div>
+                            </div>
+                            
+                            <!-- Scenario 2 -->
+                            <div class="cc-scenario mt-4" id="scenario-2">
+                                <h3 class="font-semibold text-gray-900">Scenario 2: The Credit Limit Dilemma</h3>
+                                <p class="mb-2">You have a credit card with a $2,500 limit. Your current balance is $2,000. You want to make a $600 purchase for concert tickets that just became available and won't be available for long.</p>
+                                
+                                <div class="ml-4 mt-3">
+                                    <div class="flex items-start mb-2">
+                                        <input type="radio" name="scenario2-option" id="s2-option1" value="1" class="mt-1 mr-2">
+                                        <label for="s2-option1" class="text-sm">Use the credit card anyway, because going over your limit will just result in a one-time fee.</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="radio" name="scenario2-option" id="s2-option2" value="2" class="mt-1 mr-2">
+                                        <label for="s2-option2" class="text-sm">Call the credit card company and request a credit limit increase before making the purchase.</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="radio" name="scenario2-option" id="s2-option3" value="3" class="mt-1 mr-2">
+                                        <label for="s2-option3" class="text-sm">Make a payment on your current balance first, then make the purchase once the payment clears.</label>
+                                    </div>
+                                    <div class="flex items-start mb-4">
+                                        <input type="radio" name="scenario2-option" id="s2-option4" value="4" class="mt-1 mr-2">
+                                        <label for="s2-option4" class="text-sm">Find another way to pay for the tickets or wait until you have enough money saved.</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Explain your reasoning:</label>
+                                    <textarea id="scenario2-explanation" class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                                </div>
+                                
+                                <button class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-md text-sm" onclick="evaluateScenario(2)">Submit</button>
+                                
+                                <div class="scenario-feedback" id="scenario2-feedback"></div>
+                            </div>
+                            
+                            <!-- Scenario 3 -->
+                            <div class="cc-scenario mt-4" id="scenario-3">
+                                <h3 class="font-semibold text-gray-900">Scenario 3: Credit Card Selection</h3>
+                                <p class="mb-2">You're considering applying for your first credit card. You have good credit from paying student loans consistently. These three options are available to you:</p>
+                                
+                                <ul class="list-disc list-inside mb-3 text-sm">
+                                    <li><strong>Card A:</strong> 0% APR for 18 months, then 18% APR. No rewards. $0 annual fee.</li>
+                                    <li><strong>Card B:</strong> 16% APR. 2% cash back on all purchases. $95 annual fee.</li>
+                                    <li><strong>Card C:</strong> 22% APR. 5% cash back on categories that rotate quarterly (gas, groceries, restaurants, etc.). $0 annual fee.</li>
+                                </ul>
+                                
+                                <div class="ml-4 mt-3">
+                                    <div class="flex items-start mb-2">
+                                        <input type="radio" name="scenario3-option" id="s3-option1" value="1" class="mt-1 mr-2">
+                                        <label for="s3-option1" class="text-sm">Card A - The 0% intro APR card</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="radio" name="scenario3-option" id="s3-option2" value="2" class="mt-1 mr-2">
+                                        <label for="s3-option2" class="text-sm">Card B - The flat 2% cash back card with annual fee</label>
+                                    </div>
+                                    <div class="flex items-start mb-4">
+                                        <input type="radio" name="scenario3-option" id="s3-option3" value="3" class="mt-1 mr-2">
+                                        <label for="s3-option3" class="text-sm">Card C - The 5% rotating categories card</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Explain your reasoning and how your typical spending habits influenced your decision:</label>
+                                    <textarea id="scenario3-explanation" class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                                </div>
+                                
+                                <button class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-md text-sm" onclick="evaluateScenario(3)">Submit</button>
+                                
+                                <div class="scenario-feedback" id="scenario3-feedback"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center mt-4" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Station 3: Credit Card Management Plan -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: My Credit Card Management Plan</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>Now it's time to create your personal credit card management plan. This plan will help you use credit cards responsibly and avoid common pitfalls. Use what you've learned to develop strategies that work for your situation.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                                <h3 class="font-semibold text-gray-900 mb-3">My Credit Card Management Plan</h3>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Credit Card Selection Criteria</label>
+                                    <p class="text-xs text-gray-500 mb-2">What factors are most important to you when selecting a credit card?</p>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="criteria-apr" class="mr-2">
+                                            <label for="criteria-apr" class="text-sm">Low APR</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="criteria-rewards" class="mr-2">
+                                            <label for="criteria-rewards" class="text-sm">Rewards</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="criteria-nofee" class="mr-2">
+                                            <label for="criteria-nofee" class="text-sm">No Annual Fee</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="criteria-limit" class="mr-2">
+                                            <label for="criteria-limit" class="text-sm">Credit Limit</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="criteria-insurance" class="mr-2">
+                                            <label for="criteria-insurance" class="text-sm">Insurance Benefits</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="criteria-foreign" class="mr-2">
+                                            <label for="criteria-foreign" class="text-sm">No Foreign Fees</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="criteria-introapr" class="mr-2">
+                                            <label for="criteria-introapr" class="text-sm">Intro 0% APR</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="criteria-other" class="mr-2">
+                                            <label for="criteria-other" class="text-sm">Other</label>
+                                        </div>
+                                    </div>
+                                    <textarea id="selection-criteria" class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain your top priorities when selecting a credit card..."></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Spending Tracking Method</label>
+                                    <p class="text-xs text-gray-500 mb-2">How will you track your credit card spending to stay within budget?</p>
+                                    <select id="tracking-method" class="w-full p-2 border border-gray-300 rounded-md mb-2">
+                                        <option value="">-- Select a primary method --</option>
+                                        <option value="banking-app">Banking app alerts</option>
+                                        <option value="spreadsheet">Personal spreadsheet</option>
+                                        <option value="budgeting-app">Budgeting app</option>
+                                        <option value="statement-review">Weekly statement review</option>
+                                        <option value="receipt-tracking">Keep all receipts</option>
+                                        <option value="other">Other method</option>
+                                    </select>
+                                    <textarea id="tracking-details" class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Describe your spending tracking plan in detail..."></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Payment Strategy</label>
+                                    <p class="text-xs text-gray-500 mb-2">How will you ensure timely payments and manage your balance?</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
+                                        <div>
+                                            <label class="block text-sm mb-1">Payment Frequency:</label>
+                                            <select id="payment-frequency" class="w-full p-2 border border-gray-300 rounded-md">
+                                                <option value="full-each-month">Pay full balance each month</option>
+                                                <option value="multiple-payments">Make multiple payments each month</option>
+                                                <option value="minimum-plus">Pay minimum plus fixed amount</option>
+                                                <option value="auto-payment">Set up automatic payments</option>
+                                                <option value="other-payment">Other approach</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm mb-1">Utilization Target:</label>
+                                            <select id="utilization-target" class="w-full p-2 border border-gray-300 rounded-md">
+                                                <option value="below-10">Keep utilization below 10%</option>
+                                                <option value="below-30">Keep utilization below 30%</option>
+                                                <option value="below-50">Keep utilization below 50%</option>
+                                                <option value="below-limit">Just stay below the limit</option>
+                                                <option value="other-utilization">Other strategy</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <textarea id="payment-details" class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Explain your full payment strategy and how you'll avoid interest charges..."></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Pitfall Avoidance Techniques</label>
+                                    <p class="text-xs text-gray-500 mb-2">How will you avoid common credit card pitfalls?</p>
+                                    <div class="space-y-2 mb-2">
+                                        <div class="flex items-start">
+                                            <input type="checkbox" id="pitfall-impulse" class="mt-1 mr-2">
+                                            <label for="pitfall-impulse" class="text-sm">Impulse purchases</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="checkbox" id="pitfall-rewards" class="mt-1 mr-2">
+                                            <label for="pitfall-rewards" class="text-sm">Spending to earn rewards</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="checkbox" id="pitfall-emergencies" class="mt-1 mr-2">
+                                            <label for="pitfall-emergencies" class="text-sm">Using credit for emergencies without a plan</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="checkbox" id="pitfall-minimum" class="mt-1 mr-2">
+                                            <label for="pitfall-minimum" class="text-sm">Only making minimum payments</label>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <input type="checkbox" id="pitfall-multiple" class="mt-1 mr-2">
+                                            <label for="pitfall-multiple" class="text-sm">Managing multiple cards ineffectively</label>
+                                        </div>
+                                    </div>
+                                    <textarea id="pitfall-details" class="w-full p-2 border border-gray-300 rounded-md" rows="2" placeholder="Describe your strategies for avoiding these and other credit card pitfalls..."></textarea>
+                                </div>
+                                
+                                <button id="preview-plan" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md mr-2">Preview Plan</button>
+                                <button id="reset-plan" class="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-md">Reset</button>
+                                
+                                <div id="plan-preview" class="mt-4 p-4 bg-white border border-gray-300 rounded-lg hidden">
+                                    <h4 class="font-semibold text-center text-lg mb-3 text-indigo-800">My Credit Card Management Plan</h4>
+                                    <div class="mb-3">
+                                        <h5 class="font-semibold">Card Selection Criteria:</h5>
+                                        <p id="preview-criteria" class="text-sm"></p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h5 class="font-semibold">Spending Tracking Method:</h5>
+                                        <p id="preview-tracking" class="text-sm"></p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h5 class="font-semibold">Payment Strategy:</h5>
+                                        <p id="preview-payment" class="text-sm"></p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h5 class="font-semibold">Pitfall Avoidance Techniques:</h5>
+                                        <p id="preview-pitfalls" class="text-sm"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center mt-4" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">
+                            Now you'll integrate what you've learned about credit cards into your financial portfolio. This will help you apply responsible credit card management to your overall financial strategy.
+                        </p>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">How Credit Cards Fit Into My Financial Strategy</h3>
+                            
+                            <p class="text-sm text-gray-600 mb-3">Based on the activities you've completed, explain how credit cards will fit into your broader financial strategy:</p>
+                            
+                            <textarea id="portfolio-summary" class="w-full p-3 border border-gray-300 rounded-md mb-3" rows="4" placeholder="I will use credit cards as a tool for..."></textarea>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Credit cards will primarily serve as:</label>
+                                <select id="cc-purpose" class="w-full p-2 border border-gray-300 rounded-md">
+                                    <option value="">-- Select primary purpose --</option>
+                                    <option value="convenience">A payment convenience</option>
+                                    <option value="emergency">Emergency backup funding</option>
+                                    <option value="rewards">A way to earn rewards/cashback</option>
+                                    <option value="building">A credit-building tool</option>
+                                    <option value="limit">I plan to avoid credit cards</option>
+                                    <option value="other">Other purpose</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">This credit card strategy connects to my other financial goals by:</label>
+                                <textarea id="goals-connection" class="w-full p-2 border border-gray-300 rounded-md" rows="3" placeholder="Explain how your credit card strategy connects to other financial goals like saving, investing, or debt management..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button mt-2" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Based on everything you've learned and the activities you've completed, reflect on how your understanding of credit cards has changed and how you plan to approach credit card use in the future.
+                        </p>
+                        
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="4" placeholder="My understanding of credit cards has changed in these ways..." data-ai-check="true" data-assessment-weight="3"></textarea>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+    
+    <!-- Help Modal -->
+    <div id="help-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Need Help?</h3>
+                <button id="close-help" class="text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="text-gray-700 mb-4">
+                <p class="mb-2"><strong>Credit Card Interest Calculator:</strong> Try different scenarios to see how interest accumulates. Higher monthly payments and lower APRs will reduce the total interest paid.</p>
+                <p class="mb-2"><strong>Decision-Making Scenarios:</strong> Consider the full impact of each option, including long-term effects on your credit score and financial health.</p>
+                <p class="mb-2"><strong>Credit Card Management Plan:</strong> Be honest about your spending habits and create a plan you can realistically follow.</p>
+            </div>
+            <div class="bg-blue-50 p-3 rounded-md text-sm text-blue-800">
+                <p><strong>Credit Card Terms Explained:</strong></p>
+                <ul class="list-disc list-inside space-y-1 mt-1">
+                    <li><strong>APR</strong>: Annual Percentage Rate - the yearly interest rate</li>
+                    <li><strong>Grace Period</strong>: Time to pay in full without interest charges</li>
+                    <li><strong>Utilization</strong>: Percentage of your credit limit being used</li>
+                    <li><strong>Minimum Payment</strong>: Smallest amount you must pay monthly</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 3) {
+                // If this was the last station, scroll to portfolio integration
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Credit Card Interest Calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculate-btn');
+            let paymentChart = null;
+            
+            calculateBtn.addEventListener('click', function() {
+                calculateInterest();
+            });
+            
+            function calculateInterest() {
+                const balance = parseFloat(document.getElementById('balance').value);
+                const apr = parseFloat(document.getElementById('apr').value);
+                const payment = parseFloat(document.getElementById('payment').value);
+                
+                const errorElement = document.getElementById('calculator-error');
+                errorElement.classList.add('hidden');
+                
+                // Calculate minimum payment (typically 3% of balance or $25, whichever is higher)
+                const minPayment = Math.max(balance * 0.03, 25).toFixed(2);
+                document.getElementById('min-payment').textContent = minPayment;
+                
+                // Validate inputs
+                if (isNaN(balance) || balance <= 0 || isNaN(apr) || apr < 0 || isNaN(payment) || payment <= 0) {
+                    errorElement.textContent = "Please enter valid values for all fields.";
+                    errorElement.classList.remove('hidden');
+                    document.getElementById('calculation-results').classList.add('hidden');
+                    return;
+                }
+                
+                if (payment < parseFloat(minPayment)) {
+                    errorElement.textContent = "Monthly payment must be at least the minimum payment of $" + minPayment;
+                    errorElement.classList.remove('hidden');
+                    document.getElementById('calculation-results').classList.add('hidden');
+                    return;
+                }
+                
+                // Calculate results
+                const monthlyRate = apr / 100 / 12;
+                let remainingBalance = balance;
+                let months = 0;
+                let totalInterest = 0;
+                
+                const balanceData = [balance];
+                const interestData = [0];
+                
+                while (remainingBalance > 0 && months < 600) {  // Cap at 50 years
+                    months++;
+                    const interestThisMonth = remainingBalance * monthlyRate;
+                    totalInterest += interestThisMonth;
+                    
+                    if (payment >= remainingBalance + interestThisMonth) {
+                        // Last payment might be smaller
+                        remainingBalance = 0;
+                    } else {
+                        remainingBalance = remainingBalance + interestThisMonth - payment;
+                    }
+                    
+                    balanceData.push(remainingBalance);
+                    interestData.push(totalInterest);
+                }
+                
+                // Display results
+                document.getElementById('months-to-payoff').textContent = months;
+                document.getElementById('total-interest').textContent = totalInterest.toFixed(2);
+                document.getElementById('total-paid').textContent = (balance + totalInterest).toFixed(2);
+                document.getElementById('calculation-results').classList.remove('hidden');
+                
+                // Create chart
+                const ctx = document.getElementById('payment-chart').getContext('2d');
+                
+                // Destroy existing chart if it exists
+                if (paymentChart) {
+                    paymentChart.destroy();
+                }
+                
+                // Create labels for months (0 to months)
+                const labels = Array.from({ length: months + 1 }, (_, i) => i);
+                
+                paymentChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'Remaining Balance',
+                                data: balanceData.slice(0, months + 1),
+                                borderColor: 'rgb(79, 70, 229)',
+                                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                                fill: true,
+                                tension: 0.1
+                            },
+                            {
+                                label: 'Total Interest Paid',
+                                data: interestData.slice(0, months + 1),
+                                borderColor: 'rgb(239, 68, 68)',
+                                backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                                fill: true,
+                                tension: 0.1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Months'
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Amount ($)'
+                                },
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Load scenario function
+            window.loadScenario = function(balance, apr, payment) {
+                document.getElementById('balance').value = balance;
+                document.getElementById('apr').value = apr;
+                document.getElementById('payment').value = payment;
+                calculateInterest();
+            };
+            
+            // Initial calculation
+            calculateInterest();
+        });
+        
+        // Decision-Making Scenarios
+        function evaluateScenario(scenarioNumber) {
+            const selectedOption = document.querySelector(`input[name="scenario${scenarioNumber}-option"]:checked`);
+            const explanation = document.getElementById(`scenario${scenarioNumber}-explanation`).value;
+            const feedbackContainer = document.getElementById(`scenario${scenarioNumber}-feedback`);
+            
+            if (!selectedOption || explanation.trim() === '') {
+                alert("Please select an option and provide your reasoning.");
+                return;
+            }
+            
+            let feedback = "";
+            
+            if (scenarioNumber === 1) {
+                // Scenario 1 feedback
+                const option = selectedOption.value;
+                
+                if (option === "4") {
+                    feedback = "<strong>Excellent choice!</strong> Asking for more information about the card's terms and conditions is the most responsible approach. The 15% discount is tempting, but you need to understand the full picture before deciding if the 24.99% APR makes sense for your situation.";
+                } else if (option === "3") {
+                    feedback = "<strong>Good thinking!</strong> Using a card you already have with a lower APR is financially smart, especially if you might carry a balance. However, asking for more information before deciding would be the most thorough approach.";
+                } else if (option === "1") {
+                    feedback = "This approach saves money upfront, but be careful. Closing cards shortly after opening them can negatively impact your credit score. Additionally, if you don't pay off the balance immediately, the high 24.99% APR could quickly exceed your savings.";
+                } else {
+                    feedback = "While the discount is immediate, keeping a card with a 24.99% APR for future purchases could be costly if you ever carry a balance. Also, having multiple store cards can complicate your finances and potentially impact your credit score.";
+                }
+            } else if (scenarioNumber === 2) {
+                // Scenario 2 feedback
+                const option = selectedOption.value;
+                
+                if (option === "3") {
+                    feedback = "<strong>Excellent choice!</strong> Making a payment first is the most responsible approach. This keeps you within your limit, protects your credit score, and demonstrates good financial management skills.";
+                } else if (option === "4") {
+                    feedback = "<strong>Good thinking!</strong> Finding another way to pay or waiting shows financial discipline. While you might miss the concert, you're avoiding potential financial problems and demonstrating good credit management.";
+                } else if (option === "2") {
+                    feedback = "Requesting a limit increase might work, but isn't guaranteed, especially on short notice. Additionally, if approved, it could encourage spending more than you can afford to repay.";
+                } else {
+                    feedback = "Going over your limit can lead to over-limit fees, potential APR increases, and damage to your credit score. This approach demonstrates poor credit management and could have lasting financial consequences.";
+                }
+            } else if (scenarioNumber === 3) {
+                // Scenario 3 feedback
+                const option = selectedOption.value;
+                
+                feedback = "There's no single correct answer for this scenario. Your choice depends on your personal spending habits and financial goals. Here's an analysis of your selection:<br><br>";
+                
+                if (option === "1") {
+                    feedback += "Card A is excellent if you're planning a large purchase that you'll need time to pay off. The 0% APR for 18 months gives you breathing room to pay without interest. However, after 18 months, the 18% APR kicks in, and there are no ongoing rewards for everyday spending.";
+                } else if (option === "2") {
+                    feedback += "Card B offers consistent 2% cash back on all purchases, which is valuable if you use your card regularly. The $95 annual fee means you'd need to spend at least $4,750 annually ($395/month) to break even compared to a no-fee card with no rewards. This card makes sense for moderate to high spenders who value simplicity.";
+                } else {
+                    feedback += "Card C offers impressive 5% cash back in rotating categories, which can be very valuable if your spending aligns with these categories. With no annual fee, any rewards earned are pure savings. However, you'll need to keep track of which categories are active each quarter and adjust your spending accordingly to maximize benefits.";
+                }
+                
+                feedback += "<br><br>Your explanation demonstrates good thinking about how this card fits your personal financial situation.";
+            }
+            
+            feedbackContainer.innerHTML = feedback;
+            feedbackContainer.style.display = "block";
+        }
+        
+        // My Credit Card Management Plan
+        document.addEventListener('DOMContentLoaded', function() {
+            const previewBtn = document.getElementById('preview-plan');
+            const resetBtn = document.getElementById('reset-plan');
+            
+            previewBtn.addEventListener('click', function() {
+                const planPreview = document.getElementById('plan-preview');
+                
+                // Criteria
+                let criteriaText = "";
+                const criteriaChecks = document.querySelectorAll('input[id^="criteria-"]:checked');
+                criteriaChecks.forEach(check => {
+                    criteriaText += check.nextElementSibling.textContent + ", ";
+                });
+                criteriaText = criteriaText.slice(0, -2);
+                
+                if (document.getElementById('selection-criteria').value) {
+                    criteriaText += "<br>" + document.getElementById('selection-criteria').value;
+                }
+                
+                // Tracking
+                let trackingText = "";
+                const trackingMethod = document.getElementById('tracking-method');
+                if (trackingMethod.value) {
+                    trackingText += trackingMethod.options[trackingMethod.selectedIndex].text + "<br>";
+                }
+                if (document.getElementById('tracking-details').value) {
+                    trackingText += document.getElementById('tracking-details').value;
+                }
+                
+                // Payment
+                let paymentText = "";
+                const paymentFreq = document.getElementById('payment-frequency');
+                const utilization = document.getElementById('utilization-target');
+                
+                if (paymentFreq.value) {
+                    paymentText += "Payment approach: " + paymentFreq.options[paymentFreq.selectedIndex].text + "<br>";
+                }
+                if (utilization.value) {
+                    paymentText += "Credit utilization goal: " + utilization.options[utilization.selectedIndex].text + "<br>";
+                }
+                if (document.getElementById('payment-details').value) {
+                    paymentText += document.getElementById('payment-details').value;
+                }
+                
+                // Pitfalls
+                let pitfallText = "Avoiding: ";
+                const pitfallChecks = document.querySelectorAll('input[id^="pitfall-"]:checked');
+                pitfallChecks.forEach(check => {
+                    pitfallText += check.nextElementSibling.textContent + ", ";
+                });
+                pitfallText = pitfallText.slice(0, -2);
+                
+                if (document.getElementById('pitfall-details').value) {
+                    pitfallText += "<br>" + document.getElementById('pitfall-details').value;
+                }
+                
+                // Set preview content
+                document.getElementById('preview-criteria').innerHTML = criteriaText || "Not specified";
+                document.getElementById('preview-tracking').innerHTML = trackingText || "Not specified";
+                document.getElementById('preview-payment').innerHTML = paymentText || "Not specified";
+                document.getElementById('preview-pitfalls').innerHTML = pitfallText || "Not specified";
+                
+                planPreview.classList.remove('hidden');
+            });
+            
+            resetBtn.addEventListener('click', function() {
+                // Reset all form fields
+                document.querySelectorAll('input[type="checkbox"]').forEach(check => {
+                    check.checked = false;
+                });
+                document.querySelectorAll('select').forEach(select => {
+                    select.selectedIndex = 0;
+                });
+                document.querySelectorAll('textarea').forEach(textarea => {
+                    if (textarea.id.includes('scenario') || textarea.id === 'portfolio-summary' || 
+                        textarea.id === 'goals-connection' || textarea.hasAttribute('data-ai-check')) {
+                        // Skip certain textareas
+                        return;
+                    }
+                    textarea.value = '';
+                });
+                
+                document.getElementById('plan-preview').classList.add('hidden');
+            });
+        });
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionText = document.querySelector('textarea[data-ai-check="true"]').value;
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            if (reflectionText.length < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider expanding on your thoughts about credit cards and connecting them to the concepts learned in this chapter, such as interest calculations and responsible management strategies.";
+            } else if (reflectionText.length < 100) {
+                aiFeedback.textContent = "Good start! Your reflection touches on some key points, but try to provide more specific examples of how you'll apply credit card management concepts in your own financial decisions.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection! You've demonstrated a strong understanding of credit card concepts and how they apply to real-world situations. Your personal insights show thoughtful consideration of responsible credit management strategies.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Help modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const helpButton = document.getElementById('help-button');
+            const helpModal = document.getElementById('help-modal');
+            const closeHelp = document.getElementById('close-help');
+            
+            helpButton.addEventListener('click', function() {
+                helpModal.classList.remove('hidden');
+            });
+            
+            closeHelp.addEventListener('click', function() {
+                helpModal.classList.add('hidden');
+            });
+            
+            // Close modal when clicking outside
+            helpModal.addEventListener('click', function(e) {
+                if (e.target === helpModal) {
+                    helpModal.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>

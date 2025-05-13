@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accountability System Designer - Chapter 1.4: Financial Goal Setting</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Specific styles for this worksheet */
+        .section {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .info-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        
+        .tips-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        
+        .input-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        input[type="text"], textarea, select {
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        
+        textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .review-table td:first-child {
+            font-weight: bold;
+            width: 40%;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            .section { page-break-inside: avoid; }
+            input[type="text"], textarea, select {
+                border: 1px solid #ddd;
+            }
+            .checkbox-group {
+                display: block;
+            }
+            .checkbox-item {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>To save as PDF:</strong> Open this page in Chrome, Edge, or Firefox. Click on Print (Ctrl+P or Cmd+P), 
+        then select "Save as PDF" as the destination. Click "Save" and choose where to save the file on your computer.</p>
+    </div>
+    
+    <div class="header">
+        <h1>Accountability System Designer</h1>
+        <p><strong>Chapter 1.4:</strong> Financial Goal Setting</p>
+    </div>
+    
+    <div class="intro">
+        <p>This worksheet will help you design a personalized accountability system to keep you on track with your financial goals. Effective accountability systems match your personal preferences and provide the right balance of structure, feedback, and motivation.</p>
+    </div>
+    
+    <div class="info-box">
+        <h3>Why Accountability Matters</h3>
+        <p>Research shows that people with accountability systems are up to 95% more likely to achieve their goals than those without them. Accountability provides structure, consistency, external motivation, and regular feedback that helps you stay on track even when challenges arise.</p>
+    </div>
+    
+    <div class="section">
+        <h2>Goal Summary</h2>
+        <div class="form-group">
+            <label class="input-label">Short-Term Goal:</label>
+            <input type="text" placeholder="Enter your short-term SMART goal here">
+        </div>
+        <div class="form-group">
+            <label class="input-label">Long-Term Goal:</label>
+            <input type="text" placeholder="Enter your long-term SMART goal here">
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>1. Tracking Tools</h2>
+        <p>Select the tools you'll use to track your progress toward your financial goals:</p>
+        
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-1">
+                <label for="tool-1">Mobile budgeting app</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-2">
+                <label for="tool-2">Spreadsheet tracker</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-3">
+                <label for="tool-3">Physical journal or planner</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-4">
+                <label for="tool-4">Calendar reminders</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-5">
+                <label for="tool-5">Habit tracking app</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-6">
+                <label for="tool-6">Visual progress chart</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-7">
+                <label for="tool-7">Banking app notifications</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-8">
+                <label for="tool-8">Other</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Specific Tracking Tools Details:</label>
+            <textarea placeholder="List the specific apps, templates, or methods you'll use (e.g., Mint app, Google Sheets budget template, etc.)"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">What specific metrics will you track?</label>
+            <textarea placeholder="Examples: weekly savings amount, monthly spending in specific categories, progress toward goal percentage, etc."></textarea>
+        </div>
+    </div>
+    
+    <div class="tips-box">
+        <h3>Tracking Tool Tips</h3>
+        <ul>
+            <li>Choose tools that match your personal style (digital vs. physical, simple vs. detailed)</li>
+            <li>Start with one primary tracking method before adding others</li>
+            <li>Make tracking as automatic as possible to increase consistency</li>
+            <li>Visual tracking methods (charts, progress bars) can boost motivation</li>
+            <li>Consider tools that allow you to track both behavioral habits (saving regularly) and outcomes (total saved)</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2>2. Accountability Partners</h2>
+        <p>Identify people who will help keep you accountable and how they'll support you:</p>
+        
+        <div class="form-group">
+            <label class="input-label">Accountability Partner 1:</label>
+            <input type="text" placeholder="Name">
+            
+            <label class="input-label">Relationship:</label>
+            <select>
+                <option value="">Select relationship</option>
+                <option value="family">Family member</option>
+                <option value="friend">Friend</option>
+                <option value="mentor">Mentor/teacher</option>
+                <option value="coach">Financial coach</option>
+                <option value="other">Other</option>
+            </select>
+            
+            <label class="input-label">How will they help keep you accountable?</label>
+            <select>
+                <option value="">Select accountability method</option>
+                <option value="weekly">Weekly check-in conversations</option>
+                <option value="monthly">Monthly review meetings</option>
+                <option value="progress">Regular progress updates via text/email</option>
+                <option value="joint">Joint goal-setting partner</option>
+                <option value="custom">Custom arrangement</option>
+            </select>
+            
+            <label class="input-label">Details of your accountability arrangement:</label>
+            <textarea placeholder="Describe exactly how this person will help you stay accountable (when you'll check in, what you'll share, how they'll respond, etc.)"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Accountability Partner 2 (optional):</label>
+            <input type="text" placeholder="Name">
+            
+            <label class="input-label">Relationship:</label>
+            <select>
+                <option value="">Select relationship</option>
+                <option value="family">Family member</option>
+                <option value="friend">Friend</option>
+                <option value="mentor">Mentor/teacher</option>
+                <option value="coach">Financial coach</option>
+                <option value="other">Other</option>
+            </select>
+            
+            <label class="input-label">How will they help keep you accountable?</label>
+            <select>
+                <option value="">Select accountability method</option>
+                <option value="weekly">Weekly check-in conversations</option>
+                <option value="monthly">Monthly review meetings</option>
+                <option value="progress">Regular progress updates via text/email</option>
+                <option value="joint">Joint goal-setting partner</option>
+                <option value="custom">Custom arrangement</option>
+            </select>
+            
+            <label class="input-label">Details of your accountability arrangement:</label>
+            <textarea placeholder="Describe exactly how this person will help you stay accountable (when you'll check in, what you'll share, how they'll respond, etc.)"></textarea>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>3. Review Schedule</h2>
+        <p>Establish a regular schedule to review your progress toward your financial goals:</p>
+        
+        <h3>Short-Term Goal Reviews</h3>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="short-review-1">
+                <label for="short-review-1">Daily check (2-3 minutes)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="short-review-2">
+                <label for="short-review-2">Weekly mini-review (10-15 minutes)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="short-review-3">
+                <label for="short-review-3">Bi-weekly progress check (15-20 minutes)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="short-review-4">
+                <label for="short-review-4">Monthly detailed review (30+ minutes)</label>
+            </div>
+        </div>
+        
+        <h3>Long-Term Goal Reviews</h3>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="long-review-1">
+                <label for="long-review-1">Monthly check-in (15 minutes)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="long-review-2">
+                <label for="long-review-2">Quarterly detailed review (1 hour)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="long-review-3">
+                <label for="long-review-3">Semi-annual goal adjustment (1-2 hours)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="long-review-4">
+                <label for="long-review-4">Annual comprehensive review (2+ hours)</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Specific Review Dates:</label>
+            <textarea placeholder="Schedule specific dates and times for your reviews (e.g., 'Every Sunday at 7pm', 'First day of each month', etc.)"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Review Process:</label>
+            <textarea placeholder="Describe your review process step-by-step. What will you analyze? How will you evaluate progress? What adjustments might you make?"></textarea>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>4. Milestone Rewards</h2>
+        <p>Plan celebrations or rewards for reaching key milestones to maintain motivation:</p>
+        
+        <table class="review-table">
+            <tr>
+                <td>25% Progress Reward:</td>
+                <td><input type="text" placeholder="How will you celebrate this milestone?"></td>
+            </tr>
+            <tr>
+                <td>50% Progress Reward:</td>
+                <td><input type="text" placeholder="How will you celebrate this milestone?"></td>
+            </tr>
+            <tr>
+                <td>75% Progress Reward:</td>
+                <td><input type="text" placeholder="How will you celebrate this milestone?"></td>
+            </tr>
+            <tr>
+                <td>Goal Completion Celebration:</td>
+                <td><input type="text" placeholder="How will you celebrate achieving your goal?"></td>
+            </tr>
+        </table>
+        
+        <div class="tips-box">
+            <p><strong>Important:</strong> Choose rewards that don't undermine your financial goals! Consider non-monetary rewards like experiences, time with friends, small treats, or special privileges.</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>5. Reminder System</h2>
+        <p>Create a system of reminders to keep your goals top of mind:</p>
+        
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-1">
+                <label for="reminder-1">Visual reminders (photos, notes, vision board)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-2">
+                <label for="reminder-2">Digital calendar alerts</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-3">
+                <label for="reminder-3">Smartphone reminders/notifications</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-4">
+                <label for="reminder-4">Scheduled emails to self</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-5">
+                <label for="reminder-5">Habit stacking (connecting to existing habits)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-6">
+                <label for="reminder-6">Environmental triggers/cues</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Reminder Placement/Timing:</label>
+            <textarea placeholder="Where will you place reminders? When will they appear? How frequently?"></textarea>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>6. Motivation Maintenance</h2>
+        <p>Plan strategies to maintain motivation when progress feels slow or challenges arise:</p>
+        
+        <div class="form-group">
+            <label class="input-label">Your "Why" Statement:</label>
+            <textarea placeholder="Write a powerful statement about why achieving this goal matters deeply to you"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Visual Motivation:</label>
+            <textarea placeholder="Describe what visual reminders you'll create to stay motivated (photos, vision board items, progress charts, etc.)"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Motivation Strategies:</label>
+            <textarea placeholder="What specific strategies will you use when your motivation is low? (Reviewing your 'why', talking to an accountability partner, celebrating small wins, etc.)"></textarea>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Complete Accountability System Summary</h2>
+        <p>Summarize your complete accountability system to see how all pieces work together:</p>
+        
+        <textarea style="min-height: 120px;" placeholder="Bring together all elements of your accountability system into a cohesive summary. How do the tracking tools, accountability partners, review schedule, rewards, reminders, and motivation strategies work together?"></textarea>
+    </div>
+    
+    <div class="info-box">
+        <h3>Implementation Commitment</h3>
+        <p>To increase your chances of success, commit to implementing your accountability system immediately after designing it. Small, immediate steps dramatically increase follow-through. What one action will you take within 24 hours to start implementing this system?</p>
+        <textarea placeholder="Describe the first action you'll take to implement your accountability system (e.g., Set up tracking app, Schedule meeting with accountability partner, etc.)"></textarea>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy © 2025 | Chapter 1.4: Financial Goal Setting</p>
+    </div>
+</body>
+</html>

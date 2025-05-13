@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 2.3: Understanding Tax Filing Requirements - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .case-study {
+            background-color: #f0f9ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .skill-builder {
+            background-color: #f3e8ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background-color: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+        
+        .learning-lab-section {
+            background-color: #f0f9ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .learning-lab-station {
+            background-color: #f0fdf4;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #22c55e;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-indigo-600 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">PFL Academy</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-white hover:text-indigo-200">Home</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Curriculum</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Resources</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Spacer to push content below fixed header -->
+    <div class="h-16"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Left Navigation Sidebar -->
+        <div class="lg:col-span-3 bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 2: Taxes</h2>
+            <p class="text-gray-600 mb-6">Covers types of taxes, deductions, credits, and their impact on income, emphasizing financial management and tax compliance.</p>
+            
+            <!-- Chapter Navigation with blue indicators and green checkmarks -->
+            <nav class="space-y-2" aria-label="Chapters">
+                <!-- Completed chapter with green checkmark -->
+                <a href="chapter-2-1-day2.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    <span class="text-left">2.1 Understanding Federal and State Taxes</span>
+                </a>
+                
+                <!-- Completed chapter with green checkmark -->
+                <a href="chapter-2-2-day2.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    <span class="text-left">2.2 Understanding Tax Brackets and Tax Rates</span>
+                </a>
+                
+                <!-- Current chapter with blue left border -->
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-50 text-indigo-700 border-l-4 border-indigo-700">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.3 Understanding Tax Filing Requirements</span>
+                </a>
+                
+                <!-- Indented section links when a chapter is selected -->
+                <div class="ml-6 space-y-1 mt-1">
+                    <a href="#station1" class="text-indigo-700 font-medium flex items-center">
+                        <span class="mr-2">•</span> Tax Form Explorer
+                    </a>
+                    <a href="#station2" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Life Events Simulator
+                    </a>
+                    <a href="#station3" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Tax Filing Checklist
+                    </a>
+                    <a href="#station4" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Tax Strategy Planner
+                    </a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Portfolio Development
+                    </a>
+                </div>
+                
+                <!-- Upcoming chapters -->
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.4 Understanding Tax Deductions and Credits</span>
+                </a>
+                
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.5 Tax Planning and Compliance</span>
+                </a>
+            </nav>
+            
+            <hr class="my-4 border-gray-200">
+            
+            <!-- Progress Indicator -->
+            <div class="mt-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-gray-700">Progress</span>
+                    <span class="text-sm text-gray-600">60%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-gradient-to-r from-indigo-500 to-blue-500 h-2.5 rounded-full" style="width: 60%"></div>
+                </div>
+            </div>
+            
+            <!-- Day Selection -->
+            <div class="mt-6">
+                <h3 class="text-sm font-medium text-gray-700 mb-2">Chapter Days</h3>
+                <div class="flex space-x-2">
+                    <a href="chapter-2-3-day1.html" class="px-4 py-2 rounded-md bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50">Day 1</a>
+                    <a href="#" class="px-4 py-2 rounded-md bg-indigo-100 border border-indigo-300 text-sm font-medium text-indigo-700">Day 2</a>
+                </div>
+            </div>
+            
+            <!-- Resources -->
+            <div class="mt-6">
+                <h3 class="text-sm font-medium text-gray-700 mb-2">Resources</h3>
+                <div class="space-y-2">
+                    <a href="#" class="flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                        Download Materials
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                        </svg>
+                        Additional Resources
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="lg:col-span-7">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Understanding Tax Filing Requirements</h1>
+                <h2 class="text-xl text-gray-700 mb-6">Chapter 2.3 - Day 2 Learning Lab</h2>
+                
+                <div class="introduction mb-6">
+                    <p class="text-gray-700">Welcome to the Learning Lab for Understanding Tax Filing Requirements! Today, you'll apply what you learned about tax filing through hands-on activities. You'll explore tax forms, simulate different life scenarios that affect tax filing, create your own tax filing checklist, and develop strategies for fulfilling your tax obligations efficiently.</p>
+                </div>
+                
+                <div class="learning-objectives">
+                    <h3 class="font-bold text-lg mb-2">Learning Lab Objectives</h3>
+                    <p>In this learning lab, you will:</p>
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>Navigate and interpret common tax forms</li>
+                        <li>Analyze how different life situations impact tax filing requirements</li>
+                        <li>Create a personalized tax filing checklist</li>
+                        <li>Develop strategies for efficient and compliant tax filing</li>
+                    </ul>
+                </div>
+                
+                <!-- Learning Lab Introduction -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Learning Lab Overview</h3>
+                    <p class="mb-4">Today's learning lab consists of four stations. Work through each station at your own pace, and be sure to save your work for your portfolio submission at the end.</p>
+                    
+                    <div class="activity-timer">
+                        <h4 class="font-bold mb-2">Schedule (55 minutes)</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Introduction and overview: 5 minutes</li>
+                            <li>Station rotations: 40 minutes (10 minutes per station)</li>
+                            <li>Portfolio development: 10 minutes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Station 1 -->
+            <div id="station1" class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Station 1: Tax Form Explorer</h3>
+                
+                <div class="learning-lab-station">
+                    <h4 class="text-xl font-semibold mb-3">Form 1040 Analysis</h4>
+                    <p class="mb-4">The Form 1040 is the standard federal income tax form used by most taxpayers. In this station, you'll explore key sections of this form and understand what information goes where.</p>
+                    
+                    <div class="form-image mb-4">
+                        <img src="https://via.placeholder.com/800x600?text=Form+1040+Sample" alt="Form 1040 Sample" class="w-full rounded-lg">
+                    </div>
+                    
+                    <div class="form-sections mb-4">
+                        <h5 class="font-semibold mb-2">Key Sections of Form 1040</h5>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="py-2 px-4 border-b text-left">Section</th>
+                                        <th class="py-2 px-4 border-b text-left">Purpose</th>
+                                        <th class="py-2 px-4 border-b text-left">What to Enter</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b">Filing Status</td>
+                                        <td class="py-2 px-4 border-b">Determines tax rates and deductions</td>
+                                        <td class="py-2 px-4 border-b">Single, Married Filing Jointly, etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b">Dependents</td>
+                                        <td class="py-2 px-4 border-b">Claims tax benefits for qualifying dependents</td>
+                                        <td class="py-2 px-4 border-b">Children or other qualifying dependents</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b">Income</td>
+                                        <td class="py-2 px-4 border-b">Reports all taxable income</td>
+                                        <td class="py-2 px-4 border-b">Wages, interest, dividends, etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b">Deductions</td>
+                                        <td class="py-2 px-4 border-b">Reduces taxable income</td>
+                                        <td class="py-2 px-4 border-b">Standard or itemized deductions</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b">Credits</td>
+                                        <td class="py-2 px-4 border-b">Directly reduces tax owed</td>
+                                        <td class="py-2 px-4 border-b">Child tax credit, education credits, etc.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="form-activity">
+                        <h5 class="font-semibold mb-2">Your Turn: Form Analysis</h5>
+                        <p class="mb-2">Based on what you've learned, complete the following analysis:</p>
+                        
+                        <div class="bg-white p-4 border rounded-lg">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">1. Why does filing status matter when completing Form 1040?</label>
+                                <textarea class="w-full p-2 border rounded" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">2. Which section would you report income from a part-time job?</label>
+                                <textarea class="w-full p-2 border rounded" rows="2" data-ai-check="true" data-assessment-weight="2"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">3. What's the difference between deductions and credits on a tax form?</label>
+                                <textarea class="w-full p-2 border rounded" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Save Analysis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Station 2 -->
+            <div id="station2" class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Station 2: Life Events Simulator</h3>
+                
+                <div class="learning-lab-station">
+                    <h4 class="text-xl font-semibold mb-3">How Life Changes Impact Your Tax Filing</h4>
+                    <p class="mb-4">Major life events can significantly change your tax filing requirements. This simulator will help you understand these impacts.</p>
+                    
+                    <div class="life-events-simulator mb-4">
+                        <h5 class="font-semibold mb-2">Select a Life Event:</h5>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div id="event-college" class="border rounded-lg p-4 cursor-pointer hover:bg-indigo-50">
+                                <h6 class="font-medium">Starting College</h6>
+                                <p class="text-sm text-gray-600">Education credits, student loan interest, qualified education expenses</p>
+                            </div>
+                            <div id="event-job" class="border rounded-lg p-4 cursor-pointer hover:bg-indigo-50">
+                                <h6 class="font-medium">First Full-Time Job</h6>
+                                <p class="text-sm text-gray-600">W-4 withholding, retirement contributions, health insurance decisions</p>
+                            </div>
+                            <div id="event-marriage" class="border rounded-lg p-4 cursor-pointer hover:bg-indigo-50">
+                                <h6 class="font-medium">Getting Married</h6>
+                                <p class="text-sm text-gray-600">Filing status changes, marriage penalty/bonus, combined income considerations</p>
+                            </div>
+                            <div id="event-house" class="border rounded-lg p-4 cursor-pointer hover:bg-indigo-50">
+                                <h6 class="font-medium">Buying a Home</h6>
+                                <p class="text-sm text-gray-600">Mortgage interest deduction, property taxes, home office considerations</p>
+                            </div>
+                        </div>
+                        
+                        <div id="event-details" class="p-4 border rounded-lg bg-gray-50 hidden">
+                            <!-- Content will be dynamically populated based on selected life event -->
+                            <h5 class="font-semibold mb-2">First Full-Time Job</h5>
+                            <p class="mb-2">When you start your first full-time job, here's how your tax situation changes:</p>
+                            
+                            <ul class="list-disc pl-6 mb-4">
+                                <li><strong>New Forms to Complete:</strong> W-4 (withholding), I-9 (employment eligibility)</li>
+                                <li><strong>New Tax Considerations:</strong> Retirement plan contributions, health insurance premiums</li>
+                                <li><strong>Possible Deductions:</strong> Work-related expenses, moving expenses for job relocation</li>
+                                <li><strong>Credits to Consider:</strong> Earned Income Credit for lower-income workers</li>
+                            </ul>
+                            
+                            <h6 class="font-medium mb-2">Tax Filing Requirement Changes:</h6>
+                            <p>You'll now likely be required to file a tax return if your income exceeds the standard deduction ($12,950 for single filers in 2022). Your employer will provide a W-2 form by January 31st showing your earnings and taxes withheld for the previous year.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="scenario-analysis">
+                        <h5 class="font-semibold mb-2">Your Turn: Life Event Impact Analysis</h5>
+                        
+                        <div class="bg-white p-4 border rounded-lg">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">1. Select a life event that might happen in your future. How would it change your tax filing requirements?</label>
+                                <textarea class="w-full p-2 border rounded" rows="3" data-ai-check="true" data-assessment-weight="4"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">2. What new tax forms would you need to be aware of with this life change?</label>
+                                <textarea class="w-full p-2 border rounded" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Save Analysis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Station 3 -->
+            <div id="station3" class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Station 3: Tax Filing Checklist</h3>
+                
+                <div class="learning-lab-station">
+                    <h4 class="text-xl font-semibold mb-3">Create Your Personal Tax Filing Checklist</h4>
+                    <p class="mb-4">Staying organized is crucial for stress-free tax filing. In this station, you'll create a personalized checklist to help you prepare for tax season.</p>
+                    
+                    <div class="checklist-sample mb-4">
+                        <h5 class="font-semibold mb-2">Sample Tax Filing Checklist Items:</h5>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="border p-3 rounded-lg">
+                                <h6 class="font-medium">Income Documents</h6>
+                                <ul class="list-disc pl-6 text-sm">
+                                    <li>W-2 forms from all employers</li>
+                                    <li>1099 forms for independent contractor work</li>
+                                    <li>Bank statements showing interest earned</li>
+                                    <li>Investment income statements</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="border p-3 rounded-lg">
+                                <h6 class="font-medium">Deduction Documents</h6>
+                                <ul class="list-disc pl-6 text-sm">
+                                    <li>Educational expenses (1098-T form)</li>
+                                    <li>Student loan interest statements (1098-E)</li>
+                                    <li>Charitable donation receipts</li>
+                                    <li>Unreimbursed work expenses</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="personal-checklist mb-4">
+                        <h5 class="font-semibold mb-2">Your Personal Tax Filing Checklist:</h5>
+                        <p class="mb-2">Create a checklist tailored to your current or future tax situation:</p>
+                        
+                        <div class="bg-white p-4 border rounded-lg">
+                            <div class="mb-4">
+                                <h6 class="font-medium mb-2">1. Income Documents I Need to Collect:</h6>
+                                <textarea class="w-full p-2 border rounded" rows="3" placeholder="List the income documents relevant to you..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6 class="font-medium mb-2">2. Potential Deductions & Credits I Should Track:</h6>
+                                <textarea class="w-full p-2 border rounded" rows="3" placeholder="List deductions and credits you might qualify for..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6 class="font-medium mb-2">3. Important Dates & Deadlines:</h6>
+                                <textarea class="w-full p-2 border rounded" rows="2" placeholder="Note key tax deadlines..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6 class="font-medium mb-2">4. Resources I'll Need:</h6>
+                                <textarea class="w-full p-2 border rounded" rows="2" placeholder="List software, websites, or professionals you might use..."></textarea>
+                            </div>
+                            
+                            <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Save Checklist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Station 4 -->
+            <div id="station4" class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Station 4: Tax Strategy Planner</h3>
+                
+                <div class="learning-lab-station">
+                    <h4 class="text-xl font-semibold mb-3">Develop Your Tax Filing Strategy</h4>
+                    <p class="mb-4">Effective tax planning isn't just about compliance—it's about making informed decisions year-round. In this station, you'll develop strategies for efficient and optimal tax filing.</p>
+                    
+                    <div class="strategy-tips mb-4">
+                        <h5 class="font-semibold mb-2">Key Tax Strategy Principles:</h5>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li><strong>Year-round organization:</strong> Track relevant documents all year, not just during tax season</li>
+                            <li><strong>Advanced planning:</strong> Make financial decisions with tax implications in mind</li>
+                            <li><strong>Regular updates:</strong> Adjust withholding when life circumstances change</li>
+                            <li><strong>Filing method selection:</strong> Choose the most appropriate filing method for your situation</li>
+                            <li><strong>Professional guidance:</strong> Know when to seek professional tax advice</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-planner">
+                        <h5 class="font-semibold mb-2">Your Tax Strategy Plan:</h5>
+                        
+                        <div class="bg-white p-4 border rounded-lg">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">1. My record-keeping system will be:</label>
+                                <textarea class="w-full p-2 border rounded" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">2. I'll review my tax situation at these times during the year:</label>
+                                <textarea class="w-full p-2 border rounded" rows="2" data-ai-check="true" data-assessment-weight="2"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">3. My preferred filing method and why:</label>
+                                <textarea class="w-full p-2 border rounded" rows="2" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">4. Strategies I'll use to maximize my refund or minimize taxes owed:</label>
+                                <textarea class="w-full p-2 border rounded" rows="3" data-ai-check="true" data-assessment-weight="4"></textarea>
+                            </div>
+                            
+                            <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Save Strategy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Development -->
+            <div id="portfolio" class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Portfolio Development</h3>
+                
+                <div class="portfolio-section">
+                    <p class="mb-4">Now that you've completed all four learning stations, it's time to compile your work into a cohesive portfolio entry. This will help you demonstrate your understanding of tax filing requirements and prepare for real-world application.</p>
+                    
+                    <div class="portfolio-template mb-6">
+                        <h4 class="text-xl font-semibold mb-3">Tax Filing Requirements Portfolio</h4>
+                        
+                        <div class="bg-white p-4 border rounded-lg">
+                            <div class="mb-4">
+                                <h5 class="font-medium mb-2">1. Key Tax Forms Summary</h5>
+                                <p class="text-sm text-gray-600 mb-2">Summarize your understanding of key tax forms and their purposes.</p>
+                                <textarea class="w-full p-2 border rounded" rows="3" placeholder="Based on my exploration of tax forms..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium mb-2">2. Life Events & Tax Filing</h5>
+                                <p class="text-sm text-gray-600 mb-2">Explain how 2-3 major life events will impact your future tax filing requirements.</p>
+                                <textarea class="w-full p-2 border rounded" rows="4" placeholder="The life events that will most significantly impact my taxes are..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium mb-2">3. My Personal Tax Filing Checklist</h5>
+                                <p class="text-sm text-gray-600 mb-2">Include your customized checklist from Station 3.</p>
+                                <textarea class="w-full p-2 border rounded" rows="4" placeholder="My comprehensive tax filing checklist includes..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium mb-2">4. My Tax Filing Strategy</h5>
+                                <p class="text-sm text-gray-600 mb-2">Outline your personal strategy for efficient tax filing.</p>
+                                <textarea class="w-full p-2 border rounded" rows="4" placeholder="My strategic approach to tax filing will include..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium mb-2">5. Reflection</h5>
+                                <p class="text-sm text-gray-600 mb-2">Reflect on what you've learned and how it will impact your financial planning.</p>
+                                <textarea class="w-full p-2 border rounded" rows="3" placeholder="My learning about tax filing requirements has changed my perspective by..."></textarea>
+                            </div>
+                            
+                            <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Submit Portfolio</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conclusion mt-8">
+                    <h4 class="font-semibold text-xl mb-3">Congratulations!</h4>
+                    <p>You've completed the Chapter 2.3 Learning Lab on Understanding Tax Filing Requirements. You now have a stronger foundation for navigating the tax filing process and making informed decisions about your tax obligations. Remember that tax laws change, so staying informed is an ongoing process!</p>
+                    
+                    <div class="mt-4">
+                        <a href="chapter-2-3-day1.html" class="inline-block mr-4 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                            <span class="mr-2">←</span> Return to Day 1
+                        </a>
+                        <a href="#" class="inline-block px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+                            Continue to Chapter 2.4 <span class="ml-2">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">PFL Academy</h3>
+                    <p class="text-gray-400">Empowering students with financial literacy skills for future success.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Curriculum Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Downloadable Materials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">External Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-gray-400">support@pflacademy.org</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 PFL Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Tax Form Explorer Interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Life Events Simulator
+            const lifeEvents = document.querySelectorAll('#event-college, #event-job, #event-marriage, #event-house');
+            const eventDetails = document.getElementById('event-details');
+            
+            lifeEvents.forEach(event => {
+                event.addEventListener('click', function() {
+                    // Remove active state from all events
+                    lifeEvents.forEach(e => e.classList.remove('bg-indigo-50', 'border-indigo-300'));
+                    
+                    // Add active state to clicked event
+                    this.classList.add('bg-indigo-50', 'border-indigo-300');
+                    
+                    // Show event details
+                    eventDetails.classList.remove('hidden');
+                    
+                    // In a real implementation, this would update the content based on the selected event
+                });
+            });
+            
+            // Save buttons functionality
+            const saveButtons = document.querySelectorAll('button');
+            saveButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Simulate saving
+                    const originalText = this.textContent;
+                    this.textContent = 'Saving...';
+                    setTimeout(() => {
+                        this.textContent = 'Saved!';
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                        }, 1500);
+                    }, 1000);
+                });
+            });
+            
+            // Navigation highlight
+            const navLinks = document.querySelectorAll('.ml-6 a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    navLinks.forEach(l => l.classList.remove('text-indigo-700', 'font-medium'));
+                    l.classList.add('text-gray-700');
+                    this.classList.add('text-indigo-700', 'font-medium');
+                    this.classList.remove('text-gray-700');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

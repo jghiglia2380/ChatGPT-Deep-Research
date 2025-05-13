@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Teacher Guide: Jobs vs. Careers</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5849da; /* Royal purple */
+            --secondary-color: #374151; /* Dark gray */
+            --sidebar-bg: #f5f5f7; /* Light gray */
+            --text-color: #1F2937;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--text-color);
+            background-color: #f9fafb;
+        }
+        
+        /* Header styling */
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+        }
+        
+        /* Sidebar styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            padding: 1.5rem;
+            height: calc(100vh - 64px);
+            position: sticky;
+            top: 64px;
+            overflow-y: auto;
+            margin-top: 0;
+        }
+        
+        /* Main content styling */
+        .main-content {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section headers */
+        .section-header {
+            color: var(--text-color);
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        /* Teacher tip boxes */
+        .teacher-tip {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 0.25rem 0.25rem 0;
+        }
+        
+        /* Button styling */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Navigation links */
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .nav-link svg {
+            margin-right: 0.5rem;
+        }
+        
+        /* Table styling */
+        .teacher-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .teacher-table th {
+            background-color: #f9fafb;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .teacher-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .teacher-table tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        /* Print button */
+        .print-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Tabs */
+        .tab-group {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 1rem;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Tab content */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header flex items-center justify-between fixed top-0 left-0 right-0 z-40">
+        <div class="flex items-center">
+            <h1 class="text-xl font-bold">PFL Academy | Teacher Guide</h1>
+            <nav class="ml-8 hidden md:block">
+                <a href="#" class="text-white mr-4">Standards</a>
+                <a href="#" class="text-white mr-4">Resources</a>
+                <a href="#" class="text-white">Help</a>
+            </nav>
+        </div>
+        <div class="flex items-center">
+            <button id="show-support-panel" class="text-white bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 mr-3 flex items-center transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                </svg>
+                <span class="max-w-0 overflow-hidden whitespace-nowrap transition-all duration-300 opacity-0" id="support-button-text">Instructor Support</span>
+            </button>
+            <button class="text-white bg-white bg-opacity-20 rounded p-2 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Spacer to push content below fixed header -->
+    <div class="h-16"></div>
+
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside class="sidebar w-full md:w-1/4">
+            <div>
+                <h2 class="text-lg font-bold mb-2">Standard 1: Income and Money Management</h2>
+                <p class="text-sm text-gray-600 mb-4">Understanding income management strategies for financial stability.</p>
+                
+                <div class="mb-6">
+                    <h3 class="text-md font-medium mb-2">Teacher Guides</h3>
+                    
+                    <a href="chapter-1-1-teacher.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.1 Jobs vs. Careers
+                    </a>
+                    
+                    <a href="chapter-1-2-teacher.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.2 Paying for Post-Secondary Education
+                    </a>
+                    
+                    <a href="chapter-1-3-teacher.html" class="nav-link active">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.3 Income and Taxes
+                    </a>
+                    
+                    <a href="chapter-1-4-teacher.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.4 Financial Goal Setting
+                    </a>
+                    
+                    <a href="chapter-1-5-teacher.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1.5 Managing Your Income Effectively
+                    </a>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-md font-medium mb-2">Resources</h3>
+                    <a href="chapter-1-3-day1.html" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                        </svg>
+                        View Student Content
+                    </a>
+                    <a href="/resources/chapter-1-3/downloads/chapter-1-3-materials.zip" class="nav-link" id="downloadBtn" download="Chapter-1-3-Materials.zip">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" />
+                            <path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z" />
+                        </svg>
+                        Download Materials
+                    </a>
+                    <a href="/resources/chapter-1-3/additional-resources/index.html" class="nav-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd" />
+                        </svg>
+                        Additional Resources
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-full md:w-3/4 p-6">
+            <div class="main-content">
+                <!-- Chapter Header -->
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h1 class="text-2xl font-bold">Teacher Guide: 1.3 Income and Taxes</h1>
+                        <div class="flex items-center mt-2 text-sm text-gray-600">
+                            <div class="flex items-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                </svg>
+                                Duration: 55 minutes
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-group">
+                        <div class="tab active" onclick="switchTab('content-guide')">Content Guide</div>
+                        <div class="tab" onclick="switchTab('learning-lab')">Learning Lab</div>
+                    </div>
+                </div>
+                
+                <!-- Content Guide Tab -->
+                <div id="content-guide" class="tab-content active">
+                    <!-- Lesson Overview -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Lesson Overview</h2>
+                        <p><strong>Standard:</strong> Standard 1: Income and Money Management</p>
+                        <p><strong>Chapter:</strong> 1.3: Income and Taxes</p>
+                        <p><strong>Duration:</strong> 55 minutes</p>
+                        <p><strong>Focus:</strong> Understanding gross vs. net income, tax withholding, and completing a W-4 form</p>
+                    </div>
+                    
+                    <!-- Materials Needed -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Materials Needed</h2>
+                        <ul class="list-disc pl-6">
+                            <li>Digital presentation on income types and taxation</li>
+                            <li>Sample paystubs (digital or printable)</li>
+                            <li>W-4 form simulation materials</li>
+                            <li>Tax withholding calculator access</li>
+                            <li>Visual breakdown of paycheck deductions</li>
+                            <li>Jordan Rivers scenario handouts</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Pre-Class Setup -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Pre-Class Setup</h2>
+                        <ol class="list-decimal pl-6">
+                            <li>Prepare digital presentation with visual examples</li>
+                            <li>Print or prepare digital access to sample paychecks and W-4 forms</li>
+                            <li>Set up the W-4 simulation activity for students</li>
+                            <li>Create or gather sample tax calculations for different income levels</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Lesson Timeline -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Lesson Timeline</h2>
+                        <div class="overflow-x-auto">
+                            <table class="teacher-table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Activity</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>5 min</td>
+                                        <td>Introduction</td>
+                                        <td>Hook and overview of income and tax fundamentals</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12 min</td>
+                                        <td>Gross vs. Net Income Exploration</td>
+                                        <td>Interactive breakdown of paycheck components</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10 min</td>
+                                        <td>Tax Withholding Concepts</td>
+                                        <td>Explanation of withholding, filing status, and allowances</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10 min</td>
+                                        <td>Case Study Analysis</td>
+                                        <td>Examination of different income and tax scenarios</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13 min</td>
+                                        <td>W-4 Simulation Skill Builder</td>
+                                        <td>Practice completing and analyzing W-4 forms</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5 min</td>
+                                        <td>Reflection & Wrap-up</td>
+                                        <td>Personal relevance and Day 2 preview</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Detailed Instruction Notes -->
+                    <h2 class="section-header text-xl">Detailed Instruction Notes</h2>
+                    
+                    <!-- Introduction -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Introduction (5 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Begin with an attention-grabbing question: "If you earn $15 per hour for 40 hours a week, how much money will you take home each week?"</li>
+                            <li>Discuss the gap between what students might expect and reality</li>
+                            <li>Highlight the importance of understanding income and taxes for financial planning</li>
+                            <li>Preview the learning goals for the day's lesson</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Key Concepts -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Key Concepts: Gross vs. Net Income (12 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Define gross income and net income with clear examples</li>
+                            <li>Break down a sample paycheck, highlighting:
+                                <ul class="list-disc pl-6">
+                                    <li>Mandatory deductions (federal income tax, state tax, FICA)</li>
+                                    <li>Voluntary deductions (retirement, insurance, etc.)</li>
+                                </ul>
+                            </li>
+                            <li>Use visuals to show percentage breakdowns of typical deductions</li>
+                            <li>Discuss how different factors affect take-home pay</li>
+                            <li>Have students calculate net income from sample gross income figures</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Tax Withholding Concepts -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Tax Withholding Concepts (10 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Explain the purpose of tax withholding and the W-4 form</li>
+                            <li>Clarify common filing statuses and their implications</li>
+                            <li>Discuss the concept of tax allowances and recent W-4 form changes</li>
+                            <li>Explain the consequences of overwithholding vs. underwithholding</li>
+                            <li>Demonstrate how different W-4 elections affect take-home pay</li>
+                            <li>Address common misconceptions about tax refunds</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Real-World Examples -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Real-World Examples: Case Study Analysis (10 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Present 2-3 different income scenarios with varying circumstances</li>
+                            <li>For each scenario, walk through:
+                                <ul class="list-disc pl-6">
+                                    <li>The individual's income situation</li>
+                                    <li>Their withholding choices</li>
+                                    <li>The resulting take-home pay</li>
+                                    <li>The tax implications at year-end</li>
+                                </ul>
+                            </li>
+                            <li>Have students identify which scenario most closely resembles their expected situation</li>
+                            <li>Discuss how life changes impact withholding needs</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Skill Builder Activity -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Skill Builder Activity: W-4 Simulation (13 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Introduce the Jordan Rivers scenario</li>
+                            <li>Guide students through analyzing Jordan's financial situation</li>
+                            <li>Demonstrate how to complete key sections of the W-4 form</li>
+                            <li>Allow students to complete the simulation independently</li>
+                            <li>Provide individualized support as needed</li>
+                            <li>Review common errors and misconceptions</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Reflection & Wrap-up -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Reflection & Wrap-up (5 minutes)</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Have students identify one key insight about income and taxes</li>
+                            <li>Discuss how this knowledge will affect their future financial decisions</li>
+                            <li>Provide a brief overview of what to expect in Day 2</li>
+                            <li>Assign any pre-work for the Day 2 Learning Lab</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Discussion Prompts -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Discussion Prompts</h2>
+                        <ul class="list-disc pl-6">
+                            <li><strong>For Introduction:</strong> "Why might it be important to understand taxes before you get your first full-time job?" (Expected responses: budget planning, avoiding surprises, maximizing take-home pay)</li>
+                            <li><strong>For Gross vs. Net Income:</strong> "How might understanding your net vs. gross income affect your housing budget?" (Expected responses: need to base rent on take-home pay not gross salary, plan for variable deductions)</li>
+                            <li><strong>For W-4 Discussion:</strong> "What life circumstances might lead someone to adjust their W-4 withholding?" (Expected responses: marriage, having children, second job, significant income changes)</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Differentiation Strategies -->
+                    <h2 class="section-header text-xl">Differentiation Strategies</h2>
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">For Advanced Students</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Provide more complex tax scenarios with multiple income sources</li>
+                            <li>Challenge them to optimize withholding for specific financial goals</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">For Struggling Students</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Offer simplified paycheck breakdowns</li>
+                            <li>Focus on basic withholding concepts</li>
+                            <li>Provide step-by-step W-4 completion guides</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">For ELL Students</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Use visual representations of income and deductions</li>
+                            <li>Provide glossary of tax terminology</li>
+                            <li>Offer translated examples of tax forms</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Assessment Opportunities -->
+                    <h2 class="section-header text-xl">Assessment Opportunities</h2>
+                    <div class="mb-6">
+                        <ul class="list-disc pl-6">
+                            <li>Monitor student calculations during the gross vs. net income activity</li>
+                            <li>Review responses to case study analysis questions</li>
+                            <li>Observe student progress with the W-4 simulation</li>
+                            <li>Use exit ticket questions on key terminology and concepts</li>
+                            <li>Note misconceptions to address in Day 2</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Instructor Support -->
+                    <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                        <h2 class="text-lg font-semibold mb-2">AI Teaching Assistant Support</h2>
+                        <p class="mb-2">Need help explaining tax concepts or guiding students through the W-4 simulation? Your AI Teaching Assistant provides specialized support for this chapter.</p>
+                        
+                        <h3 class="font-medium text-gray-800 mb-1">How to Access</h3>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Scan the QR code on your printed guide</li>
+                            <li>Visit: PFLAcademy.org/teacher-support</li>
+                            <li>Access Code: CH1.3-DAY1</li>
+                        </ul>
+                        
+                        <h3 class="font-medium text-gray-800 mb-1">Sample Questions for This Lesson</h3>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>"How can I explain the difference between Social Security and Medicare taxes in simple terms?"</li>
+                            <li>"What are some effective analogies to help students understand the concept of tax withholding?"</li>
+                            <li>"How do I answer student questions about the latest W-4 form changes?"</li>
+                            <li>"Can you suggest ways to help students who are struggling with the math in the net income calculations?"</li>
+                        </ul>
+                        
+                        <h3 class="font-medium text-gray-800 mb-1">Additional Support Features</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Request simplified explanations for complex tax concepts</li>
+                            <li>Get current tax bracket and withholding information</li>
+                            <li>Receive alternative case study scenarios that match your local economy</li>
+                            <li>Access supplementary visuals to illustrate the relationship between withholding choices and tax refunds</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Learning Lab Tab -->
+                <div id="learning-lab" class="tab-content">
+                    <!-- Learning Lab Overview -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Learning Lab Overview</h2>
+                        <p><strong>Standard:</strong> Standard 1: Income and Money Management</p>
+                        <p><strong>Chapter:</strong> 1.3: Income and Taxes</p>
+                        <p><strong>Duration:</strong> 55 minutes</p>
+                        <p><strong>Focus:</strong> Applying income and tax knowledge through interactive tools and personalized planning</p>
+                        <p><strong>Learning Format:</strong> Multi-Activity</p>
+                    </div>
+                    
+                    <!-- Learning Objectives -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Learning Objectives</h2>
+                        <ul class="list-disc pl-6">
+                            <li>Students will analyze how tax withholding choices affect take-home pay and financial goals</li>
+                            <li>Students will develop optimal tax withholding strategies based on personal financial scenarios</li>
+                            <li>Students will create budget allocations that account for net income realities</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Materials Needed -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Materials Needed</h2>
+                        <ul class="list-disc pl-6">
+                            <li>Student devices with internet access</li>
+                            <li>Paycheck Analyzer digital tool</li>
+                            <li>Tax Withholding Strategy Builder template</li>
+                            <li>Net Income Budget Challenge digital tool</li>
+                            <li>Long-Term Impact Calculator</li>
+                            <li>Audio equipment for podcast review</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Pre-Class Setup -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Pre-Class Setup</h2>
+                        <ol class="list-decimal pl-6">
+                            <li>Ensure all digital tools are working properly on student devices</li>
+                            <li>Prepare the Paycheck Analyzer with sample professions</li>
+                            <li>Set up budget allocation sliders for the Budget Challenge</li>
+                            <li>Prepare podcast audio for review session</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Learning Lab Structure -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Learning Lab Structure</h2>
+                        <p class="mb-2"><strong>Selected Format:</strong> Multi-Activity</p>
+                        
+                        <h3 class="font-medium text-gray-800 mb-2">Multi-Activity Format Timeline</h3>
+                        <div class="overflow-x-auto">
+                            <table class="teacher-table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Activity</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10 min</td>
+                                        <td>Review & Introduction</td>
+                                        <td>Day 1 review podcast and Lab overview</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12 min</td>
+                                        <td>Activity 1: Paycheck Analyzer</td>
+                                        <td>Interactive tool to explore income variables</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10 min</td>
+                                        <td>Activity 2: Tax Withholding Strategy</td>
+                                        <td>Develop personalized withholding approach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10 min</td>
+                                        <td>Activity 3: Net Income Budget Challenge</td>
+                                        <td>Create optimal budget based on take-home pay</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8 min</td>
+                                        <td>Activity 4: Long-Term Impact Calculator</td>
+                                        <td>Visualize retirement savings growth scenarios</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5 min</td>
+                                        <td>Reflection & Wrap-up</td>
+                                        <td>Strategy evaluation and next steps</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Detailed Facilitation Notes -->
+                    <h2 class="section-header text-xl">Detailed Facilitation Notes</h2>
+                    
+                    <!-- Review & Introduction -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Review & Introduction (10 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Key Day 1 Concepts to Review:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Gross vs. net income distinctions</li>
+                            <li>Components of paycheck deductions</li>
+                            <li>W-4 form fundamentals</li>
+                            <li>Tax withholding impacts</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Podcast Discussion Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Real-world implications of withholding choices</li>
+                            <li>Common misconceptions about income taxes</li>
+                            <li>Connection between income, taxes, and financial planning</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Learning Lab Introduction:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Frame today's activities as practical application of Day 1 concepts</li>
+                            <li>Emphasize the importance of making informed withholding decisions</li>
+                            <li>Explain that the end product will be a personalized tax strategy</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Activity 1 -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Activity 1: Paycheck Analyzer (12 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Setup Instructions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Students should access the Paycheck Analyzer tool</li>
+                            <li>Provide list of professions with typical starting salaries</li>
+                            <li>Display reference information on standard deduction ranges</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Facilitation Steps:</h4>
+                        <ol class="list-decimal pl-6 mb-2">
+                            <li>Demonstrate the analyzer tool with a sample profession (3 minutes)</li>
+                            <li>Guide students to select professions aligned with their interests (2 minutes)</li>
+                            <li>Allow students to adjust various deduction parameters (5 minutes)</li>
+                            <li>Facilitate brief sharing of insights on take-home pay variations (2 minutes)</li>
+                        </ol>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Key Teaching Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>The significant impact of various deductions on net income</li>
+                            <li>How voluntary deductions like retirement affect both current and future finances</li>
+                            <li>Regional variation in state and local tax burdens</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Monitoring Guidance:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Check that students are selecting realistic salary figures</li>
+                            <li>Help students interpret the breakdown of deductions</li>
+                            <li>Encourage experimentation with different scenarios</li>
+                            <li>Look for students who may need assistance with percentage calculations</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Activity 2 -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Activity 2: Tax Withholding Strategy Builder (10 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Setup Instructions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Provide Tax Withholding Strategy Builder template</li>
+                            <li>Display reference information on withholding guidelines</li>
+                            <li>Share examples of different withholding approaches</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Facilitation Steps:</h4>
+                        <ol class="list-decimal pl-6 mb-2">
+                            <li>Review the purpose of strategic withholding decisions (2 minutes)</li>
+                            <li>Guide students in aligning withholding with financial goals (3 minutes)</li>
+                            <li>Support students in completing their personalized strategy (4 minutes)</li>
+                            <li>Check for strategy completion and feasibility (1 minute)</li>
+                        </ol>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Key Teaching Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>How withholding choices should align with broader financial goals</li>
+                            <li>The trade-offs between larger paychecks and tax refunds</li>
+                            <li>Strategies for managing irregular income or multiple jobs</li>
+                            <li>When and how to adjust withholding throughout the year</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Monitoring Guidance:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Ensure students understand the consequences of their withholding choices</li>
+                            <li>Help students connect withholding decisions to their financial circumstances</li>
+                            <li>Look for extreme withholding choices that may need adjustment</li>
+                            <li>Encourage thoughtful justification for each strategy element</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Activity 3 -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Activity 3: Net Income Budget Challenge (10 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Setup Instructions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Students should access the Budget Challenge tool</li>
+                            <li>Provide realistic net income scenarios based on Paycheck Analyzer results</li>
+                            <li>Display recommended budget percentage guidelines</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Facilitation Steps:</h4>
+                        <ol class="list-decimal pl-6 mb-2">
+                            <li>Explain the importance of budgeting based on net (not gross) income (2 minutes)</li>
+                            <li>Demonstrate the interactive budget sliders (1 minute)</li>
+                            <li>Allow students to allocate their budgets while meeting challenges (5 minutes)</li>
+                            <li>Facilitate brief discussion of budgeting trade-offs (2 minutes)</li>
+                        </ol>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Key Teaching Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>The reality check of budgeting with actual take-home pay</li>
+                            <li>How small differences in withholding affect overall budget flexibility</li>
+                            <li>Strategies for prioritizing essential expenses</li>
+                            <li>The concept of fixed vs. variable expenses in budget planning</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Monitoring Guidance:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Check that students' total allocations match their net income</li>
+                            <li>Help students who struggle to balance essential expenses</li>
+                            <li>Encourage realistic allocations based on local cost of living</li>
+                            <li>Look for opportunities to discuss financial priorities</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Activity 4 -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Activity 4: Long-Term Impact Calculator (8 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Setup Instructions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Students should access the Long-Term Impact Calculator</li>
+                            <li>Provide reference information on typical retirement account growth rates</li>
+                            <li>Display visual examples of compound growth</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Facilitation Steps:</h4>
+                        <ol class="list-decimal pl-6 mb-2">
+                            <li>Connect current withholding decisions to long-term financial impact (2 minutes)</li>
+                            <li>Demonstrate the calculator with a sample retirement scenario (2 minutes)</li>
+                            <li>Guide students to input different retirement contribution scenarios (3 minutes)</li>
+                            <li>Highlight the dramatic differences in outcomes (1 minute)</li>
+                        </ol>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Key Teaching Points:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>The power of early retirement contributions due to compound growth</li>
+                            <li>How pre-tax contributions affect current net income vs. future savings</li>
+                            <li>The long-term impact of even small changes in contribution percentages</li>
+                            <li>Balancing current needs with future financial security</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Monitoring Guidance:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Ensure students understand the time value of money concept</li>
+                            <li>Help students interpret the growth visualization</li>
+                            <li>Look for unrealistic growth assumptions to address</li>
+                            <li>Encourage consideration of multiple timeframes</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Reflection & Wrap-up -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Reflection & Wrap-up (5 minutes)</h3>
+                        <h4 class="font-medium text-gray-800 mb-1">Reflection Questions:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>"How did your perception of your future take-home pay change after today's activities?"</li>
+                            <li>"What aspect of income and taxes do you feel is most important to your financial future?"</li>
+                            <li>"What specific action will you take regarding income or tax planning when you start working?"</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Connection to Overall Objectives:</h4>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Reinforce the relationship between tax planning and overall financial well-being</li>
+                            <li>Connect income management to career planning from Chapter 1.1</li>
+                            <li>Highlight the importance of informed withholding decisions</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-gray-800 mb-1">Preview:</h4>
+                        <ul class="list-disc pl-6">
+                            <li>Brief introduction to Chapter 1.4 on Financial Goal Setting</li>
+                            <li>Connection between income management and goal achievement</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Differentiation Strategies -->
+                    <h2 class="section-header text-xl">Differentiation Strategies</h2>
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">For Advanced Students</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Challenge them to analyze more complex scenarios with multiple income sources</li>
+                            <li>Encourage optimization of tax-advantaged accounts in their planning</li>
+                            <li>Suggest creating a multi-year tax withholding strategy</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">For Struggling Students</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Provide simplified calculator tools with fewer variables</li>
+                            <li>Offer guided templates for the withholding strategy</li>
+                            <li>Focus on basic connections between withholding choices and take-home pay</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">For ELL Students</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Provide visual guides for using the calculators</li>
+                            <li>Offer glossaries of tax and income terminology</li>
+                            <li>Allow use of percentage references and calculation aids</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Assessment Strategies -->
+                    <h2 class="section-header text-xl">Assessment Strategies</h2>
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Formative Assessment Opportunities</h3>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Monitor Paycheck Analyzer usage for understanding of deduction concepts</li>
+                            <li>Check Tax Withholding Strategy for thoughtful alignment with goals</li>
+                            <li>Review budget allocations for realism and priority understanding</li>
+                            <li>Observe student reactions to the long-term impact calculations</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mb-2">Summative Assessment</h3>
+                        <div class="mb-2">
+                            <p><strong>Deliverable:</strong> Comprehensive Income Management Portfolio</p>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <p><strong>Assessment Criteria:</strong></p>
+                            <ul class="list-disc pl-6 mb-2">
+                                <li>Accuracy of paycheck analysis</li>
+                                <li>Strategic approach to tax withholding</li>
+                                <li>Realism of budget allocations</li>
+                                <li>Understanding of long-term impacts</li>
+                                <li>Integration of all elements into a coherent plan</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <p><strong>Success Indicators:</strong></p>
+                            <ul class="list-disc pl-6">
+                                <li>Excellent work: Thorough analysis across multiple scenarios, strategic withholding decisions with clear rationale, realistic budget reflecting personal priorities, thoughtful long-term planning</li>
+                                <li>Proficient work: Accurate analysis, reasonable withholding strategy, workable budget, basic long-term considerations</li>
+                                <li>Needs improvement: Incomplete analysis, generic withholding approach, unrealistic budget allocations, minimal long-term consideration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Resources -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-2">Additional Resources and References</h2>
+                        <ul class="list-disc pl-6">
+                            <li>IRS Tax Withholding Estimator</li>
+                            <li>Consumer Financial Protection Bureau budgeting resources</li>
+                            <li>Retirement calculator tools from financial institutions</li>
+                            <li>Summary of recent tax law changes affecting withholding</li>
+                            <li>Sample first-year tax filing guides</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Instructor Support -->
+                    <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                        <h2 class="text-lg font-semibold mb-2">AI Teaching Assistant Support</h2>
+                        <p class="mb-2">Need help facilitating the income and tax planning activities or troubleshooting the digital tools? Your AI Teaching Assistant provides specialized support for this learning lab.</p>
+                        
+                        <h3 class="font-medium text-gray-800 mb-1">How to Access</h3>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>Scan the QR code on your printed guide</li>
+                            <li>Visit: PFLAcademy.org/teacher-support</li>
+                            <li>Access Code: CH1.3-DAY2</li>
+                        </ul>
+                        
+                        <h3 class="font-medium text-gray-800 mb-1">Sample Questions for This Learning Lab</h3>
+                        <ul class="list-disc pl-6 mb-2">
+                            <li>"What are some real-world examples I can use to help students understand the budget impact of retirement contributions?"</li>
+                            <li>"How can I adapt the Net Income Budget Challenge for students from lower-income households?"</li>
+                            <li>"What are effective ways to demonstrate the long-term impact of compound growth for students who are math-averse?"</li>
+                            <li>"Can you suggest strategies for keeping students engaged with tax withholding concepts, which they may find dry?"</li>
+                        </ul>
+                        
+                        <h3 class="font-medium text-gray-800 mb-1">Activity-Specific Support</h3>
+                        <ul class="list-disc pl-6">
+                            <li>Get troubleshooting assistance with the Paycheck Analyzer and calculator tools</li>
+                            <li>Request industry-specific salary and deduction information for professions of interest to your students</li>
+                            <li>Receive guidance on helping students create realistic budget allocations that reflect local cost of living</li>
+                            <li>Access additional scenarios and examples to illustrate tax withholding strategies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Print Button -->
+            <button class="print-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd" />
+                </svg>
+                Print Guide
+            </button>
+        </main>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to the clicked tab
+            if (tabId === 'content-guide') {
+                document.querySelector('.tab:nth-child(1)').classList.add('active');
+            } else if (tabId === 'learning-lab') {
+                document.querySelector('.tab:nth-child(2)').classList.add('active');
+            }
+        }
+        
+        // Print functionality
+        document.querySelector('.print-btn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Download materials functionality
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Teacher materials are being prepared for download.');
+        });
+    </script>
+    <!-- Enhanced Instructor Support Panel -->
+    <div id="instructor-support-panel" class="fixed right-0 top-0 h-full w-0 bg-white shadow-xl transition-all duration-300 ease-in-out overflow-hidden z-50 flex flex-col">
+        <!-- Panel Header -->
+        <div class="bg-indigo-50 p-4 border-b border-gray-200 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-indigo-600 text-white p-2 rounded-full mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h2 class="text-lg font-semibold">Instructor Support</h2>
+            </div>
+            <button id="close-support-panel" class="text-gray-500 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Panel Content -->
+        <div class="flex-grow overflow-y-auto p-4">
+            <!-- Context Indicator -->
+            <div class="mb-4 bg-gray-50 p-3 rounded-lg text-sm">
+                <div class="font-medium text-gray-700">Currently viewing:</div>
+                <div class="flex items-center mt-1">
+                    <span class="text-indigo-600 font-semibold">Chapter 1.1:</span>
+                    <span class="ml-2">Jobs vs. Careers</span>
+                </div>
+                <div class="flex items-center mt-1">
+                    <span class="text-indigo-600 font-semibold">Section:</span>
+                    <span class="ml-2" id="current-section">Content Guide</span>
+                </div>
+            </div>
+            
+            <!-- Suggested Questions for Current Context -->
+            <div class="mb-6">
+                <h3 class="font-medium text-gray-800 mb-3">Suggested Questions</h3>
+                <div class="space-y-2" id="suggested-questions-container">
+                    <!-- Content Guide questions -->
+                    <div id="content-guide-questions">
+                        <button class="w-full text-left p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors mb-2">
+                            How can I explain human capital to students who struggle with abstract concepts?
+                        </button>
+                        <button class="w-full text-left p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors mb-2">
+                            What are alternative examples to use if students don't connect with the Alex and Taylor scenarios?
+                        </button>
+                        <button class="w-full text-left p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors mb-2">
+                            How should I respond if students question whether college is necessary for a career path?
+                        </button>
+                    </div>
+                    
+                    <!-- Learning Lab questions (hidden by default) -->
+                    <div id="learning-lab-questions" class="hidden">
+                        <button class="w-full text-left p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors mb-2">
+                            What are reliable career research resources for students interested in emerging fields?
+                        </button>
+                        <button class="w-full text-left p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors mb-2">
+                            How can I help students who are struggling to identify realistic obstacles?
+                        </button>
+                        <button class="w-full text-left p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors mb-2">
+                            What modifications can I make to the Human Capital Investment activity for a class running short on time?
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Categories -->
+            <div class="mb-6">
+                <h3 class="font-medium text-gray-800 mb-3">Support Categories</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="text-left p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors border border-blue-100 cursor-pointer" 
+                         onclick="presetQuestion('What teaching strategies work best for explaining the difference between jobs and careers?')">
+                        <div class="font-semibold text-blue-700">Teaching Strategies</div>
+                        <div class="text-sm text-blue-600 mt-1">Methods for teaching complex concepts</div>
+                    </div>
+                    <div class="text-left p-3 rounded-lg bg-green-50 hover:bg-green-100 transition-colors border border-green-100 cursor-pointer"
+                         onclick="presetQuestion('How can I explain human capital in simpler terms for struggling students?')">
+                        <div class="font-semibold text-green-700">Student Explanations</div>
+                        <div class="text-sm text-green-600 mt-1">Alternative ways to explain to students</div>
+                    </div>
+                    <div class="text-left p-3 rounded-lg bg-purple-50 hover:bg-purple-100 transition-colors border border-purple-100 cursor-pointer"
+                         onclick="presetQuestion('What extension activities can I provide for advanced students who finish early?')">
+                        <div class="font-semibold text-purple-700">Extension Ideas</div>
+                        <div class="text-sm text-purple-600 mt-1">Challenges for advanced learners</div>
+                    </div>
+                    <div class="text-left p-3 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition-colors border border-yellow-100 cursor-pointer"
+                         onclick="presetQuestion('What real-world examples or analogies can help explain career development?')">
+                        <div class="font-semibold text-yellow-700">Examples & Analogies</div>
+                        <div class="text-sm text-yellow-600 mt-1">Real-world connections</div>
+                    </div>
+                    <div class="text-left p-3 rounded-lg bg-red-50 hover:bg-red-100 transition-colors border border-red-100 col-span-2 cursor-pointer"
+                         onclick="presetQuestion('What should I do if students are having trouble with the Career Path Mapping activity?')">
+                        <div class="font-semibold text-red-700">Troubleshooting</div>
+                        <div class="text-sm text-red-600 mt-1">Help with activities and tools</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ask a Question -->
+            <div class="mb-6">
+                <h3 class="font-medium text-gray-800 mb-3">Ask Your Own Question</h3>
+                <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+                    <textarea 
+                        id="instructor-question" 
+                        class="w-full p-3 text-gray-700 focus:outline-none" 
+                        rows="3" 
+                        placeholder="Type your teaching question here..."></textarea>
+                    <div class="bg-gray-50 px-3 py-2 border-t border-gray-200 flex justify-between">
+                        <div class="text-sm text-gray-500">Context-aware assistance</div>
+                        <button id="get-support-help" class="bg-indigo-600 text-white px-4 py-1 rounded text-sm font-medium">
+                            Get Help
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Response Container -->
+            <div id="response-container" class="hidden">
+                <h3 class="font-medium text-gray-800 mb-3">Response</h3>
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-6">
+                    <div class="text-sm text-gray-500 mb-1">Your question:</div>
+                    <div id="question-display" class="font-medium mb-3"></div>
+                    <div class="text-sm text-gray-500 mb-1">Response:</div>
+                    <div id="response-content" class="text-gray-700"></div>
+                </div>
+            </div>
+            
+            <!-- Recent History -->
+            <div id="recent-history-container" class="hidden">
+                <h3 class="font-medium text-gray-800 mb-3">Recent Questions</h3>
+                <div id="history-list" class="space-y-3">
+                    <!-- History items will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Actions Footer -->
+        <div class="p-3 border-t border-gray-200 bg-gray-50">
+            <div class="grid grid-cols-3 gap-2">
+                <button id="new-question-btn" class="text-center p-2 text-xs font-medium text-gray-700 bg-white rounded border border-gray-200 hover:bg-gray-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    New Question
+                </button>
+                <button id="show-history-btn" class="text-center p-2 text-xs font-medium text-gray-700 bg-white rounded border border-gray-200 hover:bg-gray-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    History
+                </button>
+                <button id="download-resources-btn" class="text-center p-2 text-xs font-medium text-gray-700 bg-white rounded border border-gray-200 hover:bg-gray-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Resources
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contextual Suggestion Bubble (initially hidden) -->
+    <div id="suggestion-bubble" class="fixed bottom-20 right-6 bg-white rounded-lg shadow-lg p-4 max-w-sm border border-indigo-100 flex items-start z-30 hidden">
+        <div class="bg-indigo-100 p-2 rounded-full mr-3 flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+        </div>
+        <div>
+            <h4 class="font-medium text-gray-800 mb-1">Teaching Tip: Human Capital</h4>
+            <p class="text-sm text-gray-600 mb-2">Students often struggle with the abstract concept of human capital. Need some concrete examples and visual aids?</p>
+            <div class="flex justify-end">
+                <button id="dismiss-bubble" class="text-gray-500 text-sm mr-3">Dismiss</button>
+                <button id="show-tip" class="text-indigo-600 font-medium text-sm">Show Me</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update tab styling
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Find the clicked tab and activate it
+            const tabs = document.querySelectorAll('.tab');
+            for (let i = 0; i < tabs.length; i++) {
+                if (tabs[i].textContent === (tabId === 'content-guide' ? 'Content Guide' : 'Learning Lab')) {
+                    tabs[i].classList.add('active');
+                }
+            }
+            
+            // Update the Instructor Support Panel with relevant questions
+            updateSupportPanel(tabId);
+        }
+        
+        // Update Instructor Support Panel based on current tab
+        function updateSupportPanel(tabId) {
+            // Update current section display
+            document.getElementById('current-section').textContent = tabId === 'content-guide' ? 'Content Guide' : 'Learning Lab';
+            
+            // Show appropriate question set
+            if (tabId === 'content-guide') {
+                document.getElementById('content-guide-questions').classList.remove('hidden');
+                document.getElementById('learning-lab-questions').classList.add('hidden');
+            } else {
+                document.getElementById('content-guide-questions').classList.add('hidden');
+                document.getElementById('learning-lab-questions').classList.remove('hidden');
+            }
+        }
+        
+        // Instructor Support Panel functionality
+        document.getElementById('show-support-panel').addEventListener('mouseenter', function() {
+            document.getElementById('support-button-text').classList.remove('max-w-0', 'opacity-0');
+            document.getElementById('support-button-text').classList.add('max-w-xs', 'opacity-100', 'ml-2');
+        });
+        
+        document.getElementById('show-support-panel').addEventListener('mouseleave', function() {
+            document.getElementById('support-button-text').classList.add('max-w-0', 'opacity-0');
+            document.getElementById('support-button-text').classList.remove('max-w-xs', 'opacity-100', 'ml-2');
+        });
+        
+        document.getElementById('show-support-panel').addEventListener('click', function() {
+            document.getElementById('instructor-support-panel').style.width = '400px';
+        });
+        
+        document.getElementById('close-support-panel').addEventListener('click', function() {
+            document.getElementById('instructor-support-panel').style.width = '0';
+        });
+        
+        // Function to preset a question from a category
+        function presetQuestion(question) {
+            document.getElementById('instructor-question').value = question;
+            document.getElementById('instructor-question').focus();
+        }
+        
+        // Get help button functionality
+        document.getElementById('get-support-help').addEventListener('click', function() {
+            const question = document.getElementById('instructor-question').value.trim();
+            if (question) {
+                // Display the question and a simulated response
+                document.getElementById('question-display').textContent = question;
+                
+                // Generate response based on context and question
+                let response = generateContextualResponse(question);
+                document.getElementById('response-content').innerHTML = response;
+                
+                // Show the response container
+                document.getElementById('response-container').classList.remove('hidden');
+                
+                // Add to history
+                addToHistory(question, response);
+                
+                // Clear the input
+                document.getElementById('instructor-question').value = '';
+            }
+        });
+        
+        // Generate contextual responses based on question and current section
+        function generateContextualResponse(question) {
+            const currentTab = document.querySelector('.tab.active').textContent;
+            const lowerQuestion = question.toLowerCase();
+            
+            // Check for different question types and provide contextual responses
+            if (lowerQuestion.includes('human capital')) {
+                return `<p>Here are some effective ways to explain human capital:</p>
+                <ul class="list-disc pl-5 my-2">
+                    <li>Use a video game analogy: "Human capital is like upgrading a character. Each new skill makes you more valuable and able to take on bigger challenges."</li>
+                    <li>Draw two career paths on the board - one showing job hopping without skill building, another showing progressive skill development leading to advancement.</li>
+                    <li>Share relatable examples: "Learning Excel might seem small, but it adds value that employers will pay more for."</li>
+                </ul>
+                <p>Need examples tailored to your specific student interests?</p>`;
+            } else if (lowerQuestion.includes('college') || lowerQuestion.includes('education')) {
+                return `<p>Great question! When discussing whether college is necessary:</p>
+                <ol class="list-decimal pl-5 my-2">
+                    <li>Present college as one path among many (apprenticeships, trade schools, certifications)</li>
+                    <li>Clarify that different careers have different educational requirements</li>
+                    <li>Frame education as an investment with various options</li>
+                    <li>Highlight successful individuals who took different educational paths</li>
+                </ol>
+                <p>The key message: education continues beyond high school for most careers, but it doesn't always mean a traditional four-year degree.</p>`;
+            } else if (lowerQuestion.includes('obstacle') || lowerQuestion.includes('barrier')) {
+                return `<p>For obstacle identification activities:</p>
+                <ul class="list-disc pl-5 my-2">
+                    <li>Provide categories: financial, educational, geographic, skill-based, and personal</li>
+                    <li>Share examples from real professionals or past students (anonymized)</li>
+                    <li>Suggest student interviews with people in their desired field</li>
+                    <li>Offer guided worksheets with prompts for students who struggle</li>
+                </ul>
+                <p>Pro tip: Always follow obstacle identification with mitigation strategy development.</p>`;
+            } else {
+                // Default response if question type isn't specifically recognized
+                return `<p>For teaching about jobs vs. careers effectively:</p>
+                <ul class="list-disc pl-5 my-2">
+                    <li>Connect concepts to students' existing experiences</li>
+                    <li>Use visual aids and concrete examples</li>
+                    <li>Create opportunities for personal connection to the material</li>
+                    <li>Facilitate guided discussions to explore nuances</li>
+                </ul>
+                <p>Need more specific strategies for this topic?</p>`;
+            }
+        }
+        
+        // Add question and response to history
+        function addToHistory(question, response) {
+            const historyList = document.getElementById('history-list');
+            const truncatedResponse = response.length > 100 ? response.substring(0, 100) + '...' : response;
+            
+            // Create a history item
+            const historyItem = document.createElement('div');
+            historyItem.className = 'bg-white p-3 rounded-lg border border-gray-200';
+            historyItem.innerHTML = `
+                <div class="text-sm text-gray-500 mb-1">Your question:</div>
+                <div class="font-medium mb-2">${question}</div>
+                <div class="text-sm text-gray-500 mb-1">Response:</div>
+                <div class="text-gray-700 text-sm history-response">${truncatedResponse}</div>
+                <button class="text-indigo-600 font-medium text-sm mt-1 show-full-response">Show more</button>
+            `;
+            
+            // Add to history container
+            historyList.prepend(historyItem);
+            
+            // Show history container if it was hidden
+            document.getElementById('recent-history-container').classList.remove('hidden');
+            
+            // Add event listener to 'Show more' button
+            historyItem.querySelector('.show-full-response').addEventListener('click', function() {
+                const responseDisplay = document.getElementById('response-content');
+                const questionDisplay = document.getElementById('question-display');
+                
+                questionDisplay.textContent = question;
+                responseDisplay.innerHTML = response;
+                
+                document.getElementById('response-container').classList.remove('hidden');
+            });
+        }
+        
+        // New question button functionality
+        document.getElementById('new-question-btn').addEventListener('click', function() {
+            document.getElementById('instructor-question').value = '';
+            document.getElementById('response-container').classList.add('hidden');
+            document.getElementById('instructor-question').focus();
+        });
+        
+        // Show/hide history
+        document.getElementById('show-history-btn').addEventListener('click', function() {
+            const historyContainer = document.getElementById('recent-history-container');
+            historyContainer.classList.toggle('hidden');
+        });
+        
+        // Download resources button
+        document.getElementById('download-resources-btn').addEventListener('click', function() {
+            alert('Teaching resources for Chapter 1.1: Jobs vs. Careers would be downloaded here. This would include additional examples, worksheets, and presentation materials.');
+        });
+        
+        // Suggestion bubble functionality
+        window.addEventListener('load', function() {
+            // Show suggestion bubble after a delay
+            setTimeout(function() {
+                document.getElementById('suggestion-bubble').classList.remove('hidden');
+            }, 45000); // Show after 45 seconds
+        });
+        
+        document.getElementById('dismiss-bubble').addEventListener('click', function() {
+            document.getElementById('suggestion-bubble').classList.add('hidden');
+        });
+        
+        document.getElementById('show-tip').addEventListener('click', function() {
+            // Hide the bubble
+            document.getElementById('suggestion-bubble').classList.add('hidden');
+            
+            // Open the support panel
+            document.getElementById('instructor-support-panel').style.width = '400px';
+            
+            // Pre-fill and submit a question about human capital
+            document.getElementById('instructor-question').value = 'How can I explain human capital to students using concrete examples?';
+            document.getElementById('get-support-help').click();
+        });
+        
+        // Print functionality
+        document.getElementById('printBtn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Download functionality is now handled by the href attribute with the 'download' attribute
+    </script>
+</body>
+</html>

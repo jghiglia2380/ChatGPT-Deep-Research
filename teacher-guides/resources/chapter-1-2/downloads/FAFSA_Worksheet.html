@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAFSA Worksheet - Chapter 1.2: Paying for Post-Secondary Education</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; margin-bottom: 10px; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Form elements for worksheets */
+        .form-field {
+            margin-bottom: 15px;
+        }
+        .form-field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-field input[type="text"], 
+        .form-field textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: inherit;
+        }
+        .form-field textarea {
+            height: 80px;
+        }
+        
+        .note-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            input[type="text"], textarea {
+                border: 1px solid #999;
+                padding: 3px;
+            }
+            .form-field {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>To save as PDF:</strong> Open this page in Chrome, Edge, or Firefox. Click on Print (Ctrl+P or Cmd+P), 
+        then select "Save as PDF" as the destination. Click "Save" and choose where to save the file on your computer.</p>
+    </div>
+    
+    <div class="header">
+        <h1>FAFSA Worksheet</h1>
+        <p><strong>Chapter 1.2:</strong> Paying for Post-Secondary Education</p>
+    </div>
+    
+    <div class="note-box">
+        <p><strong>Note:</strong> This worksheet is designed to help you practice understanding and completing key sections of the Free Application for Federal Student Aid (FAFSA). It is not a substitute for the official FAFSA form, which must be completed online at studentaid.gov or through the myStudentAid mobile app.</p>
+    </div>
+    
+    <div class="form-field">
+        <label for="student-name">Student Name:</label>
+        <input type="text" id="student-name" name="student-name">
+    </div>
+    
+    <div class="form-field">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date">
+    </div>
+    
+    <h2>Section 1: Student Information</h2>
+    <div class="section">
+        <div class="form-field">
+            <label for="legal-name">Legal Name (as it appears on your Social Security card):</label>
+            <input type="text" id="legal-name" name="legal-name">
+        </div>
+        
+        <div class="form-field">
+            <label for="ssn">Social Security Number (format: XXX-XX-XXXX):</label>
+            <input type="text" id="ssn" name="ssn">
+        </div>
+        
+        <div class="form-field">
+            <label for="dob">Date of Birth (MM/DD/YYYY):</label>
+            <input type="text" id="dob" name="dob">
+        </div>
+        
+        <div class="form-field">
+            <label>Will you have your first bachelor's degree before July 1, 2025?</label>
+            <div style="margin-top: 5px;">
+                <input type="radio" id="degree-yes" name="first-degree" value="yes">
+                <label for="degree-yes" style="display:inline;">Yes</label>
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" id="degree-no" name="first-degree" value="no">
+                <label for="degree-no" style="display:inline;">No</label>
+            </div>
+        </div>
+    </div>
+    
+    <h2>Section 2: Dependency Status Questions</h2>
+    <div class="section">
+        <p>Answer these questions to determine if you're considered a dependent or independent student for FAFSA purposes:</p>
+        
+        <table>
+            <tr>
+                <th style="width: 80%;">Question</th>
+                <th>Yes</th>
+                <th>No</th>
+            </tr>
+            <tr>
+                <td>Were you born before January 1, 2002?</td>
+                <td style="text-align: center;"><input type="radio" name="q1" value="yes"></td>
+                <td style="text-align: center;"><input type="radio" name="q1" value="no"></td>
+            </tr>
+            <tr>
+                <td>Are you married?</td>
+                <td style="text-align: center;"><input type="radio" name="q2" value="yes"></td>
+                <td style="text-align: center;"><input type="radio" name="q2" value="no"></td>
+            </tr>
+            <tr>
+                <td>Are you a veteran of the U.S. Armed Forces?</td>
+                <td style="text-align: center;"><input type="radio" name="q3" value="yes"></td>
+                <td style="text-align: center;"><input type="radio" name="q3" value="no"></td>
+            </tr>
+            <tr>
+                <td>Do you have children who receive more than half of their support from you?</td>
+                <td style="text-align: center;"><input type="radio" name="q4" value="yes"></td>
+                <td style="text-align: center;"><input type="radio" name="q4" value="no"></td>
+            </tr>
+            <tr>
+                <td>At any time since you turned 13, were both your parents deceased, were you in foster care, or were you a dependent/ward of the court?</td>
+                <td style="text-align: center;"><input type="radio" name="q5" value="yes"></td>
+                <td style="text-align: center;"><input type="radio" name="q5" value="no"></td>
+            </tr>
+        </table>
+        
+        <div class="note-box" style="margin-top: 15px;">
+            <p><strong>Note:</strong> If you answer "Yes" to ANY of these questions, you are considered an independent student for FAFSA purposes. If you answer "No" to ALL of these questions, you are considered a dependent student and must provide parent information on your FAFSA.</p>
+        </div>
+    </div>
+    
+    <h2>Section 3: Financial Information</h2>
+    <div class="section">
+        <p>Use information from your (and your parents', if applicable) most recent tax return.</p>
+        
+        <h3>Student Financial Information</h3>
+        <div class="form-field">
+            <label for="student-agi">Adjusted Gross Income (from IRS Form 1040—line 11):</label>
+            <input type="text" id="student-agi" name="student-agi">
+        </div>
+        
+        <div class="form-field">
+            <label for="student-tax">Income tax paid (from IRS Form 1040—line 22 minus Schedule 2—line 2):</label>
+            <input type="text" id="student-tax" name="student-tax">
+        </div>
+        
+        <div class="form-field">
+            <label for="student-savings">Current balance of cash, savings, and checking accounts:</label>
+            <input type="text" id="student-savings" name="student-savings">
+        </div>
+        
+        <h3>Parent Financial Information (if dependent student)</h3>
+        <div class="form-field">
+            <label for="parent-agi">Parents' Adjusted Gross Income (from IRS Form 1040—line 11):</label>
+            <input type="text" id="parent-agi" name="parent-agi">
+        </div>
+        
+        <div class="form-field">
+            <label for="parent-tax">Parents' income tax paid (from IRS Form 1040—line 22 minus Schedule 2—line 2):</label>
+            <input type="text" id="parent-tax" name="parent-tax">
+        </div>
+        
+        <div class="form-field">
+            <label for="parent-savings">Parents' current balance of cash, savings, and checking accounts:</label>
+            <input type="text" id="parent-savings" name="parent-savings">
+        </div>
+    </div>
+    
+    <h2>Section 4: School Selection</h2>
+    <div class="section">
+        <p>List up to four schools to which you want your FAFSA information sent:</p>
+        
+        <div class="form-field">
+            <label for="school1">School 1:</label>
+            <input type="text" id="school1" name="school1">
+        </div>
+        
+        <div class="form-field">
+            <label for="school2">School 2:</label>
+            <input type="text" id="school2" name="school2">
+        </div>
+        
+        <div class="form-field">
+            <label for="school3">School 3:</label>
+            <input type="text" id="school3" name="school3">
+        </div>
+        
+        <div class="form-field">
+            <label for="school4">School 4:</label>
+            <input type="text" id="school4" name="school4">
+        </div>
+    </div>
+    
+    <h2>Section 5: Understanding Your Results</h2>
+    <div class="section">
+        <p>After completing the FAFSA, you'll receive a Student Aid Report (SAR) with your Expected Family Contribution (EFC). Use this section to understand what that means.</p>
+        
+        <div class="form-field">
+            <label for="efc-estimate">Based on the financial information you provided above, estimate what you think your EFC might be:</label>
+            <input type="text" id="efc-estimate" name="efc-estimate">
+        </div>
+        
+        <div class="form-field">
+            <label for="efc-impact">How might your estimated EFC impact your eligibility for different types of financial aid? (Consider: Pell Grants, subsidized loans, work-study)</label>
+            <textarea id="efc-impact" name="efc-impact"></textarea>
+        </div>
+    </div>
+    
+    <h2>Section 6: Next Steps</h2>
+    <div class="section">
+        <div class="form-field">
+            <label for="next-steps">List at least three specific actions you should take after submitting your FAFSA:</label>
+            <textarea id="next-steps" name="next-steps"></textarea>
+        </div>
+        
+        <div class="form-field">
+            <label for="challenges">What potential challenges might you face in completing your actual FAFSA, and how will you address them?</label>
+            <textarea id="challenges" name="challenges"></textarea>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy © 2025 | Chapter 1.2: Paying for Post-Secondary Education</p>
+    </div>
+</body>
+</html>

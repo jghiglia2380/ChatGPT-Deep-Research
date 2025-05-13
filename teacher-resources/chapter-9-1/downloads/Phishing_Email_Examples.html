@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Email Examples - Chapter 9.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .examples-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .phishing-example {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .email-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .email-field {
+            margin-bottom: 5px;
+        }
+        .label {
+            font-weight: bold;
+            display: inline-block;
+            width: 100px;
+        }
+        .warning-sign {
+            background-color: #fff8e6;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin: 15px 0;
+        }
+        .explanation {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+        }
+        .highlight {
+            background-color: #ffff9f;
+            padding: 2px 4px;
+        }
+        .email-body {
+            padding: 10px 0;
+        }
+        .fake-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .fake-link {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        .note {
+            background-color: #e9f7ef;
+            padding: 15px;
+            border-left: 4px solid #27ae60;
+            margin: 20px 0;
+        }
+        .content-container {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .examples-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="examples-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Print / Save as PDF</button>
+        </div>
+        
+        <h1>Phishing Email Examples</h1>
+        <p>This guide provides examples of common phishing emails with detailed analysis of their warning signs. Use these examples to help identify suspicious messages in your own inbox.</p>
+        
+        <div class="note">
+            <p><strong>Study these examples to become familiar with phishing tactics.</strong> Real phishing attempts may be more sophisticated than these examples, but will often contain similar warning signs. Always verify unexpected communications through official channels.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Example 1: Bank Account Alert</h2>
+            
+            <div class="phishing-example">
+                <div class="content-container">
+                    <div class="email-header">
+                        <div class="email-field">
+                            <span class="label">From:</span> 
+                            <span class="highlight">Bank-of-America-alerts@secure-banking-center.com</span>
+                        </div>
+                        <div class="email-field">
+                            <span class="label">To:</span> Valued Customer
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Subject:</span> 
+                            <span class="highlight">URGENT: Your Account Has Been Temporarily Limited</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <img src="https://via.placeholder.com/500x80/2b5797/ffffff?text=Bank+of+America+Logo" alt="Bank Logo" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+                        
+                        <p>Dear Valued <span class="highlight">Customer</span>,</p>
+                        
+                        <p><span class="highlight">We have detected unusual activity on your account</span>. For your security, we have <span class="highlight">temporarily limited access</span> to your online banking.</p>
+                        
+                        <p><span class="highlight">To restore full access to your account, you must verify your information immediately</span> by clicking the link below:</p>
+                        
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" class="fake-button">VERIFY ACCOUNT NOW</a>
+                        </div>
+                        
+                        <p>If you do not verify your information within <span class="highlight">24 hours</span>, your account access will remain limited and may result in permanent suspension.</p>
+                        
+                        <p>Thank you for your immediate attention to this matter.</p>
+                        
+                        <p>Sincerely,<br>
+                        Bank of America Security Team</p>
+                        
+                        <p style="font-size: 0.8em; color: #666; margin-top: 30px;">
+                            This email <span class="highlight">contains sensitive information</span>. If you did not request a verification, please <span class="highlight">contact us immediately</span> at 1-800-555-0123 or reply to this email.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Warning Signs Analysis</h3>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #1: Suspicious Sender Address</h4>
+                <p>The email appears to be from "Bank-of-America-alerts@secure-banking-center.com" instead of an official bankofamerica.com domain. Legitimate banks always use their official domain names in email addresses.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #2: Generic Greeting</h4>
+                <p>The email uses "Dear Valued Customer" instead of your actual name. Legitimate bank communications typically address you by name.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #3: Urgency and Threats</h4>
+                <p>The email creates a false sense of urgency with "URGENT" in the subject line and threatens account suspension if you don't act within 24 hours. Scammers use urgency to pressure you into acting without thinking.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #4: Request for Personal Information</h4>
+                <p>The email asks you to "verify your information" by clicking a link, which would likely lead to a fake website designed to steal your login credentials.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #5: Suspicious Link</h4>
+                <p>The "VERIFY ACCOUNT NOW" button would link to a fraudulent website, not the official bank website. Always hover over links to see the actual destination before clicking.</p>
+            </div>
+            
+            <div class="explanation">
+                <h4>How to Respond</h4>
+                <p>If you receive an email like this:</p>
+                <ol>
+                    <li>Do not click any links in the email</li>
+                    <li>Do not call any phone numbers provided in the email</li>
+                    <li>If you're concerned about your account, open a new browser window and type in your bank's official website directly, or use their official mobile app</li>
+                    <li>Report the phishing attempt to your bank through their official channels</li>
+                    <li>Delete the email</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Example 2: Account Password Reset</h2>
+            
+            <div class="phishing-example">
+                <div class="content-container">
+                    <div class="email-header">
+                        <div class="email-field">
+                            <span class="label">From:</span> 
+                            <span class="highlight">secure-team@googledocs.serviceaccount.com</span>
+                        </div>
+                        <div class="email-field">
+                            <span class="label">To:</span> [Your Email]
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Subject:</span> 
+                            <span class="highlight">Security Alert: Your Google Account password needs reset</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <img src="https://via.placeholder.com/500x80/4285F4/ffffff?text=Google+Logo" alt="Google Logo" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+                        
+                        <p>Dear User,</p>
+                        
+                        <p><span class="highlight">We detected a sign-in attempt from a new device</span> located in <span class="highlight">Lagos, Nigeria</span>. If this wasn't you, your password may be compromised.</p>
+                        
+                        <p><span class="highlight">Date and Time</span>: May 17, 2025, 2:34 AM EST</p>
+                        <p><span class="highlight">Device</span>: Android 12.0</p>
+                        <p><span class="highlight">Location</span>: Lagos, Nigeria</p>
+                        <p><span class="highlight">IP Address</span>: 197.255.XXX.XXX</p>
+                        
+                        <p>For your account security, <span class="highlight">please reset your password immediately</span> by clicking the link below:</p>
+                        
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" class="fake-button">Reset Password</a>
+                        </div>
+                        
+                        <p><span class="highlight">The reset link will expire in 1 hour</span> for security reasons.</p>
+                        
+                        <p>If you believe this was a mistake, simply <span class="highlight">click <a href="#" class="fake-link">here</a></span> to confirm it was you and we'll update our records.</p>
+                        
+                        <p>Thank you,<br>
+                        Google Security Team</p>
+                        
+                        <p style="font-size: 0.8em; color: #666; margin-top: 30px;">
+                            This email was sent to you as part of our commitment to keeping your Google Account secure. <span class="highlight">Please do not reply</span> as this inbox is not monitored.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Warning Signs Analysis</h3>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #1: Suspicious Sender Address</h4>
+                <p>The email claims to be from Google but uses "googledocs.serviceaccount.com" instead of an official google.com domain. This is a clear red flag.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #2: Generic Greeting</h4>
+                <p>The email uses "Dear User" instead of your name, which Google would typically include in official security communications.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #3: Creates Urgency</h4>
+                <p>The email mentions the reset link will expire in 1 hour, creating pressure to act quickly without proper verification.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #4: Suspicious Links</h4>
+                <p>Both the "Reset Password" button and the "click here" link would likely direct to a fraudulent website designed to capture your Google credentials.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #5: Discourages Alternative Verification</h4>
+                <p>The "Please do not reply" instruction attempts to prevent you from seeking verification through other channels.</p>
+            </div>
+            
+            <div class="explanation">
+                <h4>How to Respond</h4>
+                <p>If you receive an email like this:</p>
+                <ol>
+                    <li>Do not click any links in the email</li>
+                    <li>Access your Google account directly by typing accounts.google.com in your browser</li>
+                    <li>Check your account security settings to see if there were actually any suspicious sign-in attempts</li>
+                    <li>If you're concerned, change your password directly through Google's official website</li>
+                    <li>Consider enabling two-factor authentication if not already active</li>
+                    <li>Report the phishing attempt to Google</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Example 3: Package Delivery Notification</h2>
+            
+            <div class="phishing-example">
+                <div class="content-container">
+                    <div class="email-header">
+                        <div class="email-field">
+                            <span class="label">From:</span> 
+                            <span class="highlight">delivery-notification@amaz0n-shipping.net</span>
+                        </div>
+                        <div class="email-field">
+                            <span class="label">To:</span> [Your Email]
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Subject:</span> 
+                            <span class="highlight">ACTION REQUIRED: Your package delivery #39827465 is pending</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <img src="https://via.placeholder.com/500x80/232F3E/ffffff?text=Amazon+Delivery" alt="Amazon Delivery" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+                        
+                        <p>Hello,</p>
+                        
+                        <p>We <span class="highlight">attempted to deliver your package</span> today, but <span class="highlight">we need additional delivery information</span> to complete the delivery.</p>
+                        
+                        <p><span class="highlight">Package ID</span>: #39827465<br>
+                        <span class="highlight">Status</span>: Delivery Pending<br>
+                        <span class="highlight">Last Attempt</span>: May 18, 2025</p>
+                        
+                        <p><span class="highlight">Your package will be returned to the sender in 24 hours</span> if we do not receive the required information.</p>
+                        
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" class="fake-button">UPDATE DELIVERY INFO</a>
+                        </div>
+                        
+                        <p>If you did not <span class="highlight">expect a delivery</span>, please <span class="highlight">disregard this message</span>.</p>
+                        
+                        <p>Thank you,<br>
+                        Amazon Delivery Services</p>
+                        
+                        <p style="font-size: 0.8em; color: #666; margin-top: 30px;">
+                            <span class="highlight">Copyright © 2025 Amazon Inc. All rights reserved.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Warning Signs Analysis</h3>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #1: Suspicious Sender Address</h4>
+                <p>The email comes from "amaz0n-shipping.net" (note the use of "0" instead of "o") rather than amazon.com, which is Amazon's official domain.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #2: Generic Greeting</h4>
+                <p>The email uses "Hello" instead of your name, which Amazon would typically include in official communications.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #3: Creates Urgency</h4>
+                <p>The email claims your package will be returned to the sender within 24 hours, creating a false sense of urgency to act quickly.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #4: Vague Package Information</h4>
+                <p>The email provides a generic package ID without specific details about what you ordered, unlike legitimate Amazon shipping notifications which include product information.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #5: Request for Information</h4>
+                <p>The email asks you to update your delivery information, which would likely lead to a fake website designed to collect personal and financial data.</p>
+            </div>
+            
+            <div class="explanation">
+                <h4>How to Respond</h4>
+                <p>If you receive an email like this:</p>
+                <ol>
+                    <li>Do not click any links in the email</li>
+                    <li>Log in to your Amazon account directly by typing amazon.com in your browser</li>
+                    <li>Check your orders to see if you have any pending deliveries</li>
+                    <li>If you're expecting a package, track it through your account's order history</li>
+                    <li>Report the phishing attempt to Amazon's customer service</li>
+                    <li>Delete the email</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Example 4: Tax Refund Notification</h2>
+            
+            <div class="phishing-example">
+                <div class="content-container">
+                    <div class="email-header">
+                        <div class="email-field">
+                            <span class="label">From:</span> 
+                            <span class="highlight">irs-tax-refund@irs-govs.org</span>
+                        </div>
+                        <div class="email-field">
+                            <span class="label">To:</span> [Your Email]
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Subject:</span> 
+                            <span class="highlight">IRS: You have a tax refund pending</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <img src="https://via.placeholder.com/500x80/003366/ffffff?text=Internal+Revenue+Service" alt="IRS Logo" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+                        
+                        <p>Dear <span class="highlight">Taxpayer</span>,</p>
+                        
+                        <p>After <span class="highlight">the last annual calculations of your fiscal activity</span>, we have <span class="highlight">determined that you are eligible to receive a tax refund of $783.80 USD</span>.</p>
+                        
+                        <p>To <span class="highlight">receive your refund</span>, you must <span class="highlight">submit a refund request</span> and <span class="highlight">provide additional verification</span>.</p>
+                        
+                        <p>Please <span class="highlight">submit your refund request within 7 days</span> by clicking the button below:</p>
+                        
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" class="fake-button">CLAIM YOUR REFUND NOW</a>
+                        </div>
+                        
+                        <p>For security reasons, we will <span class="highlight">need to verify your identity</span> and <span class="highlight">banking information</span> before processing your refund.</p>
+                        
+                        <p><span class="highlight">Your refund may be delayed if you fail to verify your information</span> within the specified timeframe.</p>
+                        
+                        <p>Regards,<br>
+                        Internal Revenue Service<br>
+                        Refund Department</p>
+                        
+                        <p style="font-size: 0.8em; color: #666; margin-top: 30px;">
+                            <span class="highlight">CONFIDENTIALITY NOTICE: This email and any attachments are for the exclusive and confidential use of the intended recipient</span>. If you are not the intended recipient, please do not read, distribute, or take action in reliance upon this message.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Warning Signs Analysis</h3>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #1: Suspicious Sender Address</h4>
+                <p>The email comes from "irs-govs.org" rather than irs.gov, which is the official IRS domain. The IRS always uses the .gov domain for official communications.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #2: Generic Greeting</h4>
+                <p>The email uses "Dear Taxpayer" instead of your name, which is a common trait of phishing emails.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #3: Requests Banking Information</h4>
+                <p>The email states it needs to verify your banking information. The IRS never requests financial or personal information via email.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #4: Creates Urgency</h4>
+                <p>The email claims you must submit your refund request within 7 days, creating a false sense of urgency.</p>
+            </div>
+            
+            <div class="warning-sign">
+                <h4>Warning Sign #5: Unexpected Refund</h4>
+                <p>If you haven't filed taxes recently or aren't expecting a refund, an unexpected refund notification is highly suspicious.</p>
+            </div>
+            
+            <div class="explanation">
+                <h4>How to Respond</h4>
+                <p>If you receive an email like this:</p>
+                <ol>
+                    <li>Remember that the IRS does not initiate contact with taxpayers by email, text, or social media to request personal or financial information</li>
+                    <li>Do not click any links or open any attachments</li>
+                    <li>If you're concerned about your tax refund status, visit the official IRS website directly at irs.gov</li>
+                    <li>Forward the email to phishing@irs.gov then delete it</li>
+                    <li>Report the phishing attempt to the FTC at reportfraud.ftc.gov</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="note" style="margin-top: 30px;">
+            <h3>Remember: Official Organizations Will Not:</h3>
+            <ul>
+                <li>Send emails from non-official domain names</li>
+                <li>Create false urgency to pressure you into acting quickly</li>
+                <li>Ask for your password, PIN, or full Social Security Number via email</li>
+                <li>Send unpersonalized messages with generic greetings</li>
+                <li>Include suspicious attachments or links to external websites</li>
+                <li>Threaten negative consequences if you don't provide information</li>
+            </ul>
+            <p><strong>When in doubt, go directly to the official website by typing the address in your browser, or call the organization using a phone number you know is legitimate (from your credit card, statement, or official website).</strong></p>
+        </div>
+    </div>
+</body>
+</html>

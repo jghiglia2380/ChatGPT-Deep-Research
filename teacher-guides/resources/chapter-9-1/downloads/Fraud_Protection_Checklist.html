@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Protection Checklist - Chapter 9.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .checklist-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .checkbox {
+            min-width: 24px;
+            height: 24px;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            margin-right: 15px;
+            position: relative;
+        }
+        .item-content {
+            flex: 1;
+        }
+        .item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .item-description {
+            color: #555;
+            font-size: 0.95em;
+        }
+        .priority-high {
+            border-left: 4px solid #e74c3c;
+        }
+        .priority-medium {
+            border-left: 4px solid #f39c12;
+        }
+        .priority-low {
+            border-left: 4px solid #2ecc71;
+        }
+        .priority-indicator {
+            font-size: 0.8em;
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .high {
+            background-color: #fcdddb;
+            color: #c0392b;
+        }
+        .medium {
+            background-color: #fef0cd;
+            color: #d35400;
+        }
+        .low {
+            background-color: #e9f7ef;
+            color: #27ae60;
+        }
+        .note {
+            background-color: #fffae6;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin: 20px 0;
+        }
+        .resources {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .resources h3 {
+            margin-top: 0;
+        }
+        .resources ul {
+            margin-bottom: 0;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .checklist-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+            .checklist-item {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="checklist-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Print / Save as PDF</button>
+        </div>
+        
+        <h1>Fraud Protection Checklist</h1>
+        <p>Use this comprehensive checklist to protect yourself from common types of consumer fraud. Items are organized by priority to help you focus on the most important protection measures first.</p>
+        
+        <div class="note">
+            <p><strong>How to use this checklist:</strong> Check off items as you complete them. Start with high-priority items (red border), then progress to medium-priority (orange border) and low-priority (green border) items. Schedule regular reviews of this checklist to maintain your protection.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Account Security</h2>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Enable two-factor authentication on financial accounts<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Set up two-factor authentication (2FA) on all bank, credit card, investment, and payment app accounts. This adds an extra layer of security by requiring a second verification method beyond your password.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Use unique passwords for financial accounts<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Create strong, unique passwords for each financial account. Never reuse passwords across multiple accounts, especially for banking, credit cards, or investment platforms.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Secure your email account<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Enable 2FA on your email account and use a strong, unique password. Your email is often the recovery method for other accounts, making it a prime target for hackers.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Use a password manager<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Implement a reputable password manager to generate, store, and manage strong, unique passwords for all your accounts. This makes it practical to use different passwords for every service.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Set up login alerts<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Configure notifications for account logins where available. This allows you to quickly identify unauthorized access attempts.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Regularly update security questions and answers<span class="priority-indicator low">Low Priority</span></div>
+                    <div class="item-description">Periodically review and update security questions for your accounts. Avoid using answers that could be easily found on social media or through public records.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Financial Monitoring</h2>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Review financial statements weekly<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Check bank and credit card statements at least weekly to identify unauthorized transactions. Report any suspicious activity immediately to your financial institution.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Check your credit reports regularly<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Review your credit reports from all three major bureaus (Equifax, Experian, and TransUnion) at least once every four months. You're entitled to one free report from each bureau annually through AnnualCreditReport.com.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Set up transaction alerts<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Configure notifications for transactions above a certain amount or for specific types of transactions (e.g., online purchases, international transactions).</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Consider a credit freeze<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Place a credit freeze with all three major credit bureaus to prevent new credit accounts from being opened in your name. This can be especially important if you're not actively applying for credit.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Evaluate credit monitoring services<span class="priority-indicator low">Low Priority</span></div>
+                    <div class="item-description">Consider using a credit monitoring service that provides real-time alerts for changes to your credit report, suspicious activity, or potential identity theft.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Online Behavior</h2>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Never click links in unsolicited emails<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Avoid clicking links in unexpected emails, especially those claiming to be from financial institutions, government agencies, or companies you do business with. Instead, navigate to the organization's website directly by typing the URL in your browser.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Verify communications through official channels<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">If you receive a message claiming to be from your bank, a government agency, or another organization, contact them directly using the phone number on their official website or the back of your credit/debit card to verify its authenticity.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Use secure, encrypted connections<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Ensure websites use HTTPS (look for a padlock icon in the address bar) before entering personal or financial information. Avoid conducting sensitive transactions on public WiFi networks.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Be cautious with downloads<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Only download files and applications from trusted sources. Be especially wary of email attachments, even if they appear to come from someone you know.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Use a VPN for sensitive transactions<span class="priority-indicator low">Low Priority</span></div>
+                    <div class="item-description">Consider using a Virtual Private Network (VPN) when accessing financial accounts or conducting sensitive transactions, especially when using public WiFi networks.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Device Security</h2>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Keep devices updated<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Install security updates for your operating system, browsers, and apps promptly. These updates often patch security vulnerabilities that could be exploited by fraudsters.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Secure your mobile devices<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Enable strong passcodes, facial recognition, or fingerprint authentication on all devices. Configure automatic screen locking after a short period of inactivity.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Install reputable security software<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Use trusted antivirus and anti-malware software on your devices. Enable regular scans to detect and remove potential threats.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Review app permissions<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Regularly review the permissions granted to apps on your devices. Remove unnecessary apps and limit permissions to only what each app needs to function.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Enable remote wiping capabilities<span class="priority-indicator low">Low Priority</span></div>
+                    <div class="item-description">Set up the ability to remotely erase data from your devices if they are lost or stolen (e.g., Find My iPhone for Apple devices, Find My Device for Android).</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Information Sharing</h2>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Limit personal information on social media<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Review your social media privacy settings and limit the personal information you share publicly. Avoid posting details that could be used to answer security questions or steal your identity (birth date, hometown, schools attended, etc.).</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Shred sensitive documents<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Use a cross-cut shredder to destroy documents containing personal information before discarding them, including financial statements, pre-approved credit offers, and medical records.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Be cautious with mail<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Collect mail promptly and consider using a locked mailbox or post office box. Put a hold on mail delivery when traveling. Opt for electronic statements where possible.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Review data sharing settings<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Regularly review and adjust privacy settings on financial accounts, shopping websites, and apps to limit data sharing and marketing use of your information.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Opt out of pre-screened credit offers<span class="priority-indicator low">Low Priority</span></div>
+                    <div class="item-description">Visit OptOutPrescreen.com or call 1-888-5-OPTOUT to stop receiving pre-approved credit card and insurance offers by mail, which can be a target for identity thieves.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Education and Awareness</h2>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Stay informed about current scams<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Regularly check reliable sources like the FTC Consumer Information website (consumer.ftc.gov) or sign up for scam alerts to stay updated on new and emerging fraud tactics.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Educate family members<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Share fraud prevention strategies with family members, especially those who may be more vulnerable to scams like elderly relatives or younger siblings.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Report scams<span class="priority-indicator low">Low Priority</span></div>
+                    <div class="item-description">Report suspected scams to the appropriate authorities such as the FTC (reportfraud.ftc.gov), the FBI's Internet Crime Complaint Center (IC3.gov), or your state attorney general's office.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Emergency Response Plan</h2>
+            
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Create a contact list for fraud reporting<span class="priority-indicator high">High Priority</span></div>
+                    <div class="item-description">Compile contact information for your financial institutions, credit bureaus, and fraud reporting agencies so you can act quickly if you suspect fraud or identity theft.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Know the steps to take if you're a victim<span class="priority-indicator medium">Medium Priority</span></div>
+                    <div class="item-description">Familiarize yourself with immediate actions to take if you suspect fraud, including contacting financial institutions, placing fraud alerts, filing reports, and documenting all communications.</div>
+                </div>
+            </div>
+            
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Create a system for tracking fraud resolution<span class="priority-indicator low">Low Priority</span></div>
+                    <div class="item-description">Develop a method to document all fraud-related communications, including dates, contact names, and action items to help streamline the resolution process if fraud occurs.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="resources">
+            <h3>Key Resources</h3>
+            <ul>
+                <li><strong>FTC Identity Theft Website:</strong> <a href="https://www.identitytheft.gov">IdentityTheft.gov</a></li>
+                <li><strong>Free Credit Reports:</strong> <a href="https://www.annualcreditreport.com">AnnualCreditReport.com</a></li>
+                <li><strong>FTC Scam Alerts:</strong> <a href="https://www.consumer.ftc.gov/features/scam-alerts">consumer.ftc.gov/features/scam-alerts</a></li>
+                <li><strong>Report Fraud:</strong> <a href="https://reportfraud.ftc.gov">ReportFraud.ftc.gov</a></li>
+                <li><strong>Credit Bureau Fraud Alerts:</strong>
+                    <ul>
+                        <li>Equifax: 1-800-525-6285</li>
+                        <li>Experian: 1-888-397-3742</li>
+                        <li>TransUnion: 1-800-680-7289</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Remember:</strong> Fraud prevention is an ongoing process, not a one-time action. Schedule quarterly reviews of this checklist to ensure your protection measures remain current and effective. Adapt your protection strategies as technology, personal circumstances, and fraud tactics evolve.</p>
+        </div>
+    </div>
+</body>
+</html>

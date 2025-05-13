@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Tolerance Assessment Worksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #1a3a6d;
+            text-align: center;
+            border-bottom: 2px solid #1a3a6d;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a3a6d;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2c5890;
+        }
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dotted #ccc;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .option {
+            margin-bottom: 8px;
+        }
+        .chart {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .chart th, .chart td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .chart th {
+            background-color: #f2f2f2;
+        }
+        .chart tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .reflection {
+            border: 1px solid #1a3a6d;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #f0f7ff;
+            border-radius: 5px;
+        }
+        .instructions {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .score-chart {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .score-chart th, .score-chart td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .score-chart th {
+            background-color: #1a3a6d;
+            color: white;
+        }
+        .score-chart tr:nth-child(1) td {
+            background-color: #d1e7dd;
+        }
+        .score-chart tr:nth-child(2) td {
+            background-color: #fff3cd;
+        }
+        .score-chart tr:nth-child(3) td {
+            background-color: #f8d7da;
+        }
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+            h1 {
+                font-size: 18pt;
+            }
+            h2 {
+                font-size: 16pt;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print instructions">
+        <p><strong>Instructions for Teachers/Students:</strong> This worksheet is designed to be filled out digitally or printed for handwritten responses. To save as a PDF, use your browser's print function and select "Save as PDF" as the destination.</p>
+    </div>
+
+    <h1>Risk Tolerance Assessment Worksheet</h1>
+    
+    <div class="header-info">
+        <div>
+            <p><strong>Student Name:</strong> ______________________________</p>
+        </div>
+        <div>
+            <p><strong>Date:</strong> ______________________________</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <h2>Introduction</h2>
+        <p>This worksheet will help you assess your personal risk tolerance and understand how it might affect your saving and investment decisions. Risk tolerance refers to your personal comfort level with potential fluctuations in your investments. Understanding your risk tolerance is crucial for making financial decisions that align with your goals and comfort level.</p>
+    </div>
+
+    <h2>Part I: Risk Tolerance Assessment</h2>
+    <p>Answer the following questions honestly based on how you would actually react in each situation. There are no right or wrong answers - the goal is to better understand your personal comfort with financial risk.</p>
+
+    <div class="question">
+        <h3>Question 1: Time Horizon</h3>
+        <p>When do you expect to need most of the money you're saving or investing?</p>
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="q1" id="q1a"> <label for="q1a">Within the next 1-2 years</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q1" id="q1b"> <label for="q1b">Within 3-5 years</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q1" id="q1c"> <label for="q1c">Within 6-10 years</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q1" id="q1d"> <label for="q1d">More than 10 years from now</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Question 2: Market Declines</h3>
+        <p>If you invested $10,000 and its value dropped to $8,500 after one month, what would you do?</p>
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="q2" id="q2a"> <label for="q2a">Sell everything to prevent further losses</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q2" id="q2b"> <label for="q2b">Sell some investments to reduce risk</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q2" id="q2c"> <label for="q2c">Do nothing and wait for the value to recover</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q2" id="q2d"> <label for="q2d">Buy more investments while prices are lower</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Question 3: Return Expectations</h3>
+        <p>Which investment outcome would you prefer?</p>
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="q3" id="q3a"> <label for="q3a">A guaranteed 3% annual return with no possibility of loss</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q3" id="q3b"> <label for="q3b">A potential 6% annual return with some risk of minor losses</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q3" id="q3c"> <label for="q3c">A potential 9% annual return with moderate risk of losses</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q3" id="q3d"> <label for="q3d">A potential 12% annual return with significant risk of large losses</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Question 4: Risk vs. Return</h3>
+        <p>Which statement best describes your attitude toward investment risk?</p>
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="q4" id="q4a"> <label for="q4a">I'm very uncomfortable with any investment losses and prefer stability</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q4" id="q4b"> <label for="q4b">I'm willing to accept small fluctuations to achieve slightly higher returns</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q4" id="q4c"> <label for="q4c">I can tolerate moderate fluctuations for the prospect of better returns</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q4" id="q4d"> <label for="q4d">I'm comfortable with significant fluctuations for the chance of maximum returns</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Question 5: Financial Goals</h3>
+        <p>Which of these best describes your primary financial goal?</p>
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="q5" id="q5a"> <label for="q5a">Preserving my savings and minimizing losses is my top priority</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q5" id="q5b"> <label for="q5b">Growing my savings moderately while limiting risk is important to me</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q5" id="q5c"> <label for="q5c">Achieving strong growth over time, accepting some market volatility</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q5" id="q5d"> <label for="q5d">Maximizing long-term growth, accepting significant market volatility</label>
+            </div>
+        </div>
+    </div>
+
+    <h2>Part II: Scoring Your Risk Tolerance</h2>
+    <p>Score your answers according to the following point system:</p>
+    <ul>
+        <li>For each "a" answer: 1 point</li>
+        <li>For each "b" answer: 2 points</li>
+        <li>For each "c" answer: 3 points</li>
+        <li>For each "d" answer: 4 points</li>
+    </ul>
+
+    <table class="chart">
+        <tr>
+            <th>Question</th>
+            <th>Your Answer (a, b, c, or d)</th>
+            <th>Points</th>
+        </tr>
+        <tr>
+            <td>1. Time Horizon</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2. Market Declines</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3. Return Expectations</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4. Risk vs. Return</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5. Financial Goals</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Total Score</th>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h3>Risk Tolerance Profile</h3>
+    <table class="score-chart">
+        <tr>
+            <th>Score Range</th>
+            <th>Risk Tolerance Profile</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>5-10</td>
+            <td>Conservative</td>
+            <td>You prefer stability and are uncomfortable with significant fluctuations. Capital preservation is your primary focus.</td>
+        </tr>
+        <tr>
+            <td>11-15</td>
+            <td>Moderate</td>
+            <td>You can tolerate some ups and downs for the possibility of higher returns. You seek balance between growth and stability.</td>
+        </tr>
+        <tr>
+            <td>16-20</td>
+            <td>Aggressive</td>
+            <td>You're comfortable with substantial fluctuations for the potential of maximum returns. Long-term growth is your priority.</td>
+        </tr>
+    </table>
+
+    <div class="box">
+        <h3>My Risk Tolerance Profile</h3>
+        <p>Based on my score, my risk tolerance profile is: ______________________________</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Part III: Investment Options Based on Risk Tolerance</h2>
+
+    <table class="chart">
+        <tr>
+            <th>Risk Tolerance Profile</th>
+            <th>Typical Investment Allocation</th>
+            <th>Suitable Investment Types</th>
+        </tr>
+        <tr>
+            <td>Conservative</td>
+            <td>
+                <ul>
+                    <li>60-70% Cash & Cash Equivalents</li>
+                    <li>20-30% Bonds</li>
+                    <li>10-20% Stocks</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>High-yield savings accounts</li>
+                    <li>Certificates of deposit (CDs)</li>
+                    <li>Money market accounts</li>
+                    <li>Treasury bills</li>
+                    <li>Government bonds</li>
+                    <li>Blue-chip dividend stocks</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Moderate</td>
+            <td>
+                <ul>
+                    <li>30-40% Cash & Cash Equivalents</li>
+                    <li>30-40% Bonds</li>
+                    <li>30-40% Stocks</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Balanced mutual funds</li>
+                    <li>Index funds</li>
+                    <li>Corporate bonds</li>
+                    <li>Municipal bonds</li>
+                    <li>Blue-chip stocks</li>
+                    <li>Dividend-paying stocks</li>
+                    <li>Real estate investment trusts (REITs)</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Aggressive</td>
+            <td>
+                <ul>
+                    <li>5-15% Cash & Cash Equivalents</li>
+                    <li>15-25% Bonds</li>
+                    <li>60-80% Stocks</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Growth stocks</li>
+                    <li>Small-cap stocks</li>
+                    <li>International stocks</li>
+                    <li>Emerging market funds</li>
+                    <li>Sector-specific funds</li>
+                    <li>High-yield corporate bonds</li>
+                    <li>Real estate</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Part IV: Reflection</h2>
+    <div class="reflection">
+        <h3>Based on your risk tolerance assessment, answer the following questions:</h3>
+        
+        <p><strong>1. Does your risk tolerance profile (Conservative, Moderate, or Aggressive) surprise you? Why or why not?</strong></p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        
+        <p><strong>2. Which investment options from the chart above seem most appropriate for your risk tolerance level? Why?</strong></p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        
+        <p><strong>3. How might your risk tolerance change for different financial goals (e.g., short-term savings vs. retirement)?</strong></p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        
+        <p><strong>4. How does understanding your risk tolerance help you make better financial decisions?</strong></p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+    </div>
+
+    <div class="box">
+        <h3>Key Takeaways</h3>
+        <p>Understanding your risk tolerance is essential for making investment decisions that you can stick with through market fluctuations. Remember:</p>
+        <ul>
+            <li>There is no "right" or "wrong" risk tolerance - what matters is finding an approach that aligns with your goals and comfort level</li>
+            <li>Risk tolerance may change throughout your life based on age, goals, financial situation, and experiences</li>
+            <li>Time horizon (when you'll need the money) should significantly impact your investment approach</li>
+            <li>Diversification can help manage risk while still pursuing appropriate returns</li>
+        </ul>
+    </div>
+</body>
+</html>

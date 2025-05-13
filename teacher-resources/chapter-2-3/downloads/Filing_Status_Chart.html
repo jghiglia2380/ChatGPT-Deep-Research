@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filing Status Comparison Chart - Chapter 2.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table, figure {
+                page-break-inside: avoid;
+            }
+            .print-instructions {
+                display: none;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #4F46E5;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4F46E5;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #F3F4F6;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+        
+        .important-note {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .form-image {
+            border: 1px solid #E5E7EB;
+            padding: 10px;
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+        }
+        
+        .print-instructions {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .print-button {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .print-button:hover {
+            background-color: #4338CA;
+        }
+        
+        .advantage {
+            color: #059669;
+        }
+        
+        .disadvantage {
+            color: #DC2626;
+        }
+        
+        .checklist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .checklist li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4F46E5;
+            font-weight: bold;
+        }
+        
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>Select "Save as PDF" option if you want a digital copy</li>
+            <li>Adjust settings as needed (recommend landscape orientation for tables)</li>
+            <li>Print or save</li>
+        </ol>
+        <button class="print-button" onclick="window.print()">Print or Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Filing Status Comparison Chart</h1>
+        <p class="subtitle">Chapter 2.3: Understanding Tax Filing Requirements</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>Your filing status is a key factor in determining your tax filing requirements, standard deduction amount, tax brackets, and eligibility for certain credits and deductions. This guide compares the five filing statuses and helps you determine which status might be appropriate for your situation.</p>
+
+    <div class="important-note">
+        <strong>Important:</strong> Tax laws and filing thresholds change annually. Always verify current requirements on the official IRS website at <a href="https://www.irs.gov">www.irs.gov</a>.
+    </div>
+
+    <h2>Filing Status Comparison</h2>
+    <p>The table below compares key features of the five filing statuses:</p>
+
+    <table>
+        <tr>
+            <th>Filing Status</th>
+            <th>Who Qualifies</th>
+            <th>Standard Deduction (2024)</th>
+            <th>Tax Rates</th>
+            <th>Key Advantages</th>
+            <th>Key Disadvantages</th>
+        </tr>
+        <tr>
+            <td><strong>Single</strong></td>
+            <td>Unmarried individuals, divorced, or legally separated individuals</td>
+            <td>$14,600</td>
+            <td>10% to 37% (narrower brackets)</td>
+            <td>
+                <ul>
+                    <li class="advantage">Simple qualification</li>
+                    <li class="advantage">Independent filing</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li class="disadvantage">Lower standard deduction than other statuses</li>
+                    <li class="disadvantage">Typically higher effective tax rate</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Married Filing Jointly (MFJ)</strong></td>
+            <td>Married couples who combine their finances on one tax return</td>
+            <td>$29,200</td>
+            <td>10% to 37% (wider brackets)</td>
+            <td>
+                <ul>
+                    <li class="advantage">Higher standard deduction</li>
+                    <li class="advantage">Broader income tax brackets</li>
+                    <li class="advantage">Full eligibility for certain credits and deductions</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li class="disadvantage">Both spouses liable for the entire tax bill</li>
+                    <li class="disadvantage">May have higher tax liability if one spouse has significant deductions</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Married Filing Separately (MFS)</strong></td>
+            <td>Married couples who choose to file separate returns</td>
+            <td>$14,600</td>
+            <td>10% to 37% (narrower brackets)</td>
+            <td>
+                <ul>
+                    <li class="advantage">Separate tax liability from spouse</li>
+                    <li class="advantage">Potentially beneficial with certain deductions</li>
+                    <li class="advantage">May lower tax burden if one spouse has significant medical expenses</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li class="disadvantage">Disqualified from many tax credits and deductions</li>
+                    <li class="disadvantage">Lower deduction and credit thresholds</li>
+                    <li class="disadvantage">If one spouse itemizes, the other must also itemize</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Head of Household (HOH)</strong></td>
+            <td>Unmarried individuals who pay more than half the cost of maintaining a home for a qualifying person</td>
+            <td>$21,900</td>
+            <td>10% to 37% (favorable brackets between Single and MFJ)</td>
+            <td>
+                <ul>
+                    <li class="advantage">Higher standard deduction than Single</li>
+                    <li class="advantage">Lower tax rates than Single</li>
+                    <li class="advantage">Favorable treatment for certain credits</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li class="disadvantage">Must meet specific requirements to qualify</li>
+                    <li class="disadvantage">Must have a qualifying dependent</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Qualifying Widow(er) with Dependent Child</strong></td>
+            <td>Surviving spouse with dependent child (for 2 years after spouse's death)</td>
+            <td>$29,200</td>
+            <td>Same as Married Filing Jointly</td>
+            <td>
+                <ul>
+                    <li class="advantage">Same tax benefits as Married Filing Jointly</li>
+                    <li class="advantage">Higher standard deduction</li>
+                    <li class="advantage">More favorable tax brackets</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li class="disadvantage">Limited to 2 years after death of spouse</li>
+                    <li class="disadvantage">Must have a dependent child</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Filing Status Eligibility Checklists</h2>
+    <p>Use these checklists to help determine which filing status you might qualify for:</p>
+
+    <h3>Single</h3>
+    <p>You qualify as Single if:</p>
+    <ul class="checklist">
+        <li>You are unmarried on the last day of the tax year</li>
+        <li>You are legally separated or divorced under state law</li>
+        <li>You don't qualify for another filing status</li>
+    </ul>
+
+    <h3>Married Filing Jointly</h3>
+    <p>You qualify for Married Filing Jointly if:</p>
+    <ul class="checklist">
+        <li>You are legally married on the last day of the tax year</li>
+        <li>Both you and your spouse agree to file a joint return</li>
+        <li>Neither of you is a nonresident alien (with some exceptions)</li>
+    </ul>
+
+    <h3>Married Filing Separately</h3>
+    <p>You qualify for Married Filing Separately if:</p>
+    <ul class="checklist">
+        <li>You are legally married on the last day of the tax year</li>
+        <li>You and your spouse choose to file separate returns</li>
+        <li>You want to be responsible only for your own tax</li>
+    </ul>
+
+    <h3>Head of Household</h3>
+    <p>You qualify for Head of Household if:</p>
+    <ul class="checklist">
+        <li>You are unmarried or considered unmarried on the last day of the tax year</li>
+        <li>You paid more than half the cost of keeping up a home for the year</li>
+        <li>A qualifying person lived with you in the home for more than half the year (except for temporary absences)</li>
+        <li>For parents, the qualifying child doesn't need to live with you if you claim them as a dependent under a special rule for parents</li>
+    </ul>
+
+    <div class="important-note">
+        <strong>Note about "considered unmarried":</strong> You can be considered unmarried for Head of Household purposes if your spouse didn't live in your home during the last 6 months of the tax year, you file a separate return, you paid more than half the cost of keeping up your home, your home was the main home of your child for more than half the year, and you can claim the child as a dependent.
+    </div>
+
+    <h3>Qualifying Widow(er) with Dependent Child</h3>
+    <p>You qualify for Qualifying Widow(er) if:</p>
+    <ul class="checklist">
+        <li>Your spouse died in either of the two years before the current tax year</li>
+        <li>You haven't remarried</li>
+        <li>You have a dependent child</li>
+        <li>You provide more than half the cost of maintaining the home where you and the child live</li>
+        <li>You could have filed a joint return with your spouse in the year of death</li>
+    </ul>
+
+    <h2>Key Factors That Affect Filing Status Choice</h2>
+
+    <h3>Income Level and Mix</h3>
+    <p>The source and amount of income can influence which filing status is most advantageous:</p>
+    <ul>
+        <li><strong>Two-income families:</strong> Married Filing Jointly is often beneficial, but some couples with similar high incomes might face a "marriage penalty"</li>
+        <li><strong>One income significantly higher than the other:</strong> Married Filing Jointly almost always makes sense</li>
+        <li><strong>One spouse with high medical expenses:</strong> Married Filing Separately might be beneficial since medical expenses must exceed a percentage of AGI to be deductible</li>
+    </ul>
+
+    <h3>Dependent Situation</h3>
+    <p>Having dependents can influence your filing status options:</p>
+    <ul>
+        <li>Unmarried with dependents: May qualify for Head of Household (more favorable than Single)</li>
+        <li>Recently widowed with dependents: May qualify for Qualifying Widow(er) status</li>
+        <li>Separated with dependents: May qualify for Head of Household if you meet specific requirements</li>
+    </ul>
+
+    <h3>Legal Considerations</h3>
+    <p>Legal considerations that may affect filing status include:</p>
+    <ul>
+        <li>State of legal residence (particularly for same-sex marriages)</li>
+        <li>Separation agreements and divorce timing</li>
+        <li>Custody arrangements for children</li>
+        <li>Legal responsibility for tax debt (especially relevant for Married Filing Jointly vs. Separately)</li>
+    </ul>
+
+    <h2>Common Scenarios and Recommended Filing Status</h2>
+
+    <table>
+        <tr>
+            <th>Scenario</th>
+            <th>Recommended Filing Status</th>
+            <th>Explanation</th>
+        </tr>
+        <tr>
+            <td>Single parent supporting children</td>
+            <td>Head of Household</td>
+            <td>Provides larger standard deduction and better tax rates than Single status</td>
+        </tr>
+        <tr>
+            <td>Married couple where one spouse stays home</td>
+            <td>Married Filing Jointly</td>
+            <td>Almost always provides the lowest tax liability for couples with disparate incomes</td>
+        </tr>
+        <tr>
+            <td>Married couple, both with high incomes</td>
+            <td>Compare MFJ vs. MFS</td>
+            <td>Calculate both ways to see which results in lower overall tax; usually MFJ is still better</td>
+        </tr>
+        <tr>
+            <td>Married with spouse who has significant medical expenses</td>
+            <td>Consider MFS</td>
+            <td>May allow deduction of medical expenses that exceed 7.5% of lower AGI</td>
+        </tr>
+        <tr>
+            <td>Separated but not legally divorced</td>
+            <td>MFJ, MFS, or possibly HOH</td>
+            <td>HOH may be possible if you lived apart for the last 6 months of the year and meet other requirements</td>
+        </tr>
+        <tr>
+            <td>Recently widowed with dependent children</td>
+            <td>Qualifying Widow(er)</td>
+            <td>Provides the benefits of MFJ for up to 2 years after spouse's death</td>
+        </tr>
+        <tr>
+            <td>College student working part-time</td>
+            <td>Single (or possibly claimed as dependent)</td>
+            <td>Depends on whether someone else can claim you as a dependent</td>
+        </tr>
+    </table>
+
+    <h2>Filing Status Decision Tree</h2>
+    <p>Use this simplified decision tree to help determine your filing status:</p>
+
+    <ol>
+        <li><strong>Were you married on December 31 of the tax year?</strong>
+            <ul>
+                <li>If NO:
+                    <ul>
+                        <li>Did your spouse die in the last two years, and do you have a dependent child?
+                            <ul>
+                                <li>If YES: You may qualify for <strong>Qualifying Widow(er)</strong></li>
+                                <li>If NO: Continue to next question</li>
+                            </ul>
+                        </li>
+                        <li>Do you pay more than half the cost of keeping up a home for you and a qualifying person?
+                            <ul>
+                                <li>If YES: You may qualify for <strong>Head of Household</strong></li>
+                                <li>If NO: Your filing status is <strong>Single</strong></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>If YES:
+                    <ul>
+                        <li>Do you and your spouse want to file together?
+                            <ul>
+                                <li>If YES: Your filing status is <strong>Married Filing Jointly</strong></li>
+                                <li>If NO: Your filing status is <strong>Married Filing Separately</strong></li>
+                            </ul>
+                        </li>
+                        <li>Did you live apart from your spouse for the last 6 months of the year and provide more than half the cost of a home for a dependent child?
+                            <ul>
+                                <li>If YES: You may qualify for <strong>Head of Household</strong></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Special Considerations When Choosing a Filing Status</h2>
+
+    <h3>For Students</h3>
+    <p>College students often face unique filing status considerations:</p>
+    <ul>
+        <li>Determining if you can be claimed as a dependent affects your filing status</li>
+        <li>Married students should consider whether filing jointly or separately affects financial aid eligibility</li>
+        <li>Students with children may qualify for Head of Household even while in school</li>
+    </ul>
+
+    <h3>For Recently Divorced or Separated Individuals</h3>
+    <ul>
+        <li>Your marital status on December 31 determines your filing status for the entire year</li>
+        <li>Custody arrangements affect dependency exemptions and filing status options</li>
+        <li>Alimony treatment depends on when your divorce or separation agreement was finalized</li>
+    </ul>
+
+    <h3>For Same-Sex Married Couples</h3>
+    <ul>
+        <li>Same-sex married couples can file using any filing status for which they qualify</li>
+        <li>State of residence no longer affects federal filing status options</li>
+    </ul>
+
+    <h2>Resources for Additional Help</h2>
+    <ul>
+        <li><strong>IRS Publication 501</strong>: Detailed information about filing status</li>
+        <li><strong>IRS Interactive Tax Assistant</strong>: Online tool to help determine your filing status</li>
+        <li><strong>Tax Preparation Software</strong>: Often helps determine the most advantageous filing status based on your inputs</li>
+        <li><strong>Tax Professional</strong>: Consider consulting a tax professional for complex situations</li>
+    </ul>
+
+    <footer>
+        <p>PFL Academy - Chapter 2.3: Understanding Tax Filing Requirements</p>
+        <p>© 2025 PFL Academy. For educational purposes only. Not tax advice.</p>
+    </footer>
+</body>
+</html>

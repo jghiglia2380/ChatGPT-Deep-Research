@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 10.1: Renting vs. Owning - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Day toggle in sidebar */
+        .day-toggle {
+            display: flex;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .day-toggle-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-toggle-option.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Station indicators */
+        .station-indicators {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .station-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .station-indicator.active {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 10: Housing</h2>
+                        <p class="text-gray-600 text-sm mt-1">Understanding housing options and financial implications of housing decisions.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 10.1: Renting vs. Owning
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-10-1-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Housing Costs Calculator
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Application Requirements
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Scenario Analysis
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station4" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Personal Housing Plan
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio-integration" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Future chapters without checkmarks -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 10.2: Understanding Costs of Renting
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 10.3: Understanding Home Buying
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station4-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-10-1-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 10.1: Renting vs. Owning - Making Informed Housing Decisions</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Applying concepts through interactive activities</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Calculate and compare the total costs of renting versus buying in different scenarios</li>
+                            <li>Evaluate housing options using multiple financial and lifestyle criteria</li>
+                            <li>Identify the financial requirements for both renting and buying a home</li>
+                            <li>Create a personalized housing plan that aligns with your financial situation and goals</li>
+                            <li>Apply critical thinking to complex housing decisions with multiple variables</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            Welcome to the Housing Decisions Learning Lab! Today, you'll apply what you learned about renting versus owning through hands-on activities that simulate real-world housing decisions. You'll explore financial calculators, analyze housing scenarios, and develop a personal housing plan based on your unique circumstances and goals.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                Housing decisions are among the most significant financial choices you'll make in your life. There's no one-size-fits-all answer to whether renting or buying is better—it depends on your personal financial situation, lifestyle needs, and long-term goals. The activities in this learning lab will help you develop a framework for making informed housing decisions.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm mb-2">
+                                In our previous class, we explored the fundamental differences between renting and owning housing. Today, we'll build on those concepts in practical ways:
+                            </p>
+                            <ul class="list-disc list-inside text-indigo-800 text-sm ml-2">
+                                <li>We'll use the financial concepts from Day 1 to calculate actual housing costs</li>
+                                <li>We'll apply the pros and cons framework to analyze specific housing scenarios</li>
+                                <li>We'll extend your housing priorities exercise into a comprehensive housing plan</li>
+                                <li>We'll practice evaluating housing options based on both financial and lifestyle factors</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Renting vs. Owning - Making Informed Housing Decisions</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="../finished LM recordings/10.1 - Rentiing vs. Owning - Making Informed Housing Decisions.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Financial implications of renting vs. buying, lifestyle considerations, market factors, and decision frameworks
+                            </p>
+                        </div>
+                        
+                        <p class="text-gray-700">
+                            Throughout today's learning lab, you'll use interactive tools to analyze housing options from multiple perspectives. Each activity builds toward developing your own personalized housing strategy that reflects your priorities, financial situation, and future plans.
+                        </p>
+                    </div>
+                    <!-- Learning Stations -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 1: Housing Costs Calculator</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this activity, you'll use an interactive calculator to compare the true costs of renting versus buying in various scenarios.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mt-6">
+                                <!-- Rental Inputs -->
+                                <div class="bg-indigo-50 p-4 rounded-lg">
+                                    <h3 class="text-lg font-semibold text-indigo-900 mb-3">Rental Scenario</h3>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Monthly Rent ($)</label>
+                                        <input type="number" id="rent-amount" class="w-full border border-gray-300 rounded-md p-2" value="1200">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Annual Rent Increase (%)</label>
+                                        <input type="number" id="rent-increase" class="w-full border border-gray-300 rounded-md p-2" value="3">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Renter's Insurance ($/month)</label>
+                                        <input type="number" id="renters-insurance" class="w-full border border-gray-300 rounded-md p-2" value="15">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Utilities Not Included ($/month)</label>
+                                        <input type="number" id="rent-utilities" class="w-full border border-gray-300 rounded-md p-2" value="150">
+                                    </div>
+                                </div>
+                                
+                                <!-- Buying Inputs -->
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h3 class="text-lg font-semibold text-purple-900 mb-3">Purchase Scenario</h3>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Home Purchase Price ($)</label>
+                                        <input type="number" id="home-price" class="w-full border border-gray-300 rounded-md p-2" value="250000">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Down Payment (%)</label>
+                                        <input type="number" id="down-payment" class="w-full border border-gray-300 rounded-md p-2" value="10">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Mortgage Interest Rate (%)</label>
+                                        <input type="number" id="interest-rate" class="w-full border border-gray-300 rounded-md p-2" step="0.1" value="4.5">
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div class="mb-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Loan Term (years)</label>
+                                            <input type="number" id="loan-term" class="w-full border border-gray-300 rounded-md p-2" value="30">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Property Tax (%)</label>
+                                            <input type="number" id="property-tax" class="w-full border border-gray-300 rounded-md p-2" step="0.1" value="1.2">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div class="mb-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Insurance ($/month)</label>
+                                            <input type="number" id="home-insurance" class="w-full border border-gray-300 rounded-md p-2" value="100">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">HOA Fees ($/month)</label>
+                                            <input type="number" id="hoa-fees" class="w-full border border-gray-300 rounded-md p-2" value="100">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div class="mb-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Maintenance (%)</label>
+                                            <input type="number" id="maintenance" class="w-full border border-gray-300 rounded-md p-2" step="0.1" value="1">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Appreciation (%)</label>
+                                            <input type="number" id="appreciation" class="w-full border border-gray-300 rounded-md p-2" step="0.1" value="3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 mb-6 text-center">
+                                <button id="calculate-btn" class="pfl-button">Calculate Cost Comparison</button>
+                            </div>
+                            
+                            <!-- Results Section (initially hidden) -->
+                            <div id="results-section" class="hidden">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Cost Comparison Results</h3>
+                                
+                                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                    <!-- 5-Year Comparison -->
+                                    <div class="bg-white p-4 rounded-lg shadow">
+                                        <h4 class="font-medium text-indigo-800 mb-2">5-Year Cost Comparison</h4>
+                                        <div class="space-y-2">
+                                            <div class="flex justify-between">
+                                                <span>Total Rental Costs:</span>
+                                                <span class="font-semibold" id="rent-5yr-cost">$78,585</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Total Ownership Costs:</span>
+                                                <span class="font-semibold" id="buy-5yr-cost">$108,750</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Home Equity Built:</span>
+                                                <span class="font-semibold text-green-600" id="equity-5yr">$46,290</span>
+                                            </div>
+                                            <div class="flex justify-between pt-2 border-t">
+                                                <span>Net 5-Year Cost (Buy):</span>
+                                                <span class="font-semibold text-indigo-700" id="net-5yr-cost">$62,460</span>
+                                            </div>
+                                            <div class="flex justify-between pt-2 border-t">
+                                                <span class="font-medium">More Affordable Option:</span>
+                                                <span class="font-bold text-indigo-700" id="winner-5yr">Renting</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 10-Year Comparison -->
+                                    <div class="bg-white p-4 rounded-lg shadow">
+                                        <h4 class="font-medium text-indigo-800 mb-2">10-Year Cost Comparison</h4>
+                                        <div class="space-y-2">
+                                            <div class="flex justify-between">
+                                                <span>Total Rental Costs:</span>
+                                                <span class="font-semibold" id="rent-10yr-cost">$174,530</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Total Ownership Costs:</span>
+                                                <span class="font-semibold" id="buy-10yr-cost">$217,500</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Home Equity Built:</span>
+                                                <span class="font-semibold text-green-600" id="equity-10yr">$114,090</span>
+                                            </div>
+                                            <div class="flex justify-between pt-2 border-t">
+                                                <span>Net 10-Year Cost (Buy):</span>
+                                                <span class="font-semibold text-indigo-700" id="net-10yr-cost">$103,410</span>
+                                            </div>
+                                            <div class="flex justify-between pt-2 border-t">
+                                                <span class="font-medium">More Affordable Option:</span>
+                                                <span class="font-bold text-indigo-700" id="winner-10yr">Buying</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Break-Even Chart -->
+                                <div class="mt-6 bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-medium text-indigo-800 mb-2">Break-Even Analysis</h4>
+                                    <p class="text-sm text-gray-600 mb-4">This chart shows when buying becomes more cost-effective than renting based on your inputs.</p>
+                                    <div class="h-80">
+                                        <canvas id="breakEvenChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center text-indigo-700 font-medium">
+                                        Break-even point: <span id="breakeven-point">7.1 years</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Analysis Questions -->
+                            <div class="mt-6 p-4 bg-indigo-50 rounded-lg">
+                                <h4 class="font-semibold text-indigo-800 mb-2">Analysis Questions</h4>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">How do the total 5-year costs compare between renting and buying in the original scenario?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">What happens to the comparison when you increase the down payment to 20%?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Which variables seem to have the biggest impact on the overall cost comparison?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 2: Application Requirements -->
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 2: Application Requirements</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">10 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>Before you can rent or buy, you need to understand what qualifications and documentation are required. In this station, you'll explore the application requirements for both options.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mt-6">
+                                <!-- Rental Requirements -->
+                                <div class="bg-indigo-50 p-4 rounded-lg">
+                                    <h3 class="text-lg font-semibold text-indigo-900 mb-3">Rental Application Requirements</h3>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <input type="checkbox" class="mt-1 mr-2" id="rent-check-1">
+                                            <div>
+                                                <label for="rent-check-1" class="font-medium">Proof of Income</label>
+                                                <p class="text-sm text-gray-600">Landlords typically require that your monthly income is at least 3x the monthly rent.</p>
+                                                <div class="mt-1">
+                                                    <label class="block text-sm font-medium text-gray-700">Monthly Income Required for $<span id="current-rent">1200</span> Rent:</label>
+                                                    <input type="text" id="required-income" class="mt-1 w-full border border-gray-300 rounded-md p-2" readonly value="$3,600">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start">
+                                            <input type="checkbox" class="mt-1 mr-2" id="rent-check-2">
+                                            <div>
+                                                <label for="rent-check-2" class="font-medium">Credit Score</label>
+                                                <p class="text-sm text-gray-600">Many landlords require a minimum credit score to qualify for a rental.</p>
+                                                <div class="grid grid-cols-3 gap-2 mt-1">
+                                                    <div>
+                                                        <label class="block text-xs font-medium text-gray-700">Poor</label>
+                                                        <div class="bg-red-100 text-red-800 text-xs p-1 rounded text-center">Below 600</div>
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-xs font-medium text-gray-700">Average</label>
+                                                        <div class="bg-yellow-100 text-yellow-800 text-xs p-1 rounded text-center">600-680</div>
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-xs font-medium text-gray-700">Good</label>
+                                                        <div class="bg-green-100 text-green-800 text-xs p-1 rounded text-center">680+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start">
+                                            <input type="checkbox" class="mt-1 mr-2" id="rent-check-3">
+                                            <div>
+                                                <label for="rent-check-3" class="font-medium">Security Deposit</label>
+                                                <p class="text-sm text-gray-600">Most landlords require a security deposit to cover potential damages.</p>
+                                                <div class="mt-1">
+                                                    <label class="block text-sm font-medium text-gray-700">Typical Deposit Range:</label>
+                                                    <input type="text" id="security-deposit" class="mt-1 w-full border border-gray-300 rounded-md p-2" readonly value="$1,200 to $2,400">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start">
+                                            <input type="checkbox" class="mt-1 mr-2" id="rent-check-4">
+                                            <div>
+                                                <label for="rent-check-4" class="font-medium">Required Documentation</label>
+                                                <ul class="text-sm text-gray-600 list-disc list-inside mt-1">
+                                                    <li>Government-issued ID</li>
+                                                    <li>Proof of income (pay stubs, tax returns)</li>
+                                                    <li>Bank statements</li>
+                                                    <li>Rental history & references</li>
+                                                    <li>Employment verification</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Buying Requirements -->
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h3 class="text-lg font-semibold text-purple-900 mb-3">Home Buying Requirements</h3>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <input type="checkbox" class="mt-1 mr-2" id="buy-check-1">
+                                            <div>
+                                                <label for="buy-check-1" class="font-medium">Down Payment</label>
+                                                <p class="text-sm text-gray-600">Conventional loans typically require 5-20% down, while FHA loans may require as little as 3.5%.</p>
+                                                <div class="mt-1">
+                                                    <label class="block text-sm font-medium text-gray-700">For $<span id="current-price">250000</span> Home:</label>
+                                                    <div class="grid grid-cols-3 gap-2 mt-1">
+                                                        <div>
+                                                            <label class="block text-xs font-medium text-gray-700">3.5% (FHA)</label>
+                                                            <div id="fha-down" class="bg-indigo-100 text-indigo-800 text-xs p-1 rounded text-center">$8,750</div>
+                                                        </div>
+                                                        <div>
+                                                            <label class="block text-xs font-medium text-gray-700">10%</label>
+                                                            <div id="ten-down" class="bg-indigo-100 text-indigo-800 text-xs p-1 rounded text-center">$25,000</div>
+                                                        </div>
+                                                        <div>
+                                                            <label class="block text-xs font-medium text-gray-700">20%</label>
+                                                            <div id="twenty-down" class="bg-indigo-100 text-indigo-800 text-xs p-1 rounded text-center">$50,000</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start">
+                                            <input type="checkbox" class="mt-1 mr-2" id="buy-check-2">
+                                            <div>
+                                                <label for="buy-check-2" class="font-medium">Credit Score Requirements</label>
+                                                <p class="text-sm text-gray-600">Different loan types have different minimum credit score requirements.</p>
+                                                <div class="grid grid-cols-3 gap-2 mt-1">
+                                                    <div>
+                                                        <label class="block text-xs font-medium text-gray-700">FHA Loan</label>
+                                                        <div class="bg-yellow-100 text-yellow-800 text-xs p-1 rounded text-center">580+</div>
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-xs font-medium text-gray-700">Conventional</label>
+                                                        <div class="bg-green-100 text-green-800 text-xs p-1 rounded text-center">620+</div>
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-xs font-medium text-gray-700">Best Rates</label>
+                                                        <div class="bg-green-100 text-green-800 text-xs p-1 rounded text-center">740+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start">
+                                            <input type="checkbox" class="mt-1 mr-2" id="buy-check-3">
+                                            <div>
+                                                <label for="buy-check-3" class="font-medium">Debt-to-Income (DTI) Ratio</label>
+                                                <p class="text-sm text-gray-600">Most lenders require DTI below 43%, with some allowing up to 50%.</p>
+                                                <div class="mt-1">
+                                                    <label class="block text-sm font-medium text-gray-700">DTI Formula:</label>
+                                                    <div class="bg-gray-100 p-2 rounded text-sm">
+                                                        (Total Monthly Debt Payments ÷ Gross Monthly Income) × 100
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start">
+                                            <input type="checkbox" class="mt-1 mr-2" id="buy-check-4">
+                                            <div>
+                                                <label for="buy-check-4" class="font-medium">Additional Costs</label>
+                                                <ul class="text-sm text-gray-600 list-disc list-inside mt-1">
+                                                    <li>Closing costs (2-5% of loan amount)</li>
+                                                    <li>Home inspection ($300-500)</li>
+                                                    <li>Appraisal fee ($300-500)</li>
+                                                    <li>Moving expenses ($1,000+)</li>
+                                                    <li>Initial repairs/renovations (varies)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Self-Assessment -->
+                            <div class="mt-6 p-4 bg-indigo-50 rounded-lg">
+                                <h4 class="font-semibold text-indigo-800 mb-2">Personal Qualification Self-Assessment</h4>
+                                <p class="text-sm text-gray-600 mb-4">Based on the requirements above, assess your readiness for renting vs. buying:</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="text-sm font-medium text-gray-700 mb-2">Rental Readiness</h5>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="rent-ready" value="ready" class="mr-2">
+                                                <span>Ready now</span>
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="rent-ready" value="soon" class="mr-2">
+                                                <span>Ready within 1 year</span>
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="rent-ready" value="not-ready" class="mr-2">
+                                                <span>Need more time</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="text-sm font-medium text-gray-700 mb-2">Home Purchase Readiness</h5>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="buy-ready" value="ready" class="mr-2">
+                                                <span>Ready now</span>
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="buy-ready" value="soon" class="mr-2">
+                                                <span>Ready within 1-3 years</span>
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="buy-ready" value="not-ready" class="mr-2">
+                                                <span>Need 3+ years</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">What steps would you need to take to improve your qualifications?</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="qualification-steps"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 3: Scenario Analysis -->
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 3: Scenario Analysis</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>In this station, you'll analyze different life scenarios and determine whether renting or buying is more appropriate. Remember, the right housing choice depends on individual circumstances and goals.</p>
+                            
+                            <div class="mt-6 space-y-6">
+                                <!-- Scenario Tabs -->
+                                <div class="border-b border-gray-200">
+                                    <nav class="-mb-px flex space-x-4">
+                                        <button id="scenario1-btn" class="scenario-tab active py-2 px-4 text-sm font-medium border-b-2 border-indigo-500 text-indigo-600">Scenario 1</button>
+                                        <button id="scenario2-btn" class="scenario-tab py-2 px-4 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">Scenario 2</button>
+                                        <button id="scenario3-btn" class="scenario-tab py-2 px-4 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">Scenario 3</button>
+                                        <button id="scenario4-btn" class="scenario-tab py-2 px-4 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">Scenario 4</button>
+                                    </nav>
+                                </div>
+                                
+                                <!-- Scenario Content -->
+                                <div class="scenario-content p-4 bg-gray-50 rounded-lg" id="scenario1-content">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Recent Graduate in a New City</h3>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="text-base font-medium text-gray-800">Scenario Details:</h4>
+                                            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                                <li>22-year-old recent college graduate</li>
+                                                <li>First job offer in a new city</li>
+                                                <li>$52,000 annual salary</li>
+                                                <li>$25,000 in student loan debt</li>
+                                                <li>$5,000 in savings</li>
+                                                <li>Unsure how long they'll stay in this location</li>
+                                                <li>Credit score: 690</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-base font-medium text-gray-800">Analysis Questions:</h4>
+                                            <div class="space-y-3">
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700">What housing option would you recommend?</label>
+                                                    <div class="mt-1 flex space-x-4">
+                                                        <label class="inline-flex items-center">
+                                                            <input type="radio" name="scenario1-choice" value="rent" class="mr-1">
+                                                            <span>Rent</span>
+                                                        </label>
+                                                        <label class="inline-flex items-center">
+                                                            <input type="radio" name="scenario1-choice" value="buy" class="mr-1">
+                                                            <span>Buy</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700">Explain your reasoning:</label>
+                                                    <textarea class="mt-1 w-full p-2 border border-gray-300 rounded-md" rows="3" name="scenario1-reason"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="scenario-content p-4 bg-gray-50 rounded-lg hidden" id="scenario2-content">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Mid-Career Professional with Family</h3>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="text-base font-medium text-gray-800">Scenario Details:</h4>
+                                            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                                <li>35-year-old mid-career professional</li>
+                                                <li>Married with two children (ages 6 and 8)</li>
+                                                <li>Combined household income: $110,000</li>
+                                                <li>$40,000 in savings</li>
+                                                <li>Planning to stay in the area for at least 10 years</li>
+                                                <li>Wants access to specific school district</li>
+                                                <li>Credit score: 750</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-base font-medium text-gray-800">Analysis Questions:</h4>
+                                            <div class="space-y-3">
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700">What housing option would you recommend?</label>
+                                                    <div class="mt-1 flex space-x-4">
+                                                        <label class="inline-flex items-center">
+                                                            <input type="radio" name="scenario2-choice" value="rent" class="mr-1">
+                                                            <span>Rent</span>
+                                                        </label>
+                                                        <label class="inline-flex items-center">
+                                                            <input type="radio" name="scenario2-choice" value="buy" class="mr-1">
+                                                            <span>Buy</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700">Explain your reasoning:</label>
+                                                    <textarea class="mt-1 w-full p-2 border border-gray-300 rounded-md" rows="3" name="scenario2-reason"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="scenario-content p-4 bg-gray-50 rounded-lg hidden" id="scenario3-content">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Freelancer with Variable Income</h3>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="text-base font-medium text-gray-800">Scenario Details:</h4>
+                                            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                                <li>28-year-old freelance graphic designer</li>
+                                                <li>Income varies monthly (avg. $65,000/year)</li>
+                                                <li>Works remotely, values flexibility</li>
+                                                <li>$20,000 in savings</li>
+                                                <li>Considering moving to a different city in 2-3 years</li>
+                                                <li>No debt</li>
+                                                <li>Credit score: 720</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-base font-medium text-gray-800">Analysis Questions:</h4>
+                                            <div class="space-y-3">
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700">What housing option would you recommend?</label>
+                                                    <div class="mt-1 flex space-x-4">
+                                                        <label class="inline-flex items-center">
+                                                            <input type="radio" name="scenario3-choice" value="rent" class="mr-1">
+                                                            <span>Rent</span>
+                                                        </label>
+                                                        <label class="inline-flex items-center">
+                                                            <input type="radio" name="scenario3-choice" value="buy" class="mr-1">
+                                                            <span>Buy</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700">Explain your reasoning:</label>
+                                                    <textarea class="mt-1 w-full p-2 border border-gray-300 rounded-md" rows="3" name="scenario3-reason"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="scenario-content p-4 bg-gray-50 rounded-lg hidden" id="scenario4-content">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Near-Retirement Couple</h3>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="text-base font-medium text-gray-800">Scenario Details:</h4>
+                                            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                                <li>Couple in their early 60s</li>
+                                                <li>Planning to retire in 3-5 years</li>
+                                                <li>Current income: $130,000 combined</li>
+                                                <li>$350,000 in retirement savings</li>
+                                                <li>Currently own a home (nearly paid off)</li>
+                                                <li>Looking to downsize</li>
+                                                <li>Want to travel extensively during retirement</li>
+                                                <li>Credit score: 800+</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-base font-medium text-gray-800">Analysis Questions:</h4>
+                                            <div class="space-y-3">
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700">What housing option would you recommend?</label>
+                                                    <div class="mt-1 flex space-x-4">
+                                                        <label class="inline-flex items-center">
+                                                            <input type="radio" name="scenario4-choice" value="rent" class="mr-1">
+                                                            <span>Rent</span>
+                                                        </label>
+                                                        <label class="inline-flex items-center">
+                                                            <input type="radio" name="scenario4-choice" value="buy" class="mr-1">
+                                                            <span>Buy</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700">Explain your reasoning:</label>
+                                                    <textarea class="mt-1 w-full p-2 border border-gray-300 rounded-md" rows="3" name="scenario4-reason"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Decision Framework -->
+                            <div class="mt-6 p-4 bg-indigo-50 rounded-lg">
+                                <h4 class="font-semibold text-indigo-800 mb-2">Decision Framework Summary</h4>
+                                <p class="text-sm text-gray-700 mb-4">Based on your scenario analyses, what factors seem most important when deciding between renting and buying?</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="text-sm font-medium text-gray-700 mb-2">Factors favoring renting:</h5>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" id="rent-factors"></textarea>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-medium text-gray-700 mb-2">Factors favoring buying:</h5>
+                                        <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" id="buy-factors"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Station 4: Personal Housing Plan -->
+                    <div class="learning-station" id="station4">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">4</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Station 4: Personal Housing Plan</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <!-- Station Content -->
+                        <div class="prose max-w-none text-gray-700 mb-4">
+                            <p>Now it's time to create your own personal housing plan. This plan will outline your current situation, future goals, and the steps needed to achieve your ideal housing situation.</p>
+                            
+                            <div class="mt-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Your Personal Housing Plan</h3>
+                                
+                                <div class="space-y-6">
+                                    <!-- Current Situation -->
+                                    <div class="p-4 bg-white rounded-lg shadow">
+                                        <h4 class="font-medium text-indigo-800 mb-3">Current Situation</h4>
+                                        
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Current Housing Situation:</label>
+                                                <select class="w-full p-2 border border-gray-300 rounded-md" id="current-housing">
+                                                    <option value="">Select your situation</option>
+                                                    <option value="parents">Living with parents/family</option>
+                                                    <option value="renting">Renting apartment/house</option>
+                                                    <option value="roommates">Renting with roommates</option>
+                                                    <option value="dorm">Dorm/student housing</option>
+                                                    <option value="own">Own home</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Current Monthly Housing Cost ($):</label>
+                                                <input type="number" class="w-full p-2 border border-gray-300 rounded-md" id="current-cost">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">What do you like and dislike about your current housing?</label>
+                                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="housing-likes-dislikes"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Short-Term Plan (1-2 Years) -->
+                                    <div class="p-4 bg-white rounded-lg shadow">
+                                        <h4 class="font-medium text-indigo-800 mb-3">Short-Term Plan (1-2 Years)</h4>
+                                        
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Housing Type:</label>
+                                                <select class="w-full p-2 border border-gray-300 rounded-md" id="short-term-type">
+                                                    <option value="">Select an option</option>
+                                                    <option value="apartment">Apartment rental</option>
+                                                    <option value="house-rental">House rental</option>
+                                                    <option value="condo">Condominium</option>
+                                                    <option value="townhouse">Townhouse</option>
+                                                    <option value="single-family">Single-family home</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Rent or Buy?</label>
+                                                <div class="mt-2 space-x-4">
+                                                    <label class="inline-flex items-center">
+                                                        <input type="radio" name="short-term-tenure" value="rent" class="mr-1">
+                                                        <span>Rent</span>
+                                                    </label>
+                                                    <label class="inline-flex items-center">
+                                                        <input type="radio" name="short-term-tenure" value="buy" class="mr-1">
+                                                        <span>Buy</span>
+                                                    </label>
+                                                    <label class="inline-flex items-center">
+                                                        <input type="radio" name="short-term-tenure" value="undecided" class="mr-1">
+                                                        <span>Undecided</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Budget range for monthly housing costs:</label>
+                                            <div class="flex space-x-2 items-center">
+                                                <span>$</span>
+                                                <input type="number" class="w-24 p-2 border border-gray-300 rounded-md" id="short-term-min">
+                                                <span>to</span>
+                                                <input type="number" class="w-24 p-2 border border-gray-300 rounded-md" id="short-term-max">
+                                                <span>per month</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Top three priorities for your short-term housing:</label>
+                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                                <input type="text" class="p-2 border border-gray-300 rounded-md" placeholder="Priority 1" id="short-priority-1">
+                                                <input type="text" class="p-2 border border-gray-300 rounded-md" placeholder="Priority 2" id="short-priority-2">
+                                                <input type="text" class="p-2 border border-gray-300 rounded-md" placeholder="Priority 3" id="short-priority-3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Long-Term Plan (5+ Years) -->
+                                    <div class="p-4 bg-white rounded-lg shadow">
+                                        <h4 class="font-medium text-indigo-800 mb-3">Long-Term Plan (5+ Years)</h4>
+                                        
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Housing Type:</label>
+                                                <select class="w-full p-2 border border-gray-300 rounded-md" id="long-term-type">
+                                                    <option value="">Select an option</option>
+                                                    <option value="apartment">Apartment rental</option>
+                                                    <option value="house-rental">House rental</option>
+                                                    <option value="condo">Condominium</option>
+                                                    <option value="townhouse">Townhouse</option>
+                                                    <option value="single-family">Single-family home</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Rent or Buy?</label>
+                                                <div class="mt-2 space-x-4">
+                                                    <label class="inline-flex items-center">
+                                                        <input type="radio" name="long-term-tenure" value="rent" class="mr-1">
+                                                        <span>Rent</span>
+                                                    </label>
+                                                    <label class="inline-flex items-center">
+                                                        <input type="radio" name="long-term-tenure" value="buy" class="mr-1">
+                                                        <span>Buy</span>
+                                                    </label>
+                                                    <label class="inline-flex items-center">
+                                                        <input type="radio" name="long-term-tenure" value="undecided" class="mr-1">
+                                                        <span>Undecided</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Ideal location/area:</label>
+                                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md" id="long-term-location">
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Top three priorities for your long-term housing:</label>
+                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                                <input type="text" class="p-2 border border-gray-300 rounded-md" placeholder="Priority 1" id="long-priority-1">
+                                                <input type="text" class="p-2 border border-gray-300 rounded-md" placeholder="Priority 2" id="long-priority-2">
+                                                <input type="text" class="p-2 border border-gray-300 rounded-md" placeholder="Priority 3" id="long-priority-3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Action Steps -->
+                                    <div class="p-4 bg-white rounded-lg shadow">
+                                        <h4 class="font-medium text-indigo-800 mb-3">Action Steps</h4>
+                                        <p class="text-sm text-gray-600 mb-3">What steps do you need to take to move from your current housing situation to your desired housing?</p>
+                                        
+                                        <div class="space-y-3">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-2" id="action-step-1">
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Action step 1">
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-2" id="action-step-2">
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Action step 2">
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-2" id="action-step-3">
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Action step 3">
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-2" id="action-step-4">
+                                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Action step 4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="pfl-button flex items-center" onclick="saveStation(4)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration -->
+                    <div class="bg-indigo-50 rounded-lg p-6 mb-8" id="portfolio-integration">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">
+                            Now that you've completed all the stations, let's integrate what you've learned into your financial portfolio. This summary will help you understand your housing preferences and financial readiness.
+                        </p>
+                        
+                        <div class="bg-white rounded-lg p-4 shadow mb-4">
+                            <h3 class="text-lg font-semibold text-indigo-900 mb-3">Housing Decision Summary</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="font-medium text-gray-700 mb-2">Your Current Financial Readiness:</h4>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md mb-4" id="financial-readiness">
+                                        <option value="">Select your readiness level</option>
+                                        <option value="not-ready">Not financially ready to rent or buy</option>
+                                        <option value="rent-ready">Ready to rent but not buy</option>
+                                        <option value="almost-buy">Almost ready to buy (1-2 years)</option>
+                                        <option value="buy-ready">Ready to buy now</option>
+                                    </select>
+                                    
+                                    <h4 class="font-medium text-gray-700 mb-2">Your Timeline:</h4>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md" id="housing-timeline">
+                                        <option value="">Select your timeline</option>
+                                        <option value="0-1">Need housing within 1 year</option>
+                                        <option value="1-3">Planning for housing in 1-3 years</option>
+                                        <option value="3-5">Planning for housing in 3-5 years</option>
+                                        <option value="5+">Long-term planning (5+ years)</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-medium text-gray-700 mb-2">Your Decision:</h4>
+                                    <div class="space-y-1">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="final-decision" value="rent-short" class="mr-2">
+                                            <span>Rent in the short-term, possibly buy later</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="final-decision" value="rent-long" class="mr-2">
+                                            <span>Rent long-term (best for my situation)</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="final-decision" value="buy-soon" class="mr-2">
+                                            <span>Prepare to buy within 1-3 years</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="final-decision" value="buy-now" class="mr-2">
+                                            <span>Ready to buy now or very soon</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 shadow">
+                            <h3 class="text-lg font-semibold text-indigo-900 mb-3">Housing Portfolio Overview</h3>
+                            
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Summarize your housing plan and financial strategy:</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-md mb-4" rows="4" id="portfolio-summary" placeholder="Based on my current financial situation, future goals, and the housing market analysis..."></textarea>
+                            
+                            <div class="mt-3">
+                                <h4 class="font-medium text-gray-700 mb-2">Key Takeaways:</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" class="mr-2" id="takeaway-1">
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Key takeaway 1" id="takeaway-text-1">
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" class="mr-2" id="takeaway-2">
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Key takeaway 2" id="takeaway-text-2">
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" class="mr-2" id="takeaway-3">
+                                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Key takeaway 3" id="takeaway-text-3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button mt-4" onclick="savePortfolio()">
+                            Add to Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Final Reflection -->
+                    <div class="discussion-prompt" id="reflection">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Reflection</h2>
+                        <p class="text-gray-700 mb-4">
+                            Consider what you've learned about housing decisions and reflect on how this knowledge will influence your future housing choices.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">How has your perspective on renting versus buying changed after completing these activities?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3" id="reflection-1"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">What additional information or resources would you need to make an informed housing decision in your own life?</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md" rows="3" data-ai-check="true" data-assessment-weight="3" id="reflection-2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 p-4 bg-gray-50 rounded-md hidden" id="feedback-container">
+                            <h3 class="font-semibold text-gray-900 mb-2">AI Feedback</h3>
+                            <p class="text-gray-700" id="ai-feedback"></p>
+                        </div>
+                        
+                        <div class="flex justify-between mt-4">
+                            <button class="pfl-button" onclick="checkReflection()">
+                                Get Feedback
+                            </button>
+                            <a href="chapter-10-2-day1.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                                Continue to Next Chapter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+    
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            station4: false,
+            portfolio: false
+        };
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 4) {
+                // If it's the last station, go to portfolio integration
+                setTimeout(() => {
+                    document.getElementById('portfolio-integration').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // AI feedback system simulation
+        function checkReflection() {
+            const reflectionTexts = document.querySelectorAll('textarea[data-ai-check="true"]');
+            const feedbackContainer = document.getElementById('feedback-container');
+            const aiFeedback = document.getElementById('ai-feedback');
+            
+            // Check the length of all reflection texts combined
+            let totalLength = 0;
+            reflectionTexts.forEach(textarea => {
+                totalLength += textarea.value.length;
+            });
+            
+            if (totalLength < 50) {
+                aiFeedback.textContent = "Your reflection is quite brief. Consider expanding on your thoughts about housing decisions and connecting them to the concepts learned in this chapter.";
+            } else if (totalLength < 150) {
+                aiFeedback.textContent = "Good start! Try to provide more specific examples of how this knowledge on housing decisions will impact your future financial planning. Consider addressing both financial and lifestyle factors in your reflection.";
+            } else {
+                aiFeedback.textContent = "Excellent reflection! You've demonstrated a strong understanding of the housing decision process and how financial and personal factors interact in these decisions. Your thoughtful analysis shows you can apply these concepts to real-life scenarios.";
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+        }
+        
+        // Highlight active section based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.learning-objectives, #introduction, .learning-station, #portfolio-integration, #reflection');
+            const navItems = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+            
+            // Housing Costs Calculator Functionality
+            const calculateBtn = document.getElementById('calculate-btn');
+            const resultsSection = document.getElementById('results-section');
+            
+            if (calculateBtn) {
+                calculateBtn.addEventListener('click', function() {
+                    // Show results section
+                    resultsSection.classList.remove('hidden');
+                    
+                    // Get input values
+                    const rentAmount = parseFloat(document.getElementById('rent-amount').value) || 1200;
+                    const rentIncrease = parseFloat(document.getElementById('rent-increase').value) || 3;
+                    const rentersInsurance = parseFloat(document.getElementById('renters-insurance').value) || 15;
+                    const rentUtilities = parseFloat(document.getElementById('rent-utilities').value) || 150;
+                    
+                    const homePrice = parseFloat(document.getElementById('home-price').value) || 250000;
+                    const downPayment = parseFloat(document.getElementById('down-payment').value) || 10;
+                    const interestRate = parseFloat(document.getElementById('interest-rate').value) || 4.5;
+                    const loanTerm = parseFloat(document.getElementById('loan-term').value) || 30;
+                    const propertyTax = parseFloat(document.getElementById('property-tax').value) || 1.2;
+                    const homeInsurance = parseFloat(document.getElementById('home-insurance').value) || 100;
+                    const hoaFees = parseFloat(document.getElementById('hoa-fees').value) || 100;
+                    const maintenance = parseFloat(document.getElementById('maintenance').value) || 1;
+                    const appreciation = parseFloat(document.getElementById('appreciation').value) || 3;
+                    
+                    // Calculate mortgage payment
+                    const loanAmount = homePrice * (1 - downPayment / 100);
+                    const monthlyRate = interestRate / 100 / 12;
+                    const numPayments = loanTerm * 12;
+                    const mortgagePayment = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numPayments) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+                    
+                    // Calculate monthly costs
+                    const monthlyPropertyTax = homePrice * (propertyTax / 100) / 12;
+                    const monthlyMaintenance = homePrice * (maintenance / 100) / 12;
+                    const totalMonthlyOwnershipCost = mortgagePayment + monthlyPropertyTax + homeInsurance + hoaFees + monthlyMaintenance;
+                    
+                    // Calculate 5-year and 10-year costs
+                    let totalRent5yr = 0;
+                    let totalRent10yr = 0;
+                    let currentRent = rentAmount;
+                    
+                    for (let i = 0; i < 60; i++) {
+                        if (i > 0 && i % 12 === 0) {
+                            currentRent *= (1 + rentIncrease / 100);
+                        }
+                        totalRent5yr += currentRent + rentersInsurance + rentUtilities;
+                    }
+                    
+                    currentRent = rentAmount;
+                    for (let i = 0; i < 120; i++) {
+                        if (i > 0 && i % 12 === 0) {
+                            currentRent *= (1 + rentIncrease / 100);
+                        }
+                        totalRent10yr += currentRent + rentersInsurance + rentUtilities;
+                    }
+                    
+                    const totalOwnership5yr = totalMonthlyOwnershipCost * 60;
+                    const totalOwnership10yr = totalMonthlyOwnershipCost * 120;
+                    
+                    // Calculate home equity after 5 and 10 years
+                    // Simple approximation: down payment + principal paid + appreciation
+                    const downPaymentAmount = homePrice * (downPayment / 100);
+                    const principalPaid5yr = calculatePrincipalPaid(loanAmount, interestRate, loanTerm, 5);
+                    const principalPaid10yr = calculatePrincipalPaid(loanAmount, interestRate, loanTerm, 10);
+                    const homeValue5yr = homePrice * Math.pow(1 + appreciation / 100, 5);
+                    const homeValue10yr = homePrice * Math.pow(1 + appreciation / 100, 10);
+                    const equity5yr = downPaymentAmount + principalPaid5yr + (homeValue5yr - homePrice);
+                    const equity10yr = downPaymentAmount + principalPaid10yr + (homeValue10yr - homePrice);
+                    
+                    // Net cost calculation
+                    const netCost5yr = totalOwnership5yr - equity5yr;
+                    const netCost10yr = totalOwnership10yr - equity10yr;
+                    
+                    // Update the UI
+                    document.getElementById('rent-5yr-cost').textContent = '$' + Math.round(totalRent5yr).toLocaleString();
+                    document.getElementById('buy-5yr-cost').textContent = '$' + Math.round(totalOwnership5yr).toLocaleString();
+                    document.getElementById('equity-5yr').textContent = '$' + Math.round(equity5yr).toLocaleString();
+                    document.getElementById('net-5yr-cost').textContent = '$' + Math.round(netCost5yr).toLocaleString();
+                    document.getElementById('winner-5yr').textContent = netCost5yr < totalRent5yr ? 'Buying' : 'Renting';
+                    
+                    document.getElementById('rent-10yr-cost').textContent = '$' + Math.round(totalRent10yr).toLocaleString();
+                    document.getElementById('buy-10yr-cost').textContent = '$' + Math.round(totalOwnership10yr).toLocaleString();
+                    document.getElementById('equity-10yr').textContent = '$' + Math.round(equity10yr).toLocaleString();
+                    document.getElementById('net-10yr-cost').textContent = '$' + Math.round(netCost10yr).toLocaleString();
+                    document.getElementById('winner-10yr').textContent = netCost10yr < totalRent10yr ? 'Buying' : 'Renting';
+                    
+                    // Calculate break-even point
+                    let breakEvenYear = calculateBreakEvenYear(rentAmount, rentIncrease, rentersInsurance, rentUtilities, 
+                                                             totalMonthlyOwnershipCost, loanAmount, interestRate, loanTerm, 
+                                                             homePrice, appreciation, downPaymentAmount);
+                    document.getElementById('breakeven-point').textContent = breakEvenYear.toFixed(1) + ' years';
+                    
+                    // Update break-even chart
+                    updateBreakEvenChart(rentAmount, rentIncrease, rentersInsurance, rentUtilities, 
+                                         totalMonthlyOwnershipCost, loanAmount, interestRate, loanTerm, 
+                                         homePrice, appreciation, downPaymentAmount);
+                    
+                    // Update application requirements
+                    document.getElementById('current-rent').textContent = rentAmount;
+                    document.getElementById('required-income').value = '$' + (rentAmount * 3).toLocaleString();
+                    document.getElementById('security-deposit').value = '$' + rentAmount.toLocaleString() + ' to $' + (rentAmount * 2).toLocaleString();
+                    
+                    document.getElementById('current-price').textContent = homePrice.toLocaleString();
+                    document.getElementById('fha-down').textContent = '$' + Math.round(homePrice * 0.035).toLocaleString();
+                    document.getElementById('ten-down').textContent = '$' + Math.round(homePrice * 0.1).toLocaleString();
+                    document.getElementById('twenty-down').textContent = '$' + Math.round(homePrice * 0.2).toLocaleString();
+                });
+            }
+            
+            // Function to calculate principal paid over years
+            function calculatePrincipalPaid(loanAmount, interestRate, loanTerm, years) {
+                const monthlyRate = interestRate / 100 / 12;
+                const numPayments = loanTerm * 12;
+                const monthlyPayment = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numPayments) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+                
+                let balance = loanAmount;
+                const months = years * 12;
+                
+                for (let i = 0; i < months; i++) {
+                    const interestPayment = balance * monthlyRate;
+                    const principalPayment = monthlyPayment - interestPayment;
+                    balance -= principalPayment;
+                }
+                
+                return loanAmount - balance;
+            }
+            
+            // Function to calculate break-even year
+            function calculateBreakEvenYear(rentAmount, rentIncrease, rentersInsurance, rentUtilities,
+                                         totalMonthlyOwnershipCost, loanAmount, interestRate, loanTerm,
+                                         homePrice, appreciation, downPaymentAmount) {
+                let totalRentCost = 0;
+                let totalOwnershipCost = 0;
+                let currentRent = rentAmount;
+                let year = 0;
+                let equity = downPaymentAmount;
+                let netOwnershipCost = 0;
+                
+                // Check for up to 30 years
+                for (year = 1; year <= 30; year++) {
+                    // Calculate rent for the year
+                    for (let month = 0; month < 12; month++) {
+                        if (month === 0 && year > 1) {
+                            currentRent *= (1 + rentIncrease / 100);
+                        }
+                        totalRentCost += currentRent + rentersInsurance + rentUtilities;
+                    }
+                    
+                    // Calculate ownership costs for the year
+                    totalOwnershipCost += totalMonthlyOwnershipCost * 12;
+                    
+                    // Calculate equity at end of year
+                    const principalPaid = calculatePrincipalPaid(loanAmount, interestRate, loanTerm, year);
+                    const homeValue = homePrice * Math.pow(1 + appreciation / 100, year);
+                    equity = downPaymentAmount + principalPaid + (homeValue - homePrice);
+                    
+                    // Net ownership cost
+                    netOwnershipCost = totalOwnershipCost - equity;
+                    
+                    // Check if break-even point is reached
+                    if (netOwnershipCost < totalRentCost) {
+                        // Interpolate for more precision
+                        const prevYearRentCost = totalRentCost - (currentRent + rentersInsurance + rentUtilities) * 12;
+                        const prevYearNetOwnershipCost = totalOwnershipCost - totalMonthlyOwnershipCost * 12 - equity + 
+                                                      calculatePrincipalPaid(loanAmount, interestRate, loanTerm, year - 1) + 
+                                                      (homePrice * Math.pow(1 + appreciation / 100, year - 1) - homePrice);
+                        
+                        const rentDiff = totalRentCost - prevYearRentCost;
+                        const netCostDiff = netOwnershipCost - prevYearNetOwnershipCost;
+                        const costDiff = totalRentCost - netOwnershipCost;
+                        
+                        // Linear interpolation
+                        const fraction = costDiff / (rentDiff - netCostDiff);
+                        return year - fraction;
+                    }
+                }
+                
+                return 30; // If no break-even within 30 years
+            }
+            
+            // Function to update the break-even chart
+            function updateBreakEvenChart(rentAmount, rentIncrease, rentersInsurance, rentUtilities,
+                                       totalMonthlyOwnershipCost, loanAmount, interestRate, loanTerm,
+                                       homePrice, appreciation, downPaymentAmount) {
+                const ctx = document.getElementById('breakEvenChart').getContext('2d');
+                
+                // Generate data for 15 years
+                const years = Array.from({length: 16}, (_, i) => i);
+                const rentCosts = [];
+                const netOwnershipCosts = [];
+                
+                let totalRentCost = 0;
+                let totalOwnershipCost = 0;
+                let currentRent = rentAmount;
+                
+                for (let year = 0; year <= 15; year++) {
+                    if (year === 0) {
+                        rentCosts.push(0);
+                        netOwnershipCosts.push(0);
+                        continue;
+                    }
+                    
+                    // Calculate rent for the year
+                    for (let month = 0; month < 12; month++) {
+                        if (month === 0 && year > 1) {
+                            currentRent *= (1 + rentIncrease / 100);
+                        }
+                        totalRentCost += currentRent + rentersInsurance + rentUtilities;
+                    }
+                    
+                    // Calculate ownership costs for the year
+                    totalOwnershipCost += totalMonthlyOwnershipCost * 12;
+                    
+                    // Calculate equity at end of year
+                    const principalPaid = calculatePrincipalPaid(loanAmount, interestRate, loanTerm, year);
+                    const homeValue = homePrice * Math.pow(1 + appreciation / 100, year);
+                    const equity = downPaymentAmount + principalPaid + (homeValue - homePrice);
+                    
+                    // Net ownership cost
+                    const netOwnershipCost = totalOwnershipCost - equity;
+                    
+                    rentCosts.push(totalRentCost);
+                    netOwnershipCosts.push(netOwnershipCost);
+                }
+                
+                // Create or update the chart
+                if (window.breakEvenChart) {
+                    window.breakEvenChart.data.datasets[0].data = rentCosts;
+                    window.breakEvenChart.data.datasets[1].data = netOwnershipCosts;
+                    window.breakEvenChart.update();
+                } else {
+                    window.breakEvenChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: years,
+                            datasets: [
+                                {
+                                    label: 'Total Rental Costs',
+                                    data: rentCosts,
+                                    borderColor: '#4f46e5',
+                                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                                    borderWidth: 2,
+                                    fill: true
+                                },
+                                {
+                                    label: 'Net Ownership Costs (after equity)',
+                                    data: netOwnershipCosts,
+                                    borderColor: '#a855f7',
+                                    backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                                    borderWidth: 2,
+                                    fill: true
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Years'
+                                    }
+                                },
+                                y: {
+                                    title: {
+                                        display: true,
+                                        text: 'Cumulative Cost ($)'
+                                    },
+                                    ticks: {
+                                        callback: function(value) {
+                                            return '$' + value.toLocaleString();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+            
+            // Scenario tab functionality
+            const scenarioTabs = document.querySelectorAll('.scenario-tab');
+            const scenarioContents = document.querySelectorAll('.scenario-content');
+            
+            scenarioTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    scenarioTabs.forEach(t => t.classList.remove('active', 'border-indigo-500', 'text-indigo-600'));
+                    scenarioTabs.forEach(t => t.classList.add('border-transparent', 'text-gray-500'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active', 'border-indigo-500', 'text-indigo-600');
+                    this.classList.remove('border-transparent', 'text-gray-500');
+                    
+                    // Hide all content
+                    scenarioContents.forEach(content => content.classList.add('hidden'));
+                    
+                    // Show corresponding content
+                    const contentId = this.id.replace('-btn', '-content');
+                    document.getElementById(contentId).classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

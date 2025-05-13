@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Scam Protection Toolkit - PFL Academy</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-button {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 1in;
+        }
+        h1 {
+            color: #dc3545;
+            text-align: center;
+            border-bottom: 2px solid #dc3545;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #dc3545;
+            border-bottom: 1px solid #dc3545;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6c757d;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8d7da;
+        }
+        .print-button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .tip {
+            background-color: #d1e7dd;
+            border-left: 4px solid #198754;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .red-flag {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .checklist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+            padding-left: 35px;
+            position: relative;
+        }
+        .checklist li:before {
+            content: "□";
+            position: absolute;
+            left: 10px;
+            font-size: 1.2em;
+        }
+        .vs-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .vs-column {
+            flex: 1;
+            min-width: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .vs-column:first-child {
+            background-color: #f8d7da;
+        }
+        .vs-column:last-child {
+            background-color: #d1e7dd;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Save as PDF / Print</button>
+    
+    <h1>Charity Scam Protection Toolkit</h1>
+    <p><strong>PFL Academy - Chapter 14.2: Checking Out Charitable Groups</strong></p>
+    
+    <h2>Introduction</h2>
+    <p>While charitable giving is an important way to support causes you care about, fraudulent organizations and scams can divert your well-intentioned donations. This toolkit provides practical strategies to protect yourself from charity scams while still supporting legitimate organizations making a positive impact.</p>
+    
+    <div class="warning">
+        <strong>Did You Know?</strong>
+        <p>According to the Federal Trade Commission, Americans lose millions of dollars annually to charity scams. In times of disaster or high-profile events, fraudulent solicitations can increase dramatically. Protecting yourself doesn't mean becoming cynical—it means becoming a more informed, effective donor.</p>
+    </div>
+    
+    <h2>Red Flag Identification</h2>
+    <p>Learn to identify these warning signs that might indicate a problematic or fraudulent organization:</p>
+    
+    <div class="red-flag">
+        <h3>Pressure Tactics</h3>
+        <p><strong>Warning Sign:</strong> The organization pressures you for an immediate donation, creates artificial urgency, or uses emotional manipulation to rush your decision.</p>
+        <p><strong>Protection Strategy:</strong> Legitimate charities will respect your need to research before donating. Always take time to investigate before giving, especially when feeling emotionally moved by an appeal.</p>
+    </div>
+    
+    <div class="red-flag">
+        <h3>Name Confusion</h3>
+        <p><strong>Warning Sign:</strong> The organization's name sounds similar to a well-known charity but with slight differences (e.g., "American Cancer Society" vs. "American Cancer Foundation").</p>
+        <p><strong>Protection Strategy:</strong> Verify organizations by their Employer Identification Number (EIN), not just by name. Search the exact organization name on charity evaluation websites.</p>
+    </div>
+    
+    <div class="red-flag">
+        <h3>Lack of Transparency</h3>
+        <p><strong>Warning Sign:</strong> The organization provides limited information about its programs, finances, leadership, or results.</p>
+        <p><strong>Protection Strategy:</strong> Legitimate charities are transparent about their operations and willingly share information about how they use donations.</p>
+    </div>
+    
+    <div class="red-flag">
+        <h3>Missing Documentation</h3>
+        <p><strong>Warning Sign:</strong> The organization cannot provide proof of its tax-exempt status, IRS determination letter, or EIN.</p>
+        <p><strong>Protection Strategy:</strong> Verify tax-exempt status through the IRS Tax Exempt Organization Search tool (apps.irs.gov/app/eos/).</p>
+    </div>
+    
+    <div class="red-flag">
+        <h3>Vague Mission or Programs</h3>
+        <p><strong>Warning Sign:</strong> The organization describes its work in generalizations without specific details about activities, beneficiaries, or impact.</p>
+        <p><strong>Protection Strategy:</strong> Legitimate organizations can explain exactly what they do, who they serve, and how they measure success.</p>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="red-flag">
+        <h3>Unsolicited Contact</h3>
+        <p><strong>Warning Sign:</strong> You receive unexpected phone calls, emails, or text messages requesting donations, especially if they claim you've donated before when you haven't.</p>
+        <p><strong>Protection Strategy:</strong> Initiate contact yourself through official channels rather than responding to unsolicited requests.</p>
+    </div>
+    
+    <div class="red-flag">
+        <h3>Questionable Payment Methods</h3>
+        <p><strong>Warning Sign:</strong> The organization asks for cash only, wire transfers, gift cards, or payments to individuals rather than the organization.</p>
+        <p><strong>Protection Strategy:</strong> Use traceable payment methods (credit cards, checks) and ensure donations are payable to the organization, not individuals.</p>
+    </div>
+    
+    <div class="red-flag">
+        <h3>Minimal Web Presence</h3>
+        <p><strong>Warning Sign:</strong> The organization has a limited online presence, a recently created website, or a site with minimal content and no specific information.</p>
+        <p><strong>Protection Strategy:</strong> Look for established websites with detailed content, staff information, and regularly updated news or blog sections.</p>
+    </div>
+    
+    <div class="red-flag">
+        <h3>No Physical Address</h3>
+        <p><strong>Warning Sign:</strong> The organization lists only a P.O. box or no address at all, making it difficult to verify its physical existence.</p>
+        <p><strong>Protection Strategy:</strong> Legitimate organizations typically have verifiable physical locations and multiple contact methods.</p>
+    </div>
+    
+    <div class="red-flag">
+        <h3>Excessive Administrative Costs</h3>
+        <p><strong>Warning Sign:</strong> Financial information shows unusually high administrative or fundraising costs with minimal program expenses.</p>
+        <p><strong>Protection Strategy:</strong> Research the organization's financial health through Form 990s or charity evaluation websites.</p>
+    </div>
+    
+    <h2>Verification Checklist</h2>
+    <p>Before donating to any charitable organization, use this verification checklist:</p>
+    
+    <div class="checklist">
+        <li>Verify the organization's tax-exempt status through the IRS database</li>
+        <li>Check the organization's ratings on Charity Navigator, GuideStar, or BBB Wise Giving Alliance</li>
+        <li>Review the organization's website for detailed information about programs, leadership, and finances</li>
+        <li>Look for the organization's Form 990 tax filings</li>
+        <li>Search for news articles or media coverage about the organization</li>
+        <li>Check if the organization is registered with your state's charity regulator</li>
+        <li>Call the organization directly using a phone number from their official website</li>
+        <li>Ask for detailed information about how your donation will be used</li>
+        <li>Review the organization's annual report if available</li>
+        <li>Search for reviews or feedback from other donors or beneficiaries</li>
+    </div>
+    
+    <h2>Legitimate vs. Questionable Solicitations</h2>
+    
+    <p>Learn to distinguish between legitimate charitable requests and potentially fraudulent ones:</p>
+    
+    <div class="vs-container">
+        <div class="vs-column">
+            <h3>Red Flags: Questionable Solicitations</h3>
+            <ul>
+                <li>"We need your donation TODAY to save lives!"</li>
+                <li>"Thank you for your previous donation" (when you haven't donated before)</li>
+                <li>"We'll send a courier to collect your cash donation"</li>
+                <li>"You can only donate by wire transfer or gift card"</li>
+                <li>"We guarantee 100% of donations go directly to victims"</li>
+                <li>"We just formed in response to this recent disaster"</li>
+                <li>"Your donation is tax-deductible" (without providing an EIN)</li>
+                <li>"We're calling from the Police/Firefighter's Fund" (vague affiliations)</li>
+                <li>"Just give what you can right now over the phone"</li>
+                <li>"We're like the Red Cross, but better" (comparing to known organizations)</li>
+            </ul>
+        </div>
+        <div class="vs-column">
+            <h3>Green Flags: Legitimate Solicitations</h3>
+            <ul>
+                <li>"Here's information about our work. Please consider supporting us."</li>
+                <li>"Would you like us to send you more information before you decide?"</li>
+                <li>"You can donate through our secure website or by check"</li>
+                <li>"Our EIN is 12-3456789 for tax purposes"</li>
+                <li>"You can find our financial information on our website"</li>
+                <li>"We've been working in this community since 2005"</li>
+                <li>"Here's how your donation will be used..."</li>
+                <li>"We can send you our annual report"</li>
+                <li>"Our overhead costs are 15%, which supports our infrastructure"</li>
+                <li>"Please take time to research us before deciding to donate"</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>Sample Scripts for Responding to Solicitations</h2>
+    <p>These scripts can help you respond effectively to donation requests while giving yourself time to research:</p>
+    
+    <h3>Phone Solicitation Response</h3>
+    <div class="tip">
+        <p>"Thank you for the information about your organization. I have a policy of researching charitable organizations before donating. Could you please tell me your organization's full legal name and EIN so I can look up more information? I'd also like to know where I can review your financial statements and annual reports. I'll make my decision after I've had a chance to research your organization properly."</p>
+    </div>
+    
+    <h3>Email/Online Solicitation Response</h3>
+    <div class="tip">
+        <p>"I appreciate learning about your organization's work. Before I make a donation decision, I'd like to verify some information. Could you please provide your organization's full legal name, EIN, a link to your Form 990, and information about how my donation would be used? I look forward to learning more about your impact."</p>
+    </div>
+    
+    <h3>In-Person Solicitation Response</h3>
+    <div class="tip">
+        <p>"This cause sounds important, but I don't make on-the-spot donation decisions. Do you have printed materials I can take with me that include your organization's website, phone number, and tax ID? I'll research your organization and make my decision after I've had time to review the information. Thank you for understanding."</p>
+    </div>
+    
+    <h3>Disaster Relief Solicitation Response</h3>
+    <div class="tip">
+        <p>"I understand the urgency of this disaster, but I want to ensure my donation has the greatest impact. I prefer to donate to established organizations with experience in disaster relief. Could you tell me how long your organization has been working in this area and what specific relief activities you're conducting? I'll also be checking with charity evaluation services before making my decision."</p>
+    </div>
+    
+    <h2>Donation Safety Strategies</h2>
+    <p>Follow these practices to protect yourself when making charitable donations:</p>
+    
+    <table>
+        <tr>
+            <th>Donation Method</th>
+            <th>Safety Tips</th>
+        </tr>
+        <tr>
+            <td>Credit Card</td>
+            <td>
+                <ul>
+                    <li>Only enter credit card information on secure websites (look for https:// and a lock icon)</li>
+                    <li>Use the official organization website, not links from emails</li>
+                    <li>Review your statements regularly for unauthorized charges</li>
+                    <li>Consider using a dedicated credit card with a low limit for charitable donations</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Check</td>
+            <td>
+                <ul>
+                    <li>Make checks payable to the organization, not to individuals</li>
+                    <li>Include the specific purpose of the donation in the memo line</li>
+                    <li>Keep copies of all checks for tax and verification purposes</li>
+                    <li>Mail checks directly to the organization's official address</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Online Platforms</td>
+            <td>
+                <ul>
+                    <li>Research both the platform and the specific charity before donating</li>
+                    <li>Understand the platform's fees and policies</li>
+                    <li>Verify that donations through the platform are tax-deductible if that matters to you</li>
+                    <li>Be cautious of crowdfunding campaigns for individuals rather than established organizations</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Text Donations</td>
+            <td>
+                <ul>
+                    <li>Verify the legitimacy of text-to-donate campaigns before participating</li>
+                    <li>Confirm the organization and campaign through official sources</li>
+                    <li>Understand how the donation will appear on your phone bill</li>
+                    <li>Keep confirmation messages for your records</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    
+    <div class="page-break"></div>
+    
+    <h2>Case Studies: Common Charity Scams</h2>
+    <p>Understanding common scam tactics can help you identify and avoid them:</p>
+    
+    <h3>Case Study 1: Disaster Relief Scam</h3>
+    <div class="red-flag">
+        <p><strong>Scenario:</strong> Following a major hurricane, emails and social media posts circulate asking for donations to the "Hurricane Relief Fund," claiming 100% of donations go directly to victims.</p>
+        
+        <p><strong>Red Flags:</strong></p>
+        <ul>
+            <li>Generic name referencing the disaster</li>
+            <li>No history of previous disaster relief work</li>
+            <li>Unrealistic promises about donation allocation</li>
+            <li>No specific information about relief activities</li>
+            <li>Requests for gift card donations or wire transfers</li>
+        </ul>
+        
+        <p><strong>Protection Strategy:</strong> Donate to established organizations with proven disaster relief experience. Verify through charity evaluator websites and check if they're registered with National Voluntary Organizations Active in Disaster (NVOAD).</p>
+    </div>
+    
+    <h3>Case Study 2: Look-Alike Organization</h3>
+    <div class="red-flag">
+        <p><strong>Scenario:</strong> A telemarketer calls claiming to represent the "Children's Cancer Support Fund," which sounds similar to legitimate organizations like the "Children's Cancer Research Fund."</p>
+        
+        <p><strong>Red Flags:</strong></p>
+        <ul>
+            <li>Name similar to well-known organizations</li>
+            <li>High-pressure phone tactics</li>
+            <li>Vague descriptions of programs</li>
+            <li>Reluctance to provide EIN or written information</li>
+            <li>Emotional manipulation focusing on sick children</li>
+        </ul>
+        
+        <p><strong>Protection Strategy:</strong> Ask for the specific EIN and verify it through the IRS database. Research the exact organization name through charity evaluation websites. Request written information before donating.</p>
+    </div>
+    
+    <h3>Case Study 3: Police/Firefighter Fund Scam</h3>
+    <div class="red-flag">
+        <p><strong>Scenario:</strong> Someone calls claiming to represent the "State Police Officers Association" seeking donations for families of fallen officers.</p>
+        
+        <p><strong>Red Flags:</strong></p>
+        <ul>
+            <li>Vague affiliation with law enforcement</li>
+            <li>Claims that "most" of your donation helps families</li>
+            <li>Offers to send a "runner" to pick up your donation</li>
+            <li>Reluctance to answer specific questions about the organization</li>
+            <li>Implied official status or government connection</li>
+        </ul>
+        
+        <p><strong>Protection Strategy:</strong> Contact your local police or fire department directly to ask about legitimate support organizations. Verify any solicitation with official departments before donating.</p>
+    </div>
+    
+    <h3>Case Study 4: Fake Donation Websites</h3>
+    <div class="red-flag">
+        <p><strong>Scenario:</strong> After a viral news story about a family in need, multiple websites appear collecting donations, including some with URLs very similar to legitimate fundraising platforms.</p>
+        
+        <p><strong>Red Flags:</strong></p>
+        <ul>
+            <li>URLs with slight misspellings of known platforms</li>
+            <li>Recently created websites</li>
+            <li>Limited content beyond donation forms</li>
+            <li>Poor design or unprofessional appearance</li>
+            <li>No secure connection (https://) for payment processing</li>
+        </ul>
+        
+        <p><strong>Protection Strategy:</strong> Manually type the URL of known fundraising platforms rather than clicking links. Verify campaigns through official channels. Check when the website was created using WHOIS lookup services.</p>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>Reporting Suspicious Organizations</h2>
+    <p>If you encounter a potential charity scam, report it to help protect others:</p>
+    
+    <table>
+        <tr>
+            <th>Where to Report</th>
+            <th>Contact Information</th>
+            <th>What to Report</th>
+        </tr>
+        <tr>
+            <td>Federal Trade Commission (FTC)</td>
+            <td>ReportFraud.ftc.gov or call 1-877-FTC-HELP</td>
+            <td>Any suspicious charitable solicitation, especially those involving interstate commerce</td>
+        </tr>
+        <tr>
+            <td>State Charity Regulator</td>
+            <td>Find your state's charity regulator through the National Association of State Charity Officials (NASCO) website: nasconet.org</td>
+            <td>Organizations soliciting donations in your state that may be violating state charity regulations</td>
+        </tr>
+        <tr>
+            <td>Better Business Bureau</td>
+            <td>BBB.org/scamtracker</td>
+            <td>Suspicious or deceptive fundraising practices</td>
+        </tr>
+        <tr>
+            <td>Internal Revenue Service (IRS)</td>
+            <td>IRS Form 13909 (Tax-Exempt Organization Complaint Referral Form)</td>
+            <td>Organizations potentially abusing their tax-exempt status or making false claims about tax deductibility</td>
+        </tr>
+        <tr>
+            <td>National Center for Disaster Fraud</td>
+            <td>Call 1-866-720-5721 or email disaster@leo.gov</td>
+            <td>Suspicious disaster relief or emergency response charity solicitations</td>
+        </tr>
+        <tr>
+            <td>FBI Internet Crime Complaint Center</td>
+            <td>IC3.gov</td>
+            <td>Online charity fraud, especially involving significant financial loss</td>
+        </tr>
+    </table>
+    
+    <div class="tip">
+        <strong>When Filing a Report, Include:</strong>
+        <ul>
+            <li>The organization's name, address, phone number, and website</li>
+            <li>Details about the solicitation (date, time, method)</li>
+            <li>Specific claims made during the solicitation</li>
+            <li>Why you believe the solicitation may be fraudulent</li>
+            <li>Copies of any materials you received</li>
+            <li>Any information about donations you made (if applicable)</li>
+        </ul>
+    </div>
+    
+    <h2>Verification Resources</h2>
+    <p>Use these trusted resources to research charitable organizations:</p>
+    
+    <table>
+        <tr>
+            <th>Resource</th>
+            <th>Website</th>
+            <th>What You Can Find</th>
+        </tr>
+        <tr>
+            <td>IRS Tax Exempt Organization Search</td>
+            <td>apps.irs.gov/app/eos/</td>
+            <td>Verify tax-exempt status, access Form 990s, confirm eligibility to receive tax-deductible contributions</td>
+        </tr>
+        <tr>
+            <td>Charity Navigator</td>
+            <td>charitynavigator.org</td>
+            <td>Ratings based on financial health, accountability, and transparency for over 9,000 charities</td>
+        </tr>
+        <tr>
+            <td>GuideStar by Candid</td>
+            <td>guidestar.org</td>
+            <td>Comprehensive database of nonprofits with financial information, Form 990s, and transparency ratings</td>
+        </tr>
+        <tr>
+            <td>BBB Wise Giving Alliance</td>
+            <td>give.org</td>
+            <td>Evaluations against 20 standards for charity accountability</td>
+        </tr>
+        <tr>
+            <td>CharityWatch</td>
+            <td>charitywatch.org</td>
+            <td>Independent charity ratings with detailed financial analysis and investigative reporting</td>
+        </tr>
+        <tr>
+            <td>NASCO State Charity Regulators</td>
+            <td>nasconet.org</td>
+            <td>Directory of state agencies regulating charitable organizations and solicitations</td>
+        </tr>
+        <tr>
+            <td>FTC Consumer Information</td>
+            <td>consumer.ftc.gov/features/how-donate-wisely-and-avoid-charity-scams</td>
+            <td>Guidance on avoiding charity scams and making informed donation decisions</td>
+        </tr>
+    </table>
+    
+    <div class="page-break"></div>
+    
+    <h2>Smart Giving Alternatives</h2>
+    <p>If you're concerned about charity scams but still want to make a positive impact, consider these alternative approaches:</p>
+    
+    <h3>1. Give Locally</h3>
+    <p>Supporting local organizations can provide greater transparency and connection:</p>
+    <ul>
+        <li>Visit local nonprofits in person to see their work firsthand</li>
+        <li>Attend community fundraising events</li>
+        <li>Talk directly with organization leaders and volunteers</li>
+        <li>Volunteer your time first to learn about the organization</li>
+        <li>Ask for recommendations from trusted community members</li>
+    </ul>
+    
+    <h3>2. Give Through Community Foundations</h3>
+    <p>Community foundations vet local nonprofits and can help direct your giving:</p>
+    <ul>
+        <li>They perform due diligence on organizations they fund</li>
+        <li>They have deep knowledge of local needs and effective programs</li>
+        <li>They can help you create a structured giving plan</li>
+        <li>They often offer donor-advised funds for more strategic giving</li>
+    </ul>
+    
+    <h3>3. Non-Financial Support</h3>
+    <p>Make a difference without monetary donations:</p>
+    <ul>
+        <li>Volunteer your time and skills</li>
+        <li>Donate goods directly to organizations</li>
+        <li>Contribute professional services</li>
+        <li>Advocate for causes through awareness raising</li>
+        <li>Serve on boards or committees</li>
+    </ul>
+    
+    <h3>4. Donor-Advised Funds</h3>
+    <p>These financial vehicles offer security and flexibility:</p>
+    <ul>
+        <li>Contribute to a fund administered by a sponsoring organization</li>
+        <li>Receive immediate tax benefits</li>
+        <li>Recommend grants to qualified charities over time</li>
+        <li>Benefit from additional due diligence performed by the sponsoring organization</li>
+    </ul>
+    
+    <h2>Final Checklist: Before You Donate</h2>
+    <p>Use this final checklist before making any charitable donation:</p>
+    
+    <div class="checklist">
+        <li>I've verified the organization's tax-exempt status with the IRS</li>
+        <li>I've checked the organization on at least one charity evaluation website</li>
+        <li>I understand specifically how my donation will be used</li>
+        <li>I know what percentage of my donation goes to programs vs. overhead</li>
+        <li>I've confirmed the organization is registered to solicit in my state (if required)</li>
+        <li>I've reviewed the organization's Form 990 or annual report</li>
+        <li>I'm using a secure payment method that provides documentation</li>
+        <li>I'm not responding to high-pressure tactics or urgent appeals</li>
+        <li>I've researched the organization's accomplishments and impact</li>
+        <li>I feel confident this organization aligns with my values and priorities</li>
+    </div>
+    
+    <div class="tip">
+        <strong>Remember:</strong>
+        <p>Becoming a savvy donor doesn't mean becoming cynical—it means ensuring your generosity has the greatest possible impact. By taking the time to verify organizations and being alert to warning signs, you can support wonderful causes while protecting yourself from those who would take advantage of your good intentions.</p>
+    </div>
+    
+    <footer>
+        <p>© PFL Academy - Chapter 14.2: Checking Out Charitable Groups</p>
+        <p>This resource is designed for educational purposes. Content should be reviewed and updated periodically.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Goals Portfolio Template - Chapter 1.4: Financial Goal Setting</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Specific styles for this template */
+        .portfolio-section {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .portfolio-header {
+            background-color: #f0f4ff;
+            border-left: 4px solid #4f46e5;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        
+        .info-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        
+        .input-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        input[type="text"], textarea {
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background-color: #e5e7eb;
+            margin: 25px 0;
+        }
+        
+        .goal-box {
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            .portfolio-section { page-break-inside: avoid; }
+            input[type="text"], textarea {
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>To save as PDF:</strong> Open this page in Chrome, Edge, or Firefox. Click on Print (Ctrl+P or Cmd+P), 
+        then select "Save as PDF" as the destination. Click "Save" and choose where to save the file on your computer.</p>
+    </div>
+    
+    <div class="header">
+        <h1>Financial Goals Portfolio Template</h1>
+        <p><strong>Chapter 1.4:</strong> Financial Goal Setting</p>
+    </div>
+    
+    <div class="intro">
+        <p>This portfolio template brings together all components of your financial goal planning. By combining your SMART goals, timelines, obstacle analysis, and accountability system into a single document, you create a comprehensive roadmap for achieving your financial goals.</p>
+    </div>
+    
+    <div class="info-box">
+        <h3>Portfolio Benefits</h3>
+        <p>Your Financial Goals Portfolio serves multiple purposes:</p>
+        <ul>
+            <li>Creates a single reference document for all your financial goal planning</li>
+            <li>Ensures alignment across all components of your goal strategy</li>
+            <li>Provides a comprehensive view of your financial journey</li>
+            <li>Serves as a dynamic tool that can be updated as circumstances change</li>
+            <li>Demonstrates your thoughtful approach to financial planning</li>
+        </ul>
+    </div>
+    
+    <div class="portfolio-section">
+        <div class="portfolio-header">
+            <h2>Portfolio Owner Information</h2>
+        </div>
+        
+        <table>
+            <tr>
+                <td width="30%"><strong>Name:</strong></td>
+                <td><input type="text" placeholder="Your name"></td>
+            </tr>
+            <tr>
+                <td><strong>Date Created:</strong></td>
+                <td><input type="text" placeholder="Today's date"></td>
+            </tr>
+            <tr>
+                <td><strong>Last Updated:</strong></td>
+                <td><input type="text" placeholder="Update date"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="portfolio-section">
+        <div class="portfolio-header">
+            <h2>1. Financial Goals Summary</h2>
+        </div>
+        
+        <div class="goal-box">
+            <h3>Short-Term Financial Goal (within 1 year)</h3>
+            <div>
+                <label class="input-label">Complete SMART Goal Statement:</label>
+                <input type="text" placeholder="Your short-term SMART goal statement">
+            </div>
+            
+            <table>
+                <tr>
+                    <th>SMART Component</th>
+                    <th>Self-Assessment (1-5)</th>
+                </tr>
+                <tr>
+                    <td>Specific</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+                <tr>
+                    <td>Measurable</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+                <tr>
+                    <td>Achievable</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+                <tr>
+                    <td>Relevant</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+                <tr>
+                    <td>Time-bound</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="goal-box">
+            <h3>Long-Term Financial Goal (more than 1 year)</h3>
+            <div>
+                <label class="input-label">Complete SMART Goal Statement:</label>
+                <input type="text" placeholder="Your long-term SMART goal statement">
+            </div>
+            
+            <table>
+                <tr>
+                    <th>SMART Component</th>
+                    <th>Self-Assessment (1-5)</th>
+                </tr>
+                <tr>
+                    <td>Specific</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+                <tr>
+                    <td>Measurable</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+                <tr>
+                    <td>Achievable</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+                <tr>
+                    <td>Relevant</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+                <tr>
+                    <td>Time-bound</td>
+                    <td><input type="text" placeholder="Rate 1-5"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="portfolio-section">
+        <div class="portfolio-header">
+            <h2>2. Timeline Summary</h2>
+        </div>
+        
+        <div>
+            <h3>Short-Term Goal Timeline</h3>
+            <table>
+                <tr>
+                    <th>Milestone</th>
+                    <th>Date</th>
+                    <th>Target Amount</th>
+                    <th>Key Actions</th>
+                </tr>
+                <tr>
+                    <td>Start</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+                <tr>
+                    <td>25% Complete</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+                <tr>
+                    <td>50% Complete</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+                <tr>
+                    <td>75% Complete</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+                <tr>
+                    <td>Goal Achieved</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <div>
+            <h3>Long-Term Goal Timeline</h3>
+            <table>
+                <tr>
+                    <th>Milestone</th>
+                    <th>Date</th>
+                    <th>Target Amount</th>
+                    <th>Key Actions</th>
+                </tr>
+                <tr>
+                    <td>Start</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+                <tr>
+                    <td>25% Complete</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+                <tr>
+                    <td>50% Complete</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+                <tr>
+                    <td>75% Complete</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+                <tr>
+                    <td>Goal Achieved</td>
+                    <td><input type="text" placeholder="Date"></td>
+                    <td><input type="text" placeholder="$"></td>
+                    <td><input type="text" placeholder="Actions"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="portfolio-section">
+        <div class="portfolio-header">
+            <h2>3. Obstacle Analysis Summary</h2>
+        </div>
+        
+        <h3>Short-Term Goal Obstacles</h3>
+        <table>
+            <tr>
+                <th>Top Potential Obstacles</th>
+                <th>Impact Level</th>
+                <th>Strategy to Overcome</th>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Obstacle 1"></td>
+                <td><input type="text" placeholder="Impact"></td>
+                <td><input type="text" placeholder="Strategy"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Obstacle 2"></td>
+                <td><input type="text" placeholder="Impact"></td>
+                <td><input type="text" placeholder="Strategy"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Obstacle 3"></td>
+                <td><input type="text" placeholder="Impact"></td>
+                <td><input type="text" placeholder="Strategy"></td>
+            </tr>
+        </table>
+        
+        <div class="section-divider"></div>
+        
+        <h3>Long-Term Goal Obstacles</h3>
+        <table>
+            <tr>
+                <th>Top Potential Obstacles</th>
+                <th>Impact Level</th>
+                <th>Strategy to Overcome</th>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Obstacle 1"></td>
+                <td><input type="text" placeholder="Impact"></td>
+                <td><input type="text" placeholder="Strategy"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Obstacle 2"></td>
+                <td><input type="text" placeholder="Impact"></td>
+                <td><input type="text" placeholder="Strategy"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Obstacle 3"></td>
+                <td><input type="text" placeholder="Impact"></td>
+                <td><input type="text" placeholder="Strategy"></td>
+            </tr>
+        </table>
+        
+        <div class="section-divider"></div>
+        
+        <h3>Resilience Plan</h3>
+        <textarea placeholder="What will you do if you encounter multiple obstacles at once or fall significantly behind on your timeline?"></textarea>
+    </div>
+    
+    <div class="portfolio-section">
+        <div class="portfolio-header">
+            <h2>4. Accountability System Summary</h2>
+        </div>
+        
+        <table>
+            <tr>
+                <td width="30%"><strong>Primary Tracking Tool:</strong></td>
+                <td><input type="text" placeholder="Your main tracking method"></td>
+            </tr>
+            <tr>
+                <td><strong>Secondary Tracking:</strong></td>
+                <td><input type="text" placeholder="Additional tracking methods"></td>
+            </tr>
+            <tr>
+                <td><strong>Key Accountability Partner:</strong></td>
+                <td><input type="text" placeholder="Name and relationship"></td>
+            </tr>
+            <tr>
+                <td><strong>Check-in Schedule:</strong></td>
+                <td><input type="text" placeholder="How often you'll check in"></td>
+            </tr>
+            <tr>
+                <td><strong>Review Schedule:</strong></td>
+                <td><input type="text" placeholder="When you'll formally review progress"></td>
+            </tr>
+            <tr>
+                <td><strong>Reward System:</strong></td>
+                <td><input type="text" placeholder="How you'll celebrate milestones"></td>
+            </tr>
+            <tr>
+                <td><strong>Reminder System:</strong></td>
+                <td><input type="text" placeholder="How you'll stay focused on your goals"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="portfolio-section">
+        <div class="portfolio-header">
+            <h2>5. Portfolio Integration</h2>
+        </div>
+        
+        <div>
+            <label class="input-label">How do all components of your plan work together?</label>
+            <textarea placeholder="Explain how your SMART goals, timeline, obstacle strategies, and accountability system support each other"></textarea>
+        </div>
+        
+        <div>
+            <label class="input-label">What have you learned from this financial goal-setting process?</label>
+            <textarea placeholder="Reflect on insights gained through creating your financial goals portfolio"></textarea>
+        </div>
+        
+        <div>
+            <label class="input-label">How will this portfolio guide your future financial decisions?</label>
+            <textarea placeholder="Describe how you'll use this portfolio to inform your day-to-day financial choices"></textarea>
+        </div>
+    </div>
+    
+    <div class="portfolio-section">
+        <div class="portfolio-header">
+            <h2>6. Implementation Plan</h2>
+        </div>
+        
+        <div>
+            <label class="input-label">First Action Steps (Next 24-48 Hours)</label>
+            <textarea placeholder="List 3-5 specific actions you'll take immediately to begin implementing your plan"></textarea>
+        </div>
+        
+        <div>
+            <label class="input-label">First Month Focus</label>
+            <textarea placeholder="What will you focus on in the first month to build momentum?"></textarea>
+        </div>
+        
+        <table>
+            <tr>
+                <td width="30%"><strong>First Progress Check Date:</strong></td>
+                <td><input type="text" placeholder="When will you do your first formal review?"></td>
+            </tr>
+            <tr>
+                <td><strong>Implementation Commitment:</strong></td>
+                <td><textarea placeholder="Write a commitment statement about implementing your plan"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="info-box">
+        <h3>Portfolio Maintenance</h3>
+        <p>Your Financial Goals Portfolio is a living document that should evolve as you progress toward your goals and as circumstances change. Plan to update this portfolio during your regular review sessions, especially when you:</p>
+        <ul>
+            <li>Reach a major milestone</li>
+            <li>Experience a significant change in financial circumstances</li>
+            <li>Encounter unexpected obstacles</li>
+            <li>Achieve a goal and want to set a new one</li>
+            <li>Gain new insights about effective goal strategies</li>
+        </ul>
+        <p>By maintaining your portfolio, you create a record of your financial journey that can inform future goal-setting efforts.</p>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy © 2025 | Chapter 1.4: Financial Goal Setting</p>
+    </div>
+</body>
+</html>

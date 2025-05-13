@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest and Rule of 72 Worksheet</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+                padding: 0;
+                margin: 0;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #6366F1;
+        }
+        h1 {
+            color: #4F46E5;
+            margin-bottom: 8px;
+        }
+        h2 {
+            color: #4F46E5;
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #6366F1;
+            margin-top: 20px;
+        }
+        .intro {
+            background-color: #f0f4ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f4ff;
+        }
+        .calculation-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .formula {
+            font-family: "Courier New", monospace;
+            background-color: #f0f4ff;
+            padding: 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .hint {
+            font-style: italic;
+            color: #6366F1;
+        }
+        .example {
+            background-color: #f0fff4;
+            padding: 15px;
+            border-left: 4px solid #4ADE80;
+            margin: 15px 0;
+        }
+        .worksheet-section {
+            margin-bottom: 30px;
+        }
+        .answer-space {
+            min-height: 80px;
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .short-answer-space {
+            min-height: 40px;
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .no-print {
+            background-color: #FFB62C;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <h3>How to Save/Print This Worksheet</h3>
+        <p>To save this worksheet as a PDF or print a paper copy:</p>
+        <ol>
+            <li>Click the Print button below or press Ctrl+P (Cmd+P on Mac)</li>
+            <li>In the print dialog, choose "Save as PDF" from the destination/printer options</li>
+            <li>Click Save or Print</li>
+        </ol>
+        <button onclick="window.print()">Print Worksheet</button>
+    </div>
+
+    <div class="header">
+        <h1>Compound Interest and Rule of 72 Worksheet</h1>
+        <p>Chapter 5.2: Understanding the Power of Compound Interest and the Rule of 72</p>
+    </div>
+
+    <div class="intro">
+        <p>This worksheet will help you practice calculating compound interest and applying the Rule of 72 to determine investment doubling times. Use it to analyze different scenarios and understand how variables like interest rate, time, and contribution amounts affect investment growth.</p>
+        <p><strong>Name: _______________________________</strong>&nbsp;&nbsp;&nbsp;<strong>Date: _______________</strong></p>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Part 1: Understanding Compound Interest</h2>
+        
+        <h3>Key Formulas:</h3>
+        <div class="calculation-box">
+            <p><strong>Compound Interest Formula:</strong></p>
+            <p class="formula">A = P(1 + r)<sup>t</sup></p>
+            <p>Where:<br>
+            A = Final amount<br>
+            P = Principal (initial investment)<br>
+            r = Interest rate (as a decimal)<br>
+            t = Time period in years</p>
+            
+            <p><strong>Rule of 72 Formula:</strong></p>
+            <p class="formula">Years to double = 72 ÷ Annual interest rate (%)</p>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+            <p>If you invest $1,000 at 6% annual compound interest, how much will you have after 12 years?</p>
+            <p>Using the compound interest formula:</p>
+            <p>A = $1,000 × (1 + 0.06)<sup>12</sup><br>
+            A = $1,000 × (1.06)<sup>12</sup><br>
+            A = $1,000 × 2.012<br>
+            A = $2,012</p>
+            
+            <p>Using the Rule of 72 to check our work:</p>
+            <p>Years to double = 72 ÷ 6 = 12 years</p>
+            <p>After 12 years, we'd expect our money to double from $1,000 to $2,000, which is very close to our calculated amount!</p>
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Part 2: Compound Interest Calculations</h2>
+        
+        <h3>Scenario 1: Basic Compound Interest</h3>
+        <p>You invest $2,000 at 8% annual compound interest. Calculate how much you'll have after each time period:</p>
+        
+        <table>
+            <tr>
+                <th>Time Period</th>
+                <th>Calculation</th>
+                <th>Final Amount</th>
+            </tr>
+            <tr>
+                <td>5 years</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>10 years</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>20 years</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>30 years</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+        </table>
+        
+        <h3>Scenario 2: Comparing Interest Rates</h3>
+        <p>You invest $5,000 for 20 years. Calculate the final amount for each interest rate:</p>
+        
+        <table>
+            <tr>
+                <th>Interest Rate</th>
+                <th>Calculation</th>
+                <th>Final Amount</th>
+            </tr>
+            <tr>
+                <td>3%</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>5%</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>7%</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>10%</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+        </table>
+
+        <h3>Analysis Questions:</h3>
+        <p>1. How much more money do you have at 10% compared to 3% after 20 years? What's the percentage difference?</p>
+        <div class="answer-space"></div>
+        
+        <p>2. What pattern do you notice about how the final amount changes as the interest rate increases?</p>
+        <div class="answer-space"></div>
+        
+        <div class="page-break"></div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Part 3: Applying the Rule of 72</h2>
+        
+        <h3>Calculate Doubling Time</h3>
+        <p>Use the Rule of 72 to determine how long it would take for your investment to double at each interest rate:</p>
+        
+        <table>
+            <tr>
+                <th>Interest Rate</th>
+                <th>Calculation</th>
+                <th>Years to Double</th>
+            </tr>
+            <tr>
+                <td>2%</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>4%</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>6%</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>9%</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>12%</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+        </table>
+        
+        <h3>Calculate Required Interest Rate</h3>
+        <p>Use the Rule of 72, but in reverse! Determine what interest rate you would need to earn to double your money in the following time periods:</p>
+        
+        <table>
+            <tr>
+                <th>Years to Double</th>
+                <th>Calculation</th>
+                <th>Required Interest Rate</th>
+            </tr>
+            <tr>
+                <td>36 years</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>24 years</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>18 years</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>12 years</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>6 years</td>
+                <td class="short-answer-space"></td>
+                <td class="short-answer-space"></td>
+            </tr>
+        </table>
+        
+        <h3>Analysis Questions:</h3>
+        <p>1. How does the doubling time change as the interest rate increases? What pattern do you notice?</p>
+        <div class="answer-space"></div>
+        
+        <p>2. If you want your money to double in 10 years, what interest rate would you need? What types of investments might offer this return?</p>
+        <div class="answer-space"></div>
+        
+        <div class="page-break"></div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Part 4: Real-World Scenarios</h2>
+        
+        <h3>Scenario 1: Early Bird vs. Late Starter</h3>
+        <p><strong>Early Bird:</strong> Jordan invests $2,000 per year from age 18 to 28 (10 years total), then stops contributing but leaves the money invested until age 65.</p>
+        <p><strong>Late Starter:</strong> Casey waits until age 28 to start investing, then invests $2,000 per year from age 28 to 65 (37 years total).</p>
+        <p>Both earn 7% annual compound interest. Who will have more money at age 65?</p>
+        
+        <p><strong>Jordan's Investment:</strong></p>
+        <div class="answer-space"></div>
+        
+        <p><strong>Casey's Investment:</strong></p>
+        <div class="answer-space"></div>
+        
+        <p><strong>Who has more at age 65 and by how much?</strong></p>
+        <div class="answer-space"></div>
+        
+        <h3>Scenario 2: Power of Small Increases</h3>
+        <p>You decide to invest $200 per month for retirement. Calculate how much you would accumulate after 40 years at each interest rate:</p>
+        
+        <table>
+            <tr>
+                <th>Interest Rate</th>
+                <th>Final Amount After 40 Years</th>
+            </tr>
+            <tr>
+                <td>5%</td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>6%</td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>7%</td>
+                <td class="short-answer-space"></td>
+            </tr>
+            <tr>
+                <td>8%</td>
+                <td class="short-answer-space"></td>
+            </tr>
+        </table>
+        
+        <p>How much extra money would you have at 8% compared to 5%?</p>
+        <div class="short-answer-space"></div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Part 5: Personal Application</h2>
+        
+        <h3>Your Financial Goal:</h3>
+        <p>Choose a financial goal you have, and use compound interest to determine a savings strategy:</p>
+        
+        <p><strong>My Goal:</strong> ___________________________________________________</p>
+        <p><strong>Target Amount:</strong> $_________________</p>
+        <p><strong>Time Frame:</strong> _______ years</p>
+        <p><strong>Expected Interest Rate:</strong> _______%</p>
+        
+        <p>Calculate how much you would need to:</p>
+        
+        <p>1. Invest as a lump sum today to reach your goal:</p>
+        <div class="answer-space"></div>
+        
+        <p>2. Invest monthly to reach your goal:</p>
+        <div class="answer-space"></div>
+        
+        <h3>Reflection:</h3>
+        <p>Based on your calculations in this worksheet, what insights have you gained about compound interest and the Rule of 72? How might this knowledge change your saving and investing habits?</p>
+        <div class="answer-space"></div>
+    </div>
+
+    <footer>
+        <p>PFL Academy | Chapter 5.2: Understanding the Power of Compound Interest and the Rule of 72</p>
+    </footer>
+</body>
+</html>

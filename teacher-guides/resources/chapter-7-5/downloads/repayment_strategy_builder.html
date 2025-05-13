@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Loan Repayment Strategy Builder - PFL Academy</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #4f46e5;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            color: #333;
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #4f46e5;
+            margin-top: 20px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background-color: #f3f4f6;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+        
+        td {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+        
+        .input-cell {
+            background-color: #f9fafb;
+            min-height: 1.5em;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #4f46e5;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .step {
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9fafb;
+        }
+        
+        .notes {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tips {
+            background-color: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-instructions {
+            text-align: center;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            background-color: #e0f2fe;
+            border-radius: 6px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .print-instructions {
+                display: none;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+            
+            h2 {
+                page-break-after: avoid;
+            }
+            
+            .step {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PFL Academy</div>
+            <h1>Student Loan Repayment Strategy Builder</h1>
+            <div class="subtitle">Chapter 7.5: Understanding Student Loans</div>
+        </div>
+        
+        <div class="print-instructions">
+            <strong>Teacher Instructions:</strong> To save as PDF, use your browser's print function (Ctrl+P or ⌘+P) and select "Save as PDF" as the destination.
+        </div>
+        
+        <h2>Introduction</h2>
+        <p>
+            This worksheet will guide you through developing a comprehensive student loan repayment strategy based on your educational plans, career goals, and financial situation. Having a plan before you borrow can help you make informed decisions about education financing and ensure that your student loans remain manageable after graduation.
+        </p>
+        
+        <div class="tips">
+            <strong>TIP:</strong> Regularly revisit and update your repayment strategy as your educational and career plans evolve. The most important time to develop this strategy is before you take out your first student loan, but it should be reviewed annually while in school and whenever your circumstances change.
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">1</span> Education Pathway Analysis</h3>
+            <p>
+                Describe your educational plans and the estimated costs. Consider different pathways to achieve your career goals.
+            </p>
+            
+            <table>
+                <tr>
+                    <td width="50%">Selected Education Pathway:</td>
+                    <td class="input-cell" width="50%">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Institution Name:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Degree/Program:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Program Length:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Cost Per Year (tuition, fees, housing, etc.):</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Total Program Cost:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+            
+            <h4>Alternative Pathways Considered:</h4>
+            <div class="input-cell" style="min-height: 80px;">&nbsp;</div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">2</span> Career and Income Projections</h3>
+            <p>
+                Research and document the career field you're targeting and the expected income after graduation.
+            </p>
+            
+            <table>
+                <tr>
+                    <td width="50%">Target Career Field:</td>
+                    <td class="input-cell" width="50%">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Expected Entry-Level Salary:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Expected Mid-Career Salary (10 years):</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Sources for Salary Research:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+            </table>
+            
+            <h4>Return on Investment (ROI) Analysis:</h4>
+            <table>
+                <tr>
+                    <td width="50%">Total Education Cost:</td>
+                    <td class="input-cell" width="50%">$</td>
+                </tr>
+                <tr>
+                    <td>Years to Recoup Education Costs:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Is this ROI reasonable?</td>
+                    <td class="input-cell">□ Yes □ No □ Maybe</td>
+                </tr>
+            </table>
+            
+            <div class="notes">
+                <strong>ROI Calculation:</strong> A simple way to estimate this is to divide your total education cost by your annual salary gain compared to having no degree. For example, if your degree costs $80,000 and increases your annual salary by $20,000, your ROI period would be approximately 4 years.
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">3</span> Funding Analysis</h3>
+            <p>
+                Determine how much of your education costs will be covered by various sources, including how much you'll need to borrow.
+            </p>
+            
+            <table>
+                <tr>
+                    <th>Funding Source</th>
+                    <th>Amount Per Year</th>
+                    <th>Total Amount</th>
+                </tr>
+                <tr>
+                    <td>Personal Savings</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Family Contribution</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Scholarships (Merit-Based)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Grants (Need-Based)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Work-Study/Employment During School</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Other Non-Loan Sources</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Non-Loan Funding</strong></td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Amount Needed in Loans</strong><br>(Total Cost - Non-Loan Funding)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+            
+            <div class="warning">
+                <strong>Borrowing Guideline:</strong> Financial experts generally recommend that your total student loan debt at graduation should not exceed your expected first-year salary. If your projected borrowing exceeds this guideline, consider ways to reduce costs or increase non-loan funding.
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">4</span> Student Loan Plan</h3>
+            <p>
+                Based on the amount needed in loans, develop a detailed borrowing plan that prioritizes federal loans before considering private loans.
+            </p>
+            
+            <table>
+                <tr>
+                    <th>Loan Type</th>
+                    <th>Annual Amount</th>
+                    <th>Total Amount</th>
+                    <th>Current Interest Rate</th>
+                </tr>
+                <tr>
+                    <td>Direct Subsidized Loans (federal)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td>Direct Unsubsidized Loans (federal)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td>Parent PLUS Loans (federal)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td>Private Loans (specify lender)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Borrowing</strong></td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell"></td>
+                </tr>
+            </table>
+            
+            <h4>Borrowing Strategy Notes:</h4>
+            <div class="input-cell" style="min-height: 80px;">&nbsp;</div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">5</span> Repayment Plan Selection</h3>
+            <p>
+                Based on your projected borrowing and future income, select appropriate repayment plans for your student loans.
+            </p>
+            
+            <h4>Federal Loan Repayment Plan:</h4>
+            <div class="input-cell">
+                □ Standard Repayment (10 years, fixed payments)<br>
+                □ Graduated Repayment (10 years, payments start low and increase)<br>
+                □ Extended Repayment (up to 25 years)<br>
+                □ Income-Based Repayment (IBR)<br>
+                □ Pay As You Earn (PAYE)<br>
+                □ Revised Pay As You Earn (REPAYE)<br>
+                □ SAVE Plan (Saving on a Valuable Education)<br>
+                □ Public Service Loan Forgiveness (PSLF) track
+            </div>
+            
+            <h4>Reasoning for Selected Plan:</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <h4>Private Loan Approach (if applicable):</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <div class="notes">
+                <strong>Note:</strong> Income-driven repayment plans can be beneficial if you expect a lower starting salary relative to your debt. However, they may result in paying more interest over time. Standard repayment minimizes total interest paid but requires higher monthly payments.
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">6</span> Post-Graduation Budget Analysis</h3>
+            <p>
+                Project how your student loan payments will fit into your post-graduation budget.
+            </p>
+            
+            <table>
+                <tr>
+                    <td width="60%">Projected Monthly Gross Income:</td>
+                    <td class="input-cell" width="40%">$</td>
+                </tr>
+                <tr>
+                    <td>Estimated Monthly Take-Home Pay:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Estimated Monthly Student Loan Payment:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Student Loan Payment as Percentage of Take-Home Pay:</td>
+                    <td class="input-cell">%</td>
+                </tr>
+            </table>
+            
+            <h4>Other Major Monthly Expenses (estimated):</h4>
+            <table>
+                <tr>
+                    <td>Housing (rent/mortgage):</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Transportation:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Food:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Utilities:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Insurance:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Other Essential Expenses:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Essential Expenses (including student loans):</strong></td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Remaining for Savings and Discretionary Spending:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+            
+            <div class="notes">
+                <strong>Budgeting Guideline:</strong> Financial experts typically recommend keeping student loan payments below 10-15% of your monthly income to maintain a balanced budget that allows for other financial goals.
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">7</span> Strategies to Minimize Borrowing and Accelerate Repayment</h3>
+            <p>
+                Identify specific actions you can take before, during, and after school to minimize borrowing and pay off loans faster.
+            </p>
+            
+            <h4>Before School:</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <h4>During School:</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <h4>After Graduation:</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <div class="tips">
+                <strong>Strategy Ideas:</strong>
+                <ul>
+                    <li>Make interest payments while in school (even on unsubsidized loans)</li>
+                    <li>Apply for additional scholarships each year</li>
+                    <li>Consider working part-time during school</li>
+                    <li>Use tax refunds, bonuses, or gifts to make extra payments</li>
+                    <li>Consider loan forgiveness programs if you work in public service</li>
+                    <li>Explore employer student loan repayment assistance benefits</li>
+                    <li>Refinance private loans after graduation if you can qualify for lower rates</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">8</span> Contingency Planning</h3>
+            <p>
+                Plan for potential challenges that could affect your ability to repay your student loans.
+            </p>
+            
+            <h4>What if you can't find employment immediately after graduation?</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <h4>What if your income is lower than expected?</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <h4>What if you need to change career paths?</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+            
+            <div class="notes">
+                <strong>Federal Loan Protections:</strong> Federal student loans offer deferment and forbearance options for economic hardship, as well as income-driven repayment plans that adjust your payment based on your income. Private loans typically offer fewer protections, which is why they should be considered only after exhausting federal loan options.
+            </div>
+        </div>
+        
+        <h2>Repayment Strategy Summary</h2>
+        <p>
+            Summarize your overall student loan repayment strategy based on your analysis and planning.
+        </p>
+        
+        <div class="input-cell" style="min-height: 150px;">&nbsp;</div>
+        
+        <div class="tips">
+            <strong>Final Tip:</strong> Remember that this is a living document that should be updated regularly as your educational plans, career goals, and financial situation evolve. Review it at least once a year and before taking out any additional student loans.
+        </div>
+        
+        <div class="footer">
+            <p>PFL Academy | Chapter 7.5: Understanding Student Loans | © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

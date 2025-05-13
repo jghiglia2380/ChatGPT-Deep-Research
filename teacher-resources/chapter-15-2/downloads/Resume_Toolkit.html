@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Toolkit - Chapter 15.2</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #4a148c;
+            border-bottom: 2px solid #4a148c;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #6a1b9a;
+            border-bottom: 1px solid #6a1b9a;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #7b1fa2;
+            margin-top: 25px;
+        }
+        
+        .print-instructions {
+            background-color: #fffaf0;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #ed8936;
+            border-radius: 4px;
+        }
+        
+        .example-box {
+            background-color: #f3e5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #9c27b0;
+            border-radius: 4px;
+        }
+        
+        .tip-box {
+            background-color: #e8f5e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background-color: #ffebee;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #f44336;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #f3e5f5;
+            color: #6a1b9a;
+            text-align: left;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .comparison-column {
+            flex: 1;
+            padding: 15px;
+        }
+        
+        .comparison-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .weak {
+            background-color: #ffebee;
+        }
+        
+        .strong {
+            background-color: #e8f5e9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #9c27b0;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #7b1fa2;
+        }
+
+        @media (max-width: 600px) {
+            .comparison {
+                flex-direction: column;
+            }
+            
+            .comparison-column {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <h1>Resume Toolkit</h1>
+    <p>This comprehensive toolkit provides resources and guidance for creating effective resumes that showcase your qualifications and align with your personal brand. Use these tools to develop a resume that will make a strong impression on potential employers.</p>
+
+    <div class="page-break"></div>
+
+    <h2>Resume Components</h2>
+    <p>A strong resume typically includes the following components, though the specific sections and their order may vary based on your experience level and career field.</p>
+
+    <h3>1. Contact Information</h3>
+    <p>Position this prominently at the top of your resume.</p>
+    <ul>
+        <li><strong>Name:</strong> Use a slightly larger font size than the rest of the document</li>
+        <li><strong>Phone number:</strong> Ensure this is a number with a professional voicemail</li>
+        <li><strong>Email address:</strong> Use a professional email (firstname.lastname@domain.com)</li>
+        <li><strong>Location:</strong> City and state/province (full address not necessary)</li>
+        <li><strong>Optional:</strong> LinkedIn profile or professional website URL</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example:</h4>
+        <p><strong>JORDAN RIVERA</strong><br>
+        (555) 123-4567 | jordan.rivera@email.com<br>
+        Portland, OR | linkedin.com/in/jordanrivera</p>
+    </div>
+
+    <h3>2. Professional Summary or Objective</h3>
+    <p>This brief section at the top of your resume highlights your qualifications and career focus.</p>
+    
+    <div class="comparison">
+        <div class="comparison-column weak">
+            <div class="comparison-header">Weak Example:</div>
+            <p>"Seeking a challenging position where I can utilize my skills and experience to contribute to company growth."</p>
+            <p><em>Why it's weak: Generic, vague, and focused on what you want rather than what you offer</em></p>
+        </div>
+        <div class="comparison-column strong">
+            <div class="comparison-header">Strong Example:</div>
+            <p>"Detail-oriented marketing professional with 3 years of experience in social media management and content creation. Skilled in developing engaging campaigns that increased user engagement by 35% for previous employers. Seeking to leverage creative problem-solving skills in a growth-oriented marketing role."</p>
+            <p><em>Why it's strong: Specific, quantified, and focused on value offered to employers</em></p>
+        </div>
+    </div>
+
+    <div class="tip-box">
+        <h4>Professional Summary vs. Objective Statement:</h4>
+        <ul>
+            <li><strong>Professional Summary:</strong> Best for those with some experience; summarizes your qualifications</li>
+            <li><strong>Objective Statement:</strong> More appropriate for entry-level candidates or career changers; states specific role or industry you're targeting</li>
+        </ul>
+    </div>
+
+    <h3>3. Education</h3>
+    <p>Your educational background, with most recent degree first.</p>
+    <ul>
+        <li><strong>Institution name and location</strong></li>
+        <li><strong>Degree earned and major/minor</strong></li>
+        <li><strong>Graduation date</strong> (or expected date)</li>
+        <li><strong>GPA</strong> (if 3.0 or higher)</li>
+        <li><strong>Relevant coursework</strong> (especially for recent graduates)</li>
+        <li><strong>Academic honors</strong> (Dean's List, scholarships, etc.)</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example:</h4>
+        <p><strong>UNIVERSITY OF OREGON</strong>, Eugene, OR<br>
+        Bachelor of Science in Business Administration, Marketing Concentration<br>
+        Expected Graduation: May 2026<br>
+        GPA: 3.7/4.0<br>
+        Relevant Coursework: Digital Marketing Analytics, Consumer Behavior, Market Research<br>
+        Honors: Dean's List (4 semesters), Marketing Department Scholarship Recipient</p>
+    </div>
+
+    <h3>4. Work Experience</h3>
+    <p>List your professional experience in reverse chronological order (most recent first).</p>
+    <ul>
+        <li><strong>Organization name and location</strong></li>
+        <li><strong>Your title/position</strong></li>
+        <li><strong>Dates of employment</strong> (month and year)</li>
+        <li><strong>Accomplishments and responsibilities</strong> (3-5 bullet points using action verbs)</li>
+        <li><strong>Quantifiable achievements</strong> when possible</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example:</h4>
+        <p><strong>GREENFIELD MARKETING AGENCY</strong>, Portland, OR<br>
+        <em>Marketing Intern</em>, June 2024 - August 2024</p>
+        <ul>
+            <li>Developed content for social media campaigns that increased engagement by 22% across platforms</li>
+            <li>Analyzed user data for 5 client accounts, identifying trends that informed strategic recommendations</li>
+            <li>Collaborated with design team on creation of digital marketing materials for 3 major client projects</li>
+            <li>Assisted in organizing and executing 2 successful client events with over 100 attendees each</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h3>5. Skills</h3>
+    <p>Highlight your relevant technical and soft skills, organized in categories.</p>
+    <ul>
+        <li><strong>Technical skills:</strong> Software, programming languages, tools, certifications</li>
+        <li><strong>Language proficiencies:</strong> Specify fluency level (native, fluent, intermediate, basic)</li>
+        <li><strong>Soft skills:</strong> Communication, leadership, problem-solving (emphasize these through experiences rather than just listing)</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example:</h4>
+        <p><strong>SKILLS</strong></p>
+        <ul>
+            <li><strong>Technical:</strong> Adobe Creative Suite (Photoshop, Illustrator, InDesign), Google Analytics, Hootsuite, Canva, WordPress, Basic HTML/CSS</li>
+            <li><strong>Languages:</strong> English (native), Spanish (intermediate)</li>
+            <li><strong>Additional:</strong> Social media management, content creation, market research, event planning, public speaking</li>
+        </ul>
+    </div>
+
+    <h3>6. Additional Sections (Optional)</h3>
+    <p>Depending on your background and target position, consider including:</p>
+    <ul>
+        <li><strong>Volunteer Experience:</strong> Organized similarly to work experience, especially if it demonstrates relevant skills</li>
+        <li><strong>Leadership Positions:</strong> Roles in clubs, organizations, or committees</li>
+        <li><strong>Projects:</strong> Major class projects, independent work, or portfolio pieces</li>
+        <li><strong>Certifications:</strong> Industry-specific certifications or completed training programs</li>
+        <li><strong>Publications or Presentations:</strong> Published works or public speaking engagements</li>
+        <li><strong>Professional Affiliations:</strong> Membership in industry groups or associations</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>Action Verb Library</h2>
+    <p>Begin each bullet point with a strong action verb to demonstrate your contributions and accomplishments. Here are action verbs categorized by skill type:</p>
+
+    <h3>Leadership</h3>
+    <table>
+        <tr>
+            <th>Action Verbs</th>
+            <th>Example Usage</th>
+        </tr>
+        <tr>
+            <td>Led, Managed, Directed</td>
+            <td>"Led a team of 5 volunteers to organize campus sustainability initiatives"</td>
+        </tr>
+        <tr>
+            <td>Supervised, Oversaw, Coordinated</td>
+            <td>"Coordinated scheduling and training for 12 new employees"</td>
+        </tr>
+        <tr>
+            <td>Established, Implemented, Initiated</td>
+            <td>"Implemented new inventory tracking system that reduced errors by 30%"</td>
+        </tr>
+        <tr>
+            <td>Delegated, Assigned, Authorized</td>
+            <td>"Delegated project tasks based on team members' strengths and interests"</td>
+        </tr>
+        <tr>
+            <td>Chaired, Headed, Spearheaded</td>
+            <td>"Spearheaded fundraising campaign that raised $5,000 for local charity"</td>
+        </tr>
+    </table>
+
+    <h3>Communication</h3>
+    <table>
+        <tr>
+            <th>Action Verbs</th>
+            <th>Example Usage</th>
+        </tr>
+        <tr>
+            <td>Presented, Communicated, Articulated</td>
+            <td>"Presented research findings to audience of 50+ students and faculty"</td>
+        </tr>
+        <tr>
+            <td>Authored, Wrote, Edited</td>
+            <td>"Authored weekly blog posts that increased website traffic by 25%"</td>
+        </tr>
+        <tr>
+            <td>Negotiated, Persuaded, Influenced</td>
+            <td>"Negotiated with vendors to reduce supply costs by 15%"</td>
+        </tr>
+        <tr>
+            <td>Collaborated, Consulted, Partnered</td>
+            <td>"Collaborated with marketing team to develop integrated campaign strategy"</td>
+        </tr>
+        <tr>
+            <td>Translated, Interpreted, Clarified</td>
+            <td>"Translated technical specifications into user-friendly documentation"</td>
+        </tr>
+    </table>
+
+    <h3>Analysis</h3>
+    <table>
+        <tr>
+            <th>Action Verbs</th>
+            <th>Example Usage</th>
+        </tr>
+        <tr>
+            <td>Analyzed, Assessed, Evaluated</td>
+            <td>"Analyzed customer data to identify trends and optimize marketing strategy"</td>
+        </tr>
+        <tr>
+            <td>Researched, Investigated, Examined</td>
+            <td>"Researched industry best practices to improve operational efficiency"</td>
+        </tr>
+        <tr>
+            <td>Calculated, Computed, Quantified</td>
+            <td>"Calculated project ROI, demonstrating 22% return on marketing spend"</td>
+        </tr>
+        <tr>
+            <td>Interpreted, Synthesized, Systematized</td>
+            <td>"Synthesized findings from multiple market research studies to guide product development"</td>
+        </tr>
+        <tr>
+            <td>Forecasted, Projected, Estimated</td>
+            <td>"Forecasted quarterly sales based on historical data and market trends"</td>
+        </tr>
+    </table>
+
+    <h3>Achievement</h3>
+    <table>
+        <tr>
+            <th>Action Verbs</th>
+            <th>Example Usage</th>
+        </tr>
+        <tr>
+            <td>Achieved, Accomplished, Attained</td>
+            <td>"Achieved 95% customer satisfaction rating through improved service protocols"</td>
+        </tr>
+        <tr>
+            <td>Improved, Increased, Enhanced</td>
+            <td>"Improved workflow efficiency, reducing processing time by 20%"</td>
+        </tr>
+        <tr>
+            <td>Reduced, Decreased, Minimized</td>
+            <td>"Reduced operational costs by 15% through implementation of automated systems"</td>
+        </tr>
+        <tr>
+            <td>Generated, Produced, Delivered</td>
+            <td>"Generated $10,000 in new business through targeted outreach campaigns"</td>
+        </tr>
+        <tr>
+            <td>Exceeded, Surpassed, Outperformed</td>
+            <td>"Exceeded sales targets by 30% for three consecutive quarters"</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h3>Organization</h3>
+    <table>
+        <tr>
+            <th>Action Verbs</th>
+            <th>Example Usage</th>
+        </tr>
+        <tr>
+            <td>Organized, Arranged, Structured</td>
+            <td>"Organized company-wide filing system, improving document retrieval time by 40%"</td>
+        </tr>
+        <tr>
+            <td>Cataloged, Categorized, Classified</td>
+            <td>"Cataloged inventory of over 2,000 products in new database system"</td>
+        </tr>
+        <tr>
+            <td>Scheduled, Planned, Coordinated</td>
+            <td>"Scheduled and coordinated meetings and events for department of 25 employees"</td>
+        </tr>
+        <tr>
+            <td>Streamlined, Optimized, Standardized</td>
+            <td>"Streamlined onboarding process, reducing training time from 2 weeks to 1 week"</td>
+        </tr>
+        <tr>
+            <td>Monitored, Tracked, Documented</td>
+            <td>"Monitored project milestones to ensure on-time completion within budget"</td>
+        </tr>
+    </table>
+
+    <h3>Creation</h3>
+    <table>
+        <tr>
+            <th>Action Verbs</th>
+            <th>Example Usage</th>
+        </tr>
+        <tr>
+            <td>Created, Designed, Developed</td>
+            <td>"Created marketing materials that increased brand recognition by 25%"</td>
+        </tr>
+        <tr>
+            <td>Built, Constructed, Assembled</td>
+            <td>"Built interactive dashboard to visualize key performance metrics"</td>
+        </tr>
+        <tr>
+            <td>Formulated, Devised, Conceptualized</td>
+            <td>"Formulated social media strategy that increased follower engagement by 45%"</td>
+        </tr>
+        <tr>
+            <td>Launched, Introduced, Pioneered</td>
+            <td>"Launched new customer loyalty program that improved retention by 15%"</td>
+        </tr>
+        <tr>
+            <td>Revamped, Redesigned, Restructured</td>
+            <td>"Redesigned company website, resulting in 30% increase in user time on site"</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2>Quantifying Achievements</h2>
+    <p>Numbers make your accomplishments more concrete and impressive. Here are strategies for quantifying different types of achievements:</p>
+
+    <h3>How to Quantify Your Achievements</h3>
+    
+    <div class="tip-box">
+        <h4>Types of Measurements:</h4>
+        <ul>
+            <li><strong>Numbers:</strong> "Managed a team of 12 employees" (size, volume, frequency)</li>
+            <li><strong>Percentages:</strong> "Increased sales by 25%" (improvements, efficiency)</li>
+            <li><strong>Time:</strong> "Reduced processing time from 3 days to 1 day" (efficiency, productivity)</li>
+            <li><strong>Money:</strong> "Managed $50,000 budget" or "Generated $15,000 in sales" (financial impact)</li>
+            <li><strong>Scale:</strong> "Organized event for 200+ attendees" (scope of responsibility)</li>
+        </ul>
+    </div>
+
+    <h3>Quantification Formulas</h3>
+    <p>Use these formulas to transform basic statements into powerful, quantified achievements:</p>
+
+    <table>
+        <tr>
+            <th>Basic Formula</th>
+            <th>Example Transformation</th>
+        </tr>
+        <tr>
+            <td>[Action Verb] + [Task] + [Quantifiable Result]</td>
+            <td>
+                Before: "Answered customer calls"<br>
+                After: "Responded to 50+ customer inquiries daily with 95% resolution rate"
+            </td>
+        </tr>
+        <tr>
+            <td>[Action Verb] + [Task] + "resulting in" + [Quantifiable Outcome]</td>
+            <td>
+                Before: "Created social media content"<br>
+                After: "Created daily social media content resulting in 35% increase in audience engagement"
+            </td>
+        </tr>
+        <tr>
+            <td>[Action Verb] + [Task] + "by" + [Measurement] + "through" + [Method]</td>
+            <td>
+                Before: "Improved sales performance"<br>
+                After: "Improved sales performance by 30% through implementation of new customer relationship management system"
+            </td>
+        </tr>
+        <tr>
+            <td>[Action Verb] + [Scope of Responsibility] + "with" + [Additional Context]</td>
+            <td>
+                Before: "Managed budget"<br>
+                After: "Managed $25,000 annual budget with consistent 5% under-budget performance"
+            </td>
+        </tr>
+    </table>
+
+    <h3>Quantification When Numbers Aren't Obvious</h3>
+    <p>Some roles and experiences don't have obvious metrics. Here are approaches for these situations:</p>
+
+    <ul>
+        <li><strong>Scope:</strong> "Collaborated with 4 departments on cross-functional project"</li>
+        <li><strong>Volume:</strong> "Processed average of 45 transactions daily with 99% accuracy"</li>
+        <li><strong>Frequency:</strong> "Delivered weekly presentations to team of 15 colleagues"</li>
+        <li><strong>Consistency:</strong> "Maintained zero safety incidents during 12-month period"</li>
+        <li><strong>Complexity:</strong> "Managed 3 concurrent projects with 5+ stakeholders each"</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example Transformations:</h4>
+        <p><strong>Customer Service Role:</strong></p>
+        <ul>
+            <li>Basic: "Helped customers with problems"</li>
+            <li>Quantified: "Resolved average of 40 customer inquiries daily with 95% satisfaction rating"</li>
+        </ul>
+        <p><strong>Administrative Role:</strong></p>
+        <ul>
+            <li>Basic: "Scheduled meetings and managed calendar"</li>
+            <li>Quantified: "Coordinated 25+ weekly meetings and managed calendars for 5 executives, reducing scheduling conflicts by 40%"</li>
+        </ul>
+        <p><strong>Academic Project:</strong></p>
+        <ul>
+            <li>Basic: "Worked on group research project"</li>
+            <li>Quantified: "Led 4-person research team in semester-long project, delivering 20-page report and presentation to audience of 30 students and faculty"</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Resume Formatting Guidelines</h2>
+    <p>A well-formatted resume is easy to scan quickly and presents information clearly and professionally.</p>
+
+    <h3>General Formatting Principles</h3>
+    <ul>
+        <li><strong>Length:</strong> 1 page for most students and entry-level professionals; 2 pages acceptable for those with significant experience</li>
+        <li><strong>Margins:</strong> 0.5-1 inch on all sides (avoid going smaller than 0.5 inch)</li>
+        <li><strong>Font:</strong> Professional, readable fonts (Arial, Calibri, Garamond, Helvetica) in 10-12pt size</li>
+        <li><strong>Spacing:</strong> Consistent line spacing throughout (single or 1.15 spacing is standard)</li>
+        <li><strong>Alignment:</strong> Left-aligned text (not justified) for better readability</li>
+        <li><strong>File Format:</strong> Save and send as PDF to preserve formatting</li>
+    </ul>
+
+    <h3>Visual Hierarchy</h3>
+    <p>Use formatting to guide the reader's eye to the most important information:</p>
+    <ul>
+        <li><strong>Section Headers:</strong> Larger font, bold, and/or color to clearly separate sections</li>
+        <li><strong>Company/School Names:</strong> Bold and/or uppercase to stand out</li>
+        <li><strong>Position Titles:</strong> Italics or different formatting from organization names</li>
+        <li><strong>Dates:</strong> Consistent placement (typically right-aligned) and format (Month Year)</li>
+        <li><strong>Bullet Points:</strong> Consistent indentation and symbol</li>
+    </ul>
+
+    <h3>Consistency</h3>
+    <p>Maintain consistent formatting for similar elements throughout your resume:</p>
+    <ul>
+        <li>Use the same date format everywhere (e.g., September 2023 or 09/2023, not both)</li>
+        <li>Apply the same treatment to all section headers</li>
+        <li>Use the same bullet point symbol and indentation</li>
+        <li>Maintain consistent spacing between sections</li>
+        <li>Apply the same formatting to parallel elements (job titles, organization names)</li>
+    </ul>
+
+    <div class="warning-box">
+        <h4>Formatting Don'ts:</h4>
+        <ul>
+            <li><strong>Don't</strong> use multiple font types in one resume (stick to 1-2 complementary fonts)</li>
+            <li><strong>Don't</strong> overuse bold, italics, or underlining (use sparingly for emphasis)</li>
+            <li><strong>Don't</strong> include photos, graphics, or decorative elements unless relevant to your field</li>
+            <li><strong>Don't</strong> use templates with elaborate designs that distract from content</li>
+            <li><strong>Don't</strong> crowd the page with dense text (maintain adequate white space)</li>
+            <li><strong>Don't</strong> use tables or columns that might confuse Applicant Tracking Systems (ATS)</li>
+        </ul>
+    </div>
+
+    <h3>ATS Compatibility</h3>
+    <p>Many employers use Applicant Tracking Systems to screen resumes before human review:</p>
+    <ul>
+        <li>Use standard section headings (e.g., "Experience" not "Where I've Worked")</li>
+        <li>Avoid text boxes, headers/footers, and images (ATS may not read these correctly)</li>
+        <li>Minimize special characters and symbols</li>
+        <li>Use standard bullet points (•) rather than decorative symbols</li>
+        <li>Include keywords from the job description in your resume text</li>
+        <li>Submit in the requested file format (usually PDF or Word)</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>Resume Tailoring Strategies</h2>
+    <p>Tailoring your resume for specific opportunities significantly increases your chances of getting interviews.</p>
+
+    <h3>Job Description Analysis</h3>
+    <p>Start by carefully analyzing the job description to identify:</p>
+    <ul>
+        <li><strong>Required skills and qualifications</strong></li>
+        <li><strong>Preferred qualifications</strong></li>
+        <li><strong>Key responsibilities</strong></li>
+        <li><strong>Industry-specific terminology</strong></li>
+        <li><strong>Recurring themes or emphasized points</strong></li>
+    </ul>
+
+    <h3>Tailoring Your Professional Summary/Objective</h3>
+    <p>This is the first section employers read and should be customized for each application:</p>
+    <ul>
+        <li>Highlight skills and experiences most relevant to the specific position</li>
+        <li>Include key terms from the job description</li>
+        <li>Align your career goals with the position and organization</li>
+        <li>Address specific requirements mentioned in the job posting</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example of Tailored Summaries for Different Positions:</h4>
+        <p><strong>For Marketing Assistant Position:</strong><br>
+        "Detail-oriented marketing student with experience in social media management and content creation. Proven ability to increase engagement through targeted campaigns as demonstrated in campus organization leadership. Seeking to leverage creative and analytical skills in a marketing assistant role."</p>
+        
+        <p><strong>For Customer Service Position:</strong><br>
+        "Personable business student with 2 years of retail experience and strong communication skills. Demonstrated ability to resolve customer concerns efficiently while maintaining 95% satisfaction rating. Seeking customer service position to utilize problem-solving abilities and commitment to exceptional service."</p>
+    </div>
+
+    <h3>Prioritizing Relevant Experience</h3>
+    <p>Emphasize experiences that directly relate to the target position:</p>
+    <ul>
+        <li>Place most relevant experiences first within the experience section</li>
+        <li>Allocate more bullet points to the most relevant roles</li>
+        <li>Highlight transferable skills that apply to the target role</li>
+        <li>Consider creating separate sections for relevant experience categories (e.g., "Marketing Experience" and "Additional Experience")</li>
+    </ul>
+
+    <h3>Customizing Bullet Points</h3>
+    <p>Revise your bullet points to emphasize skills and achievements most relevant to the target position:</p>
+    <ul>
+        <li>Use similar language and keywords from the job description</li>
+        <li>Highlight accomplishments that demonstrate required competencies</li>
+        <li>Quantify achievements related to key responsibilities</li>
+        <li>Adjust emphasis based on position priorities</li>
+    </ul>
+
+    <div class="comparison">
+        <div class="comparison-column weak">
+            <div class="comparison-header">Generic Bullet Point:</div>
+            <p>"Helped customers with problems and questions"</p>
+        </div>
+        <div class="comparison-column strong">
+            <div class="comparison-header">Tailored for Customer Service Role:</div>
+            <p>"Resolved 30+ customer inquiries daily, maintaining 95% satisfaction rating through effective problem-solving and clear communication"</p>
+        </div>
+    </div>
+    <div class="comparison">
+        <div class="comparison-column strong">
+            <div class="comparison-header">Tailored for Sales Role:</div>
+            <p>"Built strong customer relationships through consultative approach, resulting in 20% increase in repeat business and $5,000 in additional monthly revenue"</p>
+        </div>
+    </div>
+
+    <h3>Skills Section Customization</h3>
+    <p>Adjust your skills section to highlight those most relevant to the position:</p>
+    <ul>
+        <li>Reorder skills to prioritize those mentioned in the job description</li>
+        <li>Include technical skills specific to the industry or role</li>
+        <li>Add proficiency levels when beneficial</li>
+        <li>Remove skills that aren't relevant to the specific position</li>
+    </ul>
+
+    <div class="tip-box">
+        <h4>Tailoring Checklist:</h4>
+        <ol>
+            <li>Highlight the key requirements in the job description</li>
+            <li>Compare your experiences and skills to these requirements</li>
+            <li>Adjust your professional summary to address specific needs</li>
+            <li>Reorganize content to emphasize most relevant experiences</li>
+            <li>Revise bullet points to include relevant keywords and achievements</li>
+            <li>Customize skills section to match job requirements</li>
+            <li>Review for consistent messaging aligned with the position</li>
+        </ol>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Common Resume Mistakes to Avoid</h2>
+    <p>Even small mistakes can diminish your chances of landing an interview. Avoid these common pitfalls:</p>
+
+    <h3>Content Mistakes</h3>
+    <ul>
+        <li><strong>Typos and grammatical errors:</strong> These suggest carelessness and lack of attention to detail</li>
+        <li><strong>Vague descriptions:</strong> Generic statements without specific examples of your contributions</li>
+        <li><strong>Focusing on responsibilities instead of achievements:</strong> Listing job duties without showing results</li>
+        <li><strong>Missing quantifiable results:</strong> Failing to include specific metrics and outcomes</li>
+        <li><strong>Including irrelevant information:</strong> Adding content that doesn't strengthen your candidacy</li>
+        <li><strong>Using passive language:</strong> Writing "Was responsible for..." instead of strong action verbs</li>
+        <li><strong>Including personal information:</strong> Adding age, marital status, or photo (unless standard in your region)</li>
+    </ul>
+
+    <h3>Formatting Mistakes</h3>
+    <ul>
+        <li><strong>Inconsistent formatting:</strong> Varying styles for similar elements (dates, headers, spacing)</li>
+        <li><strong>Poor organization:</strong> Illogical order or hard-to-follow structure</li>
+        <li><strong>Too long or too short:</strong> Not adhering to appropriate length for your experience level</li>
+        <li><strong>Dense paragraphs:</strong> Using paragraphs instead of concise bullet points</li>
+        <li><strong>Inappropriate font choices:</strong> Using decorative or difficult-to-read fonts</li>
+        <li><strong>Excessive formatting:</strong> Overusing bold, italics, underlining, or colors</li>
+        <li><strong>Poor file naming:</strong> Using generic names like "Resume.pdf" instead of "JohnSmith_Resume.pdf"</li>
+    </ul>
+
+    <h3>Strategic Mistakes</h3>
+    <ul>
+        <li><strong>One-size-fits-all approach:</strong> Using the same resume for every application without tailoring</li>
+        <li><strong>Objective statements focusing on what you want:</strong> Emphasizing your goals rather than your value to employers</li>
+        <li><strong>Missing keywords from job descriptions:</strong> Failing to include terms from the job posting</li>
+        <li><strong>Including salary information:</strong> Mentioning salary history or expectations unless specifically requested</li>
+        <li><strong>Unprofessional email address:</strong> Using casual or inappropriate email addresses</li>
+        <li><strong>Lying or exaggerating:</strong> Misrepresenting your experiences, skills, or qualifications</li>
+        <li><strong>References statement:</strong> Adding "References available upon request" (this is assumed)</li>
+    </ul>
+
+    <div class="warning-box">
+        <h4>Resume Red Flags for Employers:</h4>
+        <ul>
+            <li>Unexplained gaps in employment history</li>
+            <li>Inconsistent dates or information</li>
+            <li>Frequent job changes without progression</li>
+            <li>Lack of specific accomplishments</li>
+            <li>Generic, non-tailored content</li>
+            <li>Unprofessional presentation or communication</li>
+            <li>Outdated skills or experience</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Resume Templates and Examples</h2>
+    <p>These sample resumes demonstrate effective formats and content for different career stages. Use them as inspiration, not for direct copying.</p>
+
+    <h3>Entry-Level Resume Example (Recent Graduate)</h3>
+    <div class="example-box">
+        <h4>TAYLOR JOHNSON</h4>
+        <p>(555) 123-4567 | taylor.johnson@email.com | Portland, OR | linkedin.com/in/taylorjohnson</p>
+        
+        <h4>PROFESSIONAL SUMMARY</h4>
+        <p>Marketing graduate with strong analytical and creative skills demonstrated through internship experience and academic projects. Proficient in social media management, content creation, and basic data analysis. Seeking entry-level marketing position to leverage education and internship experience.</p>
+        
+        <h4>EDUCATION</h4>
+        <p><strong>PORTLAND STATE UNIVERSITY</strong>, Portland, OR<br>
+        Bachelor of Science in Marketing, Minor in Digital Media<br>
+        Graduation: May 2024 | GPA: 3.7/4.0<br>
+        Relevant Coursework: Digital Marketing, Consumer Behavior, Market Research, Data Analytics<br>
+        Honors: Dean's List (all semesters), Marketing Department Scholarship (2022-2023)</p>
+        
+        <h4>EXPERIENCE</h4>
+        <p><strong>BRIGHTWAY MARKETING AGENCY</strong>, Portland, OR<br>
+        <em>Marketing Intern</em>, January 2024 – April 2024</p>
+        <ul>
+            <li>Assisted in development and execution of social media campaigns for 3 clients, resulting in 25% average increase in engagement</li>
+            <li>Conducted competitor analysis research for 5 client accounts, creating comprehensive reports with strategic recommendations</li>
+            <li>Created content for various platforms including Instagram, Facebook, and LinkedIn, generating 15% more interactions than previous content</li>
+            <li>Supported analytics team by compiling monthly performance reports and identifying key trends</li>
+        </ul>
+        
+        <p><strong>CAMPUS MARKETING ASSOCIATION</strong>, Portland State University<br>
+        <em>Vice President</em>, September 2022 – May 2024</p>
+        <ul>
+            <li>Coordinated marketing efforts for 6 campus events, increasing average attendance by 30%</li>
+            <li>Led team of 4 students in creating and implementing social media strategy that grew membership by 25%</li>
+            <li>Organized monthly speaker series featuring marketing professionals, with average attendance of 40+ students</li>
+            <li>Managed association budget of $3,000, ensuring effective allocation of resources</li>
+        </ul>
+        
+        <p><strong>CAMPUS BOOKSTORE</strong>, Portland State University<br>
+        <em>Customer Service Associate</em>, September 2021 – May 2022</p>
+        <ul>
+            <li>Provided assistance to 50+ customers daily during peak periods while maintaining 95% satisfaction rating</li>
+            <li>Processed transactions accurately with zero balance discrepancies over 8-month period</li>
+            <li>Organized inventory displays that increased visibility of promotional items, contributing to 10% sales increase</li>
+        </ul>
+        
+        <h4>SKILLS</h4>
+        <p><strong>Technical:</strong> Adobe Creative Suite (Photoshop, Illustrator), Google Analytics, Hootsuite, Canva, Microsoft Office, Basic HTML/CSS<br>
+        <strong>Languages:</strong> English (Native), Spanish (Intermediate)<br>
+        <strong>Additional:</strong> Social media management, content creation, market research, data analysis, public speaking</p>
+        
+        <h4>PROJECTS</h4>
+        <p><strong>Digital Marketing Campaign</strong>, Senior Capstone Project<br>
+        Developed comprehensive marketing campaign for local nonprofit, including strategy, content calendar, and analytics framework that the organization implemented, resulting in 40% increase in online donations</p>
+    </div>
+
+    <div class="print-instructions no-print">
+        <h3>Printing Instructions</h3>
+        <p>To save this document as a PDF or print a physical copy:</p>
+        <ol>
+            <li>Click the "Print" button below or use your browser's print function (Ctrl+P or Cmd+P)</li>
+            <li>In the print dialog, select "Save as PDF" as the destination/printer</li>
+            <li>Click "Save" or "Print" to create your PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+</body>
+</html>

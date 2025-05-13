@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1.2: Paying for Post-Secondary Education</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f9fafb;
+        }
+        .lesson-section {
+            transition: all 0.3s ease;
+        }
+        .section-nav {
+            position: sticky;
+            top: 1rem;
+        }
+        
+        /* Navigation Styles */
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.25rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-item-active {
+            background-color: rgba(79, 70, 229, 0.1);
+            font-weight: 600;
+        }
+        
+        .nav-item-active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #6366F1 0%, #4F46E5 100%);
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .nav-item-completed .nav-check {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #10B981;
+            color: white;
+            margin-right: 0.75rem;
+        }
+        
+        .progress-gradient {
+            background: linear-gradient(90deg, #6366F1 0%, #4F46E5 100%);
+        }
+        
+        /* Content Components */
+        .learning-objectives {
+            background-color: #EFF6FF;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .discussion-prompt {
+            background-color: #EFF6FF;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .discussion-prompt::before {
+            content: "Discussion";
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            background-color: #4F46E5;
+            color: white;
+            padding: 0.125rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .activity-timer {
+            background-color: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+        
+        .teacher-note {
+            background-color: #ECFDF5;
+            border: 1px dashed #10B981;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .teacher-note::before {
+            content: "Teacher Note";
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            background-color: #10B981;
+            color: white;
+            padding: 0.125rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .launch-btn {
+            background: linear-gradient(90deg, #6366F1 0%, #4F46E5 100%);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.1), 0 2px 4px -1px rgba(79, 70, 229, 0.06);
+        }
+        
+        .launch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1), 0 4px 6px -2px rgba(79, 70, 229, 0.05);
+        }
+        
+        .launch-btn svg {
+            margin-left: 0.5rem;
+        }
+
+        /* Skill Builder Styles */
+        .fafsa-form label {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .fafsa-form input, .fafsa-form select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+        }
+
+        .fafsa-form .section-header {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .form-tip {
+            background-color: #FFFBEB;
+            border-left: 3px solid #F59E0B;
+            padding: 0.75rem;
+            margin: 0.5rem 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Tab Styling for Financial Aid Options */
+        .tab-list {
+            display: flex;
+            border-bottom: 1px solid #E5E7EB;
+            margin-bottom: 1rem;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tab.active {
+            color: #4F46E5;
+            border-bottom: 2px solid #4F46E5;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen pb-12">
+        <header class="bg-indigo-600 text-white p-4 shadow-md">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-2xl font-bold">PFL Academy</h1>
+                <div>
+                    <button id="login-btn" class="px-4 py-2 bg-white text-indigo-600 rounded-md font-medium hover:bg-gray-100">Login</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-8 max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-10 gap-8">
+                <div class="lg:col-span-3">
+                    <div class="sticky top-8 bg-white rounded-lg shadow-md p-4">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Standard 1: Personal Finance Foundations</h2>
+                        <p class="text-gray-600 mb-6">Explore the foundations of personal finance including career planning, education financing, and income management.</p>
+                        
+                        <nav class="space-y-2" aria-label="Chapters">
+                            <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                                <span class="mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="text-left">1.0 Introduction</span>
+                            </a>
+                            
+                            <a href="/chapter-1-1-demo.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                                <span class="mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="text-left">1.1 Jobs vs. Careers (Day 1)</span>
+                            </a>
+                            
+                            <a href="/day-2-preview.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                                <span class="mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="text-left">1.1 Jobs vs. Careers (Day 2)</span>
+                            </a>
+                            
+                            <a href="/chapter-1-2-day1.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-50 text-indigo-700 border-l-4 border-indigo-700">
+                                <span class="mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                    </svg>
+                                </span>
+                                <span class="text-left">1.2 Paying for Education (Day 1)</span>
+                            </a>
+                            
+                            <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                                <span class="mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                    </svg>
+                                </span>
+                                <span class="text-left">1.2 Paying for Education (Day 2)</span>
+                            </a>
+                            
+                            <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                                <span class="mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                    </svg>
+                                </span>
+                                <span class="text-left">1.3 Income and Taxes</span>
+                            </a>
+                            
+                            <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                                <span class="mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                    </svg>
+                                </span>
+                                <span class="text-left">1.4 Financial Goal Setting</span>
+                            </a>
+                            
+                            <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                                <span class="mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                    </svg>
+                                </span>
+                                <span class="text-left">1.5 Managing Your Income Effectively</span>
+                            </a>
+                        </nav>
+                        
+                        <hr class="my-4 border-gray-200">
+                        
+                        <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                            <h4 class="text-sm font-medium text-gray-900 mb-2">Your Progress</h4>
+                            <div class="flex items-center">
+                                <div class="flex-grow">
+                                    <div class="h-2 bg-gray-200 rounded-full">
+                                        <div class="h-2 bg-indigo-600 rounded-full transition-all duration-500" style="width: 35%"></div>
+                                    </div>
+                                </div>
+                                <span class="ml-2 text-sm text-gray-600">35%</span>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4 border-gray-200">
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="chapter-title">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Chapter 1.2: Paying for Post-Secondary Education</h2>
+                        
+                        <!-- Section Navigation -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <a href="#learning-objectives" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition">Learning Objectives</a>
+                            <a href="#introduction" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition">Introduction</a>
+                            <a href="#key-concepts" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition">Key Concepts</a>
+                            <a href="#financial-aid-options" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition">Financial Aid Options</a>
+                            <a href="#balanced-plan" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition">Creating a Plan</a>
+                            <a href="#case-studies" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition">Case Studies</a>
+                            <a href="#skill-builder" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition">Skill Builder</a>
+                            <a href="#next-steps" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition">Day 2 Preview</a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="learning-objectives">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Learning Objectives</h2>
+                        <div class="learning-objectives">
+                            <p class="font-semibold mb-2">By the end of this lesson, you will be able to:</p>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Identify various financial aid options for post-secondary education</li>
+                                <li>Distinguish between different types of financial aid and their implications</li>
+                                <li>Understand the FAFSA application process and its importance</li>
+                                <li>Compare the advantages and disadvantages of different funding methods</li>
+                                <li>Create a preliminary plan for financing your post-secondary education</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="introduction">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
+                        <p class="text-gray-700 mb-4">Pursuing post-secondary education is a significant investment that can open doors to enhanced career opportunities and higher earning potential. However, financing this education requires careful planning and an understanding of various funding options.</p>
+                        
+                        <p class="text-gray-700 mb-4">Without a clear plan, students can end up with overwhelming debt that can limit future financial choices. In this lesson, we'll explore different methods available to pay for post-secondary education, such as scholarships, grants, student loans, and work-study programs, empowering you to make informed decisions that minimize debt and maximize educational benefits.</p>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400 my-6">
+                            <h3 class="font-medium text-yellow-800">Why This Matters</h3>
+                            <p class="text-yellow-700 mt-1">The financial decisions you make about education can impact you for decades. Understanding all available options can help you pursue your educational goals while minimizing financial strain and future debt.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="key-concepts">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Key Concepts</h2>
+                        <div class="space-y-4 mb-6">
+                            <div>
+                                <h3 class="font-bold text-gray-900">Scholarships</h3>
+                                <p class="text-gray-700">Merit-based financial awards that do not need to be repaid. These are typically awarded based on academic, athletic, artistic, or leadership achievements.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Grants</h3>
+                                <p class="text-gray-700">Need-based financial aid that does not require repayment. Grants are often awarded based on the student's or family's financial need.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Student Loans</h3>
+                                <p class="text-gray-700">Borrowed funds that must be repaid with interest. Student loans can be either federal or private, with varying terms and interest rates.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Federal Loans</h3>
+                                <p class="text-gray-700">Government-backed loans that often have lower interest rates and more flexible repayment options compared to private loans.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Private Loans</h3>
+                                <p class="text-gray-700">Loans offered by private lenders, usually with less favorable terms than federal loans. These should be considered only after exploring other options.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">FAFSA</h3>
+                                <p class="text-gray-700">Free Application for Federal Student Aid - a form that determines eligibility for federal financial aid, including grants, loans, and work-study programs.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Work-Study Programs</h3>
+                                <p class="text-gray-700">Part-time employment opportunities provided by educational institutions that allow students to earn money to pay for educational expenses.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Interest Rate</h3>
+                                <p class="text-gray-700">The percentage of a loan amount charged by the lender as the cost of borrowing money.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Repayment Plan</h3>
+                                <p class="text-gray-700">An arrangement for repaying student loans, which can vary based on the type of loan and the borrower's financial situation.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Loan Forgiveness</h3>
+                                <p class="text-gray-700">A program that cancels the remaining balance of a student loan after the borrower has met certain conditions, such as working in public service.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="financial-aid-options">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Understanding Your Financial Aid Options</h2>
+                        
+                        <!-- Financial Aid Tabs -->
+                        <div class="tab-list mb-6">
+                            <div class="tab active" data-tab="scholarships">Scholarships</div>
+                            <div class="tab" data-tab="grants">Grants</div>
+                            <div class="tab" data-tab="loans">Student Loans</div>
+                            <div class="tab" data-tab="work-study">Work-Study</div>
+                            <div class="tab" data-tab="fafsa">FAFSA</div>
+                        </div>
+                        
+                        <!-- Scholarship Tab -->
+                        <div id="scholarships-tab" class="tab-content active">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Scholarships</h3>
+                            <p class="text-gray-700 mb-4">Scholarships are merit-based awards that do not require repayment. They can be awarded based on:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <ul class="list-disc pl-6 text-gray-700 space-y-1">
+                                    <li>Academic achievements</li>
+                                    <li>Extracurricular activities</li>
+                                    <li>Leadership qualities</li>
+                                    <li>Specific talents or interests</li>
+                                </ul>
+                                <ul class="list-disc pl-6 text-gray-700 space-y-1">
+                                    <li>Community service</li>
+                                    <li>Cultural or ethnic background</li>
+                                    <li>Religious affiliation</li>
+                                    <li>Career aspirations</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="text-gray-700 mb-4">Many scholarships are available through educational institutions, private organizations, foundations, and community groups. Researching and applying for scholarships early and often can make a substantial difference in the overall cost of education.</p>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg mb-3">
+                                <p class="font-medium text-blue-700">Pro Tip: Create a scholarship calendar to track application deadlines and requirements.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Grants Tab -->
+                        <div id="grants-tab" class="tab-content">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Grants</h3>
+                            <p class="text-gray-700 mb-4">Similar to scholarships, grants do not need to be repaid. They are typically need-based and aimed at students from lower-income families. Examples include:</p>
+                            
+                            <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+                                <li><strong>Federal Pell Grants:</strong> For undergraduate students with exceptional financial need</li>
+                                <li><strong>Federal Supplemental Educational Opportunity Grants (FSEOG):</strong> For students with exceptional financial need</li>
+                                <li><strong>State Grants:</strong> Offered by individual states to their residents</li>
+                                <li><strong>Institutional Grants:</strong> Provided by colleges and universities</li>
+                            </ul>
+                            
+                            <p class="text-gray-700 mb-4">Completing the FAFSA accurately and on time is essential to maximizing grant opportunities.</p>
+                        </div>
+                        
+                        <!-- Student Loans Tab -->
+                        <div id="loans-tab" class="tab-content">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Student Loans</h3>
+                            <p class="text-gray-700 mb-4">Student loans are borrowed funds that must be repaid with interest. Understanding the different types of loans is crucial:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h4 class="font-bold text-gray-900 mb-2">Federal Student Loans</h4>
+                                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                                        <li><strong>Direct Subsidized Loans:</strong> For undergraduate students with financial need; government pays interest while you're in school</li>
+                                        <li><strong>Direct Unsubsidized Loans:</strong> Available regardless of financial need; interest accrues during all periods</li>
+                                        <li><strong>Direct PLUS Loans:</strong> For graduate students or parents of dependent undergraduate students</li>
+                                        <li><strong>Direct Consolidation Loans:</strong> Allows you to combine multiple federal loans into a single loan</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h4 class="font-bold text-gray-900 mb-2">Private Student Loans</h4>
+                                    <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                        <li>Offered by banks, credit unions, and online lenders</li>
+                                        <li>Usually have higher interest rates and less flexible repayment options</li>
+                                        <li>Typically require a credit check and often a co-signer</li>
+                                        <li>Should be considered only after federal loans and other aid options</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h4 class="font-bold text-gray-900 mb-2">Key Loan Considerations:</h4>
+                            <ul class="list-disc pl-6 text-gray-700 space-y-1 mb-4">
+                                <li>Interest rates (fixed vs. variable)</li>
+                                <li>Repayment terms and options</li>
+                                <li>Loan fees and penalties</li>
+                                <li>Deferment and forbearance options</li>
+                                <li>Loan forgiveness possibilities</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Work-Study Tab -->
+                        <div id="work-study-tab" class="tab-content">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Work-Study Programs</h3>
+                            <p class="text-gray-700 mb-4">Work-study programs provide part-time employment opportunities for students with financial need. Benefits include:</p>
+                            
+                            <div class="bg-green-50 p-5 rounded-lg mb-4">
+                                <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                                    <li>Jobs often located on campus</li>
+                                    <li>Work hours designed to accommodate class schedules</li>
+                                    <li>Potential experience in your field of study</li>
+                                    <li>Income that doesn't affect financial aid eligibility as significantly as other earnings</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="text-gray-700">Work-study positions are typically part-time and pay at least the federal minimum wage. The total amount you can earn is determined by your level of financial need and your school's funding level.</p>
+                        </div>
+                        
+                        <!-- FAFSA Tab -->
+                        <div id="fafsa-tab" class="tab-content">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">The FAFSA: Your Gateway to Federal Aid</h3>
+                            <p class="text-gray-700 mb-4">The Free Application for Federal Student Aid (FAFSA) is the primary application for federal financial aid.</p>
+                            
+                            <div class="bg-indigo-50 p-5 rounded-lg mb-4">
+                                <h4 class="font-semibold text-indigo-900 mb-2">Filing the FAFSA:</h4>
+                                <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                                    <li>Determines eligibility for federal grants, loans, and work-study</li>
+                                    <li>Is often used by states and colleges to award their own aid</li>
+                                    <li>Should be completed as soon as possible after October 1st each year</li>
+                                    <li>Requires financial information from students and parents (for dependent students)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+                                <h4 class="font-medium text-yellow-800 mb-1">Important Note</h4>
+                                <p class="text-gray-700">Even if you don't think you'll qualify for need-based aid, you should still complete the FAFSA. Many schools require it for merit-based scholarships, and it's required for all federal student loans, regardless of income.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="balanced-plan">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Creating a Balanced Financial Plan</h2>
+                        <p class="text-gray-700 mb-4">The most effective approach to financing your education usually involves a combination of funding sources:</p>
+                        
+                        <div class="bg-indigo-50 p-6 rounded-lg mb-6">
+                            <ol class="list-decimal pl-8 text-gray-700 space-y-3">
+                                <li>
+                                    <strong class="text-indigo-700">Start with "free money"</strong>: Maximize scholarships and grants first
+                                </li>
+                                <li>
+                                    <strong class="text-indigo-700">Consider work opportunities</strong>: Look into work-study or part-time jobs
+                                </li>
+                                <li>
+                                    <strong class="text-indigo-700">Explore federal loans</strong>: If additional funding is needed, federal loans typically offer better terms than private loans
+                                </li>
+                                <li>
+                                    <strong class="text-indigo-700">Use private loans as a last resort</strong>: Only after exhausting other options
+                                </li>
+                            </ol>
+                        </div>
+                        
+                        <div class="bg-white p-5 border border-gray-200 rounded-lg shadow-sm mb-6">
+                            <h3 class="font-bold text-gray-900 mb-3">Funding Sources Priority Pyramid</h3>
+                            <div class="flex justify-center">
+                                <div class="w-full max-w-md">
+                                    <!-- Pyramid visual -->
+                                    <div class="flex justify-center items-end mb-2">
+                                        <div class="w-1/2 h-16 bg-green-500 text-white flex items-center justify-center font-medium rounded-t-lg">
+                                            Scholarships & Grants
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center items-end mb-2">
+                                        <div class="w-2/3 h-14 bg-blue-500 text-white flex items-center justify-center font-medium">
+                                            Work-Study & Savings
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center items-end mb-2">
+                                        <div class="w-5/6 h-14 bg-yellow-500 text-white flex items-center justify-center font-medium">
+                                            Federal Student Loans
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center items-end">
+                                        <div class="w-full h-12 bg-red-500 text-white flex items-center justify-center font-medium rounded-b-lg">
+                                            Private Loans (Last Resort)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700">Remember, each student's financial situation is unique. Your balanced plan should take into account your personal circumstances, family resources, and the specific costs of your chosen educational path.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="case-studies">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Case Studies</h2>
+                        
+                        <div class="space-y-8 mb-6">
+                            <div class="bg-amber-50 p-6 rounded-lg border-l-4 border-amber-500">
+                                <h4 class="text-lg font-bold text-gray-900 mb-2">Jordan's Approach (Scholarship and Grant-Oriented)</h4>
+                                <p class="text-gray-700 mb-3">Jordan excels academically and actively participates in extracurricular activities. By dedicating time to researching and applying for various scholarships and grants, Jordan significantly reduces the need for student loans.</p>
+                                <p class="text-gray-700">Additionally, Jordan completes the FAFSA early to maximize grant opportunities, enabling a comprehensive financial aid package. This proactive strategy allows Jordan to focus on academic goals without excessive financial stress.</p>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="text-lg font-bold text-gray-900 mb-2">Casey's Approach (Loan and Work-Study-Oriented)</h4>
+                                <p class="text-gray-700 mb-3">Casey is passionate about engineering but faces financial constraints. To finance education, Casey takes out federal student loans and secures a work-study position in the engineering department.</p>
+                                <p class="text-gray-700">While the loans provide necessary funds, Casey understands the responsibility of repaying them and seeks internship opportunities that might lead to higher-paying jobs post-graduation. This balanced approach helps Casey manage educational expenses while gaining practical experience.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="discussion-prompt mt-8">
+                            <h4 class="font-bold text-gray-900 mb-2">Discussion Questions</h4>
+                            <ol class="list-decimal pl-5 space-y-2">
+                                <li>What combination of financial aid options would best suit your educational plans?</li>
+                                <li>How might the financial choices you make for education impact your future financial goals?</li>
+                                <li>What strategies can you implement now to minimize potential student loan debt?</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="reflection-prompt">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Reflection Prompt</h2>
+                        <div class="learning-objectives mb-6">
+                            <p class="mb-3">Reflect on the financial aid options available to you. Which options do you find most appealing and why? How do these options align with your educational and career goals?</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Submit Your Reflection</h3>
+                            <textarea class="w-full p-4 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" rows="6" placeholder="Enter your reflection here..." data-ai-check="true" data-assessment-weight="5"></textarea>
+                            <div id="reflection-ai-feedback" class="hidden mt-2 p-3 border-l-4 border-yellow-400 bg-yellow-50 text-sm text-yellow-800"></div>
+                            <button class="mt-4 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium">Submit Reflection</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="skill-builder">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Skill Builder: FAFSA Worksheet Exercise</h2>
+                        
+                        <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500 mb-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Mock FAFSA Preparation Exercise</h3>
+                            <p class="text-gray-700 mb-4">The purpose of this activity is to help you understand the kind of information needed to complete the FAFSA. Remember, we are not collecting or entering any real personal information in class—this is a practice activity to prepare you for when you complete the actual FAFSA with your family.</p>
+                            
+                            <div class="bg-white p-5 rounded-md border border-indigo-200 mb-4">
+                                <h4 class="font-semibold text-gray-900 mb-2">Mock FAFSA Scenario:</h4>
+                                <ul class="list-disc pl-6 text-gray-700 space-y-1">
+                                    <li><strong>Student Name:</strong> Alex Johnson</li>
+                                    <li><strong>Age:</strong> 18</li>
+                                    <li><strong>Grade:</strong> High School Senior</li>
+                                    <li><strong>Annual Income:</strong> $6,500 (from a part-time job at a grocery store)</li>
+                                    <li><strong>Household:</strong> Lives with both parents, one sibling in college</li>
+                                    <li><strong>Parent's Income:</strong> Combined parental income is $58,000 annually</li>
+                                    <li><strong>Parent's Tax Filing Status:</strong> Married filing jointly</li>
+                                    <li><strong>Family Household Information:</strong> One sibling is currently attending a community college full-time, and Alex is applying for federal financial aid to attend a four-year university. The family owns their home but has no significant investments or savings.</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="italic text-gray-600">Instructions: Use the provided FAFSA worksheet to familiarize yourself with the types of information you'll need when completing your actual FAFSA. Fill in the worksheet using the scenario information above, not your personal information.</p>
+                        </div>
+                        
+                        <!-- FAFSA Worksheet Form -->
+                        <div class="fafsa-form bg-white border border-gray-200 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Mock FAFSA Worksheet</h3>
+                            
+                            <div class="form-tip">
+                                <p class="font-medium">Remember: This is a practice exercise using the provided scenario information. Do not enter your real personal information.</p>
+                            </div>
+                            
+                            <div class="section-header">Student Information</div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="student-name">Full Legal Name:</label>
+                                    <input type="text" id="student-name" placeholder="From scenario">
+                                </div>
+                                <div>
+                                    <label for="student-age">Age:</label>
+                                    <input type="number" id="student-age" placeholder="From scenario">
+                                </div>
+                                <div>
+                                    <label for="student-grade">Current Grade Level:</label>
+                                    <select id="student-grade">
+                                        <option value="">Select grade level</option>
+                                        <option value="hs-junior">High School Junior</option>
+                                        <option value="hs-senior">High School Senior</option>
+                                        <option value="college-freshman">College Freshman</option>
+                                        <option value="college-sophomore">College Sophomore</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="student-income">Student's Annual Income:</label>
+                                    <input type="text" id="student-income" placeholder="From scenario">
+                                </div>
+                            </div>
+                            
+                            <div class="section-header">Dependency Status</div>
+                            <div>
+                                <label for="dependency">Student's Dependency Status:</label>
+                                <select id="dependency">
+                                    <option value="">Select status</option>
+                                    <option value="dependent">Dependent (Needs parent information)</option>
+                                    <option value="independent">Independent</option>
+                                </select>
+                            </div>
+                            
+                            <div class="section-header">Parent Information</div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="parents-income">Parents' Combined Annual Income:</label>
+                                    <input type="text" id="parents-income" placeholder="From scenario">
+                                </div>
+                                <div>
+                                    <label for="tax-status">Parents' Tax Filing Status:</label>
+                                    <select id="tax-status">
+                                        <option value="">Select status</option>
+                                        <option value="single">Single</option>
+                                        <option value="joint">Married Filing Jointly</option>
+                                        <option value="separate">Married Filing Separately</option>
+                                        <option value="head">Head of Household</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="section-header">Household Information</div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="household-size">Household Size (Including Student):</label>
+                                    <input type="number" id="household-size" placeholder="From scenario">
+                                </div>
+                                <div>
+                                    <label for="college-count">Number in Household Attending College:</label>
+                                    <input type="number" id="college-count" placeholder="From scenario">
+                                </div>
+                            </div>
+                            
+                            <div class="section-header">Expected Financial Aid</div>
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label for="school-choice">First Choice College/University:</label>
+                                    <input type="text" id="school-choice" placeholder="Enter based on scenario">
+                                </div>
+                                <div>
+                                    <label for="aid-estimate">Based on this information, what types of aid might Alex qualify for?</label>
+                                    <textarea id="aid-estimate" rows="3" placeholder="Describe potential federal grants, loans, or work-study options based on the scenario information" data-ai-check="true" data-assessment-weight="4"></textarea>
+                                    <div id="aid-estimate-ai-feedback" class="hidden mt-2 p-3 border-l-4 border-yellow-400 bg-yellow-50 text-sm text-yellow-800"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex justify-end">
+                                <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium save-activity-btn">Save Worksheet</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-8 lesson-section" id="next-steps">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Preview of Day 2</h2>
+                        <div class="bg-indigo-50 p-6 rounded-lg mb-6">
+                            <p class="text-gray-700 mb-4">In tomorrow's Learning Lab, you'll apply what you've learned to develop a personalized education financing plan. You'll analyze the costs of different educational pathways, explore specific funding options, and create a realistic budget for your post-secondary education.</p>
+                            
+                            <p class="text-gray-700">Activities will include:</p>
+                            <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+                                <li>Calculating the total cost of attendance for different educational options</li>
+                                <li>Researching specific scholarships and grants relevant to your interests and background</li>
+                                <li>Analyzing the long-term impact of student loans using loan calculators</li>
+                                <li>Creating a comprehensive education financing plan</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-8 flex justify-between">
+                            <a href="/day-2-preview.html" class="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium">Previous Chapter</a>
+                            <a href="/chapter-1-2-day2.html" class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium inline-block">
+                                Continue to Day 2
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Tab Switching Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab Switching Functionality
+            const tabs = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Hide all tab contents
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Remove active class from all tabs
+                    document.querySelectorAll('.tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // Show the selected tab content
+                    document.getElementById(tabId + '-tab').classList.add('active');
+                    
+                    // Mark the clicked tab as active
+                    tab.classList.add('active');
+                });
+            });
+            
+            // Login Button
+            const loginBtn = document.getElementById('login-btn');
+            if (loginBtn) {
+                loginBtn.addEventListener('click', () => {
+                    window.location.href = '/login.html';
+                });
+            }
+
+            // AI Feedback Functionality
+            const aiCheckFields = document.querySelectorAll('[data-ai-check="true"]');
+            
+            aiCheckFields.forEach(field => {
+                field.addEventListener('blur', () => {
+                    if (field.value.trim()) {
+                        // Determine which feedback element to use
+                        const feedbackId = field.id + '-ai-feedback';
+                        const feedbackElement = document.getElementById(feedbackId);
+                        
+                        if (feedbackElement) {
+                            const wordCount = field.value.trim().split(/\s+/).length;
+                            const weight = field.getAttribute('data-assessment-weight') || 3;
+                            const minWords = weight * 5;
+                            
+                            // Simple word count check for demo purposes
+                            setTimeout(() => {
+                                if (wordCount < minWords) {
+                                    feedbackElement.textContent = `Your response could use more detail. Aim for at least ${minWords} words to fully demonstrate your understanding.`;
+                                    feedbackElement.classList.remove('hidden');
+                                    feedbackElement.classList.remove('border-green-400', 'bg-green-50', 'text-green-800');
+                                    feedbackElement.classList.add('border-yellow-400', 'bg-yellow-50', 'text-yellow-800');
+                                } else {
+                                    feedbackElement.textContent = 'Good work! Your response demonstrates thoughtful consideration.';
+                                    feedbackElement.classList.remove('hidden');
+                                    feedbackElement.classList.remove('border-yellow-400', 'bg-yellow-50', 'text-yellow-800');
+                                    feedbackElement.classList.add('border-green-400', 'bg-green-50', 'text-green-800');
+                                    
+                                    // Hide positive feedback after 3 seconds
+                                    setTimeout(() => {
+                                        feedbackElement.classList.add('hidden');
+                                    }, 3000);
+                                }
+                            }, 500);
+                        }
+                    }
+                });
+            });
+
+            // Save activity button
+            const saveButtons = document.querySelectorAll('.save-activity-btn');
+            saveButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    button.innerHTML = `<span class="opacity-0">Save</span><div class="spinner"></div>`;
+                    button.classList.add('saving');
+                    
+                    // Simulate saving
+                    setTimeout(() => {
+                        button.innerHTML = 'Saved!';
+                        button.classList.remove('saving');
+                        
+                        // Reset after 2 seconds
+                        setTimeout(() => {
+                            button.innerHTML = button.textContent.includes('Worksheet') ? 'Save Worksheet' : 'Save Activity';
+                        }, 2000);
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

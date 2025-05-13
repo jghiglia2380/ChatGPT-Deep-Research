@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Option Analysis</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .mortgage-section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .conventional-section {
+            border-left: 5px solid #6366f1;
+        }
+        
+        .fha-section {
+            border-left: 5px solid #10b981;
+        }
+        
+        .va-section {
+            border-left: 5px solid #f59e0b;
+        }
+        
+        .usda-section {
+            border-left: 5px solid #ec4899;
+        }
+        
+        .comparison-section {
+            border-left: 5px solid #3b82f6;
+        }
+        
+        .scenario-section {
+            border-left: 5px solid #8b5cf6;
+            background-color: #f5f3ff;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+        
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        
+        .highlight {
+            background-color: #fef3c7;
+            font-weight: bold;
+        }
+        
+        .tip-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        
+        .calculator-box {
+            background-color: #eef2ff;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mortgage Option Analysis</h1>
+        <p>Chapter 10.3: Understanding Home Buying</p>
+    </header>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This worksheet will help you analyze different mortgage options to find the best fit for your financial situation. Work through each section to understand the features, requirements, and costs of various mortgage types. Then compare options for specific scenarios and determine which option might be best for your situation.</p>
+        <p class="no-print">To save this worksheet as a PDF: Click File → Print → Change destination to "Save as PDF" → Save</p>
+    </div>
+    
+    <div class="mortgage-section conventional-section">
+        <h2>Conventional Loans</h2>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Not backed by the federal government</li>
+            <li>Offered by banks, credit unions, and mortgage lenders</li>
+            <li>May be conforming (meet Fannie Mae/Freddie Mac guidelines) or non-conforming (jumbo loans)</li>
+            <li>Fixed-rate or adjustable-rate options</li>
+            <li>Various term options (15, 20, 30 years are most common)</li>
+        </ul>
+        
+        <h3>Eligibility Requirements</h3>
+        <table>
+            <tr>
+                <th width="40%">Requirement</th>
+                <th width="30%">Typical Minimum</th>
+                <th width="30%">Optimal</th>
+            </tr>
+            <tr>
+                <td>Credit Score</td>
+                <td>620-640</td>
+                <td>740+</td>
+            </tr>
+            <tr>
+                <td>Down Payment</td>
+                <td>3-5%</td>
+                <td>20%+</td>
+            </tr>
+            <tr>
+                <td>Debt-to-Income Ratio (DTI)</td>
+                <td>43-45%</td>
+                <td>&lt;36%</td>
+            </tr>
+            <tr>
+                <td>Mortgage Insurance</td>
+                <td>Required if down payment &lt;20%</td>
+                <td>None with 20%+ down</td>
+            </tr>
+            <tr>
+                <td>Employment History</td>
+                <td>2+ years in same field</td>
+                <td>2+ years with same employer</td>
+            </tr>
+            <tr>
+                <td>Income Verification</td>
+                <td>Pay stubs, W-2s, tax returns</td>
+                <td>Steady income with upward trend</td>
+            </tr>
+        </table>
+        
+        <h3>Advantages</h3>
+        <ul>
+            <li>No upfront mortgage insurance premium (unlike FHA)</li>
+            <li>PMI can be cancelled once you reach 20% equity</li>
+            <li>More flexibility in property types</li>
+            <li>Generally lower total cost for borrowers with excellent credit and 20%+ down</li>
+            <li>Various term options to fit different financial goals</li>
+        </ul>
+        
+        <h3>Disadvantages</h3>
+        <ul>
+            <li>Higher credit score requirements than government-backed loans</li>
+            <li>Higher down payment needed for best terms</li>
+            <li>Stricter qualification requirements</li>
+            <li>PMI can be expensive with minimal down payment</li>
+            <li>Less flexible with credit issues or unique income situations</li>
+        </ul>
+        
+        <h3>Best For</h3>
+        <ul>
+            <li>Borrowers with good-to-excellent credit (680+)</li>
+            <li>Those who can afford a 10-20% down payment</li>
+            <li>Borrowers seeking lower overall costs over the life of the loan</li>
+            <li>Those with stable, well-documented income</li>
+            <li>Buyers interested in different property types (primary residence, second home, investment)</li>
+        </ul>
+    </div>
+    
+    <div class="mortgage-section fha-section">
+        <h2>FHA Loans</h2>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Backed by the Federal Housing Administration</li>
+            <li>Designed to help first-time homebuyers and those with limited funds or credit challenges</li>
+            <li>Available from FHA-approved lenders</li>
+            <li>Fixed-rate and adjustable-rate options</li>
+            <li>Primarily for primary residences only</li>
+        </ul>
+        
+        <h3>Eligibility Requirements</h3>
+        <table>
+            <tr>
+                <th width="40%">Requirement</th>
+                <th width="30%">Typical Minimum</th>
+                <th width="30%">Optimal</th>
+            </tr>
+            <tr>
+                <td>Credit Score</td>
+                <td>500 (with 10% down)<br>580 (with 3.5% down)</td>
+                <td>620+</td>
+            </tr>
+            <tr>
+                <td>Down Payment</td>
+                <td>3.5% (580+ credit score)<br>10% (500-579 credit score)</td>
+                <td>10%+</td>
+            </tr>
+            <tr>
+                <td>Debt-to-Income Ratio (DTI)</td>
+                <td>43-50% (with compensating factors)</td>
+                <td>&lt;43%</td>
+            </tr>
+            <tr>
+                <td>Mortgage Insurance</td>
+                <td>Upfront premium (1.75%) + annual premium (0.55-1.05%)</td>
+                <td>Required for the life of the loan with &lt;10% down</td>
+            </tr>
+            <tr>
+                <td>Property Requirements</td>
+                <td>Must meet FHA property standards</td>
+                <td>Move-in ready condition</td>
+            </tr>
+            <tr>
+                <td>Loan Limits</td>
+                <td>Varies by county</td>
+                <td>Lower than conventional conforming limits</td>
+            </tr>
+        </table>
+        
+        <h3>Advantages</h3>
+        <ul>
+            <li>Lower credit score requirements than conventional loans</li>
+            <li>Lower down payment options (as low as 3.5%)</li>
+            <li>More flexible with recent credit issues</li>
+            <li>Seller can contribute up to 6% toward closing costs</li>
+            <li>May qualify with higher debt-to-income ratios</li>
+        </ul>
+        
+        <h3>Disadvantages</h3>
+        <ul>
+            <li>Mandatory mortgage insurance for all loans</li>
+            <li>Upfront mortgage insurance premium (1.75% of loan amount)</li>
+            <li>Mortgage insurance typically required for the life of the loan (with &lt;10% down)</li>
+            <li>Property must meet FHA standards, which can be strict</li>
+            <li>Limited to primary residences only</li>
+        </ul>
+        
+        <h3>Best For</h3>
+        <ul>
+            <li>First-time homebuyers with limited savings</li>
+            <li>Borrowers with lower credit scores (580-680)</li>
+            <li>Those with higher debt-to-income ratios</li>
+            <li>Buyers with past credit issues that preclude conventional financing</li>
+            <li>Those who need a low down payment option and don't qualify for VA or USDA</li>
+        </ul>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="mortgage-section va-section">
+        <h2>VA Loans</h2>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Backed by the Department of Veterans Affairs</li>
+            <li>Available to eligible service members, veterans, and surviving spouses</li>
+            <li>Offered through VA-approved lenders</li>
+            <li>No down payment required in most cases</li>
+            <li>No private mortgage insurance</li>
+        </ul>
+        
+        <h3>Eligibility Requirements</h3>
+        <table>
+            <tr>
+                <th width="40%">Requirement</th>
+                <th width="30%">Typical Minimum</th>
+                <th width="30%">Details</th>
+            </tr>
+            <tr>
+                <td>Military Service</td>
+                <td>Varies by service period</td>
+                <td>Must meet minimum service requirements and have valid Certificate of Eligibility (COE)</td>
+            </tr>
+            <tr>
+                <td>Credit Score</td>
+                <td>580-620 (lender specific)</td>
+                <td>No official VA minimum; lenders set their own standards</td>
+            </tr>
+            <tr>
+                <td>Down Payment</td>
+                <td>0%</td>
+                <td>100% financing available</td>
+            </tr>
+            <tr>
+                <td>Debt-to-Income Ratio (DTI)</td>
+                <td>41% standard, can be higher with compensating factors</td>
+                <td>More flexible than conventional loans</td>
+            </tr>
+            <tr>
+                <td>Funding Fee</td>
+                <td>1.25-3.3% of loan amount</td>
+                <td>Varies based on service type, down payment, and first-time use</td>
+            </tr>
+            <tr>
+                <td>Occupancy</td>
+                <td>Primary residence only</td>
+                <td>Must intend to occupy as primary home</td>
+            </tr>
+        </table>
+        
+        <h3>Advantages</h3>
+        <ul>
+            <li>No down payment required</li>
+            <li>No monthly mortgage insurance</li>
+            <li>Competitive interest rates</li>
+            <li>More flexible credit requirements</li>
+            <li>No prepayment penalties</li>
+            <li>Limited closing costs (seller can pay all)</li>
+        </ul>
+        
+        <h3>Disadvantages</h3>
+        <ul>
+            <li>One-time funding fee (which can be rolled into the loan)</li>
+            <li>Limited to eligible veterans, service members, and spouses</li>
+            <li>Primary residence requirement</li>
+            <li>Property must meet VA standards</li>
+            <li>Some sellers may be hesitant about VA loans due to appraisal requirements</li>
+        </ul>
+        
+        <h3>Best For</h3>
+        <ul>
+            <li>Eligible veterans and service members</li>
+            <li>Those with limited savings for down payment</li>
+            <li>Borrowers looking to avoid mortgage insurance</li>
+            <li>Those seeking competitive interest rates</li>
+            <li>Buyers with good but not excellent credit</li>
+        </ul>
+    </div>
+    
+    <div class="mortgage-section usda-section">
+        <h2>USDA Loans</h2>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Backed by the U.S. Department of Agriculture</li>
+            <li>Designed for low-to-moderate income borrowers in eligible rural and suburban areas</li>
+            <li>No down payment required</li>
+            <li>Lower mortgage insurance costs than FHA</li>
+            <li>Fixed-rate terms</li>
+        </ul>
+        
+        <h3>Eligibility Requirements</h3>
+        <table>
+            <tr>
+                <th width="40%">Requirement</th>
+                <th width="30%">Typical Minimum</th>
+                <th width="30%">Details</th>
+            </tr>
+            <tr>
+                <td>Property Location</td>
+                <td>USDA-eligible area</td>
+                <td>Must be in a designated rural or suburban area</td>
+            </tr>
+            <tr>
+                <td>Income Limits</td>
+                <td>Varies by location</td>
+                <td>Typically cannot exceed 115% of area median income</td>
+            </tr>
+            <tr>
+                <td>Credit Score</td>
+                <td>640 for streamlined processing</td>
+                <td>Can be lower with manual underwriting</td>
+            </tr>
+            <tr>
+                <td>Down Payment</td>
+                <td>0%</td>
+                <td>100% financing available</td>
+            </tr>
+            <tr>
+                <td>Debt-to-Income Ratio (DTI)</td>
+                <td>41% standard (front-end)<br>41-46% (back-end)</td>
+                <td>Can be higher with compensating factors</td>
+            </tr>
+            <tr>
+                <td>Mortgage Insurance</td>
+                <td>1% upfront guarantee fee<br>0.35% annual fee</td>
+                <td>Lower than FHA mortgage insurance</td>
+            </tr>
+        </table>
+        
+        <h3>Advantages</h3>
+        <ul>
+            <li>No down payment required</li>
+            <li>Lower mortgage insurance costs than FHA</li>
+            <li>Competitive interest rates</li>
+            <li>Can finance closing costs if the property appraises above the purchase price</li>
+            <li>Flexible credit requirements with manual underwriting</li>
+        </ul>
+        
+        <h3>Disadvantages</h3>
+        <ul>
+            <li>Geographic restrictions (only eligible in certain areas)</li>
+            <li>Income limits restrict higher-earning households</li>
+            <li>Upfront guarantee fee and annual fee required</li>
+            <li>Primary residence only</li>
+            <li>Property must meet USDA standards</li>
+        </ul>
+        
+        <h3>Best For</h3>
+        <ul>
+            <li>Low-to-moderate income borrowers</li>
+            <li>Those looking to buy in eligible rural or suburban areas</li>
+            <li>Buyers with limited savings for down payment</li>
+            <li>Those seeking lower mortgage insurance costs than FHA</li>
+            <li>First-time homebuyers (though not limited to them)</li>
+        </ul>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="mortgage-section comparison-section">
+        <h2>Mortgage Type Comparison Summary</h2>
+        
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Conventional</th>
+                <th>FHA</th>
+                <th>VA</th>
+                <th>USDA</th>
+            </tr>
+            <tr>
+                <td>Minimum Down Payment</td>
+                <td>3-5%</td>
+                <td>3.5% (580+ credit)<br>10% (500-579 credit)</td>
+                <td>0%</td>
+                <td>0%</td>
+            </tr>
+            <tr>
+                <td>Minimum Credit Score</td>
+                <td>620-640</td>
+                <td>500-580</td>
+                <td>580-620<br>(lender specific)</td>
+                <td>640 (streamlined)<br>Lower possible</td>
+            </tr>
+            <tr>
+                <td>Mortgage Insurance</td>
+                <td>PMI if down payment &lt;20%<br>Cancellable at 20% equity</td>
+                <td>1.75% upfront<br>0.55-1.05% annual<br>Often for life of loan</td>
+                <td>None<br>(Funding fee instead)</td>
+                <td>1% upfront<br>0.35% annual</td>
+            </tr>
+            <tr>
+                <td>Maximum DTI</td>
+                <td>43-45%</td>
+                <td>43-50%</td>
+                <td>41%+</td>
+                <td>41-46%</td>
+            </tr>
+            <tr>
+                <td>Special Requirements</td>
+                <td>None</td>
+                <td>Property must meet FHA standards</td>
+                <td>Military service<br>Property must meet VA standards</td>
+                <td>Income limits<br>Eligible rural/suburban areas</td>
+            </tr>
+            <tr>
+                <td>Property Types</td>
+                <td>Primary, second home, investment</td>
+                <td>Primary residence only</td>
+                <td>Primary residence only</td>
+                <td>Primary residence only</td>
+            </tr>
+            <tr>
+                <td>Loan Limit Restrictions</td>
+                <td>Conforming limits<br>(higher for jumbo loans)</td>
+                <td>FHA limits by county</td>
+                <td>No firm limit<br>(but requires sufficient entitlement)</td>
+                <td>None, but limited by income qualification</td>
+            </tr>
+            <tr>
+                <td>Best Use Case</td>
+                <td>Good credit, 10-20% down, stable income</td>
+                <td>Credit challenges, low down payment</td>
+                <td>Eligible veterans with limited savings</td>
+                <td>Low-income buyers in rural/suburban areas</td>
+            </tr>
+        </table>
+        
+        <div class="tip-box">
+            <p><strong>Tip:</strong> When comparing loan options, look beyond just the interest rate. Consider down payment requirements, mortgage insurance costs, and how long you plan to stay in the home to determine the true cost of each option.</p>
+        </div>
+    </div>
+    
+    <div class="mortgage-section">
+        <h2>Mortgage Cost Calculator</h2>
+        
+        <div class="calculator-box">
+            <h3>Loan Details</h3>
+            <table>
+                <tr>
+                    <td width="50%">Home Purchase Price:</td>
+                    <td width="50%">$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Down Payment Percentage:</td>
+                    <td><input type="text" class="input-field">%</td>
+                </tr>
+                <tr>
+                    <td>Down Payment Amount:</td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Loan Amount:</td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Loan Term (years):</td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Interest Rate:</td>
+                    <td><input type="text" class="input-field">%</td>
+                </tr>
+            </table>
+            
+            <h3>Cost Comparison</h3>
+            <table>
+                <tr>
+                    <th width="40%">Cost Element</th>
+                    <th width="15%">Conventional</th>
+                    <th width="15%">FHA</th>
+                    <th width="15%">VA</th>
+                    <th width="15%">USDA</th>
+                </tr>
+                <tr>
+                    <td>Down Payment</td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Monthly Principal & Interest</td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Upfront Mortgage Insurance/Funding Fee</td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Monthly Mortgage Insurance</td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total Monthly Payment (P&I + MI)</td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total Upfront Costs</td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total 5-Year Cost</td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total Lifetime Cost</td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                    <td>$<input type="text" class="input-field"></td>
+                </tr>
+            </table>
+            
+            <p class="note">This is a simplified calculation. For actual mortgage costs, consult with a mortgage professional.</p>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <div class="mortgage-section scenario-section">
+        <h2>Scenario Analysis: Which Mortgage Is Best?</h2>
+        
+        <h3>Scenario 1: First-Time Homebuyer with Limited Savings</h3>
+        <div class="calculator-box">
+            <p><strong>Buyer Profile:</strong> Sarah is a first-time homebuyer with a credit score of 650. She has saved $10,000 and wants to purchase a $200,000 home. She has stable employment but limited savings beyond her down payment funds.</p>
+            
+            <table>
+                <tr>
+                    <th>Mortgage Option</th>
+                    <th>Pros for This Scenario</th>
+                    <th>Cons for This Scenario</th>
+                    <th>Recommendation Rating (1-5)</th>
+                </tr>
+                <tr>
+                    <td>Conventional</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>FHA</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>VA (assuming eligibility)</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>USDA (assuming eligible area)</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+            </table>
+            
+            <p><strong>Best Option for This Scenario:</strong> <input type="text" class="input-field"></p>
+            <p><strong>Rationale:</strong> <textarea class="input-field" rows="3"></textarea></p>
+        </div>
+        
+        <h3>Scenario 2: Veteran with Excellent Credit</h3>
+        <div class="calculator-box">
+            <p><strong>Buyer Profile:</strong> James is a veteran with 8 years of service. He has a credit score of 750 and has saved $40,000 for a down payment. He is looking to purchase a $300,000 home in a suburban area.</p>
+            
+            <table>
+                <tr>
+                    <th>Mortgage Option</th>
+                    <th>Pros for This Scenario</th>
+                    <th>Cons for This Scenario</th>
+                    <th>Recommendation Rating (1-5)</th>
+                </tr>
+                <tr>
+                    <td>Conventional</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>FHA</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>VA</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>USDA (assuming eligible area)</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+            </table>
+            
+            <p><strong>Best Option for This Scenario:</strong> <input type="text" class="input-field"></p>
+            <p><strong>Rationale:</strong> <textarea class="input-field" rows="3"></textarea></p>
+        </div>
+        
+        <h3>Scenario 3: Buyer with Credit Challenges</h3>
+        <div class="calculator-box">
+            <p><strong>Buyer Profile:</strong> Miguel has a credit score of 580 due to past financial challenges. He has saved $15,000 and wants to purchase a $180,000 home in a suburban area. He has steady income but limited credit history.</p>
+            
+            <table>
+                <tr>
+                    <th>Mortgage Option</th>
+                    <th>Pros for This Scenario</th>
+                    <th>Cons for This Scenario</th>
+                    <th>Recommendation Rating (1-5)</th>
+                </tr>
+                <tr>
+                    <td>Conventional</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>FHA</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>VA (assuming eligibility)</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>USDA (assuming eligible area)</td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><textarea class="input-field" rows="3"></textarea></td>
+                    <td><input type="text" class="input-field"></td>
+                </tr>
+            </table>
+            
+            <p><strong>Best Option for This Scenario:</strong> <input type="text" class="input-field"></p>
+            <p><strong>Rationale:</strong> <textarea class="input-field" rows="3"></textarea></p>
+        </div>
+    </div>
+    
+    <div class="mortgage-section">
+        <h2>Personal Mortgage Analysis</h2>
+        
+        <h3>Your Current Situation</h3>
+        <table>
+            <tr>
+                <td width="50%">Current Credit Score:</td>
+                <td width="50%"><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Available Down Payment:</td>
+                <td>$<input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Target Home Price Range:</td>
+                <td>$<input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Monthly Gross Income:</td>
+                <td>$<input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Current Monthly Debt Payments:</td>
+                <td>$<input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Eligible for Special Programs:</td>
+                <td>
+                    <input type="checkbox"> VA Loan<br>
+                    <input type="checkbox"> USDA Eligible Area<br>
+                    <input type="checkbox"> First-Time Homebuyer Programs<br>
+                    <input type="checkbox"> Other: <input type="text" class="input-field" style="width: 70%;">
+                </td>
+            </tr>
+        </table>
+        
+        <h3>Your Mortgage Options Analysis</h3>
+        <p>Based on your current situation, analyze which mortgage options might be best for you:</p>
+        
+        <table>
+            <tr>
+                <th>Mortgage Option</th>
+                <th>Would I Qualify?</th>
+                <th>Advantages for My Situation</th>
+                <th>Disadvantages for My Situation</th>
+                <th>Rating (1-5)</th>
+            </tr>
+            <tr>
+                <td>Conventional</td>
+                <td><input type="text" class="input-field"></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>FHA</td>
+                <td><input type="text" class="input-field"></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>VA</td>
+                <td><input type="text" class="input-field"></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>USDA</td>
+                <td><input type="text" class="input-field"></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Other: <input type="text" class="input-field"></td>
+                <td><input type="text" class="input-field"></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><textarea class="input-field" rows="2"></textarea></td>
+                <td><input type="text" class="input-field"></td>
+            </tr>
+        </table>
+        
+        <h3>My Best Mortgage Option</h3>
+        <p>Based on my current situation, I believe the best mortgage option for me would be:</p>
+        <p><input type="text" class="input-field" style="font-weight: bold;"></p>
+        
+        <p><strong>Rationale:</strong></p>
+        <textarea class="input-field" rows="5" style="width: 100%;"></textarea>
+        
+        <h3>Next Steps to Prepare</h3>
+        <p>To prepare for this mortgage option, I need to take the following steps:</p>
+        <ol>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+        </ol>
+    </div>
+    
+    <footer>
+        <p>PFL Academy - Chapter 10.3: Understanding Home Buying</p>
+    </footer>
+</body>
+</html>

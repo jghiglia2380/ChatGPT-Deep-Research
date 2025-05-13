@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Cost Calculator Worksheet - Chapter 11.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .calculation-step {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        
+        .calculation-table td:first-child {
+            width: 50%;
+        }
+        
+        .calculation-table td:last-child {
+            width: 50%;
+        }
+        
+        .calculation-step {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .calculation-step h3 {
+            margin-top: 0;
+        }
+        
+        .example {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+        
+        .scenario {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .conclusion {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .print-header {
+            display: none;
+        }
+        
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Insurance Cost Calculator Worksheet</h1>
+        <p>Chapter 11.3: Managing Insurance Costs</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+
+    <h1>Insurance Cost Calculator Worksheet</h1>
+    <p><strong>Chapter 11.3: Managing Insurance Costs</strong></p>
+
+    <h2>Understanding Insurance Cost Components</h2>
+    <p>This worksheet will help you calculate insurance costs based on different scenarios. You'll analyze how various insurance components (deductibles, co-payments, co-insurance, and out-of-pocket maximums) affect total costs.</p>
+
+    <div class="example">
+        <h3>Key Terms Review</h3>
+        <ul>
+            <li><strong>Premium:</strong> Regular payment to maintain insurance coverage (not included in out-of-pocket calculations)</li>
+            <li><strong>Deductible:</strong> Amount you must pay before insurance begins to pay</li>
+            <li><strong>Co-payment (Co-pay):</strong> Fixed amount you pay for specific services</li>
+            <li><strong>Co-insurance:</strong> Percentage of costs you pay after meeting your deductible</li>
+            <li><strong>Out-of-pocket Maximum:</strong> Maximum amount you'll pay during a policy period</li>
+        </ul>
+    </div>
+
+    <h2>Primary Scenario: Medical Bill Calculation</h2>
+
+    <div class="scenario">
+        <h3>Scenario Details</h3>
+        <p>You have a health insurance plan with the following components:</p>
+        <ul>
+            <li>Annual Premium: $2,400 ($200 per month)</li>
+            <li>Annual Deductible: $500</li>
+            <li>Co-insurance: 20% after deductible</li>
+            <li>Co-insurance Cap: $2,000</li>
+            <li>Annual Out-of-pocket Maximum: $4,000</li>
+        </ul>
+        <p>Situation: You receive a medical bill for $8,000. Calculate your total out-of-pocket cost.</p>
+    </div>
+
+    <h3>Step-by-Step Calculation</h3>
+
+    <div class="calculation-step">
+        <h3>Step 1: Apply the Deductible</h3>
+        <p>First, you must pay your deductible before insurance starts to pay.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Deductible amount:</td>
+                <td class="input-field">$500</td>
+            </tr>
+            <tr>
+                <td>Remaining bill after deductible:</td>
+                <td class="input-field">$8,000 - $500 = $7,500</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Step 2: Calculate Co-insurance Amount</h3>
+        <p>Next, calculate your co-insurance (20%) on the remaining amount after the deductible.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Co-insurance percentage:</td>
+                <td class="input-field">20%</td>
+            </tr>
+            <tr>
+                <td>Co-insurance amount (20% of $7,500):</td>
+                <td class="input-field">$7,500 × 0.20 = $1,500</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Step 3: Check Co-insurance Cap</h3>
+        <p>Determine if your co-insurance amount exceeds the co-insurance cap. If so, you only pay up to the cap.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Co-insurance cap:</td>
+                <td class="input-field">$2,000</td>
+            </tr>
+            <tr>
+                <td>Is your co-insurance amount ($1,500) greater than the cap ($2,000)?</td>
+                <td class="input-field">No, co-insurance is below the cap</td>
+            </tr>
+            <tr>
+                <td>Actual co-insurance payment:</td>
+                <td class="input-field">$1,500</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Step 4: Calculate Total Out-of-Pocket Cost</h3>
+        <p>Add up deductible and co-insurance to find your total out-of-pocket cost.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Deductible:</td>
+                <td class="input-field">$500</td>
+            </tr>
+            <tr>
+                <td>Co-insurance payment:</td>
+                <td class="input-field">$1,500</td>
+            </tr>
+            <tr>
+                <td>Total out-of-pocket cost:</td>
+                <td class="input-field">$500 + $1,500 = $2,000</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Step 5: Check Out-of-Pocket Maximum</h3>
+        <p>Verify if your total out-of-pocket cost exceeds the annual out-of-pocket maximum.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Annual out-of-pocket maximum:</td>
+                <td class="input-field">$4,000</td>
+            </tr>
+            <tr>
+                <td>Is your total out-of-pocket cost ($2,000) greater than the maximum ($4,000)?</td>
+                <td class="input-field">No, below the maximum</td>
+            </tr>
+            <tr>
+                <td>Final out-of-pocket cost:</td>
+                <td class="input-field">$2,000</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="conclusion">
+        <h3>Conclusion</h3>
+        <p>For this $8,000 medical bill, your total out-of-pocket cost is $2,000:</p>
+        <ul>
+            <li>$500 deductible</li>
+            <li>$1,500 co-insurance (20% of remaining $7,500)</li>
+        </ul>
+        <p>The insurance company would pay the remaining $6,000.</p>
+        <p><strong>Note:</strong> This does not include the premium costs, which would be an additional $2,400 annually.</p>
+    </div>
+
+    <h2>Additional Scenarios to Calculate</h2>
+
+    <div class="scenario">
+        <h3>Scenario 1: Higher Medical Bill</h3>
+        <p>Same insurance plan, but now your medical bill is $15,000. Calculate your out-of-pocket cost.</p>
+        
+        <div class="calculation-step">
+            <h3>Your Calculation</h3>
+            <table class="calculation-table">
+                <tr>
+                    <td>Step 1: Apply deductible</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Step 2: Calculate co-insurance amount</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Step 3: Check co-insurance cap</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Step 4: Calculate total out-of-pocket cost</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Step 5: Check out-of-pocket maximum</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Final out-of-pocket cost:</td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="scenario">
+        <h3>Scenario 2: Higher Deductible Plan</h3>
+        <p>You have a different insurance plan with:</p>
+        <ul>
+            <li>Annual Premium: $1,800 ($150 per month)</li>
+            <li>Annual Deductible: $1,500</li>
+            <li>Co-insurance: 20% after deductible</li>
+            <li>Co-insurance Cap: $2,000</li>
+            <li>Annual Out-of-pocket Maximum: $4,000</li>
+        </ul>
+        <p>You receive a medical bill for $8,000. Calculate your out-of-pocket cost.</p>
+        
+        <div class="calculation-step">
+            <h3>Your Calculation</h3>
+            <table class="calculation-table">
+                <tr>
+                    <td>Step 1: Apply deductible</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Step 2: Calculate co-insurance amount</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Step 3: Check co-insurance cap</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Step 4: Calculate total out-of-pocket cost</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Step 5: Check out-of-pocket maximum</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Final out-of-pocket cost:</td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="scenario">
+        <h3>Scenario 3: Multiple Medical Bills in One Year</h3>
+        <p>Using your original insurance plan:</p>
+        <ul>
+            <li>Annual Premium: $2,400 ($200 per month)</li>
+            <li>Annual Deductible: $500</li>
+            <li>Co-insurance: 20% after deductible</li>
+            <li>Co-insurance Cap: $2,000</li>
+            <li>Annual Out-of-pocket Maximum: $4,000</li>
+        </ul>
+        <p>You have three medical bills in one year: $1,200, $5,000, and $10,000. Calculate your total out-of-pocket cost.</p>
+        
+        <div class="calculation-step">
+            <h3>Your Calculation</h3>
+            <table class="calculation-table">
+                <tr>
+                    <td>Bill #1 ($1,200) - Apply deductible</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Bill #1 - Calculate co-insurance</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Bill #1 - Total out-of-pocket</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Bill #2 ($5,000) - Remaining deductible</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Bill #2 - Calculate co-insurance</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Bill #2 - Total out-of-pocket</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Bill #3 ($10,000) - Calculate co-insurance</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Check co-insurance cap and out-of-pocket maximum</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total annual out-of-pocket cost:</td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h2>Reflection Questions</h2>
+    
+    <div class="calculation-step">
+        <h3>Question 1</h3>
+        <p>How does a higher deductible affect your out-of-pocket costs? What are the trade-offs between premiums and deductibles?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+    
+    <div class="calculation-step">
+        <h3>Question 2</h3>
+        <p>In what situations would it make financial sense to choose a plan with a higher premium but lower deductible and co-insurance?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+    
+    <div class="calculation-step">
+        <h3>Question 3</h3>
+        <p>How does an out-of-pocket maximum protect you financially? Why is this an important feature to consider when selecting insurance?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Chapter 11.3: Managing Insurance Costs | Insurance Cost Calculator Worksheet</p>
+        <p>Page 1 of 1</p>
+    </div>
+    
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+</body>
+</html>

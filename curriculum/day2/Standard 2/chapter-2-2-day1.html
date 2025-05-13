@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 2.2: Understanding Tax Brackets and Tax Rates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .case-study {
+            background-color: #f0f9ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .skill-builder {
+            background-color: #f3e8ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background-color: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Fixed Header - Purple with Navigation -->
+    <header class="bg-indigo-600 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">PFL Academy</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-white hover:text-indigo-200">Home</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Curriculum</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Resources</a></li>
+                    <li><a href="#" class="text-white hover:text-indigo-200">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Spacer to push content below fixed header -->
+    <div class="h-16"></div>
+
+    <div class="container mx-auto px-4 py-8 grid lg:grid-cols-10 gap-8">
+        <!-- Left Navigation Sidebar -->
+        <div class="lg:col-span-3 bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Standard 2: Taxes</h2>
+            <p class="text-gray-600 mb-6">Covers types of taxes, deductions, credits, and their impact on income, emphasizing financial management and tax compliance.</p>
+            
+            <!-- Chapter Navigation with blue indicators and green checkmarks -->
+            <nav class="space-y-2" aria-label="Chapters">
+                <!-- Completed chapter with green checkmark -->
+                <a href="chapter-2-1-day1.html" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-green-50 text-green-700">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.1 Understanding Federal and State Taxes</span>
+                </a>
+                
+                <!-- Current chapter with blue left border -->
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-50 text-indigo-700 border-l-4 border-indigo-700">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.2 Understanding Tax Brackets and Tax Rates</span>
+                </a>
+                
+                <!-- Indented section links when a chapter is selected -->
+                <div class="ml-6 space-y-1 mt-1">
+                    <a href="#intro" class="text-indigo-700 font-medium flex items-center">
+                        <span class="mr-2">•</span> Introduction
+                    </a>
+                    <a href="#key-concepts" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Key Concepts
+                    </a>
+                    <a href="#examples" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Real-World Examples
+                    </a>
+                    <a href="#group-activity" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Group Activity
+                    </a>
+                    <a href="#case-study" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Recent Graduate Case Study
+                    </a>
+                    <a href="#filing-status" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Filing Status Discussion
+                    </a>
+                    <a href="#skill-builder" class="text-gray-700 hover:text-indigo-700 flex items-center">
+                        <span class="mr-2">•</span> Skill Builder
+                    </a>
+                </div>
+                
+                <!-- Upcoming chapters -->
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.3 Understanding Tax Filing Requirements</span>
+                </a>
+                
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.4 Understanding Tax Deductions and Credits</span>
+                </a>
+                
+                <a href="#" class="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </span>
+                    <span class="text-left">2.5 Tax Planning and Compliance</span>
+                </a>
+            </nav>
+            
+            <hr class="my-4 border-gray-200">
+            
+            <!-- Progress Indicator -->
+            <div class="mt-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-gray-700">Progress</span>
+                    <span class="text-sm text-gray-600">40%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="h-full bg-indigo-600" style="width: 40%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="lg:col-span-7 bg-white rounded-lg shadow p-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Chapter 2.2: Understanding Tax Brackets and Tax Rates</h1>
+            
+            <div class="learning-objectives">
+                <h2 class="text-xl font-semibold text-gray-900 mb-3">Learning Objectives</h2>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>Explain how tax brackets work in a progressive tax system</li>
+                    <li>Calculate marginal and effective tax rates</li>
+                    <li>Analyze how tax brackets affect financial planning</li>
+                    <li>Differentiate between tax avoidance and tax evasion</li>
+                </ul>
+            </div>
+            
+            <section class="mb-8" id="intro">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
+                <p class="text-gray-700 mb-4">In this lesson, you'll explore how tax brackets affect your income. You'll learn the difference between marginal and effective tax rates and how our progressive tax system works. By understanding how taxes are calculated, you'll be better prepared to make informed financial decisions throughout your life.</p>
+            </section>
+            
+            <section class="mb-8" id="key-concepts">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Key Concepts</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Tax Bracket</h3>
+                        <p class="text-gray-700">Income ranges that are taxed at different rates.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Marginal Tax Rate</h3>
+                        <p class="text-gray-700">The rate at which your last dollar of income is taxed.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Effective Tax Rate</h3>
+                        <p class="text-gray-700">The average rate at which all your income is taxed.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Progressive Tax System</h3>
+                        <p class="text-gray-700">A system where tax rates increase as income increases.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Tax Liability</h3>
+                        <p class="text-gray-700">The total amount of tax you owe.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Withholding</h3>
+                        <p class="text-gray-700">Taxes deducted from your paycheck before you receive it.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Filing Status</h3>
+                        <p class="text-gray-700">Categories like single, married filing jointly, or head of household that affect your tax rate.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">Taxable Income</h3>
+                        <p class="text-gray-700">Your income after deductions that is subject to tax.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="examples">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Real-World Examples</h2>
+                
+                <div class="bg-white border border-gray-200 rounded-lg p-5 my-4">
+                    <h3 class="font-semibold text-lg mb-3">Jared's Situation</h3>
+                    <p class="mb-4">Jared is single and earns $50,000 per year. Under the current tax system:</p>
+                    <ul class="list-disc ml-6 space-y-1 mb-4">
+                        <li>The first $11,000 is taxed at 10% = $1,100</li>
+                        <li>The next $33,725 is taxed at 12% = $4,047</li>
+                        <li>The remaining $5,275 is taxed at 22% = $1,160</li>
+                        <li>Total tax: $6,307</li>
+                    </ul>
+                    <div class="grid md:grid-cols-2 gap-4 mt-4">
+                        <div class="bg-indigo-50 p-3 rounded-lg">
+                            <p class="font-semibold">Marginal Tax Rate:</p>
+                            <p>22% (the rate on his highest dollar of income)</p>
+                        </div>
+                        <div class="bg-indigo-50 p-3 rounded-lg">
+                            <p class="font-semibold">Effective Tax Rate:</p>
+                            <p>12.6% ($6,307 ÷ $50,000)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-lg p-5 my-4">
+                    <h3 class="font-semibold text-lg mb-3">Sara's Situation</h3>
+                    <p class="mb-4">Sara and her spouse have a combined income of $110,000. Filing jointly:</p>
+                    <ul class="list-disc ml-6 space-y-1 mb-4">
+                        <li>The first $22,000 is taxed at 10% = $2,200</li>
+                        <li>The next $67,450 is taxed at 12% = $8,094</li>
+                        <li>The remaining $20,550 is taxed at 22% = $4,521</li>
+                        <li>Total tax: $14,815</li>
+                    </ul>
+                    <div class="grid md:grid-cols-2 gap-4 mt-4">
+                        <div class="bg-indigo-50 p-3 rounded-lg">
+                            <p class="font-semibold">Marginal Tax Rate:</p>
+                            <p>22%</p>
+                        </div>
+                        <div class="bg-indigo-50 p-3 rounded-lg">
+                            <p class="font-semibold">Effective Tax Rate:</p>
+                            <p>13.5% ($14,815 ÷ $110,000)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="group-activity">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Group Activity: Tax Calculation Exercise</h2>
+                <div class="activity-timer">
+                    <span>⏱️ Activity Time: 15 minutes</span>
+                </div>
+                <p class="text-gray-700 mb-4">Working with your group, calculate the taxes owed for your assigned income level using the current tax brackets. Determine both the marginal and effective tax rates.</p>
+                
+                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                    <h3 class="font-medium text-lg mb-2">2023 Tax Brackets</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-300">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-2 border">Rate</th>
+                                    <th class="p-2 border">Single Filers</th>
+                                    <th class="p-2 border">Married Filing Jointly</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-2 border">10%</td>
+                                    <td class="p-2 border">$0 - $11,000</td>
+                                    <td class="p-2 border">$0 - $22,000</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border">12%</td>
+                                    <td class="p-2 border">$11,001 - $44,725</td>
+                                    <td class="p-2 border">$22,001 - $89,450</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border">22%</td>
+                                    <td class="p-2 border">$44,726 - $95,375</td>
+                                    <td class="p-2 border">$89,451 - $190,750</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border">24%</td>
+                                    <td class="p-2 border">$95,376 - $182,100</td>
+                                    <td class="p-2 border">$190,751 - $364,200</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border">32%</td>
+                                    <td class="p-2 border">$182,101 - $231,250</td>
+                                    <td class="p-2 border">$364,201 - $462,500</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border">35%</td>
+                                    <td class="p-2 border">$231,251 - $578,125</td>
+                                    <td class="p-2 border">$462,501 - $693,750</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border">37%</td>
+                                    <td class="p-2 border">$578,126+</td>
+                                    <td class="p-2 border">$693,751+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-lg p-5">
+                    <h3 class="font-semibold text-lg mb-3">Group Calculation Worksheet</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Assigned Income Level:</label>
+                            <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="e.g., $40,000">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Filing Status:</label>
+                            <select class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                                <option>Single</option>
+                                <option>Married Filing Jointly</option>
+                            </select>
+                        </div>
+                        <div>
+                            <table class="min-w-full bg-white border border-gray-300">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="p-2 border">Tax Bracket</th>
+                                        <th class="p-2 border">Amount in Bracket</th>
+                                        <th class="p-2 border">Tax Rate</th>
+                                        <th class="p-2 border">Tax Owed</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-2 border">10% Bracket</td>
+                                        <td class="p-2 border"><input type="text" class="w-full border-0" placeholder="$"></td>
+                                        <td class="p-2 border">10%</td>
+                                        <td class="p-2 border"><input type="text" class="w-full border-0" placeholder="$"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">12% Bracket</td>
+                                        <td class="p-2 border"><input type="text" class="w-full border-0" placeholder="$"></td>
+                                        <td class="p-2 border">12%</td>
+                                        <td class="p-2 border"><input type="text" class="w-full border-0" placeholder="$"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border">22% Bracket</td>
+                                        <td class="p-2 border"><input type="text" class="w-full border-0" placeholder="$"></td>
+                                        <td class="p-2 border">22%</td>
+                                        <td class="p-2 border"><input type="text" class="w-full border-0" placeholder="$"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border font-semibold" colspan="3">Total Tax Liability:</td>
+                                        <td class="p-2 border"><input type="text" class="w-full border-0 font-semibold" placeholder="$"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Marginal Tax Rate:</label>
+                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="%">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Effective Tax Rate:</label>
+                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="%">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="case-study">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Recent Graduate Case Study</h2>
+                
+                <div class="case-study">
+                    <h3 class="text-xl font-semibold mb-3">Starting Career Tax Analysis</h3>
+                    <p class="mb-4">A student graduates and earns a starting salary of $55,000. Calculate:</p>
+                    
+                    <div class="bg-white rounded-lg p-4 border border-blue-200">
+                        <ol class="list-decimal ml-6 space-y-3">
+                            <li>
+                                <span class="font-medium">How much tax will they pay in each bracket?</span>
+                                <div class="pl-4 mt-1">
+                                    <p>10% bracket: $____________</p>
+                                    <p>12% bracket: $____________</p>
+                                    <p>22% bracket: $____________</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="font-medium">What is their total tax liability?</span>
+                                <div class="pl-4 mt-1">
+                                    <p>$____________</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="font-medium">What is their marginal tax rate?</span>
+                                <div class="pl-4 mt-1">
+                                    <p>____________%</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="font-medium">What is their effective tax rate?</span>
+                                <div class="pl-4 mt-1">
+                                    <p>____________%</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="font-medium">How does this affect their monthly take-home pay?</span>
+                                <div class="pl-4 mt-1">
+                                    <p>Monthly gross pay: $____________</p>
+                                    <p>Monthly federal tax withholding (estimate): $____________</p>
+                                    <p>Monthly take-home pay (before other deductions): $____________</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <p class="font-medium">How might this tax analysis impact the recent graduate's financial planning?</p>
+                        <textarea class="w-full px-3 py-2 mt-2 border border-gray-300 rounded-md" rows="3" placeholder="Enter your response..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="filing-status">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Filing Status Discussion</h2>
+                
+                <p class="text-gray-700 mb-4">Different filing statuses (single, married filing jointly, head of household) impact which tax brackets apply to you. Consider how your future family situation might affect your tax liability.</p>
+                
+                <div class="discussion-prompt">
+                    <h3 class="font-semibold text-lg mb-2">Comparing Filing Statuses</h3>
+                    <p class="mb-4">Review how the same income amount is taxed differently based on filing status:</p>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-300">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-2 border">Income: $80,000</th>
+                                    <th class="p-2 border">Single</th>
+                                    <th class="p-2 border">Married Filing Jointly</th>
+                                    <th class="p-2 border">Head of Household</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2 border font-medium">Tax Brackets</td>
+                                    <td class="p-2 border">10%, 12%, 22%</td>
+                                    <td class="p-2 border">10%, 12%</td>
+                                    <td class="p-2 border">10%, 12%, 22%</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-medium">Est. Tax Liability</td>
+                                    <td class="p-2 border">$13,229</td>
+                                    <td class="p-2 border">$9,294</td>
+                                    <td class="p-2 border">$11,624</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-medium">Effective Tax Rate</td>
+                                    <td class="p-2 border">16.5%</td>
+                                    <td class="p-2 border">11.6%</td>
+                                    <td class="p-2 border">14.5%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <p class="mt-4">How might these differences influence life decisions like marriage, having children, or timing major life events?</p>
+                </div>
+            </section>
+            
+            <section class="mb-8" id="skill-builder">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Skill Builder: Understanding Tax Evasion and Tax Avoidance</h2>
+                
+                <div class="skill-builder">
+                    <h3 class="text-xl font-semibold mb-4">Tax Evasion vs. Tax Avoidance</h3>
+                    
+                    <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                        <p class="font-semibold">Tax Evasion:</p>
+                        <p class="mb-3">Illegally hiding income or providing false information to avoid paying taxes.</p>
+                        
+                        <p class="font-semibold">Tax Avoidance:</p>
+                        <p>Legally using tax laws and strategies to minimize tax liability.</p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg border border-gray-200 p-4">
+                            <h4 class="font-semibold text-lg mb-2">Example 1: Illegal Tax Evasion – Al Capone's Downfall</h4>
+                            <p class="mb-4">Al Capone, one of the most notorious crime bosses in U.S. history, was brought down not by his criminal activities but through tax evasion charges. Despite running a lucrative empire through illegal alcohol distribution, gambling, and other illicit businesses, Capone failed to report his income to the IRS. The government's investigation revealed substantial earnings that were not accounted for in tax filings, allowing the prosecution to charge him with tax evasion. In 1931, Capone was convicted and sentenced to 11 years in federal prison. This case illustrates how failing to report income, regardless of its source, can lead to severe legal consequences, including hefty fines and imprisonment. Tax evasion, in this context, is considered a criminal act because it involves willfully hiding income or falsifying records to avoid paying taxes.</p>
+                            
+                            <div class="mt-3">
+                                <label class="block text-gray-700 font-medium mb-2">What do you think: Why do you think the government prioritized prosecuting Al Capone for tax evasion instead of his other criminal activities? What does this say about the importance of tax compliance in maintaining legal and financial order?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg border border-gray-200 p-4">
+                            <h4 class="font-semibold text-lg mb-2">Example 2: Legal Tax Avoidance – Amazon's Global Strategy</h4>
+                            <p class="mb-4">Amazon is a prime example of how large corporations legally reduce their tax liabilities through strategic financial planning. In 2021, Amazon reported a federal tax rate of just 6 percent on its U.S. profits of over $35 billion, saving approximately $5.2 billion in federal corporate taxes by using various tax credits and deductions.</p>
+                            <p class="mb-4">One common tactic employed by Amazon is setting up subsidiaries and moving profits to countries with lower tax rates, such as Luxembourg, allowing them to minimize their U.S. tax obligations.</p>
+                            <p class="mb-4">Additionally, Amazon leverages stock options and foreign-derived intangible income (FDII) deductions to further decrease its tax burden. Although this approach is currently legal, the federal government and international bodies have been scrutinizing these strategies, with efforts underway to impose minimum corporate tax provisions that could limit such tax avoidance tactics.</p>
+                            <p class="mb-4">This scenario demonstrates the fine line between legal tax avoidance and tax evasion, where the former takes advantage of legal loopholes to minimize tax bills, while the latter involves illegally concealing income.</p>
+                            
+                            <div class="mt-3">
+                                <label class="block text-gray-700 font-medium mb-2">What do you think: Do you believe it is ethical for corporations like Amazon to use legal loopholes to avoid paying taxes? How do you think this impacts society, and what changes, if any, would you suggest to make corporate tax policies fairer?</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="3" data-ai-check="true" data-assessment-weight="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Submit Responses</button>
+                        <div id="feedback-container" class="mt-4 hidden bg-green-50 p-4 rounded-lg border border-green-200">
+                            <p class="text-green-800">Your responses have been submitted. Feedback will be provided in the next class session.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Reflection</h2>
+                
+                <div class="discussion-prompt">
+                    <p>Reflect on your current or projected income level. How does understanding your tax bracket and the differences between marginal and effective tax rates influence your budgeting and financial planning strategies?</p>
+                    <textarea class="w-full px-3 py-2 mt-3 border border-gray-300 rounded-md" rows="4" placeholder="Enter your reflection..."></textarea>
+                </div>
+            </section>
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Day 2 Preview</h2>
+                <p class="text-gray-700 mb-4">In tomorrow's Learning Lab, you'll build upon your understanding of tax brackets and explore deeper ethical and practical considerations around taxation. You'll analyze real-world tax strategies, evaluate their impact on society, and develop your own position on tax policy.</p>
+                <a href="chapter-2-2-day2.html" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Preview Day 2 Learning Lab</a>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // Simple script to show feedback on form submission
+        document.querySelector('button').addEventListener('click', function() {
+            document.getElementById('feedback-container').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

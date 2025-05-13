@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Chapter 2.1: Understanding Federal and State Taxes - Learning Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Core component styles */
+        .learning-objectives {
+            background-color: #e6f3ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-prompt {
+            background-color: #e6f0ff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .audio-player {
+            background-color: #f4f4f5;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Custom styles for specific components */
+        .activity-timer {
+            background: linear-gradient(to right, #eef2ff, #ede9fe);
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .learning-station {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .learning-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.02), rgba(124, 58, 237, 0.02));
+        }
+        
+        .station-number {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 9999px;
+            height: 28px;
+            width: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        
+        .important-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .pfl-button {
+            background: linear-gradient(to right, #4f46e5, #6366f1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .pfl-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+    <!-- Fixed Header -->
+    <header class="bg-gradient-to-r from-indigo-700 to-purple-700 text-white p-4 shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-bold text-xl">PFL Academy</div>
+                <nav class="ml-8 hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Curriculum</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Resources</a></li>
+                        <li><a href="#" class="hover:text-indigo-200 transition">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm hover:text-indigo-200 transition">Help</button>
+                <button class="text-sm hover:text-indigo-200 transition">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content with Sidebar -->
+    <div class="container mx-auto pt-24 px-4 md:px-0">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Sidebar Navigation -->
+            <div class="lg:w-1/4 p-4">
+                <div class="rounded-lg bg-white shadow p-4 lg:sticky lg:top-24">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Standard 2: Taxes</h2>
+                        <p class="text-gray-600 text-sm mt-1">Tax systems, rates, requirements, credits, and compliance</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">CHAPTER NAVIGATION</h3>
+                        <ul class="space-y-1">
+                            <!-- Current chapter expanded -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-indigo-700 bg-indigo-50 font-medium border-l-4 border-indigo-700">
+                                    <span class="mr-2 h-4 w-4 rounded-full bg-indigo-700 flex items-center justify-center text-white text-xs">•</span>
+                                    Chapter 2.1: Understanding Federal and State Taxes
+                                </a>
+                                <ul class="ml-6 mt-1 space-y-1">
+                                    <li>
+                                        <a href="chapter-2-1-day1.html" class="text-sm flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded">
+                                            <span class="mr-2">→</span>
+                                            Day 1: Content Guide
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-sm flex items-center p-2 text-indigo-700 font-medium">
+                                            <span class="mr-2">↓</span>
+                                            Day 2: Learning Lab
+                                        </a>
+                                        <!-- Section Navigation -->
+                                        <ul class="ml-6 mt-1 space-y-1">
+                                            <li>
+                                                <a href="#learning-objectives" class="text-xs flex items-center py-1 text-indigo-700 font-medium">
+                                                    <span class="mr-2">•</span>
+                                                    Learning Objectives
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#introduction" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Introduction
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station1" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Tax Impact Calculator
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station2" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    State Tax Comparison
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#station3" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Tax Planning Scenario
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#portfolio" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Portfolio Integration
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#reflection" class="text-xs flex items-center py-1 text-gray-700 hover:text-indigo-700">
+                                                    <span class="mr-2">•</span>
+                                                    Reflection
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Other Chapters -->
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 2.2: Understanding Tax Brackets and Tax Rates
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 2.3: Understanding Tax Filing Requirements
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 2.4: Understanding Tax Credits
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm flex items-center p-2 rounded text-gray-700 hover:bg-gray-100">
+                                    Chapter 2.5: Understanding Tax Compliance
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="mb-4">
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">LEARNING LAB PROGRESS</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="space-x-1 flex">
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station1-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station2-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="station3-indicator"></div>
+                                <div class="h-2 w-2 rounded-full bg-gray-300" id="portfolio-indicator"></div>
+                            </div>
+                            <span class="text-xs text-gray-500" id="progress-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="chapter-2-1-day1.html" class="block w-full text-center py-2 px-4 rounded bg-gray-100 text-indigo-700 hover:bg-gray-200 transition text-sm font-medium mt-4">
+                        Return to Day 1 Content
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 p-4">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Chapter 2.1: Understanding Federal and State Taxes</h1>
+                    <p class="text-lg text-gray-600 mb-6">Learning Lab: Applying concepts through interactive activities</p>
+                    
+                    <!-- Learning Objectives Section -->
+                    <div class="learning-objectives" id="learning-objectives">
+                        <h2 class="text-xl font-bold text-gray-900 mb-3">Learning Objectives</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Calculate take-home pay after various tax deductions</li>
+                            <li>Compare tax structures across different states</li>
+                            <li>Analyze how geographic location affects overall tax burden</li>
+                            <li>Develop personal strategies for tax planning</li>
+                            <li>Evaluate financial decisions based on tax implications</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Introduction Section -->
+                    <div class="mb-8" id="introduction">
+                        <h2 class="text-xl font-bold section-title text-gray-900">Introduction</h2>
+                        <p class="text-gray-700 mb-4">
+                            In today's Learning Lab, you'll apply what you learned about federal and state taxes by calculating take-home pay, analyzing tax impacts across states, and developing strategies for tax planning. These activities will help you understand how taxes affect financial decisions.
+                        </p>
+                        
+                        <!-- Important Note -->
+                        <div class="important-note mb-6">
+                            <h3 class="font-semibold text-amber-800">Important Note</h3>
+                            <p class="text-amber-700 text-sm">
+                                The tax calculations in this Learning Lab are simplified for educational purposes. In real life, tax situations can be more complex with additional deductions, credits, and special circumstances. Always consult a qualified tax professional or the IRS for personal tax advice.
+                            </p>
+                        </div>
+                        
+                        <!-- Connection to Day 1 -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-2">Connection to Day 1</h3>
+                            <p class="text-indigo-800 text-sm">
+                                In Day 1, we learned about the differences between federal and state taxes, progressive vs. regressive tax systems, and how tax structures vary by state. Today, we'll apply these concepts in practical scenarios to see how taxes impact take-home pay and financial decisions.
+                            </p>
+                        </div>
+                        
+                        <!-- Podcast Review -->
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-gray-900 mb-2">Podcast Review: Understanding Federal and State Taxes</h3>
+                            <p class="text-gray-700 text-sm mb-3">
+                                Listen to this brief overview to refresh key concepts from this chapter:
+                            </p>
+                            <div class="audio-player">
+                                <audio controls class="w-full">
+                                    <source src="/finished LM recordings/2.1 - Understanding Federal and State Taxes.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">
+                                Topics covered: Progressive vs. regressive taxation, federal tax brackets, state tax variations, payroll taxes
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Stations -->
+                    <div class="learning-station" id="station1">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">1</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Tax Impact Calculator</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">Use this interactive calculator to see how different income levels and locations affect your take-home pay after taxes.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-medium text-gray-900 mb-3">Your Information</h3>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Annual Income</label>
+                                    <input type="number" id="income" class="w-full border border-gray-300 rounded-md px-3 py-2" value="50000">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">Filing Status</label>
+                                    <select id="filing-status" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                        <option value="single">Single</option>
+                                        <option value="married">Married Filing Jointly</option>
+                                        <option value="head">Head of Household</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-medium mb-1">State</label>
+                                    <select id="state" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                        <option value="no-income-tax">No Income Tax State (e.g., TX, FL)</option>
+                                        <option value="flat-tax">Flat Tax State (e.g., CO - 4.55%)</option>
+                                        <option value="progressive">Progressive Tax State (e.g., CA)</option>
+                                    </select>
+                                </div>
+                                
+                                <button class="pfl-button mt-2 w-full" onclick="calculateTaxes()">Calculate Taxes</button>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h3 class="font-medium text-gray-900 mb-3">Results</h3>
+                                
+                                <div class="mb-4">
+                                    <p class="text-sm text-gray-600 mb-1">Annual Gross Income:</p>
+                                    <p class="text-xl font-bold text-gray-900" id="gross-income">$50,000.00</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-2 mb-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">Federal Income Tax:</p>
+                                        <p class="text-lg font-medium text-red-600" id="federal-tax">-$0.00</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">State Income Tax:</p>
+                                        <p class="text-lg font-medium text-red-600" id="state-tax">-$0.00</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">Social Security (6.2%):</p>
+                                        <p class="text-lg font-medium text-red-600" id="social-security-tax">-$0.00</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 mb-1">Medicare (1.45%):</p>
+                                        <p class="text-lg font-medium text-red-600" id="medicare-tax">-$0.00</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-3 border-t border-indigo-200">
+                                    <p class="text-sm text-gray-600 mb-1">Annual Take-Home Pay:</p>
+                                    <p class="text-2xl font-bold text-green-600" id="take-home-pay">$0.00</p>
+                                    <p class="text-sm text-gray-600 mb-1">Monthly Take-Home Pay:</p>
+                                    <p class="text-xl font-bold text-green-600" id="monthly-pay">$0.00</p>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <p class="text-sm text-gray-600 mb-1">Effective Tax Rate:</p>
+                                    <p class="text-lg font-medium text-indigo-700" id="effective-rate">0.0%</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <h3 class="font-medium text-gray-900 mb-2">Tax Breakdown</h3>
+                            <canvas id="tax-chart" height="250"></canvas>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="font-medium text-gray-900 mb-2">Your Analysis</h3>
+                            <p class="text-sm text-gray-700 mb-2">Based on your calculations, answer these questions:</p>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">1. How does changing the state affect your take-home pay?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="analysis1"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">2. If your income doubled, would your tax rate also double? Why or why not?</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="2" id="analysis2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button flex items-center" onclick="saveStation(1)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <div class="learning-station" id="station2">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">2</span>
+                            <h2 class="text-xl font-semibold text-gray-900">State Tax Comparison</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">Compare different state tax approaches and how they affect the overall tax burden for residents.</p>
+                        
+                        <div class="bg-indigo-50 p-5 rounded-lg mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-3">Three Types of State Tax Approaches</h3>
+                            
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <h4 class="font-semibold text-indigo-800 mb-2">No Income Tax States</h4>
+                                    <p class="text-sm text-gray-700 mb-2">Examples: Florida, Texas, Washington</p>
+                                    <ul class="text-sm text-gray-700 list-disc list-inside">
+                                        <li>No state income tax</li>
+                                        <li>Often have higher sales or property taxes</li>
+                                        <li>Attractive for high-income earners</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <h4 class="font-semibold text-indigo-800 mb-2">Flat Tax States</h4>
+                                    <p class="text-sm text-gray-700 mb-2">Examples: Colorado, Illinois, Michigan</p>
+                                    <ul class="text-sm text-gray-700 list-disc list-inside">
+                                        <li>Same tax rate for all income levels</li>
+                                        <li>Simple to calculate</li>
+                                        <li>Equal percentage across income levels</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <h4 class="font-semibold text-indigo-800 mb-2">Progressive Tax States</h4>
+                                    <p class="text-sm text-gray-700 mb-2">Examples: California, New York, Hawaii</p>
+                                    <ul class="text-sm text-gray-700 list-disc list-inside">
+                                        <li>Higher rates for higher incomes</li>
+                                        <li>Multiple tax brackets</li>
+                                        <li>Similar to federal income tax system</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-medium text-gray-900 mb-3">State Tax Comparison Project</h3>
+                            <p class="text-gray-700 mb-3">Using the state information above, complete the comparison chart to understand the impact of different tax approaches.</p>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full bg-white border border-gray-200">
+                                    <thead>
+                                        <tr class="bg-gray-50">
+                                            <th class="px-4 py-2 border-b text-left">Tax Feature</th>
+                                            <th class="px-4 py-2 border-b text-left">No Income Tax State</th>
+                                            <th class="px-4 py-2 border-b text-left">Flat Tax State</th>
+                                            <th class="px-4 py-2 border-b text-left">Progressive Tax State</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="px-4 py-2 border-b font-medium">Impact on Low-Income Earners</td>
+                                            <td class="px-4 py-2 border-b">
+                                                <select class="w-full border rounded p-1 text-sm" id="low-no-tax">
+                                                    <option value="">Select...</option>
+                                                    <option value="favorable">Favorable</option>
+                                                    <option value="neutral">Neutral</option>
+                                                    <option value="unfavorable">Unfavorable</option>
+                                                </select>
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <select class="w-full border rounded p-1 text-sm" id="low-flat">
+                                                    <option value="">Select...</option>
+                                                    <option value="favorable">Favorable</option>
+                                                    <option value="neutral">Neutral</option>
+                                                    <option value="unfavorable">Unfavorable</option>
+                                                </select>
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <select class="w-full border rounded p-1 text-sm" id="low-progressive">
+                                                    <option value="">Select...</option>
+                                                    <option value="favorable">Favorable</option>
+                                                    <option value="neutral">Neutral</option>
+                                                    <option value="unfavorable">Unfavorable</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-2 border-b font-medium">Impact on High-Income Earners</td>
+                                            <td class="px-4 py-2 border-b">
+                                                <select class="w-full border rounded p-1 text-sm" id="high-no-tax">
+                                                    <option value="">Select...</option>
+                                                    <option value="favorable">Favorable</option>
+                                                    <option value="neutral">Neutral</option>
+                                                    <option value="unfavorable">Unfavorable</option>
+                                                </select>
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <select class="w-full border rounded p-1 text-sm" id="high-flat">
+                                                    <option value="">Select...</option>
+                                                    <option value="favorable">Favorable</option>
+                                                    <option value="neutral">Neutral</option>
+                                                    <option value="unfavorable">Unfavorable</option>
+                                                </select>
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <select class="w-full border rounded p-1 text-sm" id="high-progressive">
+                                                    <option value="">Select...</option>
+                                                    <option value="favorable">Favorable</option>
+                                                    <option value="neutral">Neutral</option>
+                                                    <option value="unfavorable">Unfavorable</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-2 border-b font-medium">How Revenue Is Made Up</td>
+                                            <td class="px-4 py-2 border-b">
+                                                <input type="text" class="w-full border rounded p-1 text-sm" id="revenue-no-tax" placeholder="Enter your answer">
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <input type="text" class="w-full border rounded p-1 text-sm" id="revenue-flat" placeholder="Enter your answer">
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <input type="text" class="w-full border rounded p-1 text-sm" id="revenue-progressive" placeholder="Enter your answer">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-2 border-b font-medium">Potential Advantages</td>
+                                            <td class="px-4 py-2 border-b">
+                                                <textarea class="w-full border rounded p-1 text-sm" rows="2" id="adv-no-tax" placeholder="List advantages"></textarea>
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <textarea class="w-full border rounded p-1 text-sm" rows="2" id="adv-flat" placeholder="List advantages"></textarea>
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <textarea class="w-full border rounded p-1 text-sm" rows="2" id="adv-progressive" placeholder="List advantages"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-2 border-b font-medium">Potential Disadvantages</td>
+                                            <td class="px-4 py-2 border-b">
+                                                <textarea class="w-full border rounded p-1 text-sm" rows="2" id="disadv-no-tax" placeholder="List disadvantages"></textarea>
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <textarea class="w-full border rounded p-1 text-sm" rows="2" id="disadv-flat" placeholder="List disadvantages"></textarea>
+                                            </td>
+                                            <td class="px-4 py-2 border-b">
+                                                <textarea class="w-full border rounded p-1 text-sm" rows="2" id="disadv-progressive" placeholder="List disadvantages"></textarea>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="font-medium text-gray-900 mb-2">Your Conclusion</h3>
+                            <p class="text-sm text-gray-700 mb-2">Based on your analysis, which tax approach seems most fair and why?</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="tax-approach-conclusion"></textarea>
+                        </div>
+                        
+                        <button class="pfl-button flex items-center" onclick="saveStation(2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <div class="learning-station" id="station3">
+                        <div class="flex items-center mb-3">
+                            <span class="station-number">3</span>
+                            <h2 class="text-xl font-semibold text-gray-900">Tax Planning Scenario</h2>
+                        </div>
+                        
+                        <!-- Activity Timer -->
+                        <div class="activity-timer flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-sm text-indigo-700 font-medium">Estimated time: <span class="font-semibold">15 minutes</span></span>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-4">In this scenario, you'll apply your knowledge of tax systems to make a decision between job offers in different states.</p>
+                        
+                        <div class="bg-indigo-50 p-5 rounded-lg mb-6">
+                            <h3 class="font-semibold text-indigo-900 mb-3">Your Scenario</h3>
+                            
+                            <p class="text-gray-700 mb-4">You've just graduated from college and received two job offers with the same company:</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <h4 class="font-medium text-gray-900 mb-2">Option A: Austin, Texas</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                        <li>Annual salary: $55,000</li>
+                                        <li>No state income tax</li>
+                                        <li>8.25% sales tax</li>
+                                        <li>Average rent: $1,400/month for a 1-bedroom apartment</li>
+                                        <li>Public transportation limited, car likely needed</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <h4 class="font-medium text-gray-900 mb-2">Option B: Denver, Colorado</h4>
+                                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                        <li>Annual salary: $58,000</li>
+                                        <li>4.55% flat state income tax</li>
+                                        <li>8.81% sales tax</li>
+                                        <li>Average rent: $1,500/month for a 1-bedroom apartment</li>
+                                        <li>Good public transportation, car optional</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <p class="text-gray-700">Which offer would you accept based on financial considerations? Think about taxes, cost of living, and how they affect your take-home pay.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-medium text-gray-900 mb-3">Financial Analysis</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mb-4">
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Option A: Austin, Texas</h4>
+                                    
+                                    <div class="space-y-2 mb-3">
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">Annual Salary:</span>
+                                            <span class="text-sm font-medium">$55,000</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">Federal Tax (estimated):</span>
+                                            <span class="text-sm font-medium text-red-600">-$4,605</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">State Income Tax:</span>
+                                            <span class="text-sm font-medium text-red-600">$0</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">FICA Taxes (7.65%):</span>
+                                            <span class="text-sm font-medium text-red-600">-$4,208</span>
+                                        </div>
+                                        <div class="flex justify-between border-t border-gray-200 pt-1">
+                                            <span class="text-sm font-medium">Take-Home Pay:</span>
+                                            <span class="text-sm font-medium text-green-600">$46,187</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">Annual Rent:</span>
+                                            <span class="text-sm font-medium text-red-600">-$16,800</span>
+                                        </div>
+                                        <div class="flex justify-between border-t border-gray-200 pt-1">
+                                            <span class="text-sm font-medium">After Rent:</span>
+                                            <span class="text-sm font-medium text-green-600">$29,387</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Option B: Denver, Colorado</h4>
+                                    
+                                    <div class="space-y-2 mb-3">
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">Annual Salary:</span>
+                                            <span class="text-sm font-medium">$58,000</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">Federal Tax (estimated):</span>
+                                            <span class="text-sm font-medium text-red-600">-$5,145</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">State Income Tax (4.55%):</span>
+                                            <span class="text-sm font-medium text-red-600">-$2,639</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">FICA Taxes (7.65%):</span>
+                                            <span class="text-sm font-medium text-red-600">-$4,437</span>
+                                        </div>
+                                        <div class="flex justify-between border-t border-gray-200 pt-1">
+                                            <span class="text-sm font-medium">Take-Home Pay:</span>
+                                            <span class="text-sm font-medium text-green-600">$45,779</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between">
+                                            <span class="text-sm text-gray-600">Annual Rent:</span>
+                                            <span class="text-sm font-medium text-red-600">-$18,000</span>
+                                        </div>
+                                        <div class="flex justify-between border-t border-gray-200 pt-1">
+                                            <span class="text-sm font-medium">After Rent:</span>
+                                            <span class="text-sm font-medium text-green-600">$27,779</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="font-medium text-gray-900 mb-3">Your Decision</h3>
+                            <div class="mb-3">
+                                <p class="text-sm text-gray-700 mb-2">Based on the financial analysis above, which option would you choose?</p>
+                                <div class="flex space-x-4 mb-3">
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" name="location-choice" value="a" class="h-4 w-4 text-indigo-600">
+                                        <span class="ml-2 text-gray-700">Option A: Austin, Texas</span>
+                                    </label>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" name="location-choice" value="b" class="h-4 w-4 text-indigo-600">
+                                        <span class="ml-2 text-gray-700">Option B: Denver, Colorado</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Explain your decision, considering both tax and non-tax factors:</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3" id="decision-explanation"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="pfl-button flex items-center" onclick="saveStation(3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Save and Continue
+                        </button>
+                    </div>
+                    
+                    <!-- Portfolio Integration Section -->
+                    <section id="portfolio" class="mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Portfolio Integration</h2>
+                        <p class="text-gray-700 mb-4">Now that you've completed all stations, it's time to integrate your work into a comprehensive portfolio.</p>
+                        
+                        <div class="bg-indigo-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-indigo-900 mb-4">My Tax Strategy</h3>
+                            <p class="text-gray-700 mb-4">Based on your research and the tax impact calculator results, develop a personal tax strategy that considers:</p>
+                            
+                            <ul class="list-disc list-inside mb-4 text-gray-700">
+                                <li>Your career goals and projected income path</li>
+                                <li>Geographic preferences for where you might want to live</li>
+                                <li>Tax planning strategies to maximize your take-home pay</li>
+                                <li>How you'll account for taxes in your monthly and annual budget</li>
+                            </ul>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">My Personal Tax Strategy</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="5" id="tax-strategy" placeholder="Outline your personal tax strategy here..."></textarea>
+                            </div>
+                            
+                            <button class="pfl-button" onclick="savePortfolio()">
+                                Add to Portfolio
+                            </button>
+                        </div>
+                    </section>
+                    
+                    <!-- Reflection Section -->
+                    <section id="reflection" class="mt-12">
+                        <h2 class="text-2xl font-bold text-gray-900 section-title">Reflection</h2>
+                        
+                        <div class="discussion-prompt">
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-2">Final Reflection</h3>
+                            <p class="text-gray-700 mb-3">Reflect on how your understanding of taxes has evolved and how this knowledge will influence your financial decisions moving forward. Consider questions like: How important are tax considerations in deciding where to live or work? How will you incorporate tax planning into your broader financial goals?</p>
+                            <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="4" data-ai-check="true" data-assessment-weight="5" id="final-reflection" placeholder="Share your thoughts here..."></textarea>
+                            <div class="mt-2 hidden feedback-container text-green-600 text-sm"></div>
+                        </div>
+                        
+                        <div class="flex justify-end mt-8">
+                            <a href="chapter-2-2-day1.html" class="pfl-button px-4 py-2 rounded-md font-medium transition flex items-center hover:shadow-xl hover:-translate-y-1">
+                                Continue to Chapter 2.2
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span id="toast-message">Progress saved successfully!</span>
+        </div>
+    </div>
+    
+    <script>
+        // Station progress tracking
+        let stationProgress = {
+            station1: false,
+            station2: false,
+            station3: false,
+            portfolio: false
+        };
+        
+        // Tax calculator functionality
+        function calculateTaxes() {
+            const income = parseFloat(document.getElementById('income').value) || 50000;
+            const filingStatus = document.getElementById('filing-status').value;
+            const state = document.getElementById('state').value;
+            
+            // Format currency
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2
+            });
+            
+            // Calculate federal tax (simplified progressive calculation)
+            let federalTax = 0;
+            if (income <= 11000) {
+                federalTax = income * 0.10;
+            } else if (income <= 44725) {
+                federalTax = 1100 + (income - 11000) * 0.12;
+            } else if (income <= 95375) {
+                federalTax = 5147 + (income - 44725) * 0.22;
+            } else if (income <= 182100) {
+                federalTax = 16290 + (income - 95375) * 0.24;
+            } else if (income <= 231250) {
+                federalTax = 37104 + (income - 182100) * 0.32;
+            } else if (income <= 578125) {
+                federalTax = 52832 + (income - 231250) * 0.35;
+            } else {
+                federalTax = 174238.25 + (income - 578125) * 0.37;
+            }
+            
+            // Calculate state tax based on selected state type
+            let stateTax = 0;
+            if (state === 'flat-tax') {
+                stateTax = income * 0.0455; // Example: Colorado's flat tax rate
+            } else if (state === 'progressive') {
+                // Simplified progressive state tax (example)
+                if (income <= 10000) {
+                    stateTax = income * 0.01;
+                } else if (income <= 40000) {
+                    stateTax = 100 + (income - 10000) * 0.02;
+                } else if (income <= 100000) {
+                    stateTax = 700 + (income - 40000) * 0.04;
+                } else {
+                    stateTax = 3100 + (income - 100000) * 0.065;
+                }
+            }
+            // No state tax for 'no-income-tax' states
+            
+            // Calculate FICA taxes
+            const socialSecurityTax = Math.min(income * 0.062, 9114); // 6.2% up to cap
+            const medicareTax = income * 0.0145; // 1.45% no cap
+            
+            // Calculate total tax and take-home pay
+            const totalTax = federalTax + stateTax + socialSecurityTax + medicareTax;
+            const takeHomePay = income - totalTax;
+            const monthlyPay = takeHomePay / 12;
+            const effectiveRate = (totalTax / income) * 100;
+            
+            // Update the results
+            document.getElementById('gross-income').textContent = formatter.format(income);
+            document.getElementById('federal-tax').textContent = '-' + formatter.format(federalTax);
+            document.getElementById('state-tax').textContent = '-' + formatter.format(stateTax);
+            document.getElementById('social-security-tax').textContent = '-' + formatter.format(socialSecurityTax);
+            document.getElementById('medicare-tax').textContent = '-' + formatter.format(medicareTax);
+            document.getElementById('take-home-pay').textContent = formatter.format(takeHomePay);
+            document.getElementById('monthly-pay').textContent = formatter.format(monthlyPay);
+            document.getElementById('effective-rate').textContent = effectiveRate.toFixed(1) + '%';
+            
+            // Create or update chart
+            createTaxChart(income, federalTax, stateTax, socialSecurityTax, medicareTax, takeHomePay);
+        }
+        
+        // Create tax breakdown chart
+        function createTaxChart(income, federalTax, stateTax, socialSecurityTax, medicareTax, takeHomePay) {
+            const ctx = document.getElementById('tax-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.taxChart) {
+                window.taxChart.destroy();
+            }
+            
+            // Create new chart
+            window.taxChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Take-Home Pay', 'Federal Tax', 'State Tax', 'Social Security', 'Medicare'],
+                    datasets: [{
+                        data: [takeHomePay, federalTax, stateTax, socialSecurityTax, medicareTax],
+                        backgroundColor: [
+                            '#10B981', // green for take-home pay
+                            '#EF4444', // red for federal tax
+                            '#F59E0B', // amber for state tax
+                            '#3B82F6', // blue for social security
+                            '#8B5CF6'  // purple for medicare
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw;
+                                    const total = context.dataset.data.reduce((sum, val) => sum + val, 0);
+                                    const percentage = ((value / total) * 100).toFixed(1);
+                                    const formatter = new Intl.NumberFormat('en-US', {
+                                        style: 'currency',
+                                        currency: 'USD',
+                                        minimumFractionDigits: 0,
+                                        maximumFractionDigits: 0
+                                    });
+                                    return `${context.label}: ${formatter.format(value)} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Save station progress
+        function saveStation(stationNumber) {
+            stationProgress['station' + stationNumber] = true;
+            updateProgress();
+            showToast('Station ' + stationNumber + ' completed!');
+            
+            // Update station indicator
+            document.getElementById('station' + stationNumber + '-indicator').classList.remove('bg-gray-300');
+            document.getElementById('station' + stationNumber + '-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to next station if available
+            const nextStation = document.getElementById('station' + (stationNumber + 1));
+            if (nextStation) {
+                setTimeout(() => {
+                    nextStation.scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else if (stationNumber === 3) {
+                // Scroll to portfolio section after the last station
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+        
+        // Save portfolio
+        function savePortfolio() {
+            stationProgress.portfolio = true;
+            updateProgress();
+            showToast('Added to portfolio!');
+            
+            // Update portfolio indicator
+            document.getElementById('portfolio-indicator').classList.remove('bg-gray-300');
+            document.getElementById('portfolio-indicator').classList.add('bg-indigo-600');
+            
+            // Scroll to reflection section
+            setTimeout(() => {
+                document.getElementById('reflection').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+        
+        // Update progress bar and percentage
+        function updateProgress() {
+            const totalStations = Object.keys(stationProgress).length;
+            const completedStations = Object.values(stationProgress).filter(Boolean).length;
+            const percentage = Math.round((completedStations / totalStations) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tax calculator
+            calculateTaxes();
+            
+            // AI feedback system for reflection
+            document.querySelectorAll('[data-ai-check="true"]').forEach(element => {
+                element.addEventListener('blur', function() {
+                    if (this.value.length > 20) {
+                        const feedback = this.nextElementSibling;
+                        if (feedback && feedback.classList.contains('feedback-container')) {
+                            feedback.textContent = "Great reflection! You've demonstrated thoughtful understanding of how taxes impact financial decisions.";
+                            feedback.classList.remove('hidden');
+                        }
+                    }
+                });
+            });
+            
+            // Highlight active section in navigation based on scroll position
+            const sections = document.querySelectorAll('#learning-objectives, #introduction, .learning-station, #portfolio, #reflection');
+            const navLinks = document.querySelectorAll('.ml-6.mt-1.space-y-1 a');
+            
+            function highlightActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    if (window.scrollY >= sectionTop) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(item => {
+                    item.classList.remove('text-indigo-700', 'font-medium');
+                    item.classList.add('text-gray-700');
+                    
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === currentSection) {
+                        item.classList.remove('text-gray-700');
+                        item.classList.add('text-indigo-700', 'font-medium');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightActiveSection);
+            highlightActiveSection();
+        });
+    </script>
+</body>
+</html>
