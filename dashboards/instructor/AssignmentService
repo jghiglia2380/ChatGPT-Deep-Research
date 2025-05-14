@@ -1,0 +1,45 @@
+// File: /dashboards/instructor/Assignments/AssignmentService.ts
+import { supabase } from '@/lib/supabaseClient';
+import { Assignment, StudentAssignment } from './types';
+
+export async function createAssignment(
+  assignment: Assignment,
+  studentIds: string[]
+): Promise<{ success: boolean; error?: any }> {
+  try {
+    const { data, error } = await supabase
+      .from('assignments')
+      .insert([assignment])
+      .select()
+      .single();
+
+    if (error || !data) throw error || new Error('Failed to insert assignment');
+
+    const studentAssignments: StudentAssignment[] = studentIds.map((student_id) => ({
+      assignment_id: data.id,
+      student_id,
+      status: 'assigned',
+    }));
+
+    const { error: saError } = await supabase
+      .from('student_assignments')
+      .insert(studentAssignments);
+
+    if (saError) throw saError;
+
+    return { success: true };
+  } catch (err) {
+    console.error('Assignment creation error:', err);
+    return { success: false, error: err };
+  }
+}
+
+export async function fetchAssessments() {
+  const { data, error } = await supabase
+    .from('assessments')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) throw error;
+  return data;
+}
