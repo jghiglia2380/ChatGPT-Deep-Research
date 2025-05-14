@@ -1,0 +1,53 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from '@/lib/supabaseClient';
+import { Assignment, StudentAssignment } from './types';
+
+interface ExpandedAssignment extends StudentAssignment {
+  assignments: Assignment;
+}
+
+export default function StudentAssignmentList({ studentId }: { studentId: string }) {
+  const [assignments, setAssignments] = useState<ExpandedAssignment[]>([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loadAssignments = async () => {
+      const { data, error } = await supabase
+        .from('student_assignments')
+        .select('*, assignments(*)')
+        .eq('student_id', studentId);
+
+      if (error) console.error('Error loading student assignments:', error);
+      else setAssignments(data);
+    };
+
+    loadAssignments();
+  }, [studentId]);
+
+  return (
+    <div className="p-6 max-w-3xl mx-auto">
+      <h2 className="text-2xl font-semibold mb-6">My Assignments</h2>
+      <ul className="space-y-4">
+        {assignments.map((a) => (
+          <li
+            key={a.assignment_id}
+            className="border rounded-md p-4 flex justify-between items-center"
+          >
+            <div>
+              <h3 className="font-medium text-lg">{a.assignments.title}</h3>
+              <p className="text-sm text-gray-500">Due: {a.assignments.due_date}</p>
+              <p className="text-sm">Status: {a.status}</p>
+            </div>
+            <button
+              onClick={() => navigate(`/dashboards/student/Assignments/take/${a.id}`)}
+              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+            >
+              {a.status === 'completed' ? 'Review' : 'Start'}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
