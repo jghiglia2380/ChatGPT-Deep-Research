@@ -1,0 +1,46 @@
+// File: dashboards/shared/grades/gradebookService.ts
+
+import { supabase } from '@/lib/supabaseClient';
+import { ScoreRecord } from './types';
+
+const TABLE = 'student_assignments';
+
+/**
+ * Fetch scores + feedback for a specific assignment
+ */
+export async function fetchAssignmentGrades(assignment_id: string) {
+  const { data, error } = await supabase
+    .from(TABLE)
+    .select('student_id, score, feedback, rubric_flags')
+    .eq('assignment_id', assignment_id);
+
+  if (error) {
+    console.error('Error fetching assignment grades:', error);
+    return [];
+  }
+
+  return data as ScoreRecord[];
+}
+
+/**
+ * Save or update grade + feedback for a specific student
+ */
+export async function updateStudentGrade(score: ScoreRecord): Promise<boolean> {
+  const { error } = await supabase
+    .from(TABLE)
+    .update({
+      score: score.score,
+      feedback: score.feedback,
+      rubric_flags: score.rubric_flags,
+      updated_at: new Date().toISOString(),
+      status: 'graded'
+    })
+    .eq('student_id', score.student_id)
+    .eq('assignment_id', score.assignment_id);
+
+  if (error) {
+    console.error('Error updating student grade:', error);
+    return false;
+  }
+  return true;
+}
