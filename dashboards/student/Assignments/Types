@@ -1,0 +1,36 @@
+// File: /dashboards/student/Assignments/types.ts
+
+export interface Assessment {
+  id: string;
+  title: string;
+  type: 'quiz' | 'midterm' | 'final' | 'project';
+  difficulty: 'easy' | 'medium' | 'hard';
+  standards: string[];
+  timeLimit: number;
+  isRandomized: boolean;
+  questionPoolSize?: number;
+  questionsToShow?: number;
+  questions: any[]; // Customize with full Question interface if needed
+  created_at?: string;
+}
+
+export interface Assignment {
+  id?: string;
+  assessment_id: string;
+  teacher_id: string;
+  class_id?: string;
+  title: string;
+  instructions?: string;
+  due_date: string;
+}
+
+export interface StudentAssignment {
+  assignment_id: string;
+  student_id: string;
+  status: 'assigned' | 'in_progress' | 'completed' | 'graded';
+  start_time?: string;
+  submit_time?: string;
+  responses?: any;
+  score?: number;
+  feedback?: string;
+}
