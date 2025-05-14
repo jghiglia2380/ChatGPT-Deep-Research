@@ -1,0 +1,80 @@
+// File: dashboards/instructor/Grading/GradingPanel.tsx
+
+import { useEffect, useState } from 'react';
+import { fetchAssignmentGrades, updateStudentGrade } from '@/dashboards/shared/grades/gradebookService';
+import { ScoreRecord } from '@/dashboards/shared/grades/types';
+
+export default function GradingPanel({ assignmentId }: { assignmentId: string }) {
+  const [grades, setGrades] = useState<ScoreRecord[]>([]);
+  const [isSaving, setIsSaving] = useState(false);
+
+  useEffect(() => {
+    const load = async () => {
+      const result = await fetchAssignmentGrades(assignmentId);
+      setGrades(result);
+    };
+    load();
+  }, [assignmentId]);
+
+  const handleChange = (studentId: string, field: keyof ScoreRecord, value: any) => {
+    setGrades(prev =>
+      prev.map(g => (g.student_id === studentId ? { ...g, [field]: value } : g))
+    );
+  };
+
+  const handleSave = async () => {
+    setIsSaving(true);
+    for (const grade of grades) {
+      await updateStudentGrade(grade);
+    }
+    setIsSaving(false);
+    alert('Grades saved successfully');
+  };
+
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      <h2 className="text-2xl font-semibold mb-4">Grading Panel</h2>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr>
+            <th className="text-left">Student ID</th>
+            <th className="text-left">Score</th>
+            <th className="text-left">Feedback</th>
+          </tr>
+        </thead>
+        <tbody>
+          {grades.map((g) => (
+            <tr key={g.student_id} className="border-b">
+              <td className="py-2 pr-4 font-mono">{g.student_id.slice(0, 8)}…</td>
+              <td className="py-2 pr-4">
+                <input
+                  type="number"
+                  className="border rounded px-2 py-1 w-20"
+                  value={g.score ?? ''}
+                  onChange={(e) => handleChange(g.student_id, 'score', parseFloat(e.target.value))}
+                />
+              </td>
+              <td className="py-2">
+                <textarea
+                  className="border rounded px-2 py-1 w-full"
+                  rows={2}
+                  value={g.feedback || ''}
+                  onChange={(e) => handleChange(g.student_id, 'feedback', e.target.value)}
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="mt-4 text-right">
+        <button
+          onClick={handleSave}
+          disabled={isSaving}
+          className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700"
+        >
+          {isSaving ? 'Saving...' : 'Save Grades'}
+        </button>
+      </div>
+    </div>
+  );
+}
