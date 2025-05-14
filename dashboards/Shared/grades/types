@@ -1,0 +1,16 @@
+// File: dashboards/shared/grades/types.ts
+
+export interface ScoreRecord {
+  student_id: string;
+  assignment_id: string;
+  score: number;
+  feedback?: string;
+  rubric_flags?: string[]; // optional array of rubric criteria met or unmet
+  updated_at?: string;
+}
+
+export interface GradingRubric {
+  criteria: string;
+  description: string;
+  maxPoints: number;
+}
