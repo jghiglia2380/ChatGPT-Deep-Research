@@ -1,0 +1,29 @@
+// File: dashboards/shared/scaffolding/types.ts
+
+export type ScaffoldingLevel = 'clean' | 'guided' | 'complete';
+
+export interface ScaffoldingSettings {
+  showSampleAnswers: boolean;
+  enableAISuggestions: boolean;
+  autoSaveRecovery: boolean;
+}
+
+export interface GlobalScaffoldingConfig {
+  defaultLevel: ScaffoldingLevel;
+  settings: ScaffoldingSettings;
+}
+
+export interface AssessmentScaffoldingOverride {
+  assessment_id: string;
+  scaffoldingLevel?: ScaffoldingLevel;
+  showSampleAnswers?: boolean;
+  enableAISuggestions?: boolean;
+  autoSaveRecovery?: boolean;
+}
+
+export interface StudentScaffoldingOverride {
+  student_id: string;
+  globalLevel?: ScaffoldingLevel;
+  settings?: Partial<ScaffoldingSettings>;
+  perAssessment?: AssessmentScaffoldingOverride[];
+}
