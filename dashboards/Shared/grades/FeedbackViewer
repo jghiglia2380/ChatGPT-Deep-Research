@@ -1,0 +1,45 @@
+// File: dashboards/student/Feedback/FeedbackViewer.tsx
+
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabaseClient';
+
+export default function FeedbackViewer({ studentId }: { studentId: string }) {
+  const [assignments, setAssignments] = useState<any[]>([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const { data, error } = await supabase
+        .from('student_assignments')
+        .select('*, assignments(title)')
+        .eq('student_id', studentId)
+        .eq('status', 'graded');
+
+      if (error) {
+        console.error('Error loading feedback:', error);
+        return;
+      }
+
+      setAssignments(data);
+    };
+
+    load();
+  }, [studentId]);
+
+  return (
+    <div className="p-6 max-w-3xl mx-auto">
+      <h2 className="text-2xl font-semibold mb-4">My Graded Assignments</h2>
+      <ul className="space-y-4">
+        {assignments.map((a) => (
+          <li key={a.id} className="border rounded-md p-4">
+            <h3 className="font-bold text-lg">{a.assignments.title}</h3>
+            <p className="text-sm text-gray-600">Score: <strong>{a.score}</strong></p>
+            <p className="mt-2 text-sm">{a.feedback || 'No feedback provided'}</p>
+          </li>
+        ))}
+        {assignments.length === 0 && (
+          <p className="text-gray-500 text-sm">No graded assignments yet.</p>
+        )}
+      </ul>
+    </div>
+  );
+}
