@@ -1,0 +1,41 @@
+// File: dashboards/shared/scaffolding/applyScaffoldingLogic.ts
+
+import {
+  AssessmentScaffoldingOverride,
+  GlobalScaffoldingConfig,
+  ScaffoldingLevel,
+  ScaffoldingSettings,
+  StudentScaffoldingOverride,
+} from './types';
+
+export function resolveScaffoldingConfig(
+  globalConfig: GlobalScaffoldingConfig,
+  studentOverride?: StudentScaffoldingOverride,
+  assessmentId?: string
+): { level: ScaffoldingLevel; settings: ScaffoldingSettings } {
+  const defaultLevel = studentOverride?.globalLevel || globalConfig.defaultLevel;
+  const defaultSettings = {
+    ...globalConfig.settings,
+    ...studentOverride?.settings,
+  };
+
+  // Look for assessment-specific override
+  const override = studentOverride?.perAssessment?.find(
+    (o) => o.assessment_id === assessmentId
+  );
+
+  const finalLevel = override?.scaffoldingLevel || defaultLevel;
+  const finalSettings: ScaffoldingSettings = {
+    showSampleAnswers:
+      override?.showSampleAnswers ?? defaultSettings.showSampleAnswers,
+    enableAISuggestions:
+      override?.enableAISuggestions ?? defaultSettings.enableAISuggestions,
+    autoSaveRecovery:
+      override?.autoSaveRecovery ?? defaultSettings.autoSaveRecovery,
+  };
+
+  return {
+    level: finalLevel,
+    settings: finalSettings,
+  };
+}
