@@ -1,0 +1,88 @@
+# 🧠 PFL Academy Dashboard — Wiring & Integration Guide
+
+This guide summarizes how to connect and activate the full functionality of the PFL Academy dashboard system using the components delivered in the `ChatGPT-Deep-Research` repository.
+
+---
+
+## ✅ Phases Implemented
+
+| Phase | Module | Location |
+|-------|--------|----------|
+| 1     | Instructor Assignment Creator | `/dashboards/instructor/Assignments/` |
+| 2     | Student Assignment List & Assessment View | `/dashboards/student/Assignments/` |
+| 3     | Scaffolding + IEP Settings | `/dashboards/shared/scaffolding/` |
+| 4     | Grading + Feedback System | `/dashboards/shared/grades/`, `/dashboards/instructor/Grading/`, `/dashboards/student/Feedback/` |
+
+---
+
+## 🗺️ Wiring Steps for Dev Team
+
+### 1. **Supabase Setup**
+- Ensure `.env` has:
+  ```env
+  NEXT_PUBLIC_SUPABASE_URL=...
+  NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+  ```
+- Connect using `supabaseClient.ts` (already configured in shared imports)
+
+### 2. **Database Tables & Policies**
+- Run the provided SQL for:
+  - `assignments`
+  - `student_assignments`
+  - `student_settings`
+- Add Row-Level Security (RLS):
+  - Students: can read/write their own `student_assignments`
+  - Instructors: can create `assignments` + grade their students
+  - Admins: can read/write everything (optional)
+
+### 3. **Routing & Navigation**
+Add links in your dashboard layout:
+```tsx
+// Instructor Links
+<Link href="/dashboards/instructor/Assignments/AssignmentCreator">Create Assignment</Link>
+<Link href="/dashboards/instructor/Grading/GradingPanel">Grade Assignments</Link>
+
+// Student Links
+<Link href="/dashboards/student/Assignments/StudentAssignmentList">My Assignments</Link>
+<Link href="/dashboards/student/Feedback/FeedbackViewer">My Feedback</Link>
+```
+
+### 4. **Auth Context**
+- Ensure `supabase.auth.user()` is passed as `studentId` / `teacherId`
+- Use RLS or client filtering to restrict access per role
+
+### 5. **Scaffolding Integration**
+- Global + student-specific support logic lives in:
+  - `shared/scaffolding/applyScaffoldingLogic.ts`
+  - `useScaffolding.ts` hook (if added)
+- Used by `TakeAssessment.tsx` to determine:
+  - `showSampleAnswers`
+  - `enableAISuggestions`
+  - `autoSave`
+
+### 6. **Grading Flow**
+- Instructor grades via `GradingPanel.tsx`
+- Updates:
+  - `student_assignments.status = 'graded'`
+  - `score`, `feedback`
+- Student reviews via `FeedbackViewer.tsx`
+
+---
+
+## 🧪 Final QA Checklist
+
+- [ ] Student can see only their assigned work
+- [ ] Instructor can view and score only their class
+- [ ] Scaffolding applies properly per student/assignment
+- [ ] Grades + feedback persist to Supabase
+- [ ] Navigation is wired cleanly into sidebar/header
+- [ ] No console or Supabase errors during usage
+
+---
+
+## 💬 Need Help?
+Open an issue in the `ChatGPT-Deep-Research` repo or DM project lead with the component name, error, and screenshot.
+
+---
+
+You're ready to ship Phase 1–4. 🚀
