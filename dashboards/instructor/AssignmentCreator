@@ -1,0 +1,123 @@
+// File: /dashboards/instructor/Assignments/AssignmentCreator.tsx
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabaseClient';
+import { Assignment, Assessment } from './types';
+
+export default function AssignmentCreator({ teacherId }: { teacherId: string }) {
+  const [assessments, setAssessments] = useState<Assessment[]>([]);
+  const [form, setForm] = useState<Partial<Assignment>>({});
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    const loadAssessments = async () => {
+      const { data, error } = await supabase
+        .from('assessments')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) console.error('Error loading assessments:', error);
+      else setAssessments(data);
+    };
+
+    loadAssessments();
+  }, []);
+
+  const handleChange = (field: keyof Assignment, value: any) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async () => {
+    if (!form.assessment_id || !form.title || !form.due_date) return;
+    setLoading(true);
+    setSuccess(false);
+
+    const { data: assignmentData, error } = await supabase
+      .from('assignments')
+      .insert({
+        ...form,
+        teacher_id: teacherId,
+      })
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error creating assignment:', error);
+      setLoading(false);
+      return;
+    }
+
+    // Temporary: create 3 student records (replace with real student IDs later)
+    const mockStudentIds = ['student1', 'student2', 'student3'];
+    const studentAssignments = mockStudentIds.map((student_id) => ({
+      assignment_id: assignmentData.id,
+      student_id,
+      status: 'assigned',
+    }));
+
+    const { error: saError } = await supabase
+      .from('student_assignments')
+      .insert(studentAssignments);
+
+    if (saError) console.error('Error assigning to students:', saError);
+    else setSuccess(true);
+    setLoading(false);
+    setForm({});
+  };
+
+  return (
+    <div className="p-6 max-w-2xl mx-auto">
+      <h2 className="text-xl font-semibold mb-4">Create New Assignment</h2>
+      {success && <p className="text-green-600 mb-4">Assignment created successfully!</p>}
+      <div className="space-y-4">
+        <div>
+          <label className="block font-medium">Assessment</label>
+          <select
+            className="w-full border rounded p-2"
+            value={form.assessment_id || ''}
+            onChange={(e) => handleChange('assessment_id', e.target.value)}
+          >
+            <option value="">Select an assessment</option>
+            {assessments.map((a) => (
+              <option key={a.id} value={a.id}>{a.title}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="block font-medium">Title</label>
+          <input
+            type="text"
+            className="w-full border rounded p-2"
+            value={form.title || ''}
+            onChange={(e) => handleChange('title', e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block font-medium">Instructions</label>
+          <textarea
+            className="w-full border rounded p-2"
+            value={form.instructions || ''}
+            onChange={(e) => handleChange('instructions', e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block font-medium">Due Date</label>
+          <input
+            type="date"
+            className="w-full border rounded p-2"
+            value={form.due_date || ''}
+            onChange={(e) => handleChange('due_date', e.target.value)}
+          />
+        </div>
+        <button
+          type="button"
+          disabled={loading}
+          onClick={handleSubmit}
+          className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700"
+        >
+          {loading ? 'Creating...' : 'Create Assignment'}
+        </button>
+      </div>
+    </div>
+  );
+}
